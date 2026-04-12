@@ -288,11 +288,6 @@ weapons and equipment data/
 - **전장 지도 실제 지도 미구현** — 텍스트 기반 설명만 존재, 인터랙티브 지도 렌더링 미구현
 - **미분류 기록 카테고리 정리 필요** — "Undefine Facts" → "Unverified Records" 등 명칭 개선 여지
 
-### 네이밍 / 컨벤션
-- **폴더명 불일치** — `Templet`(오타, Template이 정확), `Undefine`(Undefined가 정확)
-- **공백 포함 경로** — 폴더명에 공백이 포함되어 URL 인코딩 필요, CI/CD 환경에서 불편
-- **대소문자 혼용** — `war overview` vs `Battlefield Map` vs `Weapons and Equipment`
-
 ---
 
 ## 폴더 구조
