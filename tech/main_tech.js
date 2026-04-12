@@ -301,21 +301,210 @@ document.addEventListener('DOMContentLoaded', () => {
   const searchInput = document.querySelector('.search-box input');
   const searchBtn = document.querySelector('.search-box button');
   const searchTags = document.querySelectorAll('.search-tag');
+  const searchResults = document.getElementById('searchResults');
+  const searchResultsList = document.getElementById('searchResultsList');
+  const searchResultsCount = document.getElementById('searchResultsCount');
+  const searchResultsClose = document.getElementById('searchResultsClose');
+
+  // 검색 인덱스 캐시
+  let searchIndex = null;
+  let searchIndexLoading = false;
+
+  // 모든 JSON 데이터를 로드하여 검색 인덱스 구축
+  function buildSearchIndex() {
+    if (searchIndex) return Promise.resolve(searchIndex);
+    if (searchIndexLoading) {
+      return new Promise(function (resolve) {
+        var check = setInterval(function () {
+          if (searchIndex) { clearInterval(check); resolve(searchIndex); }
+        }, 100);
+      });
+    }
+    searchIndexLoading = true;
+
+    var basePath = '../data/';
+
+    // 1) 인물 (Biography)
+    var bioPromise = fetch(basePath + 'biography of people data/index.json')
+      .then(function (r) { return r.json(); })
+      .then(function (files) {
+        return Promise.all(files.map(function (f) {
+          return fetch(basePath + 'biography of people data/' + encodeURIComponent(f) + '.json')
+            .then(function (r) { return r.json(); })
+            .then(function (d) {
+              return {
+                category: '인물',
+                name: d.name || f,
+                desc: d.title || d.summary || '',
+                searchText: [d.name, d.title, d.role, d.nationality, d.summary, (d.tags || []).join(' '), (d.wars || []).join(' ')].join(' '),
+                url: 'biography of people/biography of people detail.html?id=' + encodeURIComponent(d.id)
+              };
+            }).catch(function () { return null; });
+        }));
+      }).catch(function () { return []; });
+
+    // 2) 전장 지도 (Battlefield Map)
+    var battlePromise = fetch(basePath + 'Battlefield Map data/index.json')
+      .then(function (r) { return r.json(); })
+      .then(function (files) {
+        return Promise.all(files.map(function (f) {
+          return fetch(basePath + 'Battlefield Map data/' + encodeURIComponent(f) + '.json')
+            .then(function (r) { return r.json(); })
+            .then(function (d) {
+              return {
+                category: '전장지도',
+                name: d.titleKr || d.title || f,
+                desc: d.description || '',
+                searchText: [d.title, d.titleKr, d.era, d.theater, d.description, (d.tags || []).join(' ')].join(' '),
+                url: 'Battlefield Map/Battlefield Map detail.html?id=' + encodeURIComponent(d.id)
+              };
+            }).catch(function () { return null; });
+        }));
+      }).catch(function () { return []; });
+
+    // 3) 전쟁 개요 (War Overview)
+    var warPromise = fetch(basePath + 'war overview data/index.json')
+      .then(function (r) { return r.json(); })
+      .then(function (files) {
+        return Promise.all(files.map(function (f) {
+          return fetch(basePath + 'war overview data/' + encodeURIComponent(f) + '.json')
+            .then(function (r) { return r.json(); })
+            .then(function (d) {
+              return {
+                category: '전쟁개요',
+                name: d.name || f,
+                desc: d.summary || d.period || '',
+                searchText: [d.name, d.era, d.region, d.period, d.summary, (d.tags || []).join(' ')].join(' '),
+                url: 'war overview/war overview detail.html?id=' + encodeURIComponent(d.id)
+              };
+            }).catch(function () { return null; });
+        }));
+      }).catch(function () { return []; });
+
+    // 4) 사료 & 문서 (Historical Sources & Documents)
+    var docsPromise = fetch(basePath + 'Historical Sources & Documents data/index.json')
+      .then(function (r) { return r.json(); })
+      .then(function (files) {
+        return Promise.all(files.map(function (f) {
+          return fetch(basePath + 'Historical Sources & Documents data/' + encodeURIComponent(f) + '.json')
+            .then(function (r) { return r.json(); })
+            .then(function (d) {
+              return {
+                category: '사료',
+                name: d.titleKr || d.title || f,
+                desc: d.summary || '',
+                searchText: [d.title, d.titleKr, d.type, d.era, d.summary, (d.tags || []).join(' ')].join(' '),
+                url: 'Historical Sources & Documents/Historical Sources & Documents detail.html?id=' + encodeURIComponent(d.id)
+              };
+            }).catch(function () { return null; });
+        }));
+      }).catch(function () { return []; });
+
+    // 5) 전략 & 전술 (Strategy & Tactics)
+    var tacticsPromise = fetch(basePath + 'strategy and tactics data/index.json')
+      .then(function (r) { return r.json(); })
+      .then(function (files) {
+        return Promise.all(files.map(function (f) {
+          return fetch(basePath + 'strategy and tactics data/' + encodeURIComponent(f) + '.json')
+            .then(function (r) { return r.json(); })
+            .then(function (d) {
+              return {
+                category: '전략전술',
+                name: d.titleKr || d.title || f,
+                desc: d.summary || '',
+                searchText: [d.title, d.titleKr, d.era, d.category, d.summary, (d.tags || []).join(' ')].join(' '),
+                url: 'strategy and tactics/strategy and tactics detail.html?id=' + encodeURIComponent(d.id)
+              };
+            }).catch(function () { return null; });
+        }));
+      }).catch(function () { return []; });
+
+    // 6) 무기 & 장비 (Weapons & Equipment)
+    var weaponsPromise = fetch(basePath + 'weapons and equipment data/index.json')
+      .then(function (r) { return r.json(); })
+      .then(function (obj) {
+        var allPromises = [];
+        Object.keys(obj).forEach(function (cat) {
+          obj[cat].forEach(function (itemName) {
+            var fileId = cat + '/' + itemName;
+            allPromises.push(
+              fetch(basePath + 'weapons and equipment data/' + encodeURIComponent(cat) + '/' + encodeURIComponent(itemName) + '.json')
+                .then(function (r) { return r.json(); })
+                .then(function (d) {
+                  return {
+                    category: '무기장비',
+                    name: d.name || itemName,
+                    desc: d.nameEn || d.category || '',
+                    searchText: [d.name, d.nameEn, d.category, d.era, d.origin, (d.tags || []).join(' '), (d.overview || []).join(' ')].join(' '),
+                    url: 'Weapons and Equipment/Weapons and Equipment item.html?id=' + encodeURIComponent(fileId)
+                  };
+                }).catch(function () { return null; })
+            );
+          });
+        });
+        return Promise.all(allPromises);
+      }).catch(function () { return []; });
+
+    // 7) 미분류 사실 (Undefine Facts)
+    var undefinePromise = fetch(basePath + 'Undefine facts data/index.json')
+      .then(function (r) { return r.json(); })
+      .then(function (obj) {
+        var allPromises = [];
+        Object.keys(obj).forEach(function (shelf) {
+          var shelfData = obj[shelf];
+          (shelfData.items || []).forEach(function (itemId) {
+            allPromises.push(
+              fetch(basePath + 'Undefine facts data/' + encodeURIComponent(shelf) + '/' + encodeURIComponent(itemId) + '.json')
+                .then(function (r) { return r.json(); })
+                .then(function (d) {
+                  return {
+                    category: '미분류',
+                    name: d.name || itemId,
+                    desc: d.nameEn || d.summary || '',
+                    searchText: [d.name, d.nameEn, d.shelf, d.era, d.origin, d.summary, (d.tags || []).join(' ')].join(' '),
+                    url: 'Undefine facts/Undefine detail.html?shelf=' + encodeURIComponent(d.shelf || shelf) + '&id=' + encodeURIComponent(d.id || itemId)
+                  };
+                }).catch(function () { return null; })
+            );
+          });
+        });
+        return Promise.all(allPromises);
+      }).catch(function () { return []; });
+
+    return Promise.all([bioPromise, battlePromise, warPromise, docsPromise, tacticsPromise, weaponsPromise, undefinePromise])
+      .then(function (results) {
+        searchIndex = [];
+        results.forEach(function (arr) {
+          arr.forEach(function (item) {
+            if (item) searchIndex.push(item);
+          });
+        });
+        searchIndexLoading = false;
+        return searchIndex;
+      });
+  }
+
+  // HTML 이스케이프
+  function escSearchHTML(str) {
+    var div = document.createElement('div');
+    div.textContent = str;
+    return div.innerHTML;
+  }
 
   if (searchBtn && searchInput) {
-    searchBtn.addEventListener('click', () => {
+    searchBtn.addEventListener('click', function () {
       performSearch(searchInput.value.trim());
     });
 
-    searchInput.addEventListener('keydown', (e) => {
+    searchInput.addEventListener('keydown', function (e) {
       if (e.key === 'Enter') {
         performSearch(searchInput.value.trim());
       }
     });
   }
 
-  searchTags.forEach(tag => {
-    tag.addEventListener('click', () => {
+  searchTags.forEach(function (tag) {
+    tag.addEventListener('click', function () {
       if (searchInput) {
         searchInput.value = tag.textContent;
         performSearch(tag.textContent.trim());
@@ -323,11 +512,55 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  if (searchResultsClose) {
+    searchResultsClose.addEventListener('click', function () {
+      searchResults.classList.remove('active');
+    });
+  }
+
   function performSearch(query) {
     if (!query) return;
-    // Placeholder: in a real app this would query data/
-    console.log('Search query:', query);
-    alert(`"${query}" 검색 결과를 불러옵니다. (데이터 연동 전)`);
+
+    // 로딩 표시
+    searchResults.classList.add('active');
+    searchResultsCount.textContent = '';
+    searchResultsList.innerHTML = '<div class="search-loading">검색 중...</div>';
+
+    buildSearchIndex().then(function (index) {
+      var lowerQuery = query.toLowerCase();
+      var keywords = lowerQuery.split(/\s+/).filter(Boolean);
+
+      var matched = index.filter(function (item) {
+        var text = item.searchText.toLowerCase();
+        return keywords.every(function (kw) {
+          return text.indexOf(kw) !== -1;
+        });
+      });
+
+      if (matched.length === 0) {
+        searchResultsCount.textContent = '검색 결과 없음';
+        searchResultsList.innerHTML = '<div class="search-no-result">\"' + escSearchHTML(query) + '\"에 대한 검색 결과가 없습니다.</div>';
+        return;
+      }
+
+      searchResultsCount.textContent = matched.length + '건의 결과';
+
+      var html = '';
+      matched.forEach(function (item) {
+        html += '<a class="search-result-item" href="' + escSearchHTML(item.url) + '">';
+        html += '  <span class="search-result-category">' + escSearchHTML(item.category) + '</span>';
+        html += '  <div class="search-result-info">';
+        html += '    <div class="search-result-name">' + escSearchHTML(item.name) + '</div>';
+        if (item.desc) {
+          html += '    <div class="search-result-desc">' + escSearchHTML(item.desc.substring(0, 80)) + '</div>';
+        }
+        html += '  </div>';
+        html += '  <span class="search-result-arrow">&#8250;</span>';
+        html += '</a>';
+      });
+
+      searchResultsList.innerHTML = html;
+    });
   }
 
   // ── Active Nav Highlight on Scroll ──
