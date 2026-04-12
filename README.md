@@ -81,8 +81,7 @@ front/
 ├── Style/            ← CSS 스타일시트 (디자인 & 레이아웃)
 │   ├── main_style.css             ← 메인 페이지 스타일
 │   ├── [카테고리] style/          ← 카테고리별 스타일
-│   ├── Image/                     ← 이미지 에셋
-│   └── Weapon/                    ← 무기 이미지 (예정)
+│   └── Image/                     ← 이미지 에셋
 │
 ├── tech/             ← JavaScript 로직 (동작 & 데이터 처리)
 │   ├── main_tech.js               ← 메인 페이지 로직
@@ -284,7 +283,6 @@ weapons and equipment data/
 
 ### 콘텐츠 관련
 - **무기 & 장비 데이터 미완성** — 카테고리 구조는 있으나 개별 무기 JSON 데이터가 부족
-- **Weapon 이미지 폴더 비어있음** — `Style/Weapon/` 디렉토리 예약만 된 상태
 - **전장 지도 실제 지도 미구현** — 텍스트 기반 설명만 존재, 인터랙티브 지도 렌더링 미구현
 - **미분류 기록 카테고리 정리 필요** — "Undefine Facts" → "Unverified Records" 등 명칭 개선 여지
 
@@ -347,8 +345,7 @@ War Archive/
     │   ├── contribution style.css
     │   ├── developer information style.css
     │   ├── [카테고리] style/                 ← 카테고리별 CSS
-    │   ├── Image/                            ← 공통 이미지
-    │   └── Weapon/                           ← 무기 이미지 (예정)
+    │   └── Image/                            ← 공통 이미지
     │
     ├── tech/                                 ← JavaScript 로직
     │   ├── main_tech.js                      ← 메인 페이지 JS
