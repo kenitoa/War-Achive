@@ -1,0 +1,734 @@
+/* ========================================
+   Biography of People Detail — 인물 열전 상세 페이지
+   전쟁 개요 문헌 스타일과 차별화된 인물 중심 레이아웃
+   ======================================== */
+
+/* --- CSS 변수 --- */
+:root {
+    --bg-primary: #0a0a0a;
+    --bg-secondary: #111111;
+    --bg-card: #1a1a1a;
+    --bg-elevated: #141414;
+    --accent: #c9a84c;
+    --accent-dim: rgba(201, 168, 76, 0.12);
+    --accent-border: rgba(201, 168, 76, 0.3);
+    --text-primary: #e8e8e8;
+    --text-secondary: #a0a0a0;
+    --text-muted: #666666;
+    --border-color: #2a2a2a;
+    --border-light: #1e1e1e;
+
+    --role-commander: #cc5555;
+    --role-strategist: #5588cc;
+    --role-politician: #9966cc;
+    --role-hero: #c9a84c;
+    --role-civilian: #55aa77;
+    --role-other: #aa8866;
+}
+
+/* --- 리셋 & 기본 --- */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: 'Noto Sans KR', sans-serif;
+    line-height: 1.8;
+    min-height: 100vh;
+}
+
+a { color: var(--accent); text-decoration: none; transition: opacity 0.2s; }
+a:hover { opacity: 0.8; }
+
+/* --- 헤더 --- */
+.header {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-color);
+}
+.header-inner {
+    max-width: 1100px; margin: 0 auto; padding: 0 2rem;
+    height: 64px; display: flex; align-items: center; justify-content: space-between;
+}
+.logo {
+    display: flex; align-items: center; gap: 0.75rem;
+    color: var(--accent); font-family: 'Playfair Display', serif;
+    font-weight: 700; font-size: 1.25rem;
+}
+.logo-icon { font-size: 1.5rem; }
+.nav { display: flex; gap: 2rem; }
+.nav a { color: var(--text-secondary); font-size: 0.9rem; transition: color 0.2s; }
+.nav a:hover { color: var(--text-primary); opacity: 1; }
+
+/* --- 로딩 & 에러 --- */
+.loading { text-align: center; padding: 12rem 0 6rem; color: var(--text-secondary); }
+.loading-spinner {
+    width: 40px; height: 40px; border: 3px solid var(--border-color);
+    border-top-color: var(--accent); border-radius: 50%;
+    margin: 0 auto 1.5rem; animation: spin 0.8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.error-state { text-align: center; padding: 12rem 0 6rem; }
+.error-icon { font-size: 3rem; margin-bottom: 1rem; }
+.error-state h2 { font-family: 'Playfair Display', serif; color: var(--text-primary); margin-bottom: 0.5rem; }
+.error-state p { color: var(--text-secondary); margin-bottom: 2rem; }
+
+/* --- 메인 페이지 컨테이너 --- */
+.bio-page {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 90px 2rem 4rem;
+}
+
+/* --- 브레드크럼 --- */
+.breadcrumb { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 2rem; }
+.breadcrumb a { color: var(--text-muted); transition: color 0.2s; }
+.breadcrumb a:hover { color: var(--accent); opacity: 1; }
+.breadcrumb .sep { margin: 0 0.5rem; }
+.breadcrumb .current { color: var(--text-secondary); }
+
+/* ============================================
+   프로필 히어로 카드 (사진 + 인적사항)
+   ============================================ */
+.profile-hero {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 2.5rem;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 2.5rem;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.profile-hero::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent), rgba(201,168,76,0.3), transparent);
+}
+
+/* 초상화 / 사진 영역 */
+.profile-portrait {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.portrait-frame {
+    width: 220px;
+    height: 280px;
+    border: 2px solid var(--border-color);
+    border-radius: 6px;
+    overflow: hidden;
+    background: var(--bg-card);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: border-color 0.3s;
+}
+
+.portrait-frame:hover {
+    border-color: var(--accent-border);
+}
+
+.portrait-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.portrait-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--text-muted);
+}
+
+.portrait-icon { font-size: 3.5rem; opacity: 0.4; }
+.portrait-label { font-size: 0.75rem; letter-spacing: 0.05em; }
+
+.portrait-caption {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    text-align: center;
+    font-style: italic;
+}
+
+/* 프로필 정보 */
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.profile-badge {
+    display: inline-block;
+    width: fit-content;
+    padding: 0.25rem 0.85rem;
+    border-radius: 3px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+}
+.profile-badge.commander { background: rgba(204,85,85,0.15); color: var(--role-commander); border: 1px solid rgba(204,85,85,0.25); }
+.profile-badge.strategist { background: rgba(85,136,204,0.15); color: var(--role-strategist); border: 1px solid rgba(85,136,204,0.25); }
+.profile-badge.politician { background: rgba(153,102,204,0.15); color: var(--role-politician); border: 1px solid rgba(153,102,204,0.25); }
+.profile-badge.hero { background: rgba(201,168,76,0.15); color: var(--role-hero); border: 1px solid rgba(201,168,76,0.25); }
+.profile-badge.civilian { background: rgba(85,170,119,0.15); color: var(--role-civilian); border: 1px solid rgba(85,170,119,0.25); }
+.profile-badge.other { background: rgba(170,136,102,0.15); color: var(--role-other); border: 1px solid rgba(170,136,102,0.25); }
+
+.profile-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: var(--text-primary);
+    line-height: 1.2;
+    margin-bottom: 0.25rem;
+}
+
+.profile-title {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    font-style: italic;
+    margin-bottom: 1.5rem;
+}
+
+.profile-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1.25rem;
+}
+
+.detail-row {
+    display: flex;
+    gap: 1rem;
+    font-size: 0.88rem;
+    align-items: baseline;
+}
+
+.detail-label {
+    min-width: 72px;
+    color: var(--accent);
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    flex-shrink: 0;
+}
+
+.detail-value {
+    color: var(--text-primary);
+}
+
+.profile-tags { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+
+.doc-tag {
+    padding: 0.15rem 0.6rem;
+    background: var(--accent-dim);
+    border: 1px solid var(--accent-border);
+    border-radius: 3px;
+    font-size: 0.75rem;
+    color: var(--accent);
+}
+
+/* ============================================
+   개요 인용 블록
+   ============================================ */
+.bio-summary-block {
+    margin-bottom: 2rem;
+}
+
+.summary-quote {
+    padding: 1.75rem 2.5rem;
+    background: var(--bg-elevated);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 6px 6px 0;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 2;
+    font-style: italic;
+    position: relative;
+}
+
+.summary-quote::before {
+    content: '"';
+    position: absolute;
+    top: 0.5rem;
+    left: 0.75rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    color: var(--accent);
+    opacity: 0.3;
+    line-height: 1;
+}
+
+/* ============================================
+   섹션 네비게이션 탭
+   ============================================ */
+.bio-nav {
+    display: flex;
+    gap: 0;
+    border-bottom: 2px solid var(--border-color);
+    margin-bottom: 2.5rem;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.bio-nav-tab {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    cursor: pointer;
+    position: relative;
+    transition: color 0.2s;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.bio-nav-tab:hover { color: var(--text-primary); }
+
+.bio-nav-tab.active {
+    color: var(--accent);
+}
+
+.bio-nav-tab.active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--accent);
+}
+
+/* ============================================
+   공통 섹션 스타일
+   ============================================ */
+.bio-section {
+    margin-bottom: 3rem;
+    scroll-margin-top: 80px;
+    animation: fadeInSection 0.4s ease;
+}
+
+@keyframes fadeInSection {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.section-icon { font-size: 1.3rem; }
+
+.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+/* ============================================
+   생애 섹션
+   ============================================ */
+.life-chapter {
+    margin-bottom: 2rem;
+    padding: 1.75rem 2rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    position: relative;
+}
+
+.life-chapter::before {
+    content: '';
+    position: absolute; left: 0; top: 0; bottom: 0;
+    width: 3px; background: var(--accent); border-radius: 6px 0 0 6px;
+}
+
+.chapter-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+}
+
+.chapter-body {
+    font-size: 0.92rem;
+    color: var(--text-secondary);
+    line-height: 2;
+    text-align: justify;
+}
+
+/* 유산 블록 */
+.legacy-block {
+    padding: 2rem 2.5rem;
+    background: var(--accent-dim);
+    border: 1px solid var(--accent-border);
+    border-radius: 6px;
+    position: relative;
+}
+
+.legacy-label {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.82rem;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+}
+
+.legacy-body {
+    font-size: 0.92rem;
+    color: var(--text-primary);
+    line-height: 2;
+    font-style: italic;
+}
+
+/* ============================================
+   업적 타임라인
+   ============================================ */
+.achievements-timeline {
+    position: relative;
+    padding-left: 2.5rem;
+}
+
+.achievements-timeline::before {
+    content: '';
+    position: absolute; left: 8px; top: 0; bottom: 0;
+    width: 2px;
+    background: linear-gradient(180deg, var(--accent), var(--accent-border), transparent);
+}
+
+.achievement-item {
+    position: relative;
+    margin-bottom: 1.75rem;
+    padding: 1.5rem 2rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    transition: border-color 0.3s, transform 0.2s;
+}
+
+.achievement-item:hover {
+    border-color: var(--accent-border);
+    transform: translateX(4px);
+}
+
+.achievement-item::before {
+    content: '';
+    position: absolute;
+    left: -2.85rem;
+    top: 1.75rem;
+    width: 12px; height: 12px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 2px solid var(--bg-primary);
+    box-shadow: 0 0 0 2px var(--accent);
+}
+
+.achievement-order {
+    font-size: 0.7rem;
+    color: var(--accent);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.3rem;
+}
+
+.achievement-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.achievement-desc {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+}
+
+/* ============================================
+   전쟁과 전투
+   ============================================ */
+.battles-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.battle-card {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 1.5rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 1.5rem 2rem;
+    transition: border-color 0.3s;
+}
+
+.battle-card:hover { border-color: var(--accent-border); }
+
+.battle-date-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.battle-date {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--accent);
+    font-weight: 700;
+}
+
+.battle-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.battle-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    color: var(--text-primary);
+}
+
+.battle-role {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.battle-role strong { color: var(--accent); font-weight: 500; }
+
+.battle-result {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    padding-top: 0.4rem;
+    border-top: 1px solid var(--border-light);
+}
+
+.battle-result strong { color: var(--accent); font-weight: 500; }
+
+/* ============================================
+   일화 카드
+   ============================================ */
+.anecdotes-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.anecdote-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 2rem 2.5rem;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.3s;
+}
+
+.anecdote-card:hover { border-color: var(--accent-border); }
+
+.anecdote-card::before {
+    content: '✦';
+    position: absolute;
+    top: 1.5rem; right: 1.75rem;
+    font-size: 1.2rem;
+    color: var(--accent);
+    opacity: 0.25;
+}
+
+.anecdote-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.anecdote-title::before {
+    content: '―';
+    color: var(--accent);
+    font-weight: 300;
+}
+
+.anecdote-body {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 2;
+    text-align: justify;
+}
+
+.no-anecdotes {
+    text-align: center;
+    padding: 3rem;
+    color: var(--text-muted);
+    font-style: italic;
+}
+
+/* ============================================
+   평가 카드
+   ============================================ */
+.evaluation-card {
+    padding: 2rem 2.5rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 0.92rem;
+    color: var(--text-secondary);
+    line-height: 2;
+    text-align: justify;
+    position: relative;
+}
+
+.evaluation-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent), transparent);
+}
+
+/* ============================================
+   참고 자료
+   ============================================ */
+.references-list {
+    list-style: none;
+    counter-reset: ref-counter;
+}
+
+.references-list li {
+    counter-increment: ref-counter;
+    padding: 1rem 1.5rem 1rem 3rem;
+    margin-bottom: 0.75rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    position: relative;
+}
+
+.references-list li::before {
+    content: "[" counter(ref-counter) "]";
+    position: absolute; left: 1rem; top: 1rem;
+    color: var(--accent); font-size: 0.82rem; font-weight: 500;
+}
+
+.ref-title { font-size: 0.95rem; color: var(--text-primary); font-weight: 500; margin-bottom: 0.25rem; }
+.ref-author { font-size: 0.82rem; color: var(--text-secondary); }
+.ref-note { font-size: 0.8rem; color: var(--text-muted); font-style: italic; margin-top: 0.25rem; }
+
+/* ============================================
+   하단
+   ============================================ */
+.bio-footer { text-align: center; padding-top: 2rem; margin-top: 2rem; border-top: 1px solid var(--border-color); }
+.bio-footer-text { font-size: 0.82rem; color: var(--text-muted); font-style: italic; margin-bottom: 1.5rem; }
+
+.back-link {
+    display: inline-block; color: var(--accent); font-size: 0.9rem;
+    padding: 0.5rem 1.5rem; border: 1px solid var(--accent-border);
+    border-radius: 4px; transition: background 0.2s, color 0.2s;
+}
+.back-link:hover { background: var(--accent); color: var(--bg-primary); opacity: 1; }
+
+/* ============================================
+   사이드 목차
+   ============================================ */
+.side-toc { position: fixed; top: 100px; left: calc(50% + 520px); width: 170px; display: none; }
+.side-toc-title { font-size: 0.72rem; color: var(--accent); text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 0.75rem; font-weight: 500; }
+.side-toc-list { list-style: none; border-left: 1px solid var(--border-color); padding-left: 1rem; }
+.side-toc-list li { margin-bottom: 0.4rem; }
+.side-toc-list li a { font-size: 0.75rem; color: var(--text-muted); transition: color 0.2s; display: block; padding: 0.15rem 0; }
+.side-toc-list li a:hover { color: var(--text-primary); opacity: 1; }
+.side-toc-list li a.active { color: var(--accent); }
+@media (min-width: 1400px) { .side-toc { display: block; } }
+
+/* ============================================
+   푸터
+   ============================================ */
+.footer {
+    border-top: 1px solid var(--border-color);
+    padding: 2.5rem 2rem; text-align: center; margin-top: 4rem;
+}
+.footer-inner { max-width: 1100px; margin: 0 auto; }
+.footer-logo {
+    display: flex; align-items: center; justify-content: center; gap: 0.5rem;
+    color: var(--accent); font-family: 'Playfair Display', serif;
+    font-size: 1rem; margin-bottom: 0.75rem;
+}
+.footer-copy { font-size: 0.78rem; color: var(--text-muted); }
+
+/* ============================================
+   반응형
+   ============================================ */
+@media (max-width: 768px) {
+    .bio-page { padding: 80px 1rem 3rem; }
+
+    .profile-hero {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 1.5rem;
+    }
+
+    .profile-portrait { align-items: center; }
+    .portrait-frame { width: 180px; height: 230px; }
+
+    .profile-name { font-size: 1.6rem; }
+
+    .bio-nav { gap: 0; }
+    .bio-nav-tab { padding: 0.6rem 1rem; font-size: 0.82rem; }
+
+    .life-chapter, .achievement-item, .anecdote-card, .evaluation-card {
+        padding: 1.25rem 1.5rem;
+    }
+
+    .battle-card {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+    }
+
+    .battle-date-col { align-items: flex-start; flex-direction: row; gap: 0.75rem; }
+
+    .achievements-timeline { padding-left: 2rem; }
+    .achievement-item::before { left: -2.35rem; }
+
+    .summary-quote { padding: 1.25rem 1.5rem 1.25rem 2rem; }
+
+    .header-inner { padding: 0 1rem; }
+    .nav { gap: 1rem; }
+}
+
+@media (max-width: 480px) {
+    .profile-name { font-size: 1.4rem; }
+    .section-title { font-size: 1.2rem; }
+    .portrait-frame { width: 160px; height: 200px; }
+    .anecdote-card { padding: 1.25rem; }
+}

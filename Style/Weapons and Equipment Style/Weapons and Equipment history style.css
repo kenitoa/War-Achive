@@ -1,0 +1,392 @@
+:root {
+    --bg-primary: #0a0a0a;
+    --bg-secondary: #111111;
+    --bg-card: #1a1a1a;
+    --bg-card-hover: #222222;
+    --bg-surface: #141414;
+    --accent: #c9a84c;
+    --accent-dim: rgba(201, 168, 76, 0.12);
+    --accent-border: rgba(201, 168, 76, 0.25);
+    --accent-glow: rgba(201, 168, 76, 0.06);
+    --text-primary: #e8e8e8;
+    --text-secondary: #a0a0a0;
+    --text-muted: #666666;
+    --border-color: #2a2a2a;
+    --border-light: #1e1e1e;
+}
+
+/* ── Era Accent Colors ── */
+.era-ancient    { --era-color: #cd7f32; }
+.era-medieval   { --era-color: #8b8b8b; }
+.era-earlymodern { --era-color: #b8860b; }
+.era-modern     { --era-color: #4682b4; }
+.era-worldwar   { --era-color: #8b0000; }
+.era-contemporary { --era-color: #2e8b57; }
+
+/* ── Reset ── */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* ── Header ── */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: rgba(10, 10, 10, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 700;
+}
+
+.logo-icon { font-size: 1.2rem; }
+
+.logo-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.95rem;
+    letter-spacing: 2px;
+    color: var(--accent);
+}
+
+.nav {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav a {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    letter-spacing: 0.5px;
+    transition: color 0.3s;
+}
+
+.nav a:hover { color: var(--accent); }
+
+/* ── Main ── */
+.history-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 2rem 4rem;
+}
+
+/* ── Breadcrumb ── */
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+}
+
+.breadcrumb a {
+    color: var(--text-muted);
+    transition: color 0.3s;
+}
+
+.breadcrumb a:hover { color: var(--accent); }
+
+.breadcrumb .sep { opacity: 0.4; }
+
+.breadcrumb .current { color: var(--accent); }
+
+/* ── Era Hero ── */
+.era-hero {
+    position: relative;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    padding: 2.5rem 3rem;
+    margin-bottom: 3rem;
+    overflow: hidden;
+}
+
+.era-hero-accent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--era-color, var(--accent));
+}
+
+.era-hero-content {
+    position: relative;
+}
+
+.era-hero-label {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--era-color, var(--accent));
+    margin-bottom: 0.5rem;
+}
+
+.era-hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.5px;
+}
+
+.era-hero-desc {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    max-width: 700px;
+}
+
+.era-hero-stats {
+    margin-top: 1.25rem;
+}
+
+.era-stat {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    letter-spacing: 0.5px;
+}
+
+.era-stat strong {
+    color: var(--era-color, var(--accent));
+    font-weight: 600;
+}
+
+/* ── Category Section ── */
+.weapon-category-section {
+    margin-bottom: 3rem;
+}
+
+.weapon-category-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.weapon-category-icon {
+    width: 32px;
+    height: 32px;
+    opacity: 0.7;
+}
+
+.weapon-category-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    letter-spacing: 0.5px;
+}
+
+.weapon-category-count {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-left: auto;
+}
+
+/* ── Weapon Grid ── */
+.weapon-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1rem;
+}
+
+.weapon-card {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    transition: border-color 0.3s, background 0.3s;
+}
+
+.weapon-card:hover {
+    border-color: var(--accent-border);
+    background: var(--bg-card-hover);
+}
+
+.weapon-card-img {
+    width: 80px;
+    height: 80px;
+    flex-shrink: 0;
+    overflow: hidden;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-light);
+}
+
+.weapon-card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.weapon-card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.2rem;
+    min-width: 0;
+}
+
+.weapon-card-name {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.weapon-card-name-en {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.weapon-card-meta {
+    display: flex;
+    gap: 0.35rem;
+    flex-wrap: wrap;
+    margin-top: 0.3rem;
+}
+
+.weapon-card-badge {
+    font-size: 0.6rem;
+    padding: 0.1rem 0.4rem;
+    background: var(--accent-dim);
+    border: 1px solid var(--accent-border);
+    color: var(--accent);
+    letter-spacing: 0.5px;
+}
+
+/* ── Empty State ── */
+.empty-state {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: var(--text-muted);
+}
+
+.empty-state p {
+    font-size: 0.9rem;
+}
+
+/* ── Loading ── */
+.loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem;
+    gap: 1rem;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+
+.loading-spinner {
+    width: 28px;
+    height: 28px;
+    border: 2px solid var(--border-color);
+    border-top-color: var(--accent);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* ── Footer ── */
+.site-footer {
+    background: var(--bg-secondary);
+    border-top: 1px solid var(--border-color);
+    padding: 3rem 2rem;
+    text-align: center;
+}
+
+.footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.footer-logo .logo-icon { font-size: 1rem; }
+
+.footer-logo .logo-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    color: var(--accent);
+}
+
+.footer-copy {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    letter-spacing: 0.5px;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+    .history-page {
+        padding: 72px 1rem 3rem;
+    }
+
+    .era-hero {
+        padding: 1.5rem 1.5rem;
+    }
+
+    .era-hero-title {
+        font-size: 1.4rem;
+    }
+
+    .weapon-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .weapon-card-img {
+        width: 64px;
+        height: 64px;
+    }
+}

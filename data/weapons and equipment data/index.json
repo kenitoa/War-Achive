@@ -1,0 +1,44 @@
+{
+  "aircraft": [
+    "bf109",
+    "p-51 mustang",
+    "spitfire"
+  ],
+  "armor": [
+    "m4 sherman",
+    "t-34",
+    "tiger i"
+  ],
+  "artillery": [
+    "katyusha",
+    "m101 howitzer",
+    "v-2 rocket"
+  ],
+  "defense": [
+    "plate armor",
+    "roman scutum",
+    "samurai armor"
+  ],
+  "firearms": [
+    "ak-47",
+    "bar m1918",
+    "m16",
+    "stg44"
+  ],
+  "melee": [
+    "gladius",
+    "katana",
+    "longsword",
+    "pilum"
+  ],
+  "naval": [
+    "geobukseon",
+    "hms dreadnought",
+    "type vii u-boat"
+  ],
+  "ranged": [
+    "crossbow",
+    "english longbow",
+    "yumi"
+  ]
+}

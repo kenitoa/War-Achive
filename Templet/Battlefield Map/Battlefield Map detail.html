@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>전장 지도 상세 — War Archive</title>
+  <link rel="stylesheet" href="../../Style/Battlefield Map style/Battlefield Map detail style.css">
+</head>
+<body>
+
+  <!-- ── Header ── -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="../main.html" class="logo">
+        <div class="logo-icon">&#9876;</div>
+        <span class="logo-text">War Archive</span>
+      </a>
+      <nav class="nav-links">
+        <a href="../main.html">홈</a>
+        <a href="Battlefield Map.html">전장 지도</a>
+      </nav>
+      <button class="menu-toggle" aria-label="메뉴 열기">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ── Main Content ── -->
+  <main class="document-container" id="documentContainer">
+
+    <!-- 로딩 상태 -->
+    <div class="loading" id="loading">
+      <div class="loading-spinner"></div>
+      <p>전장 기록을 불러오는 중…</p>
+    </div>
+
+    <!-- 오류 상태 -->
+    <div class="error-state" id="errorState" style="display:none;">
+      <p class="error-icon">⚠</p>
+      <h2>전투 기록을 찾을 수 없습니다</h2>
+      <p>요청하신 전장 기록이 존재하지 않습니다.</p>
+      <a href="Battlefield Map.html" class="back-link">← 전장 지도 목록으로 돌아가기</a>
+    </div>
+
+    <!-- 문서 콘텐츠 -->
+    <article class="document" id="document" style="display:none;">
+
+      <!-- 문서 헤더 — 전장 보고서 스타일 -->
+      <header class="doc-header">
+        <div class="doc-header-atmosphere">
+          <div class="header-fog"></div>
+        </div>
+        <div class="doc-header-content">
+          <nav class="breadcrumb">
+            <a href="../main.html">홈</a>
+            <span class="sep">›</span>
+            <a href="Battlefield Map.html">전장 지도</a>
+            <span class="sep">›</span>
+            <span class="current" id="breadcrumbTitle"></span>
+          </nav>
+
+          <div class="doc-badges">
+            <span class="badge badge-era" id="docEraBadge"></span>
+            <span class="badge badge-theater" id="docTheaterBadge"></span>
+          </div>
+
+          <h1 class="doc-title" id="docTitle"></h1>
+          <p class="doc-subtitle" id="docSubtitle"></p>
+
+          <!-- 전장 메타 정보 -->
+          <div class="doc-meta">
+            <div class="meta-item"><span class="meta-label">일시</span><span class="meta-value" id="docDate"></span></div>
+            <div class="meta-item"><span class="meta-label">위치</span><span class="meta-value" id="docLocation"></span></div>
+            <div class="meta-item"><span class="meta-label">지휘관</span><span class="meta-value" id="docCommanders"></span></div>
+            <div class="meta-item"><span class="meta-label">결과</span><span class="meta-value" id="docResult"></span></div>
+          </div>
+
+          <!-- 교전 병력·피해 -->
+          <div class="doc-forces" id="docForces" style="display:none;">
+            <div class="forces-side">
+              <h4 class="forces-label">교전 병력</h4>
+              <div class="forces-list" id="forcesList"></div>
+            </div>
+            <div class="forces-divider"></div>
+            <div class="forces-side">
+              <h4 class="forces-label">피해</h4>
+              <div class="forces-list" id="casualtiesList"></div>
+            </div>
+          </div>
+
+          <!-- 지형 정보 -->
+          <div class="doc-terrain" id="docTerrain">
+            <span class="terrain-label">📍 지형</span>
+            <span class="terrain-value" id="terrainValue"></span>
+          </div>
+
+          <div class="doc-keywords" id="docKeywords"></div>
+        </div>
+      </header>
+
+      <div class="doc-body-wrap">
+
+        <!-- 사이드바 -->
+        <aside class="doc-sidebar" id="docSidebar">
+          <nav class="toc-box" id="tocBox">
+            <h2 class="toc-heading">목 차</h2>
+            <ol class="toc-list" id="tocList"></ol>
+          </nav>
+
+          <div class="info-box" id="infoBox">
+            <h2 class="info-box-heading">전투 요약</h2>
+            <dl class="info-box-list" id="infoBoxList"></dl>
+          </div>
+        </aside>
+
+        <!-- 본문 섹션 -->
+        <div class="doc-content" id="docContent"></div>
+      </div>
+
+      <div class="doc-divider"></div>
+
+      <!-- 이미지 갤러리 -->
+      <section class="doc-image-gallery" id="imageGallery" style="display:none;">
+        <h2 class="doc-image-gallery-heading">참고 도판</h2>
+        <div class="image-gallery-grid" id="imageGalleryGrid"></div>
+      </section>
+
+      <div class="doc-divider" id="imageGalleryDivider"></div>
+
+      <!-- 관련 전투 -->
+      <section class="related-section" id="relatedSection" style="display:none;">
+        <h2 class="related-heading">관련 전투</h2>
+        <div class="related-grid" id="relatedGrid"></div>
+      </section>
+
+      <!-- 문서 하단 -->
+      <footer class="doc-footer">
+        <p class="doc-footer-text">본 기록은 역사적 전투를 정리한 자료이며, 학술적 목적으로 참고하시기 바랍니다.</p>
+        <a href="Battlefield Map.html" class="back-link">← 전장 지도 목록으로 돌아가기</a>
+      </footer>
+    </article>
+  </main>
+
+  <script src="../../tech/Battlefield Map tech/Battlefield Map detail tech.js"></script>
+</body>
+</html>

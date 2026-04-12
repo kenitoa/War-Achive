@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WAR ARCHIVE — 전쟁 아카이브</title>
+  <link rel="stylesheet" href="../Style/main_style.css">
+</head>
+<body>
+
+  <!-- ── Header ── -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="#" class="logo">
+        <div class="logo-icon">&#9876;</div>
+        <span class="logo-text">War Archive</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#categories" class="active">아카이브</a>
+        <a href="#timeline">연대기</a>
+        <a href="#search">검색</a>
+        <a href="#project">프로젝트</a>
+      </nav>
+
+      <button class="menu-toggle" aria-label="메뉴 열기">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ── Hero ── -->
+  <section class="hero" id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <span class="hero-badge">Digital Archive Est. 2026</span>
+      <h1 class="hero-title">
+        <br><span class="accent">War Achive</span>
+      </h1>
+      <p class="hero-subtitle">
+        인류 역사에 존재하는 모든 전쟁 기록들을 보관하는 곳입니다.<br>
+        편하게 이용해주시면 됩니다.
+      </p>
+      <div class="hero-actions">
+        <a href="#categories" class="btn btn-primary">아카이브 탐색</a>
+        <a href="#timeline" class="btn btn-outline">연대기 보기</a>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <span>Scroll</span>
+      <div class="line"></div>
+    </div>
+  </section>
+
+  <!-- ── Statistics ── -->
+  <div class="stats-bar">
+    <div class="stats-inner">
+      <div class="stat-item fade-in">
+        <div class="stat-number" id="statWarCount" data-count="0" data-suffix="">0</div>
+        <div class="stat-label">수록된 전쟁</div>
+      </div>
+      <div class="stat-item fade-in">
+        <div class="stat-number" id="statDocCount" data-count="0" data-suffix="">0</div>
+        <div class="stat-label">문서 및 기록</div>
+      </div>
+      <div class="stat-item fade-in">
+        <div class="stat-number" id="statPeopleCount" data-count="0" data-suffix="">0</div>
+        <div class="stat-label">역사적 인물</div>
+      </div>
+      <div class="stat-item fade-in">
+        <div class="stat-number" id="statBattleCount" data-count="0" data-suffix="">0</div>
+        <div class="stat-label">전투 기록</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Categories ── -->
+  <section class="section" id="categories">
+    <div class="section-header fade-in">
+      <span class="section-label">Archive Categories</span>
+      <h2 class="section-title">아카이브 카테고리</h2>
+      <p class="section-desc">전쟁에 관한 방대한 자료를 체계적으로 분류하여 제공합니다</p>
+    </div>
+
+    <div class="categories-grid">
+      <a href="war overview/war overview.html" class="category-card fade-in">
+        <div class="card-icon">&#9876;</div>
+        <h3 class="card-title">전쟁 개요</h3>
+        <p class="card-desc">고대부터 현대까지, 인류 역사를 바꾼 주요 전쟁들의 원인·경과·결과를 종합적으로 정리합니다.</p>
+        <span class="card-count" id="warOverviewCount">불러오는 중…</span>
+      </a>
+
+      <a href="biography of people/biography of people.html" class="category-card fade-in">
+        <div class="card-icon">&#128587;</div>
+        <h3 class="card-title">인물 열전</h3>
+        <p class="card-desc">전쟁의 흐름을 결정지은 지휘관, 전략가, 영웅, 그리고 민간인들의 이야기를 담습니다.</p>
+        <span class="card-count" id="biographyCount">불러오는 중…</span>
+      </a>
+
+      <a href="Weapons and Equipment/Weapons and Equipment.html" class="category-card fade-in">
+        <div class="card-icon">&#128481;</div>
+        <h3 class="card-title">무기 & 장비</h3>
+        <p class="card-desc">냉병기부터 핵무기까지, 전쟁의 양상을 바꾼 무기와 군사 장비를 분석합니다.</p>
+        <span class="card-count" id="weaponsCount">불러오는 중…</span>
+      </a>
+
+      <a href="strategy and tactics/strategy and tactics.html" class="category-card fade-in">
+        <div class="card-icon">&#128506;</div>
+        <h3 class="card-title">전략 & 전술</h3>
+        <p class="card-desc">전장에서 사용된 전략과 전술의 발전사를 연구하고 기록합니다.</p>
+        <span class="card-count">2,100건의 기록</span>
+      </a>
+
+      <a href="Historical Sources & Documents/Historical Sources & Documents.html" class="category-card fade-in">
+        <div class="card-icon">&#128220;</div>
+        <h3 class="card-title">사료 & 문서</h3>
+        <p class="card-desc">조약문, 선전포고문, 편지, 일기 등 전쟁 관련 1차 사료를 보관합니다.</p>
+        <span class="card-count" id="historicalSourcesCount">불러오는 중…</span>
+      </a>
+
+      <a href="Battlefield Map/Battlefield Map.html" class="category-card fade-in">
+        <div class="card-icon">&#127759;</div>
+        <h3 class="card-title">전장 지도</h3>
+        <p class="card-desc">주요 전투가 벌어진 지역의 지형, 진군 경로, 방어선을 지도로 시각화합니다.</p>
+        <span class="card-count" id="battlefieldMapCount">불러오는 중…</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ── Timeline ── -->
+  <section class="section" id="timeline" style="background: var(--bg-secondary);">
+    <div class="section-header fade-in">
+      <span class="section-label">Historical Timeline</span>
+      <h2 class="section-title">전쟁 연대기</h2>
+      <p class="section-desc">인류 역사 속 주요 전쟁을 시간 순서로 살펴봅니다</p>
+    </div>
+
+    <div class="timeline-container" id="timelineContainer">
+      <!-- 전쟁 개요 + 전장 지도 데이터에서 동적 생성 -->
+    </div>
+  </section>
+
+  <!-- ── Search ── -->
+  <section class="section search-section" id="search">
+    <div class="section-header fade-in">
+      <span class="section-label">Search Archive</span>
+      <h2 class="section-title">아카이브 검색</h2>
+      <p class="section-desc">원하는 전쟁, 인물, 무기, 전투를 검색해보세요</p>
+    </div>
+
+    <div class="search-wrapper fade-in">
+      <div class="search-box">
+        <input type="text" placeholder="검색어를 입력하세요 (예: 이순신, 노르망디, 판저)">
+        <button type="button" aria-label="검색">&#128269;</button>
+      </div>
+      <div class="search-tags">
+        <span class="search-tag">제2차 세계대전</span>
+        <span class="search-tag">이순신</span>
+        <span class="search-tag">냉전</span>
+        <span class="search-tag">나폴레옹</span>
+        <span class="search-tag">참호전</span>
+        <span class="search-tag">핵무기</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Project ── -->
+  <section class="section" id="project">
+    <div class="section-header fade-in">
+      <span class="section-label">Project</span>
+      <h2 class="section-title">프로젝트</h2>
+      <p class="section-desc">War Archive 프로젝트에 대한 정보와 참여 방법을 안내합니다</p>
+    </div>
+
+    <div class="project-grid">
+      <a href="information.html" class="category-card project-card fade-in">
+        <div class="project-icon icon-about">
+          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="32" cy="32" r="28" stroke="currentColor" stroke-width="2" opacity="0.15"/>
+            <rect x="20" y="14" width="24" height="36" rx="2" stroke="currentColor" stroke-width="2"/>
+            <line x1="20" y1="14" x2="20" y2="50" stroke="currentColor" stroke-width="2"/>
+            <rect x="24" y="20" width="16" height="2" rx="1" fill="currentColor" opacity="0.6"/>
+            <rect x="24" y="26" width="12" height="2" rx="1" fill="currentColor" opacity="0.4"/>
+            <rect x="24" y="32" width="14" height="2" rx="1" fill="currentColor" opacity="0.4"/>
+            <rect x="24" y="38" width="10" height="2" rx="1" fill="currentColor" opacity="0.3"/>
+            <circle cx="32" cy="11" r="3" fill="currentColor" opacity="0.8"/>
+            <line x1="32" y1="8" x2="32" y2="14" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+          </svg>
+        </div>
+        <h3 class="card-title">소개</h3>
+        <p class="card-desc">War Archive 프로젝트의 목적과 비전을 소개합니다.</p>
+      </a>
+
+      <a href="contribution.html" class="category-card project-card fade-in">
+        <div class="project-icon icon-contribute">
+          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="32" cy="32" r="28" stroke="currentColor" stroke-width="2" opacity="0.15"/>
+            <circle cx="32" cy="18" r="4" stroke="currentColor" stroke-width="2"/>
+            <circle cx="18" cy="42" r="4" stroke="currentColor" stroke-width="2"/>
+            <circle cx="46" cy="42" r="4" stroke="currentColor" stroke-width="2"/>
+            <line x1="32" y1="22" x2="32" y2="30" stroke="currentColor" stroke-width="2"/>
+            <line x1="32" y1="30" x2="20" y2="38" stroke="currentColor" stroke-width="2"/>
+            <line x1="32" y1="30" x2="44" y2="38" stroke="currentColor" stroke-width="2"/>
+            <circle cx="32" cy="30" r="2" fill="currentColor" opacity="0.6"/>
+          </svg>
+        </div>
+        <h3 class="card-title">기여하기</h3>
+        <p class="card-desc">프로젝트에 기여하는 방법과 가이드라인을 안내합니다.</p>
+      </a>
+
+      <a href="Undefine facts/Undefine facts.html" class="category-card project-card fade-in">
+        <div class="project-icon icon-undefine">
+          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="32" cy="32" r="28" stroke="currentColor" stroke-width="2" opacity="0.15"/>
+            <rect x="16" y="24" width="32" height="28" rx="2" stroke="currentColor" stroke-width="2"/>
+            <path d="M16 30 L48 30" stroke="currentColor" stroke-width="1.5" opacity="0.4"/>
+            <path d="M22 24 L22 18 L42 18 L42 24" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+            <circle cx="28" cy="40" r="2" fill="currentColor" opacity="0.5"/>
+            <circle cx="36" cy="40" r="2" fill="currentColor" opacity="0.5"/>
+            <line x1="32" y1="36" x2="32" y2="48" stroke="currentColor" stroke-width="1" opacity="0.3"/>
+          </svg>
+        </div>
+        <h3 class="card-title">미확인 자료집</h3>
+        <p class="card-desc">사실 관계가 확실하지 않거나 구전 위주의 사료들을 확인할 수 있습니다.</p>
+      </a>
+
+      <a href="developer information.html" class="category-card project-card fade-in">
+        <div class="project-icon icon-contact">
+          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="32" cy="32" r="28" stroke="currentColor" stroke-width="2" opacity="0.15"/>
+            <rect x="14" y="20" width="36" height="26" rx="3" stroke="currentColor" stroke-width="2"/>
+            <polyline points="14,20 32,36 50,20" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+            <line x1="14" y1="46" x2="26" y2="34" stroke="currentColor" stroke-width="1.5" opacity="0.4"/>
+            <line x1="50" y1="46" x2="38" y2="34" stroke="currentColor" stroke-width="1.5" opacity="0.4"/>
+          </svg>
+        </div>
+        <h3 class="card-title">개발자 정보</h3>
+        <p class="card-desc">개발자 문의 & 피드백 적극 환영</p>
+      </a>
+    </div>
+  </section>
+
+  <!-- ── Footer ── -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-about">
+          <a href="#" class="logo">
+            <div class="logo-icon">&#9876;</div>
+            <span class="logo-text">War Archive</span>
+          </a>
+          <p>아카이브 채널에 원하는 자료를 찾아보세요.<br>역사에 대한 이해를 넓히는 데 도움을 줍니다</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>카테고리</h4>
+          <ul>
+            <li><a href="#categories">전쟁 개요</a></li>
+            <li><a href="#categories">인물 열전</a></li>
+            <li><a href="#categories">무기 &amp; 장비</a></li>
+            <li><a href="#categories">전략 &amp; 전술</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>자료</h4>
+          <ul>
+            <li><a href="#categories">사료 &amp; 문서</a></li>
+            <li><a href="#categories">전장 지도</a></li>
+            <li><a href="#timeline">연대기</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>프로젝트</h4>
+          <ul>
+            <li><a href="#">소개</a></li>
+            <li><a href="#">기여하기</a></li>
+            <li><a href="Undefine facts/Undefine facts.html">미확인 자료집</a></li>
+            <li><a href="developer information.html">개발자 정보</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 War Archive. All rights reserved.</p>
+        <p>역사를 기억하는 것은 미래를 지키는 일입니다.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../tech/main_tech.js"></script>
+</body>
+</html>

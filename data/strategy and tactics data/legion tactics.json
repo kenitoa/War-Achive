@@ -1,0 +1,78 @@
+{
+  "id": "legion-tactics",
+  "title": "Legion Tactics",
+  "titleKr": "로마 레기온 전술",
+  "era": "ancient",
+  "category": "tactics",
+  "origin": "고대 로마, BC 4세기경",
+  "period": "BC 4세기 – AD 5세기",
+  "region": "로마 제국 전역",
+  "keyFigure": "카밀루스, 스키피오 아프리카누스, 율리우스 카이사르",
+  "description": "로마 군단(레기온)의 유연한 전술 체계. 마니풀루스와 코호르스 단위로 나뉜 소규모 전술 단위의 기동성과 적응력이 핵심이다.",
+  "keywords": ["레기온", "마니풀루스", "코호르스", "필룸", "글라디우스"],
+  "infoBox": {
+    "type": "전술 / 군사 체계",
+    "originNation": "고대 로마 공화국",
+    "firstUsed": "BC 4세기 (삼니움 전쟁 시기)",
+    "lastUsed": "AD 5세기 (서로마 제국 멸망)",
+    "mainWeapon": "필룸(투창), 글라디우스(단검), 스쿠툼(대형 방패)",
+    "idealTerrain": "다양한 지형에 적응 가능",
+    "weakness": "기병 단독 대응 취약, 후기 야만족 침입 시 쇠퇴"
+  },
+  "sections": [
+    {
+      "title": "개요",
+      "content": "로마 레기온(Legio)은 고대 세계에서 가장 효과적인 군사 조직 중 하나로, 약 800년에 걸쳐 지중해 세계를 지배한 군사 체계이다. 레기온의 핵심은 유연한 전술 단위와 표준화된 훈련, 그리고 공병 능력의 결합에 있었다.\n\n초기의 로마군은 그리스식 팔랑크스를 모방했으나, BC 4세기 삼니움 전쟁을 거치며 이탈리아 반도의 산악 지형에 맞는 독자적인 전술 체계를 발전시켰다. 이것이 마니풀루스 체계(Manipular System)이며, 이후 마리우스 개혁을 거쳐 코호르스 체계(Cohort System)로 진화했다."
+    },
+    {
+      "title": "마니풀루스 체계 (BC 4~2세기)",
+      "content": "마니풀루스 체계에서 레기온은 세 열의 보병으로 구성되었다:\n\n• 1열 - 하스타티(Hastati): 가장 젊은 병사들. 최전방에서 전투를 개시.\n• 2열 - 프린키페스(Principes): 경험 많은 중견 병사. 1열이 밀리면 교대하여 전투.\n• 3열 - 트리아리이(Triarii): 가장 노련한 베테랑. 최후의 예비대로 장창을 사용.\n\n각 열은 마니풀루스(중대) 단위로 나뉘어 독립적으로 기동할 수 있었다. 이 '체크무늬(Quincunx)' 배치는 후열이 전열의 빈 공간을 통과하거나 교대할 수 있게 하여, 팔랑크스의 경직성을 극복했다."
+    },
+    {
+      "title": "코호르스 체계 (BC 1세기 이후)",
+      "content": "BC 107년, 가이우스 마리우스의 군제 개혁으로 레기온은 근본적으로 변화했다:\n\n• 재산 자격 폐지: 무산 시민도 군에 입대 가능. 직업 군대의 탄생.\n• 코호르스(대대) 단위 편성: 레기온당 10개 코호르스(각 480명), 총 약 4,800명.\n• 장비 표준화: 모든 병사가 필룸 2자루, 글라디우스 1자루, 스쿠툼, 로리카 등 동일 장비.\n• 군단 독수리(아퀼라): 레기온의 상징이자 명예. 독수리를 잃는 것은 최대의 치욕.\n\n이 체계는 지휘관이 코호르스 단위로 유연하게 전장을 관리할 수 있게 했으며, 어떤 코호르스든 즉시 예비대·측면 방어·공격 등 역할을 전환할 수 있었다."
+    },
+    {
+      "title": "전투 전술",
+      "content": "로마 레기온의 표준 전투 절차:\n\n1단계 - 행군 대형에서 전투 대형으로 전개. 코호르스가 2~3열로 배치.\n2단계 - 접근: 약 30m 거리에서 필룸(투창) 일제 투척. 필룸은 적의 방패에 관통·휘어져 사용 불능으로 만듦.\n3단계 - 돌격(Charge): 전투 함성과 함께 돌격. 스쿠툼으로 적을 밀치고 글라디우스로 찌르기.\n4단계 - 교대(Rotation): 전열 병사가 소모되면 후열과 교대. 이 교대 체계가 로마군의 지속 전투력의 핵심.\n5단계 - 추격 또는 진지 구축.\n\n글라디우스는 '찌르기' 위주로 사용되었다. 베기보다 에너지 소모가 적고, 방패 뒤에서 안전하게 공격할 수 있었기 때문이다."
+    },
+    {
+      "title": "공성전과 야영술",
+      "content": "레기온의 강점은 전투뿐 아니라 공병 능력에 있었다:\n\n• 행군 야영(Castra): 매일 밤 표준화된 진지를 구축. 해자, 토벽, 목책을 갖춘 임시 요새.\n• 공성전: 투석기(발리스타, 온아게르), 공성탑, 갱도 굴착 등 체계적 공성 기술.\n• 도로 건설: 군용 도로(비아 밀리타리스)를 건설하여 병력과 보급의 신속한 이동 보장.\n• 교량 건설: 카이사르의 라인강 가교(10일 만에 완성)가 대표적 사례.\n\n이러한 공병 능력은 로마군을 단순한 전투 집단이 아닌 '건설 군대'로 만들었으며, 정복지의 지배를 공고히 하는 인프라를 제공했다."
+    },
+    {
+      "title": "주요 전투 사례",
+      "content": "• 칸나이 전투(BC 216): 한니발의 포위 섬멸에 레기온이 대패. 이후 로마는 전술을 근본적으로 재검토.\n• 자마 전투(BC 202): 스키피오가 한니발의 전술을 역이용하여 승리. 코호르스 사이 통로로 전쟁 코끼리를 통과시킴.\n• 알레시아 전투(BC 52): 카이사르가 이중 포위선(내성·외성)을 구축하여 갈리아 연합군을 격파.\n• 파르살루스 전투(BC 48): 카이사르가 소수의 정예 레기온으로 폼페이우스 대군을 격파.\n• 칸나이의 교훈 이후 로마는 회전 결전보다 기동·보급 차단·점진적 압박 전략을 선호하게 됨."
+    },
+    {
+      "title": "쇠퇴와 유산",
+      "content": "AD 3세기 이후 레기온 체계는 점진적으로 쇠퇴했다:\n\n• 야만족 용병 의존 증가로 로마 고유의 군사 문화 약화.\n• 기병의 중요성 증대(카타프락토이)로 보병 중심 체계의 한계 노출.\n• 경제적 위기로 장비 품질 저하와 훈련 부족.\n\n그러나 레기온의 유산은 막대했다. 직업 군대 개념, 표준화된 훈련, 체계적 군사 조직, 공병 능력의 통합은 근대 이후 모든 군대의 기본 원칙이 되었다. 나폴레옹은 로마 군제를 연구하여 군단(Corps) 체계를 만들었고, 현대 군대의 사단·여단 체계도 레기온의 후예라 할 수 있다."
+    },
+    {
+      "title": "참고 문헌",
+      "content": "• Goldsworthy, Adrian. 『The Complete Roman Army』. Thames & Hudson, 2003.\n• Dando-Collins, Stephen. 『Legions of Rome』. Quercus, 2010.\n• Vegetius. 『군사론(De Re Militari)』.\n• 폴리비오스. 『역사(Historiae)』.\n• 카이사르. 『갈리아 전기(De Bello Gallico)』."
+    }
+  ],
+  "images": [
+    {"url": "https://upload.wikimedia.org/wikipedia/commons/1/18/Centurion_2_Boulogne_Luc_Viatour.jpg", "caption": "로마 백인대장(센투리온) 장비의 역사적 복원", "source": "Wikimedia Commons"},
+    {"url": "https://upload.wikimedia.org/wikipedia/commons/3/36/Roman_soldiers_with_aquilifer_signifer_centurio_70_aC.jpg", "caption": "독수리기수·기수·백인대장 등 로마 군단병 재현 (기원전 70년경)", "source": "Wikimedia Commons"}
+  ],
+  "images": [
+    {
+      "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Centurion_2_Boulogne_Luc_Viatour.jpg?width=800",
+      "caption": "로마 군단 켄투리오(백인대장) 복원 – 군단 전술 운용의 핵심 지휘관",
+      "source": "Wikimedia Commons"
+    },
+    {
+      "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Roman_soldiers_with_aquilifer_signifer_centurio_70_aC.jpg?width=800",
+      "caption": "로마 군단병 복원 – 아퀼리페르(독수리 기수), 시그니페르, 켄투리오의 장비와 편성",
+      "source": "Wikimedia Commons"
+    },
+    {
+      "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Testudo_formation.jpg?width=800",
+      "caption": "테스투도(거북이) 대형 재현 – 방패로 전방과 상부를 동시에 방어하는 로마 군단 특수 전술",
+      "source": "Wikimedia Commons"
+    }
+  ],
+  "relatedStrategies": ["phalanx", "envelopment", "tercio"]
+}

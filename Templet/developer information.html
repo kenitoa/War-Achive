@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WAR ARCHIVE — 개발자 정보</title>
+  <link rel="stylesheet" href="../Style/developer information style.css">
+</head>
+<body>
+
+  <!-- ── Header ── -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="main.html" class="logo">
+        <div class="logo-icon">&#9876;</div>
+        <span class="logo-text">War Archive</span>
+      </a>
+      <nav class="nav-links">
+        <a href="main.html#categories">아카이브</a>
+        <a href="main.html#timeline">연대기</a>
+        <a href="main.html#search">검색</a>
+        <a href="main.html#project" class="active">프로젝트</a>
+      </nav>
+      <button class="menu-toggle" aria-label="메뉴 열기">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ── Section 1: Hero ── -->
+  <section class="panel panel-hero" id="hero">
+    <div class="panel-bg"></div>
+    <div class="hero-particles" id="particles"></div>
+    <div class="panel-content reveal">
+      <span class="label-tag">Developer Portfolio</span>
+      <h1 class="display-title">
+        개발자 정보<br>
+        <span class="accent">& Portfolio</span>
+      </h1>
+      <p class="hero-desc">
+        개발자 문의 & 피드백 적극 환영
+      </p>
+    </div>
+    <div class="scroll-indicator">
+      <span>Scroll</span>
+      <div class="line"></div>
+    </div>
+  </section>
+
+  <!-- ── Section 2: About Developer ── -->
+  <section class="panel panel-about" id="about">
+    <div class="panel-inner">
+      <div class="about-layout">
+        <div class="about-left reveal">
+          <div class="dev-avatar">
+            <div class="avatar-ring"></div>
+            <div class="avatar-icon">&#128104;&#8205;&#128187;</div>
+          </div>
+          <div class="dev-status">
+            <span class="status-dot"></span>
+            <span>개발 활동 중</span>
+          </div>
+        </div>
+        <div class="about-right reveal reveal-delay">
+          <span class="label-tag">01 — About</span>
+          <h2 class="section-heading">개발자 소개</h2>
+          <p class="body-text">
+            War Archive 프로젝트의 기획, 디자인, 개발을 담당하고 있습니다.
+            역사에 대한 깊은 관심과 웹 개발에 대한 열정을 바탕으로, 
+            누구나 접근 가능한 전쟁 역사 아카이브를 만들어가고 있습니다.
+          </p>
+          <div class="dev-info-grid">
+            <div class="dev-info-item">
+              <span class="info-label">프로젝트</span>
+              <span class="info-value">War Archive</span>
+            </div>
+            <div class="dev-info-item">
+              <span class="info-label">역할</span>
+              <span class="info-value">풀스택 개발</span>
+            </div>
+            <div class="dev-info-item">
+              <span class="info-label">시작</span>
+              <span class="info-value">2026</span>
+            </div>
+            <div class="dev-info-item">
+              <span class="info-label">상태</span>
+              <span class="info-value accent">활발히 개발 중</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Section 3: Tech Stack ── -->
+  <section class="panel panel-techstack" id="techstack">
+    <div class="panel-inner">
+      <div class="center-block reveal">
+        <span class="label-tag">02 — Tech Stack</span>
+        <h2 class="section-heading">기술 스택</h2>
+        <p class="body-text body-text-center">
+          War Archive 프로젝트에 사용된 기술과 도구들입니다.
+        </p>
+      </div>
+
+      <div class="tech-grid">
+        <div class="tech-card reveal">
+          <div class="tech-card-icon">&lt;/&gt;</div>
+          <h3 class="tech-card-title">HTML5</h3>
+          <p class="tech-card-desc">시맨틱 마크업으로 구조적이고 접근성 높은 웹 페이지를 구성합니다.</p>
+          <div class="tech-bar"><div class="tech-bar-fill" data-width="95"></div></div>
+        </div>
+        <div class="tech-card reveal reveal-delay">
+          <div class="tech-card-icon">{&nbsp;}</div>
+          <h3 class="tech-card-title">CSS3</h3>
+          <p class="tech-card-desc">애니메이션, 그리드, 반응형 디자인으로 몰입감 있는 UI를 구현합니다.</p>
+          <div class="tech-bar"><div class="tech-bar-fill" data-width="90"></div></div>
+        </div>
+        <div class="tech-card reveal reveal-delay-2">
+          <div class="tech-card-icon">&#9889;</div>
+          <h3 class="tech-card-title">JavaScript</h3>
+          <p class="tech-card-desc">바닐라 JS로 동적 인터랙션과 데이터 로딩을 처리합니다.</p>
+          <div class="tech-bar"><div class="tech-bar-fill" data-width="85"></div></div>
+        </div>
+        <div class="tech-card reveal">
+          <div class="tech-card-icon">&#128196;</div>
+          <h3 class="tech-card-title">JSON</h3>
+          <p class="tech-card-desc">모든 아카이브 데이터를 JSON 형식으로 구조화하여 관리합니다.</p>
+          <div class="tech-bar"><div class="tech-bar-fill" data-width="92"></div></div>
+        </div>
+        <div class="tech-card reveal reveal-delay">
+          <div class="tech-card-icon">&#128640;</div>
+          <h3 class="tech-card-title">GitHub Pages</h3>
+          <p class="tech-card-desc">정적 호스팅을 통해 빠르고 안정적인 배포를 실현합니다.</p>
+          <div class="tech-bar"><div class="tech-bar-fill" data-width="80"></div></div>
+        </div>
+        <div class="tech-card reveal reveal-delay-2">
+          <div class="tech-card-icon">&#128736;</div>
+          <h3 class="tech-card-title">Git</h3>
+          <p class="tech-card-desc">버전 관리와 협업을 위한 분산 버전 관리 시스템을 활용합니다.</p>
+          <div class="tech-bar"><div class="tech-bar-fill" data-width="88"></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Section 4: Project Highlights ── -->
+  <section class="panel panel-highlights" id="highlights">
+    <div class="panel-inner">
+      <div class="center-block reveal">
+        <span class="label-tag">03 — Highlights</span>
+        <h2 class="section-heading">프로젝트 하이라이트</h2>
+      </div>
+
+      <div class="highlights-timeline">
+        <div class="hl-line"></div>
+
+        <div class="hl-item reveal">
+          <div class="hl-dot"></div>
+          <div class="hl-card">
+            <span class="hl-date">2026</span>
+            <h3>프로젝트 시작</h3>
+            <p>War Archive 프로젝트 기획 및 초기 설계를 시작했습니다.</p>
+          </div>
+        </div>
+
+        <div class="hl-item reveal reveal-delay">
+          <div class="hl-dot"></div>
+          <div class="hl-card">
+            <span class="hl-date">데이터 구축</span>
+            <h3>아카이브 데이터 수집</h3>
+            <p>전쟁 개요, 인물 열전, 전장 지도 등 6개 카테고리의 JSON 데이터를 구축했습니다.</p>
+          </div>
+        </div>
+
+        <div class="hl-item reveal reveal-delay-2">
+          <div class="hl-dot"></div>
+          <div class="hl-card">
+            <span class="hl-date">디자인</span>
+            <h3>다크 테마 UI 구현</h3>
+            <p>밀리터리 감성의 골드 & 다크 테마로 통일감 있는 디자인 시스템을 완성했습니다.</p>
+          </div>
+        </div>
+
+        <div class="hl-item reveal">
+          <div class="hl-dot"></div>
+          <div class="hl-card">
+            <span class="hl-date">확장</span>
+            <h3>카테고리 확장</h3>
+            <p>사료 & 문서, 전략 & 전술, 미확인 자료집 등 아카이브 범위를 지속 확장 중입니다.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Section 5: Stats ── -->
+  <section class="panel panel-stats" id="stats">
+    <div class="panel-inner">
+      <div class="center-block reveal">
+        <span class="label-tag">04 — Scale</span>
+        <h2 class="section-heading">프로젝트 규모</h2>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-block reveal">
+          <div class="stat-num" data-count="6">0</div>
+          <div class="stat-label">카테고리</div>
+        </div>
+        <div class="stat-block reveal reveal-delay">
+          <div class="stat-num" data-count="0" id="statTotalDocs">0</div>
+          <div class="stat-label">총 문서 수</div>
+        </div>
+        <div class="stat-block reveal reveal-delay-2">
+          <div class="stat-num" data-count="0" id="statTotalPages">0</div>
+          <div class="stat-label">페이지 수</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Section 6: Contact / Feedback ── -->
+  <section class="panel panel-contact" id="contact">
+    <div class="panel-inner">
+      <div class="center-block reveal">
+        <span class="label-tag">05 — Contact</span>
+        <h2 class="section-heading">문의 & 피드백</h2>
+        <p class="body-text body-text-center">
+          프로젝트에 대한 문의, 버그 리포트, 기능 제안 등 어떤 피드백이든 환영합니다.
+        </p>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-card reveal">
+          <div class="contact-icon">&#128187;</div>
+          <h3>GitHub</h3>
+          <p>소스 코드 확인 및 이슈 등록</p>
+          <a href="#" class="contact-link">Repository 방문 &rarr;</a>
+        </div>
+        <div class="contact-card reveal reveal-delay">
+          <div class="contact-icon">&#128231;</div>
+          <h3>이메일</h3>
+          <p>직접 문의 및 협업 제안</p>
+          <a href="#" class="contact-link">이메일 보내기 &rarr;</a>
+        </div>
+        <div class="contact-card reveal reveal-delay-2">
+          <div class="contact-icon">&#128172;</div>
+          <h3>피드백</h3>
+          <p>개선 사항 및 기능 제안</p>
+          <a href="#" class="contact-link">피드백 남기기 &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Section 7: CTA ── -->
+  <section class="panel panel-cta" id="cta">
+    <div class="panel-content reveal">
+      <h2 class="display-title display-title-sm">
+        함께 만들어가는<br><span class="accent">War Archive</span>
+      </h2>
+      <p class="body-text body-text-center">
+        프로젝트에 관심이 있다면 언제든 참여해주세요.
+      </p>
+      <div class="cta-actions">
+        <a href="main.html#categories" class="btn-cta">아카이브 탐색</a>
+        <a href="contribution.html" class="btn-cta-outline">기여하기</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Footer ── -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <a href="main.html" class="logo">
+          <div class="logo-icon">&#9876;</div>
+          <span class="logo-text">War Archive</span>
+        </a>
+        <nav class="footer-nav">
+          <a href="main.html#categories">아카이브</a>
+          <a href="main.html#timeline">연대기</a>
+          <a href="main.html#project">프로젝트</a>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 War Archive. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../tech/developer information tech.js"></script>
+</body>
+</html>

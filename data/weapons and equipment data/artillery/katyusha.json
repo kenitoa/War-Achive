@@ -1,0 +1,65 @@
+{
+  "name": "카추샤 로켓 발사기",
+  "nameEn": "Katyusha Rocket Launcher (BM-13)",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Katyusha_Rocket_Launcher_-_Artillery_Museum_-_St._Petersburg_-_Russia.jpg/960px-Katyusha_Rocket_Launcher_-_Artillery_Museum_-_St._Petersburg_-_Russia.jpg",
+  "category": "artillery",
+  "era": "worldwar",
+  "origin": "소련",
+  "period": "1941년 ~ 1945년",
+  "operators": ["소련 적군"],
+  "tags": ["로켓", "다연장", "소련", "세계대전", "화력지원"],
+  "overview": [
+    "카추샤(Katyusha)는 제2차 세계대전 당시 소련이 운용한 다연장 로켓 발사기의 통칭이다. 대표적인 모델인 BM-13은 트럭에 장착된 발사 레일에서 132mm 로켓탄을 일제 발사한다.",
+    "짧은 시간에 광범위한 지역에 대량의 화력을 퍼부을 수 있어 독일군에게 큰 심리적 공포를 안겼으며, '스탈린의 오르간'이라는 별명으로 불렸다.",
+    "현대 다연장 로켓 체계(MLRS)의 선구자이다."
+  ],
+  "specs": [
+    { "label": "구경", "value": "132mm (BM-13)" },
+    { "label": "로켓 수", "value": "16발 (BM-13)" },
+    { "label": "최대 사거리", "value": "약 8,500m" },
+    { "label": "발사 시간", "value": "16발 전탄 약 7~10초" },
+    { "label": "탑재 차량", "value": "ZIS-6 또는 스튜드베이커 US6 트럭" },
+    { "label": "탄두 중량", "value": "약 4.9kg (HE)" },
+    { "label": "로켓 전체 중량", "value": "약 42.3kg" }
+  ],
+  "history": [
+    "1930년대 소련 RNII(반응 과학 연구소)에서 RS-82, RS-132 로켓을 개발했다. 이를 지상 발사 체계로 발전시킨 것이 BM-13이다.",
+    "1941년 7월 14일, 이반 플레로프 대위의 포대가 벨라루스 오르샤에서 최초로 실전 투입되어 독일군 철도역을 공격했다. 독일군은 이 신무기에 크게 당황했다.",
+    "전쟁 기간 동안 약 10,000문 이상이 생산되었으며, 소련 포병의 절대 다수가 카추샤를 운용하게 되었다. 전후 BM-21 그라드 등 후속 체계로 발전했다."
+  ],
+  "design": [
+    "BM-13의 기본 구조는 트럭 화물칸에 설치된 I-빔 레일 발사대이다. 각 레일에 로켓 2발(상하)이 장착되어 총 16발을 탑재한다.",
+    "M-13 로켓은 고체 연료 추진체, 고폭 탄두, 안정 날개로 구성된다. 발사 후 회전 안정이 아닌 날개 안정 방식을 사용하여 정밀도는 낮다.",
+    "발사대를 트럭에 탑재한 덕분에 '쏘고 이동(shoot and scoot)' 전술이 가능했다. 이는 포병 대항 사격을 회피하는 데 결정적으로 유리했다."
+  ],
+  "operation": [
+    "일반적으로 포대(4~6문) 단위로 운용하며, 제원 설정 후 7~10초 만에 16발 전탄을 발사한다. 포대 일제 사격 시 수십 발의 로켓이 동시에 목표 지역에 낙하한다.",
+    "발사 후 즉시 이동하여 적의 대포병 사격을 회피한다. 재장전에는 약 5~10분이 소요된다.",
+    "정밀 타격보다는 광역 제압·소이 효과를 노린 무기로, 병력 밀집 지역, 보급거점, 방어진지 공격에 효과적이었다."
+  ],
+  "combatRecord": [
+    "오르샤 전투(1941년 7월): 최초 실전 사용. 독일군 철도 집결지를 기습하여 큰 피해를 입혔다.",
+    "스탈린그라드 전투(1942~1943): 시가전과 방어전에서 대량 운용되어 독일군에 막대한 피해를 가했다.",
+    "쿠르스크 전투(1943): 사상 최대 규모의 전차전에서 소련 포병의 핵심 화력으로 활약했다.",
+    "베를린 전투(1945): 42,000문 이상의 포병과 함께 베를린 최종 공격에 사용되었다."
+  ],
+  "variants": [
+    { "name": "BM-8", "description": "82mm 소형 로켓 48발 탑재. 경트럭이나 지프에도 장착 가능." },
+    { "name": "BM-13", "description": "132mm 표준형. 16발. 가장 널리 사용된 모델." },
+    { "name": "BM-31", "description": "300mm 대형 로켓 12발. 화력 대폭 증가, 단 사거리 감소." },
+    { "name": "BM-21 그라드", "description": "전후 후속 체계. 122mm 40연장. 냉전기 소련군 표준 MLRS." }
+  ],
+  "evaluation": [
+    "카추샤는 화력 밀도와 심리적 효과에서 탁월한 무기였다. 수초 만에 수십 발의 로켓을 퍼붓는 능력은 재래식 포병으로는 불가능한 수준의 순간 화력을 제공했다.",
+    "정밀도가 낮은 것은 단점이지만, 광역 제압이 목적인 상황에서는 오히려 넓은 살포 면적이 장점이 되었다.",
+    "트럭 기반의 기동성으로 생존성도 높았으며, 단순한 구조 덕분에 대량 생산이 가능했다. 현대 MLRS(M270, BM-21 등)의 직접적 선조이다."
+  ],
+  "related": [
+    { "id": "artillery/m101 howitzer", "name": "M101 105mm 곡사포", "type": "동시대 서방 포병" }
+  ],
+  "references": [
+    "Steven Zaloga, 'Red Army Weapons of World War II', Osprey Publishing, 2017",
+    "Chris Bellamy, 'Absolute War: Soviet Russia in the Second World War', Vintage, 2008",
+    "David Glantz, 'Colossus Reborn: The Red Army at War 1941-1943', University Press of Kansas, 2005"
+  ]
+}
