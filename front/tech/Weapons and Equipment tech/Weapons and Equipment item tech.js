@@ -68,7 +68,7 @@
     // 데이터 파일 로드 (향후 data 폴더 연동)
     function loadItemData(itemId) {
         // 데이터 파일 경로 (추후 JSON 연동)
-        var dataPath = '../../data/weapons and equipment data/' + itemId + '.json';
+        var dataPath = '../../../back/data/weapons and equipment data/' + itemId + '.json';
 
         return fetch(dataPath)
             .then(function (res) {

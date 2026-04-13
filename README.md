@@ -83,11 +83,12 @@ front/
 │   ├── [카테고리] style/          ← 카테고리별 스타일
 │   └── Image/                     ← 이미지 에셋
 │
-├── tech/             ← JavaScript 로직 (동작 & 데이터 처리)
-│   ├── main_tech.js               ← 메인 페이지 로직
-│   ├── generate-index.js          ← index.json 자동 생성 도구
-│   └── [카테고리] tech/           ← 카테고리별 로직
-│
+└── tech/             ← JavaScript 로직 (동작 & 데이터 처리)
+    ├── main_tech.js               ← 메인 페이지 로직
+    ├── generate-index.js          ← index.json 자동 생성 도구
+    └── [카테고리] tech/           ← 카테고리별 로직
+
+back/
 └── data/             ← JSON 데이터 파일 (콘텐츠 저장소)
     └── [카테고리] data/
         ├── index.json             ← 항목 목록 인덱스
@@ -342,22 +343,23 @@ War Archive/
     │   ├── [카테고리] style/                 ← 카테고리별 CSS
     │   └── Image/                            ← 공통 이미지
     │
-    ├── tech/                                 ← JavaScript 로직
-    │   ├── main_tech.js                      ← 메인 페이지 JS
-    │   ├── generate-index.js                 ← index.json 생성기
-    │   ├── information tech.js
-    │   ├── contribution tech.js
-    │   ├── developer information tech.js
-    │   └── [카테고리] tech/                  ← 카테고리별 JS
-    │
-    └── data/                                 ← JSON 데이터
-        ├── war overview data/                ← 18개 전쟁
-        ├── biography of people data/         ← 22명 인물
-        ├── strategy and tactics data/        ← 25개 전략·전술
-        ├── Historical Sources & Documents data/ ← 17개 사료
-        ├── Battlefield Map data/             ← 11개 전투
-        ├── weapons and equipment data/       ← 9개 하위 카테고리
-        └── Undefine facts data/              ← 6개 하위 카테고리
+    └── tech/                                 ← JavaScript 로직
+        ├── main_tech.js                      ← 메인 페이지 JS
+        ├── generate-index.js                 ← index.json 생성기
+        ├── information tech.js
+        ├── contribution tech.js
+        ├── developer information tech.js
+        └── [카테고리] tech/                  ← 카테고리별 JS
+│
+├── back/                                     ← 백엔드 폴더
+│   └── data/                                 ← JSON 데이터
+│       ├── war overview data/                ← 18개 전쟁
+│       ├── biography of people data/         ← 22명 인물
+│       ├── strategy and tactics data/        ← 25개 전략·전술
+│       ├── Historical Sources & Documents data/ ← 17개 사료
+│       ├── Battlefield Map data/             ← 11개 전투
+│       ├── weapons and equipment data/       ← 9개 하위 카테고리
+│       └── Undefine facts data/              ← 6개 하위 카테고리
 ```
 
 ---

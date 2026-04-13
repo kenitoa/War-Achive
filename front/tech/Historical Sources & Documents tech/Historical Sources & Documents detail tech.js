@@ -81,7 +81,7 @@
         // 중복 제거
         var unique = fileNames.filter(function (v, i, a) { return a.indexOf(v) === i; });
         var results = await Promise.all(unique.map(function (name) {
-            return fetch('../../data/Historical Sources & Documents data/' + encodeURIComponent(name) + '.json')
+            return fetch('../../../back/data/Historical Sources & Documents data/' + encodeURIComponent(name) + '.json')
                 .then(function (res) { return res.ok ? res.json() : null; })
                 .catch(function () { return null; });
         }));
@@ -133,7 +133,7 @@
             await buildDocsIndex();
 
             var fileName = docFileMap[docId];
-            var res = await fetch('../../data/Historical Sources & Documents data/' + encodeURIComponent(fileName) + '.json');
+            var res = await fetch('../../../back/data/Historical Sources & Documents data/' + encodeURIComponent(fileName) + '.json');
             if (!res.ok) { showError(); return; }
 
             var doc = await res.json();

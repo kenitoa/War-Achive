@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // ── Load JSON Data ──
   Promise.all(
     personFiles.map(name =>
-      fetch('../../data/biography of people data/' + encodeURIComponent(name) + '.json')
+      fetch('../../../back/data/biography of people data/' + encodeURIComponent(name) + '.json')
         .then(res => res.json())
     )
   )

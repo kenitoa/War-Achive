@@ -99,12 +99,12 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   const indexUrls = {
-    war:     '../data/war overview data/index.json',
-    bio:     '../data/biography of people data/index.json',
-    weapons: '../data/weapons and equipment data/index.json',
-    tactics: '../data/strategy and tactics data/index.json',
-    docs:    '../data/Historical Sources & Documents data/index.json',
-    battle:  '../data/Battlefield Map data/index.json'
+    war:     '../../back/data/war overview data/index.json',
+    bio:     '../../back/data/biography of people data/index.json',
+    weapons: '../../back/data/weapons and equipment data/index.json',
+    tactics: '../../back/data/strategy and tactics data/index.json',
+    docs:    '../../back/data/Historical Sources & Documents data/index.json',
+    battle:  '../../back/data/Battlefield Map data/index.json'
   };
 
   Promise.all([

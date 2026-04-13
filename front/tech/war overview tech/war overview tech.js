@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // ── Load JSON Data ──
   Promise.all(
     warFiles.map(name =>
-      fetch('../../data/war overview data/' + encodeURIComponent(name) + '.json')
+      fetch('../../../back/data/war overview data/' + encodeURIComponent(name) + '.json')
         .then(res => res.json())
     )
   )

@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   };
 
   // ── Fetch data ──
-  const DATA_BASE = '../../data/Undefine facts data';
+  const DATA_BASE = '../../../back/data/Undefine facts data';
   let data;
 
   try {

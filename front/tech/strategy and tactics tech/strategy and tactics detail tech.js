@@ -53,7 +53,7 @@
     try {
       const responses = await Promise.all(
         strategyFiles.map(name =>
-          fetch('../../data/strategy and tactics data/' + encodeURIComponent(name) + '.json')
+          fetch('../../../back/data/strategy and tactics data/' + encodeURIComponent(name) + '.json')
             .then(res => res.ok ? res.json() : null)
             .catch(() => null)
         )

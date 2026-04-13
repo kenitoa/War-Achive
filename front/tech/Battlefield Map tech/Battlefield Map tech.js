@@ -168,7 +168,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // ── Load JSON Data ──
   Promise.all(
     mapFiles.map(name =>
-      fetch('../../data/Battlefield Map data/' + encodeURIComponent(name) + '.json')
+      fetch('../../../back/data/Battlefield Map data/' + encodeURIComponent(name) + '.json')
         .then(res => {
           if (!res.ok) throw new Error('File not found: ' + name);
           return res.json();

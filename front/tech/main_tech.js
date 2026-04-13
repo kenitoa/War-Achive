@@ -90,12 +90,12 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   var indexUrls = {
-    war:     '../data/war overview data/index.json',
-    bio:     '../data/biography of people data/index.json',
-    weapons: '../data/weapons and equipment data/index.json',
-    tactics: '../data/strategy and tactics data/index.json',
-    docs:    '../data/Historical Sources & Documents data/index.json',
-    battle:  '../data/Battlefield Map data/index.json'
+    war:     '../../back/data/war overview data/index.json',
+    bio:     '../../back/data/biography of people data/index.json',
+    weapons: '../../back/data/weapons and equipment data/index.json',
+    tactics: '../../back/data/strategy and tactics data/index.json',
+    docs:    '../../back/data/Historical Sources & Documents data/index.json',
+    battle:  '../../back/data/Battlefield Map data/index.json'
   };
 
   Promise.all([
@@ -132,7 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // ── War Overview 카드 건수 동적 로드 ──
   const countEl = document.getElementById('warOverviewCount');
   if (countEl) {
-    fetch('../data/war overview data/index.json')
+    fetch('../../back/data/war overview data/index.json')
       .then(r => r.json())
       .then(list => { countEl.textContent = `${list.length}건의 기록`; })
       .catch(() => { countEl.textContent = '기록 로드 실패'; });
@@ -157,11 +157,11 @@ document.addEventListener('DOMContentLoaded', () => {
       return str.replace(/\s*–\s*/g, '–').replace(/\s*-\s*/g, '–');
     }
 
-    var warOverviewIndex = fetch('../data/war overview data/index.json')
+    var warOverviewIndex = fetch('../../back/data/war overview data/index.json')
       .then(function (r) { return r.json(); })
       .then(function (fileList) {
         return Promise.all(fileList.map(function (f) {
-          return fetch('../data/war overview data/' + encodeURIComponent(f) + '.json')
+          return fetch('../../back/data/war overview data/' + encodeURIComponent(f) + '.json')
             .then(function (r) { return r.json(); })
             .then(function (d) {
               return { source: 'war-overview', name: d.name, period: d.period, summary: d.summary, id: d.id };
@@ -171,11 +171,11 @@ document.addEventListener('DOMContentLoaded', () => {
       })
       .catch(function () { return []; });
 
-    var battlefieldIndex = fetch('../data/Battlefield Map data/index.json')
+    var battlefieldIndex = fetch('../../back/data/Battlefield Map data/index.json')
       .then(function (r) { return r.json(); })
       .then(function (fileList) {
         return Promise.all(fileList.map(function (f) {
-          return fetch('../data/Battlefield Map data/' + encodeURIComponent(f) + '.json')
+          return fetch('../../back/data/Battlefield Map data/' + encodeURIComponent(f) + '.json')
             .then(function (r) { return r.json(); })
             .then(function (d) {
               return { source: 'battlefield', name: d.titleKr, period: d.date, summary: d.description, id: d.id };
@@ -229,7 +229,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // ── Biography 카드 건수 동적 로드 ──
   var bioCountEl = document.getElementById('biographyCount');
   if (bioCountEl) {
-    fetch('../data/biography of people data/index.json')
+    fetch('../../back/data/biography of people data/index.json')
       .then(r => r.json())
       .then(list => { bioCountEl.textContent = list.length + '명 수록'; })
       .catch(() => { bioCountEl.textContent = '로드 실패'; });
@@ -238,7 +238,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // ── Weapons & Equipment 카드 건수 동적 로드 ──
   var weaponsCountEl = document.getElementById('weaponsCount');
   if (weaponsCountEl) {
-    fetch('../data/weapons and equipment data/index.json')
+    fetch('../../back/data/weapons and equipment data/index.json')
       .then(function (r) { return r.json(); })
       .then(function (obj) {
         var count = Object.values(obj).reduce(function (s, arr) { return s + arr.length; }, 0);
@@ -251,7 +251,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // ── Historical Sources & Documents 카드 건수 동적 로드 ──
   var hsCountEl = document.getElementById('historicalSourcesCount');
   if (hsCountEl) {
-    fetch('../data/Historical Sources & Documents data/index.json')
+    fetch('../../back/data/Historical Sources & Documents data/index.json')
       .then(function (r) { return r.json(); })
       .then(function (list) {
         hsCountEl.textContent = list.length + '건의 기록';
@@ -263,7 +263,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // ── Battlefield Map 카드 건수 동적 로드 ──
   var bmCountEl = document.getElementById('battlefieldMapCount');
   if (bmCountEl) {
-    fetch('../data/Battlefield Map data/index.json')
+    fetch('../../back/data/Battlefield Map data/index.json')
       .then(function (r) { return r.json(); })
       .then(function (list) {
         bmCountEl.textContent = list.length + '건의 기록';
@@ -322,7 +322,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     searchIndexLoading = true;
 
-    var basePath = '../data/';
+    var basePath = '../../back/data/';
 
     // 1) 인물 (Biography)
     var bioPromise = fetch(basePath + 'biography of people data/index.json')

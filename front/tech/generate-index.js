@@ -5,11 +5,11 @@ const root = path.join(__dirname, '..');
 
 // ── 일반 폴더: 폴더 내 .json 파일 목록으로 index.json 생성 ──
 const flatTargets = [
-  'data/war overview data',
-  'data/Battlefield Map data',
-  'data/biography of people data',
-  'data/Historical Sources & Documents data',
-  'data/strategy and tactics data'
+  '../back/data/war overview data',
+  '../back/data/Battlefield Map data',
+  '../back/data/biography of people data',
+  '../back/data/Historical Sources & Documents data',
+  '../back/data/strategy and tactics data'
 ];
 
 function generateFlatIndex() {
@@ -32,11 +32,11 @@ function generateFlatIndex() {
 }
 
 // ── 무기 & 장비: 하위 카테고리 폴더별로 수집 후 단일 index.json 생성 ──
-const weaponsDir = path.join(root, 'data/weapons and equipment data');
+const weaponsDir = path.join(root, '../back/data/weapons and equipment data');
 
 function generateWeaponsIndex() {
   if (!fs.existsSync(weaponsDir)) {
-    console.warn('[SKIP] 폴더 없음: data/weapons and equipment data');
+    console.warn('[SKIP] 폴더 없음: back/data/weapons and equipment data');
     return;
   }
 
@@ -58,7 +58,7 @@ function generateWeaponsIndex() {
   const indexPath = path.join(weaponsDir, 'index.json');
   fs.writeFileSync(indexPath, JSON.stringify(index, null, 2) + '\n', 'utf-8');
   const total = Object.values(index).reduce((s, arr) => s + arr.length, 0);
-  console.log(`[OK] data/weapons and equipment data/index.json — ${total}건 (${subDirs.length} 카테고리)`);
+  console.log(`[OK] back/data/weapons and equipment data/index.json — ${total}건 (${subDirs.length} 카테고리)`);
 }
 
 // ── 전체 인덱스 생성 ──

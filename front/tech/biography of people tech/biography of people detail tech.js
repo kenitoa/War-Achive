@@ -83,7 +83,7 @@
 
         try {
             var fileName = personFileMap[personId];
-            var res = await fetch('../../data/biography of people data/' + encodeURIComponent(fileName) + '.json');
+            var res = await fetch('../../../back/data/biography of people data/' + encodeURIComponent(fileName) + '.json');
             if (!res.ok) { showError(); return; }
 
             var person = await res.json();

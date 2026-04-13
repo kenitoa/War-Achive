@@ -97,7 +97,7 @@
 
     Promise.all(
       mapFiles.map(function (name) {
-        return fetch('../../data/Battlefield Map data/' + encodeURIComponent(name) + '.json')
+        return fetch('../../../back/data/Battlefield Map data/' + encodeURIComponent(name) + '.json')
           .then(function (res) { return res.ok ? res.json() : null; })
           .catch(function () { return null; });
       })

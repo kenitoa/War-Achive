@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // ── Load JSON Data ──
   Promise.all(
     strategyFiles.map(name =>
-      fetch('../../data/strategy and tactics data/' + encodeURIComponent(name) + '.json')
+      fetch('../../../back/data/strategy and tactics data/' + encodeURIComponent(name) + '.json')
         .then(res => {
           if (!res.ok) throw new Error('File not found: ' + name);
           return res.json();

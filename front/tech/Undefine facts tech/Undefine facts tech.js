@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ── Bookshelf Inline Popup (3x3 grid) ──
-  const DATA_BASE = '../../data/Undefine facts data';
+  const DATA_BASE = '../../../back/data/Undefine facts data';
   const ITEMS_PER_PAGE = 9; // 3x3 grid
 
   // Per-book state
@@ -269,7 +269,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ── Status Board — 자료 현황 동적 렌더링 ──
-  const STATUS_BASE = '../../data/Undefine facts data/Data status';
+  const STATUS_BASE = '../../../back/data/Undefine facts data/Data status';
   const STATUS_CYCLE = ['대기', '검토 중', '검증 중', '완료'];
   const STATUS_CLASS = {
     '대기': 'tag-waiting',

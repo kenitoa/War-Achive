@@ -124,7 +124,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }).catch(() => 0);
   }
 
-  const basePath = '../data/';
+  const basePath = '../../back/data/';
 
   Promise.all([
     fetchFlatIndex(basePath + 'war overview data/index.json'),

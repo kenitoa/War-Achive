@@ -119,7 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // ── Load JSON Data ──
   Promise.all(
     docFiles.map(name =>
-      fetch('../../data/Historical Sources & Documents data/' + encodeURIComponent(name) + '.json')
+      fetch('../../../back/data/Historical Sources & Documents data/' + encodeURIComponent(name) + '.json')
         .then(res => {
           if (!res.ok) throw new Error('File not found: ' + name);
           return res.json();
@@ -134,7 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
     })
     .catch(err => {
       console.error('데이터 로드 실패:', err);
-      shelfView.innerHTML = '<p style="color:var(--text-muted);text-align:center;padding:3rem;">데이터를 불러올 수 없습니다. data/Historical Sources & Documents data/ 폴더에 JSON 파일을 추가해 주세요.</p>';
+      shelfView.innerHTML = '<p style="color:var(--text-muted);text-align:center;padding:3rem;">데이터를 불러올 수 없습니다. back/data/Historical Sources & Documents data/ 폴더에 JSON 파일을 추가해 주세요.</p>';
     });
 
   // ── Update Page Stats ──

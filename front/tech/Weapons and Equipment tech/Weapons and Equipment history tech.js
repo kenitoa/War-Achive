@@ -69,7 +69,7 @@
 
         Object.keys(categoryInfo).forEach(function (cat) {
             categoryInfo[cat].files.forEach(function (file) {
-                var path = '../../data/weapons and equipment data/' + cat + '/' + file + '.json';
+                var path = '../../../back/data/weapons and equipment data/' + cat + '/' + file + '.json';
                 promises.push(
                     fetch(path)
                         .then(function (res) {

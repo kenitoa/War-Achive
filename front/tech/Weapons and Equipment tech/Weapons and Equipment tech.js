@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const promises = [];
     Object.keys(categoryInfo).forEach(cat => {
       categoryInfo[cat].files.forEach(file => {
-        const path = '../../data/weapons and equipment data/' + cat + '/' + file + '.json';
+        const path = '../../../back/data/weapons and equipment data/' + cat + '/' + file + '.json';
         promises.push(
           fetch(path)
             .then(res => res.ok ? res.json() : null)

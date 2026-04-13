@@ -87,7 +87,7 @@
         if (!info) return Promise.reject(new Error('Unknown category'));
 
         var promises = info.files.map(function (file) {
-            var path = '../../data/weapons and equipment data/' + category + '/' + file + '.json';
+            var path = '../../../back/data/weapons and equipment data/' + category + '/' + file + '.json';
             return fetch(path)
                 .then(function (res) {
                     if (!res.ok) throw new Error('Not found: ' + file);
