@@ -59,7 +59,6 @@
     var topbar = document.createElement('div');
     topbar.className = 'ar-hud-topbar';
     topbar.innerHTML =
-      '<div class="hud-indicator"><span class="hud-dot"></span> AR DETAIL</div>' +
       '<div class="hud-indicator"><span class="hud-dot amber"></span> ARCHIVE</div>' +
       '<div class="hud-indicator">SYS:ONLINE</div>' +
       '<div class="hud-indicator" id="hudDetailTime"></div>';

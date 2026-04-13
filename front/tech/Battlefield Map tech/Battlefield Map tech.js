@@ -113,7 +113,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const topbar = document.createElement('div');
     topbar.className = 'ar-hud-topbar';
     topbar.innerHTML = `
-      <div class="hud-indicator"><span class="hud-dot"></span> AR MODE</div>
       <div class="hud-indicator"><span class="hud-dot amber"></span> <span id="hudBattleCount">0</span> TARGETS</div>
       <div class="hud-indicator">SYS:ONLINE</div>
       <div class="hud-indicator" id="hudTimestamp"></div>
