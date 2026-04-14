@@ -2,6 +2,44 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
+  // ── Login State Management ──
+  const loginBtn = document.getElementById('loginBtn');
+  const userMenu = document.getElementById('userMenu');
+  const userMenuToggle = document.getElementById('userMenuToggle');
+  const userMenuName = document.getElementById('userMenuName');
+  const userDropdown = document.getElementById('userDropdown');
+  const logoutBtn = document.getElementById('logoutBtn');
+
+  const currentUser = sessionStorage.getItem('warArchiveCurrentUser');
+  if (currentUser) {
+    const user = JSON.parse(currentUser);
+    if (loginBtn) loginBtn.style.display = 'none';
+    if (userMenu) {
+      userMenu.style.display = 'block';
+      if (userMenuName) userMenuName.textContent = user.username || user.email;
+    }
+  }
+
+  if (userMenuToggle && userDropdown) {
+    userMenuToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      userDropdown.classList.toggle('open');
+    });
+    document.addEventListener('click', () => {
+      userDropdown.classList.remove('open');
+    });
+    userDropdown.addEventListener('click', (e) => {
+      e.stopPropagation();
+    });
+  }
+
+  if (logoutBtn) {
+    logoutBtn.addEventListener('click', () => {
+      sessionStorage.removeItem('warArchiveCurrentUser');
+      window.location.reload();
+    });
+  }
+
   // ── Mobile Menu Toggle ──
   const menuToggle = document.querySelector('.menu-toggle');
   const navLinks = document.querySelector('.nav-links');

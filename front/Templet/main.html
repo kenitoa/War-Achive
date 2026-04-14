@@ -23,6 +23,29 @@
         <a href="#project">프로젝트</a>
       </nav>
 
+      <!-- 로그인 전: 로그인 아이콘 -->
+      <a href="log in.html" class="login-btn" id="loginBtn" aria-label="로그인">
+        <svg class="login-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="22" height="22">
+          <circle cx="12" cy="8" r="4"/>
+          <path d="M4 21v-1a6 6 0 0 1 12 0v1"/>
+        </svg>
+      </a>
+
+      <!-- 로그인 후: 사용자 메뉴 -->
+      <div class="user-menu" id="userMenu" style="display: none;">
+        <button class="user-menu-toggle" id="userMenuToggle" aria-label="사용자 메뉴">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="22" height="22">
+            <circle cx="12" cy="8" r="4"/>
+            <path d="M4 21v-1a6 6 0 0 1 12 0v1"/>
+          </svg>
+          <span class="user-menu-name" id="userMenuName"></span>
+        </button>
+        <div class="user-dropdown" id="userDropdown">
+          <a href="my account.html" class="user-dropdown-item">My Account</a>
+          <button class="user-dropdown-item" id="logoutBtn">Log Out</button>
+        </div>
+      </div>
+
       <button class="menu-toggle" aria-label="메뉴 열기">
         <span></span>
         <span></span>
