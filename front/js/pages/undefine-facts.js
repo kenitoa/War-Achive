@@ -374,9 +374,23 @@ document.addEventListener('DOMContentLoaded', () => {
       statusBoard.appendChild(row);
     });
 
-    // Status toggle click handlers
+    // Status toggle click handlers (admin 전용)
     statusBoard.querySelectorAll('.status-toggle-btn').forEach(btn => {
       btn.addEventListener('click', () => {
+        // admin 권한 확인
+        const sessionUser = sessionStorage.getItem('warArchiveCurrentUser');
+        if (!sessionUser) {
+          alert('로그인이 필요합니다.');
+          return;
+        }
+        const currentUserData = JSON.parse(sessionUser);
+        const allUsers = JSON.parse(localStorage.getItem('warArchiveUsers') || '[]');
+        const userRecord = allUsers.find(u => u.email === currentUserData.email);
+        if (!userRecord || userRecord.role !== 'admin') {
+          alert('관리자 권한이 필요합니다.');
+          return;
+        }
+
         const current = btn.dataset.status;
         const idx = STATUS_CYCLE.indexOf(current);
         const next = STATUS_CYCLE[(idx + 1) % STATUS_CYCLE.length];
