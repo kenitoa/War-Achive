@@ -2,7 +2,6 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
-<<<<<<< Updated upstream:front/js/main.js
   // ── Login Modal ──
   const loginModal = document.getElementById('loginModal');
   const navLoginBtn = document.getElementById('navLoginBtn');
@@ -126,42 +125,10 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!navUserWrap.contains(e.target)) {
         navUserWrap.classList.remove('open');
       }
-=======
-  // ── 로그인 상태 확인 & 헤더 UI 전환 ──
-  const loginBtn = document.getElementById('loginBtn');
-  const userMenu = document.getElementById('userMenu');
-  const userMenuToggle = document.getElementById('userMenuToggle');
-  const userMenuName = document.getElementById('userMenuName');
-  const userDropdown = document.getElementById('userDropdown');
-  const logoutBtn = document.getElementById('logoutBtn');
-
-  const currentUser = sessionStorage.getItem('warArchiveCurrentUser');
-  if (currentUser && loginBtn && userMenu) {
-    const user = JSON.parse(currentUser);
-    loginBtn.style.display = 'none';
-    userMenu.style.display = 'block';
-    userMenuName.textContent = user.username || user.email;
-  }
-
-  // 드롭다운 토글
-  if (userMenuToggle && userDropdown) {
-    userMenuToggle.addEventListener('click', (e) => {
-      e.stopPropagation();
-      userDropdown.classList.toggle('open');
-    });
-
-    document.addEventListener('click', () => {
-      userDropdown.classList.remove('open');
-    });
-
-    userDropdown.addEventListener('click', (e) => {
-      e.stopPropagation();
->>>>>>> Stashed changes:front/tech/main_tech.js
     });
   }
 
   // 로그아웃
-<<<<<<< Updated upstream:front/js/main.js
   if (navLogoutBtn) {
     navLogoutBtn.addEventListener('click', () => {
       localStorage.removeItem('accessToken');
@@ -170,12 +137,6 @@ document.addEventListener('DOMContentLoaded', () => {
       navLoginBtn.textContent = '로그인';
       navLoginBtn.classList.remove('logged-in');
       navUserWrap.classList.remove('open');
-=======
-  if (logoutBtn) {
-    logoutBtn.addEventListener('click', () => {
-      sessionStorage.removeItem('warArchiveCurrentUser');
-      window.location.reload();
->>>>>>> Stashed changes:front/tech/main_tech.js
     });
   }
 
