@@ -1,0 +1,171 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>전쟁 개요 — War Archive</title>
+  <link rel="stylesheet" href="../../css/pages/war-overview.css">
+</head>
+<body>
+
+  <!-- ── Header ── -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="../main.html" class="logo">
+        <div class="logo-icon">&#9876;</div>
+        <span class="logo-text">War Archive</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="../main.html#categories">아카이브</a>
+        <a href="../main.html#timeline">연대기</a>
+        <a href="../main.html#featured">주요 기록</a>
+        <a href="../main.html#search">검색</a>
+      </nav>
+
+      <button class="menu-toggle" aria-label="메뉴 열기">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ── Page Hero ── -->
+  <section class="page-hero">
+    <div class="page-hero-content">
+      <nav class="breadcrumb">
+        <a href="../main.html">홈</a>
+        <span class="sep">/</span>
+        <a href="../main.html#categories">아카이브</a>
+        <span class="sep">/</span>
+        <span class="current">전쟁 개요</span>
+      </nav>
+      <h1 class="page-title">&#9876; 전쟁 개요</h1>
+      <p class="page-subtitle">고대부터 현대까지, 인류 역사를 바꾼 주요 전쟁들의 원인·경과·결과를 종합적으로 정리합니다.</p>
+      <div class="page-stats">
+        <div class="page-stat"><strong id="statRecords">0</strong>건의 기록</div>
+        <div class="page-stat"><strong>6</strong>개 시대 분류</div>
+        <div class="page-stat"><strong id="statCountries">0</strong>개국 관련</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Filter Bar ── -->
+  <section class="filter-bar">
+    <div class="filter-inner">
+      <div class="filter-search">
+        <input type="text" id="warSearch" placeholder="전쟁명, 국가, 키워드로 검색...">
+        <span class="search-icon">&#128269;</span>
+      </div>
+      <div class="filter-tabs" id="eraTabs">
+        <button class="filter-tab active" data-era="all">전체</button>
+        <button class="filter-tab" data-era="ancient">고대</button>
+        <button class="filter-tab" data-era="medieval">중세</button>
+        <button class="filter-tab" data-era="earlymodern">근세</button>
+        <button class="filter-tab" data-era="modern">근대</button>
+        <button class="filter-tab" data-era="worldwar">세계대전</button>
+        <button class="filter-tab" data-era="contemporary">현대</button>
+      </div>
+      <div class="filter-options">
+        <select id="regionFilter">
+          <option value="all">모든 지역</option>
+          <option value="europe">유럽</option>
+          <option value="asia">아시아</option>
+          <option value="middleeast">중동</option>
+          <option value="americas">아메리카</option>
+          <option value="africa">아프리카</option>
+          <option value="global">전 세계</option>
+        </select>
+        <div class="view-toggle">
+          <button class="view-btn active" data-view="card" title="카드 보기">&#9871;</button>
+          <button class="view-btn" data-view="table" title="표 보기">&#9776;</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── War Listings (Card View) ── -->
+  <main class="war-content">
+    <div class="war-grid" id="warGrid">
+      <!-- JS가 JSON 데이터를 기반으로 자동 생성 -->
+    </div>
+
+    <!-- ── Table View (hidden by default) ── -->
+    <div class="war-table-wrapper" id="warTable" style="display:none;">
+      <table class="war-table">
+        <thead>
+          <tr>
+            <th>시대</th>
+            <th>전쟁명</th>
+            <th>기간</th>
+            <th>교전국</th>
+            <th>지역</th>
+            <th>결과</th>
+          </tr>
+        </thead>
+        <tbody id="warTableBody">
+          <!-- JS가 카드 데이터를 기반으로 자동 생성 -->
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ── Result Count ── -->
+    <div class="result-info">
+      <span id="resultCount">18건의 전쟁 표시 중</span>
+    </div>
+  </main>
+
+  <!-- ── Footer ── -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-about">
+          <a href="../main.html" class="logo">
+            <div class="logo-icon">&#9876;</div>
+            <span class="logo-text">War Archive</span>
+          </a>
+          <p>전쟁에 대한 모든 것들을 보관하는 디지털 아카이브.<br>역사를 기록하고 교훈을 보존합니다.</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>카테고리</h4>
+          <ul>
+            <li><a href="../main.html#categories">전쟁 개요</a></li>
+            <li><a href="../main.html#categories">인물 열전</a></li>
+            <li><a href="../main.html#categories">무기 &amp; 장비</a></li>
+            <li><a href="../main.html#categories">전략 &amp; 전술</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>자료</h4>
+          <ul>
+            <li><a href="../main.html#categories">사료 &amp; 문서</a></li>
+            <li><a href="../main.html#categories">전장 지도</a></li>
+            <li><a href="../main.html#timeline">연대기</a></li>
+            <li><a href="../main.html#featured">주요 기록</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>프로젝트</h4>
+          <ul>
+            <li><a href="#">소개</a></li>
+            <li><a href="#">기여하기</a></li>
+            <li><a href="#">이용약관</a></li>
+            <li><a href="#">연락처</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 War Archive. All rights reserved.</p>
+        <p>역사를 기억하는 것은 미래를 지키는 일입니다.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../js/pages/war-overview.js"></script>
+</body>
+</html>

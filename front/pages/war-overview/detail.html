@@ -1,0 +1,184 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>전쟁 상세 — War Archive</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/pages/war-overview-detail.css">
+</head>
+<body>
+    <!-- 헤더 -->
+    <header class="header">
+        <div class="header-inner">
+            <a href="../main.html" class="logo">
+                <span class="logo-icon">⚔</span>
+                <span class="logo-text">WAR ARCHIVE</span>
+            </a>
+            <nav class="nav">
+                <a href="../main.html">홈</a>
+                <a href="war overview.html">전쟁 개요</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 문헌 본문 -->
+    <main class="document-container" id="documentContainer">
+        <!-- 로딩 상태 -->
+        <div class="loading" id="loading">
+            <div class="loading-spinner"></div>
+            <p>문헌을 불러오는 중...</p>
+        </div>
+
+        <!-- 오류 상태 -->
+        <div class="error-state" id="errorState" style="display:none;">
+            <p class="error-icon">⚠</p>
+            <h2>문헌을 찾을 수 없습니다</h2>
+            <p>요청하신 전쟁 기록이 존재하지 않습니다.</p>
+            <a href="war overview.html" class="back-link">← 전쟁 개요로 돌아가기</a>
+        </div>
+
+        <!-- 문헌 콘텐츠 (JS로 채워짐) -->
+        <article class="document" id="document" style="display:none;">
+            <!-- 문헌 헤더 -->
+            <header class="doc-header">
+                <nav class="breadcrumb">
+                    <a href="../main.html">홈</a>
+                    <span class="sep">›</span>
+                    <a href="war overview.html">전쟁 개요</a>
+                    <span class="sep">›</span>
+                    <span class="current" id="breadcrumbTitle"></span>
+                </nav>
+                <div class="doc-era-badge" id="docEraBadge"></div>
+                <h1 class="doc-title" id="docTitle"></h1>
+                <div class="doc-meta">
+                    <div class="meta-item">
+                        <span class="meta-label">기간</span>
+                        <span class="meta-value" id="docPeriod"></span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">지역</span>
+                        <span class="meta-value" id="docLocation"></span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">교전국</span>
+                        <span class="meta-value" id="docBelligerents"></span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">결과</span>
+                        <span class="meta-value" id="docResult"></span>
+                    </div>
+                </div>
+                <div class="doc-tags" id="docTags"></div>
+            </header>
+
+            <!-- 목차 -->
+            <nav class="table-of-contents" id="toc">
+                <h2 class="toc-title">목 차</h2>
+                <ol class="toc-list" id="tocList"></ol>
+            </nav>
+
+            <div class="doc-divider"></div>
+
+            <!-- 1. 개요 -->
+            <section class="doc-section" id="sectionSummary">
+                <h2 class="section-number">Ⅰ</h2>
+                <h2 class="section-title">개요</h2>
+                <p class="section-body" id="docSummary"></p>
+            </section>
+
+            <!-- 2. 배경 -->
+            <section class="doc-section" id="sectionBackground">
+                <h2 class="section-number">Ⅱ</h2>
+                <h2 class="section-title">배경</h2>
+                <p class="section-body" id="docBackground"></p>
+            </section>
+
+            <!-- 3. 원인 -->
+            <section class="doc-section" id="sectionCauses">
+                <h2 class="section-number">Ⅲ</h2>
+                <h2 class="section-title">전쟁의 원인</h2>
+                <ul class="causes-list" id="docCauses"></ul>
+            </section>
+
+            <!-- 4. 전쟁 경과 -->
+            <section class="doc-section" id="sectionPhases">
+                <h2 class="section-number">Ⅳ</h2>
+                <h2 class="section-title">전쟁 경과</h2>
+                <div class="phases-timeline" id="docPhases"></div>
+            </section>
+
+            <!-- 5. 주요 전투 -->
+            <section class="doc-section" id="sectionBattles">
+                <h2 class="section-number">Ⅴ</h2>
+                <h2 class="section-title">주요 전투</h2>
+                <div class="battles-grid" id="docBattles"></div>
+            </section>
+
+            <!-- 6. 주요 인물 -->
+            <section class="doc-section" id="sectionFigures">
+                <h2 class="section-number">Ⅵ</h2>
+                <h2 class="section-title">주요 인물</h2>
+                <div class="figures-grid" id="docFigures"></div>
+            </section>
+
+            <!-- 7. 피해 규모 -->
+            <section class="doc-section" id="sectionCasualties">
+                <h2 class="section-number">Ⅶ</h2>
+                <h2 class="section-title">피해 규모</h2>
+                <div class="casualties-box" id="docCasualties"></div>
+            </section>
+
+            <!-- 8. 결과 및 영향 -->
+            <section class="doc-section" id="sectionAftermath">
+                <h2 class="section-number">Ⅷ</h2>
+                <h2 class="section-title">결과 및 영향</h2>
+                <p class="section-body" id="docAftermath"></p>
+            </section>
+
+            <!-- 9. 역사적 의의 -->
+            <section class="doc-section" id="sectionSignificance">
+                <h2 class="section-number">Ⅸ</h2>
+                <h2 class="section-title">역사적 의의</h2>
+                <p class="section-body significance-text" id="docSignificance"></p>
+            </section>
+
+            <!-- 10. 참고 자료 -->
+            <section class="doc-section" id="sectionReferences">
+                <h2 class="section-number">Ⅹ</h2>
+                <h2 class="section-title">참고 자료</h2>
+                <ol class="references-list" id="docReferences"></ol>
+            </section>
+
+            <div class="doc-divider"></div>
+
+            <!-- 문서 하단 -->
+            <footer class="doc-footer">
+                <p class="doc-footer-text">본 문헌은 역사적 기록을 정리한 자료이며, 학술적 목적으로 참고하시기 바랍니다.</p>
+                <a href="war overview.html" class="back-link">← 전쟁 개요 목록으로 돌아가기</a>
+            </footer>
+        </article>
+    </main>
+
+    <!-- 사이드 목차 (스크롤 시 고정) -->
+    <aside class="side-toc" id="sideToc">
+        <h3 class="side-toc-title">목차</h3>
+        <ol class="side-toc-list" id="sideTocList"></ol>
+    </aside>
+
+    <!-- 페이지 푸터 -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-logo">
+                <span class="logo-icon">⚔</span>
+                <span>WAR ARCHIVE</span>
+            </div>
+            <p class="footer-copy">&copy; 2025 War Archive. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../../js/pages/war-overview-detail.js"></script>
+</body>
+</html>

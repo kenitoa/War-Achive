@@ -1,0 +1,56 @@
+{
+  "id": "battle-of-midway",
+  "title": "Battle of Midway",
+  "titleKr": "미드웨이 해전",
+  "era": "worldwar",
+  "theater": "pacific",
+  "date": "1942년 6월 4일 – 7일",
+  "location": "태평양 미드웨이 환초",
+  "commanders": ["체스터 니미츠, 레이먼드 스프루언스", "야마모토 이소로쿠, 나구모 주이치"],
+  "forces": ["미군: 항공모함 3척, 함재기 약 360대", "일본: 항공모함 4척, 함재기 약 260대"],
+  "casualties": ["미군: 항공모함 1척(요크타운), 항공기 약 150대, 전사 307명", "일본: 항공모함 4척, 중순양함 1척, 항공기 약 290대, 전사 약 3,000명"],
+  "result": "미국 대승, 일본 항공모함 4척 격침",
+  "description": "태평양 전쟁의 전환점. 미국이 암호 해독으로 일본의 공격 계획을 사전에 파악하고, 항공모함 기반의 급강하 폭격으로 일본 기동부대를 격멸한 해전.",
+  "keywords": ["항공모함 전투", "해양 지형", "기습 공격", "정보 우위", "태평양 섬"],
+  "terrain": "광활한 태평양 해역, 미드웨이 환초 주변 해역",
+  "strategicSignificance": "태평양에서의 해양 지형과 정보 우위가 결합된 전환점적 해전.",
+  "infoBox": {
+    "type": "항공모함 해전",
+    "theater": "태평양 전쟁 (제2차 세계대전)",
+    "duration": "4일 (1942년 6월 4~7일)",
+    "terrain": "광활한 태평양 해역, 미드웨이 환초",
+    "keyWeapon": "항공모함 함재기(SBD 돈틀리스 급강하 폭격기), 암호 해독",
+    "outcome": "일본 기동부대 궤멸, 태평양 전쟁의 전환점",
+    "legacy": "정보전의 결정적 승리, 항공모함 시대의 상징"
+  },
+  "sections": [
+    {
+      "title": "전투 배경",
+      "content": "1942년 초, 진주만 공격 이후 일본 해군은 태평양을 지배하고 있었다. 야마모토 이소로쿠 연합함대 사령관은 미드웨이 환초를 점령하여 하와이에 대한 위협을 강화하고, 미 태평양 함대의 잔존 항공모함을 유인 격멸하려 했다.\n\n그러나 미 해군 정보부(OP-20-G)의 조셉 로슈포르 중령 팀이 일본 해군 암호(JN-25)를 해독하여, 공격 목표가 '미드웨이(AF)'임을 확인했다. 니미츠 제독은 이 정보를 바탕으로 미드웨이 북동쪽에 항공모함 전력을 매복시켰다."
+    },
+    {
+      "title": "지형 분석",
+      "content": "미드웨이 해전의 전장은 전통적 의미의 '지형'이 없는 대양 해역이었으나, 독특한 전장 요소가 있었다:\n\n• 미드웨이 환초: 이스턴 섬과 샌드 섬으로 구성된 소규모 환초. 미국의 전진 공군 기지로 활용.\n• 광활한 해역: 수백 km에 걸친 열린 대양. 항공 정찰의 범위가 승패를 좌우.\n• 시야의 제한: 구름, 안개, 수평선의 한계로 적 함대 발견이 최대 과제.\n• '전장의 안개': 넓은 해역에서 양측 모두 상대의 정확한 위치를 실시간으로 파악하기 어려웠다.\n\n이 전투에서 '지형'의 역할을 대신한 것은 '정보'였다. 암호 해독이라는 정보 우위가 물리적 지형의 이점을 능가했다."
+    },
+    {
+      "title": "결정적 5분",
+      "content": "1942년 6월 4일 오전, 일본 기동부대는 미드웨이에 대한 항공 공격을 실시하면서 동시에 미 함대를 수색했다.\n\n나구모 제독은 치명적 딜레마에 빠졌다. 미드웨이 2차 공격을 위해 폭장을 교체하던 중, 미 항공모함 발견 보고를 받았다. 급히 뇌장으로 재교체를 명령했으나, 이 교체 작업 중에 갑판에 폭탄과 어뢰가 노출된 상태였다.\n\n오전 10시 22분~10시 28분, 불과 5분 사이에 전쟁의 판도가 뒤집혔다:\n\n• 미군 뇌격기대(VT-8 등)의 저공 공격이 먼저 일본 전투기를 해면으로 유인.\n• 그 틈을 타 SBD 돈틀리스 급강하 폭격기대가 상공에서 급강하 폭격.\n• 아카기, 카가, 소류 세 항공모함이 5분 만에 치명적 피격. 갑판의 폭탄·연료가 유폭.\n• 히류가 반격에 나서 요크타운을 대파시켰으나, 오후에 역시 급강하 폭격으로 격침.\n\n일본은 하루 만에 4척의 정규 항공모함과 숙련된 조종사 수백 명을 잃었다."
+    },
+    {
+      "title": "전략적 의의",
+      "content": "미드웨이 해전은 태평양 전쟁의 결정적 전환점이었다:\n\n• 공세 전환: 일본의 태평양 확장이 완전히 중단. 미국이 반격의 주도권 확보.\n• 항공모함 전력 격차: 일본은 4척의 정규 항공모함과 숙련 조종사를 잃어 회복 불가능한 타격.\n• 정보전의 승리: 암호 해독에 의한 정보 우위가 수적·전술적 열세를 역전시킨 전형적 사례.\n• 항공모함 시대: 함대 결전이 함포 사격이 아닌 항공기에 의해 결정되는 새 시대의 확인.\n• 5분의 교훈: 전쟁에서 우연과 타이밍의 결정적 중요성."
+    },
+    {
+      "title": "참고 문헌",
+      "content": "• Parshall, Jonathan & Tully, Anthony. 『Shattered Sword: The Untold Story of the Battle of Midway』. Potomac Books, 2005.\n• Symonds, Craig L. 『The Battle of Midway』. Oxford University Press, 2011.\n• Prange, Gordon W. 『Miracle at Midway』. McGraw-Hill, 1982.\n• Fuchida, Mitsuo & Okumiya, Masatake. 『Midway: The Battle That Doomed Japan』. Naval Institute Press, 1955."
+    }
+  ],
+  "images": [
+    {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/SBD-3_Dauntless_bombers_of_VS-8_over_the_burning_Japanese_cruiser_Mikuma_on_6_June_1942.jpg/960px-SBD-3_Dauntless_bombers_of_VS-8_over_the_burning_Japanese_cruiser_Mikuma_on_6_June_1942.jpg",
+      "caption": "미드웨이 해전 – SBD 돈틀리스 급강하 폭격기가 일본 함선을 공격하는 장면",
+      "source": "U.S. Navy / Wikimedia Commons"
+    }
+  ],
+  "relatedBattles": ["battle-of-hansando", "normandy-landings"]
+}

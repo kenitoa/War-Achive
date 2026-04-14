@@ -65,28 +65,33 @@
 └──────────────────────────────────────────────────────────────────┘
 ```
 
-### 3계층 아키텍처 (Templet / Style / Tech)
+### 3계층 아키텍처 (pages / css / js)
 
 ```
 front/
-├── Templet/          ← HTML 템플릿 (구조 & 콘텐츠)
-│   ├── main.html                  ← 메인 진입점
+├── index.html        ← 메인 진입점
+├── pages/            ← HTML 페이지 (구조 & 콘텐츠)
 │   ├── information.html           ← 프로젝트 소개
 │   ├── contribution.html          ← 기여 가이드
-│   ├── developer information.html ← 개발자 정보
+│   ├── developer-information.html ← 개발자 정보
 │   └── [카테고리]/
-│       ├── [카테고리].html        ← 목록 페이지
-│       └── [카테고리] detail.html ← 상세 페이지
+│       ├── index.html             ← 목록 페이지
+│       └── detail.html            ← 상세 페이지
 │
-├── Style/            ← CSS 스타일시트 (디자인 & 레이아웃)
-│   ├── main_style.css             ← 메인 페이지 스타일
-│   ├── [카테고리] style/          ← 카테고리별 스타일
-│   └── Image/                     ← 이미지 에셋
+├── css/              ← CSS 스타일시트 (디자인 & 레이아웃)
+│   ├── main.css                   ← 메인 페이지 스타일
+│   ├── common.css                 ← 공통 스타일
+│   └── pages/                     ← 페이지별 스타일
 │
-└── tech/             ← JavaScript 로직 (동작 & 데이터 처리)
-    ├── main_tech.js               ← 메인 페이지 로직
-    ├── generate-index.js          ← index.json 자동 생성 도구
-    └── [카테고리] tech/           ← 카테고리별 로직
+├── js/               ← JavaScript 로직 (동작 & 데이터 처리)
+│   ├── main.js                    ← 메인 페이지 로직
+│   ├── common.js                  ← 공통 유틸리티
+│   ├── api.js                     ← API 통신
+│   ├── auth.js                    ← 인증 로직
+│   ├── generate-index.js          ← index.json 자동 생성 도구
+│   └── pages/                     ← 페이지별 로직
+│
+└── assets/images/    ← 이미지 에셋
 
 back/
 └── data/             ← JSON 데이터 파일 (콘텐츠 저장소)
@@ -299,57 +304,58 @@ War Archive/
 │
 └── front/
     │
-    ├── Templet/                              ← HTML 페이지
-    │   ├── main.html                         ← 메인 페이지
+    ├── index.html                            ← 메인 페이지
+    ├── dev-server.js                         ← 로컬 개발 서버
+    │
+    ├── pages/                                ← HTML 페이지
     │   ├── information.html                  ← 프로젝트 소개
     │   ├── contribution.html                 ← 기여 가이드
-    │   ├── developer information.html        ← 개발자 정보
+    │   ├── developer-information.html        ← 개발자 정보
     │   │
-    │   ├── war overview/                     ← 전쟁 개요 (18건)
-    │   │   ├── war overview.html
-    │   │   └── war overview detail.html
+    │   ├── war-overview/                     ← 전쟁 개요 (18건)
+    │   │   ├── index.html
+    │   │   └── detail.html
     │   │
-    │   ├── biography of people/              ← 인물 열전 (22명)
-    │   │   ├── biography of people.html
-    │   │   └── biography of people detail.html
+    │   ├── biography-of-people/              ← 인물 열전 (22명)
+    │   │   ├── index.html
+    │   │   └── detail.html
     │   │
-    │   ├── Weapons and Equipment/            ← 무기 & 장비 (9분류)
-    │   │   ├── Weapons and Equipment.html
-    │   │   ├── Weapons and Equipment detail.html
-    │   │   ├── Weapons and Equipment history.html
-    │   │   └── Weapons and Equipment item.html
+    │   ├── weapons-and-equipment/            ← 무기 & 장비 (9분류)
+    │   │   ├── index.html
+    │   │   ├── detail.html
+    │   │   ├── history.html
+    │   │   └── item.html
     │   │
-    │   ├── strategy and tactics/             ← 전략 & 전술 (25건)
-    │   │   ├── strategy and tactics.html
-    │   │   └── strategy and tactics detail.html
+    │   ├── strategy-and-tactics/             ← 전략 & 전술 (25건)
+    │   │   ├── index.html
+    │   │   └── detail.html
     │   │
-    │   ├── Historical Sources & Documents/   ← 사료 & 문서 (17건)
-    │   │   ├── Historical Sources & Documents.html
-    │   │   └── Historical Sources & Documents detail.html
+    │   ├── historical-sources/               ← 사료 & 문서 (17건)
+    │   │   ├── index.html
+    │   │   └── detail.html
     │   │
-    │   ├── Battlefield Map/                  ← 전장 지도 (11건)
-    │   │   ├── Battlefield Map.html
-    │   │   └── Battlefield Map detail.html
+    │   ├── battlefield-map/                  ← 전장 지도 (11건)
+    │   │   ├── index.html
+    │   │   └── detail.html
     │   │
-    │   └── Undefine facts/                   ← 미분류 기록 (18건)
-    │       ├── Undefine facts.html
-    │       └── Undefine detail.html
+    │   └── undefine-facts/                   ← 미분류 기록 (18건)
+    │       ├── index.html
+    │       └── detail.html
     │
-    ├── Style/                                ← CSS 스타일시트
-    │   ├── main_style.css
-    │   ├── information style.css
-    │   ├── contribution style.css
-    │   ├── developer information style.css
-    │   ├── [카테고리] style/                 ← 카테고리별 CSS
-    │   └── Image/                            ← 공통 이미지
+    ├── css/                                  ← CSS 스타일시트
+    │   ├── main.css
+    │   ├── common.css
+    │   └── pages/                            ← 페이지별 CSS
     │
-    └── tech/                                 ← JavaScript 로직
-        ├── main_tech.js                      ← 메인 페이지 JS
-        ├── generate-index.js                 ← index.json 생성기
-        ├── information tech.js
-        ├── contribution tech.js
-        ├── developer information tech.js
-        └── [카테고리] tech/                  ← 카테고리별 JS
+    ├── js/                                   ← JavaScript 로직
+    │   ├── main.js                           ← 메인 페이지 JS
+    │   ├── common.js                         ← 공통 유틸리티
+    │   ├── api.js                            ← API 통신
+    │   ├── auth.js                           ← 인증 로직
+    │   ├── generate-index.js                 ← index.json 생성기
+    │   └── pages/                            ← 페이지별 JS
+    │
+    └── assets/images/                        ← 이미지 에셋
 │
 ├── back/                                     ← 백엔드 폴더
 │   └── data/                                 ← JSON 데이터
@@ -372,23 +378,24 @@ War Archive/
 git clone https://github.com/[username]/War-Archive.git
 
 # 2. 인덱스 파일 생성 (Node.js 필요)
-cd War-Archive/front/tech
+cd War-Archive/front/js
 node generate-index.js
 
-# 3. 로컬 서버 실행 (fetch()를 위해 HTTP 서버 필요)
-cd ../Templet
-# Python 3
-python -m http.server 8000
-# 또는 Node.js
-npx serve .
+# 3. 백엔드 서버 실행
+cd ../../back
+node server.js
 
-# 4. 브라우저에서 접속
-# http://localhost:8000/main.html
+# 4. 프론트 개발 서버 실행 (새 터미널)
+cd ..
+node front/dev-server.js
+
+# 5. 브라우저에서 접속
+# http://localhost:8080
 ```
 
 ### 인덱스 자동 갱신 (개발 시)
 ```bash
-cd front/tech
+cd front/js
 node generate-index.js --watch
 ```
 

@@ -1,0 +1,20 @@
+# SSL 인증서 (절대 커밋 금지)
+nginx/ssl/cert.pem
+nginx/ssl/key.pem
+nginx/ssl/*.pem
+
+# 환경 변수 (시크릿 보호)
+.env
+
+# 운영 데이터 (민감 정보)
+back/data/app/users.json
+back/data/app/refresh-tokens.json
+back/data/app/login-log.json
+
+# Node.js
+node_modules/
+npm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db

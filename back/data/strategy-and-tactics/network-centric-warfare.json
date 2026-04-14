@@ -1,0 +1,70 @@
+{
+  "id": "network-centric-warfare",
+  "title": "Network-Centric Warfare",
+  "titleKr": "네트워크 중심전",
+  "era": "contemporary",
+  "category": "doctrine",
+  "origin": "미국, 1990년대",
+  "period": "1996년 – 현재",
+  "region": "미국 중심, 전 세계 확산",
+  "keyFigure": "아서 케브릭, 데이비드 앨버츠, 도널드 럼즈펠드",
+  "description": "정보 네트워크를 통해 분산된 전력을 실시간으로 연결하고, 정보 우위를 전투력 우위로 전환하는 현대 군사 교리.",
+  "keywords": ["NCW", "RMA", "정보 우위", "C4ISR", "킬체인", "네트워크"],
+  "infoBox": {
+    "type": "군사 교리 / 전쟁 수행 개념",
+    "originNation": "미국",
+    "firstUsed": "1991년 걸프전 (개념적 기원), 2003년 이라크 전쟁 (본격 적용)",
+    "lastUsed": "현재까지 발전 중",
+    "mainWeapon": "정보 네트워크 + 정밀유도무기 + C4ISR",
+    "idealTerrain": "모든 전장 환경",
+    "weakness": "사이버 공격 취약, 과도한 기술 의존, 비대칭전에 부적합"
+  },
+  "sections": [
+    {
+      "title": "개요",
+      "content": "네트워크 중심전(Network-Centric Warfare, NCW)은 정보화 시대의 군사 교리로, 전투 참여 요소들을 정보 네트워크로 연결하여 공유된 상황인식(Shared Situational Awareness)을 달성하고, 이를 통해 전투력을 극대화하는 개념이다.\n\n1996년 아서 케브릭 제독이 처음 제안한 이 개념은, 냉전 종식 후 미국이 추진한 '군사혁명(Revolution in Military Affairs, RMA)'의 핵심 교리가 되었다. NCW의 기본 가설은 '정보 우위 → 의사결정 우위 → 전투력 우위'라는 연쇄 효과이다.\n\n전통적 전쟁이 '플랫폼 중심(Platform-Centric)'이었다면, NCW는 '네트워크 중심'으로 패러다임을 전환했다. 개별 무기체계의 성능보다 네트워크로 연결된 전력의 시너지를 중시한다."
+    },
+    {
+      "title": "군사혁명(RMA)의 배경",
+      "content": "네트워크 중심전의 등장 배경에는 1991년 걸프전의 충격이 있었다. 미군 주도 연합군은 42일간의 공중전과 100시간의 지상전으로 이라크군을 압도적으로 격파했다.\n\n걸프전에서 목격된 변화:\n• GPS 유도 정밀무기의 위력: 목표물을 미터 단위로 타격.\n• JSTARS(합동감시표적공격레이더): 지상 이동표적을 실시간 추적.\n• 스텔스 기술: F-117이 바그다드 방공망을 무력화.\n• 실시간 위성 통신: 워싱턴에서 전장 상황을 실시간 모니터링.\n\n이러한 기술적 성과를 체계화하여, 앤드루 마셜(미 국방부 총합평가실)과 일군의 군사 사상가들이 '정보 기술이 전쟁의 본질을 변화시킨다'는 RMA 이론을 정립했다. NCW는 이 RMA의 핵심 작전 개념이자 실행 교리가 된 것이다."
+    },
+    {
+      "title": "핵심 원리",
+      "content": "NCW의 이론적 토대는 데이비드 앨버츠 등이 저술한 『네트워크 중심전(Network Centric Warfare)』(1999)에 정리되어 있다.\n\n4대 원리(Tenets):\n1. 견고한 네트워크 연결(Robustly Networked Force): 모든 전투 요소를 정보 네트워크로 연결하여 정보 공유를 극대화.\n2. 공유된 상황인식(Shared Situational Awareness): 네트워크를 통해 모든 참여자가 동일한 전장 그림(Common Operational Picture)을 공유.\n3. 자기동기화(Self-Synchronization): 공유된 상황인식에 기초하여 하위 부대가 상급 사령부의 세밀한 지시 없이도 자율적으로 협조·행동.\n4. 전투력 상승효과(Increased Combat Power): 위 세 요소의 결합으로 속도, 정확도, 치명성이 비약적으로 증가.\n\nOODA 루프(관찰-판단-결심-행동)의 가속이 핵심이다. 적보다 빠르게 상황을 인식하고 결심하여 행동함으로써, 적의 대응을 불가능하게 만든다."
+    },
+    {
+      "title": "이라크 자유 작전 (2003)",
+      "content": "2003년 이라크 전쟁은 NCW의 첫 본격적 적용 사례이다. 도널드 럼즈펠드 국방장관은 '변환(Transformation)' 정책 아래, 대규모 병력 대신 소수의 정예 병력 + 정보 네트워크 + 정밀타격으로 전쟁을 수행했다.\n\n주요 NCW 적용 사례:\n• 블루포스 트래커(Blue Force Tracker): GPS 기반 아군 위치 추적 시스템으로, 지휘관이 실시간으로 모든 아군 부대의 위치를 파악.\n• TBMCS(전구전투관리핵심시스템): 공중 작전을 실시간 조율.\n• 충격과 공포(Shock and Awe): 정밀유도탄으로 이라크 지휘통제 체계를 개전 초반에 마비.\n• '번개 질주(Thunder Run)': 제3보병사단이 600km를 3주 만에 진격하여 바그다드까지 돌파. 실시간 정보공유로 보급 없이도 고속 기동.\n\n결과적으로 미군은 약 150,000명의 병력으로 3주 만에 이라크 정규군을 격파했다. 이는 1991년 걸프전의 절반도 안 되는 병력이었다."
+    },
+    {
+      "title": "C4ISR 체계",
+      "content": "NCW의 물리적 기반은 C4ISR 체계이다. C4ISR은 지휘(Command), 통제(Control), 통신(Communication), 컴퓨터(Computer), 정보(Intelligence), 감시(Surveillance), 정찰(Reconnaissance)의 약자이다.\n\n주요 구성 요소:\n• 감시·정찰: 위성, 정찰기(U-2, 글로벌호크), 무인기(프레데터, 리퍼), JSTARS, AWACS.\n• 통신: 군사 위성통신(MILSTAR), 전술 데이터링크(Link-16), 합동전술정보분배체계(JTIDS).\n• 정보 처리: 빅데이터 분석, AI 기반 표적 식별, 지리정보시스템(GIS).\n• 지휘통제: GCCS(글로벌 지휘통제시스템), CPOF(지휘소 미래형).\n\n킬체인(Kill Chain) 개념:\n1. 목표 발견(Find) → 2. 고정(Fix) → 3. 추적(Track) → 4. 표적 지정(Target) → 5. 교전(Engage) → 6. 평가(Assess).\nNCW는 이 킬체인의 시간을 극적으로 단축시킨다. 걸프전에서 수일이 걸리던 킬체인이 이라크전에서는 수분~수십 분으로 압축되었다."
+    },
+    {
+      "title": "한계와 비판",
+      "content": "NCW는 여러 한계와 비판에 직면해 있다.\n\n1. 비대칭전에의 부적합: NCW는 정규군 대 정규군 전투에 최적화되어 있다. 이라크·아프가니스탄에서 반란군/게릴라 상대로는 기술적 우위가 결정적이지 않았다.\n\n2. 과도한 기술 의존: 네트워크가 차단되거나 데이터가 과부하되면 기능 마비. '기술 만능주의'에 대한 경고가 지속적으로 제기된다.\n\n3. 사이버 취약성: 전자전(EW)과 사이버 공격에 의해 네트워크가 교란·마비될 가능성. 중국·러시아는 이를 적극 개발 중.\n\n4. GPS 의존: GPS 재밍·스푸핑에 취약하여, 정밀유도무기의 효과가 반감될 수 있다.\n\n5. '전장의 안개' 부정에 대한 비판: 클라우제비츠가 경고한 전쟁의 불확실성과 마찰을 기술로 완전히 제거할 수 있다는 낙관은 위험하다.\n\n6. 비용: 첨단 C4ISR 체계의 개발·유지 비용이 막대하여, 부유한 국가만 유지할 수 있다."
+    },
+    {
+      "title": "미래 전쟁과 발전 방향",
+      "content": "NCW는 계속 발전하고 있다. 최신 개념은 다음과 같다.\n\n• 합동전영역지휘통제(JADC2): 미군이 NCW를 발전시킨 최신 개념. 육·해·공·우주·사이버 전 영역을 하나의 네트워크로 통합.\n• 모자이크전(Mosaic Warfare): DARPA가 제안한 개념으로, 다수의 소형·저비용 플랫폼을 네트워크로 연결하여 유연하게 조합.\n• AI·머신러닝 통합: 데이터 분석과 의사결정에 AI를 적용하여 OODA 루프를 더욱 가속.\n• 군집 드론(Drone Swarm): 네트워크로 연결된 수백~수천 대의 드론이 자율적으로 협조 작전 수행.\n• 다영역 작전(Multi-Domain Operations): 지상·해상·공중·우주·사이버 모든 영역에서 동시·통합 작전.\n\nNCW의 기본 개념은 유효하지만, 사이버·전자전 위협에 대한 대비, 비대칭전 적용, AI 통합 등 지속적인 발전이 필요하다.",
+      "subsections": []
+    },
+    {
+      "title": "참고 문헌",
+      "content": "• Cebrowski, Arthur K. & Garstka, John J. 'Network-Centric Warfare: Its Origin and Future.' Proceedings, 1998.\n• Alberts, David S. et al. 『Network Centric Warfare: Developing and Leveraging Information Superiority』. CCRP, 1999.\n• 럼즈펠드, 도널드. 'Transforming the Military.' Foreign Affairs, 2002.\n• 미 합참. 『Joint Vision 2020』. 2000.\n• 한국국방연구원. '네트워크 중심전의 한국군 적용 방안'. KIDA 연구보고서."
+    }
+  ],
+  "images": [
+    {
+      "url": "https://commons.wikimedia.org/wiki/Special:FilePath/USAF_F-117_Nighthawk.jpg?width=800",
+      "caption": "F-117 나이트호크 스텔스 폭격기 – 정밀 타격과 스텔스 기술로 네트워크 중심전의 신기원을 연 항공기",
+      "source": "Wikimedia Commons / U.S. Air Force"
+    },
+    {
+      "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Global_Hawk_1.jpg?width=800",
+      "caption": "RQ-4 글로볌 호크 무인항공기 – C4ISR 체계의 핵심 자산으로 광역 감시정찰 수행",
+      "source": "Wikimedia Commons / U.S. Air Force"
+    }
+  ],
+  "relatedStrategies": ["blitzkrieg", "strategic-bombing", "hybrid-warfare"]
+}

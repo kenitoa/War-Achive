@@ -1,0 +1,37 @@
+{
+  "categories": {
+    "Unidentified Documents": {
+      "name": "출처 미상 문서",
+      "status": "대기"
+    },
+    "Oral Traditions": {
+      "name": "구전 사료",
+      "status": "대기"
+    },
+    "Disputed Sources": {
+      "name": "논쟁 중인 사료",
+      "status": "대기"
+    },
+    "Legends and Myths": {
+      "name": "전설 & 신화",
+      "status": "대기"
+    },
+    "Incomplete Records": {
+      "name": "미완성 기록",
+      "status": "대기"
+    },
+    "Declassified Files": {
+      "name": "기밀 해제 자료",
+      "status": "대기"
+    }
+  },
+  "items": [
+    "bermuda-triangle-disappearances",
+    "foo-fighters-wwii",
+    "robin-hood-legend",
+    "korean-dragon-war",
+    "antikythera-weapon",
+    "roswell-military-fragments",
+    "cia-psychic-warfare"
+  ]
+}

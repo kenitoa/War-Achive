@@ -1,0 +1,158 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>사료 &amp; 문서 — War Archive</title>
+  <link rel="stylesheet" href="../../css/pages/historical-sources.css">
+</head>
+<body>
+
+  <!-- ── Header ── -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="../main.html" class="logo">
+        <div class="logo-icon">&#9876;</div>
+        <span class="logo-text">War Archive</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="../main.html#categories">아카이브</a>
+        <a href="../main.html#timeline">연대기</a>
+        <a href="../main.html#featured">주요 기록</a>
+        <a href="../main.html#search">검색</a>
+      </nav>
+
+      <button class="menu-toggle" aria-label="메뉴 열기">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ── Page Hero (도서관 입구) ── -->
+  <section class="page-hero">
+    <div class="hero-library-overlay"></div>
+    <div class="page-hero-content">
+      <nav class="breadcrumb">
+        <a href="../main.html">홈</a>
+        <span class="sep">/</span>
+        <a href="../main.html#categories">아카이브</a>
+        <span class="sep">/</span>
+        <span class="current">사료 &amp; 문서</span>
+      </nav>
+      <div class="hero-emblem">&#128218;</div>
+      <h1 class="page-title">사료 &amp; 문서</h1>
+      <p class="page-subtitle">
+        조약문, 선전포고문, 편지, 일기, 연설문, 공식 보고서 —<br>
+        전쟁의 진실을 담은 1차 사료를 열람하는 디지털 도서관
+      </p>
+      <div class="page-stats">
+        <div class="page-stat">
+          <div class="stat-info"><strong id="totalDocCount">0</strong><span>편의 사료</span></div>
+        </div>
+        <div class="stat-divider">|</div>
+        <div class="page-stat">
+          <div class="stat-info"><strong id="totalTypeCount">0</strong><span>개 유형</span></div>
+        </div>
+        <div class="stat-divider">|</div>
+        <div class="page-stat">
+          <div class="stat-info"><strong id="totalEraCount">0</strong><span>개 시대</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 인용문 배너 ── -->
+  <section class="quote-banner">
+    <div class="quote-inner">
+      <blockquote class="quote-text" id="quoteText">
+        "역사를 기억하지 못하는 자는 그것을 반복할 운명에 처한다."
+      </blockquote>
+      <cite class="quote-author" id="quoteAuthor">— 조지 산타야나</cite>
+    </div>
+  </section>
+
+  <!-- ── Library Catalog Bar (도서관 카탈로그) ── -->
+  <section class="catalog-bar">
+    <div class="catalog-inner">
+      <!-- 검색 -->
+      <div class="catalog-search">
+        <input type="text" id="docSearch" placeholder="사료명, 저자, 키워드로 검색...">
+        <span class="search-icon">&#128269;</span>
+      </div>
+
+      <!-- 시대 필터 -->
+      <div class="catalog-tabs" id="eraTabs">
+        <button class="catalog-tab active" data-era="all">전체</button>
+        <button class="catalog-tab" data-era="ancient">고대</button>
+        <button class="catalog-tab" data-era="medieval">중세</button>
+        <button class="catalog-tab" data-era="earlymodern">근세</button>
+        <button class="catalog-tab" data-era="modern">근대</button>
+        <button class="catalog-tab" data-era="worldwar">세계대전</button>
+        <button class="catalog-tab" data-era="contemporary">현대</button>
+      </div>
+
+      <!-- 유형 필터 + 뷰 전환 -->
+      <div class="catalog-options">
+        <select id="typeFilter">
+          <option value="all">모든 유형</option>
+          <option value="treaty">조약문</option>
+          <option value="declaration">선전포고문</option>
+          <option value="letter">편지</option>
+          <option value="diary">일기</option>
+          <option value="speech">연설문</option>
+          <option value="report">공식 보고서</option>
+          <option value="order">작전 명령서</option>
+          <option value="memoir">회고록</option>
+        </select>
+        <div class="view-toggle">
+          <button class="view-btn active" data-view="shelf" title="서가 보기">&#128218;</button>
+          <button class="view-btn" data-view="catalog" title="카탈로그 보기">&#128196;</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 결과 카운트 ── -->
+  <div class="result-info">
+    <span id="resultCount"></span>
+  </div>
+
+  <!-- ── Main Content ── -->
+  <main class="library-content">
+
+    <!-- 서가(Shelf) 뷰 — 도서관 책장 스타일 기본 뷰 -->
+    <div class="shelf-view" id="shelfView">
+      <!-- JS가 동적으로 생성 -->
+    </div>
+
+    <!-- 카탈로그(Catalog) 뷰 — 도서 카드 목록 스타일 -->
+    <div class="catalog-view" id="catalogView" style="display:none;">
+      <!-- JS가 동적으로 생성 -->
+    </div>
+    <div class="pagination" id="pagination" style="display:none;"></div>
+
+    <!-- 빈 결과 -->
+    <div class="empty-state" id="emptyState" style="display:none;">
+      <div class="empty-icon">&#128218;</div>
+      <h3>검색 결과가 없습니다</h3>
+      <p>다른 키워드나 필터로 다시 검색해 보세요.</p>
+    </div>
+
+  </main>
+
+  <!-- ── Footer ── -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="footer-logo">&#9876; War Archive</div>
+        <p class="footer-copy">&copy; 2026 War Archive. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../js/pages/historical-sources.js"></script>
+</body>
+</html>

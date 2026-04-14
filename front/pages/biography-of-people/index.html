@@ -1,0 +1,140 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>인물 열전 — War Archive</title>
+  <link rel="stylesheet" href="../../css/pages/biography-of-people.css">
+</head>
+<body>
+
+  <!-- ── Header ── -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="../main.html" class="logo">
+        <div class="logo-icon">&#9876;</div>
+        <span class="logo-text">War Archive</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="../main.html#categories">아카이브</a>
+        <a href="../main.html#timeline">연대기</a>
+        <a href="../main.html#featured">주요 기록</a>
+        <a href="../main.html#search">검색</a>
+      </nav>
+
+      <button class="menu-toggle" aria-label="메뉴 열기">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ── Page Hero ── -->
+  <section class="page-hero">
+    <div class="page-hero-content">
+      <nav class="breadcrumb">
+        <a href="../main.html">홈</a>
+        <span class="sep">/</span>
+        <a href="../main.html#categories">아카이브</a>
+        <span class="sep">/</span>
+        <span class="current">인물 열전</span>
+      </nav>
+      <h1 class="page-title">&#128587; 인물 열전</h1>
+      <p class="page-subtitle">전쟁의 흐름을 결정지은 지휘관, 전략가, 영웅, 그리고 민간인들의 이야기를 담습니다.</p>
+      <div class="page-stats">
+        <div class="page-stat"><strong id="statTotal">0</strong>명의 인물</div>
+        <div class="page-stat"><strong id="statWars">0</strong>개 전쟁</div>
+        <div class="page-stat"><strong id="statNations">0</strong>개국</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Filter Bar ── -->
+  <section class="filter-bar">
+    <div class="filter-inner">
+      <div class="filter-search">
+        <input type="text" id="personSearch" placeholder="인물명, 전쟁, 국적으로 검색...">
+        <span class="search-icon">&#128269;</span>
+      </div>
+      <div class="filter-tabs" id="roleTabs">
+        <button class="filter-tab active" data-role="all">전체</button>
+        <button class="filter-tab" data-role="commander">지휘관</button>
+        <button class="filter-tab" data-role="strategist">전략가</button>
+        <button class="filter-tab" data-role="politician">정치인</button>
+        <button class="filter-tab" data-role="hero">영웅</button>
+        <button class="filter-tab" data-role="civilian">민간인</button>
+        <button class="filter-tab" data-role="other">기타</button>
+      </div>
+      <div class="filter-options">
+        <select id="eraFilter">
+          <option value="all">모든 시대</option>
+          <option value="ancient">고대</option>
+          <option value="medieval">중세</option>
+          <option value="earlymodern">근세</option>
+          <option value="modern">근대</option>
+          <option value="worldwar">세계대전</option>
+          <option value="contemporary">현대</option>
+        </select>
+        <select id="nationFilter">
+          <option value="all">모든 국적</option>
+        </select>
+        <div class="view-toggle">
+          <button class="view-btn active" data-view="card" title="카드 보기">&#9871;</button>
+          <button class="view-btn" data-view="table" title="표 보기">&#9776;</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Person Listings ── -->
+  <main class="person-content">
+    <div class="result-bar">
+      <span id="resultCount">0명의 인물</span>
+    </div>
+
+    <!-- Card View -->
+    <div class="person-grid" id="personGrid">
+      <!-- JS가 JSON 데이터를 기반으로 자동 생성 -->
+    </div>
+
+    <!-- Table View (hidden by default) -->
+    <div class="person-table-wrapper" id="personTable" style="display:none;">
+      <table class="person-table">
+        <thead>
+          <tr>
+            <th>역할</th>
+            <th>이름</th>
+            <th>시대</th>
+            <th>국적</th>
+            <th>관련 전쟁</th>
+            <th>생몰년</th>
+          </tr>
+        </thead>
+        <tbody id="personTableBody"></tbody>
+      </table>
+    </div>
+
+    <!-- No Results -->
+    <div class="no-results" id="noResults" style="display:none;">
+      <div class="no-results-icon">&#128587;</div>
+      <p>검색 결과가 없습니다</p>
+      <span>다른 검색어나 필터를 시도해보세요</span>
+    </div>
+  </main>
+
+  <!-- ── Footer ── -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <div class="logo-icon">&#9876;</div>
+        <span class="logo-text">War Archive</span>
+      </div>
+      <p class="footer-copy">&copy; 2026 War Archive. 역사를 기록하다.</p>
+    </div>
+  </footer>
+
+  <script src="../../js/pages/biography-of-people.js"></script>
+</body>
+</html>

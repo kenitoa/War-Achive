@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WAR ARCHIVE — My Account</title>
+  <link rel="stylesheet" href="../css/pages/my-account.css">
+</head>
+<body>
+
+  <!-- ── Header ── -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="../index.html" class="logo">
+        <div class="logo-icon">&#9876;</div>
+        <span class="logo-text">War Archive</span>
+      </a>
+      <nav class="nav-links">
+        <a href="../index.html#categories">아카이브</a>
+        <a href="../index.html#timeline">연대기</a>
+        <a href="../index.html#search">검색</a>
+        <a href="../index.html#project">프로젝트</a>
+      </nav>
+      <button class="menu-toggle" aria-label="메뉴 열기">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ── Profile Section ── -->
+  <section class="profile-section">
+    <div class="profile-container">
+
+      <div class="profile-header">
+        <div class="profile-avatar" id="profileAvatar">
+          <span class="avatar-letter" id="avatarLetter">?</span>
+        </div>
+        <div class="profile-info">
+          <h1 class="profile-username" id="profileUsername">—</h1>
+          <p class="profile-role">Member</p>
+          <p class="profile-joined" id="profileJoined">가입일: —</p>
+        </div>
+      </div>
+
+      <div class="profile-card">
+        <h2 class="card-title">계정 정보</h2>
+        <div class="detail-row">
+          <span class="detail-label">사용자명</span>
+          <span class="detail-value" id="detailUsername">—</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">역할</span>
+          <span class="detail-value">Member</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">상태</span>
+          <span class="detail-value status-active">활성</span>
+        </div>
+        <div class="detail-row detail-row-danger">
+          <span class="detail-label">계정 삭제</span>
+          <button class="btn-delete-account" id="deleteAccountBtn">회원 탈퇴</button>
+        </div>
+      </div>
+
+      <div class="profile-actions">
+        <a href="../index.html" class="btn-back">← 메인으로 돌아가기</a>
+        <button class="btn-logout" id="profileLogoutBtn">로그아웃</button>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p>&copy; 2024 War Archive. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="../js/pages/my-account.js"></script>
+</body>
+</html>

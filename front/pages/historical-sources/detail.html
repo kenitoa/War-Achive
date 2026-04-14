@@ -1,0 +1,198 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>사료 상세 — War Archive</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Playfair+Display:wght@400;700;900&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/pages/historical-sources-detail.css">
+</head>
+<body>
+    <!-- 헤더 -->
+    <header class="header">
+        <div class="header-inner">
+            <a href="../main.html" class="logo">
+                <span class="logo-icon">⚔</span>
+                <span class="logo-text">WAR ARCHIVE</span>
+            </a>
+            <nav class="nav">
+                <a href="../main.html">홈</a>
+                <a href="Historical Sources & Documents.html">사료 &amp; 문서</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 로딩 상태 -->
+    <div class="loading" id="loading">
+        <div class="loading-spinner"></div>
+        <p>원문 기록을 불러오는 중...</p>
+    </div>
+
+    <!-- 오류 상태 -->
+    <div class="error-state" id="errorState" style="display:none;">
+        <div class="error-icon">!</div>
+        <h2>문서를 찾을 수 없습니다</h2>
+        <p>요청하신 사료 기록이 존재하지 않습니다.</p>
+        <a href="Historical Sources & Documents.html" class="back-link">← 사료 &amp; 문서로 돌아가기</a>
+    </div>
+
+    <!-- 메인 콘텐츠 -->
+    <main class="doc-page" id="docPage" style="display:none;">
+
+        <!-- 브레드크럼 -->
+        <nav class="breadcrumb">
+            <a href="../main.html">홈</a>
+            <span class="sep">›</span>
+            <a href="Historical Sources & Documents.html">사료 &amp; 문서</a>
+            <span class="sep">›</span>
+            <span class="current" id="breadcrumbTitle"></span>
+        </nav>
+
+        <!-- ===== 문서 히어로 카드 ===== -->
+        <section class="doc-hero" id="sectionHero">
+            <div class="doc-cover-area">
+                <div class="doc-cover-frame" id="coverFrame">
+                    <div class="cover-placeholder">
+                        <span class="cover-icon">NO IMAGE</span>
+                        <span class="cover-label">표지 미등록</span>
+                    </div>
+                </div>
+            </div>
+            <div class="doc-meta-area">
+                <div class="doc-type-badge" id="docTypeBadge"></div>
+                <h1 class="doc-title" id="docTitle"></h1>
+                <p class="doc-title-en" id="docTitleEn"></p>
+                <div class="doc-details">
+                    <div class="detail-row">
+                        <span class="detail-label">작성일</span>
+                        <span class="detail-value" id="docDate"></span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">작성자</span>
+                        <span class="detail-value" id="docAuthor"></span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">유형</span>
+                        <span class="detail-value" id="docType"></span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">시대</span>
+                        <span class="detail-value" id="docEra"></span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">출처</span>
+                        <span class="detail-value" id="docOrigin"></span>
+                    </div>
+                </div>
+                <div class="doc-tags" id="docTags"></div>
+            </div>
+        </section>
+
+        <!-- ===== 개요 ===== -->
+        <section class="doc-summary-block" id="sectionSummary">
+            <blockquote class="summary-quote" id="docDescription"></blockquote>
+        </section>
+
+        <!-- ===== 네비게이션 탭 ===== -->
+        <nav class="doc-nav" id="docNav">
+            <button class="doc-nav-tab active" data-target="sectionBackground">배경</button>
+            <button class="doc-nav-tab" data-target="sectionOriginalText">원문 발췌</button>
+            <button class="doc-nav-tab" data-target="sectionSignificance">역사적 의의</button>
+            <button class="doc-nav-tab" data-target="sectionAftermath">이후 영향</button>
+            <button class="doc-nav-tab" data-target="sectionPhysical">원본 정보</button>
+            <button class="doc-nav-tab" data-target="sectionRelated">관련 문서</button>
+            <button class="doc-nav-tab" data-target="sectionReferences">참고 자료</button>
+        </nav>
+
+        <!-- ===== 배경 섹션 ===== -->
+        <section class="doc-section" id="sectionBackground">
+            <div class="section-header">
+                <span class="section-number"></span>
+                <h2 class="section-title">역사적 배경</h2>
+            </div>
+            <div class="section-body" id="docBackground"></div>
+        </section>
+
+        <!-- ===== 원문 발췌 섹션 ===== -->
+        <section class="doc-section" id="sectionOriginalText">
+            <div class="section-header">
+                <span class="section-number"></span>
+                <h2 class="section-title">원문 발췌</h2>
+            </div>
+            <div class="manuscript-block" id="docOriginalText"></div>
+        </section>
+
+        <!-- ===== 역사적 의의 섹션 ===== -->
+        <section class="doc-section" id="sectionSignificance">
+            <div class="section-header">
+                <span class="section-number"></span>
+                <h2 class="section-title">역사적 의의</h2>
+            </div>
+            <div class="section-body" id="docSignificance"></div>
+        </section>
+
+        <!-- ===== 이후 영향 섹션 ===== -->
+        <section class="doc-section" id="sectionAftermath">
+            <div class="section-header">
+                <span class="section-number"></span>
+                <h2 class="section-title">이후 영향</h2>
+            </div>
+            <div class="section-body" id="docAftermath"></div>
+        </section>
+
+        <!-- ===== 원본 정보 섹션 ===== -->
+        <section class="doc-section" id="sectionPhysical">
+            <div class="section-header">
+                <span class="section-number"></span>
+                <h2 class="section-title">원본 정보</h2>
+            </div>
+            <div class="physical-desc-block" id="docPhysical"></div>
+        </section>
+
+        <!-- ===== 관련 문서 섹션 ===== -->
+        <section class="doc-section" id="sectionRelated">
+            <div class="section-header">
+                <span class="section-number"></span>
+                <h2 class="section-title">관련 문서</h2>
+            </div>
+            <ul class="related-list" id="docRelated"></ul>
+        </section>
+
+        <!-- ===== 참고 자료 섹션 ===== -->
+        <section class="doc-section" id="sectionReferences">
+            <div class="section-header">
+                <span class="section-number"></span>
+                <h2 class="section-title">참고 자료</h2>
+            </div>
+            <ul class="references-list" id="docReferences"></ul>
+        </section>
+
+        <!-- 하단 -->
+        <footer class="doc-footer">
+            <p class="doc-footer-text">이 기록은 War Archive 사료 &amp; 문서 프로젝트의 일환으로 작성되었습니다.</p>
+            <a href="Historical Sources & Documents.html" class="back-link">← 사료 &amp; 문서로 돌아가기</a>
+        </footer>
+    </main>
+
+    <!-- 사이드 목차 -->
+    <aside class="side-toc" id="sideToc">
+        <div class="side-toc-title">목차</div>
+        <ul class="side-toc-list" id="sideTocList"></ul>
+    </aside>
+
+    <!-- 글로벌 푸터 -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-logo">
+                <span class="footer-logo-symbol">W</span>
+                <span>WAR ARCHIVE</span>
+            </div>
+            <p class="footer-copy">© 2026 War Archive. 역사를 기록하다.</p>
+        </div>
+    </footer>
+
+    <script src="../../js/pages/historical-sources-detail.js"></script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+{
+  "id": "atlantic-charter",
+  "title": "Atlantic Charter",
+  "titleKr": "대서양 헌장",
+  "coverImage": "https://commons.wikimedia.org/wiki/Special:FilePath/Atlantic_Charter_(color).jpg?width=300",
+  "type": "treaty",
+  "era": "worldwar",
+  "date": "1941년 8월 14일",
+  "author": "프랭클린 루즈벨트 & 윈스턴 처칠",
+  "origin": "뉴펀들랜드 앞바다, 대서양",
+  "description": "미국과 영국이 제2차 세계대전 종전 후의 세계 질서에 대한 비전을 담아 발표한 공동 선언문. 자결권, 자유무역, 군비 축소 등 전후 국제 질서의 청사진을 제시하였다.",
+  "keywords": ["2차대전", "루즈벨트", "처칠", "국제질서", "자결권", "유엔"],
+  "detail": {
+    "background": "1941년 여름, 유럽은 나치 독일의 지배 아래 있었고 영국은 홀로 항전하고 있었다. 미국은 아직 공식적으로는 중립을 유지하고 있었으나, 무기대여법을 통해 연합국을 지원하고 있었다. 프랭클린 루즈벨트 대통령과 윈스턴 처칠 수상은 뉴펀들랜드 앞바다의 군함 위에서 비밀리에 만났으며, 전후 세계 질서의 기본 원칙에 합의하였다. 이 만남은 양국 간의 특별한 관계(Special Relationship)를 상징하는 역사적 사건이었다.",
+    "originalText": "'영구 또는 영토적 확장을 추구하지 않는다.' '관계 국민의 자유롭게 표명된 의사에 반하지 않는 영토 변경을 원하지 않는다.' '모든 국민은 자신들이 살아갈 정부의 형태를 선택할 권리를 가진다.' '공포와 궁핍의 폭정이 종식된 후, 모든 인간이 공포와 궁핍으로부터 자유롭게 살 수 있는 평화를 확립한다.'",
+    "significance": "대서양 헌장은 전후 국제 질서의 청사진이 된 역사적 문서이다. 이 헌장에서 제시된 민족자결권, 자유무역, 군비 축소, 집단안보 등의 원칙은 1945년 유엔 헌장의 기초가 되었다. 또한 식민지 해방의 이념적 근거를 제공하여, 전후 아시아·아프리카의 독립 운동에 간접적 영향을 미쳤다. 미국이 아직 참전하기 전에 전후 질서의 원칙을 선언한 점에서 그 선견지명이 돋보인다.",
+    "aftermath": "대서양 헌장의 원칙은 1942년 1월 연합국 선언(26개국 서명)으로 확대되었으며, 1945년 샌프란시스코 회의에서 유엔 헌장으로 발전하였다. 그러나 식민지 해방에 관한 조항은 처칠의 의도와 달리 식민지 독립 운동의 토대를 제공하게 되었다. 대서양 헌장은 현대 다자주의 국제 질서의 기초 문서로 평가받는다.",
+    "relatedDocuments": ["연합국 선언(1942)", "유엔 헌장(1945)", "무기대여법(1941)"],
+    "physicalDescription": "대서양 헌장은 공식 조약이 아닌 공동 성명 형식으로, 별도의 서명이 없는 문서이다. 영어로 작성된 타자기 문서로, 양국 정부의 승인을 거쳐 동시에 발표되었다. 원본은 미국 국립문서기록관리청과 영국 국립문서보관소에 각각 보관되어 있다.",
+    "references": ["Douglas Brinkley & David R. Facey-Crowther, 'The Atlantic Charter', St. Martin's Press, 1994", "Elizabeth Borgwardt, 'A New Deal for the World: America's Vision for Human Rights', Harvard University Press, 2005", "Warren F. Kimball, 'Forged in War: Roosevelt, Churchill, and the Second World War', William Morrow, 1997"]
+  }
+}
