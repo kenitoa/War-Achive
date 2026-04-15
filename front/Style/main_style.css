@@ -96,6 +96,8 @@ ul, ol {
   display: flex;
   gap: 2rem;
   align-items: center;
+  margin-left: auto;
+  margin-right: 2rem;
 }
 
 .nav-links a {

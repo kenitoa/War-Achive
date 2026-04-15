@@ -97,12 +97,22 @@ document.addEventListener('DOMContentLoaded', () => {
   // Per-book state
   const bookState = new Map();
 
-  // Fetch index once and cache
+  // Fetch search.json once and rebuild shelf index cache
   let indexCache = null;
   async function getIndex() {
     if (indexCache) return indexCache;
-    const res = await fetch(`${DATA_BASE}/index.json`);
-    indexCache = await res.json();
+    const res = await fetch(`${DATA_BASE}/search.json`);
+    const items = await res.json();
+    // search.json의 flat 배열을 shelf별로 그룹핑하여 index 구조 재구성
+    const grouped = {};
+    items.forEach(item => {
+      const shelf = item.shelf;
+      if (!grouped[shelf]) {
+        grouped[shelf] = { name: shelf, nameEn: shelf, items: [] };
+      }
+      grouped[shelf].items.push(item.id);
+    });
+    indexCache = grouped;
     return indexCache;
   }
 

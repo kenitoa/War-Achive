@@ -113,26 +113,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
   statNums.forEach(el => countObserver.observe(el));
 
-  // ── Load stats from index.json files ──
-  function fetchFlatIndex(url) {
+  // ── Load stats from search.json files ──
+  function fetchSearchCount(url) {
     return fetch(url).then(r => r.json()).then(arr => arr.length).catch(() => 0);
   }
 
-  function fetchWeaponsIndex(url) {
-    return fetch(url).then(r => r.json()).then(obj => {
-      return Object.values(obj).reduce((s, arr) => s + arr.length, 0);
-    }).catch(() => 0);
-  }
-
-  const basePath = '../data/';
+  const basePath = '../../data/';
 
   Promise.all([
-    fetchFlatIndex(basePath + 'war overview data/index.json'),
-    fetchFlatIndex(basePath + 'biography of people data/index.json'),
-    fetchWeaponsIndex(basePath + 'weapons and equipment data/index.json'),
-    fetchFlatIndex(basePath + 'strategy and tactics data/index.json'),
-    fetchFlatIndex(basePath + 'Historical Sources & Documents data/index.json'),
-    fetchFlatIndex(basePath + 'Battlefield Map data/index.json')
+    fetchSearchCount(basePath + 'war overview data/search.json'),
+    fetchSearchCount(basePath + 'biography of people data/search.json'),
+    fetchSearchCount(basePath + 'weapons and equipment data/search.json'),
+    fetchSearchCount(basePath + 'strategy and tactics data/search.json'),
+    fetchSearchCount(basePath + 'Historical Sources & Documents data/search.json'),
+    fetchSearchCount(basePath + 'Battlefield Map data/search.json')
   ]).then(([wars, people, weapons, strategy, docs, battles]) => {
     const total = wars + people + weapons + strategy + docs + battles;
 

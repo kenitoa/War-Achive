@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (logoutBtn) {
     logoutBtn.addEventListener('click', () => {
       sessionStorage.removeItem('warArchiveCurrentUser');
-      window.location.href = 'main.html';
+      window.location.href = '../main.html';
     });
   }
 
@@ -223,7 +223,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (acctLogoutBtn) {
     acctLogoutBtn.addEventListener('click', () => {
       sessionStorage.removeItem('warArchiveCurrentUser');
-      window.location.href = 'main.html';
+      window.location.href = '../main.html';
     });
   }
 
@@ -253,7 +253,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const filtered = users.filter(u => u.email !== user.email);
       saveUsers(filtered);
       sessionStorage.removeItem('warArchiveCurrentUser');
-      window.location.href = 'main.html';
+      window.location.href = '../main.html';
     });
   }
 });

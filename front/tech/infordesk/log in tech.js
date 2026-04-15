@@ -152,7 +152,7 @@ document.addEventListener('DOMContentLoaded', () => {
     messageEl.className = 'form-message success';
 
     setTimeout(() => {
-      window.location.href = 'main.html';
+      window.location.href = '../main.html';
     }, 1000);
   });
 
@@ -223,6 +223,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // ── 이미 로그인된 경우 리다이렉트 ──
   const currentUser = getCurrentUser();
   if (currentUser) {
-    window.location.href = 'main.html';
+    window.location.href = '../main.html';
   }
 });

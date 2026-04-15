@@ -87,33 +87,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
   statNums.forEach(el => countObserver.observe(el));
 
-  // ── Load stats from index.json ──
-  function fetchFlatIndex(url) {
+  // ── Load stats from search.json ──
+  function fetchSearchCount(url) {
     return fetch(url).then(r => r.json()).then(arr => arr.length).catch(() => 0);
   }
 
-  function fetchWeaponsIndex(url) {
-    return fetch(url).then(r => r.json()).then(obj => {
-      return Object.values(obj).reduce((s, arr) => s + arr.length, 0);
-    }).catch(() => 0);
-  }
-
-  const indexUrls = {
-    war:     '../data/war overview data/index.json',
-    bio:     '../data/biography of people data/index.json',
-    weapons: '../data/weapons and equipment data/index.json',
-    tactics: '../data/strategy and tactics data/index.json',
-    docs:    '../data/Historical Sources & Documents data/index.json',
-    battle:  '../data/Battlefield Map data/index.json'
+  const searchUrls = {
+    war:     '../../data/war overview data/search.json',
+    bio:     '../../data/biography of people data/search.json',
+    weapons: '../../data/weapons and equipment data/search.json',
+    tactics: '../../data/strategy and tactics data/search.json',
+    docs:    '../../data/Historical Sources & Documents data/search.json',
+    battle:  '../../data/Battlefield Map data/search.json'
   };
 
   Promise.all([
-    fetchFlatIndex(indexUrls.war),
-    fetchFlatIndex(indexUrls.bio),
-    fetchWeaponsIndex(indexUrls.weapons),
-    fetchFlatIndex(indexUrls.tactics),
-    fetchFlatIndex(indexUrls.docs),
-    fetchFlatIndex(indexUrls.battle)
+    fetchSearchCount(searchUrls.war),
+    fetchSearchCount(searchUrls.bio),
+    fetchSearchCount(searchUrls.weapons),
+    fetchSearchCount(searchUrls.tactics),
+    fetchSearchCount(searchUrls.docs),
+    fetchSearchCount(searchUrls.battle)
   ]).then(counts => {
     const [warCount, bioCount, weaponsCount, tacticsCount, docsCount, battleCount] = counts;
 

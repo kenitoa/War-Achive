@@ -117,32 +117,27 @@ document.addEventListener('DOMContentLoaded', () => {
     requestAnimationFrame(update);
   }
 
-  // ── 통계 바: index.json 기반 동적 카운트 ──
-  function fetchFlatIndex(url) {
+  // ── 통계 바: search.json 기반 동적 카운트 ──
+  function fetchSearchCount(url) {
     return fetch(url).then(r => r.json()).then(arr => arr.length).catch(() => 0);
   }
-  function fetchWeaponsIndex(url) {
-    return fetch(url).then(r => r.json()).then(obj => {
-      return Object.values(obj).reduce((s, arr) => s + arr.length, 0);
-    }).catch(() => 0);
-  }
 
-  var indexUrls = {
-    war:     '../data/war overview data/index.json',
-    bio:     '../data/biography of people data/index.json',
-    weapons: '../data/weapons and equipment data/index.json',
-    tactics: '../data/strategy and tactics data/index.json',
-    docs:    '../data/Historical Sources & Documents data/index.json',
-    battle:  '../data/Battlefield Map data/index.json'
+  var searchUrls = {
+    war:     '../data/war overview data/search.json',
+    bio:     '../data/biography of people data/search.json',
+    weapons: '../data/weapons and equipment data/search.json',
+    tactics: '../data/strategy and tactics data/search.json',
+    docs:    '../data/Historical Sources & Documents data/search.json',
+    battle:  '../data/Battlefield Map data/search.json'
   };
 
   Promise.all([
-    fetchFlatIndex(indexUrls.war),
-    fetchFlatIndex(indexUrls.bio),
-    fetchWeaponsIndex(indexUrls.weapons),
-    fetchFlatIndex(indexUrls.tactics),
-    fetchFlatIndex(indexUrls.docs),
-    fetchFlatIndex(indexUrls.battle)
+    fetchSearchCount(searchUrls.war),
+    fetchSearchCount(searchUrls.bio),
+    fetchSearchCount(searchUrls.weapons),
+    fetchSearchCount(searchUrls.tactics),
+    fetchSearchCount(searchUrls.docs),
+    fetchSearchCount(searchUrls.battle)
   ]).then(function (counts) {
     var warCount     = counts[0];
     var bioCount     = counts[1];
@@ -170,7 +165,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // ── War Overview 카드 건수 동적 로드 ──
   const countEl = document.getElementById('warOverviewCount');
   if (countEl) {
-    fetch('../data/war overview data/index.json')
+    fetch('../data/war overview data/search.json')
       .then(r => r.json())
       .then(list => { countEl.textContent = `${list.length}건의 기록`; })
       .catch(() => { countEl.textContent = '기록 로드 실패'; });
@@ -195,31 +190,21 @@ document.addEventListener('DOMContentLoaded', () => {
       return str.replace(/\s*–\s*/g, '–').replace(/\s*-\s*/g, '–');
     }
 
-    var warOverviewIndex = fetch('../data/war overview data/index.json')
+    var warOverviewIndex = fetch('../data/war overview data/search.json')
       .then(function (r) { return r.json(); })
-      .then(function (fileList) {
-        return Promise.all(fileList.map(function (f) {
-          return fetch('../data/war overview data/' + encodeURIComponent(f) + '.json')
-            .then(function (r) { return r.json(); })
-            .then(function (d) {
-              return { source: 'war-overview', name: d.name, period: d.period, summary: d.summary, id: d.id };
-            })
-            .catch(function () { return null; });
-        }));
+      .then(function (items) {
+        return items.map(function (d) {
+          return { source: 'war-overview', name: d.name, period: d.period, summary: d.summary, id: d.id };
+        });
       })
       .catch(function () { return []; });
 
-    var battlefieldIndex = fetch('../data/Battlefield Map data/index.json')
+    var battlefieldIndex = fetch('../data/Battlefield Map data/search.json')
       .then(function (r) { return r.json(); })
-      .then(function (fileList) {
-        return Promise.all(fileList.map(function (f) {
-          return fetch('../data/Battlefield Map data/' + encodeURIComponent(f) + '.json')
-            .then(function (r) { return r.json(); })
-            .then(function (d) {
-              return { source: 'battlefield', name: d.titleKr, period: d.date, summary: d.description, id: d.id };
-            })
-            .catch(function () { return null; });
-        }));
+      .then(function (items) {
+        return items.map(function (d) {
+          return { source: 'battlefield', name: d.titleKr, period: d.date, summary: d.description, id: d.id };
+        });
       })
       .catch(function () { return []; });
 
@@ -267,7 +252,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // ── Biography 카드 건수 동적 로드 ──
   var bioCountEl = document.getElementById('biographyCount');
   if (bioCountEl) {
-    fetch('../data/biography of people data/index.json')
+    fetch('../data/biography of people data/search.json')
       .then(r => r.json())
       .then(list => { bioCountEl.textContent = list.length + '명 수록'; })
       .catch(() => { bioCountEl.textContent = '로드 실패'; });
@@ -276,11 +261,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // ── Weapons & Equipment 카드 건수 동적 로드 ──
   var weaponsCountEl = document.getElementById('weaponsCount');
   if (weaponsCountEl) {
-    fetch('../data/weapons and equipment data/index.json')
+    fetch('../data/weapons and equipment data/search.json')
       .then(function (r) { return r.json(); })
-      .then(function (obj) {
-        var count = Object.values(obj).reduce(function (s, arr) { return s + arr.length; }, 0);
-        weaponsCountEl.textContent = count + '건의 기록';
+      .then(function (arr) {
+        weaponsCountEl.textContent = arr.length + '건의 기록';
       }).catch(function () {
         weaponsCountEl.textContent = '기록 로드 실패';
       });
@@ -289,7 +273,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // ── Historical Sources & Documents 카드 건수 동적 로드 ──
   var hsCountEl = document.getElementById('historicalSourcesCount');
   if (hsCountEl) {
-    fetch('../data/Historical Sources & Documents data/index.json')
+    fetch('../data/Historical Sources & Documents data/search.json')
       .then(function (r) { return r.json(); })
       .then(function (list) {
         hsCountEl.textContent = list.length + '건의 기록';
@@ -301,7 +285,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // ── Battlefield Map 카드 건수 동적 로드 ──
   var bmCountEl = document.getElementById('battlefieldMapCount');
   if (bmCountEl) {
-    fetch('../data/Battlefield Map data/index.json')
+    fetch('../data/Battlefield Map data/search.json')
       .then(function (r) { return r.json(); })
       .then(function (list) {
         bmCountEl.textContent = list.length + '건의 기록';
@@ -348,7 +332,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let searchIndex = null;
   let searchIndexLoading = false;
 
-  // 모든 JSON 데이터를 로드하여 검색 인덱스 구축
+  // search.json 기반 검색 인덱스 구축 (카테고리당 1회 fetch)
   function buildSearchIndex() {
     if (searchIndex) return Promise.resolve(searchIndex);
     if (searchIndexLoading) {
@@ -362,151 +346,103 @@ document.addEventListener('DOMContentLoaded', () => {
 
     var basePath = '../data/';
 
-    // 1) 인물 (Biography)
-    var bioPromise = fetch(basePath + 'biography of people data/index.json')
+    // 각 카테고리의 search.json을 1회씩만 fetch
+    var bioPromise = fetch(basePath + 'biography of people data/search.json')
       .then(function (r) { return r.json(); })
-      .then(function (files) {
-        return Promise.all(files.map(function (f) {
-          return fetch(basePath + 'biography of people data/' + encodeURIComponent(f) + '.json')
-            .then(function (r) { return r.json(); })
-            .then(function (d) {
-              return {
-                category: '인물',
-                name: d.name || f,
-                desc: d.title || d.summary || '',
-                searchText: [d.name, d.title, d.role, d.nationality, d.summary, (d.tags || []).join(' '), (d.wars || []).join(' ')].join(' '),
-                url: 'biography of people/biography of people detail.html?id=' + encodeURIComponent(d.id)
-              };
-            }).catch(function () { return null; });
-        }));
-      }).catch(function () { return []; });
-
-    // 2) 전장 지도 (Battlefield Map)
-    var battlePromise = fetch(basePath + 'Battlefield Map data/index.json')
-      .then(function (r) { return r.json(); })
-      .then(function (files) {
-        return Promise.all(files.map(function (f) {
-          return fetch(basePath + 'Battlefield Map data/' + encodeURIComponent(f) + '.json')
-            .then(function (r) { return r.json(); })
-            .then(function (d) {
-              return {
-                category: '전장지도',
-                name: d.titleKr || d.title || f,
-                desc: d.description || '',
-                searchText: [d.title, d.titleKr, d.era, d.theater, d.description, (d.tags || []).join(' ')].join(' '),
-                url: 'Battlefield Map/Battlefield Map detail.html?id=' + encodeURIComponent(d.id)
-              };
-            }).catch(function () { return null; });
-        }));
-      }).catch(function () { return []; });
-
-    // 3) 전쟁 개요 (War Overview)
-    var warPromise = fetch(basePath + 'war overview data/index.json')
-      .then(function (r) { return r.json(); })
-      .then(function (files) {
-        return Promise.all(files.map(function (f) {
-          return fetch(basePath + 'war overview data/' + encodeURIComponent(f) + '.json')
-            .then(function (r) { return r.json(); })
-            .then(function (d) {
-              return {
-                category: '전쟁개요',
-                name: d.name || f,
-                desc: d.summary || d.period || '',
-                searchText: [d.name, d.era, d.region, d.period, d.summary, (d.tags || []).join(' ')].join(' '),
-                url: 'war overview/war overview detail.html?id=' + encodeURIComponent(d.id)
-              };
-            }).catch(function () { return null; });
-        }));
-      }).catch(function () { return []; });
-
-    // 4) 사료 & 문서 (Historical Sources & Documents)
-    var docsPromise = fetch(basePath + 'Historical Sources & Documents data/index.json')
-      .then(function (r) { return r.json(); })
-      .then(function (files) {
-        return Promise.all(files.map(function (f) {
-          return fetch(basePath + 'Historical Sources & Documents data/' + encodeURIComponent(f) + '.json')
-            .then(function (r) { return r.json(); })
-            .then(function (d) {
-              return {
-                category: '사료',
-                name: d.titleKr || d.title || f,
-                desc: d.summary || '',
-                searchText: [d.title, d.titleKr, d.type, d.era, d.summary, (d.tags || []).join(' ')].join(' '),
-                url: 'Historical Sources & Documents/Historical Sources & Documents detail.html?id=' + encodeURIComponent(d.id)
-              };
-            }).catch(function () { return null; });
-        }));
-      }).catch(function () { return []; });
-
-    // 5) 전략 & 전술 (Strategy & Tactics)
-    var tacticsPromise = fetch(basePath + 'strategy and tactics data/index.json')
-      .then(function (r) { return r.json(); })
-      .then(function (files) {
-        return Promise.all(files.map(function (f) {
-          return fetch(basePath + 'strategy and tactics data/' + encodeURIComponent(f) + '.json')
-            .then(function (r) { return r.json(); })
-            .then(function (d) {
-              return {
-                category: '전략전술',
-                name: d.titleKr || d.title || f,
-                desc: d.summary || '',
-                searchText: [d.title, d.titleKr, d.era, d.category, d.summary, (d.tags || []).join(' ')].join(' '),
-                url: 'strategy and tactics/strategy and tactics detail.html?id=' + encodeURIComponent(d.id)
-              };
-            }).catch(function () { return null; });
-        }));
-      }).catch(function () { return []; });
-
-    // 6) 무기 & 장비 (Weapons & Equipment)
-    var weaponsPromise = fetch(basePath + 'weapons and equipment data/index.json')
-      .then(function (r) { return r.json(); })
-      .then(function (obj) {
-        var allPromises = [];
-        Object.keys(obj).forEach(function (cat) {
-          obj[cat].forEach(function (itemName) {
-            var fileId = cat + '/' + itemName;
-            allPromises.push(
-              fetch(basePath + 'weapons and equipment data/' + encodeURIComponent(cat) + '/' + encodeURIComponent(itemName) + '.json')
-                .then(function (r) { return r.json(); })
-                .then(function (d) {
-                  return {
-                    category: '무기장비',
-                    name: d.name || itemName,
-                    desc: d.nameEn || d.category || '',
-                    searchText: [d.name, d.nameEn, d.category, d.era, d.origin, (d.tags || []).join(' '), (d.overview || []).join(' ')].join(' '),
-                    url: 'Weapons and Equipment/Weapons and Equipment item.html?id=' + encodeURIComponent(fileId)
-                  };
-                }).catch(function () { return null; })
-            );
-          });
+      .then(function (items) {
+        return items.map(function (d) {
+          return {
+            category: '인물',
+            name: d.name || '',
+            desc: d.title || d.summary || '',
+            searchText: [d.name, d.title, d.role, d.nationality, d.summary, (d.tags || []).join(' '), (d.wars || []).join(' ')].join(' '),
+            url: d.url
+          };
         });
-        return Promise.all(allPromises);
       }).catch(function () { return []; });
 
-    // 7) 미분류 사실 (Undefine Facts)
-    var undefinePromise = fetch(basePath + 'Undefine facts data/index.json')
+    var battlePromise = fetch(basePath + 'Battlefield Map data/search.json')
       .then(function (r) { return r.json(); })
-      .then(function (obj) {
-        var allPromises = [];
-        Object.keys(obj).forEach(function (shelf) {
-          var shelfData = obj[shelf];
-          (shelfData.items || []).forEach(function (itemId) {
-            allPromises.push(
-              fetch(basePath + 'Undefine facts data/' + encodeURIComponent(shelf) + '/' + encodeURIComponent(itemId) + '.json')
-                .then(function (r) { return r.json(); })
-                .then(function (d) {
-                  return {
-                    category: '미분류',
-                    name: d.name || itemId,
-                    desc: d.nameEn || d.summary || '',
-                    searchText: [d.name, d.nameEn, d.shelf, d.era, d.origin, d.summary, (d.tags || []).join(' ')].join(' '),
-                    url: 'Undefine facts/Undefine detail.html?shelf=' + encodeURIComponent(d.shelf || shelf) + '&id=' + encodeURIComponent(d.id || itemId)
-                  };
-                }).catch(function () { return null; })
-            );
-          });
+      .then(function (items) {
+        return items.map(function (d) {
+          return {
+            category: '전장지도',
+            name: d.titleKr || d.title || '',
+            desc: d.description || '',
+            searchText: [d.title, d.titleKr, d.era, d.theater, d.description, (d.commanders || []).join(' '), (d.keywords || []).join(' ')].join(' '),
+            url: d.url
+          };
         });
-        return Promise.all(allPromises);
+      }).catch(function () { return []; });
+
+    var warPromise = fetch(basePath + 'war overview data/search.json')
+      .then(function (r) { return r.json(); })
+      .then(function (items) {
+        return items.map(function (d) {
+          return {
+            category: '전쟁개요',
+            name: d.name || '',
+            desc: d.summary || d.period || '',
+            searchText: [d.name, d.era, d.region, d.period, d.summary, d.belligerents, (d.tags || []).join(' ')].join(' '),
+            url: d.url
+          };
+        });
+      }).catch(function () { return []; });
+
+    var docsPromise = fetch(basePath + 'Historical Sources & Documents data/search.json')
+      .then(function (r) { return r.json(); })
+      .then(function (items) {
+        return items.map(function (d) {
+          return {
+            category: '사료',
+            name: d.titleKr || d.title || '',
+            desc: d.description || '',
+            searchText: [d.title, d.titleKr, d.type, d.era, d.author, d.description, (d.keywords || []).join(' ')].join(' '),
+            url: d.url
+          };
+        });
+      }).catch(function () { return []; });
+
+    var tacticsPromise = fetch(basePath + 'strategy and tactics data/search.json')
+      .then(function (r) { return r.json(); })
+      .then(function (items) {
+        return items.map(function (d) {
+          return {
+            category: '전략전술',
+            name: d.titleKr || d.title || '',
+            desc: d.description || '',
+            searchText: [d.title, d.titleKr, d.era, d.category, d.description, d.keyFigure, (d.keywords || []).join(' ')].join(' '),
+            url: d.url
+          };
+        });
+      }).catch(function () { return []; });
+
+    var weaponsPromise = fetch(basePath + 'weapons and equipment data/search.json')
+      .then(function (r) { return r.json(); })
+      .then(function (items) {
+        return items.map(function (d) {
+          return {
+            category: '무기장비',
+            name: d.name || '',
+            desc: d.nameEn || d.category || '',
+            searchText: [d.name, d.nameEn, d.category, d.era, d.origin, (d.tags || []).join(' '), d.overview || ''].join(' '),
+            url: d.url
+          };
+        });
+      }).catch(function () { return []; });
+
+    var undefinePromise = fetch(basePath + 'Undefine facts data/search.json')
+      .then(function (r) { return r.json(); })
+      .then(function (items) {
+        return items.map(function (d) {
+          return {
+            category: '미분류',
+            name: d.name || '',
+            desc: d.nameEn || d.summary || '',
+            searchText: [d.name, d.nameEn, d.shelf, d.era, d.origin, d.summary, (d.tags || []).join(' ')].join(' '),
+            url: d.url
+          };
+        });
       }).catch(function () { return []; });
 
     return Promise.all([bioPromise, battlePromise, warPromise, docsPromise, tacticsPromise, weaponsPromise, undefinePromise])

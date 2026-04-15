@@ -1,0 +1,484 @@
+[
+  {
+    "id": "amphibious-assault",
+    "title": "Amphibious Assault",
+    "titleKr": "상륙작전",
+    "era": "worldwar",
+    "category": "operational",
+    "origin": "고대부터 존재, 현대적 형태는 20세기",
+    "period": "1915년 – 현재",
+    "region": "전 세계 해안 지역",
+    "keyFigure": "더글러스 맥아더, 체스터 니미츠, 버나드 몽고메리",
+    "description": "해상에서 적이 방어하는 해안에 병력을 상륙시켜 교두보를 확보하고 내륙으로 진격하는 합동 작전.",
+    "keywords": [
+      "상륙작전",
+      "교두보",
+      "노르망디",
+      "인천",
+      "갈리폴리"
+    ],
+    "url": "strategy and tactics/strategy and tactics detail.html?id=amphibious-assault"
+  },
+  {
+    "id": "art-of-war",
+    "title": "The Art of War",
+    "titleKr": "손자병법",
+    "era": "ancient",
+    "category": "grand-strategy",
+    "origin": "중국 춘추시대, BC 5세기경",
+    "period": "BC 5세기 – 현재",
+    "region": "중국, 동아시아 전역",
+    "keyFigure": "손무(孫武)",
+    "description": "전쟁의 본질과 전략·전술의 원리를 체계적으로 정리한 고대 중국의 병법서로, 동서양 군사사상에 지대한 영향을 미쳤다.",
+    "keywords": [
+      "병법",
+      "전략",
+      "손무",
+      "13편",
+      "지피지기"
+    ],
+    "url": "strategy and tactics/strategy and tactics detail.html?id=art-of-war"
+  },
+  {
+    "id": "blitzkrieg",
+    "title": "Blitzkrieg",
+    "titleKr": "전격전",
+    "era": "worldwar",
+    "category": "operational",
+    "origin": "독일, 1930년대",
+    "period": "1939년 – 1942년",
+    "region": "유럽, 북아프리카",
+    "keyFigure": "하인츠 구데리안, 에리히 폰 만슈타인, 에르빈 롬멜",
+    "description": "기갑 부대와 급강하 폭격기의 긴밀한 협동으로 적 방어선의 약점을 돌파하고 후방을 마비시키는 기동전 교리.",
+    "keywords": [
+      "기갑전",
+      "전격전",
+      "급강하폭격기",
+      "기동전",
+      "포위"
+    ],
+    "url": "strategy and tactics/strategy and tactics detail.html?id=blitzkrieg"
+  },
+  {
+    "id": "cavalry-charge",
+    "title": "Cavalry Charge",
+    "titleKr": "기병 돌격 전술",
+    "era": "medieval",
+    "category": "tactics",
+    "origin": "고대 ~ 중세 유라시아",
+    "period": "BC 9세기 – AD 20세기 초",
+    "region": "유라시아 전역, 중동, 유럽",
+    "keyFigure": "알렉산드로스 대왕, 징기스칸, 살라딘",
+    "description": "기마 전사들이 대열을 갖추어 적 진영에 직접 돌격하여 충격력으로 적을 격파하는 전투 전술.",
+    "keywords": [
+      "충격 전술",
+      "기사",
+      "랜스 차지",
+      "기병대",
+      "중기병"
+    ],
+    "url": "strategy and tactics/strategy and tactics detail.html?id=cavalry-charge"
+  },
+  {
+    "id": "clausewitz-doctrine",
+    "title": "Clausewitz Doctrine",
+    "titleKr": "클라우제비츠 전쟁론",
+    "era": "modern",
+    "category": "doctrine",
+    "origin": "프로이센, 1832년",
+    "period": "19세기 – 현대",
+    "region": "유럽 전역, 전 세계",
+    "keyFigure": "카를 폰 클라우제비츠",
+    "description": "'전쟁은 다른 수단에 의한 정치의 연속'이라는 명제로 전쟁의 본질을 규명한 근대 군사 사상의 기초.",
+    "keywords": [
+      "전쟁론",
+      "전쟁의 안개",
+      "마찰",
+      "절대전쟁",
+      "중심"
+    ],
+    "url": "strategy and tactics/strategy and tactics detail.html?id=clausewitz-doctrine"
+  },
+  {
+    "id": "containment",
+    "title": "Containment",
+    "titleKr": "봉쇄전략 (억제전략)",
+    "era": "contemporary",
+    "category": "grand-strategy",
+    "origin": "미국, 1947년",
+    "period": "1947년 – 1991년",
+    "region": "전 세계 (냉전 전역)",
+    "keyFigure": "조지 F. 케넌, 해리 트루먼, 딘 애치슨",
+    "description": "소련 공산주의의 팽창을 군사·경제·외교적 수단으로 봉쇄하여 내부 붕괴를 유도하는 냉전 시대 미국의 대 전략.",
+    "keywords": [
+      "냉전",
+      "트루먼 독트린",
+      "마셜 플랜",
+      "NATO",
+      "도미노 이론"
+    ],
+    "url": "strategy and tactics/strategy and tactics detail.html?id=containment"
+  },
+  {
+    "id": "counterinsurgency",
+    "title": "Counterinsurgency (COIN)",
+    "titleKr": "대반란전",
+    "era": "contemporary",
+    "category": "doctrine",
+    "origin": "영국/프랑스, 1950년대",
+    "period": "1948년 – 현재",
+    "region": "전 세계 (말라야, 알제리, 베트남, 이라크, 아프가니스탄)",
+    "keyFigure": "제럴드 템플러, 다비드 갈룰라, 데이비드 퍼트레이어스",
+    "description": "반란·게릴라 세력을 군사·정치·경제·사회적 수단을 종합하여 제압하고 민중의 지지를 획득하는 전략 교리.",
+    "keywords": [
+      "COIN",
+      "민심 획득",
+      "반란 진압",
+      "FM 3-24",
+      "클리어-홀드-빌드"
+    ],
+    "url": "strategy and tactics/strategy and tactics detail.html?id=counterinsurgency"
+  },
+  {
+    "id": "envelopment",
+    "title": "Envelopment",
+    "titleKr": "포위 섬멸전",
+    "era": "ancient",
+    "category": "tactics",
+    "origin": "고대 카르타고, BC 216년 칸나이 전투",
+    "period": "BC 3세기 – 현재",
+    "region": "지중해, 유럽, 전 세계",
+    "keyFigure": "한니발 바르카, 스키피오 아프리카누스, 슐리펜",
+    "description": "적군의 측면 또는 후방을 감싸 포위한 뒤 섬멸하는 전술로, 칸나이 전투에서 한니발이 구사한 양익 포위가 가장 유명한 사례이다.",
+    "keywords": [
+      "칸나이",
+      "양익 포위",
+      "이중 포위",
+      "측면 공격",
+      "섬멸전"
+    ],
+    "url": "strategy and tactics/strategy and tactics detail.html?id=envelopment"
+  },
+  {
+    "id": "guerrilla-warfare",
+    "title": "Guerrilla Warfare",
+    "titleKr": "게릴라전",
+    "era": "contemporary",
+    "category": "guerrilla",
+    "origin": "스페인, 나폴레옹 전쟁 시기 용어화",
+    "period": "고대 – 현재",
+    "region": "전 세계",
+    "keyFigure": "마오쩌둥, 체 게바라, 보응우옌잡, 호치민",
+    "description": "정규군에 비해 열세인 비정규 세력이 기습, 매복, 사보타주 등으로 적을 소모시키는 비정규전 전략.",
+    "keywords": [
+      "비정규전",
+      "인민전쟁",
+      "매복",
+      "사보타주",
+      "베트콩"
+    ],
+    "url": "strategy and tactics/strategy and tactics detail.html?id=guerrilla-warfare"
+  },
+  {
+    "id": "hybrid-warfare",
+    "title": "Hybrid Warfare",
+    "titleKr": "하이브리드전",
+    "era": "contemporary",
+    "category": "doctrine",
+    "origin": "다양한 기원, 2000년대 이론화",
+    "period": "2006년 – 현재",
+    "region": "전 세계 (레바논, 우크라이나, 시리아, 발트해 등)",
+    "keyFigure": "프랭크 호프만, 발레리 게라시모프, 하산 나스랄라",
+    "description": "정규전·비정규전·테러·사이버·정보전·경제전 등 다양한 수단을 동시에 복합적으로 활용하는 현대 전쟁 양식.",
+    "keywords": [
+      "하이브리드전",
+      "회색지대",
+      "게라시모프 독트린",
+      "비선형전",
+      "사이버전",
+      "정보전"
+    ],
+    "url": "strategy and tactics/strategy and tactics detail.html?id=hybrid-warfare"
+  },
+  {
+    "id": "legion-tactics",
+    "title": "Legion Tactics",
+    "titleKr": "로마 레기온 전술",
+    "era": "ancient",
+    "category": "tactics",
+    "origin": "고대 로마, BC 4세기경",
+    "period": "BC 4세기 – AD 5세기",
+    "region": "로마 제국 전역",
+    "keyFigure": "카밀루스, 스키피오 아프리카누스, 율리우스 카이사르",
+    "description": "로마 군단(레기온)의 유연한 전술 체계. 마니풀루스와 코호르스 단위로 나뉜 소규모 전술 단위의 기동성과 적응력이 핵심이다.",
+    "keywords": [
+      "레기온",
+      "마니풀루스",
+      "코호르스",
+      "필룸",
+      "글라디우스"
+    ],
+    "url": "strategy and tactics/strategy and tactics detail.html?id=legion-tactics"
+  },
+  {
+    "id": "line-infantry",
+    "title": "Line Infantry",
+    "titleKr": "선형 보병 전술",
+    "era": "earlymodern",
+    "category": "tactics",
+    "origin": "유럽, 17세기 후반",
+    "period": "17세기 후반 – 19세기 중반",
+    "region": "유럽, 북미, 전 세계",
+    "keyFigure": "마우리츠 공, 구스타브 아돌프, 프리드리히 대왕",
+    "description": "보병이 얇은 횡대로 전개하여 제식 사격으로 적에 화력을 집중하는 근세 유럽의 주도적 전투 방식.",
+    "keywords": [
+      "횡대",
+      "일제 사격",
+      "총검",
+      "제식 훈련",
+      "선형 전술"
+    ],
+    "url": "strategy and tactics/strategy and tactics detail.html?id=line-infantry"
+  },
+  {
+    "id": "longbow-tactics",
+    "title": "Longbow Tactics",
+    "titleKr": "장궁 전술",
+    "era": "medieval",
+    "category": "tactics",
+    "origin": "잉글랜드·웨일스, 13세기",
+    "period": "13세기 – 16세기",
+    "region": "잉글랜드, 프랑스, 스코틀랜드",
+    "keyFigure": "에드워드 1세, 에드워드 3세, 헨리 5세",
+    "description": "잉글랜드 장궁병이 방어적 진지에서 화살의 집중 사격으로 돌격하는 적 기병과 보병을 격파하는 전술.",
+    "keywords": [
+      "장궁",
+      "화살 사격",
+      "크레시",
+      "아쟁쿠르",
+      "방어 진지"
+    ],
+    "url": "strategy and tactics/strategy and tactics detail.html?id=longbow-tactics"
+  },
+  {
+    "id": "mongol-tactics",
+    "title": "Mongol Tactics",
+    "titleKr": "몽골 기동전술",
+    "era": "medieval",
+    "category": "operational",
+    "origin": "몽골 제국, 13세기",
+    "period": "13세기 – 14세기",
+    "region": "유라시아 전역",
+    "keyFigure": "징기스칸, 수부타이, 바투",
+    "description": "경기병의 압도적 기동력과 조직적 지휘체계를 기반으로 적을 분산·기만·포위하여 섬멸하는 몽골 제국의 독창적 전투 체계.",
+    "keywords": [
+      "기동전",
+      "경기병",
+      "투멘",
+      "거짓 퇴각",
+      "심리전"
+    ],
+    "url": "strategy and tactics/strategy and tactics detail.html?id=mongol-tactics"
+  },
+  {
+    "id": "napoleonic-corps-system",
+    "title": "Napoleonic Corps System",
+    "titleKr": "나폴레옹 군단 체계",
+    "era": "modern",
+    "category": "operational",
+    "origin": "프랑스, 1800년대",
+    "period": "1800년 – 1815년",
+    "region": "유럽 전역",
+    "keyFigure": "나폴레옹 보나파르트, 루이 니콜라 다부, 미셸 네",
+    "description": "나폴레옹이 확립한 독자적 작전 수행이 가능한 군단(corps d'armée) 편성과 분산 기동·집중 전투 원칙에 기반한 작전술 체계.",
+    "keywords": [
+      "군단",
+      "분산 기동",
+      "집중 전투",
+      "내선 작전",
+      "작전술"
+    ],
+    "url": "strategy and tactics/strategy and tactics detail.html?id=napoleonic-corps-system"
+  },
+  {
+    "id": "naval-line-of-battle",
+    "title": "Naval Line of Battle",
+    "titleKr": "해전 전열 전술",
+    "era": "earlymodern",
+    "category": "naval",
+    "origin": "네덜란드·영국, 17세기 중반",
+    "period": "1653년 – 19세기 초",
+    "region": "대서양, 지중해, 인도양, 태평양",
+    "keyFigure": "호레이쇼 넬슨, 미힐 데 라위터르, 조지 로드니",
+    "description": "전열함(ship of the line)이 일렬 종대로 편대를 형성하여 현측 포열의 화력을 집중하는 범선 시대의 해전 전술.",
+    "keywords": [
+      "전열함",
+      "현측 포격",
+      "종대 대형",
+      "트라팔가르",
+      "함대 기동"
+    ],
+    "url": "strategy and tactics/strategy and tactics detail.html?id=naval-line-of-battle"
+  },
+  {
+    "id": "network-centric-warfare",
+    "title": "Network-Centric Warfare",
+    "titleKr": "네트워크 중심전",
+    "era": "contemporary",
+    "category": "doctrine",
+    "origin": "미국, 1990년대",
+    "period": "1996년 – 현재",
+    "region": "미국 중심, 전 세계 확산",
+    "keyFigure": "아서 케브릭, 데이비드 앨버츠, 도널드 럼즈펠드",
+    "description": "정보 네트워크를 통해 분산된 전력을 실시간으로 연결하고, 정보 우위를 전투력 우위로 전환하는 현대 군사 교리.",
+    "keywords": [
+      "NCW",
+      "RMA",
+      "정보 우위",
+      "C4ISR",
+      "킬체인",
+      "네트워크"
+    ],
+    "url": "strategy and tactics/strategy and tactics detail.html?id=network-centric-warfare"
+  },
+  {
+    "id": "phalanx",
+    "title": "Phalanx",
+    "titleKr": "팔랑크스",
+    "era": "ancient",
+    "category": "tactics",
+    "origin": "고대 그리스, BC 8세기경",
+    "period": "BC 8세기 – BC 2세기",
+    "region": "그리스, 마케도니아, 헬레니즘 세계",
+    "keyFigure": "레오니다스, 필리포스 2세, 알렉산드로스 대왕",
+    "description": "중장보병(호플리테스)이 방패와 창을 들고 밀집 대형을 이루어 적에게 돌격하는 고대 그리스의 대표적 전투 대형.",
+    "keywords": [
+      "호플리테스",
+      "밀집 대형",
+      "사리사",
+      "마케도니아",
+      "중장보병"
+    ],
+    "url": "strategy and tactics/strategy and tactics detail.html?id=phalanx"
+  },
+  {
+    "id": "siege-warfare",
+    "title": "Siege Warfare",
+    "titleKr": "공성전",
+    "era": "medieval",
+    "category": "siege",
+    "origin": "고대 메소포타미아, BC 3천년기",
+    "period": "BC 3000년 – 현재",
+    "region": "전 세계",
+    "keyFigure": "알렉산드로스 대왕, 살라딘, 보방",
+    "description": "적의 성채, 요새, 도시를 포위하여 굶주림이나 공격으로 함락시키는 전쟁 형태.",
+    "keywords": [
+      "공성",
+      "포위",
+      "성벽",
+      "공성탑",
+      "파성추"
+    ],
+    "url": "strategy and tactics/strategy and tactics detail.html?id=siege-warfare"
+  },
+  {
+    "id": "strategic-bombing",
+    "title": "Strategic Bombing",
+    "titleKr": "전략폭격",
+    "era": "worldwar",
+    "category": "grand-strategy",
+    "origin": "이탈리아/영국, 1920년대 이론화",
+    "period": "1937년 – 1945년 (본격 시행)",
+    "region": "유럽, 태평양",
+    "keyFigure": "줄리오 두에, 아서 해리스, 커티스 르메이",
+    "description": "적국의 산업 시설, 도시, 인프라를 항공기로 대규모 폭격하여 전쟁 수행 능력과 국민의 전쟁 의지를 파괴하는 항공 전략.",
+    "keywords": [
+      "전략폭격",
+      "야간폭격",
+      "정밀폭격",
+      "도시폭격",
+      "핵폭탄"
+    ],
+    "url": "strategy and tactics/strategy and tactics detail.html?id=strategic-bombing"
+  },
+  {
+    "id": "tercio",
+    "title": "Tercio",
+    "titleKr": "테르시오",
+    "era": "earlymodern",
+    "category": "tactics",
+    "origin": "스페인, 16세기 초",
+    "period": "1534년 – 1643년",
+    "region": "유럽, 신대륙, 지중해",
+    "keyFigure": "곤살로 데 코르도바, 알바 공작, 알레한드로 파르네세",
+    "description": "장창병(pike)과 화승총병(arquebus/musket)을 결합한 스페인의 혼합 보병 대형으로, 약 150년간 유럽 전장을 지배했다.",
+    "keywords": [
+      "파이크",
+      "화승총",
+      "스페인 방진",
+      "보병 혁명",
+      "머스킷"
+    ],
+    "url": "strategy and tactics/strategy and tactics detail.html?id=tercio"
+  },
+  {
+    "id": "total-war",
+    "title": "Total War",
+    "titleKr": "총력전",
+    "era": "modern",
+    "category": "grand-strategy",
+    "origin": "19세기 유럽, 개념화는 1935년 루덴도르프",
+    "period": "19세기 – 20세기",
+    "region": "전 세계",
+    "keyFigure": "윌리엄 셔먼, 에리히 루덴도르프, 윈스턴 처칠",
+    "description": "국가의 모든 인적·물적 자원을 전쟁 수행에 동원하는 전쟁 수행 개념. 군사와 민간의 구분이 사라지는 절대적 전쟁 양상.",
+    "keywords": [
+      "총동원",
+      "전시경제",
+      "국민전쟁",
+      "산업전쟁",
+      "전략폭격"
+    ],
+    "url": "strategy and tactics/strategy and tactics detail.html?id=total-war"
+  },
+  {
+    "id": "trench-warfare",
+    "title": "Trench Warfare",
+    "titleKr": "참호전",
+    "era": "worldwar",
+    "category": "tactics",
+    "origin": "제1차 세계대전 서부전선, 1914년",
+    "period": "1914년 – 1918년",
+    "region": "서부전선 (벨기에~프랑스)",
+    "keyFigure": "에리히 폰 팔켄하인, 더글러스 헤이그, 필리프 페탱",
+    "description": "대치하는 양측이 참호를 파고 교착 상태에서 소모전을 벌이는 전쟁 형태. 제1차 세계대전 서부전선의 상징.",
+    "keywords": [
+      "참호",
+      "무인지대",
+      "소모전",
+      "서부전선",
+      "독가스"
+    ],
+    "url": "strategy and tactics/strategy and tactics detail.html?id=trench-warfare"
+  },
+  {
+    "id": "vauban-fortification",
+    "title": "Vauban Fortification",
+    "titleKr": "보방식 요새",
+    "era": "earlymodern",
+    "category": "siege",
+    "origin": "프랑스, 17세기 후반",
+    "period": "1668년 – 19세기",
+    "region": "유럽, 식민지 전역",
+    "keyFigure": "세바스티앵 르 프레트르 드 보방",
+    "description": "프랑스의 군사 공학자 보방이 체계화한 별모양 요새 설계와 체계적 공성법으로, 근세 유럽 군사 건축의 표준이 되었다.",
+    "keywords": [
+      "별모양 요새",
+      "보루",
+      "접근호",
+      "평행호",
+      "요새 설계"
+    ],
+    "url": "strategy and tactics/strategy and tactics detail.html?id=vauban-fortification"
+  }
+]
