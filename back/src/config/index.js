@@ -1,0 +1,33 @@
+require('dotenv').config({ path: process.env.ENV_PATH || '/app/.env' });
+
+module.exports = {
+  port: parseInt(process.env.PORT, 10) || 3000,
+  nodeEnv: process.env.NODE_ENV || 'development',
+
+  db: {
+    host: process.env.DB_HOST || 'mysql',
+    port: parseInt(process.env.DB_PORT, 10) || 3306,
+    user: process.env.DB_USER || 'wararchive',
+    password: process.env.DB_PASSWORD || '',
+    database: process.env.DB_NAME || 'war_archive',
+    connectionLimit: parseInt(process.env.DB_POOL_SIZE, 10) || 10
+  },
+
+  jwt: {
+    secret: process.env.JWT_SECRET || 'change-me-in-production',
+    expiresIn: process.env.JWT_EXPIRES_IN || '7d'
+  },
+
+  cors: {
+    origin: process.env.CORS_ORIGIN || 'http://localhost'
+  },
+
+  upload: {
+    maxSize: parseInt(process.env.UPLOAD_MAX_SIZE, 10) || 5 * 1024 * 1024,
+    dest: process.env.UPLOAD_DEST || '/app/data/uploads'
+  },
+
+  log: {
+    dir: process.env.LOG_DIR || '/app/data/logs'
+  }
+};
