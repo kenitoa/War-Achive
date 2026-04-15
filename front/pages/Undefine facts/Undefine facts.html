@@ -1,0 +1,357 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WAR ARCHIVE — 미확인 자료집</title>
+  <link rel="stylesheet" href="../../assets/css/Undefine facts style/Undefine facts style.css">
+</head>
+<body>
+
+  <!-- ── Header ── -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="../../index.html" class="logo">
+        <div class="logo-icon">&#9876;</div>
+        <span class="logo-text">War Archive</span>
+      </a>
+      <nav class="nav-links">
+        <a href="../../index.html#categories">아카이브</a>
+        <a href="../../index.html#timeline">연대기</a>
+        <a href="../../index.html#search">검색</a>
+        <a href="../../index.html#project" class="active">프로젝트</a>
+      </nav>
+      <button class="menu-toggle" aria-label="메뉴 열기">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ── Section 1: Hero — 창고 입구 ── -->
+  <section class="panel panel-hero" id="hero">
+    <div class="panel-bg"></div>
+    <div class="dust-particles" id="dustParticles"></div>
+    <div class="panel-content reveal">
+      <span class="label-tag">Unverified Archives</span>
+      <h1 class="display-title">
+        기억의 <span class="accent">창고</span> 속으로
+      </h1>
+      <p class="hero-desc">
+        사실 관계가 확실하지 않거나 구전 위주의 사료들을 보관합니다.<br>
+        먼지 쌓인 선반 어딘가에, 아직 검증되지 않은 이야기들이 잠들어 있습니다.
+      </p>
+    </div>
+    <div class="scroll-indicator">
+      <span>Scroll</span>
+      <div class="line"></div>
+    </div>
+  </section>
+
+  <!-- ── Section 2: 창고 안내 ── -->
+  <section class="panel panel-about" id="about">
+    <div class="panel-inner">
+      <div class="split-layout">
+        <div class="split-left reveal">
+          <span class="label-tag">01 — About This Archive</span>
+          <h2 class="section-heading">미확인 자료집이란?</h2>
+        </div>
+        <div class="split-right reveal reveal-delay">
+          <p class="body-text">
+            역사 속에는 공식 기록으로 남지 못한 수많은 이야기들이 존재합니다.
+            구전으로만 전해지는 전설, 출처가 불분명한 문서, 진위 여부가 논쟁 중인 사료들 —
+            이곳은 그런 자료들을 모아두는 <strong>창고</strong>입니다.
+          </p>
+          <p class="body-text">
+            이 자료들은 아직 정식 아카이브에 포함되지 않았으며,
+            추후 검증을 통해 정식 카테고리로 이동하거나, 허위로 판명되어 폐기될 수 있습니다.
+          </p>
+          <div class="warning-badge">
+            <span class="warning-icon">&#9888;</span>
+            <span>이곳의 자료는 사실로 확정되지 않은 내용을 포함합니다. 인용 시 주의하세요.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Section 3: 분류 책장 ── -->
+  <section class="panel panel-shelves" id="shelves">
+    <div class="panel-inner">
+      <div class="center-block reveal">
+        <span class="label-tag">02 — Bookshelf</span>
+        <h2 class="section-heading">자료집</h2>
+        <p class="body-text body-text-center">
+          미확인 자료들은 성격에 따라 다음 책장에 꽂혀 있습니다
+        </p>
+      </div>
+
+      <div class="bookshelf">
+        <!-- 상단 선반 -->
+        <div class="bookshelf-row reveal">
+          <div class="books-container">
+            <div class="book book-a" data-shelf="Unidentified Documents" data-shelf-name="출처 미상 문서">
+              <div class="book-spine">
+                <span class="book-spine-label">A</span>
+                <span class="book-spine-title">출처 미상 문서</span>
+                <span class="book-spine-icon">&#128220;</span>
+              </div>
+              <div class="book-popup">
+                <div class="popup-header">
+                  <span class="popup-tag">Unidentified Documents</span>
+                  <h3 class="popup-title">출처 미상 문서</h3>
+                  <button class="popup-close">&times;</button>
+                </div>
+                <div class="popup-grid"></div>
+                <div class="popup-empty" style="display:none;"><span>&#128230;</span><p>자료 없음</p></div>
+                <div class="popup-footer">
+                  <button class="popup-prev" disabled>&#8592;</button>
+                  <span class="popup-page-info">1 / 1</span>
+                  <button class="popup-next" disabled>&#8594;</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="book book-b" data-shelf="Oral Traditions" data-shelf-name="구전 사료">
+              <div class="book-spine">
+                <span class="book-spine-label">B</span>
+                <span class="book-spine-title">구전 사료</span>
+                <span class="book-spine-icon">&#128483;</span>
+              </div>
+              <div class="book-popup">
+                <div class="popup-header">
+                  <span class="popup-tag">Oral Traditions</span>
+                  <h3 class="popup-title">구전 사료</h3>
+                  <button class="popup-close">&times;</button>
+                </div>
+                <div class="popup-grid"></div>
+                <div class="popup-empty" style="display:none;"><span>&#128230;</span><p>자료 없음</p></div>
+                <div class="popup-footer">
+                  <button class="popup-prev" disabled>&#8592;</button>
+                  <span class="popup-page-info">1 / 1</span>
+                  <button class="popup-next" disabled>&#8594;</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="book book-c" data-shelf="Disputed Sources" data-shelf-name="논쟁 중인 사료">
+              <div class="book-spine">
+                <span class="book-spine-label">C</span>
+                <span class="book-spine-title">논쟁 중인 사료</span>
+                <span class="book-spine-icon">&#128270;</span>
+              </div>
+              <div class="book-popup">
+                <div class="popup-header">
+                  <span class="popup-tag">Disputed Sources</span>
+                  <h3 class="popup-title">논쟁 중인 사료</h3>
+                  <button class="popup-close">&times;</button>
+                </div>
+                <div class="popup-grid"></div>
+                <div class="popup-empty" style="display:none;"><span>&#128230;</span><p>자료 없음</p></div>
+                <div class="popup-footer">
+                  <button class="popup-prev" disabled>&#8592;</button>
+                  <span class="popup-page-info">1 / 1</span>
+                  <button class="popup-next" disabled>&#8594;</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="shelf-board"></div>
+        </div>
+
+        <!-- 하단 선반 -->
+        <div class="bookshelf-row reveal reveal-delay">
+          <div class="books-container">
+            <div class="book book-d" data-shelf="Legends and Myths" data-shelf-name="전설 &amp; 신화">
+              <div class="book-spine">
+                <span class="book-spine-label">D</span>
+                <span class="book-spine-title">전설 &amp; 신화</span>
+                <span class="book-spine-icon">&#127760;</span>
+              </div>
+              <div class="book-popup">
+                <div class="popup-header">
+                  <span class="popup-tag">Legends and Myths</span>
+                  <h3 class="popup-title">전설 &amp; 신화</h3>
+                  <button class="popup-close">&times;</button>
+                </div>
+                <div class="popup-grid"></div>
+                <div class="popup-empty" style="display:none;"><span>&#128230;</span><p>자료 없음</p></div>
+                <div class="popup-footer">
+                  <button class="popup-prev" disabled>&#8592;</button>
+                  <span class="popup-page-info">1 / 1</span>
+                  <button class="popup-next" disabled>&#8594;</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="book book-e" data-shelf="Incomplete Records" data-shelf-name="미완성 기록">
+              <div class="book-spine">
+                <span class="book-spine-label">E</span>
+                <span class="book-spine-title">미완성 기록</span>
+                <span class="book-spine-icon">&#128466;</span>
+              </div>
+              <div class="book-popup">
+                <div class="popup-header">
+                  <span class="popup-tag">Incomplete Records</span>
+                  <h3 class="popup-title">미완성 기록</h3>
+                  <button class="popup-close">&times;</button>
+                </div>
+                <div class="popup-grid"></div>
+                <div class="popup-empty" style="display:none;"><span>&#128230;</span><p>자료 없음</p></div>
+                <div class="popup-footer">
+                  <button class="popup-prev" disabled>&#8592;</button>
+                  <span class="popup-page-info">1 / 1</span>
+                  <button class="popup-next" disabled>&#8594;</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="book book-f" data-shelf="Declassified Files" data-shelf-name="기밀 해제 자료">
+              <div class="book-spine">
+                <span class="book-spine-label">F</span>
+                <span class="book-spine-title">기밀 해제 자료</span>
+                <span class="book-spine-icon">&#128274;</span>
+              </div>
+              <div class="book-popup">
+                <div class="popup-header">
+                  <span class="popup-tag">Declassified Files</span>
+                  <h3 class="popup-title">기밀 해제 자료</h3>
+                  <button class="popup-close">&times;</button>
+                </div>
+                <div class="popup-grid"></div>
+                <div class="popup-empty" style="display:none;"><span>&#128230;</span><p>자료 없음</p></div>
+                <div class="popup-footer">
+                  <button class="popup-prev" disabled>&#8592;</button>
+                  <span class="popup-page-info">1 / 1</span>
+                  <button class="popup-next" disabled>&#8594;</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="shelf-board"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Section 4: 검증 프로세스 ── -->
+  <section class="panel panel-process" id="process">
+    <div class="panel-inner">
+      <div class="center-block reveal">
+        <span class="label-tag">03 — Verification Process</span>
+        <h2 class="section-heading">검증 절차</h2>
+        <p class="body-text body-text-center">
+          창고에 보관된 자료는 다음 단계를 거쳐 정식 아카이브로 이동합니다
+        </p>
+      </div>
+
+      <div class="process-pipeline">
+        <div class="pipeline-step reveal">
+          <div class="pipe-number">01</div>
+          <div class="pipe-content">
+            <h3>수집 & 입고</h3>
+            <p>새로운 미확인 자료가 발견되면 창고에 입고하고 기본 정보를 기록합니다.</p>
+          </div>
+          <div class="pipe-status status-warehouse">입고</div>
+        </div>
+
+        <div class="pipe-connector"></div>
+
+        <div class="pipeline-step reveal reveal-delay">
+          <div class="pipe-number">02</div>
+          <div class="pipe-content">
+            <h3>1차 검토</h3>
+            <p>자료의 시대적 맥락, 언어적 특징, 물리적 상태를 확인합니다.</p>
+          </div>
+          <div class="pipe-status status-review">검토 중</div>
+        </div>
+
+        <div class="pipe-connector"></div>
+
+        <div class="pipeline-step reveal reveal-delay-2">
+          <div class="pipe-number">03</div>
+          <div class="pipe-content">
+            <h3>교차 검증</h3>
+            <p>다른 사료와의 일치 여부, 전문가 의견을 수렴하여 신뢰도를 평가합니다.</p>
+          </div>
+          <div class="pipe-status status-verify">검증 중</div>
+        </div>
+
+        <div class="pipe-connector"></div>
+
+        <div class="pipeline-step reveal">
+          <div class="pipe-number">04</div>
+          <div class="pipe-content">
+            <h3>분류 & 이관</h3>
+            <p>검증이 완료되면 정식 카테고리로 이관하거나, 미확인 상태로 보존합니다.</p>
+          </div>
+          <div class="pipe-status status-complete">완료</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Section 5: 창고 상태 ── -->
+  <section class="panel panel-status" id="status">
+    <div class="panel-inner">
+      <div class="center-block reveal">
+        <span class="label-tag">04 — Warehouse Status</span>
+        <h2 class="section-heading">자료 현황</h2>
+      </div>
+
+      <div class="status-board reveal" id="statusBoard">
+        <div class="status-row">
+          <div class="status-cell status-header">구분</div>
+          <div class="status-cell status-header">보관 수량</div>
+          <div class="status-cell status-header">상태</div>
+        </div>
+        <!-- JS가 동적으로 행을 렌더링합니다 -->
+      </div>
+
+      <div class="warehouse-notice reveal">
+        <p>&#128230; Data status 폴더에 JSON 파일을 추가하면 자동으로 현황이 업데이트됩니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Section 6: CTA ── -->
+  <section class="panel panel-cta" id="cta">
+    <div class="panel-content reveal">
+      <span class="label-tag">Contribute</span>
+      <h2 class="display-title display-title-sm">
+        잠든 기록을<br><span class="accent">깨워주세요</span>
+      </h2>
+      <p class="body-text body-text-center" style="margin-top: 1.5rem;">
+        검증되지 않은 흥미로운 사료를 알고 계신다면,<br>
+        이 창고에 기여해주세요.
+      </p>
+      <div class="cta-actions">
+        <a href="../info/contribution.html" class="btn-cta">기여 가이드 보기</a>
+        <a href="../../index.html#categories" class="btn-cta-outline">아카이브로 돌아가기</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Footer ── -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <a href="../../index.html" class="logo">
+          <div class="logo-icon">&#9876;</div>
+          <span class="logo-text">War Archive</span>
+        </a>
+        <nav class="footer-nav">
+          <a href="../../index.html#categories">아카이브</a>
+          <a href="../../index.html#timeline">연대기</a>
+          <a href="../info/information.html">소개</a>
+          <a href="../info/contribution.html">기여하기</a>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 War Archive. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/Undefine facts tech/Undefine facts tech.js"></script>
+</body>
+</html>

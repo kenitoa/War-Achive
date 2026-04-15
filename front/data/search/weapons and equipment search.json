@@ -1,0 +1,418 @@
+﻿[
+  {
+    "name": "Bf 109",
+    "nameEn": "Messerschmitt Bf 109",
+    "category": "aircraft",
+    "era": "worldwar",
+    "origin": "나치 독일",
+    "tags": [
+      "전투기",
+      "독일",
+      "세계대전",
+      "프로펠러",
+      "루프트바페"
+    ],
+    "overview": "Bf 109는 빌리 메서슈미트가 설계한 제2차 세계대전 독일 공군의 주력 전투기이다. 약 34,000대가 생산되어 역사상 가장 많이 생산된 전투기이다. 스페인 내전(1936)부터 제2차 세계대전 종전까지 거의 모든 ",
+    "url": "pages/Weapons and Equipment/Weapons and Equipment item.html?id=aircraft%2Fbf109"
+  },
+  {
+    "name": "P-51 머스탱",
+    "nameEn": "P-51 Mustang",
+    "category": "aircraft",
+    "era": "worldwar",
+    "origin": "미국",
+    "tags": [
+      "전투기",
+      "호위전투기",
+      "미국",
+      "세계대전",
+      "프로펠러"
+    ],
+    "overview": "P-51 머스탱(Mustang)은 제2차 세계대전 최고의 전투기 중 하나로, 특히 장거리 폭격기 호위 임무에서 결정적인 역할을 수행했다. 영국 롤스로이스 멀린 엔진을 장착한 후 고고도 성능이 비약적으로 향상되어, 독",
+    "url": "pages/Weapons and Equipment/Weapons and Equipment item.html?id=aircraft%2Fp-51%20mustang"
+  },
+  {
+    "name": "스핏파이어",
+    "nameEn": "Supermarine Spitfire",
+    "category": "aircraft",
+    "era": "worldwar",
+    "origin": "영국",
+    "tags": [
+      "전투기",
+      "요격기",
+      "영국",
+      "세계대전",
+      "멀린"
+    ],
+    "overview": "스핏파이어(Spitfire)는 레지널드 미첼이 설계한 영국의 단발 전투기로, 영국 전투(Battle of Britain)에서 조국을 구한 전설적인 전투기이다. 우아한 타원형 날개와 롤스로이스 멀린 엔진의 조합으로 뛰",
+    "url": "pages/Weapons and Equipment/Weapons and Equipment item.html?id=aircraft%2Fspitfire"
+  },
+  {
+    "name": "M4 셔먼",
+    "nameEn": "M4 Sherman",
+    "category": "armor",
+    "era": "worldwar",
+    "origin": "미국",
+    "tags": [
+      "전차",
+      "중형전차",
+      "미국",
+      "세계대전",
+      "연합군"
+    ],
+    "overview": "M4 셔먼(Sherman)은 제2차 세계대전 당시 미국이 가장 많이 생산한 중형전차로, 연합군 기갑 전력의 주축이었다. 총 약 49,000대가 생산되었다. 개별 성능에서는 독일의 티거나 판터에 미치지 못했으나, 압도",
+    "url": "pages/Weapons and Equipment/Weapons and Equipment item.html?id=armor%2Fm4%20sherman"
+  },
+  {
+    "name": "T-34",
+    "nameEn": "T-34 Medium Tank",
+    "category": "armor",
+    "era": "worldwar",
+    "origin": "소련",
+    "tags": [
+      "전차",
+      "중형전차",
+      "소련",
+      "세계대전",
+      "경사장갑"
+    ],
+    "overview": "T-34는 제2차 세계대전 당시 소련이 개발한 중형전차로, 경사 장갑, 넓은 궤도, 디젤 엔진의 혁신적 조합으로 현대 전차 설계의 기준을 세웠다. 등장 당시 독일 전차와 대전차 무기의 대부분이 T-34를 관통할 수 ",
+    "url": "pages/Weapons and Equipment/Weapons and Equipment item.html?id=armor%2Ft-34"
+  },
+  {
+    "name": "티거 I",
+    "nameEn": "Tiger I (Panzerkampfwagen VI Tiger Ausf. E)",
+    "category": "armor",
+    "era": "worldwar",
+    "origin": "나치 독일",
+    "tags": [
+      "전차",
+      "중전차",
+      "독일",
+      "세계대전",
+      "88mm"
+    ],
+    "overview": "티거 I(Tiger I)은 제2차 세계대전 당시 독일이 개발한 중전차로, 강력한 88mm 주포와 두꺼운 장갑으로 연합군에게 공포의 대상이었다. 1대1 교전에서 거의 무적에 가까운 성능을 보였으나, 복잡한 구조와 높은",
+    "url": "pages/Weapons and Equipment/Weapons and Equipment item.html?id=armor%2Ftiger%20i"
+  },
+  {
+    "name": "카추샤 로켓 발사기",
+    "nameEn": "Katyusha Rocket Launcher (BM-13)",
+    "category": "artillery",
+    "era": "worldwar",
+    "origin": "소련",
+    "tags": [
+      "로켓",
+      "다연장",
+      "소련",
+      "세계대전",
+      "화력지원"
+    ],
+    "overview": "카추샤(Katyusha)는 제2차 세계대전 당시 소련이 운용한 다연장 로켓 발사기의 통칭이다. 대표적인 모델인 BM-13은 트럭에 장착된 발사 레일에서 132mm 로켓탄을 일제 발사한다. 짧은 시간에 광범위한 지역에",
+    "url": "pages/Weapons and Equipment/Weapons and Equipment item.html?id=artillery%2Fkatyusha"
+  },
+  {
+    "name": "M101 105mm 곡사포",
+    "nameEn": "M101 105mm Howitzer",
+    "category": "artillery",
+    "era": "worldwar",
+    "origin": "미국",
+    "tags": [
+      "곡사포",
+      "포병",
+      "야전포",
+      "세계대전",
+      "105mm"
+    ],
+    "overview": "M101(구 M2A1)은 제2차 세계대전부터 미군 사단 포병의 표준 경량 곡사포로 사용된 105mm 견인식 곡사포이다. 뛰어난 신뢰성과 적절한 화력, 경량 설계로 20세기 가장 성공적인 야전포 중 하나로 평가되며, ",
+    "url": "pages/Weapons and Equipment/Weapons and Equipment item.html?id=artillery%2Fm101%20howitzer"
+  },
+  {
+    "name": "V-2 로켓",
+    "nameEn": "V-2 Rocket (Vergeltungswaffe 2)",
+    "category": "artillery",
+    "era": "worldwar",
+    "origin": "나치 독일",
+    "tags": [
+      "로켓",
+      "탄도미사일",
+      "독일",
+      "세계대전",
+      "보복무기"
+    ],
+    "overview": "V-2(Vergeltungswaffe 2, 보복 무기 2호)는 세계 최초의 장거리 유도 탄도 미사일로, 나치 독일의 베르너 폰 브라운이 이끄는 팀이 개발했다. 최대 사거리 약 320km, 최고 고도 약 80km에 달",
+    "url": "pages/Weapons and Equipment/Weapons and Equipment item.html?id=artillery%2Fv-2%20rocket"
+  },
+  {
+    "name": "판금 갑옷",
+    "nameEn": "Plate Armor (Full Plate)",
+    "category": "defense",
+    "era": "medieval",
+    "origin": "유럽",
+    "tags": [
+      "갑옷",
+      "기사",
+      "중세",
+      "유럽",
+      "판금"
+    ],
+    "overview": "판금 갑옷(Plate Armor)은 중세 후기~르네상스 시대 유럽 기사의 전신을 강철 판으로 감싸는 방어 장구이다. 중세 갑옷 기술의 정점을 대표한다. 15세기 후반 밀라노와 아우크스부르크의 장인들이 만든 풀 플레이",
+    "url": "pages/Weapons and Equipment/Weapons and Equipment item.html?id=defense%2Fplate%20armor"
+  },
+  {
+    "name": "로마 스쿠툼",
+    "nameEn": "Roman Scutum",
+    "category": "defense",
+    "era": "ancient",
+    "origin": "로마 공화국",
+    "tags": [
+      "방패",
+      "로마",
+      "고대",
+      "보병",
+      "밀집대형"
+    ],
+    "overview": "스쿠툼(Scutum)은 고대 로마 군단병의 표준 대형 방패로, 반원통형의 곡면 설계가 특징이다. 높이 약 120cm, 너비 약 75cm에 달하는 대형 방패였다. 단순한 방어 장비를 넘어 로마 전술의 핵심 요소였다. ",
+    "url": "pages/Weapons and Equipment/Weapons and Equipment item.html?id=defense%2Froman%20scutum"
+  },
+  {
+    "name": "사무라이 갑옷",
+    "nameEn": "Samurai Armor (Ō-yoroi / Dō-maru)",
+    "category": "defense",
+    "era": "medieval",
+    "origin": "일본",
+    "tags": [
+      "갑옷",
+      "일본",
+      "사무라이",
+      "중세",
+      "라멜라"
+    ],
+    "overview": "사무라이 갑옷(일본 갑주, 甲冑)은 일본 무사 계급의 전통 방어구로, 소형 판(小札, 코자네)을 끈으로 엮어 만든 라멜라 구조가 특징이다. 시대에 따라 오요로이(大鎧), 도마루(胴丸), 도세이구소쿠(当世具足) 등 다",
+    "url": "pages/Weapons and Equipment/Weapons and Equipment item.html?id=defense%2Fsamurai%20armor"
+  },
+  {
+    "name": "AK-47",
+    "nameEn": "AK-47 (Avtomat Kalashnikova)",
+    "category": "firearms",
+    "era": "contemporary",
+    "origin": "소련",
+    "tags": [
+      "돌격소총",
+      "자동소총",
+      "소련",
+      "현대",
+      "7.62mm"
+    ],
+    "overview": "AK-47(Avtomat Kalashnikova obraztsa 1947 goda)은 소련의 미하일 칼라시니코프가 설계한 돌격소총으로, 역사상 가장 많이 생산되고 널리 사용된 화기이다. 극한 환경에서도 작동하는 뛰어",
+    "url": "pages/Weapons and Equipment/Weapons and Equipment item.html?id=firearms%2Fak-47"
+  },
+  {
+    "name": "M1918 브라우닝 자동소총",
+    "nameEn": "M1918 Browning Automatic Rifle (BAR)",
+    "category": "firearms",
+    "era": "worldwar",
+    "origin": "미국",
+    "tags": [
+      "자동소총",
+      "분대지원화기",
+      "세계대전",
+      "미국",
+      ".30-06"
+    ],
+    "overview": "M1918 BAR(Browning Automatic Rifle)은 존 모지스 브라우닝이 설계한 자동소총으로, 제1차 세계대전 말기에 도입되어 제2차 세계대전과 한국전쟁까지 미군 분대의 핵심 화력을 담당했다. 소총과 ",
+    "url": "pages/Weapons and Equipment/Weapons and Equipment item.html?id=firearms%2Fbar%20m1918"
+  },
+  {
+    "name": "M16",
+    "nameEn": "M16 Rifle",
+    "category": "firearms",
+    "era": "contemporary",
+    "origin": "미국",
+    "tags": [
+      "돌격소총",
+      "자동소총",
+      "미국",
+      "현대",
+      "5.56mm"
+    ],
+    "overview": "M16은 유진 스토너가 설계한 AR-15을 군용으로 채택한 미국의 표준 돌격소총이다. 5.56×45mm NATO 탄을 사용하며, 경량 알루미늄과 합성수지를 대량 도입한 혁신적 설계로 주목받았다. 베트남 전쟁 초기의 ",
+    "url": "pages/Weapons and Equipment/Weapons and Equipment item.html?id=firearms%2Fm16"
+  },
+  {
+    "name": "StG 44",
+    "nameEn": "Sturmgewehr 44",
+    "category": "firearms",
+    "era": "worldwar",
+    "origin": "나치 독일",
+    "tags": [
+      "돌격소총",
+      "세계대전",
+      "독일",
+      "최초",
+      "7.92mm"
+    ],
+    "overview": "StG 44(Sturmgewehr 44)는 세계 최초의 양산형 돌격소총으로, 현대 돌격소총 개념의 시초이다. '슈투름게베어(돌격 소총)'라는 용어 자체가 이 무기에서 유래했다. 중간 위력 탄약(7.92×33mm 쿠르",
+    "url": "pages/Weapons and Equipment/Weapons and Equipment item.html?id=firearms%2Fstg44"
+  },
+  {
+    "name": "글라디우스",
+    "nameEn": "Gladius",
+    "category": "melee",
+    "era": "ancient",
+    "origin": "로마 공화국",
+    "tags": [
+      "단검",
+      "로마",
+      "보병",
+      "근접전",
+      "고대"
+    ],
+    "overview": "글라디우스(Gladius)는 고대 로마 군단병의 주력 근접 무기로, 약 60~85cm 길이의 양날 직검이다. 로마의 군사적 팽창과 함께 지중해 전역에서 사용되었다. 이 검은 찌르기에 최적화된 설계로, 로마 군단의 밀",
+    "url": "pages/Weapons and Equipment/Weapons and Equipment item.html?id=melee%2Fgladius"
+  },
+  {
+    "name": "카타나",
+    "nameEn": "Katana",
+    "category": "melee",
+    "era": "medieval",
+    "origin": "일본",
+    "tags": [
+      "일본도",
+      "사무라이",
+      "단조",
+      "곡도",
+      "일본"
+    ],
+    "overview": "카타나(刀)는 일본의 전통 곡도로, 사무라이 계급의 상징적 무기이다. 특유의 완만한 곡선과 단면(한쪽 날)이 특징이며, 뛰어난 절삭력으로 유명하다. 전통적인 타타라 제철법으로 생산된 타마하가네(玉鋼)를 여러 차례 접",
+    "url": "pages/Weapons and Equipment/Weapons and Equipment item.html?id=melee%2Fkatana"
+  },
+  {
+    "name": "롱소드",
+    "nameEn": "Longsword",
+    "category": "melee",
+    "era": "medieval",
+    "origin": "유럽",
+    "tags": [
+      "장검",
+      "양손검",
+      "기사",
+      "중세",
+      "유럽"
+    ],
+    "overview": "롱소드(Longsword)는 중세 유럽 기사도의 상징적 무기로, 양손으로 사용할 수 있도록 설계된 직선형 양날 검이다. 전체 길이 약 100~130cm에 달한다. 십자형 가드와 긴 그립이 특징이며, 베기와 찌르기 모",
+    "url": "pages/Weapons and Equipment/Weapons and Equipment item.html?id=melee%2Flongsword"
+  },
+  {
+    "name": "필룸",
+    "nameEn": "Pilum",
+    "category": "melee",
+    "era": "ancient",
+    "origin": "로마 공화국",
+    "tags": [
+      "투창",
+      "로마",
+      "보병",
+      "투척",
+      "고대"
+    ],
+    "overview": "필룸(Pilum)은 로마 군단병의 표준 투창으로, 적진에 투척한 후 글라디우스로 근접전에 돌입하는 로마 전술의 핵심 무기이다. 긴 철제 생크(shanks)와 목재 자루로 구성된 독특한 설계는 적의 방패에 박히면 곧 ",
+    "url": "pages/Weapons and Equipment/Weapons and Equipment item.html?id=melee%2Fpilum"
+  },
+  {
+    "name": "거북선",
+    "nameEn": "Geobukseon (Turtle Ship)",
+    "category": "naval",
+    "era": "earlymodern",
+    "origin": "조선",
+    "tags": [
+      "전함",
+      "조선",
+      "이순신",
+      "임진왜란",
+      "돌격선"
+    ],
+    "overview": "거북선(龜船, Geobukseon)은 임진왜란(1592~1598) 당시 이순신 장군이 전쟁에 투입한 조선 수군의 돌격 전함이다. 지붕이 덮인 독특한 구조로 세계 최초의 장갑선(鐵甲船)으로 평가받기도 한다. 적의 접무",
+    "url": "pages/Weapons and Equipment/Weapons and Equipment item.html?id=naval%2Fgeobukseon"
+  },
+  {
+    "name": "HMS 드레드노트",
+    "nameEn": "HMS Dreadnought",
+    "category": "naval",
+    "era": "modern",
+    "origin": "영국",
+    "tags": [
+      "전함",
+      "전열함",
+      "영국",
+      "근대",
+      "거포"
+    ],
+    "overview": "HMS 드레드노트(Dreadnought)는 1906년 취역한 영국 해군의 전함으로, 해군 역사의 분수령을 이룬 혁명적 군함이다. 주포를 단일 구경 거포(All-Big-Gun)로 통일하고, 증기 터빈 추진을 전함에 최",
+    "url": "pages/Weapons and Equipment/Weapons and Equipment item.html?id=naval%2Fhms%20dreadnought"
+  },
+  {
+    "name": "U-보트 VII형",
+    "nameEn": "Type VII U-boat",
+    "category": "naval",
+    "era": "worldwar",
+    "origin": "나치 독일",
+    "tags": [
+      "잠수함",
+      "독일",
+      "세계대전",
+      "대서양",
+      "U-보트"
+    ],
+    "overview": "VII형 U-보트(Type VII U-boat)는 제2차 세계대전 당시 독일 해군의 주력 잠수함으로, 총 약 700척이 건조되어 역사상 가장 많이 생산된 잠수함이다. 대서양 전투에서 연합국 상선단에 막대한 피해를 입",
+    "url": "pages/Weapons and Equipment/Weapons and Equipment item.html?id=naval%2Ftype%20vii%20u-boat"
+  },
+  {
+    "name": "석궁",
+    "nameEn": "Crossbow",
+    "category": "ranged",
+    "era": "medieval",
+    "origin": "유럽 / 중국",
+    "tags": [
+      "석궁",
+      "쇠뇌",
+      "볼트",
+      "중세",
+      "기계식"
+    ],
+    "overview": "석궁(Crossbow)은 기계적 장전 장치를 갖춘 원거리 투사 무기로, 활과 총기 사이의 과도기적 무기이다. 동양과 서양에서 각각 독립적으로 발전했다. 활보다 훈련 기간이 짧으면서도 높은 관통력을 제공하여, 숙련된 ",
+    "url": "pages/Weapons and Equipment/Weapons and Equipment item.html?id=ranged%2Fcrossbow"
+  },
+  {
+    "name": "잉글리시 롱보우",
+    "nameEn": "English Longbow",
+    "category": "ranged",
+    "era": "medieval",
+    "origin": "잉글랜드 / 웨일스",
+    "tags": [
+      "활",
+      "장궁",
+      "영국",
+      "중세",
+      "보병"
+    ],
+    "overview": "잉글리시 롱보우(English Longbow)는 중세 잉글랜드의 대표적 원거리 무기로, 길이 약 180cm에 달하는 자기 활(Self-bow)이다. 백년전쟁에서 프랑스 중기병을 상대로 결정적인 역할을 하며 전쟁의 양",
+    "url": "pages/Weapons and Equipment/Weapons and Equipment item.html?id=ranged%2Fenglish%20longbow"
+  },
+  {
+    "name": "유미",
+    "nameEn": "Yumi",
+    "category": "ranged",
+    "era": "medieval",
+    "origin": "일본",
+    "tags": [
+      "활",
+      "일본",
+      "장궁",
+      "사무라이",
+      "기마궁술"
+    ],
+    "overview": "유미(弓)는 일본의 전통 장궁으로, 전체 길이 약 2m 이상에 달하는 세계에서 가장 긴 활 중 하나이다. 독특한 비대칭 설계(그립이 활의 아래쪽 1/3 지점에 위치)가 특징이며, 이는 기마 궁사가 말 위에서 좌우로 ",
+    "url": "pages/Weapons and Equipment/Weapons and Equipment item.html?id=ranged%2Fyumi"
+  }
+]

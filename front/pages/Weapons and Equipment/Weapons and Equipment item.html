@@ -1,0 +1,205 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>무기·장비 도감 — War Archive</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../assets/css/Weapons and Equipment Style/Weapons and Equipment item style.css">
+</head>
+<body>
+
+    <!-- 헤더 -->
+    <header class="header">
+        <div class="header-inner">
+            <a href="../../index.html" class="logo">
+                <span class="logo-icon">⚔</span>
+                <span class="logo-text">WAR ARCHIVE</span>
+            </a>
+            <nav class="nav">
+                <a href="../../index.html">홈</a>
+                <a href="Weapons and Equipment.html">무기 &amp; 장비</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 로딩 상태 -->
+    <div class="loading" id="loading">
+        <div class="loading-spinner"></div>
+        <p>도감 정보를 불러오는 중...</p>
+    </div>
+
+    <!-- 오류 상태 -->
+    <div class="error-state" id="errorState" style="display:none;">
+        <p class="error-icon">⚠</p>
+        <h2>항목을 찾을 수 없습니다</h2>
+        <p>요청하신 무기·장비 정보가 존재하지 않습니다.</p>
+        <a href="Weapons and Equipment.html" class="back-link">← 무기 &amp; 장비로 돌아가기</a>
+    </div>
+
+    <!-- 메인 콘텐츠 -->
+    <main class="encyclopedia-page" id="encyclopediaPage" style="display:none;">
+
+        <!-- 브레드크럼 -->
+        <nav class="breadcrumb">
+            <a href="../../index.html">홈</a>
+            <span class="sep">›</span>
+            <a href="Weapons and Equipment.html">무기 &amp; 장비</a>
+            <span class="sep">›</span>
+            <span class="current" id="breadcrumbTitle"></span>
+        </nav>
+
+        <!-- ===== 도감 히어로 카드 ===== -->
+        <section class="entry-hero">
+            <div class="entry-visual">
+                <div class="visual-frame" id="visualFrame">
+                    <div class="visual-placeholder">
+                        <img id="entryIcon" src="" alt="">
+                        <span class="visual-label">이미지 미등록</span>
+                    </div>
+                </div>
+            </div>
+            <div class="entry-info">
+                <div class="entry-badges">
+                    <span class="category-badge" id="categoryBadge"></span>
+                    <span class="era-badge" id="eraBadge"></span>
+                </div>
+                <h1 class="entry-name" id="entryName"></h1>
+                <p class="entry-name-en" id="entryNameEn"></p>
+                <div class="entry-quickfacts">
+                    <div class="fact-row">
+                        <span class="fact-label">분류</span>
+                        <span class="fact-value" id="factCategory"></span>
+                    </div>
+                    <div class="fact-row">
+                        <span class="fact-label">시대</span>
+                        <span class="fact-value" id="factEra"></span>
+                    </div>
+                    <div class="fact-row">
+                        <span class="fact-label">기원</span>
+                        <span class="fact-value" id="factOrigin"></span>
+                    </div>
+                    <div class="fact-row">
+                        <span class="fact-label">사용 기간</span>
+                        <span class="fact-value" id="factPeriod"></span>
+                    </div>
+                    <div class="fact-row">
+                        <span class="fact-label">운용국</span>
+                        <span class="fact-value" id="factOperators"></span>
+                    </div>
+                </div>
+                <div class="entry-tags" id="entryTags"></div>
+            </div>
+        </section>
+
+        <!-- ===== 사이드 목차 ===== -->
+        <aside class="side-toc" id="sideToc">
+            <div class="toc-header">도감 목차</div>
+            <ul class="toc-list" id="tocList"></ul>
+        </aside>
+
+        <!-- ===== 도감 본문 ===== -->
+        <div class="encyclopedia-body">
+
+            <!-- 개요 -->
+            <section class="enc-section" id="sectionOverview">
+                <div class="enc-section-marker"></div>
+                <h2 class="enc-section-title"><span class="enc-num">01</span>개요</h2>
+                <div class="enc-section-content" id="contentOverview"></div>
+            </section>
+
+            <!-- 제원 / 스펙 -->
+            <section class="enc-section" id="sectionSpecs">
+                <div class="enc-section-marker"></div>
+                <h2 class="enc-section-title"><span class="enc-num">02</span>제원</h2>
+                <div class="specs-table" id="specsTable"></div>
+            </section>
+
+            <!-- 역사 -->
+            <section class="enc-section" id="sectionHistory">
+                <div class="enc-section-marker"></div>
+                <h2 class="enc-section-title"><span class="enc-num">03</span>역사</h2>
+                <div class="enc-section-content" id="contentHistory"></div>
+            </section>
+
+            <!-- 설계 및 구조 -->
+            <section class="enc-section" id="sectionDesign">
+                <div class="enc-section-marker"></div>
+                <h2 class="enc-section-title"><span class="enc-num">04</span>설계 및 구조</h2>
+                <div class="enc-section-content" id="contentDesign"></div>
+            </section>
+
+            <!-- 운용 -->
+            <section class="enc-section" id="sectionOperation">
+                <div class="enc-section-marker"></div>
+                <h2 class="enc-section-title"><span class="enc-num">05</span>운용</h2>
+                <div class="enc-section-content" id="contentOperation"></div>
+            </section>
+
+            <!-- 실전 기록 -->
+            <section class="enc-section" id="sectionCombatRecord">
+                <div class="enc-section-marker"></div>
+                <h2 class="enc-section-title"><span class="enc-num">06</span>실전 기록</h2>
+                <div class="enc-section-content" id="contentCombatRecord"></div>
+            </section>
+
+            <!-- 파생형 / 변형 -->
+            <section class="enc-section" id="sectionVariants">
+                <div class="enc-section-marker"></div>
+                <h2 class="enc-section-title"><span class="enc-num">07</span>파생형</h2>
+                <div class="variants-grid" id="variantsGrid"></div>
+            </section>
+
+            <!-- 평가 -->
+            <section class="enc-section" id="sectionEvaluation">
+                <div class="enc-section-marker"></div>
+                <h2 class="enc-section-title"><span class="enc-num">08</span>평가</h2>
+                <div class="enc-section-content" id="contentEvaluation"></div>
+            </section>
+
+            <!-- 관련 무기·장비 -->
+            <section class="enc-section" id="sectionRelated">
+                <div class="enc-section-marker"></div>
+                <h2 class="enc-section-title"><span class="enc-num">09</span>관련 항목</h2>
+                <div class="related-grid" id="relatedGrid"></div>
+            </section>
+
+            <!-- 참고 자료 -->
+            <section class="enc-section" id="sectionReferences">
+                <div class="enc-section-marker"></div>
+                <h2 class="enc-section-title"><span class="enc-num">10</span>참고 자료</h2>
+                <div class="enc-section-content" id="contentReferences"></div>
+            </section>
+
+        </div>
+
+        <!-- 이전/다음 네비게이션 -->
+        <nav class="entry-nav" id="entryNav">
+            <a class="entry-nav-link prev" id="navPrev" href="#">
+                <span class="nav-direction">← 이전 항목</span>
+                <span class="nav-title" id="navPrevTitle"></span>
+            </a>
+            <a class="entry-nav-link next" id="navNext" href="#">
+                <span class="nav-direction">다음 항목 →</span>
+                <span class="nav-title" id="navNextTitle"></span>
+            </a>
+        </nav>
+
+    </main>
+
+    <!-- 푸터 -->
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-logo">
+                <span class="logo-icon">⚔</span>
+                <span class="logo-text">War Archive</span>
+            </div>
+            <p class="footer-copy">&copy; 2026 War Archive. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../../assets/js/Weapons and Equipment tech/Weapons and Equipment item tech.js"></script>
+</body>
+</html>

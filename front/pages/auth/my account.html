@@ -1,0 +1,175 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WAR ARCHIVE — My Account</title>
+  <link rel="stylesheet" href="../../assets/css/common/main_style.css">
+  <link rel="stylesheet" href="../../assets/css/auth/my account style.css">
+</head>
+<body>
+
+  <!-- ── Header ── -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="../../index.html" class="logo">
+        <div class="logo-icon">&#9876;</div>
+        <span class="logo-text">War Archive</span>
+      </a>
+
+      <!-- 로그인 전: 로그인 아이콘 -->
+      <a href="log in.html" class="login-btn" id="loginBtn" aria-label="로그인">
+        <svg class="login-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="22" height="22">
+          <circle cx="12" cy="8" r="4"/>
+          <path d="M4 21v-1a6 6 0 0 1 12 0v1"/>
+        </svg>
+      </a>
+
+      <!-- 로그인 후: 사용자 메뉴 -->
+      <div class="user-menu" id="userMenu" style="display: none;">
+        <button class="user-menu-toggle" id="userMenuToggle" aria-label="사용자 메뉴">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="22" height="22">
+            <circle cx="12" cy="8" r="4"/>
+            <path d="M4 21v-1a6 6 0 0 1 12 0v1"/>
+          </svg>
+          <span class="user-menu-name" id="userMenuName"></span>
+        </button>
+        <div class="user-dropdown" id="userDropdown">
+          <a href="my account.html" class="user-dropdown-item">My Account</a>
+          <button class="user-dropdown-item" id="logoutBtn">Log Out</button>
+        </div>
+      </div>
+
+      <nav class="nav-links">
+        <a href="../../index.html#categories">아카이브</a>
+        <a href="../../index.html#timeline">연대기</a>
+        <a href="../../index.html#search">검색</a>
+        <a href="../../index.html#project">프로젝트</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ── Account Section ── -->
+  <section class="account-section">
+    <div class="account-container">
+
+      <!-- 프로필 헤더 -->
+      <div class="account-header">
+        <div class="account-avatar" id="accountAvatar">
+          <svg class="avatar-default-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" width="48" height="48">
+            <circle cx="12" cy="8" r="4"/>
+            <path d="M4 21v-1a6 6 0 0 1 12 0v1"/>
+          </svg>
+          <img class="avatar-img" id="avatarImg" src="" alt="프로필 사진" style="display: none;">
+          <label class="avatar-upload-overlay" for="avatarInput">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+              <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+              <circle cx="12" cy="13" r="4"/>
+            </svg>
+          </label>
+          <input type="file" id="avatarInput" accept="image/*" style="display: none;">
+        </div>
+        <h1 class="account-username" id="accountUsername">사용자</h1>
+        <p class="account-email" id="accountEmail">email@example.com</p>
+        <span class="account-badge" id="accountRole">USER</span>
+      </div>
+
+      <!-- 계정 정보 -->
+      <div class="account-card">
+        <h2 class="account-card-title">계정 정보</h2>
+        <form class="account-form" id="accountForm" novalidate>
+          <div class="account-field">
+            <label class="account-label" for="acctUsername">사용자 이름</label>
+            <input type="text" class="account-input" id="acctUsername" placeholder="사용자 이름">
+          </div>
+          <div class="account-field">
+            <label class="account-label" for="acctEmail">이메일</label>
+            <input type="email" class="account-input" id="acctEmail" placeholder="이메일" readonly>
+          </div>
+          <div class="account-field">
+            <label class="account-label" for="acctBio">자기소개 <span class="account-optional">(선택)</span></label>
+            <textarea class="account-textarea" id="acctBio" rows="3" placeholder="간단한 자기소개를 작성해 주세요..."></textarea>
+          </div>
+          <div class="account-field">
+            <label class="account-label" for="acctEra">관심 시대 <span class="account-optional">(선택)</span></label>
+            <select class="account-select" id="acctEra">
+              <option value="">선택해 주세요</option>
+              <option value="ancient">고대</option>
+              <option value="medieval">중세</option>
+              <option value="early-modern">근세</option>
+              <option value="modern">근대</option>
+              <option value="ww1">제1차 세계대전</option>
+              <option value="ww2">제2차 세계대전</option>
+              <option value="cold-war">냉전</option>
+              <option value="contemporary">현대</option>
+            </select>
+          </div>
+          <div class="account-actions">
+            <button type="submit" class="account-btn-save">저장하기</button>
+          </div>
+          <div class="account-message" id="accountMessage"></div>
+        </form>
+      </div>
+
+      <!-- 비밀번호 변경 -->
+      <div class="account-card">
+        <h2 class="account-card-title">비밀번호 변경</h2>
+        <form class="account-form" id="passwordForm" novalidate>
+          <div class="account-field">
+            <label class="account-label" for="currentPw">현재 비밀번호</label>
+            <input type="password" class="account-input" id="currentPw" placeholder="현재 비밀번호" required>
+          </div>
+          <div class="account-field">
+            <label class="account-label" for="newPw">새 비밀번호</label>
+            <input type="password" class="account-input" id="newPw" placeholder="새 비밀번호 (8자 이상)" required minlength="8">
+          </div>
+          <div class="account-field">
+            <label class="account-label" for="confirmPw">새 비밀번호 확인</label>
+            <input type="password" class="account-input" id="confirmPw" placeholder="새 비밀번호 확인" required>
+          </div>
+          <div class="account-actions">
+            <button type="submit" class="account-btn-save">변경하기</button>
+          </div>
+          <div class="account-message" id="passwordMessage"></div>
+        </form>
+      </div>
+
+      <!-- 계정 활동 -->
+      <div class="account-card">
+        <h2 class="account-card-title">계정 활동</h2>
+        <div class="account-stats">
+          <div class="account-stat-item">
+            <span class="account-stat-label">가입일</span>
+            <span class="account-stat-value" id="acctCreatedAt">—</span>
+          </div>
+          <div class="account-stat-item">
+            <span class="account-stat-label">마지막 로그인</span>
+            <span class="account-stat-value" id="acctLastLogin">—</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 로그아웃 & 회원 탈퇴 -->
+      <div class="account-footer">
+        <button class="account-btn-logout" id="acctLogoutBtn">로그아웃</button>
+        <button class="account-btn-delete" id="acctDeleteBtn">회원 탈퇴</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 회원 탈퇴 확인 모달 -->
+  <div class="delete-overlay" id="deleteOverlay">
+    <div class="delete-popup">
+      <div class="delete-popup-icon">&#9888;</div>
+      <h3>정말 탈퇴하시겠습니까?</h3>
+      <p>탈퇴 시 계정 정보가 영구적으로 삭제되며,<br>복구할 수 없습니다.</p>
+      <div class="delete-popup-actions">
+        <button class="delete-btn-cancel" id="deleteCancelBtn">취소</button>
+        <button class="delete-btn-confirm" id="deleteConfirmBtn">탈퇴하기</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../../assets/js/auth/my account tech.js"></script>
+</body>
+</html>

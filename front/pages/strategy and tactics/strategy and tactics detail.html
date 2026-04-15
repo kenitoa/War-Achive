@@ -1,0 +1,125 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>전략 & 전술 상세 — War Archive</title>
+  <link rel="stylesheet" href="../../assets/css/strategy and tactics style/strategy and tactics detail style.css">
+</head>
+<body>
+
+  <!-- ── Header ── -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="../../index.html" class="logo">
+        <div class="logo-icon">&#9876;</div>
+        <span class="logo-text">War Archive</span>
+      </a>
+      <nav class="nav-links">
+        <a href="../../index.html">홈</a>
+        <a href="strategy and tactics.html">전략 &amp; 전술</a>
+      </nav>
+      <button class="menu-toggle" aria-label="메뉴 열기">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ── Main Content ── -->
+  <main class="document-container" id="documentContainer">
+
+    <!-- 로딩 상태 -->
+    <div class="loading" id="loading">
+      <div class="loading-spinner"></div>
+      <p>문헌을 불러오는 중…</p>
+    </div>
+
+    <!-- 오류 상태 -->
+    <div class="error-state" id="errorState" style="display:none;">
+      <p class="error-icon">⚠</p>
+      <h2>문헌을 찾을 수 없습니다</h2>
+      <p>요청하신 전략·전술 기록이 존재하지 않습니다.</p>
+      <a href="strategy and tactics.html" class="back-link">← 전략 &amp; 전술 목록으로 돌아가기</a>
+    </div>
+
+    <!-- 문헌 콘텐츠 -->
+    <article class="document" id="document" style="display:none;">
+
+      <!-- 문헌 헤더 -->
+      <header class="doc-header">
+        <nav class="breadcrumb">
+          <a href="../../index.html">홈</a>
+          <span class="sep">›</span>
+          <a href="strategy and tactics.html">전략 &amp; 전술</a>
+          <span class="sep">›</span>
+          <span class="current" id="breadcrumbTitle"></span>
+        </nav>
+
+        <div class="doc-badges">
+          <span class="badge badge-era" id="docEraBadge"></span>
+          <span class="badge badge-category" id="docCategoryBadge"></span>
+        </div>
+
+        <h1 class="doc-title" id="docTitle"></h1>
+        <p class="doc-subtitle" id="docSubtitle"></p>
+
+        <!-- 기본 메타 정보 -->
+        <div class="doc-meta">
+          <div class="meta-item"><span class="meta-label">기원</span><span class="meta-value" id="docOrigin"></span></div>
+          <div class="meta-item"><span class="meta-label">시기</span><span class="meta-value" id="docPeriod"></span></div>
+          <div class="meta-item"><span class="meta-label">지역</span><span class="meta-value" id="docRegion"></span></div>
+          <div class="meta-item"><span class="meta-label">핵심 인물</span><span class="meta-value" id="docKeyFigure"></span></div>
+        </div>
+
+        <div class="doc-keywords" id="docKeywords"></div>
+      </header>
+
+      <div class="doc-body-wrap">
+
+        <!-- 사이드바 : 목차 + 정보 상자 -->
+        <aside class="doc-sidebar" id="docSidebar">
+
+          <!-- 목차 -->
+          <nav class="toc-box" id="tocBox">
+            <h2 class="toc-heading">목 차</h2>
+            <ol class="toc-list" id="tocList"></ol>
+          </nav>
+
+          <!-- 정보 상자 (infoBox) -->
+          <div class="info-box" id="infoBox">
+            <h2 class="info-box-heading">요약 정보</h2>
+            <dl class="info-box-list" id="infoBoxList"></dl>
+          </div>
+        </aside>
+
+        <!-- 본문 섹션들 -->
+        <div class="doc-content" id="docContent"></div>
+      </div>
+
+      <div class="doc-divider"></div>
+
+      <!-- 이미지 갤러리 -->
+      <section class="doc-image-gallery" id="imageGallery" style="display:none;">
+        <h2 class="doc-image-gallery-heading">참고 도판</h2>
+        <div class="image-gallery-grid" id="imageGalleryGrid"></div>
+      </section>
+
+      <div class="doc-divider" id="imageGalleryDivider"></div>
+
+      <!-- 관련 전략 -->
+      <section class="related-section" id="relatedSection" style="display:none;">
+        <h2 class="related-heading">관련 전략 &amp; 전술</h2>
+        <div class="related-grid" id="relatedGrid"></div>
+      </section>
+
+      <!-- 문서 하단 -->
+      <footer class="doc-footer">
+        <p class="doc-footer-text">본 문헌은 역사적 기록을 정리한 자료이며, 학술적 목적으로 참고하시기 바랍니다.</p>
+        <a href="strategy and tactics.html" class="back-link">← 전략 &amp; 전술 목록으로 돌아가기</a>
+      </footer>
+    </article>
+  </main>
+
+  <script src="../../assets/js/strategy and tactics tech/strategy and tactics detail tech.js"></script>
+</body>
+</html>

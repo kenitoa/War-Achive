@@ -1,0 +1,154 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>전략 & 전술 — War Archive</title>
+  <link rel="stylesheet" href="../../assets/css/strategy and tactics style/strategy and tactics style.css">
+</head>
+<body>
+
+  <!-- ── Header ── -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="../../index.html" class="logo">
+        <div class="logo-icon">&#9876;</div>
+        <span class="logo-text">War Archive</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="../../index.html#categories">아카이브</a>
+        <a href="../../index.html#timeline">연대기</a>
+        <a href="../../index.html#featured">주요 기록</a>
+        <a href="../../index.html#search">검색</a>
+      </nav>
+
+      <button class="menu-toggle" aria-label="메뉴 열기">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ── Page Hero (문헌 스타일) ── -->
+  <section class="page-hero">
+    <div class="hero-parchment-overlay"></div>
+    <div class="page-hero-content">
+      <nav class="breadcrumb">
+        <a href="../../index.html">홈</a>
+        <span class="sep">/</span>
+        <a href="../../index.html#categories">아카이브</a>
+        <span class="sep">/</span>
+        <span class="current">전략 &amp; 전술</span>
+      </nav>
+      <div class="hero-emblem">&#128506;</div>
+      <h1 class="page-title">전략 &amp; 전술</h1>
+      <p class="page-subtitle">
+        고대의 병법서부터 현대의 교리까지 — 역사 속 모든 전략과 전술의 발전사를<br>
+        매우 상세하게 기록한 문헌 아카이브
+      </p>
+      <div class="page-stats">
+        <div class="page-stat">
+          <div class="stat-info"><strong id="totalDocCount">0</strong><span>편의 문헌</span></div>
+        </div>
+        <div class="stat-divider">|</div>
+        <div class="page-stat">
+          <div class="stat-info"><strong>6</strong><span>개 시대</span></div>
+        </div>
+        <div class="stat-divider">|</div>
+        <div class="page-stat">
+          <div class="stat-info"><strong id="totalCategoryCount">0</strong><span>개 분류</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 명언 인용 배너 ── -->
+  <section class="quote-banner">
+    <div class="quote-inner">
+      <blockquote class="quote-text" id="quoteText">
+        "전쟁의 최고 경지는 싸우지 않고 이기는 것이다."
+      </blockquote>
+      <cite class="quote-author" id="quoteAuthor">— 손자(孫子), 『손자병법』</cite>
+    </div>
+  </section>
+
+  <!-- ── Filter & Search Bar ── -->
+  <section class="filter-bar">
+    <div class="filter-inner">
+      <div class="filter-search">
+        <input type="text" id="strategySearch" placeholder="전략명, 전술명, 인물, 키워드로 검색...">
+        <span class="search-icon">&#128269;</span>
+      </div>
+      <div class="filter-tabs" id="eraTabs">
+        <button class="filter-tab active" data-era="all">전체</button>
+        <button class="filter-tab" data-era="ancient">고대</button>
+        <button class="filter-tab" data-era="medieval">중세</button>
+        <button class="filter-tab" data-era="earlymodern">근세</button>
+        <button class="filter-tab" data-era="modern">근대</button>
+        <button class="filter-tab" data-era="worldwar">세계대전</button>
+        <button class="filter-tab" data-era="contemporary">현대</button>
+      </div>
+      <div class="filter-options">
+        <select id="categoryFilter">
+          <option value="all">모든 분류</option>
+          <option value="grand-strategy">대전략</option>
+          <option value="operational">작전술</option>
+          <option value="tactics">전술</option>
+          <option value="siege">공성전</option>
+          <option value="naval">해전 전술</option>
+          <option value="guerrilla">비정규전</option>
+          <option value="logistics">병참·보급</option>
+          <option value="doctrine">군사 교리</option>
+        </select>
+        <div class="view-toggle">
+          <button class="view-btn active" data-view="scroll" title="두루마리 보기">&#128220;</button>
+          <button class="view-btn" data-view="grid" title="카드 보기">&#9871;</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 결과 카운트 ── -->
+  <div class="result-info">
+    <span id="resultCount"></span>
+  </div>
+
+  <!-- ── Main Content ── -->
+  <main class="strategy-content">
+
+    <!-- 두루마리(Scroll) 뷰 — 문헌 스타일 기본 뷰 -->
+    <div class="scroll-view" id="scrollView">
+      <!-- JS가 동적으로 생성 -->
+    </div>
+
+    <!-- 카드(Grid) 뷰 -->
+    <div class="grid-view" id="gridView" style="display:none;">
+      <!-- JS가 동적으로 생성 -->
+    </div>
+    <div class="pagination" id="pagination" style="display:none;"></div>
+
+    <!-- 빈 결과 -->
+    <div class="empty-state" id="emptyState" style="display:none;">
+      <div class="empty-icon">&#128220;</div>
+      <h3>검색 결과가 없습니다</h3>
+      <p>다른 키워드나 필터로 다시 검색해 보세요.</p>
+    </div>
+
+  </main>
+
+  <!-- ── Footer ── -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="footer-logo">&#9876; War Archive</div>
+        <p class="footer-copy">&copy; 2026 War Archive. All rights reserved.</p>
+      </div>
+
+    </div>
+  </footer>
+
+  <script src="../../assets/js/strategy and tactics tech/strategy and tactics tech.js"></script>
+</body>
+</html>

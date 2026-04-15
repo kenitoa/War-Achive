@@ -1,0 +1,409 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WAR ARCHIVE — 기여하기</title>
+  <link rel="stylesheet" href="../../assets/css/info/contribution style.css">
+</head>
+<body>
+
+  <!-- ── Header ── -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="../../index.html" class="logo">
+        <div class="logo-icon">&#9876;</div>
+        <span class="logo-text">War Archive</span>
+      </a>
+      <nav class="nav-links">
+        <a href="../../index.html#categories">아카이브</a>
+        <a href="../../index.html#timeline">연대기</a>
+        <a href="../../index.html#search">검색</a>
+        <a href="../../index.html#project" class="active">프로젝트</a>
+      </nav>
+      <button class="menu-toggle" aria-label="메뉴 열기">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ── Section 1: Hero ── -->
+  <section class="panel panel-hero" id="hero">
+    <div class="panel-bg"></div>
+    <div class="panel-content reveal">
+      <span class="label-tag">Contribution Guide</span>
+      <h1 class="display-title">
+        함께 만들어가는<br>
+        <span class="accent">War Archive</span>
+      </h1>
+      <p class="hero-desc">
+        프로젝트에 기여하는 방법과 가이드라인을 안내합니다.
+      </p>
+    </div>
+    <div class="scroll-indicator">
+      <span>Scroll</span>
+      <div class="line"></div>
+    </div>
+  </section>
+
+  <!-- ── Section 2: 기여 개요 ── -->
+  <section class="panel panel-overview" id="overview">
+    <div class="panel-inner">
+      <div class="center-block reveal">
+        <span class="label-tag">01 — Overview</span>
+        <h2 class="section-heading">기여 개요</h2>
+        <p class="body-text body-text-center">
+          War Archive는 오픈 프로젝트입니다. 역사에 관심 있는 누구나 기여할 수 있으며,<br>
+          아래 가이드라인을 따라 주시면 원활한 협업이 가능합니다.
+        </p>
+      </div>
+
+      <div class="guideline-cards">
+        <div class="guideline-card reveal">
+          <div class="guideline-number">01</div>
+          <div class="guideline-content">
+            <h3 class="guideline-title">데이터 기여</h3>
+            <p class="guideline-desc">새로운 전쟁, 인물, 전투, 사료 등의 JSON 데이터를 추가하거나 기존 데이터의 오류를 수정합니다.</p>
+          </div>
+        </div>
+        <div class="guideline-card reveal reveal-delay">
+          <div class="guideline-number">02</div>
+          <div class="guideline-content">
+            <h3 class="guideline-title">디자인 기여</h3>
+            <p class="guideline-desc">UI/UX 개선, 새로운 페이지 디자인, 반응형 레이아웃 최적화 등 스타일 관련 기여를 합니다.</p>
+          </div>
+        </div>
+        <div class="guideline-card reveal reveal-delay-2">
+          <div class="guideline-number">03</div>
+          <div class="guideline-content">
+            <h3 class="guideline-title">기능 기여</h3>
+            <p class="guideline-desc">검색, 필터링, 인터랙션 등 JavaScript 기능 개선 및 새로운 기능을 추가합니다.</p>
+          </div>
+        </div>
+        <div class="guideline-card reveal">
+          <div class="guideline-number">04</div>
+          <div class="guideline-content">
+            <h3 class="guideline-title">문서 기여</h3>
+            <p class="guideline-desc">README, 가이드 문서, 코드 주석 등 프로젝트 문서화에 기여합니다.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Section 3: 프로젝트 구조 ── -->
+  <section class="panel panel-structure" id="structure">
+    <div class="panel-inner">
+      <div class="split-layout">
+        <div class="split-left reveal">
+          <span class="label-tag">02 — Project Structure</span>
+          <h2 class="section-heading">프로젝트 구조</h2>
+          <p class="body-text">
+            기여하기 전에 프로젝트 폴더 구조를 이해하면 작업이 훨씬 수월합니다.
+          </p>
+        </div>
+        <div class="split-right reveal reveal-delay">
+          <div class="structure-tree">
+            <div class="tree-item tree-root">
+              <span class="tree-icon">📁</span> War Archive/
+            </div>
+            <div class="tree-item tree-depth-1">
+              <span class="tree-icon">📁</span> data/
+              <span class="tree-note">— JSON 데이터 파일</span>
+            </div>
+            <div class="tree-item tree-depth-2">
+              <span class="tree-icon">📄</span> war overview data/
+            </div>
+            <div class="tree-item tree-depth-2">
+              <span class="tree-icon">📄</span> biography of people data/
+            </div>
+            <div class="tree-item tree-depth-2">
+              <span class="tree-icon">📄</span> weapons and equipment data/
+            </div>
+            <div class="tree-item tree-depth-2">
+              <span class="tree-icon">📄</span> strategy and tactics data/
+            </div>
+            <div class="tree-item tree-depth-2">
+              <span class="tree-icon">📄</span> Historical Sources & Documents data/
+            </div>
+            <div class="tree-item tree-depth-2">
+              <span class="tree-icon">📄</span> Battlefield Map data/
+            </div>
+            <div class="tree-item tree-depth-1">
+              <span class="tree-icon">📁</span> pages/
+              <span class="tree-note">— HTML 페이지 파일</span>
+            </div>
+            <div class="tree-item tree-depth-1">
+              <span class="tree-icon">📁</span> assets/css/
+              <span class="tree-note">— CSS 스타일 파일</span>
+            </div>
+            <div class="tree-item tree-depth-1">
+              <span class="tree-icon">📁</span> assets/js/
+              <span class="tree-note">— JavaScript 파일</span>
+            </div>
+            <div class="tree-item tree-depth-1">
+              <span class="tree-icon">📁</span> assets/images/
+              <span class="tree-note">— 이미지 파일</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Section 4: JSON 데이터 가이드라인 ── -->
+  <section class="panel panel-json-guide" id="json-guide">
+    <div class="panel-inner">
+      <div class="center-block reveal">
+        <span class="label-tag">03 — Data Format</span>
+        <h2 class="section-heading">JSON 데이터 가이드라인</h2>
+        <p class="body-text body-text-center">
+          데이터 기여 시 아래 JSON 형식을 준수해 주세요.
+        </p>
+      </div>
+
+      <div class="template-download-grid">
+        <button class="template-download-btn reveal" data-template="war-overview">
+          <div class="download-info">
+            <h4>전쟁 개요 JSON 양식</h4>
+            <span>data/war overview data/</span>
+          </div>
+          <div class="download-arrow">&#8595;</div>
+        </button>
+
+        <button class="template-download-btn reveal reveal-delay" data-template="biography">
+          <div class="download-info">
+            <h4>인물 열전 JSON 양식</h4>
+            <span>data/biography of people data/</span>
+          </div>
+          <div class="download-arrow">&#8595;</div>
+        </button>
+
+        <button class="template-download-btn reveal" data-template="weapons">
+          <div class="download-info">
+            <h4>무기 & 장비 JSON 양식</h4>
+            <span>data/weapons and equipment data/</span>
+          </div>
+          <div class="download-arrow">&#8595;</div>
+        </button>
+
+        <button class="template-download-btn reveal reveal-delay" data-template="strategy">
+          <div class="download-info">
+            <h4>전략 & 전술 JSON 양식</h4>
+            <span>data/strategy and tactics data/</span>
+          </div>
+          <div class="download-arrow">&#8595;</div>
+        </button>
+
+        <button class="template-download-btn reveal" data-template="historical-sources">
+          <div class="download-info">
+            <h4>사료 & 문서 JSON 양식</h4>
+            <span>data/Historical Sources &amp; Documents data/</span>
+          </div>
+          <div class="download-arrow">&#8595;</div>
+        </button>
+
+        <button class="template-download-btn reveal reveal-delay" data-template="battlefield-map">
+          <div class="download-info">
+            <h4>전장 지도 JSON 양식</h4>
+            <span>data/Battlefield Map data/</span>
+          </div>
+          <div class="download-arrow">&#8595;</div>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Section 5: 기여 절차 (Steps) ── -->
+  <section class="panel panel-steps" id="steps">
+    <div class="panel-inner">
+      <div class="center-block reveal">
+        <span class="label-tag">04 — Steps</span>
+        <h2 class="section-heading">기여 절차</h2>
+        <p class="body-text body-text-center">
+          아래의 단계를 따라 프로젝트에 기여해 주세요.
+        </p>
+      </div>
+
+      <div class="steps-timeline">
+        <div class="steps-line"></div>
+
+        <div class="step-item reveal">
+          <div class="step-dot">
+            <span class="step-dot-num">1</span>
+          </div>
+          <div class="step-card">
+            <h3>저장소 Fork</h3>
+            <p>GitHub에서 War Archive 저장소를 본인 계정으로 Fork합니다.</p>
+          </div>
+        </div>
+
+        <div class="step-item reveal reveal-delay">
+          <div class="step-dot">
+            <span class="step-dot-num">2</span>
+          </div>
+          <div class="step-card">
+            <h3>브랜치 생성</h3>
+            <p>기여 내용에 맞는 브랜치를 생성합니다.<br>
+            <span class="code-inline">feature/add-battle-of-midway</span> 또는
+            <span class="code-inline">fix/typo-in-napoleon</span> 형식을 권장합니다.</p>
+          </div>
+        </div>
+
+        <div class="step-item reveal">
+          <div class="step-dot">
+            <span class="step-dot-num">3</span>
+          </div>
+          <div class="step-card">
+            <h3>변경 사항 작성</h3>
+            <p>가이드라인에 맞춰 데이터를 추가하거나 코드를 수정합니다.<br>
+            변경 전 로컬에서 테스트를 진행해 주세요.</p>
+          </div>
+        </div>
+
+        <div class="step-item reveal reveal-delay">
+          <div class="step-dot">
+            <span class="step-dot-num">4</span>
+          </div>
+          <div class="step-card">
+            <h3>커밋 & 푸시</h3>
+            <p>명확한 커밋 메시지를 작성합니다.<br>
+            <span class="code-inline">feat: 미드웨이 해전 데이터 추가</span><br>
+            <span class="code-inline">fix: 나폴레옹 생년 오타 수정</span></p>
+          </div>
+        </div>
+
+        <div class="step-item reveal">
+          <div class="step-dot">
+            <span class="step-dot-num">5</span>
+          </div>
+          <div class="step-card">
+            <h3>Pull Request 생성</h3>
+            <p>원본 저장소에 Pull Request를 생성합니다.<br>
+            변경 내용에 대한 설명을 상세히 작성해 주세요.</p>
+          </div>
+        </div>
+
+        <div class="step-item reveal reveal-delay">
+          <div class="step-dot">
+            <span class="step-dot-num">6</span>
+          </div>
+          <div class="step-card">
+            <h3>코드 리뷰 & 머지</h3>
+            <p>리뷰어의 피드백을 반영한 후, 승인되면 메인 브랜치에 머지됩니다.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Section 6: 코딩 컨벤션 ── -->
+  <section class="panel panel-conventions" id="conventions">
+    <div class="panel-inner">
+      <div class="center-block reveal">
+        <span class="label-tag">05 — Conventions</span>
+        <h2 class="section-heading">코딩 컨벤션</h2>
+      </div>
+
+      <div class="convention-grid convention-grid-single">
+        <div class="convention-block reveal">
+          <div class="convention-header">
+            <span class="convention-icon">&#128196;</span>
+            <h3>JSON 데이터</h3>
+          </div>
+          <ul class="convention-list">
+            <li>파일명은 <span class="code-inline">소문자 영문</span>으로 작성하며, 단어 사이는 공백으로 구분합니다. <br>(예: <span class="code-inline">battle of midway.json</span>)</li>
+            <li>모든 키 이름은 <span class="code-inline">camelCase</span>를 사용합니다. <br>(예: <span class="code-inline">titleKr</span>, <span class="code-inline">keyFigure</span>, <span class="code-inline">combatRecord</span>)</li>
+            <li>새 데이터를 추가하면 <span class="code-inline">search.json</span>에 자동 등록됩니다. <br>(<span class="code-inline">node assets/js/common/generate-index.js</span> 실행 또는 <span class="code-inline">--watch</span> 모드 사용)</li>
+            <li>출처가 명확한 데이터만 추가하며, <span class="code-inline">references</span> 필드에 반드시 출처를 기재합니다.</li>
+            <li>문자열 값은 <span class="code-inline">한국어</span>로 작성하는 것을 원칙으로 합니다. <br>(<span class="code-inline">id</span>, <span class="code-inline">nameEn</span> 등 식별자는 영문)</li>
+            <li>배열 필드(<span class="code-inline">sections</span>, <span class="code-inline">specs</span>, <span class="code-inline">variants</span> 등)는 최소 1개 이상의 항목을 포함해야 합니다.</li>
+            <li>이미지 URL은 <span class="code-inline">Wikimedia Commons</span> 등 저작권이 자유로운 출처를 사용합니다.</li>
+            <li>빈 값은 빈 문자열 <span class="code-inline">""</span>로 두고, 키 자체를 삭제하지 않습니다.</li>
+            <li>JSON 파일은 <span class="code-inline">UTF-8</span> 인코딩으로 저장하며, 들여쓰기는 <span class="code-inline">스페이스 2칸</span>을 사용합니다.</li>
+            <li>위 다운로드 버튼에서 각 카테고리별 양식을 받아 구조를 확인한 후 작성해 주세요.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Section 7: 주의사항 ── -->
+  <section class="panel panel-rules" id="rules">
+    <div class="panel-inner">
+      <div class="split-layout">
+        <div class="split-left reveal">
+          <span class="label-tag">06 — Rules</span>
+          <h2 class="section-heading">주의사항</h2>
+        </div>
+        <div class="split-right reveal reveal-delay">
+          <div class="rules-list">
+            <div class="rule-item rule-do">
+              <span class="rule-icon">&#10003;</span>
+              <div>
+                <h4>해주세요</h4>
+                <ul>
+                  <li>기존 코드 스타일과 일관성을 유지해 주세요.</li>
+                  <li>데이터의 정확성을 확인하고 출처를 명시해 주세요.</li>
+                  <li>커밋 메시지는 변경 내용을 명확히 설명해 주세요.</li>
+                  <li>큰 변경은 Issue를 먼저 생성하여 논의해 주세요.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="rule-item rule-dont">
+              <span class="rule-icon">&#10007;</span>
+              <div>
+                <h4>하지 마세요</h4>
+                <ul>
+                  <li>검증되지 않은 정보를 추가하지 마세요.</li>
+                  <li>기존 데이터를 이유 없이 삭제하지 마세요.</li>
+                  <li>외부 프레임워크나 라이브러리를 추가하지 마세요.</li>
+                  <li>특정 국가나 집단에 편향된 서술을 하지 마세요.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Section 8: CTA ── -->
+  <section class="panel panel-cta" id="cta">
+    <div class="panel-content reveal">
+      <h2 class="display-title display-title-sm">
+        역사의 기록에<br><span class="accent">참여해 주세요.</span>
+      </h2>
+      <p class="body-text body-text-center">
+        여러분의 기여가 War Archive를 더욱 풍성하게 만듭니다.
+      </p>
+      <div class="cta-actions">
+        <a href="https://github.com/kenitoa/War-Achive" class="btn-cta" target="_blank" rel="noopener noreferrer">GitHub에서 시작하기</a>
+        <a href="../../index.html" class="btn-cta-outline">메인으로 돌아가기</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Footer ── -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <a href="../../index.html" class="logo">
+          <div class="logo-icon">&#9876;</div>
+          <span class="logo-text">War Archive</span>
+        </a>
+        <nav class="footer-nav">
+          <a href="../../index.html#categories">아카이브</a>
+          <a href="../../index.html#timeline">연대기</a>
+          <a href="../../index.html#project">프로젝트</a>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 War Archive. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/info/contribution tech.js"></script>
+</body>
+</html>

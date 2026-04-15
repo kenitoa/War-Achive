@@ -1,0 +1,371 @@
+﻿[
+  {
+    "id": "antikythera-weapon",
+    "name": "안티키테라 무기 설계도 논쟁",
+    "nameEn": "Antikythera Weapon Blueprint Dispute",
+    "shelf": "Data status",
+    "era": "",
+    "origin": "",
+    "summary": "안티키테라 기계가 고대 무기 제어 장치였다는 주장의 진위",
+    "tags": [],
+    "url": "pages/Undefine facts/Undefine detail.html?shelf=Data%20status&id=antikythera-weapon"
+  },
+  {
+    "id": "bermuda-triangle-disappearances",
+    "name": "버뮤다 삼각지대 실종 사건",
+    "nameEn": "Bermuda Triangle Disappearances",
+    "shelf": "Data status",
+    "era": "",
+    "origin": "",
+    "summary": "1945년 Flight 19 실종 사건을 포함한 대서양 미스터리",
+    "tags": [],
+    "url": "pages/Undefine facts/Undefine detail.html?shelf=Data%20status&id=bermuda-triangle-disappearances"
+  },
+  {
+    "id": "cia-psychic-warfare",
+    "name": "CIA 초감각 전투 프로그램",
+    "nameEn": "CIA Psychic Warfare Program",
+    "shelf": "Data status",
+    "era": "",
+    "origin": "",
+    "summary": "냉전 시기 CIA가 운영한 초능력 군사 활용 기밀 프로그램",
+    "tags": [],
+    "url": "pages/Undefine facts/Undefine detail.html?shelf=Data%20status&id=cia-psychic-warfare"
+  },
+  {
+    "id": "foo-fighters-wwii",
+    "name": "2차 대전 foo fighters 목격",
+    "nameEn": "Foo Fighters of WWII",
+    "shelf": "Data status",
+    "era": "",
+    "origin": "",
+    "summary": "2차 세계대전 중 연합군 조종사들이 보고한 정체불명 비행 물체",
+    "tags": [],
+    "url": "pages/Undefine facts/Undefine detail.html?shelf=Data%20status&id=foo-fighters-wwii"
+  },
+  {
+    "id": "korean-dragon-war",
+    "name": "삼국시대 용 전투 구전",
+    "nameEn": "Three Kingdoms Dragon Battle Oral Tradition",
+    "shelf": "Data status",
+    "era": "",
+    "origin": "",
+    "summary": "삼국시대 전투 중 하늘에서 용이 나타났다는 구전 이야기",
+    "tags": [],
+    "url": "pages/Undefine facts/Undefine detail.html?shelf=Data%20status&id=korean-dragon-war"
+  },
+  {
+    "id": "robin-hood-legend",
+    "name": "로빈 후드 전투 기록",
+    "nameEn": "Robin Hood Battle Records",
+    "shelf": "Data status",
+    "era": "",
+    "origin": "",
+    "summary": "셔우드 숲의 의적이 참여했다는 전투 기록의 진위 여부",
+    "tags": [],
+    "url": "pages/Undefine facts/Undefine detail.html?shelf=Data%20status&id=robin-hood-legend"
+  },
+  {
+    "id": "roswell-military-fragments",
+    "name": "로즈웰 군사 보고서 단편",
+    "nameEn": "Roswell Military Report Fragments",
+    "shelf": "Data status",
+    "era": "",
+    "origin": "",
+    "summary": "1947년 로즈웰 사건 관련 불완전한 군사 보고서 조각들",
+    "tags": [],
+    "url": "pages/Undefine facts/Undefine detail.html?shelf=Data%20status&id=roswell-military-fragments"
+  },
+  {
+    "id": "status-index",
+    "nameEn": "",
+    "shelf": "Data status",
+    "era": "",
+    "origin": "",
+    "summary": "",
+    "tags": [],
+    "url": "pages/Undefine facts/Undefine detail.html?shelf=Data%20status&id=status-index"
+  },
+  {
+    "id": "operation-northwoods",
+    "name": "노스우즈 작전",
+    "nameEn": "Operation Northwoods",
+    "shelf": "Declassified Files",
+    "era": "현대",
+    "origin": "미국",
+    "summary": "1962년 미국 합참이 제안한 쿠바 침공 명분 조작 계획. 자국민 대상 위장 테러를 포함한 계획으로, 케네디 대통령이 거부했다. 1997년 기밀 해제되었다.",
+    "tags": [
+      "현대",
+      "미국",
+      "쿠바",
+      "기밀"
+    ],
+    "url": "pages/Undefine facts/Undefine detail.html?shelf=Declassified%20Files&id=operation-northwoods"
+  },
+  {
+    "id": "project-azorian",
+    "name": "아조리안 프로젝트",
+    "nameEn": "Project Azorian",
+    "shelf": "Declassified Files",
+    "era": "현대",
+    "origin": "미국",
+    "summary": "1974년 CIA가 침몰한 소련 잠수함 K-129를 비밀리에 인양한 작전. 글로마 익스플로러호를 이용해 태평양 해저 5,000m에서 인양을 시도했다. 2010년 부분 기밀 해제되었다.",
+    "tags": [
+      "현대",
+      "미국",
+      "소련",
+      "잠수함",
+      "CIA"
+    ],
+    "url": "pages/Undefine facts/Undefine detail.html?shelf=Declassified%20Files&id=project-azorian"
+  },
+  {
+    "id": "tunguska-military-report",
+    "name": "퉁구스카 군사 보고서",
+    "nameEn": "Tunguska Military Report",
+    "shelf": "Declassified Files",
+    "era": "현대",
+    "origin": "러시아",
+    "summary": "1908년 퉁구스카 대폭발에 대한 러시아 제국 군부의 비밀 조사 보고서. 군사 무기 실험 가능성을 조사한 내용이 담겨 있으며, 소련 붕괴 후 부분 공개되었다.",
+    "tags": [
+      "현대",
+      "러시아",
+      "퉁구스카",
+      "폭발"
+    ],
+    "url": "pages/Undefine facts/Undefine detail.html?shelf=Declassified%20Files&id=tunguska-military-report"
+  },
+  {
+    "id": "kensington-runestone",
+    "name": "켄싱턴 룬스톤",
+    "nameEn": "Kensington Runestone",
+    "shelf": "Disputed Sources",
+    "era": "중세",
+    "origin": "미국 (발견지)",
+    "summary": "1898년 미네소타에서 발견된 룬 문자 비석. 1362년 바이킹 탐험대의 전투와 학살을 기록한 것으로 주장되나, 진위 여부를 둘러싼 논쟁이 100년 넘게 계속되고 있다.",
+    "tags": [
+      "중세",
+      "바이킹",
+      "룬 문자",
+      "논쟁"
+    ],
+    "url": "pages/Undefine facts/Undefine detail.html?shelf=Disputed%20Sources&id=kensington-runestone"
+  },
+  {
+    "id": "piri-reis-map",
+    "name": "피리 레이스 지도",
+    "nameEn": "Piri Reis Map",
+    "shelf": "Disputed Sources",
+    "era": "근대",
+    "origin": "오스만 제국",
+    "summary": "1513년 오스만 해군 제독 피리 레이스가 제작한 세계지도. 남극 해안선과 군사 거점을 정확히 묘사한 것으로 주장되며, 출처 지도의 존재 여부가 논쟁 대상이다.",
+    "tags": [
+      "근대",
+      "지도",
+      "오스만",
+      "항해"
+    ],
+    "url": "pages/Undefine facts/Undefine detail.html?shelf=Disputed%20Sources&id=piri-reis-map"
+  },
+  {
+    "id": "vinland-sagas-battles",
+    "name": "빈란드 사가 전투 기록",
+    "nameEn": "Vinland Sagas Battles",
+    "shelf": "Disputed Sources",
+    "era": "중세",
+    "origin": "스칸디나비아",
+    "summary": "바이킹이 북미 원주민과 벌인 전투를 묘사한 사가. 고고학적 증거(란스오메도우)가 발견되었으나, 전투의 규모와 양상에 대해서는 학계 논쟁이 계속되고 있다.",
+    "tags": [
+      "중세",
+      "바이킹",
+      "북미"
+    ],
+    "url": "pages/Undefine facts/Undefine detail.html?shelf=Disputed%20Sources&id=vinland-sagas-battles"
+  },
+  {
+    "id": "burnt-library-of-alexandria",
+    "name": "알렉산드리아 도서관의 군사 기록",
+    "nameEn": "Military Records of Library of Alexandria",
+    "shelf": "Incomplete Records",
+    "era": "고대",
+    "origin": "이집트",
+    "summary": "알렉산드리아 도서관에 소장되었던 것으로 추정되는 고대 군사 기록. 도서관 화재로 대부분 소실되었으며, 단편적인 인용만이 다른 문헌에 남아있다.",
+    "tags": [
+      "고대",
+      "이집트",
+      "도서관",
+      "소실"
+    ],
+    "url": "pages/Undefine facts/Undefine detail.html?shelf=Incomplete%20Records&id=burnt-library-of-alexandria"
+  },
+  {
+    "id": "lost-roman-legion",
+    "name": "로마 제9군단 실종 기록",
+    "nameEn": "Lost Roman Ninth Legion",
+    "shelf": "Incomplete Records",
+    "era": "고대",
+    "origin": "로마 제국",
+    "summary": "서기 120년경 브리타니아에서 갑자기 기록이 끊긴 로마 제9군단. 전멸했는지, 해산되었는지, 다른 곳으로 이동했는지 기록이 불완전하여 여전히 미스터리로 남아있다.",
+    "tags": [
+      "고대",
+      "로마",
+      "실종",
+      "군단"
+    ],
+    "url": "pages/Undefine facts/Undefine detail.html?shelf=Incomplete%20Records&id=lost-roman-legion"
+  },
+  {
+    "id": "unfinished-treaty-of-vienna",
+    "name": "미완성 빈 조약 초안",
+    "nameEn": "Unfinished Treaty of Vienna Draft",
+    "shelf": "Incomplete Records",
+    "era": "근대",
+    "origin": "오스트리아",
+    "summary": "빈 회의 중 작성되다가 중단된 것으로 보이는 조약 초안. 나폴레옹 전쟁 이후 유럽 질서 재편에 관한 급진적 내용을 담고 있으나, 후반부가 누락되어 전체 의도를 파악할 수 없다.",
+    "tags": [
+      "근대",
+      "외교",
+      "조약",
+      "미완성"
+    ],
+    "url": "pages/Undefine facts/Undefine detail.html?shelf=Incomplete%20Records&id=unfinished-treaty-of-vienna"
+  },
+  {
+    "id": "excalibur-of-arthur",
+    "name": "아서왕의 엑스칼리버",
+    "nameEn": "Excalibur of Arthur",
+    "shelf": "Legends and Myths",
+    "era": "중세",
+    "origin": "브리튼",
+    "summary": "호수의 여인에게 받은 신비한 검으로 색슨족을 물리쳤다는 전설. 아서왕과 원탁의 기사들의 군사 활동은 역사적 실체가 불분명하지만, 5~6세기 브리튼 전쟁사의 단서로 연구되고 있다.",
+    "tags": [
+      "중세",
+      "브리튼",
+      "전설",
+      "성검"
+    ],
+    "url": "pages/Undefine facts/Undefine detail.html?shelf=Legends%20and%20Myths&id=excalibur-of-arthur"
+  },
+  {
+    "id": "mulan-legend",
+    "name": "화목란 전설",
+    "nameEn": "Legend of Mulan",
+    "shelf": "Legends and Myths",
+    "era": "고대",
+    "origin": "중국",
+    "summary": "아버지를 대신해 남장하고 전쟁에 참전한 화목란의 전설. 북위 시대의 민요 '목란사'에서 유래하지만, 실존 인물 여부는 확인되지 않는다.",
+    "tags": [
+      "고대",
+      "중국",
+      "전설",
+      "여성 전사"
+    ],
+    "url": "pages/Undefine facts/Undefine detail.html?shelf=Legends%20and%20Myths&id=mulan-legend"
+  },
+  {
+    "id": "valkyries-of-valhalla",
+    "name": "발할라의 발키리",
+    "nameEn": "Valkyries of Valhalla",
+    "shelf": "Legends and Myths",
+    "era": "고대",
+    "origin": "스칸디나비아",
+    "summary": "전장에서 전사한 용사들을 발할라로 인도한다는 발키리 전설. 바이킹 전사 문화의 핵심 신앙이었으며, 실제 전투 의식에 영향을 미친 것으로 추정된다.",
+    "tags": [
+      "고대",
+      "북유럽",
+      "신화",
+      "전사"
+    ],
+    "url": "pages/Undefine facts/Undefine detail.html?shelf=Legends%20and%20Myths&id=valkyries-of-valhalla"
+  },
+  {
+    "id": "amazons-of-dahomey",
+    "name": "다호메이 아마존 전사단",
+    "nameEn": "Amazons of Dahomey",
+    "shelf": "Oral Traditions",
+    "era": "근대",
+    "origin": "서아프리카",
+    "summary": "서아프리카 다호메이 왕국의 여성 전사 부대에 대한 구전 기록. 유럽 탐험가들의 단편적 기록과 현지 구술 전승이 혼재되어 있다.",
+    "tags": [
+      "근대",
+      "아프리카",
+      "여성 전사"
+    ],
+    "url": "pages/Undefine facts/Undefine detail.html?shelf=Oral%20Traditions&id=amazons-of-dahomey"
+  },
+  {
+    "id": "ghost-army-of-platea",
+    "name": "플라타이아의 유령 군대",
+    "nameEn": "Ghost Army of Platea",
+    "shelf": "Oral Traditions",
+    "era": "고대",
+    "origin": "그리스",
+    "summary": "플라타이아 전투 이후 전장에서 유령 군대가 나타났다는 구전. 현지 주민들 사이에서 수세기 동안 전해져 왔으며, 헤로도토스도 간접 언급했다.",
+    "tags": [
+      "고대",
+      "그리스",
+      "유령"
+    ],
+    "url": "pages/Undefine facts/Undefine detail.html?shelf=Oral%20Traditions&id=ghost-army-of-platea"
+  },
+  {
+    "id": "trojan-horse-tale",
+    "name": "트로이 목마 이야기",
+    "nameEn": "Trojan Horse Tale",
+    "shelf": "Oral Traditions",
+    "era": "고대",
+    "origin": "그리스",
+    "summary": "거대한 나무 말에 병사를 숨겨 트로이 성을 함락시켰다는 전설. 호메로스의 서사시에서 언급되지만, 실제 전투 기록은 남아있지 않다.",
+    "tags": [
+      "고대",
+      "그리스",
+      "트로이 전쟁"
+    ],
+    "url": "pages/Undefine facts/Undefine detail.html?shelf=Oral%20Traditions&id=trojan-horse-tale"
+  },
+  {
+    "id": "dead-sea-war-scroll",
+    "name": "사해 전쟁 두루마리",
+    "nameEn": "Dead Sea War Scroll",
+    "shelf": "Unidentified Documents",
+    "era": "고대",
+    "origin": "미상",
+    "summary": "사해 근처 동굴에서 발견된 전쟁 관련 두루마리. 작성 시기와 저자가 불분명하며, '빛의 아들과 어둠의 아들의 전쟁'을 묘사하고 있다.",
+    "tags": [
+      "고대",
+      "두루마리",
+      "전쟁 기록"
+    ],
+    "url": "pages/Undefine facts/Undefine detail.html?shelf=Unidentified%20Documents&id=dead-sea-war-scroll"
+  },
+  {
+    "id": "unknown-generals-diary",
+    "name": "무명 장군의 일기",
+    "nameEn": "Unknown General's Diary",
+    "shelf": "Unidentified Documents",
+    "era": "근대",
+    "origin": "미상",
+    "summary": "유럽 고서점에서 발견된 군사 일기. 나폴레옹 전쟁 시기로 추정되나 저자의 신원이 확인되지 않으며, 알려지지 않은 전투를 상세히 묘사하고 있다.",
+    "tags": [
+      "근대",
+      "일기",
+      "장군"
+    ],
+    "url": "pages/Undefine facts/Undefine detail.html?shelf=Unidentified%20Documents&id=unknown-generals-diary"
+  },
+  {
+    "id": "voynich-battle-pages",
+    "name": "보이니치 전투 페이지",
+    "nameEn": "Voynich Battle Pages",
+    "shelf": "Unidentified Documents",
+    "era": "중세",
+    "origin": "미상",
+    "summary": "보이니치 필사본 중 전투 장면으로 추정되는 페이지들. 알 수 없는 언어로 기록되어 있으며, 군사 진형을 묘사한 것으로 해석하는 학자들이 있다.",
+    "tags": [
+      "중세",
+      "암호문서",
+      "미해독"
+    ],
+    "url": "pages/Undefine facts/Undefine detail.html?shelf=Unidentified%20Documents&id=voynich-battle-pages"
+  }
+]
