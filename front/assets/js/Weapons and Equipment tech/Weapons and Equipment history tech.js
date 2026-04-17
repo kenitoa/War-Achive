@@ -145,7 +145,7 @@
 
             html += '<section class="weapon-category-section">';
             html += '<div class="weapon-category-header">';
-            html += '<img class="weapon-category-icon" src="' + escapeHTML(catInfo.icon) + '" alt="">';
+            html += '<img class="weapon-category-icon" src="' + escapeHTML(catInfo.icon) + '" alt="" referrerpolicy="no-referrer">';
             html += '<h2 class="weapon-category-title">' + escapeHTML(catInfo.title) + '</h2>';
             html += '<span class="weapon-category-count">' + catItems.length + '건</span>';
             html += '</div>';
@@ -158,7 +158,7 @@
                 var period = item.period || '';
 
                 html += '<a class="weapon-card" href="' + href + '">';
-                html += '<div class="weapon-card-img"><img src="' + escapeHTML(imgSrc) + '" alt=""></div>';
+                html += '<div class="weapon-card-img"><img src="' + escapeHTML(imgSrc) + '" alt="" referrerpolicy="no-referrer"></div>';
                 html += '<div class="weapon-card-body">';
                 html += '<div class="weapon-card-name">' + escapeHTML(item.name) + '</div>';
                 html += '<div class="weapon-card-name-en">' + escapeHTML(item.nameEn) + '</div>';

@@ -1,5 +1,11 @@
 require('dotenv').config({ path: process.env.ENV_PATH || '/app/.env' });
 
+// production 환경에서 JWT_SECRET 미설정 시 기동 차단
+if (process.env.NODE_ENV === 'production' && !process.env.JWT_SECRET) {
+  console.error('FATAL: JWT_SECRET 환경변수가 설정되지 않았습니다.');
+  process.exit(1);
+}
+
 module.exports = {
   port: parseInt(process.env.PORT, 10) || 3000,
   nodeEnv: process.env.NODE_ENV || 'development',

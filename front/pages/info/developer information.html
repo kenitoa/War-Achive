@@ -193,9 +193,9 @@
           <div class="tech-bar"><div class="tech-bar-fill" data-width="92"></div></div>
         </div>
         <div class="tech-card reveal reveal-delay">
-          <div class="tech-card-icon">&#128640;</div>
-          <h3 class="tech-card-title">GitHub Pages</h3>
-          <p class="tech-card-desc">정적 호스팅을 통해 빠르고 안정적인 배포를 실현합니다.</p>
+          <div class="tech-card-icon"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsTk6KPrGgqJ-Rhw_MEe0W8kUR3pDt-YTA8Q&s" alt="Tailscale" style="width:1.5em;height:1.5em;vertical-align:middle;"></div>
+          <h3 class="tech-card-title">Tailscale Funnel</h3>
+          <p class="tech-card-desc">Tailscale Funnel을 통해 안전하고 간편한 터널링 배포를 실현합니다.</p>
           <div class="tech-bar"><div class="tech-bar-fill" data-width="80"></div></div>
         </div>
         <div class="tech-card reveal reveal-delay-2">
@@ -282,12 +282,6 @@
           <p>직접 문의 및 협업 제안</p>
           <a href="https://mail.google.com/mail/?view=cm&fs=1&to=kiseno3231@gmail.com" target="_blank" rel="noopener noreferrer" class="contact-link">이메일 보내기 &rarr;</a>
         </div>
-        <div class="contact-card reveal reveal-delay-2" id="feedbackCard" style="cursor:pointer;">
-          <div class="contact-icon">&#128172;</div>
-          <h3>피드백</h3>
-          <p>개선 사항 및 기능 제안</p>
-          <span class="contact-link">피드백 남기기 &rarr;</span>
-        </div>
       </div>
     </div>
   </section>
@@ -330,47 +324,5 @@
 
   <script src="../../assets/js/info/developer information tech.js"></script>
 
-  <!-- 피드백 팝업 -->
-  <div class="feedback-overlay" id="feedbackOverlay">
-    <div class="feedback-popup">
-      <button class="feedback-close" id="feedbackClose" aria-label="닫기">&times;</button>
-      <h2 class="feedback-title">&#128172; 피드백 남기기</h2>
-      <p class="feedback-desc">개선 사항, 버그 리포트, 기능 제안 등 어떤 의견이든 환영합니다.</p>
-      <form class="feedback-form" id="feedbackForm">
-        <div class="feedback-field">
-          <label class="feedback-label" for="fbType">피드백 유형</label>
-          <select class="feedback-select" id="fbType">
-            <option value="improvement">개선 제안</option>
-            <option value="bug">버그 리포트</option>
-            <option value="feature">기능 요청</option>
-            <option value="content">콘텐츠 제안</option>
-            <option value="other">기타</option>
-          </select>
-        </div>
-        <div class="feedback-field">
-          <label class="feedback-label" for="fbName">이름 <span class="feedback-optional">(선택)</span></label>
-          <input type="text" class="feedback-input" id="fbName" placeholder="이름을 입력해 주세요">
-        </div>
-        <div class="feedback-field">
-          <label class="feedback-label" for="fbEmail">이메일 <span class="feedback-optional">(선택)</span></label>
-          <input type="email" class="feedback-input" id="fbEmail" placeholder="회신 받을 이메일 주소">
-        </div>
-        <div class="feedback-field">
-          <label class="feedback-label" for="fbMessage">내용 <span class="feedback-required">*</span></label>
-          <textarea class="feedback-textarea" id="fbMessage" rows="5" placeholder="의견을 자유롭게 작성해 주세요..." required></textarea>
-        </div>
-        <div class="feedback-actions">
-          <button type="button" class="feedback-btn-cancel" id="feedbackCancel">취소</button>
-          <button type="submit" class="feedback-btn-submit">제출하기</button>
-        </div>
-      </form>
-      <div class="feedback-success" id="feedbackSuccess" style="display:none;">
-        <div class="feedback-success-icon">&#10003;</div>
-        <h3>피드백이 접수되었습니다</h3>
-        <p>소중한 의견 감사합니다. 프로젝트 개선에 반영하겠습니다.</p>
-        <button type="button" class="feedback-btn-submit" id="feedbackDone">확인</button>
-      </div>
-    </div>
-  </div>
 </body>
 </html>

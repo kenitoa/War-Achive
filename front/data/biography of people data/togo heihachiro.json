@@ -1,4 +1,4 @@
-{
+﻿{
   "id": "togo_heihachiro",
   "name": "도고 헤이하치로",
   "title": "일본 연합함대 사령장관",
@@ -7,7 +7,7 @@
   "nationality": "일본",
   "lifespan": "1848 – 1934",
   "summary": "러일전쟁의 쓰시마 해전에서 러시아 발틱 함대를 궤멸시키며 일본을 세계 강대국 반열에 올린 해군 제독.",
-  "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/T%C5%8Dg%C5%8D_Heihachir%C5%8D.jpg/600px-T%C5%8Dg%C5%8D_Heihachir%C5%8D.jpg",
+  "portrait": "https://commons.wikimedia.org/wiki/Special:FilePath/T%C5%8Dg%C5%8D_Heihachir%C5%8D.jpg?width=600",
   "wars": ["러일전쟁"],
   "tags": ["쓰시마 해전", "해군 제독"],
   "detail": {

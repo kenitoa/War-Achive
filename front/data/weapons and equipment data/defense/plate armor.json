@@ -1,7 +1,7 @@
-{
+﻿{
   "name": "판금 갑옷",
   "nameEn": "Plate Armor (Full Plate)",
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Lossy-page1-2122px-H%C3%A4strustning_-_Livrustkammaren_-_72697_aaa.jpg/960px-Lossy-page1-2122px-H%C3%A4strustning_-_Livrustkammaren_-_72697_aaa.jpg",
+  "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Lossy-page1-2122px-H%C3%A4strustning_-_Livrustkammaren_-_72697_aaa.jpg?width=960",
   "category": "defense",
   "era": "medieval",
   "origin": "유럽",

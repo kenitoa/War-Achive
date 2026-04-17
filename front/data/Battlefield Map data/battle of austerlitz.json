@@ -1,4 +1,4 @@
-{
+﻿{
   "id": "battle-of-austerlitz",
   "title": "Battle of Austerlitz",
   "titleKr": "아우스터리츠 전투",
@@ -51,7 +51,7 @@
   ],
   "images": [
     {
-      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Battle_of_Austerlitz_-_Situation_at_1400%2C_2_December_1805.png/960px-Battle_of_Austerlitz_-_Situation_at_1400%2C_2_December_1805.png",
+      "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Battle_of_Austerlitz_-_Situation_at_1400%2C_2_December_1805.png?width=960",
       "caption": "아우스터리츠 전투 상황도 – 프랑스군의 프라첸 고지 점령과 연합군 포위 과정",
       "source": "Wikimedia Commons"
     }

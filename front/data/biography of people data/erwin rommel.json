@@ -1,4 +1,4 @@
-{
+﻿{
   "id": "erwin_rommel",
   "name": "에르빈 롬멜",
   "title": "독일 아프리카 군단 사령관",
@@ -7,7 +7,7 @@
   "nationality": "독일",
   "lifespan": "1891 – 1944",
   "summary": "북아프리카 전선에서 탁월한 기동전을 펼쳐 '사막의 여우'라 불린 독일의 명장. 히틀러 암살 미수 사건에 연루되어 자결을 강요받았다.",
-  "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Erwin-Rommel-1941_%282%29.jpg/600px-Erwin-Rommel-1941_%282%29.jpg",
+  "portrait": "https://commons.wikimedia.org/wiki/Special:FilePath/Erwin-Rommel-1941_%282%29.jpg?width=600",
   "wars": ["제2차 세계대전"],
   "tags": ["사막의 여우", "기동전", "북아프리카"],
   "detail": {

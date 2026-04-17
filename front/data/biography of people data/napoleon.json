@@ -1,4 +1,4 @@
-{
+﻿{
   "id": "napoleon",
   "name": "나폴레옹 보나파르트",
   "title": "프랑스 제1제국 황제",
@@ -7,7 +7,7 @@
   "nationality": "프랑스",
   "lifespan": "1769 – 1821",
   "summary": "프랑스 혁명의 혼란 속에서 권력을 장악하고 유럽 대부분을 정복한 군사적 천재. 워털루 전투에서 패배하여 유배 생활 중 사망했다.",
-  "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Jacques-Louis_David_-_The_Emperor_Napoleon_in_His_Study_at_the_Tuileries_-_Google_Art_Project.jpg/600px-Jacques-Louis_David_-_The_Emperor_Napoleon_in_His_Study_at_the_Tuileries_-_Google_Art_Project.jpg",
+  "portrait": "https://commons.wikimedia.org/wiki/Special:FilePath/Jacques-Louis_David_-_The_Emperor_Napoleon_in_His_Study_at_the_Tuileries_-_Google_Art_Project.jpg?width=600",
   "wars": ["나폴레옹 전쟁"],
   "tags": ["프랑스 혁명", "워털루", "유배"],
   "detail": {

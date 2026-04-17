@@ -117,7 +117,7 @@
 
         // 카테고리 헤더
         var iconWrap = document.getElementById('categoryIcon');
-        iconWrap.innerHTML = '<img src="' + escapeHTML(info.icon) + '" alt="' + escapeHTML(info.title) + '">';
+        iconWrap.innerHTML = '<img src="' + escapeHTML(info.icon) + '" alt="' + escapeHTML(info.title) + '" referrerpolicy="no-referrer">';
 
         document.getElementById('categoryTitle').textContent = info.title;
         document.getElementById('categoryDesc').textContent = info.desc;
@@ -159,7 +159,7 @@
             var imgSrc = item.image || info.icon;
 
             return '<a class="item-card" href="' + href + '">' +
-                '<div class="item-card-icon"><img src="' + escapeHTML(imgSrc) + '" alt=""></div>' +
+                '<div class="item-card-icon"><img src="' + escapeHTML(imgSrc) + '" alt="" referrerpolicy="no-referrer"></div>' +
                 '<div class="item-card-name">' + escapeHTML(item.name) + '</div>' +
                 '<div class="item-card-name-en">' + escapeHTML(item.nameEn) + '</div>' +
                 '<div class="item-card-meta">' +

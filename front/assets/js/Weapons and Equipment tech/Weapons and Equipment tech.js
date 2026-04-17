@@ -130,7 +130,7 @@ document.addEventListener('DOMContentLoaded', () => {
               const imgSrc = item.image || '';
 
               return '<a class="search-result-card" href="' + href + '">' +
-                (imgSrc ? '<div class="sr-image"><img src="' + escapeHTML(imgSrc) + '" alt=""></div>' : '') +
+                (imgSrc ? '<div class="sr-image"><img src="' + escapeHTML(imgSrc) + '" alt="" referrerpolicy="no-referrer"></div>' : '') +
                 '<div class="sr-body">' +
                   '<div class="sr-name">' + escapeHTML(item.name) + '</div>' +
                   '<div class="sr-name-en">' + escapeHTML(item.nameEn) + '</div>' +

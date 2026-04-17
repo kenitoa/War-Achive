@@ -285,7 +285,7 @@
     grid.innerHTML = images.map(function (img, idx) {
       return '<div class="image-gallery-item" data-src="' + escapeHTML(img.url) + '" data-caption="' + escapeHTML(img.caption) + '" data-source="' + escapeHTML(img.source || '') + '" data-index="' + idx + '">' +
         '<div class="ar-image-wrap">' +
-          '<img src="' + escapeHTML(img.url) + '" alt="' + escapeHTML(img.caption) + '" loading="lazy">' +
+          '<img src="' + escapeHTML(img.url) + '" alt="' + escapeHTML(img.caption) + '" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.style.display=\'none\'">' +
           '<div class="ar-image-scan"></div>' +
           '<div class="ar-bracket tl"></div><div class="ar-bracket tr"></div>' +
           '<div class="ar-bracket bl"></div><div class="ar-bracket br"></div>' +
@@ -370,6 +370,7 @@
 
     function open(src, caption, source) {
       panelImg.src = src;
+      panelImg.referrerPolicy = 'no-referrer';
       panelCaption.innerHTML = escapeHTML(caption) +
         (source ? '<span class="caption-source">출처: ' + escapeHTML(source) + '</span>' : '');
 

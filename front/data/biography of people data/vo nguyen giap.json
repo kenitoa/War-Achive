@@ -1,4 +1,4 @@
-{
+﻿{
   "id": "vo_nguyen_giap",
   "name": "보응우옌잡",
   "title": "베트남 인민군 총사령관",
@@ -7,7 +7,7 @@
   "nationality": "베트남",
   "lifespan": "1911 – 2013",
   "summary": "디엔비엔푸 전투에서 프랑스를 패퇴시키고, 베트남 전쟁에서 미국에 맞서 게릴라전을 지휘한 20세기 최고의 군사 전략가 중 한 명.",
-  "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Mr._Vo_Nguyen_Giap_%28cropped%29.jpg/600px-Mr._Vo_Nguyen_Giap_%28cropped%29.jpg",
+  "portrait": "https://commons.wikimedia.org/wiki/Special:FilePath/Mr._Vo_Nguyen_Giap_%28cropped%29.jpg?width=600",
   "wars": ["베트남 전쟁"],
   "tags": ["디엔비엔푸", "게릴라전", "전략의 대가"],
   "detail": {

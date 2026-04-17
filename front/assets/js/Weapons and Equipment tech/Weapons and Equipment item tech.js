@@ -109,6 +109,7 @@
         if (imgSrc) {
             iconEl.src = imgSrc;
             iconEl.alt = data.name || categoryLabels[cat] || '';
+            iconEl.referrerPolicy = 'no-referrer';
         }
 
         // 이미지가 있으면 "이미지 미등록" 라벨 숨기기

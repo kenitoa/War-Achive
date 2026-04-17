@@ -1,4 +1,4 @@
-{
+﻿{
   "id": "battle-of-hansando",
   "title": "Battle of Hansan Island",
   "titleKr": "한산도 대첩",
@@ -51,7 +51,7 @@
   ],
   "images": [
     {
-      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Documentary_painting_of_the_Battle_of_Hansan_Island.jpg/960px-Documentary_painting_of_the_Battle_of_Hansan_Island.jpg",
+      "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Documentary_painting_of_the_Battle_of_Hansan_Island.jpg?width=960",
       "caption": "한산도 대첩 기록화 – 학익진으로 일본 수군을 포위하는 조선 수군",
       "source": "Wikimedia Commons"
     }

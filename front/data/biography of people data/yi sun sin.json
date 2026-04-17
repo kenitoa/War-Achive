@@ -1,4 +1,4 @@
-{
+﻿{
   "id": "yi_sun_sin",
   "name": "이순신",
   "title": "조선의 삼도수군통제사",
@@ -6,7 +6,7 @@
   "era": "earlymodern",
   "nationality": "조선",
   "lifespan": "1545 – 1598",
-  "summary": "임진왜란에서 거북선을 활용하여 23전 23승 무패의 전설을 쓴 세계 해전사 최고의 명장. 노량해전에서 장렬히 전사했다.",  "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Bust_of_Yi_Sun-sin_01.jpg/600px-Bust_of_Yi_Sun-sin_01.jpg",  "wars": ["임진왜란"],
+  "summary": "임진왜란에서 거북선을 활용하여 23전 23승 무패의 전설을 쓴 세계 해전사 최고의 명장. 노량해전에서 장렬히 전사했다.",  "portrait": "https://commons.wikimedia.org/wiki/Special:FilePath/Bust_of_Yi_Sun-sin_01.jpg?width=600",  "wars": ["임진왜란"],
   "tags": ["거북선", "무패", "노량해전"],
   "detail": {
     "earlyLife": "1545년 한성(서울)에서 덕수 이씨 가문에 태어났다. 어린 시절은 아산에서 보냈으며, 32세의 늦은 나이에 무과에 급제했다. 초기 관직 생활에서는 상관과의 갈등으로 파직과 백의종군을 반복하는 등 순탄치 않은 경력을 보냈다.",

@@ -1,4 +1,4 @@
-﻿// ── War Archive - Login Page JavaScript ──
+﻿// ── War Archive - Login Page JavaScript (API 연동) ──
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -55,65 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ── 비밀번호 해싱 (SHA-256) ──
-  async function hashPassword(password) {
-    const encoder = new TextEncoder();
-    const data = encoder.encode(password);
-    const hashBuffer = await crypto.subtle.digest('SHA-256', data);
-    const hashArray = Array.from(new Uint8Array(hashBuffer));
-    return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
-  }
-
-  // ── 사용자 데이터 저장소 (localStorage 기반) ──
-  // 참고: 프로덕션에서는 서버 측 SQL DB를 사용해야 합니다.
-  // 이 구현은 프론트엔드 데모용으로 localStorage를 사용합니다.
-  function getUsers() {
-    const data = localStorage.getItem('warArchiveUsers');
-    return data ? JSON.parse(data) : [];
-  }
-
-  function saveUsers(users) {
-    localStorage.setItem('warArchiveUsers', JSON.stringify(users));
-  }
-
-  // ── 초기 관리자 계정 등록 (localStorage에 없으면 자동 추가) ──
-  (function initAdminAccount() {
-    const users = getUsers();
-    const adminEmail = 'kiseno@gmail.com';
-    if (!users.find(u => u.email === adminEmail)) {
-      users.push({
-        id: 0,
-        username: 'kiseno',
-        email: adminEmail,
-        passwordHash: '45211ab59b6cede2827784ee64e4d3c81f1cceb6dbcd88b7db93cced77241a20',
-        role: 'admin',
-        createdAt: '2026-04-14T00:00:00.000Z'
-      });
-      saveUsers(users);
-    }
-  })();
-
-  function findUserByEmail(email) {
-    const users = getUsers();
-    return users.find(u => u.email === email.toLowerCase().trim());
-  }
-
-  // ── 현재 로그인 세션 ──
-  function setCurrentUser(user) {
-    const sessionUser = {
-      username: user.username,
-      email: user.email,
-      loginTime: new Date().toISOString()
-    };
-    sessionStorage.setItem('warArchiveCurrentUser', JSON.stringify(sessionUser));
-  }
-
-  function getCurrentUser() {
-    const data = sessionStorage.getItem('warArchiveCurrentUser');
-    return data ? JSON.parse(data) : null;
-  }
-
-  // ── 로그인 처리 ──
+  // ── 로그인 처리 (API) ──
   loginForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     clearMessages();
@@ -138,25 +80,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (!valid) return;
 
-    const user = findUserByEmail(email);
-    const hashedPassword = await hashPassword(password);
+    try {
+      const user = await API.login(email, password);
+      messageEl.textContent = '로그인 성공! 메인 페이지로 이동합니다.';
+      messageEl.className = 'form-message success';
 
-    if (!user || user.passwordHash !== hashedPassword) {
-      messageEl.textContent = '이메일 또는 비밀번호가 올바르지 않습니다.';
+      setTimeout(() => {
+        window.location.href = '../../index.html';
+      }, 1000);
+    } catch (err) {
+      messageEl.textContent = err.message;
       messageEl.className = 'form-message error';
-      return;
     }
-
-    setCurrentUser(user);
-    messageEl.textContent = '로그인 성공! 메인 페이지로 이동합니다.';
-    messageEl.className = 'form-message success';
-
-    setTimeout(() => {
-      window.location.href = '../../index.html';
-    }, 1000);
   });
 
-  // ── 회원가입 처리 ──
+  // ── 회원가입 처리 (API) ──
   signupForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     clearMessages();
@@ -193,36 +131,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (!valid) return;
 
-    // 중복 이메일 확인
-    if (findUserByEmail(email)) {
-      document.getElementById('signupEmailError').textContent = '이미 등록된 이메일입니다.';
-      return;
+    try {
+      await API.register(username, email, password);
+      messageEl.textContent = '회원가입 성공! 로그인 페이지로 이동합니다.';
+      messageEl.className = 'form-message success';
+
+      setTimeout(() => {
+        showLoginBtn.click();
+      }, 1500);
+    } catch (err) {
+      messageEl.textContent = err.message;
+      messageEl.className = 'form-message error';
     }
-
-    // 새 사용자 등록
-    const hashedPassword = await hashPassword(password);
-    const users = getUsers();
-    const newUser = {
-      id: users.length + 1,
-      username: username,
-      email: email.toLowerCase(),
-      passwordHash: hashedPassword,
-      createdAt: new Date().toISOString()
-    };
-    users.push(newUser);
-    saveUsers(users);
-
-    messageEl.textContent = '회원가입 성공! 로그인 페이지로 이동합니다.';
-    messageEl.className = 'form-message success';
-
-    setTimeout(() => {
-      showLoginBtn.click();
-    }, 1500);
   });
 
   // ── 이미 로그인된 경우 리다이렉트 ──
-  const currentUser = getCurrentUser();
-  if (currentUser) {
+  if (API.isLoggedIn()) {
     window.location.href = '../../index.html';
   }
 });

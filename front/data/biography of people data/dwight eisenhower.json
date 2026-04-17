@@ -1,4 +1,4 @@
-{
+﻿{
   "id": "dwight_eisenhower",
   "name": "드와이트 아이젠하워",
   "title": "연합군 최고사령관",
@@ -7,7 +7,7 @@
   "nationality": "미국",
   "lifespan": "1890 – 1969",
   "summary": "노르망디 상륙작전(D-Day)을 지휘하여 유럽 서부전선을 개방하고 나치 독일의 패망을 이끈 연합군 최고사령관. 이후 미국 대통령이 되었다.",
-  "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Dwight_D._Eisenhower%2C_official_photo_portrait%2C_May_29%2C_1959_%28cropped%29%283%29.jpg/600px-Dwight_D._Eisenhower%2C_official_photo_portrait%2C_May_29%2C_1959_%28cropped%29%283%29.jpg",
+  "portrait": "https://commons.wikimedia.org/wiki/Special:FilePath/Dwight_D._Eisenhower%2C_official_photo_portrait%2C_May_29%2C_1959_%28cropped%29%283%29.jpg?width=600",
   "wars": ["제2차 세계대전"],
   "tags": ["노르망디", "D-Day", "대통령"],
   "detail": {

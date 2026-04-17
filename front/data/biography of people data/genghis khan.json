@@ -1,4 +1,4 @@
-{
+﻿{
   "id": "genghis_khan",
   "name": "칭기즈 칸",
   "title": "몽골 제국의 창건자",
@@ -7,7 +7,7 @@
   "nationality": "몽골",
   "lifespan": "1162 – 1227",
   "summary": "유목민 부족들을 통일하여 역사상 가장 광대한 대륙 제국을 건설한 정복자. 혁신적인 군사 전략과 통치 체계를 도입했다.",
-  "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/YuanEmperorAlbumGenghisPortrait.jpg/600px-YuanEmperorAlbumGenghisPortrait.jpg",
+  "portrait": "https://commons.wikimedia.org/wiki/Special:FilePath/YuanEmperorAlbumGenghisPortrait.jpg?width=600",
   "wars": ["몽골 정복 전쟁"],
   "tags": ["대제국", "유목민", "정복자"],
   "detail": {

@@ -1,4 +1,4 @@
-{
+﻿{
   "id": "longbow-tactics",
   "title": "Longbow Tactics",
   "titleKr": "장궁 전술",
@@ -50,12 +50,12 @@
     }
   ],
   "images": [
-    {"url": "https://upload.wikimedia.org/wikipedia/commons/2/24/Battle_of_crecy_froissart.jpg", "caption": "크레시 전투 — 장 프루아사르의 연대기에서 발췌한 삽화", "source": "Wikimedia Commons"},
-    {"url": "https://upload.wikimedia.org/wikipedia/commons/9/9e/English_longbowmen.jpg", "caption": "잉글랜드 장궁병 — 유효 사거리 250m의 치명적 원거리 무기", "source": "Wikimedia Commons"}
+    {"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Battle_of_crecy_froissart.jpg?width=800", "caption": "크레시 전투 — 장 프루아사르의 연대기에서 발췌한 삽화", "source": "Wikimedia Commons"},
+    {"url": "https://commons.wikimedia.org/wiki/Special:FilePath/English_longbowmen.jpg?width=800", "caption": "잉글랜드 장궁병 — 유효 사거리 250m의 치명적 원거리 무기", "source": "Wikimedia Commons"}
   ],
   "images": [
     {
-      "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Battle-of-crecy-froissart.jpg?width=800",
+      "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Battle_of_crecy_froissart.jpg?width=800",
       "caption": "크레시 전투(프루아사르 연대기, 15세기) – 잉글랜드 장궁병이 프랑스 기사를 격파하는 장면",
       "source": "Wikimedia Commons"
     },

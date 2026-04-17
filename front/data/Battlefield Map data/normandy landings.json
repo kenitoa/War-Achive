@@ -1,4 +1,4 @@
-{
+﻿{
   "id": "normandy-landings",
   "title": "Normandy Landings (D-Day)",
   "titleKr": "노르망디 상륙작전",
@@ -51,7 +51,7 @@
   ],
   "images": [
     {
-      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Into_the_Jaws_of_Death_23-0455M_edit.jpg/960px-Into_the_Jaws_of_Death_23-0455M_edit.jpg",
+      "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Into_the_Jaws_of_Death_23-0455M_edit.jpg?width=960",
       "caption": "오마하 해변 상륙 – LCVP 상륙주정에서 해변으로 뛰어내리는 미군 병사들 (Robert F. Sargent 촬영)",
       "source": "U.S. National Archives / Wikimedia Commons"
     }

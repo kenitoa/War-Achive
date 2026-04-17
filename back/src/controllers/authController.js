@@ -16,7 +16,7 @@ const authController = {
         return res.status(400).json({ error: '유효한 이메일 주소를 입력해주세요.' });
       }
       if (!isValidPassword(password)) {
-        return res.status(400).json({ error: '비밀번호는 8자 이상이어야 합니다.' });
+        return res.status(400).json({ error: '비밀번호는 8자 이상이며, 대문자/소문자/숫자/특수문자를 모두 포함해야 합니다.' });
       }
 
       const userId = await authService.register({ username, email, password });

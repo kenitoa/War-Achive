@@ -1,7 +1,7 @@
-{
+﻿{
   "name": "V-2 로켓",
   "nameEn": "V-2 Rocket (Vergeltungswaffe 2)",
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Fus%C3%A9e_V2_%28cropped%29.jpg/960px-Fus%C3%A9e_V2_%28cropped%29.jpg",
+  "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Fus%C3%A9e_V2_%28cropped%29.jpg?width=960",
   "category": "artillery",
   "era": "worldwar",
   "origin": "나치 독일",

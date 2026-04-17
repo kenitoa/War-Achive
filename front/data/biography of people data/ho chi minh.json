@@ -1,4 +1,4 @@
-{
+﻿{
   "id": "ho_chi_minh",
   "name": "호찌민",
   "title": "베트남 민주공화국 주석",
@@ -7,7 +7,7 @@
   "nationality": "베트남",
   "lifespan": "1890 – 1969",
   "summary": "프랑스 식민지배와 미국의 개입에 맞서 베트남 독립과 통일을 위해 평생을 바친 혁명 지도자. 베트남 전쟁의 상징적 인물이다.",
-  "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Ho_Chi_Minh_-_1946_Portrait_%28cropped%29.jpg/600px-Ho_Chi_Minh_-_1946_Portrait_%28cropped%29.jpg",
+  "portrait": "https://commons.wikimedia.org/wiki/Special:FilePath/Ho_Chi_Minh_-_1946_Portrait_%28cropped%29.jpg?width=600",
   "wars": ["베트남 전쟁"],
   "tags": ["독립운동", "혁명가", "통일"],
   "detail": {

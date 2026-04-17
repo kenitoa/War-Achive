@@ -19,7 +19,7 @@ const authService = {
 
     const passwordHash = await hashPassword(password);
     const userId = await User.create({ username, email, passwordHash });
-    logger.info(`새 사용자 등록: ${email}`);
+    logger.info(`새 사용자 등록: userId=${userId}`);
     return userId;
   },
 
@@ -30,17 +30,15 @@ const authService = {
   async login({ email, password, ipAddress, userAgent }) {
     const user = await User.findByEmail(email);
 
-    // 로그인 시도 기록
-    await this._recordAttempt(email, ipAddress, false);
+    // 브루트포스 체크 (비밀번호 검증 전에 수행)
+    await this._checkBruteForce(email, ipAddress);
 
     if (!user || !user.is_active) {
+      await this._recordAttempt(email, ipAddress, false);
       const err = new Error('이메일 또는 비밀번호가 잘못되었습니다.');
       err.statusCode = 401;
       throw err;
     }
-
-    // 브루트포스 체크
-    await this._checkBruteForce(email, ipAddress);
 
     let passwordValid = false;
 
@@ -53,11 +51,12 @@ const authService = {
         // bcrypt로 자동 마이그레이션
         const newHash = await hashPassword(password);
         await User.updatePassword(user.user_id, newHash);
-        logger.info(`비밀번호 해시 마이그레이션 완료: ${email}`);
+        logger.info(`비밀번호 해시 마이그레이션 완료: ${user.user_id}`);
       }
     }
 
     if (!passwordValid) {
+      await this._recordAttempt(email, ipAddress, false);
       const err = new Error('이메일 또는 비밀번호가 잘못되었습니다.');
       err.statusCode = 401;
       throw err;
@@ -66,10 +65,9 @@ const authService = {
     // 성공 기록
     await this._recordAttempt(email, ipAddress, true);
 
-    // JWT 토큰 발급
+    // JWT 토큰 발급 (최소 정보만 포함)
     const token = generateToken({
       userId: user.user_id,
-      email: user.email,
       role: user.role
     });
 
@@ -82,7 +80,7 @@ const authService = {
       expiresAt
     });
 
-    logger.info(`로그인 성공: ${email}`);
+    logger.info(`로그인 성공: userId=${user.user_id}`);
 
     return {
       token,

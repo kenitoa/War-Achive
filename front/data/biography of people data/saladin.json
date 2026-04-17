@@ -1,4 +1,4 @@
-{
+﻿{
   "id": "saladin",
   "name": "살라딘",
   "title": "아이유브 왕조의 술탄",
@@ -7,7 +7,7 @@
   "nationality": "쿠르드 / 아이유브 왕조",
   "lifespan": "1137 – 1193",
   "summary": "하틴 전투에서 십자군을 대파하고 예루살렘을 탈환한 이슬람 세계의 영웅. 적에게도 관대한 기사도를 보여 유럽에서도 존경받았다.",
-  "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Saladin_and_Guy.jpg/600px-Saladin_and_Guy.jpg",
+  "portrait": "https://commons.wikimedia.org/wiki/Special:FilePath/Al-Nasir_I_Salah_al-Din_Yusuf_%28Saladin%29._AH_564-589_%281169-1193_CE%29_%C3%86_Dirham_%2830.1mm%2C_13.28_g%2C_6h%29._Without_mint-name._Dated_AH_586_%28AD_1190-91%29._Sultan_sitting_facing%2C_cross-legged%2C_on_high-backed_throne_%28obverse%29.jpg?width=600",
   "wars": ["십자군 전쟁"],
   "tags": ["예루살렘 탈환", "기사도", "하틴 전투"],
   "detail": {

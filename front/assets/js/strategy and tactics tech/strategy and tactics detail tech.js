@@ -235,6 +235,7 @@
       imgEl.src = img.url;
       imgEl.alt = img.caption || '';
       imgEl.loading = 'lazy';
+      imgEl.referrerPolicy = 'no-referrer';
       imgEl.dataset.caption = img.caption || '';
       imgEl.addEventListener('error', function () {
         this.style.display = 'none';
@@ -269,6 +270,7 @@
 
     function openLightbox(src, caption) {
       lightboxImg.src = src;
+      lightboxImg.referrerPolicy = 'no-referrer';
       lightboxCaption.textContent = caption || '';
       lightbox.classList.add('active');
     }

@@ -1,4 +1,4 @@
-{
+﻿{
   "id": "wellington",
   "name": "웰링턴 공작",
   "title": "영국의 장군·총리",
@@ -7,7 +7,7 @@
   "nationality": "영국",
   "lifespan": "1769 – 1852",
   "summary": "이베리아 반도 전쟁에서 프랑스군을 격퇴하고, 워털루 전투에서 나폴레옹을 최종 패배시킨 영국의 국민 영웅.",
-  "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Sir_Arthur_Wellesley%2C_1st_Duke_of_Wellington.jpg/600px-Sir_Arthur_Wellesley%2C_1st_Duke_of_Wellington.jpg",
+  "portrait": "https://commons.wikimedia.org/wiki/Special:FilePath/Sir_Arthur_Wellesley%2C_1st_Duke_of_Wellington.jpg?width=600",
   "wars": ["나폴레옹 전쟁"],
   "tags": ["워털루", "이베리아 반도"],
   "detail": {

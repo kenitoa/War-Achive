@@ -1,4 +1,4 @@
-{
+﻿{
   "id": "battle-of-stalingrad",
   "title": "Battle of Stalingrad",
   "titleKr": "스탈린그라드 전투",
@@ -55,7 +55,7 @@
   ],
   "images": [
     {
-      "url": "https://upload.wikimedia.org/wikipedia/commons/d/d1/Bundesarchiv_Bild_183-B22359%2C_Russland%2C_Kampf_um_Stalingrad%2C_Panzer_T34.jpg",
+      "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Bundesarchiv_Bild_183-B22359%2C_Russland%2C_Kampf_um_Stalingrad%2C_Panzer_T34.jpg?width=800",
       "caption": "스탈린그라드 시가전 – 폐허가 된 도시에서 소련 T-34 전차와 함께 전투하는 장면",
       "source": "Bundesarchiv / Wikimedia Commons (CC BY-SA 3.0 DE)"
     }

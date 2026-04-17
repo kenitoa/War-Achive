@@ -1,7 +1,7 @@
-{
+﻿{
   "name": "롱소드",
   "nameEn": "Longsword",
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Hand-and-a-Half_Sword_MET_DP146428.jpg/960px-Hand-and-a-Half_Sword_MET_DP146428.jpg",
+  "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Hand-and-a-Half_Sword_MET_DP146428.jpg?width=960",
   "category": "melee",
   "era": "medieval",
   "origin": "유럽",

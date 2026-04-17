@@ -176,7 +176,7 @@
         // 표지 이미지
         if (doc.coverImage) {
             var frame = document.getElementById('coverFrame');
-            frame.innerHTML = '<img src="' + escapeHTML(doc.coverImage) + '" alt="' + escapeHTML(doc.titleKr || doc.title) + '" onerror="this.parentElement.innerHTML=\'<div class=cover-placeholder><span class=cover-icon>NO IMAGE</span><span class=cover-label>이미지를 불러올 수 없습니다</span></div>\'">';
+            frame.innerHTML = '<img src="' + escapeHTML(doc.coverImage) + '" alt="' + escapeHTML(doc.titleKr || doc.title) + '" referrerpolicy="no-referrer" onerror="this.parentElement.innerHTML=\'<div class=cover-placeholder><span class=cover-icon>NO IMAGE</span><span class=cover-label>이미지를 불러올 수 없습니다</span></div>\'">';
         }
 
         // 태그

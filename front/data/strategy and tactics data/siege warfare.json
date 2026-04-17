@@ -1,4 +1,4 @@
-{
+﻿{
   "id": "siege-warfare",
   "title": "Siege Warfare",
   "titleKr": "공성전",
@@ -50,8 +50,8 @@
     }
   ],
   "images": [
-    {"url": "https://upload.wikimedia.org/wikipedia/commons/9/93/Siege-alesia-vercingetorix-jules-cesar.jpg", "caption": "알레시아 공성전 — 베르킹게토릭스가 카이사르에게 항복하는 장면", "source": "Wikimedia Commons"},
-    {"url": "https://upload.wikimedia.org/wikipedia/commons/e/ec/SiegeOfOrleans1429.jpg", "caption": "오를레앙 공성전 (1429) — 잔 다르크의 해방 전투", "source": "Wikimedia Commons"}
+    {"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Siege-alesia-vercingetorix-jules-cesar.jpg?width=800", "caption": "알레시아 공성전 — 베르킹게토릭스가 카이사르에게 항복하는 장면", "source": "Wikimedia Commons"},
+    {"url": "https://commons.wikimedia.org/wiki/Special:FilePath/SiegeOfOrleans1429.jpg?width=800", "caption": "오를레앙 공성전 (1429) — 잔 다르크의 해방 전투", "source": "Wikimedia Commons"}
   ],
   "images": [
     {

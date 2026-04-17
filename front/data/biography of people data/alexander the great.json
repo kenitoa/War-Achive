@@ -1,4 +1,4 @@
-{
+﻿{
   "id": "alexander_the_great",
   "name": "알렉산드로스 대왕",
   "title": "마케도니아 왕국의 왕",
@@ -7,7 +7,7 @@
   "nationality": "마케도니아",
   "lifespan": "BC 356 – BC 323",
   "summary": "20세에 왕위에 오른 뒤 불과 13년 만에 그리스, 페르시아, 이집트, 인도 북서부에 이르는 대제국을 건설한 역사상 가장 위대한 정복자 중 한 명.",
-  "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Alexander_Mosaic_detail_of_Alexander_the_Great_%283x4_cropped%29.jpg/600px-Alexander_Mosaic_detail_of_Alexander_the_Great_%283x4_cropped%29.jpg",
+  "portrait": "https://commons.wikimedia.org/wiki/Special:FilePath/Alexander_Mosaic_detail_of_Alexander_the_Great_%283x4_cropped%29.jpg?width=600",
   "wars": ["그리스-페르시아 전쟁"],
   "tags": ["정복자", "고대", "대제국"],
   "detail": {

@@ -1,4 +1,4 @@
-{
+﻿{
   "id": "douglas_macarthur",
   "name": "더글러스 맥아더",
   "title": "유엔군 총사령관",
@@ -7,7 +7,7 @@
   "nationality": "미국",
   "lifespan": "1880 – 1964",
   "summary": "태평양 전쟁에서 일본군을 격퇴하고, 한국전쟁에서 인천상륙작전을 성공시킨 미국의 전설적 장군. 핵무기 사용을 주장하다 해임되었다.",
-  "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/MacArthur_Manila_%28cropped2%29.jpg/600px-MacArthur_Manila_%28cropped2%29.jpg",
+  "portrait": "https://commons.wikimedia.org/wiki/Special:FilePath/MacArthur_Manila_%28cropped2%29.jpg?width=600",
   "wars": ["제2차 세계대전", "한국전쟁"],
   "tags": ["인천상륙작전", "태평양 전쟁", "해임"],
   "detail": {

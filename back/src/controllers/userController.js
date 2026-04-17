@@ -20,10 +20,18 @@ const userController = {
   async updateProfile(req, res, next) {
     try {
       const { displayName, bio, avatarUrl, favoriteEra } = req.body;
+
+      // avatarUrl 기본 검증
+      if (avatarUrl && typeof avatarUrl === 'string') {
+        if (!/^https?:\/\//.test(avatarUrl)) {
+          return res.status(400).json({ error: '유효한 URL을 입력해주세요.' });
+        }
+      }
+
       const profile = await userService.updateProfile(req.user.userId, {
         displayName: sanitizeString(displayName, 100),
         bio: sanitizeString(bio, 2000),
-        avatarUrl: sanitizeString(avatarUrl, 500),
+        avatarUrl: avatarUrl ? sanitizeString(avatarUrl, 500) : '',
         favoriteEra: sanitizeString(favoriteEra, 100)
       });
       res.json(profile);

@@ -277,7 +277,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (item.coverImage) {
           coverHTML =
             '<div class="book-cover book-cover--' + escapeHTML(spineType) + '">' +
-              '<img src="' + escapeHTML(item.coverImage) + '" alt="' + title + '" loading="lazy" onerror="this.parentElement.innerHTML=\'<div class=book-cover-fallback><span>' + icon + '</span><span>' + title + '</span></div>\'">' +
+              '<img src="' + escapeHTML(item.coverImage) + '" alt="' + title + '" loading="lazy" referrerpolicy="no-referrer" onerror="this.parentElement.innerHTML=\'<div class=book-cover-fallback><span>' + icon + '</span><span>' + title + '</span></div>\'">'  +
               '<span class="book-cover-badge badge--' + escapeHTML(spineType) + '">' + typeLabel + '</span>' +
             '</div>';
         } else {
