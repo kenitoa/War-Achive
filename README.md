@@ -5,6 +5,11 @@
 [![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white)]()
 [![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)]()
 [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)]()
+[![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat&logo=node.js&logoColor=white)]()
+[![Express](https://img.shields.io/badge/Express-000000?style=flat&logo=express&logoColor=white)]()
+[![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=flat&logo=mysql&logoColor=white)]()
+[![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat&logo=docker&logoColor=white)]()
+[![Nginx](https://img.shields.io/badge/Nginx-009639?style=flat&logo=nginx&logoColor=white)]()
 [![JSON](https://img.shields.io/badge/Data-JSON-292929?style=flat)]()
 
 ---
@@ -13,6 +18,7 @@
 
 - [프로젝트 개요](#프로젝트-개요)
 - [아키텍처 구조](#아키텍처-구조)
+- [기술 스택](#기술-스택)
 - [카테고리별 콘텐츠](#카테고리별-콘텐츠)
 - [데이터 스키마](#데이터-스키마)
 - [구현된 기능](#구현된-기능)
@@ -20,19 +26,27 @@
 - [아쉬운 점 / 개선 필요 사항](#아쉬운-점--개선-필요-사항)
 - [폴더 구조](#폴더-구조)
 - [실행 방법](#실행-방법)
+- [문서](#문서)
+
+---
+
+## 웹 사이트 주소 : https://war-archive.tail498403.ts.net/
 
 ---
 
 ## 프로젝트 개요
 
-**War Archive**는 고대부터 현대까지의 전쟁 역사를 종합적으로 기록하고 보존하는 **순수 프론트엔드 정적 웹사이트**입니다.
+**War Archive**는 고대부터 현대까지의 전쟁 역사를 종합적으로 기록하고 보존하는 **풀스택 웹 애플리케이션**입니다.
 
-- **기술 스택**: HTML5 + CSS3 + Vanilla JavaScript (프레임워크 미사용)
-- **데이터 관리**: JSON 기반 정적 데이터 파일
+- **프론트엔드**: HTML5 + CSS3 + Vanilla JavaScript (프레임워크 미사용)
+- **백엔드**: Node.js + Express REST API 서버
+- **데이터베이스**: MySQL 8.0 (사용자/인증/세션 관리)
+- **인프라**: Docker Compose (MySQL + Backend + Nginx) + Synology NAS WebStation
+- **데이터 관리**: 공개 콘텐츠는 JSON 정적 파일, 비공개 데이터는 API 경유
 - **언어**: 한국어 (Korean)
 - **설립**: 2026년
 
-백엔드 서버 없이 JSON 파일을 `fetch()`로 로드하여 동적으로 페이지를 구성하는 **클라이언트 사이드 렌더링** 방식을 채택했습니다.
+프론트엔드는 JSON 파일을 `fetch()`로 로드하여 **클라이언트 사이드 렌더링**하고, 백엔드는 JWT 인증 기반의 사용자 관리/비공개 데이터 API를 제공합니다.
 
 ---
 
@@ -44,55 +58,80 @@
 ┌──────────────────────────────────────────────────────────────────┐
 │                        사용자 브라우저                           │
 │                                                                  │
-│   main.html ─────────────────────────────────────────────────    │
+│   index.html ────────────────────────────────────────────────    │
 │       │                                                          │
-│       ├── 카테고리 선택 ──→ [카테고리].html (목록 페이지)        │
-│       │                         │                                │
-│       │                         ├── fetch() ──→ index.json       │
-│       │                         │                  (목록 로드)   │
-│       │                         │                                │
-│       │                         └── 항목 클릭 ──→ detail.html    │
-│       │                                              │           │
-│       │                                              └── fetch() │
-│       │                                      ──→ [항목명].json   │
-│       │                                           (상세 데이터)  │
+│       ├── 정적 콘텐츠 ──→ [NAS WebStation :443]                  │
+│       │   ├── 카테고리 선택 ──→ [카테고리].html (목록 페이지)    │
+│       │   │                         │                            │
+│       │   │                         ├── fetch() ──→ index.json   │
+│       │   │                         │                            │
+│       │   │                         └── 항목 클릭 ──→ detail.html│
+│       │   │                                  └── fetch()         │
+│       │   │                               ──→ [항목명].json      │
+│       │   │                                                      │
+│       │   ├── 연대기 ──→ war overview + battlefield 병합         │
+│       │   └── 검색 ──→ 전체 index.json 로드 → 클라이언트 검색   │
 │       │                                                          │
-│       ├── 연대기 (Timeline) ──→ war overview + battlefield 병합  │
-│       │                         → 연도순 정렬 → 동적 렌더링      │
-│       │                                                          │
-│       └── 검색 ──→ 전체 index.json 로드 → 클라이언트 검색        │
+│       └── API 요청 ──→ [Nginx :8080] ──→ [Backend :3000]        │
+│           ├── /api/auth/* ──→ 로그인/회원가입/로그아웃           │
+│           ├── /api/users/* ──→ 프로필 조회/수정                  │
+│           └── /api/data/* ──→ 비공개 데이터 CRUD                 │
+│                                    │                             │
+│                              [MySQL :3306]                       │
 │                                                                  │
 └──────────────────────────────────────────────────────────────────┘
 ```
 
-### 3계층 아키텍처 (Templet / Style / Tech)
+### 3계층 아키텍처 (Front / Back / Infra)
 
 ```
-front/
-├── Templet/          ← HTML 템플릿 (구조 & 콘텐츠)
-│   ├── main.html                  ← 메인 진입점
-│   ├── information.html           ← 프로젝트 소개
-│   ├── contribution.html          ← 기여 가이드
-│   ├── developer information.html ← 개발자 정보
+front/                              ← 프론트엔드 (NAS WebStation)
+├── pages/            ← HTML 페이지
+│   ├── auth/                      ← 로그인/회원가입
+│   ├── info/                      ← 프로젝트 소개
 │   └── [카테고리]/
 │       ├── [카테고리].html        ← 목록 페이지
 │       └── [카테고리] detail.html ← 상세 페이지
-│
-├── Style/            ← CSS 스타일시트 (디자인 & 레이아웃)
-│   ├── main_style.css             ← 메인 페이지 스타일
-│   ├── [카테고리] style/          ← 카테고리별 스타일
-│   └── Image/                     ← 이미지 에셋
-│
-├── tech/             ← JavaScript 로직 (동작 & 데이터 처리)
-│   ├── main_tech.js               ← 메인 페이지 로직
-│   ├── generate-index.js          ← index.json 자동 생성 도구
-│   └── [카테고리] tech/           ← 카테고리별 로직
-│
-└── data/             ← JSON 데이터 파일 (콘텐츠 저장소)
-    └── [카테고리] data/
-        ├── index.json             ← 항목 목록 인덱스
-        └── [항목명].json          ← 개별 항목 데이터
+├── assets/css/       ← 카테고리별 CSS
+├── assets/js/        ← 카테고리별 JavaScript
+└── data/             ← JSON 데이터 (공개)
+
+back/                               ← 백엔드 API (Docker)
+└── src/
+    ├── app.js                     ← Express 진입점
+    ├── routes/                    ← /api/auth, /api/users, /api/data
+    ├── controllers/               ← 요청 처리
+    ├── services/                  ← 비즈니스 로직
+    ├── models/                    ← User, Profile, Session
+    ├── middleware/                 ← JWT 인증, Rate Limit, 에러 핸들링
+    └── utils/                     ← 해싱, 토큰, 로거, 검증
+
+infra/                              ← Docker Compose 인프라
+├── docker-compose.yml             ← MySQL + Backend + Nginx
+├── nginx/default.conf             ← API 리버스 프록시
+└── scripts/                       ← 배포/백업 자동화
 ```
+
+---
+
+## 기술 스택
+
+| 계층 | 기술 | 설명 |
+|------|------|------|
+| **프론트엔드** | HTML5 + CSS3 + Vanilla JS | 프레임워크 미사용 정적 사이트 |
+| **백엔드** | Node.js 20 + Express | REST API 서버 (Docker 컨테이너) |
+| **데이터베이스** | MySQL 8.0 | 사용자/인증/세션/프로필 |
+| **리버스 프록시** | Nginx Alpine | API 프록시 + 보안 헤더 |
+| **컨테이너** | Docker Compose | 3-서비스 오케스트레이션 |
+| **호스팅** | Synology NAS (DSM 7.x) | WebStation + Docker |
+| **네트워크** | Tailscale | VPN 기반 외부 접속 |
+
+### 보안 설정
+
+- **Docker**: read-only 파일시스템, no-new-privileges, 메모리 제한 (128~512MB)
+- **Nginx**: HSTS, X-Frame-Options DENY, CSP, 위험 HTTP 메서드 차단
+- **Backend**: Helmet, CORS 화이트리스트, Rate Limiting, JWT 인증, bcrypt 해싱
+- **MySQL**: Docker 내부 네트워크 전용, healthcheck 기반 의존성
 
 ### 페이지 구성 패턴 (공통)
 
@@ -271,7 +310,7 @@ weapons and equipment data/
 ## 아쉬운 점 / 개선 필요 사항
 
 ### 아키텍처 관련
-- **백엔드 부재** — 순수 정적 사이트로 서버 사이드 검색, 사용자 인증, 댓글 등 동적 기능 구현 불가
+- ~~**백엔드 부재**~~ — Express + MySQL 백엔드 구축 완료 (JWT 인증, 사용자 관리, 비공개 데이터 API)
 - **SEO 취약** — 클라이언트 사이드 렌더링 방식으로 검색 엔진 크롤링에 불리
 - **URL 라우팅 미비** — 해시 기반 라우팅이나 SPA 방식이 아닌 직접 HTML 파일 이동 방식
 
@@ -290,104 +329,85 @@ weapons and equipment data/
 
 ## 폴더 구조
 
+> 전체 구조는 [docs/structure.md](docs/structure.md) 참조
+
 ```
 War Archive/
+├── front/                  ← 프론트엔드 (NAS WebStation)
+│   ├── index.html
+│   ├── assets/css/         ← 카테고리별 스타일
+│   ├── assets/js/          ← 카테고리별 로직
+│   ├── data/               ← 공개 JSON 데이터
+│   └── pages/              ← HTML 페이지
 │
-├── README.md
-├── .gitattributes
+├── back/                   ← 백엔드 API (Docker)
+│   ├── Dockerfile
+│   └── src/                ← Express 서버 코드
 │
-└── front/
-    │
-    ├── Templet/                              ← HTML 페이지
-    │   ├── main.html                         ← 메인 페이지
-    │   ├── information.html                  ← 프로젝트 소개
-    │   ├── contribution.html                 ← 기여 가이드
-    │   ├── developer information.html        ← 개발자 정보
-    │   │
-    │   ├── war overview/                     ← 전쟁 개요 (18건)
-    │   │   ├── war overview.html
-    │   │   └── war overview detail.html
-    │   │
-    │   ├── biography of people/              ← 인물 열전 (22명)
-    │   │   ├── biography of people.html
-    │   │   └── biography of people detail.html
-    │   │
-    │   ├── Weapons and Equipment/            ← 무기 & 장비 (9분류)
-    │   │   ├── Weapons and Equipment.html
-    │   │   ├── Weapons and Equipment detail.html
-    │   │   ├── Weapons and Equipment history.html
-    │   │   └── Weapons and Equipment item.html
-    │   │
-    │   ├── strategy and tactics/             ← 전략 & 전술 (25건)
-    │   │   ├── strategy and tactics.html
-    │   │   └── strategy and tactics detail.html
-    │   │
-    │   ├── Historical Sources & Documents/   ← 사료 & 문서 (17건)
-    │   │   ├── Historical Sources & Documents.html
-    │   │   └── Historical Sources & Documents detail.html
-    │   │
-    │   ├── Battlefield Map/                  ← 전장 지도 (11건)
-    │   │   ├── Battlefield Map.html
-    │   │   └── Battlefield Map detail.html
-    │   │
-    │   └── Undefine facts/                   ← 미분류 기록 (18건)
-    │       ├── Undefine facts.html
-    │       └── Undefine detail.html
-    │
-    ├── Style/                                ← CSS 스타일시트
-    │   ├── main_style.css
-    │   ├── information style.css
-    │   ├── contribution style.css
-    │   ├── developer information style.css
-    │   ├── [카테고리] style/                 ← 카테고리별 CSS
-    │   └── Image/                            ← 공통 이미지
-    │
-    ├── tech/                                 ← JavaScript 로직
-    │   ├── main_tech.js                      ← 메인 페이지 JS
-    │   ├── generate-index.js                 ← index.json 생성기
-    │   ├── information tech.js
-    │   ├── contribution tech.js
-    │   ├── developer information tech.js
-    │   └── [카테고리] tech/                  ← 카테고리별 JS
-    │
-    └── data/                                 ← JSON 데이터
-        ├── war overview data/                ← 18개 전쟁
-        ├── biography of people data/         ← 22명 인물
-        ├── strategy and tactics data/        ← 25개 전략·전술
-        ├── Historical Sources & Documents data/ ← 17개 사료
-        ├── Battlefield Map data/             ← 11개 전투
-        ├── weapons and equipment data/       ← 9개 하위 카테고리
-        └── Undefine facts data/              ← 6개 하위 카테고리
+├── data/                   ← 데이터 저장소 (Docker 볼륨)
+│   ├── db/                 ← SQL 초기화 스크립트
+│   ├── logs/               ← 앱 로그
+│   ├── uploads/            ← 업로드 파일
+│   ├── cache/              ← 캐시
+│   └── private-json/       ← 비공개 JSON
+│
+├── infra/                  ← Docker Compose 인프라
+│   ├── docker-compose.yml
+│   ├── .env
+│   ├── nginx/              ← Nginx 설정
+│   └── scripts/            ← 배포/백업 스크립트
+│
+├── backup/                 ← 백업 저장소
+│
+└── docs/                   ← 프로젝트 문서
+    ├── running.md          ← 실행 가이드 및 접속 링크
+    ├── structure.md        ← 프로젝트 구조 상세
+    ├── deploy.md           ← 배포 가이드
+    ├── api.md              ← API 명세
+    └── backup.md           ← 백업/복원 가이드
 ```
 
 ---
 
 ## 실행 방법
 
-### 로컬에서 실행
+### 프로덕션 (Synology NAS)
+
+> 상세 절차는 [docs/running.md](docs/running.md) 및 [docs/deploy.md](docs/deploy.md) 참조
+
+```bash
+# NAS SSH 접속 후
+cd "/volume4/homes/dongmin703/Laptop/Github_Project/War Achive/infra"
+
+# 환경 변수 설정
+printf 'DB_ROOT_PASSWORD=...\n...' > .env
+
+# 빌드 및 실행
+sudo docker-compose build backend
+sudo docker-compose up -d
+
+# 상태 확인
+sudo docker-compose ps
+```
+
+**접속 URL:**
+- 프론트엔드: https://war-archive.tail498403.ts.net/
+- API: http://war-archive.tail498403.ts.net:8080/api/
+
+### 로컬 개발
+
 ```bash
 # 1. 리포지토리 클론
 git clone https://github.com/[username]/War-Archive.git
 
-# 2. 인덱스 파일 생성 (Node.js 필요)
-cd War-Archive/front/tech
-node generate-index.js
-
-# 3. 로컬 서버 실행 (fetch()를 위해 HTTP 서버 필요)
-cd ../Templet
-# Python 3
-python -m http.server 8000
-# 또는 Node.js
+# 2. 로컬 서버 실행 (프론트엔드만)
+cd War-Archive/front
 npx serve .
+# http://localhost:3000/
 
-# 4. 브라우저에서 접속
-# http://localhost:8000/main.html
-```
-
-### 인덱스 자동 갱신 (개발 시)
-```bash
-cd front/tech
-node generate-index.js --watch
+# 3. 백엔드 포함 전체 실행 (Docker 필요)
+cd ../infra
+docker-compose up -d
 ```
 
 ---
@@ -403,7 +423,21 @@ node generate-index.js --watch
 전장 지도         ████████████████░░░░  11건 (지도 시각화 미구현)
 무기 & 장비       ████████░░░░░░░░░░░░  구조만 완성, 데이터 확충 필요
 미분류 기록       ████████████████████  18/18 완료
+백엔드 API        ████████████████████  인증/사용자/데이터 API 완료
+인프라             ████████████████████  Docker Compose 배포 완료
 ```
+
+---
+
+## 문서
+
+| 문서 | 설명 |
+|------|------|
+| [docs/running.md](docs/running.md) | 실행 가이드 및 접속 링크 |
+| [docs/structure.md](docs/structure.md) | 프로젝트 구조 및 기술 스택 상세 |
+| [docs/deploy.md](docs/deploy.md) | 초기 배포 및 업데이트 절차 |
+| [docs/api.md](docs/api.md) | REST API 명세 |
+| [docs/backup.md](docs/backup.md) | 백업/복원 가이드 |
 
 ---
 
