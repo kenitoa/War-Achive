@@ -9,22 +9,14 @@ const routes = require('./routes');
 
 const app = express();
 
-// ── 보안 헤더 ──
+// ── 보안 헤더 (API 서버용 - CSP는 HTML 미서빙이므로 비활성화) ──
 app.use(helmet({
-  contentSecurityPolicy: {
-    directives: {
-      defaultSrc: ["'self'"],
-      scriptSrc: ["'self'"],
-      styleSrc: ["'self'"],
-      imgSrc: ["'self'"],
-      connectSrc: ["'self'"],
-      frameSrc: ["'none'"],
-      objectSrc: ["'none'"]
-    }
-  },
+  contentSecurityPolicy: false,
   crossOriginEmbedderPolicy: true,
   crossOriginOpenerPolicy: true,
-  crossOriginResourcePolicy: { policy: 'same-origin' }
+  crossOriginResourcePolicy: { policy: 'same-origin' },
+  hsts: { maxAge: 31536000, includeSubDomains: true, preload: true },
+  referrerPolicy: { policy: 'strict-origin-when-cross-origin' }
 }));
 
 // ── CORS (WebStation 프론트엔드 허용) ──
@@ -37,17 +29,16 @@ app.use(cors({
 }));
 
 // ── 프록시 신뢰 (nginx 뒤에서 실행) ──
-app.set('trust proxy', 1);
+app.set('trust proxy', config.trustProxy);
 
 // ── 요청 파싱 ──
 app.use(express.json({ limit: '1mb' }));
-app.use(express.urlencoded({ extended: false, limit: '1mb' }));
 
 // ── 알 수 없는 Content-Type 차단 ──
 app.use((req, res, next) => {
   if (req.method !== 'GET' && req.method !== 'DELETE' && req.method !== 'OPTIONS') {
     const ct = req.headers['content-type'] || '';
-    if (!ct.includes('application/json') && !ct.includes('application/x-www-form-urlencoded') && !ct.includes('multipart/form-data')) {
+    if (!ct.includes('application/json') && !ct.includes('multipart/form-data')) {
       return res.status(415).json({ error: '지원하지 않는 Content-Type입니다.' });
     }
   }

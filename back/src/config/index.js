@@ -16,17 +16,21 @@ module.exports = {
     user: process.env.DB_USER || 'wararchive',
     password: process.env.DB_PASSWORD || '',
     database: process.env.DB_NAME || 'war_archive',
-    connectionLimit: parseInt(process.env.DB_POOL_SIZE, 10) || 10
+    connectionLimit: parseInt(process.env.DB_POOL_SIZE, 10) || 10,
+    ssl: process.env.DB_SSL === 'true' ? { rejectUnauthorized: true } : false
   },
 
   jwt: {
     secret: process.env.JWT_SECRET || 'change-me-in-production',
-    expiresIn: process.env.JWT_EXPIRES_IN || '7d'
+    expiresIn: process.env.JWT_EXPIRES_IN || '1h',
+    refreshExpiresIn: process.env.JWT_REFRESH_EXPIRES_IN || '7d'
   },
 
   cors: {
-    origin: process.env.CORS_ORIGIN || 'http://localhost'
+    origin: process.env.CORS_ORIGIN || 'https://localhost'
   },
+
+  trustProxy: process.env.TRUST_PROXY || 1,
 
   upload: {
     maxSize: parseInt(process.env.UPLOAD_MAX_SIZE, 10) || 5 * 1024 * 1024,

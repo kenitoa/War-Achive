@@ -16,7 +16,15 @@ function isValidUsername(name) {
 
 function sanitizeString(str, maxLen = 500) {
   if (typeof str !== 'string') return '';
-  return str.slice(0, maxLen).replace(/[<>]/g, '').trim();
+  return str
+    .slice(0, maxLen)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#x27;')
+    .replace(/\//g, '&#x2F;')
+    .trim();
 }
 
 module.exports = { isValidEmail, isValidPassword, isValidUsername, sanitizeString };

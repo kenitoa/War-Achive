@@ -62,6 +62,11 @@ services:
       DB_NAME: ${DB_NAME}
       JWT_SECRET: ${JWT_SECRET}
       CORS_ORIGIN: ${CORS_ORIGIN}
+      TRUST_PROXY: ${TRUST_PROXY:-1}
+      DB_SSL: ${DB_SSL:-false}
+      ADMIN_USERNAME: ${ADMIN_USERNAME}
+      ADMIN_EMAIL: ${ADMIN_EMAIL}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD}
       LOG_DIR: /app/data/logs
       UPLOAD_DEST: /app/data/uploads
       PRIVATE_JSON_DIR: /app/data/private-json

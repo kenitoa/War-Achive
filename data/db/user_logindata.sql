@@ -24,6 +24,7 @@ CREATE TABLE IF NOT EXISTS user_logindata (
 -- (회원가입 시 아래에 INSERT 문이 추가됩니다)
 -- ============================================================
 
--- 초기 관리자 계정 (최초 로그인 후 반드시 비밀번호 변경 필요)
-INSERT INTO user_logindata (username, email, password_hash, role)
-VALUES ('kiseno', 'kiseno@gmail.com', '45211ab59b6cede2827784ee64e4d3c81f1cceb6dbcd88b7db93cced77241a20', 'admin');
+-- 초기 관리자 계정은 환경변수를 통해 생성됩니다.
+-- docker-compose 환경변수: ADMIN_USERNAME, ADMIN_EMAIL, ADMIN_PASSWORD_HASH
+-- bcrypt 해시 생성: node -e "require('bcrypt').hash('비밀번호',12).then(console.log)"
+-- 보안: 절대 평문 해시를 SQL 파일에 하드코딩하지 마세요.

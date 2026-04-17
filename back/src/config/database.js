@@ -13,7 +13,8 @@ const pool = mysql.createPool({
   charset: 'utf8mb4',
   connectTimeout: 10000,
   enableKeepAlive: true,
-  keepAliveInitialDelay: 10000
+  keepAliveInitialDelay: 10000,
+  ssl: config.db.ssl || undefined
 });
 
 pool.getConnection()
@@ -22,7 +23,8 @@ pool.getConnection()
     conn.release();
   })
   .catch(err => {
-    logger.error('MySQL 연결 실패');
+    logger.error('MySQL 연결 실패:', err.message);
+    process.exit(1);
   });
 
 module.exports = pool;
