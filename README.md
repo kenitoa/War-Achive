@@ -56,26 +56,26 @@
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│                        사용자 브라우저                           │
+│                        사용자 브라우저                            │
 │                                                                  │
 │   index.html ────────────────────────────────────────────────    │
 │       │                                                          │
-│       ├── 정적 콘텐츠 ──→ [NAS WebStation :443]                  │
-│       │   ├── 카테고리 선택 ──→ [카테고리].html (목록 페이지)    │
+│       ├── 정적 콘텐츠 ──→ [NAS WebStation :443]                   │
+│       │   ├── 카테고리 선택 ──→ [카테고리].html (목록 페이지)       │
 │       │   │                         │                            │
 │       │   │                         ├── fetch() ──→ index.json   │
 │       │   │                         │                            │
-│       │   │                         └── 항목 클릭 ──→ detail.html│
+│       │   │                         └── 항목 클릭 ──→ detail.html │
 │       │   │                                  └── fetch()         │
-│       │   │                               ──→ [항목명].json      │
+│       │   │                               ──→ [항목명].json       │
 │       │   │                                                      │
-│       │   ├── 연대기 ──→ war overview + battlefield 병합         │
-│       │   └── 검색 ──→ 전체 index.json 로드 → 클라이언트 검색   │
+│       │   ├── 연대기 ──→ war overview + battlefield 병합          │
+│       │   └── 검색 ──→ 전체 index.json 로드 → 클라이언트 검색      │
 │       │                                                          │
-│       └── API 요청 ──→ [Nginx :8080] ──→ [Backend :3000]        │
-│           ├── /api/auth/* ──→ 로그인/회원가입/로그아웃           │
-│           ├── /api/users/* ──→ 프로필 조회/수정                  │
-│           └── /api/data/* ──→ 비공개 데이터 CRUD                 │
+│       └── API 요청 ──→ [Nginx :8080] ──→ [Backend :3000]         │
+│           ├── /api/auth/* ──→ 로그인/회원가입/로그아웃             │
+│           ├── /api/users/* ──→ 프로필 조회/수정                   │
+│           └── /api/data/* ──→ 비공개 데이터 CRUD                  │
 │                                    │                             │
 │                              [MySQL :3306]                       │
 │                                                                  │
@@ -373,8 +373,6 @@ War Archive/
 
 ### 프로덕션 (Synology NAS)
 
-> 상세 절차는 [docs/running.md](docs/running.md) 및 [docs/deploy.md](docs/deploy.md) 참조
-
 ```bash
 # NAS SSH 접속 후
 cd "/volume4/homes/dongmin703/Laptop/Github_Project/War Achive/infra"
@@ -392,7 +390,6 @@ sudo docker-compose ps
 
 **접속 URL:**
 - 프론트엔드: https://war-archive.tail498403.ts.net/
-- API: http://war-archive.tail498403.ts.net:8080/api/
 
 ### 로컬 개발
 
@@ -426,18 +423,6 @@ docker-compose up -d
 백엔드 API        ████████████████████  인증/사용자/데이터 API 완료
 인프라             ████████████████████  Docker Compose 배포 완료
 ```
-
----
-
-## 문서
-
-| 문서 | 설명 |
-|------|------|
-| [docs/running.md](docs/running.md) | 실행 가이드 및 접속 링크 |
-| [docs/structure.md](docs/structure.md) | 프로젝트 구조 및 기술 스택 상세 |
-| [docs/deploy.md](docs/deploy.md) | 초기 배포 및 업데이트 절차 |
-| [docs/api.md](docs/api.md) | REST API 명세 |
-| [docs/backup.md](docs/backup.md) | 백업/복원 가이드 |
 
 ---
 
