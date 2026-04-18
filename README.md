@@ -29,14 +29,16 @@
 
 ## 프로젝트 개요
 
-**War Archive**는 고대부터 현대까지의 전쟁 역사를 종합적으로 기록하고 보존하는 **순수 프론트엔드 정적 웹사이트**입니다.
+**War Archive**는 고대부터 현대까지의 전쟁 역사를 종합적으로 기록하고 보존하는 디지털 아카이브 프로젝트입니다.
 
-- **기술 스택**: HTML5 + CSS3 + Vanilla JavaScript (프레임워크 미사용)
-- **데이터 관리**: JSON 기반 정적 데이터 파일
+- **프론트엔드**: HTML5 + CSS3 + Vanilla JavaScript (NAS WebStation)
+- **백엔드**: Node.js (Express) + MySQL (Docker)
+- **인프라**: Docker Compose + Nginx 리버스 프록시
+- **데이터**: JSON 기반 정적 데이터 + MySQL 사용자 데이터
 - **언어**: 한국어 (Korean)
 - **설립**: 2026년
 
-백엔드 서버 없이 JSON 파일을 `fetch()`로 로드하여 동적으로 페이지를 구성하는 **클라이언트 사이드 렌더링** 방식을 채택했습니다.
+JSON 파일을 `fetch()`로 로드하여 동적으로 페이지를 구성하는 **클라이언트 사이드 렌더링** 방식을 채택했습니다.
 
 ---
 
@@ -69,32 +71,34 @@
 └──────────────────────────────────────────────────────────────────┘
 ```
 
-### 3계층 아키텍처 (Templet / Style / Tech)
+### 프론트엔드 구조 (pages / assets / data)
 
 ```
 front/
-├── Templet/          ← HTML 템플릿 (구조 & 콘텐츠)
-│   ├── main.html                  ← 메인 진입점
-│   ├── information.html           ← 프로젝트 소개
-│   ├── contribution.html          ← 기여 가이드
-│   ├── developer information.html ← 개발자 정보
+├── index.html                     ← 메인 진입점
+│
+├── pages/            ← HTML 페이지 (구조 & 콘텐츠)
+│   ├── info/                      ← 프로젝트 소개, 기여, 개발자 정보
 │   └── [카테고리]/
 │       ├── [카테고리].html        ← 목록 페이지
 │       └── [카테고리] detail.html ← 상세 페이지
 │
-├── Style/            ← CSS 스타일시트 (디자인 & 레이아웃)
-│   ├── main_style.css             ← 메인 페이지 스타일
-│   ├── [카테고리] style/          ← 카테고리별 스타일
-│   └── Image/                     ← 이미지 에셋
-│
-├── tech/             ← JavaScript 로직 (동작 & 데이터 처리)
-│   ├── main_tech.js               ← 메인 페이지 로직
-│   ├── generate-index.js          ← index.json 자동 생성 도구
-│   └── [카테고리] tech/           ← 카테고리별 로직
+├── assets/           ← 정적 자산
+│   ├── css/
+│   │   ├── common/main_style.css  ← 공통 스타일
+│   │   ├── info/                  ← 프로젝트 정보 스타일
+│   │   └── [카테고리] style/      ← 카테고리별 스타일
+│   ├── js/
+│   │   ├── common/main_tech.js    ← 공통 JS
+│   │   ├── common/generate-index.js ← 검색 인덱스 자동 생성
+│   │   ├── info/                  ← 프로젝트 정보 JS
+│   │   └── [카테고리] tech/       ← 카테고리별 로직
+│   └── images/                    ← 이미지 에셋
+│       └── weapons/               ← 무기 카테고리 SVG 아이콘
 │
 └── data/             ← JSON 데이터 파일 (콘텐츠 저장소)
+    ├── search/                    ← 카테고리별 검색 인덱스
     └── [카테고리] data/
-        ├── index.json             ← 항목 목록 인덱스
         └── [항목명].json          ← 개별 항목 데이터
 ```
 
@@ -275,7 +279,7 @@ weapons and equipment data/
 ## 아쉬운 점 / 개선 필요 사항
 
 ### 아키텍처 관련
-- **백엔드 부재** — 순수 정적 사이트로 서버 사이드 검색, 사용자 인증, 댓글 등 동적 기능 구현 불가
+- **백엔드 연동 미완** — Docker 기반 백엔드(Express + MySQL)를 구축했으나 프론트와의 연동이 아직 미완성
 - **SEO 취약** — 클라이언트 사이드 렌더링 방식으로 검색 엔진 크롤링에 불리
 - **URL 라우팅 미비** — 해시 기반 라우팅이나 SPA 방식이 아닌 직접 HTML 파일 이동 방식
 
@@ -298,99 +302,97 @@ weapons and equipment data/
 War Archive/
 │
 ├── README.md
-├── .gitattributes
 │
-└── front/
-    │
-    ├── Templet/                              ← HTML 페이지
-    │   ├── main.html                         ← 메인 페이지
-    │   ├── information.html                  ← 프로젝트 소개
-    │   ├── contribution.html                 ← 기여 가이드
-    │   ├── developer information.html        ← 개발자 정보
-    │   │
-    │   ├── war overview/                     ← 전쟁 개요 (18건)
-    │   │   ├── war overview.html
-    │   │   └── war overview detail.html
-    │   │
-    │   ├── biography of people/              ← 인물 열전 (22명)
-    │   │   ├── biography of people.html
-    │   │   └── biography of people detail.html
-    │   │
-    │   ├── Weapons and Equipment/            ← 무기 & 장비 (9분류)
-    │   │   ├── Weapons and Equipment.html
-    │   │   ├── Weapons and Equipment detail.html
-    │   │   ├── Weapons and Equipment history.html
-    │   │   └── Weapons and Equipment item.html
-    │   │
-    │   ├── strategy and tactics/             ← 전략 & 전술 (25건)
-    │   │   ├── strategy and tactics.html
-    │   │   └── strategy and tactics detail.html
-    │   │
-    │   ├── Historical Sources & Documents/   ← 사료 & 문서 (17건)
-    │   │   ├── Historical Sources & Documents.html
-    │   │   └── Historical Sources & Documents detail.html
-    │   │
-    │   ├── Battlefield Map/                  ← 전장 지도 (11건)
-    │   │   ├── Battlefield Map.html
-    │   │   └── Battlefield Map detail.html
-    │   │
-    │   └── Undefine facts/                   ← 미분류 기록 (18건)
-    │       ├── Undefine facts.html
-    │       └── Undefine detail.html
-    │
-    ├── Style/                                ← CSS 스타일시트
-    │   ├── main_style.css
-    │   ├── information style.css
-    │   ├── contribution style.css
-    │   ├── developer information style.css
-    │   ├── [카테고리] style/                 ← 카테고리별 CSS
-    │   └── Image/                            ← 공통 이미지
-    │
-    ├── tech/                                 ← JavaScript 로직
-    │   ├── main_tech.js                      ← 메인 페이지 JS
-    │   ├── generate-index.js                 ← index.json 생성기
-    │   ├── information tech.js
-    │   ├── contribution tech.js
-    │   ├── developer information tech.js
-    │   └── [카테고리] tech/                  ← 카테고리별 JS
-    │
-    └── data/                                 ← JSON 데이터
-        ├── war overview data/                ← 18개 전쟁
-        ├── biography of people data/         ← 22명 인물
-        ├── strategy and tactics data/        ← 25개 전략·전술
-        ├── Historical Sources & Documents data/ ← 17개 사료
-        ├── Battlefield Map data/             ← 11개 전투
-        ├── weapons and equipment data/       ← 9개 하위 카테고리
-        └── Undefine facts data/              ← 6개 하위 카테고리
+├── front/                                    ← 프론트엔드 (NAS WebStation)
+│   ├── index.html                            ← 메인 페이지
+│   ├── pages/                                ← HTML 페이지
+│   │   ├── info/                             ← 프로젝트 소개, 기여, 개발자 정보
+│   │   ├── war overview/                     ← 전쟁 개요
+│   │   ├── biography of people/              ← 인물 열전
+│   │   ├── strategy and tactics/             ← 전략 & 전술
+│   │   ├── Historical Sources & Documents/   ← 사료 & 문서
+│   │   ├── Battlefield Map/                  ← 전장 지도
+│   │   ├── Undefine facts/                   ← 미분류 기록
+│   │   └── Weapons and Equipment/            ← 무기 & 장비
+│   ├── assets/                               ← 정적 자산
+│   │   ├── css/                              ← 스타일시트
+│   │   │   ├── common/                       ← 공통 스타일
+│   │   │   ├── info/                         ← 프로젝트 정보 스타일
+│   │   │   └── [카테고리] style/             ← 카테고리별 CSS
+│   │   ├── js/                               ← JavaScript
+│   │   │   ├── common/                       ← 공통 JS (main_tech, generate-index)
+│   │   │   ├── info/                         ← 프로젝트 정보 JS
+│   │   │   └── [카테고리] tech/              ← 카테고리별 JS
+│   │   └── images/                           ← 이미지
+│   └── data/                                 ← JSON 데이터
+│       ├── search/                           ← 검색 인덱스
+│       ├── war overview data/                ← 16개 전쟁
+│       ├── biography of people data/         ← 21명 인물
+│       ├── strategy and tactics data/        ← 24개 전략·전술
+│       ├── Historical Sources & Documents data/ ← 16개 사료
+│       ├── Battlefield Map data/             ← 10개 전투
+│       ├── weapons and equipment data/       ← 8개 하위 카테고리
+│       └── Undefine facts data/              ← 6개 하위 카테고리
+│
+├── back/                                     ← 백엔드 API (Docker)
+│   ├── src/                                  ← Express 서버
+│   ├── package.json
+│   └── Dockerfile
+│
+├── data/                                     ← 데이터 저장소 (Docker 볼륨)
+│   ├── db/                                   ← SQL 스키마
+│   ├── uploads/
+│   ├── logs/
+│   ├── cache/
+│   └── private-json/
+│
+├── infra/                                    ← 인프라 (Docker Compose)
+│   ├── docker-compose.yml
+│   ├── .env
+│   ├── nginx/
+│   └── scripts/
+│
+├── backup/                                   ← 백업 저장소
+│
+└── docs/                                     ← 프로젝트 문서
 ```
 
 ---
 
 ## 실행 방법
 
-### 로컬에서 실행
+### 로컬에서 실행 (프론트엔드만)
 ```bash
 # 1. 리포지토리 클론
 git clone https://github.com/[username]/War-Archive.git
 
 # 2. 인덱스 파일 생성 (Node.js 필요)
-cd War-Archive/front/tech
+cd War-Archive/front/assets/js/common
 node generate-index.js
 
 # 3. 로컬 서버 실행 (fetch()를 위해 HTTP 서버 필요)
-cd ../Templet
+cd ../../../
 # Python 3
 python -m http.server 8000
 # 또는 Node.js
 npx serve .
 
 # 4. 브라우저에서 접속
-# http://localhost:8000/main.html
+# http://localhost:8000/index.html
+```
+
+### Docker 전체 스택 실행
+```bash
+cd War-Archive/infra
+# 환경 변수 설정
+nano .env
+# Docker 서비스 시작
+docker compose up -d
 ```
 
 ### 인덱스 자동 갱신 (개발 시)
 ```bash
-cd front/tech
+cd front/assets/js/common
 node generate-index.js --watch
 ```
 
@@ -412,5 +414,5 @@ node generate-index.js --watch
 ---
 
 <p align="center">
-  <sub>Built for preserving history — War Archive Project, 2026.04.13</sub>
+  <sub>Built for preserving history — War Archive Project, 2026</sub>
 </p>
