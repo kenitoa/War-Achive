@@ -1,6 +1,6 @@
 # War Archive — 전쟁 아카이브
 
-> 인류 역사에 존재하는 모든 전쟁 기록들을 체계적으로 보관하는 디지털 아카이브 프로젝트
+> 인류 역사에 존재하는 모든 전쟁 기록들을 체계적으로 보관하는 디지털 아카이브 프로젝트입니다.
 
 [![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white)]()
 [![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)]()
