@@ -1,4 +1,4 @@
-{
+﻿{
   "id": "norman_schwarzkopf",
   "name": "노먼 슈워츠코프",
   "title": "다국적군 총사령관",
@@ -7,7 +7,7 @@
   "nationality": "미국",
   "lifespan": "1934 – 2012",
   "summary": "걸프전쟁에서 '사막의 폭풍' 작전을 지휘하여 100시간 만에 이라크군을 쿠웨이트에서 몰아낸 현대전의 대표적 지휘관.",
-  "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/NormanSchwarzkopf.jpg/600px-NormanSchwarzkopf.jpg",
+  "portrait": "https://commons.wikimedia.org/wiki/Special:FilePath/NormanSchwarzkopf.jpg?width=600",
   "wars": ["걸프전쟁"],
   "tags": ["사막의 폭풍", "걸프전쟁", "100시간 전쟁"],
   "detail": {

@@ -1,4 +1,4 @@
-{
+﻿{
   "id": "legion-tactics",
   "title": "Legion Tactics",
   "titleKr": "로마 레기온 전술",
@@ -54,8 +54,8 @@
     }
   ],
   "images": [
-    {"url": "https://upload.wikimedia.org/wikipedia/commons/1/18/Centurion_2_Boulogne_Luc_Viatour.jpg", "caption": "로마 백인대장(센투리온) 장비의 역사적 복원", "source": "Wikimedia Commons"},
-    {"url": "https://upload.wikimedia.org/wikipedia/commons/3/36/Roman_soldiers_with_aquilifer_signifer_centurio_70_aC.jpg", "caption": "독수리기수·기수·백인대장 등 로마 군단병 재현 (기원전 70년경)", "source": "Wikimedia Commons"}
+    {"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Centurion_2_Boulogne_Luc_Viatour.jpg?width=800", "caption": "로마 백인대장(센투리온) 장비의 역사적 복원", "source": "Wikimedia Commons"},
+    {"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Roman_soldiers_with_aquilifer_signifer_centurio_70_aC.jpg?width=800", "caption": "독수리기수·기수·백인대장 등 로마 군단병 재현 (기원전 70년경)", "source": "Wikimedia Commons"}
   ],
   "images": [
     {

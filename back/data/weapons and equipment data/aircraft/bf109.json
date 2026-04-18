@@ -1,7 +1,7 @@
-{
+﻿{
   "name": "Bf 109",
   "nameEn": "Messerschmitt Bf 109",
-  "image": "https://upload.wikimedia.org/wikipedia/commons/3/3a/Bundesarchiv_Bild_101I-662-6659-37%2C_Flugzeug_Messerschmitt_Me_109.jpg",
+  "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Bundesarchiv_Bild_101I-662-6659-37%2C_Flugzeug_Messerschmitt_Me_109.jpg?width=800",
   "category": "aircraft",
   "era": "worldwar",
   "origin": "나치 독일",

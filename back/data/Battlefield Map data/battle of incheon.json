@@ -1,4 +1,4 @@
-{
+﻿{
   "id": "battle-of-incheon",
   "title": "Battle of Incheon",
   "titleKr": "인천 상륙작전",
@@ -51,7 +51,7 @@
   ],
   "images": [
     {
-      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/IncheonLandingMcArthur.jpg/960px-IncheonLandingMcArthur.jpg",
+      "url": "https://commons.wikimedia.org/wiki/Special:FilePath/IncheonLandingMcArthur.jpg?width=960",
       "caption": "인천 상륙작전 관찰 중인 맥아더 장군 – 함선에서 상륙 작전을 지켜보는 모습",
       "source": "U.S. Army / Wikimedia Commons"
     }

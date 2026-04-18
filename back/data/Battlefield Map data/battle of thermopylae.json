@@ -1,4 +1,4 @@
-{
+﻿{
   "id": "battle-of-thermopylae",
   "title": "Battle of Thermopylae",
   "titleKr": "테르모필레 전투",
@@ -55,12 +55,12 @@
   ],
   "images": [
     {
-      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Thermopylae_ancient_coastline_large.jpg/960px-Thermopylae_ancient_coastline_large.jpg",
+      "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Thermopylae_ancient_coastline_large.jpg?width=960",
       "caption": "고대 테르모필레 해안선 복원도 – 좁은 해안 통로와 캘리드로모스 산맥 사이의 병목 지형",
       "source": "Wikimedia Commons"
     },
     {
-      "url": "https://upload.wikimedia.org/wikipedia/commons/b/bf/Battle_of_Thermopylae_and_movements_to_Salamis%2C_480_BC.gif",
+      "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Battle_of_Thermopylae_and_movements_to_Salamis%2C_480_BC.gif?width=800",
       "caption": "테르모필레 전투 작전 지도 – 그리스군 방어선, 페르시아군 우회로(아노파이아 소로) 표시",
       "source": "Wikimedia Commons"
     }

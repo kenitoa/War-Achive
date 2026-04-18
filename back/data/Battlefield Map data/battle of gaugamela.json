@@ -1,4 +1,4 @@
-{
+﻿{
   "id": "battle-of-gaugamela",
   "title": "Battle of Gaugamela",
   "titleKr": "가우가멜라 전투",
@@ -51,7 +51,7 @@
   ],
   "images": [
     {
-      "url": "https://upload.wikimedia.org/wikipedia/commons/2/2c/Battle_of_Gaugamela%2C_331_BC_-_Opening_movements.png",
+      "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Battle_of_Gaugamela%2C_331_BC_-_Opening_movements.png?width=800",
       "caption": "가우가멜라 전투 초기 배치도 – 양측 전선 배치와 알렉산드로스의 사선 전진",
       "source": "Wikimedia Commons"
     }

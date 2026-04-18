@@ -1,4 +1,4 @@
-{
+﻿{
   "id": "phalanx",
   "title": "Phalanx",
   "titleKr": "팔랑크스",
@@ -58,8 +58,8 @@
     }
   ],
   "images": [
-    {"url": "https://upload.wikimedia.org/wikipedia/commons/e/ed/Greek_Phalanx.jpg", "caption": "고대 그리스 팔랑크스 대형의 전투 장면 삽화", "source": "Wikimedia Commons"},
-    {"url": "https://upload.wikimedia.org/wikipedia/commons/9/9d/Macedonian_phalanx.jpg", "caption": "마케도니아 팔랑크스 — 사리사 창으로 무장한 밀집 보병 대형", "source": "Wikimedia Commons"}
+    {"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Greek_Phalanx.jpg?width=800", "caption": "고대 그리스 팔랑크스 대형의 전투 장면 삽화", "source": "Wikimedia Commons"},
+    {"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Macedonian_phalanx.jpg?width=800", "caption": "마케도니아 팔랑크스 — 사리사 창으로 무장한 밀집 보병 대형", "source": "Wikimedia Commons"}
   ],
   "images": [
     {

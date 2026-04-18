@@ -1,4 +1,4 @@
-{
+﻿{
   "id": "florence_nightingale",
   "name": "플로렌스 나이팅게일",
   "title": "근대 간호학의 창시자",
@@ -7,7 +7,7 @@
   "nationality": "영국",
   "lifespan": "1820 – 1910",
   "summary": "크림 전쟁 동안 야전병원의 위생 환경을 혁신적으로 개선하여 군인 사망률을 획기적으로 낮추고, 근대 간호학의 기초를 확립했다.",
-  "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Florence_Nightingale_%28H_Hering_NPG_x82368%29.jpg/600px-Florence_Nightingale_%28H_Hering_NPG_x82368%29.jpg",
+  "portrait": "https://commons.wikimedia.org/wiki/Special:FilePath/Florence_Nightingale_%28H_Hering_NPG_x82368%29.jpg?width=600",
   "wars": ["크림 전쟁"],
   "tags": ["간호학", "크림 전쟁", "위생 혁신"],
   "detail": {

@@ -1,7 +1,7 @@
-{
+﻿{
   "name": "T-34",
   "nameEn": "T-34 Medium Tank",
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Tank_T-34.JPG/960px-Tank_T-34.JPG",
+  "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Tank_T-34.JPG?width=960",
   "category": "armor",
   "era": "worldwar",
   "origin": "소련",

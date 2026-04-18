@@ -1,4 +1,4 @@
-{
+﻿{
   "id": "battle-of-gettysburg",
   "title": "Battle of Gettysburg",
   "titleKr": "게티즈버그 전투",
@@ -55,7 +55,7 @@
   ],
   "images": [
     {
-      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Battle_of_Gettysburg%2C_by_Currier_and_Ives.png/960px-Battle_of_Gettysburg%2C_by_Currier_and_Ives.png",
+      "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Battle_of_Gettysburg%2C_by_Currier_and_Ives.png?width=960",
       "caption": "게티즈버그 전투 석판화(커리어 앤 아이브스) – 피켓의 돌격 장면",
       "source": "Wikimedia Commons"
     }

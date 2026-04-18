@@ -1,4 +1,4 @@
-{
+﻿{
   "id": "art-of-war",
   "title": "The Art of War",
   "titleKr": "손자병법",
@@ -54,8 +54,8 @@
     }
   ],
   "images": [
-    {"url": "https://upload.wikimedia.org/wikipedia/commons/2/27/Inscribed_bamboo-slips_of_Art_of_War.jpg", "caption": "은작산(銀雀山) 한묘 출토 손자병법 죽간 — 한대(漢代) 판본", "source": "Wikimedia Commons"},
-    {"url": "https://upload.wikimedia.org/wikipedia/commons/9/94/Bamboo_book_-_binding_-_UCR.jpg", "caption": "건륭제 시기 손자병법 죽서(竹書) 필사본", "source": "Wikimedia Commons"}
+    {"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Inscribed_bamboo-slips_of_Art_of_War.jpg?width=800", "caption": "은작산(銀雀山) 한묘 출토 손자병법 죽간 — 한대(漢代) 판본", "source": "Wikimedia Commons"},
+    {"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Bamboo_book_-_binding_-_UCR.jpg?width=800", "caption": "건륭제 시기 손자병법 죽서(竹書) 필사본", "source": "Wikimedia Commons"}
   ],
   "images": [
     {

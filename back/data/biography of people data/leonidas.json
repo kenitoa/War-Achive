@@ -1,4 +1,4 @@
-{
+﻿{
   "id": "leonidas",
   "name": "레오니다스 1세",
   "title": "스파르타의 왕",
@@ -6,7 +6,7 @@
   "era": "ancient",
   "nationality": "스파르타",
   "lifespan": "BC 540 – BC 480",
-  "summary": "테르모필레 전투에서 300명의 스파르타 정예병과 함께 수만의 페르시아 대군에 맞서 싸우며 그리스 세계를 지키기 위해 장렬히 전사한 전설적 왕.",  "portrait": "https://upload.wikimedia.org/wikipedia/commons/f/fb/Helmed_Hoplite_Sparta.JPG",  "wars": ["그리스-페르시아 전쟁"],
+  "summary": "테르모필레 전투에서 300명의 스파르타 정예병과 함께 수만의 페르시아 대군에 맞서 싸우며 그리스 세계를 지키기 위해 장렬히 전사한 전설적 왕.",  "portrait": "https://commons.wikimedia.org/wiki/Special:FilePath/Helmed_Hoplite_Sparta.JPG?width=800",  "wars": ["그리스-페르시아 전쟁"],
   "tags": ["테르모필레", "300", "순국"],
   "detail": {
     "earlyLife": "BC 540년경 스파르타 왕가인 아기아다이 가문에서 태어났다. 스파르타의 혹독한 군사 교육 체계인 아고게를 거치며 전사로 단련되었다. BC 490년경 형 클레오메네스 1세의 뒤를 이어 스파르타의 왕이 되었다.",

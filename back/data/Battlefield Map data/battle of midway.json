@@ -1,4 +1,4 @@
-{
+﻿{
   "id": "battle-of-midway",
   "title": "Battle of Midway",
   "titleKr": "미드웨이 해전",
@@ -47,7 +47,7 @@
   ],
   "images": [
     {
-      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/SBD-3_Dauntless_bombers_of_VS-8_over_the_burning_Japanese_cruiser_Mikuma_on_6_June_1942.jpg/960px-SBD-3_Dauntless_bombers_of_VS-8_over_the_burning_Japanese_cruiser_Mikuma_on_6_June_1942.jpg",
+      "url": "https://commons.wikimedia.org/wiki/Special:FilePath/SBD-3_Dauntless_bombers_of_VS-8_over_the_burning_Japanese_cruiser_Mikuma_on_6_June_1942.jpg?width=960",
       "caption": "미드웨이 해전 – SBD 돈틀리스 급강하 폭격기가 일본 함선을 공격하는 장면",
       "source": "U.S. Navy / Wikimedia Commons"
     }

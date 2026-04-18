@@ -1,7 +1,7 @@
-{
+﻿{
   "name": "카추샤 로켓 발사기",
   "nameEn": "Katyusha Rocket Launcher (BM-13)",
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Katyusha_Rocket_Launcher_-_Artillery_Museum_-_St._Petersburg_-_Russia.jpg/960px-Katyusha_Rocket_Launcher_-_Artillery_Museum_-_St._Petersburg_-_Russia.jpg",
+  "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Katyusha_Rocket_Launcher_-_Artillery_Museum_-_St._Petersburg_-_Russia.jpg?width=960",
   "category": "artillery",
   "era": "worldwar",
   "origin": "소련",

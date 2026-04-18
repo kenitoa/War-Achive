@@ -1,10 +1,14 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>WAR ARCHIVE — 전쟁 아카이브</title>
+<<<<<<< HEAD
   <link rel="stylesheet" href="css/main.css">
+=======
+  <link rel="stylesheet" href="assets/css/common/main_style.css">
+>>>>>>> 9061e3c1c611e3269eb678c6ba6cf7cc2ec959f8
 </head>
 <body>
 
@@ -29,6 +33,29 @@
           </div>
         </div>
       </nav>
+
+      <!-- 로그인 전: 로그인 아이콘 -->
+      <a href="pages/auth/log in.html" class="login-btn" id="loginBtn" aria-label="로그인">
+        <svg class="login-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="22" height="22">
+          <circle cx="12" cy="8" r="4"/>
+          <path d="M4 21v-1a6 6 0 0 1 12 0v1"/>
+        </svg>
+      </a>
+
+      <!-- 로그인 후: 사용자 메뉴 -->
+      <div class="user-menu" id="userMenu" style="display: none;">
+        <button class="user-menu-toggle" id="userMenuToggle" aria-label="사용자 메뉴">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="22" height="22">
+            <circle cx="12" cy="8" r="4"/>
+            <path d="M4 21v-1a6 6 0 0 1 12 0v1"/>
+          </svg>
+          <span class="user-menu-name" id="userMenuName"></span>
+        </button>
+        <div class="user-dropdown" id="userDropdown">
+          <a href="pages/auth/my account.html" class="user-dropdown-item">My Account</a>
+          <button class="user-dropdown-item" id="logoutBtn">Log Out</button>
+        </div>
+      </div>
 
       <button class="menu-toggle" aria-label="메뉴 열기">
         <span></span>
@@ -93,42 +120,66 @@
     </div>
 
     <div class="categories-grid">
+<<<<<<< HEAD
       <a href="pages/war-overview/index.html" class="category-card fade-in">
+=======
+      <a href="pages/war overview/war overview.html" class="category-card fade-in">
+>>>>>>> 9061e3c1c611e3269eb678c6ba6cf7cc2ec959f8
         <div class="card-icon">&#9876;</div>
         <h3 class="card-title">전쟁 개요</h3>
         <p class="card-desc">고대부터 현대까지, 인류 역사를 바꾼 주요 전쟁들의 원인·경과·결과를 종합적으로 정리합니다.</p>
         <span class="card-count" id="warOverviewCount">불러오는 중…</span>
       </a>
 
+<<<<<<< HEAD
       <a href="pages/biography-of-people/index.html" class="category-card fade-in">
+=======
+      <a href="pages/biography of people/biography of people.html" class="category-card fade-in">
+>>>>>>> 9061e3c1c611e3269eb678c6ba6cf7cc2ec959f8
         <div class="card-icon">&#128587;</div>
         <h3 class="card-title">인물 열전</h3>
         <p class="card-desc">전쟁의 흐름을 결정지은 지휘관, 전략가, 영웅, 그리고 민간인들의 이야기를 담습니다.</p>
         <span class="card-count" id="biographyCount">불러오는 중…</span>
       </a>
 
+<<<<<<< HEAD
       <a href="pages/weapons-and-equipment/index.html" class="category-card fade-in">
+=======
+      <a href="pages/Weapons and Equipment/Weapons and Equipment.html" class="category-card fade-in">
+>>>>>>> 9061e3c1c611e3269eb678c6ba6cf7cc2ec959f8
         <div class="card-icon">&#128481;</div>
         <h3 class="card-title">무기 & 장비</h3>
         <p class="card-desc">냉병기부터 핵무기까지, 전쟁의 양상을 바꾼 무기와 군사 장비를 분석합니다.</p>
         <span class="card-count" id="weaponsCount">불러오는 중…</span>
       </a>
 
+<<<<<<< HEAD
       <a href="pages/strategy-and-tactics/index.html" class="category-card fade-in">
+=======
+      <a href="pages/strategy and tactics/strategy and tactics.html" class="category-card fade-in">
+>>>>>>> 9061e3c1c611e3269eb678c6ba6cf7cc2ec959f8
         <div class="card-icon">&#128506;</div>
         <h3 class="card-title">전략 & 전술</h3>
         <p class="card-desc">전장에서 사용된 전략과 전술의 발전사를 연구하고 기록합니다.</p>
         <span class="card-count">2,100건의 기록</span>
       </a>
 
+<<<<<<< HEAD
       <a href="pages/historical-sources/index.html" class="category-card fade-in">
+=======
+      <a href="pages/Historical Sources & Documents/Historical Sources & Documents.html" class="category-card fade-in">
+>>>>>>> 9061e3c1c611e3269eb678c6ba6cf7cc2ec959f8
         <div class="card-icon">&#128220;</div>
         <h3 class="card-title">사료 & 문서</h3>
         <p class="card-desc">조약문, 선전포고문, 편지, 일기 등 전쟁 관련 1차 사료를 보관합니다.</p>
         <span class="card-count" id="historicalSourcesCount">불러오는 중…</span>
       </a>
 
+<<<<<<< HEAD
       <a href="pages/battlefield-map/index.html" class="category-card fade-in">
+=======
+      <a href="pages/Battlefield Map/Battlefield Map.html" class="category-card fade-in">
+>>>>>>> 9061e3c1c611e3269eb678c6ba6cf7cc2ec959f8
         <div class="card-icon">&#127759;</div>
         <h3 class="card-title">전장 지도</h3>
         <p class="card-desc">주요 전투가 벌어진 지역의 지형, 진군 경로, 방어선을 지도로 시각화합니다.</p>
@@ -192,7 +243,11 @@
     </div>
 
     <div class="project-grid">
+<<<<<<< HEAD
       <a href="pages/information.html" class="category-card project-card fade-in">
+=======
+      <a href="pages/info/information.html" class="category-card project-card fade-in">
+>>>>>>> 9061e3c1c611e3269eb678c6ba6cf7cc2ec959f8
         <div class="project-icon icon-about">
           <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
             <circle cx="32" cy="32" r="28" stroke="currentColor" stroke-width="2" opacity="0.15"/>
@@ -210,7 +265,11 @@
         <p class="card-desc">War Archive 프로젝트의 목적과 비전을 소개합니다.</p>
       </a>
 
+<<<<<<< HEAD
       <a href="pages/contribution.html" class="category-card project-card fade-in">
+=======
+      <a href="pages/info/contribution.html" class="category-card project-card fade-in">
+>>>>>>> 9061e3c1c611e3269eb678c6ba6cf7cc2ec959f8
         <div class="project-icon icon-contribute">
           <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
             <circle cx="32" cy="32" r="28" stroke="currentColor" stroke-width="2" opacity="0.15"/>
@@ -227,7 +286,11 @@
         <p class="card-desc">프로젝트에 기여하는 방법과 가이드라인을 안내합니다.</p>
       </a>
 
+<<<<<<< HEAD
       <a href="pages/undefine-facts/index.html" class="category-card project-card fade-in">
+=======
+      <a href="pages/Undefine facts/Undefine facts.html" class="category-card project-card fade-in">
+>>>>>>> 9061e3c1c611e3269eb678c6ba6cf7cc2ec959f8
         <div class="project-icon icon-undefine">
           <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
             <circle cx="32" cy="32" r="28" stroke="currentColor" stroke-width="2" opacity="0.15"/>
@@ -243,7 +306,11 @@
         <p class="card-desc">사실 관계가 확실하지 않거나 구전 위주의 사료들을 확인할 수 있습니다.</p>
       </a>
 
+<<<<<<< HEAD
       <a href="pages/developer-information.html" class="category-card project-card fade-in">
+=======
+      <a href="pages/info/developer information.html" class="category-card project-card fade-in">
+>>>>>>> 9061e3c1c611e3269eb678c6ba6cf7cc2ec959f8
         <div class="project-icon icon-contact">
           <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
             <circle cx="32" cy="32" r="28" stroke="currentColor" stroke-width="2" opacity="0.15"/>
@@ -274,18 +341,18 @@
         <div class="footer-col">
           <h4>카테고리</h4>
           <ul>
-            <li><a href="#categories">전쟁 개요</a></li>
-            <li><a href="#categories">인물 열전</a></li>
-            <li><a href="#categories">무기 &amp; 장비</a></li>
-            <li><a href="#categories">전략 &amp; 전술</a></li>
+            <li><a href="pages/war overview/war overview.html">전쟁 개요</a></li>
+            <li><a href="pages/biography of people/biography of people.html">인물 열전</a></li>
+            <li><a href="pages/Weapons and Equipment/Weapons and Equipment.html">무기 &amp; 장비</a></li>
+            <li><a href="pages/strategy and tactics/strategy and tactics.html">전략 &amp; 전술</a></li>
           </ul>
         </div>
 
         <div class="footer-col">
           <h4>자료</h4>
           <ul>
-            <li><a href="#categories">사료 &amp; 문서</a></li>
-            <li><a href="#categories">전장 지도</a></li>
+            <li><a href="pages/Historical Sources & Documents/Historical Sources & Documents.html">사료 &amp; 문서</a></li>
+            <li><a href="pages/Battlefield Map/Battlefield Map.html">전장 지도</a></li>
             <li><a href="#timeline">연대기</a></li>
           </ul>
         </div>
@@ -293,10 +360,17 @@
         <div class="footer-col">
           <h4>프로젝트</h4>
           <ul>
+<<<<<<< HEAD
             <li><a href="#">소개</a></li>
             <li><a href="#">기여하기</a></li>
             <li><a href="pages/undefine-facts/index.html">미확인 자료집</a></li>
             <li><a href="pages/developer-information.html">개발자 정보</a></li>
+=======
+            <li><a href="pages/info/information.html">소개</a></li>
+            <li><a href="pages/info/contribution.html">기여하기</a></li>
+            <li><a href="pages/Undefine facts/Undefine facts.html">미확인 자료집</a></li>
+            <li><a href="pages/info/developer information.html">개발자 정보</a></li>
+>>>>>>> 9061e3c1c611e3269eb678c6ba6cf7cc2ec959f8
           </ul>
         </div>
       </div>
@@ -308,6 +382,7 @@
     </div>
   </footer>
 
+<<<<<<< HEAD
   <!-- ── Login Modal ── -->
   <div class="modal-overlay" id="loginModal">
     <div class="modal-box login-modal">
@@ -351,5 +426,8 @@
   </div>
 
   <script src="js/main.js"></script>
+=======
+  <script src="assets/js/common/main_tech.js"></script>
+>>>>>>> 9061e3c1c611e3269eb678c6ba6cf7cc2ec959f8
 </body>
 </html>

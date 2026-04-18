@@ -1,4 +1,4 @@
-{
+﻿{
   "id": "envelopment",
   "title": "Envelopment",
   "titleKr": "포위 섬멸전",
@@ -50,8 +50,8 @@
     }
   ],
   "images": [
-    {"url": "https://upload.wikimedia.org/wikipedia/commons/a/a0/The_battle_of_Cannae.jpg", "caption": "칸나이 전투 — 한니발의 양익 포위 기동을 묘사한 중세 삽화", "source": "Wikimedia Commons"},
-    {"url": "https://upload.wikimedia.org/wikipedia/commons/a/a8/Hannibal_Slodtz_Louvre_MR2093.jpg", "caption": "전사한 로마 기사의 인장 반지를 세는 한니발 (세바스티앵 슬로츠, 1704, 루브르)", "source": "Wikimedia Commons"}
+    {"url": "https://commons.wikimedia.org/wiki/Special:FilePath/The_battle_of_Cannae.jpg?width=800", "caption": "칸나이 전투 — 한니발의 양익 포위 기동을 묘사한 중세 삽화", "source": "Wikimedia Commons"},
+    {"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Hannibal_Slodtz_Louvre_MR2093.jpg?width=800", "caption": "전사한 로마 기사의 인장 반지를 세는 한니발 (세바스티앵 슬로츠, 1704, 루브르)", "source": "Wikimedia Commons"}
   ],
   "images": [
     {

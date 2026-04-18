@@ -1,4 +1,4 @@
-{
+﻿{
   "id": "mongol-tactics",
   "title": "Mongol Tactics",
   "titleKr": "몽골 기동전술",
@@ -50,8 +50,8 @@
     }
   ],
   "images": [
-    {"url": "https://upload.wikimedia.org/wikipedia/commons/2/26/MongolCavalrymen.jpg", "caption": "몽골 기마 전사 — 중세 세밀화", "source": "Wikimedia Commons"},
-    {"url": "https://upload.wikimedia.org/wikipedia/commons/6/65/DiezAlbumsHorseArcher.jpg", "caption": "몽골 기마 궁수의 파르티안 샷(회전 사격) 기법", "source": "Wikimedia Commons"}
+    {"url": "https://commons.wikimedia.org/wiki/Special:FilePath/MongolCavalrymen.jpg?width=800", "caption": "몽골 기마 전사 — 중세 세밀화", "source": "Wikimedia Commons"},
+    {"url": "https://commons.wikimedia.org/wiki/Special:FilePath/DiezAlbumsHorseArcher.jpg?width=800", "caption": "몽골 기마 궁수의 파르티안 샷(회전 사격) 기법", "source": "Wikimedia Commons"}
   ],
   "images": [
     {

@@ -1,4 +1,4 @@
-{
+﻿{
   "id": "abraham_lincoln",
   "name": "에이브러햄 링컨",
   "title": "미국 제16대 대통령",
@@ -7,7 +7,7 @@
   "nationality": "미국",
   "lifespan": "1809 – 1865",
   "summary": "남북전쟁 동안 연방의 통일을 지켜내고 노예 해방 선언을 발표한 미국의 가장 위대한 대통령 중 한 명. 전쟁 직후 암살당했다.",
-  "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Abraham_Lincoln_1863_Portrait_%283x4_cropped%29.jpg/600px-Abraham_Lincoln_1863_Portrait_%283x4_cropped%29.jpg",
+  "portrait": "https://commons.wikimedia.org/wiki/Special:FilePath/Abraham_Lincoln_1863_Portrait_%283x4_cropped%29.jpg?width=600",
   "wars": ["미국 남북전쟁"],
   "tags": ["노예 해방", "연방 수호", "암살"],
   "detail": {

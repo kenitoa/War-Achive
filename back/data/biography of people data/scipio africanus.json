@@ -1,4 +1,4 @@
-{
+﻿{
   "id": "scipio_africanus",
   "name": "스키피오 아프리카누스",
   "title": "로마 공화정의 장군",
@@ -7,7 +7,7 @@
   "nationality": "로마",
   "lifespan": "BC 236 – BC 183",
   "summary": "자마 전투에서 한니발을 격파하고 제2차 포에니 전쟁을 승리로 이끈 로마의 명장. '아프리카누스'라는 칭호를 받았다.",
-  "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Bust_of_Sulla_%28loan_from_Ny_Carlsberg_Glyptotek%29_-_Glyptothek_-_Munich_-_Germany_2017.jpg/600px-Bust_of_Sulla_%28loan_from_Ny_Carlsberg_Glyptotek%29_-_Glyptothek_-_Munich_-_Germany_2017.jpg",
+  "portrait": "https://commons.wikimedia.org/wiki/Special:FilePath/Bust_of_Sulla_%28loan_from_Ny_Carlsberg_Glyptotek%29_-_Glyptothek_-_Munich_-_Germany_2017.jpg?width=600",
   "wars": ["포에니 전쟁"],
   "tags": ["자마 전투", "한니발의 적수"],
   "detail": {

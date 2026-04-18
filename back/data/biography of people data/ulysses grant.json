@@ -1,4 +1,4 @@
-{
+﻿{
   "id": "ulysses_grant",
   "name": "율리시스 S. 그랜트",
   "title": "북군 총사령관",
@@ -6,7 +6,7 @@
   "era": "modern",
   "nationality": "미국",
   "lifespan": "1822 – 1885",
-  "summary": "남북전쟁에서 북군을 승리로 이끈 장군. 빅스버그 전투와 애포매톡스에서의 남군 항복을 이끌어내며 전쟁을 종결시켰다.",  "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Ulysses_S._Grant_1870-1880_%28cropped%29.jpg/600px-Ulysses_S._Grant_1870-1880_%28cropped%29.jpg",  "wars": ["미국 남북전쟁"],
+  "summary": "남북전쟁에서 북군을 승리로 이끈 장군. 빅스버그 전투와 애포매톡스에서의 남군 항복을 이끌어내며 전쟁을 종결시켰다.",  "portrait": "https://commons.wikimedia.org/wiki/Special:FilePath/Ulysses_S._Grant_1870-1880_%28cropped%29.jpg?width=600",  "wars": ["미국 남북전쟁"],
   "tags": ["북군", "빅스버그", "대통령"],
   "detail": {
     "earlyLife": "1822년 오하이오 주에서 태어났다. 웨스트포인트 육군사관학교를 졸업하고 미국-멕시코 전쟁에 참전했다. 전후 군을 떠나 여러 사업에 실패하며 어려운 시기를 보냈으나, 남북전쟁 발발로 다시 군에 복귀했다.",

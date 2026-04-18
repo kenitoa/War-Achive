@@ -1,0 +1,811 @@
+/* ========================================
+   Historical Sources & Documents Detail
+   사료 & 문서 상세 — 신문(Newspaper) 테마
+   ======================================== */
+
+/* --- CSS 변수 --- */
+:root {
+    --bg-primary: #0a0a0a;
+    --bg-secondary: #111111;
+    --bg-card: #1a1a1a;
+    --bg-elevated: #141414;
+    --accent: #c9a84c;
+    --accent-dim: rgba(201, 168, 76, 0.12);
+    --accent-border: rgba(201, 168, 76, 0.3);
+    --text-primary: #e8e8e8;
+    --text-secondary: #a0a0a0;
+    --text-muted: #666666;
+    --border-color: #2a2a2a;
+    --border-light: #1e1e1e;
+
+    /* 신문 테마 색상 */
+    --newsprint: #d8d0c4;
+    --newsprint-dark: #b8b0a4;
+    --column-rule: rgba(201, 168, 76, 0.15);
+    --headline-color: #e8e8e8;
+    --dateline-color: #c9a84c;
+
+    /* 유형별 색상 */
+    --type-treaty: #5588cc;
+    --type-declaration: #cc5555;
+    --type-letter: #55aa77;
+    --type-diary: #9966cc;
+    --type-speech: #c9a84c;
+    --type-report: #aa8866;
+    --type-order: #cc8844;
+    --type-memoir: #7799aa;
+}
+
+/* --- 리셋 & 기본 --- */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: 'Noto Sans KR', sans-serif;
+    line-height: 1.8;
+    min-height: 100vh;
+}
+
+a { color: var(--accent); text-decoration: none; transition: opacity 0.2s; }
+a:hover { opacity: 0.8; }
+
+/* --- 헤더 --- */
+.header {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-color);
+}
+.header-inner {
+    max-width: 1100px; margin: 0 auto; padding: 0 2rem;
+    height: 64px; display: flex; align-items: center; justify-content: space-between;
+}
+.logo {
+    display: flex; align-items: center; gap: 0.75rem;
+    color: var(--accent); font-family: 'Playfair Display', serif;
+    font-weight: 700; font-size: 1.25rem;
+}
+.logo-icon { font-size: 1.5rem; }
+.nav { display: flex; gap: 2rem; }
+.nav a { color: var(--text-secondary); font-size: 0.9rem; transition: color 0.2s; }
+.nav a:hover { color: var(--text-primary); opacity: 1; }
+
+/* --- 로딩 & 에러 --- */
+.loading { text-align: center; padding: 12rem 0 6rem; color: var(--text-secondary); }
+.loading-spinner {
+    width: 40px; height: 40px; border: 3px solid var(--border-color);
+    border-top-color: var(--accent); border-radius: 50%;
+    margin: 0 auto 1.5rem; animation: spin 0.8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.error-state { text-align: center; padding: 12rem 0 6rem; }
+.error-icon {
+    width: 48px; height: 48px; margin: 0 auto 1rem;
+    border: 2px solid var(--accent); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', serif; font-size: 1.5rem;
+    font-weight: 700; color: var(--accent);
+}
+.error-state h2 { font-family: 'Playfair Display', serif; color: var(--text-primary); margin-bottom: 0.5rem; }
+.error-state p { color: var(--text-secondary); margin-bottom: 2rem; }
+.back-link { color: var(--accent); font-size: 0.9rem; }
+
+/* --- 메인 페이지 컨테이너 --- */
+.doc-page {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 90px 2rem 4rem;
+}
+
+/* --- 브레드크럼 --- */
+.breadcrumb {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+.breadcrumb a { color: var(--text-muted); transition: color 0.2s; }
+.breadcrumb a:hover { color: var(--accent); opacity: 1; }
+.breadcrumb .sep { margin: 0 0.5rem; }
+.breadcrumb .current { color: var(--text-secondary); }
+
+/* ============================================
+   신문 헤드라인 히어로 (마스트헤드 스타일)
+   ============================================ */
+.doc-hero {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 2.5rem;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-color);
+    padding: 2.5rem;
+    margin-bottom: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+/* 신문 상단 이중선 */
+.doc-hero::before {
+    content: '';
+    position: absolute; top: 0; left: 1.5rem; right: 1.5rem;
+    height: 0;
+    border-top: 3px double var(--accent);
+}
+
+/* 표지 이미지 영역 */
+.doc-cover-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.doc-cover-frame {
+    width: 240px;
+    height: 320px;
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+    background: var(--bg-card);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: border-color 0.3s;
+}
+
+.doc-cover-frame:hover {
+    border-color: var(--accent-border);
+}
+
+.doc-cover-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cover-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--text-muted);
+}
+
+.cover-icon {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    opacity: 0.4;
+}
+.cover-label { font-size: 0.72rem; letter-spacing: 0.05em; }
+
+/* 메타정보 영역 */
+.doc-meta-area {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.doc-type-badge {
+    display: inline-block;
+    width: fit-content;
+    padding: 0.2rem 0.75rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+    border: 1px solid;
+}
+.doc-type-badge.treaty { color: var(--type-treaty); border-color: rgba(85,136,204,0.35); background: rgba(85,136,204,0.08); }
+.doc-type-badge.declaration { color: var(--type-declaration); border-color: rgba(204,85,85,0.35); background: rgba(204,85,85,0.08); }
+.doc-type-badge.letter { color: var(--type-letter); border-color: rgba(85,170,119,0.35); background: rgba(85,170,119,0.08); }
+.doc-type-badge.diary { color: var(--type-diary); border-color: rgba(153,102,204,0.35); background: rgba(153,102,204,0.08); }
+.doc-type-badge.speech { color: var(--type-speech); border-color: rgba(201,168,76,0.35); background: rgba(201,168,76,0.08); }
+.doc-type-badge.report { color: var(--type-report); border-color: rgba(170,136,102,0.35); background: rgba(170,136,102,0.08); }
+.doc-type-badge.order { color: var(--type-order); border-color: rgba(204,136,68,0.35); background: rgba(204,136,68,0.08); }
+.doc-type-badge.memoir { color: var(--type-memoir); border-color: rgba(119,153,170,0.35); background: rgba(119,153,170,0.08); }
+
+.doc-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: var(--headline-color);
+    line-height: 1.2;
+    margin-bottom: 0.15rem;
+    letter-spacing: -0.01em;
+}
+
+.doc-title-en {
+    font-family: 'EB Garamond', serif;
+    font-size: 1rem;
+    color: var(--text-muted);
+    font-style: italic;
+    margin-bottom: 1.25rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.doc-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    margin-bottom: 1.25rem;
+}
+
+.detail-row {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    font-size: 0.85rem;
+}
+
+.detail-label {
+    color: var(--text-muted);
+    min-width: 55px;
+    font-weight: 500;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.detail-value {
+    color: var(--text-secondary);
+    font-family: 'EB Garamond', serif;
+    font-size: 0.95rem;
+}
+
+.doc-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+}
+
+.doc-tag {
+    display: inline-block;
+    padding: 0.15rem 0.55rem;
+    background: transparent;
+    color: var(--text-muted);
+    border: 1px solid var(--border-color);
+    font-size: 0.7rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+/* ============================================
+   데이트라인 구분선 (히어로-개요 사이)
+   ============================================ */
+.doc-summary-block {
+    margin-bottom: 2rem;
+    padding-top: 1.5rem;
+    border-top: 2px solid var(--accent);
+    position: relative;
+}
+
+.doc-summary-block::before {
+    content: '';
+    position: absolute;
+    top: 4px;
+    left: 0; right: 0;
+    border-top: 1px solid var(--accent);
+}
+
+.summary-quote {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.15rem;
+    font-style: italic;
+    color: var(--text-secondary);
+    line-height: 1.9;
+    padding: 0;
+    background: transparent;
+    border: none;
+    position: relative;
+    text-indent: 2rem;
+}
+
+/* ============================================
+   네비게이션 탭 (신문 섹션 탭)
+   ============================================ */
+.doc-nav {
+    display: flex;
+    gap: 0;
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 2.5rem;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+
+.doc-nav::-webkit-scrollbar { display: none; }
+
+.doc-nav-tab {
+    padding: 0.65rem 1.1rem;
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    font-size: 0.78rem;
+    font-weight: 500;
+    cursor: pointer;
+    white-space: nowrap;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    transition: color 0.2s, background 0.2s;
+    font-family: 'Noto Sans KR', sans-serif;
+    border-right: 1px solid var(--border-light);
+}
+
+.doc-nav-tab:last-child { border-right: none; }
+
+.doc-nav-tab:hover {
+    color: var(--text-secondary);
+    background: rgba(201,168,76,0.04);
+}
+
+.doc-nav-tab.active {
+    color: var(--accent);
+    background: rgba(201,168,76,0.06);
+}
+
+/* ============================================
+   섹션 공통 — 신문 칼럼 스타일
+   ============================================ */
+.doc-section {
+    margin-bottom: 2.5rem;
+    scroll-margin-top: 80px;
+    counter-increment: section-counter;
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 2px solid var(--border-color);
+    position: relative;
+}
+
+/* 섹션 번호 자동 카운터 — 로마숫자 스타일 */
+.section-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 0.75rem;
+    color: var(--accent);
+    opacity: 0.7;
+}
+
+.section-number::before {
+    counter-increment: section-num;
+    content: counter(section-num, upper-roman);
+}
+
+.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--headline-color);
+    letter-spacing: -0.01em;
+}
+
+.section-body {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    line-height: 2;
+    white-space: pre-line;
+    text-align: justify;
+    hyphens: auto;
+}
+
+/* 첫 글자 드롭 캡 (신문 전형) */
+.section-body.drop-cap::first-letter {
+    font-family: 'Playfair Display', serif;
+    float: left;
+    font-size: 3.4rem;
+    line-height: 0.8;
+    padding-right: 0.6rem;
+    padding-top: 0.25rem;
+    color: var(--accent);
+    font-weight: 900;
+}
+
+/* ============================================
+   원문 발췌 — 인용 칼럼 스타일
+   ============================================ */
+.manuscript-block {
+    background: var(--bg-elevated);
+    border-left: 3px solid var(--accent);
+    border-right: 3px solid var(--accent);
+    padding: 2rem 2.5rem;
+    position: relative;
+    overflow: hidden;
+    font-family: 'EB Garamond', serif;
+    font-size: 1.05rem;
+    line-height: 2.2;
+    color: var(--newsprint-dark);
+    white-space: pre-line;
+    text-align: justify;
+}
+
+/* 상단 장식 라인 */
+.manuscript-block::before {
+    content: 'ORIGINAL TEXT';
+    display: block;
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    color: var(--accent);
+    opacity: 0.5;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--column-rule);
+    font-style: normal;
+}
+
+.manuscript-block::after {
+    content: '';
+    display: block;
+    margin-top: 1rem;
+    border-top: 1px solid var(--column-rule);
+}
+
+/* 좌측 여백선 */
+.manuscript-block .manuscript-content {
+    padding-left: 1.5rem;
+    border-left: 1px solid var(--column-rule);
+}
+
+/* ============================================
+   원본 정보 (물리적 설명)
+   ============================================ */
+.physical-desc-block {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-color);
+    padding: 1.5rem 2rem;
+    font-family: 'EB Garamond', serif;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.9;
+    position: relative;
+    white-space: pre-line;
+    text-align: justify;
+}
+
+.physical-desc-block::before {
+    content: 'ARCHIVAL NOTE';
+    display: block;
+    font-family: 'Playfair Display', serif;
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    color: var(--accent);
+    opacity: 0.5;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border-light);
+    font-style: normal;
+}
+
+/* ============================================
+   관련 문서 목록
+   ============================================ */
+.related-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.related-list li {
+    padding: 0.75rem 0;
+    font-family: 'EB Garamond', serif;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    border-bottom: 1px solid var(--border-light);
+    transition: color 0.2s;
+}
+
+.related-list li::before {
+    content: '\2014';
+    color: var(--accent);
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.related-list li:last-child { border-bottom: none; }
+
+.related-list li:hover {
+    color: var(--text-primary);
+}
+
+.related-list li a {
+    color: var(--accent);
+    transition: color 0.2s;
+}
+
+.related-list li a:hover {
+    color: var(--text-primary);
+    opacity: 1;
+}
+
+/* 매핑된 링크 표시 화살표 */
+.related-list li:has(a)::after {
+    content: '\2192';
+    margin-left: auto;
+    color: var(--accent);
+    opacity: 0.5;
+    font-size: 0.85rem;
+}
+
+/* ============================================
+   참고 자료 목록
+   ============================================ */
+.references-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    counter-reset: ref-counter;
+}
+
+.references-list li {
+    counter-increment: ref-counter;
+    padding: 0.7rem 0 0.7rem 2.5rem;
+    font-family: 'EB Garamond', serif;
+    font-size: 0.92rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    position: relative;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.references-list li::before {
+    content: '[' counter(ref-counter) ']';
+    position: absolute;
+    left: 0;
+    top: 0.7rem;
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 0.8rem;
+    font-family: 'Playfair Display', serif;
+}
+
+.references-list li:last-child { border-bottom: none; }
+
+.references-list li:hover {
+    color: var(--text-primary);
+}
+
+/* ============================================
+   하단 푸터
+   ============================================ */
+.doc-footer {
+    text-align: center;
+    padding: 2.5rem 0 2rem;
+    border-top: 2px solid var(--border-color);
+    margin-top: 2rem;
+    position: relative;
+}
+
+.doc-footer::before {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 0; right: 0;
+    border-top: 1px solid var(--border-color);
+}
+
+.doc-footer-text {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+    font-style: italic;
+    font-family: 'EB Garamond', serif;
+}
+
+/* ============================================
+   사이드 목차
+   ============================================ */
+.side-toc {
+    position: fixed;
+    right: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 50;
+    max-width: 160px;
+}
+
+.side-toc-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-bottom: 0.75rem;
+    padding-left: 0.75rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.side-toc-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+}
+
+.side-toc-list a {
+    display: block;
+    padding: 0.3rem 0.75rem;
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    border-left: 2px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+    letter-spacing: 0.02em;
+}
+
+.side-toc-list a:hover {
+    color: var(--text-secondary);
+    opacity: 1;
+}
+
+.side-toc-list a.active {
+    color: var(--accent);
+    border-left-color: var(--accent);
+}
+
+/* ============================================
+   글로벌 푸터
+   ============================================ */
+.footer {
+    background: var(--bg-secondary);
+    border-top: 1px solid var(--border-color);
+    padding: 2.5rem 0;
+    text-align: center;
+}
+
+.footer-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    color: var(--accent);
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.footer-logo-symbol {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 900;
+}
+
+.footer-copy {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+}
+
+/* ============================================
+   섹션 카운터 초기화
+   ============================================ */
+.doc-page {
+    counter-reset: section-num;
+}
+
+/* ============================================
+   반응형
+   ============================================ */
+@media (max-width: 1200px) {
+    .side-toc { display: none; }
+}
+
+@media (max-width: 768px) {
+    .doc-hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .doc-cover-area {
+        order: -1;
+    }
+
+    .doc-cover-frame {
+        width: 200px;
+        height: 260px;
+        margin: 0 auto;
+    }
+
+    .doc-meta-area {
+        align-items: center;
+    }
+
+    .doc-details {
+        align-items: center;
+    }
+
+    .doc-tags {
+        justify-content: center;
+    }
+
+    .doc-title {
+        font-size: 1.7rem;
+    }
+
+    .doc-nav {
+        gap: 0;
+    }
+
+    .doc-nav-tab {
+        padding: 0.55rem 0.75rem;
+        font-size: 0.72rem;
+    }
+
+    .manuscript-block {
+        padding: 1.5rem 1.25rem;
+    }
+
+    .doc-page {
+        padding: 80px 1rem 3rem;
+    }
+
+    .header-inner {
+        padding: 0 1rem;
+    }
+
+    .section-body {
+        text-align: left;
+    }
+}
+
+@media (max-width: 480px) {
+    .doc-hero {
+        padding: 1.5rem;
+        gap: 1.5rem;
+    }
+
+    .doc-cover-frame {
+        width: 160px;
+        height: 210px;
+    }
+
+    .doc-title {
+        font-size: 1.4rem;
+    }
+
+    .doc-nav-tab {
+        padding: 0.5rem 0.55rem;
+        font-size: 0.68rem;
+        letter-spacing: 0.04em;
+    }
+
+    .summary-quote {
+        font-size: 1rem;
+        text-indent: 1.5rem;
+    }
+
+    .manuscript-block {
+        padding: 1.25rem 1rem;
+        font-size: 0.95rem;
+    }
+
+    .section-body.drop-cap::first-letter {
+        font-size: 2.8rem;
+    }
+}

@@ -1,0 +1,132 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WAR ARCHIVE — 로그인</title>
+  <link rel="stylesheet" href="../../assets/css/common/main_style.css">
+  <link rel="stylesheet" href="../../assets/css/auth/log in style.css">
+</head>
+<body>
+
+  <!-- ── Header ── -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="../../index.html" class="logo">
+        <div class="logo-icon">&#9876;</div>
+        <span class="logo-text">War Archive</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="../../index.html#categories">아카이브</a>
+        <a href="../../index.html#timeline">연대기</a>
+        <a href="../../index.html#search">검색</a>
+        <a href="../../index.html#project">프로젝트</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ── Login Section ── -->
+  <section class="login-section">
+    <div class="login-container">
+      <div class="login-header">
+        <div class="login-icon">&#9876;</div>
+        <h1 class="login-title">WAR ARCHIVE</h1>
+        <p class="login-subtitle">전쟁 아카이브에 오신 것을 환영합니다</p>
+      </div>
+
+      <!-- 로그인 폼 -->
+      <form class="login-form" id="loginForm" novalidate>
+        <div class="form-group">
+          <label for="loginEmail">이메일</label>
+          <input type="email" id="loginEmail" name="email" placeholder="이메일을 입력하세요" required autocomplete="email">
+          <span class="form-error" id="emailError"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="loginPassword">비밀번호</label>
+          <div class="password-wrapper">
+            <input type="password" id="loginPassword" name="password" placeholder="비밀번호를 입력하세요" required autocomplete="current-password">
+            <button type="button" class="toggle-password" aria-label="비밀번호 표시">
+              <span class="eye-icon">&#128065;</span>
+            </button>
+          </div>
+          <span class="form-error" id="passwordError"></span>
+        </div>
+
+        <div class="form-options">
+          <label class="remember-me">
+            <input type="checkbox" name="remember">
+            <span>로그인 상태 유지</span>
+          </label>
+          <a href="#" class="forgot-password">비밀번호 찾기</a>
+        </div>
+
+        <button type="submit" class="btn-login">로그인</button>
+
+        <div class="form-message" id="formMessage"></div>
+      </form>
+
+      <!-- 회원가입 전환 -->
+      <div class="login-divider">
+        <span>또는</span>
+      </div>
+
+      <div class="signup-section">
+        <p>아직 계정이 없으신가요?</p>
+        <button type="button" class="btn-signup" id="showSignup">회원가입</button>
+      </div>
+
+      <!-- 회원가입 폼 (숨김) -->
+      <form class="signup-form" id="signupForm" style="display: none;" novalidate>
+        <h2 class="signup-title">회원가입</h2>
+
+        <div class="form-group">
+          <label for="signupUsername">사용자 이름</label>
+          <input type="text" id="signupUsername" name="username" placeholder="사용자 이름을 입력하세요" required autocomplete="username">
+          <span class="form-error" id="usernameError"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="signupEmail">이메일</label>
+          <input type="email" id="signupEmail" name="email" placeholder="이메일을 입력하세요" required autocomplete="email">
+          <span class="form-error" id="signupEmailError"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="signupPassword">비밀번호</label>
+          <div class="password-wrapper">
+            <input type="password" id="signupPassword" name="password" placeholder="비밀번호를 입력하세요 (8자 이상)" required autocomplete="new-password" minlength="8">
+            <button type="button" class="toggle-password" aria-label="비밀번호 표시">
+              <span class="eye-icon">&#128065;</span>
+            </button>
+          </div>
+          <span class="form-error" id="signupPasswordError"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="signupPasswordConfirm">비밀번호 확인</label>
+          <div class="password-wrapper">
+            <input type="password" id="signupPasswordConfirm" name="passwordConfirm" placeholder="비밀번호를 다시 입력하세요" required autocomplete="new-password">
+            <button type="button" class="toggle-password" aria-label="비밀번호 표시">
+              <span class="eye-icon">&#128065;</span>
+            </button>
+          </div>
+          <span class="form-error" id="confirmError"></span>
+        </div>
+
+        <button type="submit" class="btn-login">가입하기</button>
+
+        <div class="form-message" id="signupMessage"></div>
+
+        <div class="back-to-login">
+          <button type="button" class="btn-back" id="showLogin">로그인으로 돌아가기</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <script src="../../assets/js/common/api.js"></script>
+  <script src="../../assets/js/auth/log in tech.js"></script>
+</body>
+</html>

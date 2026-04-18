@@ -1,4 +1,4 @@
-{
+﻿{
   "id": "hannibal",
   "name": "한니발 바르카",
   "title": "카르타고의 장군",
@@ -7,7 +7,7 @@
   "nationality": "카르타고",
   "lifespan": "BC 247 – BC 183",
   "summary": "알프스를 넘어 로마 본토를 침공하고 칸나이 전투에서 로마군을 궤멸시킨 고대 최고의 전술가. 로마에게 가장 두려운 적이었다.",
-  "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Hannibal_Barca_bust_from_Capua_photo.jpg/600px-Hannibal_Barca_bust_from_Capua_photo.jpg",
+  "portrait": "https://commons.wikimedia.org/wiki/Special:FilePath/Hannibal_Barca_bust_from_Capua_photo.jpg?width=600",
   "wars": ["포에니 전쟁"],
   "tags": ["알프스 횡단", "칸나이", "전술의 천재"],
   "detail": {

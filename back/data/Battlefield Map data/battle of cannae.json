@@ -1,4 +1,4 @@
-{
+﻿{
   "id": "battle-of-cannae",
   "title": "Battle of Cannae",
   "titleKr": "칸나에 전투",
@@ -55,12 +55,12 @@
   ],
   "images": [
     {
-      "url": "https://upload.wikimedia.org/wikipedia/commons/d/d8/Battle_cannae_destruction_vi.png",
+      "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Battle_cannae_destruction_vi.png?width=800",
       "caption": "칸나에 전투 작전도 – 한니발의 포위 섬멸 과정",
       "source": "Wikimedia Commons (U.S. Military Academy)"
     },
     {
-      "url": "https://upload.wikimedia.org/wikipedia/commons/0/0b/Hannibal_Barca.jpg",
+      "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Hannibal_Barca.jpg?width=800",
       "caption": "한니발 바르카 – 칸나에 전투를 지휘한 카르타고의 명장",
       "source": "Wikimedia Commons"
     }

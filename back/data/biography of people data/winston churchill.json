@@ -1,4 +1,4 @@
-{
+﻿{
   "id": "winston_churchill",
   "name": "윈스턴 처칠",
   "title": "영국 총리",
@@ -6,7 +6,7 @@
   "era": "worldwar",
   "nationality": "영국",
   "lifespan": "1874 – 1965",
-  "summary": "제2차 세계대전에서 나치 독일에 맞서 영국을 이끌며 '절대 항복하지 않겠다'는 불굴의 의지로 연합국 승리에 결정적으로 기여한 전시 지도자.",  "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Sir_Winston_Churchill_-_19086236948_%28restored%29.jpg/600px-Sir_Winston_Churchill_-_19086236948_%28restored%29.jpg",  "wars": ["제1차 세계대전", "제2차 세계대전"],
+  "summary": "제2차 세계대전에서 나치 독일에 맞서 영국을 이끌며 '절대 항복하지 않겠다'는 불굴의 의지로 연합국 승리에 결정적으로 기여한 전시 지도자.",  "portrait": "https://commons.wikimedia.org/wiki/Special:FilePath/Sir_Winston_Churchill_-_19086236948_%28restored%29.jpg?width=600",  "wars": ["제1차 세계대전", "제2차 세계대전"],
   "tags": ["불굴의 의지", "연설", "전시 지도자"],
   "detail": {
     "earlyLife": "1874년 영국 블레넘 궁전에서 명문 말버러 공작가의 자손으로 태어났다. 샌드허스트 사관학교를 졸업한 후 군인·전쟁 특파원으로 활동했으며, 보어 전쟁 중 포로 탈출 경험으로 유명해져 1900년 하원의원에 당선되었다.",

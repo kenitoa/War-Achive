@@ -1,4 +1,4 @@
-{
+﻿{
   "id": "cavalry-charge",
   "title": "Cavalry Charge",
   "titleKr": "기병 돌격 전술",
@@ -50,8 +50,8 @@
     }
   ],
   "images": [
-    {"url": "https://upload.wikimedia.org/wikipedia/commons/1/18/Charge_of_the_Light_Brigade.jpg", "caption": "경기병 여단의 돌격 — 발라클라바 전투, 1854년 10월 25일", "source": "Wikimedia Commons"},
-    {"url": "https://upload.wikimedia.org/wikipedia/commons/9/93/Polish_Hussar_half_armor.jpg", "caption": "폴란드 윙드 후사르(날개 기병)의 반갑옷", "source": "Wikimedia Commons"}
+    {"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Charge_of_the_Light_Brigade.jpg?width=800", "caption": "경기병 여단의 돌격 — 발라클라바 전투, 1854년 10월 25일", "source": "Wikimedia Commons"},
+    {"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Polish_Hussar_half_armor.jpg?width=800", "caption": "폴란드 윙드 후사르(날개 기병)의 반갑옷", "source": "Wikimedia Commons"}
   ],
   "images": [
     {

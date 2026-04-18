@@ -1,4 +1,4 @@
-{
+﻿{
   "id": "joan_of_arc",
   "name": "잔 다르크",
   "title": "프랑스의 성녀·군사 지도자",
@@ -6,7 +6,7 @@
   "era": "medieval",
   "nationality": "프랑스",
   "lifespan": "1412 – 1431",
-  "summary": "신의 계시를 받았다고 주장하며 백년전쟁 중 오를레앙 포위전을 승리로 이끌어 프랑스의 전세를 역전시킨 10대 소녀 전사.",  "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Joan_of_Arc_miniature_graded.jpg/600px-Joan_of_Arc_miniature_graded.jpg",  "wars": ["백년전쟁"],
+  "summary": "신의 계시를 받았다고 주장하며 백년전쟁 중 오를레앙 포위전을 승리로 이끌어 프랑스의 전세를 역전시킨 10대 소녀 전사.",  "portrait": "https://commons.wikimedia.org/wiki/Special:FilePath/Joan_of_Arc_miniature_graded.jpg?width=600",  "wars": ["백년전쟁"],
   "tags": ["오를레앙", "성녀", "화형"],
   "detail": {
     "earlyLife": "1412년 프랑스 동부 돔레미에서 소작농의 딸로 태어났다. 13세경부터 대천사 미카엘, 성녀 카타리나, 성녀 마르가리타의 목소리를 들었다고 주장하며, 그들이 프랑스를 구하라는 사명을 내렸다고 믿었다.",
