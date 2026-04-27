@@ -62,6 +62,27 @@
         'gulf': 'gulf war'
     };
 
+    // 자료형 헤더 이미지 매핑 (외부 Wikimedia 등). 누락 시 헤더 이미지 영역 미표시.
+    const warHeroImages = {
+        'greco-persian':  'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Battle_of_Thermopylae_and_movements_to_Salamis%2C_480_BC.gif/960px-Battle_of_Thermopylae_and_movements_to_Salamis%2C_480_BC.gif',
+        'peloponnesian':  'https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Map_Peloponnesian_War_431_BC-en.svg/960px-Map_Peloponnesian_War_431_BC-en.svg.png',
+        'punic':          'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Map_of_Rome_and_Carthage_at_the_start_of_the_Second_Punic_War.svg/960px-Map_of_Rome_and_Carthage_at_the_start_of_the_Second_Punic_War.svg.png',
+        'crusades':       'https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Counquest_of_Jeusalem_%281099%29.jpg/960px-Counquest_of_Jeusalem_%281099%29.jpg',
+        'hundred-years':  'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Bataille_d%27Azincourt.jpg/960px-Bataille_d%27Azincourt.jpg',
+        'mongol-conquest':'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/MongolEmpireDivisions1300.png/960px-MongolEmpireDivisions1300.png',
+        'imjin':          'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Battle_of_Hansando.JPG/960px-Battle_of_Hansando.JPG',
+        'thirty-years':   'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Sebastiaen_Vrancx_-_The_Battle_of_White_Mountain.jpg/960px-Sebastiaen_Vrancx_-_The_Battle_of_White_Mountain.jpg',
+        'napoleonic':     'https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Napoleon_at_the_Battle_of_Austerlitz%2C_by_Fran%C3%A7ois_G%C3%A9rard.jpg/960px-Napoleon_at_the_Battle_of_Austerlitz%2C_by_Fran%C3%A7ois_G%C3%A9rard.jpg',
+        'american-civil': 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Thure_de_Thulstrup_-_L._Prang_and_Co._-_Battle_of_Gettysburg_-_Restoration_by_Adam_Cuerden.jpg/960px-Thure_de_Thulstrup_-_L._Prang_and_Co._-_Battle_of_Gettysburg_-_Restoration_by_Adam_Cuerden.jpg',
+        'russo-japanese': 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Battle_of_Tsushima_Russian.jpg/960px-Battle_of_Tsushima_Russian.jpg',
+        'crimean':        'https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Battle_of_balaklava.jpg/960px-Battle_of_balaklava.jpg',
+        'ww1':            'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Cheshire_Regiment_trench_Somme_1916.jpg/960px-Cheshire_Regiment_trench_Somme_1916.jpg',
+        'ww2':            'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Into_the_Jaws_of_Death_23-0455M_edit.jpg/960px-Into_the_Jaws_of_Death_23-0455M_edit.jpg',
+        'korean':         'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/B-26_Marauders_in_action_during_the_Korean_war.jpg/960px-B-26_Marauders_in_action_during_the_Korean_war.jpg',
+        'vietnam':        'https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/UH-1D_helicopters_in_Vietnam_1966.jpg/960px-UH-1D_helicopters_in_Vietnam_1966.jpg',
+        'gulf':           'https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/DesertStormMap_v2.svg/960px-DesertStormMap_v2.svg.png'
+    };
+
     // 전체 전쟁 데이터 (자동 크로스 링크용)
     let allWarsData = [];
 
@@ -133,6 +154,24 @@
         // 헤더 정보
         document.getElementById('breadcrumbTitle').textContent = war.name;
         document.getElementById('docTitle').textContent = war.name;
+
+        // 자료형 헤더 이미지 (있을 때만 doc-header 위에 삽입)
+        const heroSrc = war.heroImage || warHeroImages[war.id];
+        if (heroSrc) {
+            const docHeader = document.querySelector('.doc-header');
+            if (docHeader && !docHeader.querySelector('.doc-hero-image')) {
+                const wrap = document.createElement('div');
+                wrap.className = 'doc-hero-image';
+                const img = document.createElement('img');
+                img.src = heroSrc;
+                img.alt = war.name + ' 자료 이미지';
+                img.loading = 'lazy';
+                img.referrerPolicy = 'no-referrer';
+                img.onerror = function () { wrap.remove(); };
+                wrap.appendChild(img);
+                docHeader.insertBefore(wrap, docHeader.firstChild);
+            }
+        }
 
         // 시대 배지
         const badge = document.getElementById('docEraBadge');

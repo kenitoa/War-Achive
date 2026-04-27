@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Playfair+Display:wght@700;900&family=Noto+Serif+KR:wght@400;700;900&display=swap');
+@import url('../common/category_tokens.css');
+@import url('../common/category_refresh.css');
 
 /* ── Reset & Base ── */
 *, *::before, *::after {
@@ -8,23 +10,26 @@
 }
 
 :root {
-  --bg-primary: #0a0a0a;
-  --bg-secondary: #111111;
-  --bg-card: #1a1a1a;
-  --bg-card-hover: #222222;
-  --bg-parchment: #1c1a15;
-  --bg-parchment-light: #242118;
-  --accent: #c9a84c;
-  --accent-dark: #a07e2e;
-  --accent-warm: #d4a937;
-  --text-primary: #e8e8e8;
-  --text-secondary: #999999;
-  --text-muted: #666666;
-  --text-sepia: #c8b78a;
-  --border: #2a2a2a;
-  --border-accent: #3a3a3a;
-  --border-parchment: #3d3627;
-  --shadow: rgba(0, 0, 0, 0.5);
+  --bg-primary: #0e1013;
+  --bg-secondary: #14171b;
+  --bg-card: #1a1d22;
+  --bg-card-hover: #20242a;
+  --bg-parchment: #161a1f;
+  --bg-parchment-light: #1d2128;
+  --category-accent: var(--cat-tactics);
+  --category-accent-dim: rgba(79, 109, 140, 0.14);
+  --category-accent-line: rgba(79, 109, 140, 0.40);
+  --accent: var(--category-accent);
+  --accent-dark: #3a536b;
+  --accent-warm: #6f8cab;
+  --text-primary: #e6e7e9;
+  --text-secondary: #9aa0a8;
+  --text-muted: #6a707a;
+  --text-sepia: #b9c2cc;
+  --border: #262a30;
+  --border-accent: #353a42;
+  --border-parchment: #2c3540;
+  --shadow: rgba(0, 0, 0, 0.45);
   --serif: 'Noto Serif KR', 'Playfair Display', serif;
   --sans: 'Noto Sans KR', sans-serif;
 }

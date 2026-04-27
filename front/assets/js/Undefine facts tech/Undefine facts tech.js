@@ -53,43 +53,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   revealElements.forEach(el => revealObserver.observe(el));
 
-  // ── Dust Particles — 창고 먼지 효과 ──
-  const dustContainer = document.getElementById('dustParticles');
-
-  if (dustContainer) {
-    const particleCount = 30;
-
-    for (let i = 0; i < particleCount; i++) {
-      const dust = document.createElement('div');
-      dust.classList.add('dust');
-
-      const size = Math.random() * 3 + 1;
-      dust.style.width = size + 'px';
-      dust.style.height = size + 'px';
-      dust.style.left = Math.random() * 100 + '%';
-      dust.style.top = Math.random() * 100 + '%';
-      dust.style.animationDuration = (Math.random() * 8 + 6) + 's';
-      dust.style.animationDelay = (Math.random() * 5) + 's';
-      dust.style.opacity = Math.random() * 0.4 + 0.1;
-
-      dustContainer.appendChild(dust);
-    }
-  }
-
-  // ── Shelf card hover — 나무 삐걱 효과 (subtle transform) ──
-  const shelfCards = document.querySelectorAll('.shelf-card');
-
-  shelfCards.forEach(card => {
-    card.addEventListener('mouseenter', () => {
-      const randomRotate = (Math.random() - 0.5) * 0.5;
-      card.style.transform = `translateY(-3px) rotate(${randomRotate}deg)`;
-    });
-
-    card.addEventListener('mouseleave', () => {
-      card.style.transform = '';
-    });
-  });
-
   // ── Bookshelf Inline Popup (3x3 grid) ──
   const DATA_BASE = '../../data/Undefine facts data';
   const ITEMS_PER_PAGE = 9; // 3x3 grid
@@ -229,6 +192,18 @@ document.addEventListener('DOMContentLoaded', () => {
       openBookPopup(book);
     });
 
+    // 키보드 접근성: Enter / Space
+    book.addEventListener('keydown', (e) => {
+      if ((e.key === 'Enter' || e.key === ' ') && e.target === book) {
+        e.preventDefault();
+        if (book.classList.contains('popup-open')) {
+          book.classList.remove('popup-open');
+        } else {
+          openBookPopup(book);
+        }
+      }
+    });
+
     // Pagination buttons
     const prevBtn = book.querySelector('.popup-prev');
     const nextBtn = book.querySelector('.popup-next');
@@ -277,6 +252,20 @@ document.addEventListener('DOMContentLoaded', () => {
       closeAllPopups();
     }
   });
+
+  // 분류 카드의 자료 수(— 건) 채우기
+  (async function fillShelfCounts() {
+    try {
+      const index = await getIndex();
+      document.querySelectorAll('[data-count-shelf]').forEach(el => {
+        const shelf = el.getAttribute('data-count-shelf');
+        const count = (index[shelf] && index[shelf].items) ? index[shelf].items.length : 0;
+        el.textContent = count + ' 건';
+      });
+    } catch (err) {
+      // 실패 시 placeholder 유지
+    }
+  })();
 
   // ── Status Board — 자료 현황 동적 렌더링 ──
   const STATUS_BASE = '../../data/Undefine facts data/Data status';

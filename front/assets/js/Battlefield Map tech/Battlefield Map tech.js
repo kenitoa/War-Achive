@@ -97,73 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
     'battle of dien bien phu'
   ];
 
-  // ── AR HUD 오버레이 생성 ──
-  function createARHUD() {
-    // HUD 코너 브라켓
-    const overlay = document.createElement('div');
-    overlay.className = 'ar-hud-overlay';
-    ['tl', 'tr', 'bl', 'br'].forEach(pos => {
-      const corner = document.createElement('div');
-      corner.className = 'hud-corner ' + pos;
-      overlay.appendChild(corner);
-    });
-    document.body.appendChild(overlay);
-
-    // HUD 상단 상태 바
-    const topbar = document.createElement('div');
-    topbar.className = 'ar-hud-topbar';
-    topbar.innerHTML = `
-      <div class="hud-indicator"><span class="hud-dot amber"></span> <span id="hudBattleCount">0</span> TARGETS</div>
-      <div class="hud-indicator">SYS:ONLINE</div>
-      <div class="hud-indicator" id="hudTimestamp"></div>
-    `;
-    document.body.appendChild(topbar);
-
-    // HUD 데이터 리드아웃 (우하단)
-    const readout = document.createElement('div');
-    readout.className = 'ar-data-readout';
-    readout.id = 'arDataReadout';
-    readout.innerHTML = `
-      <span class="readout-line"><span class="readout-label">STATUS: </span><span class="readout-value">SCANNING</span></span>
-      <span class="readout-line"><span class="readout-label">ARCHIVE: </span><span class="readout-value">WAR-ARCHIVE v2.0</span></span>
-      <span class="readout-line"><span class="readout-label">RECORDS: </span><span class="readout-value" id="readoutRecords">—</span></span>
-      <span class="readout-line"><span class="readout-label">FILTER: </span><span class="readout-value" id="readoutFilter">ALL</span></span>
-    `;
-    document.body.appendChild(readout);
-
-    // 타임스탬프 업데이트
-    function updateHudTime() {
-      const el = document.getElementById('hudTimestamp');
-      if (el) {
-        const now = new Date();
-        const h = String(now.getHours()).padStart(2, '0');
-        const m = String(now.getMinutes()).padStart(2, '0');
-        const s = String(now.getSeconds()).padStart(2, '0');
-        el.textContent = h + ':' + m + ':' + s + ' KST';
-      }
-    }
-    updateHudTime();
-    setInterval(updateHudTime, 1000);
-  }
-
-  // AR HUD 데이터 업데이트
-  function updateARReadout() {
-    const hudCount = document.getElementById('hudBattleCount');
-    const readoutRecords = document.getElementById('readoutRecords');
-    const readoutFilter = document.getElementById('readoutFilter');
-    const filtered = getFiltered();
-    if (hudCount) hudCount.textContent = filtered.length;
-    if (readoutRecords) readoutRecords.textContent = filtered.length + '/' + battlesData.length;
-    if (readoutFilter) {
-      const parts = [];
-      if (activeEra !== 'all') parts.push(eraLabels[activeEra] || activeEra);
-      if (activeTheater !== 'all') parts.push(theaterLabels[activeTheater] || activeTheater);
-      if (searchQuery) parts.push('"' + searchQuery + '"');
-      readoutFilter.textContent = parts.length > 0 ? parts.join(' / ') : 'ALL';
-    }
-  }
-
-  createARHUD();
+  // (AR HUD 오버레이/리드아웃 관련 코드는 아카이브 톤으로 제거되었습니다.)
 
   // ── Load JSON Data ──
   Promise.all(
@@ -247,7 +181,6 @@ document.addEventListener('DOMContentLoaded', () => {
     renderFieldView(filtered);
     renderGridView(filtered);
     updateScrollContainment(filtered.length);
-    updateARReadout();
 
     if (filtered.length === 0 && battlesData.length > 0) {
       emptyState.style.display = 'block';
@@ -306,11 +239,8 @@ document.addEventListener('DOMContentLoaded', () => {
       entry.addEventListener('click', () => saveLastViewed(item));
 
       const commanders = (item.commanders || []).join(' vs ');
-      const coordText = item.location || '';
 
       entry.innerHTML = `
-        <div class="ar-scan-line"></div>
-        <div class="field-entry-coords">${coordText}</div>
         <div class="field-entry-header">
           <span class="field-entry-era">${eraLabels[item.era] || item.era || '—'}</span>
           <span class="field-entry-theater">${theaterLabels[item.theater] || item.theater || ''}</span>
@@ -350,13 +280,9 @@ document.addEventListener('DOMContentLoaded', () => {
       card.href = 'Battlefield Map detail.html?id=' + encodeURIComponent(item.id);
       card.addEventListener('click', () => saveLastViewed(item));
       card.innerHTML = `
-        <div class="holo-shimmer"></div>
-        <div class="card-bracket tl"></div><div class="card-bracket tr"></div>
-        <div class="card-bracket bl"></div><div class="card-bracket br"></div>
-        <div class="ar-status">LINKED</div>
         <div class="grid-card-era">${eraLabels[item.era] || item.era || '—'}</div>
         <h3 class="grid-card-title">${item.titleKr || item.title || '제목 없음'}</h3>
-        ${item.location ? `<div class="grid-card-location">📍 ${item.location}</div>` : ''}
+        ${item.location ? `<div class="grid-card-location">${item.location}</div>` : ''}
         <p class="grid-card-desc">${item.description || ''}</p>
         <div class="grid-card-footer">
           <div class="grid-card-tags">

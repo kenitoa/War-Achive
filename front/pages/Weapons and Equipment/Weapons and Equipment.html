@@ -1,10 +1,11 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>무기 & 장비 — War Archive</title>
   <link rel="stylesheet" href="../../assets/css/Weapons and Equipment Style/Weapons and Equipment style.css">
+  <link rel="stylesheet" href="../../assets/css/common/archive_common.css">
 </head>
 <body>
 
@@ -12,15 +13,16 @@
   <header class="site-header">
     <div class="header-inner">
       <a href="../../index.html" class="logo">
-        <div class="logo-icon">&#9876;</div>
+        <span class="logo-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 9.5 L4 20"/><path d="M9.5 14.5 L20 4"/><path d="M2 18 L6 22"/><path d="M18 2 L22 6"/><path d="M14 6 L18 10"/></svg></span>
         <span class="logo-text">War Archive</span>
       </a>
 
       <nav class="nav-links">
         <a href="../../index.html#categories">아카이브</a>
+        <a href="../../index.html#browse">탐색</a>
         <a href="../../index.html#timeline">연대기</a>
-        <a href="../../index.html#featured">주요 기록</a>
         <a href="../../index.html#search">검색</a>
+        <a href="../../index.html#project">프로젝트</a>
       </nav>
 
       <button class="menu-toggle" aria-label="메뉴 열기">
@@ -41,8 +43,8 @@
         <span class="sep">/</span>
         <span class="current">무기 &amp; 장비</span>
       </nav>
-      <h1 class="page-title">&#128481; 무기 &amp; 장비</h1>
-      <p class="page-subtitle">냉병기부터 핵무기까지, 전쟁의 양상을 바꾼 무기와 군사 장비를 체계적으로 분류하고 분석합니다.</p>
+      <h1 class="page-title">무기 &amp; 장비</h1>
+      <p class="page-subtitle">냉병기부터 핵무기까지 시대별 주요 무기·군사 장비를 유형별로 정리합니다.</p>
       <div class="page-stats">
         <div class="page-stat"><strong>8</strong>개 분류</div>
         <div class="page-stat"><strong>6</strong>개 시대</div>
@@ -56,7 +58,7 @@
     <div class="filter-inner">
       <div class="filter-search">
         <input type="text" id="weaponSearch" placeholder="무기명, 장비명, 키워드로 검색...">
-        <span class="search-icon">&#128269;</span>
+        <span class="search-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></span>
       </div>
     </div>
   </section>
@@ -77,7 +79,7 @@
     <!-- ── 무기 분류 섹션 ── -->
     <section class="category-section">
       <div class="category-section-header">
-        <h2 class="category-section-title">&#9876; 무기 분류</h2>
+        <h2 class="category-section-title">무기 분류</h2>
         <p class="category-section-desc">유형별로 분류된 무기 카테고리를 한눈에 파악할 수 있습니다</p>
       </div>
 
@@ -97,7 +99,7 @@
               <span class="wc-tag">폴암</span>
             </div>
             <div class="wc-meta">
-              <span class="wc-count">420건</span>
+              <span class="wc-count" data-category="melee"></span>
             </div>
           </div>
         </a>
@@ -116,7 +118,7 @@
               <span class="wc-tag">자벨린</span>
             </div>
             <div class="wc-meta">
-              <span class="wc-count">310건</span>
+              <span class="wc-count" data-category="ranged"></span>
             </div>
           </div>
         </a>
@@ -136,7 +138,7 @@
               <span class="wc-tag">기관단총</span>
             </div>
             <div class="wc-meta">
-              <span class="wc-count">680건</span>
+              <span class="wc-count" data-category="firearms"></span>
             </div>
           </div>
         </a>
@@ -156,7 +158,7 @@
               <span class="wc-tag">지뢰</span>
             </div>
             <div class="wc-meta">
-              <span class="wc-count">540건</span>
+              <span class="wc-count" data-category="artillery"></span>
             </div>
           </div>
         </a>
@@ -166,7 +168,7 @@
     <!-- ── 장비 분류 섹션 ── -->
     <section class="category-section">
       <div class="category-section-header">
-        <h2 class="category-section-title">&#128737; 장비 &amp; 장갑</h2>
+        <h2 class="category-section-title">장비 &amp; 장갑</h2>
         <p class="category-section-desc">방어 장비, 군복, 보급 장비 등 전투 지원 장비를 분류합니다</p>
       </div>
 
@@ -185,7 +187,7 @@
               <span class="wc-tag">정찰차</span>
             </div>
             <div class="wc-meta">
-              <span class="wc-count">390건</span>
+              <span class="wc-count" data-category="armor"></span>
             </div>
           </div>
         </a>
@@ -205,7 +207,7 @@
               <span class="wc-tag">드론</span>
             </div>
             <div class="wc-meta">
-              <span class="wc-count">520건</span>
+              <span class="wc-count" data-category="aircraft"></span>
             </div>
           </div>
         </a>
@@ -225,7 +227,7 @@
               <span class="wc-tag">구축함</span>
             </div>
             <div class="wc-meta">
-              <span class="wc-count">460건</span>
+              <span class="wc-count" data-category="naval"></span>
             </div>
           </div>
         </a>
@@ -245,7 +247,7 @@
               <span class="wc-tag">성벽</span>
             </div>
             <div class="wc-meta">
-              <span class="wc-count">480건</span>
+              <span class="wc-count" data-category="defense"></span>
             </div>
           </div>
         </a>
@@ -255,7 +257,7 @@
     <!-- ── 시대별 무기 변천사 ── -->
     <section class="category-section era-overview-section">
       <div class="category-section-header">
-        <h2 class="category-section-title">&#128336; 시대별 무기 변천사</h2>
+        <h2 class="category-section-title">시대별 무기 변천사</h2>
         <p class="category-section-desc">시대에 따른 무기와 장비의 발전 흐름을 한눈에 파악합니다</p>
       </div>
 
@@ -267,9 +269,9 @@
             <h4 class="era-title">BC 3000 ~ AD 476</h4>
             <p class="era-desc">청동·철기 시대의 냉병기, 고대 공성 무기, 갤리선</p>
             <div class="era-items">
-              <span>&#9876; 글라디우스</span>
-              <span>&#127993; 합성궁</span>
-              <span>&#128737; 로리카</span>
+              <span>글라디우스</span>
+              <span>합성궁</span>
+              <span>로리카</span>
             </div>
           </div>
         </a>
@@ -281,9 +283,9 @@
             <h4 class="era-title">476 ~ 1453</h4>
             <p class="era-desc">기사 갑옷, 장궁, 석궁, 공성 장비, 초기 화약 무기</p>
             <div class="era-items">
-              <span>&#9876; 롱소드</span>
-              <span>&#127993; 장궁</span>
-              <span>&#128163; 트레뷰셋</span>
+              <span>롱소드</span>
+              <span>장궁</span>
+              <span>트레뷰셋</span>
             </div>
           </div>
         </a>
@@ -295,9 +297,9 @@
             <h4 class="era-title">1453 ~ 1789</h4>
             <p class="era-desc">화승총, 플린트록, 전열함, 대포의 발전</p>
             <div class="era-items">
-              <span>&#128299; 머스킷</span>
-              <span>&#128163; 캐논</span>
-              <span>&#9875; 전열함</span>
+              <span>머스킷</span>
+              <span>캐논</span>
+              <span>전열함</span>
             </div>
           </div>
         </a>
@@ -309,9 +311,9 @@
             <h4 class="era-title">1789 ~ 1914</h4>
             <p class="era-desc">소총 혁명, 기관총 등장, 철갑함, 산업화 전쟁</p>
             <div class="era-items">
-              <span>&#128299; 볼트액션</span>
-              <span>&#128163; 개틀링건</span>
-              <span>&#9875; 철갑함</span>
+              <span>볼트액션</span>
+              <span>개틀링건</span>
+              <span>철갑함</span>
             </div>
           </div>
         </a>
@@ -323,9 +325,9 @@
             <h4 class="era-title">1914 ~ 1945</h4>
             <p class="era-desc">전차, 전투기, 항공모함, 원자폭탄의 시대</p>
             <div class="era-items">
-              <span>&#128663; 전차</span>
-              <span>&#9992; 전투기</span>
-              <span>&#128163; 원자폭탄</span>
+              <span>전차</span>
+              <span>전투기</span>
+              <span>원자폭탄</span>
             </div>
           </div>
         </a>
@@ -337,9 +339,9 @@
             <h4 class="era-title">1945 ~ 현재</h4>
             <p class="era-desc">스텔스, 정밀유도무기, 드론, 사이버 전쟁</p>
             <div class="era-items">
-              <span>&#9992; 스텔스기</span>
-              <span>&#128163; 순항미사일</span>
-              <span>&#128663; 드론</span>
+              <span>스텔스기</span>
+              <span>순항미사일</span>
+              <span>드론</span>
             </div>
           </div>
         </a>
@@ -351,11 +353,23 @@
   <!-- ── Footer ── -->
   <footer class="site-footer">
     <div class="footer-inner">
-      <div class="footer-logo">
-        <span class="logo-icon">&#9876;</span>
-        <span class="logo-text">War Archive</span>
+      <div class="footer-top">
+        <a href="../../index.html" class="logo">
+          <span class="logo-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 9.5 L4 20"/><path d="M9.5 14.5 L20 4"/><path d="M2 18 L6 22"/><path d="M18 2 L22 6"/><path d="M14 6 L18 10"/></svg></span>
+          <span class="logo-text">War Archive</span>
+        </a>
+        <nav class="footer-nav">
+          <a href="../../index.html#categories">아카이브</a>
+          <a href="../../index.html#browse">탐색</a>
+          <a href="../../index.html#timeline">연대기</a>
+          <a href="../info/information.html">소개</a>
+          <a href="../info/contribution.html">자료 제보</a>
+          <a href="../info/developer information.html">운영자 · 문의</a>
+        </nav>
       </div>
-      <p class="footer-copy">&copy; 2026 War Archive. All rights reserved.</p>
+      <div class="footer-bottom">
+        <p>&copy; 2026 War Archive. All rights reserved.</p>
+      </div>
     </div>
   </footer>
 

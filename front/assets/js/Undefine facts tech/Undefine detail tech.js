@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   newspaper.classList.remove('loading');
 
   // Title
-  document.title = `WAR ARCHIVE GAZETTE — ${data.name}`;
+  document.title = `미확인 자료 상세 — ${data.name}`;
 
   // Masthead
   const today = new Date();
@@ -144,7 +144,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       const div = document.createElement('div');
       div.className = 'related-item';
       div.innerHTML = `
-        <span class="related-bullet">&#9654;</span>
+        <span class="related-bullet">&middot;</span>
         <div class="related-info">
           <div class="related-name">${item.name}</div>
           <div class="related-shelf">${item.shelf}</div>
@@ -179,7 +179,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   function showError(msg) {
     newspaper.innerHTML = `
       <div style="text-align: center; padding: 4rem 2rem;">
-        <div style="font-size: 2rem; margin-bottom: 1rem; opacity: 0.4;">&#128240;</div>
+        <div style="font-size: 0.95rem; margin-bottom: 0.6rem; opacity: 0.5; letter-spacing: 0.3px;">NO DATA</div>
         <h2 style="font-family: 'Noto Serif KR', serif; font-size: 1.2rem; color: ${
           'var(--ink-muted)'
         }; margin-bottom: 1rem;">${msg}</h2>

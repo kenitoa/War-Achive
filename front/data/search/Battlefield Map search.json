@@ -1,224 +1,234 @@
 ﻿[
-  {
-    "id": "battle-of-austerlitz",
-    "title": "Battle of Austerlitz",
-    "titleKr": "아우스터리츠 전투",
-    "era": "modern",
-    "theater": "europe",
-    "date": "1805년 12월 2일",
-    "location": "현재 체코 아우스터리츠 (슬라브코프 우 브르나)",
-    "commanders": [
-      "나폴레옹 보나파르트",
-      "알렉산드르 1세, 프란츠 2세"
-    ],
-    "description": "나폴레옹이 의도적으로 우익을 약화시켜 연합군을 유인한 뒤, 프라첸 고지를 점령하여 적을 양분 격파한 '삼제 회전'. 지형과 기만 전술의 완벽한 결합.",
-    "keywords": [
-      "고지 점령",
-      "기만 전술",
-      "진군 경로",
-      "양분 격파",
-      "지형 활용"
-    ],
-    "url": "pages/Battlefield Map/Battlefield Map detail.html?id=battle-of-austerlitz"
-  },
-  {
-    "id": "battle-of-cannae",
-    "title": "Battle of Cannae",
-    "titleKr": "칸나에 전투",
-    "era": "ancient",
-    "theater": "mediterranean",
-    "date": "BC 216년 8월 2일",
-    "location": "이탈리아 남부 칸나에 (아풀리아 지방)",
-    "commanders": [
-      "한니발 바르카",
-      "루키우스 아이밀리우스 파울루스, 가이우스 테렌티우스 바로"
-    ],
-    "description": "한니발이 수적으로 열세한 카르타고군으로 로마 대군을 완벽히 포위 섬멸한 전투. 양익 포위(이중 포위)의 교과서적 사례로, 2천 년이 넘도록 군사학의 이상적 전투로 연구되고 있다.",
-    "keywords": [
-      "포위 섬멸",
-      "양익 포위",
-      "기동",
-      "평원 지형",
-      "기병 우회"
-    ],
-    "url": "pages/Battlefield Map/Battlefield Map detail.html?id=battle-of-cannae"
-  },
-  {
-    "id": "battle-of-gaugamela",
-    "title": "Battle of Gaugamela",
-    "titleKr": "가우가멜라 전투",
-    "era": "ancient",
-    "theater": "middle-east",
-    "date": "BC 331년 10월 1일",
-    "location": "현재 이라크 북부 (아르빌 근처)",
-    "commanders": [
-      "알렉산드로스 대왕",
-      "다리우스 3세"
-    ],
-    "description": "알렉산드로스가 페르시아 대군에 맞서 사선 대형과 기병의 돌파를 결합한 전투. 넓은 평원에서 기동력과 지휘관의 결단력이 승패를 갈랐다.",
-    "keywords": [
-      "사선 대형",
-      "기병 돌파",
-      "평원 기동",
-      "진군 경로",
-      "결정적 돌파"
-    ],
-    "url": "pages/Battlefield Map/Battlefield Map detail.html?id=battle-of-gaugamela"
-  },
-  {
-    "id": "battle-of-gettysburg",
-    "title": "Battle of Gettysburg",
-    "titleKr": "게티즈버그 전투",
-    "era": "modern",
-    "theater": "americas",
-    "date": "1863년 7월 1일 – 3일",
-    "location": "미국 펜실베이니아주 게티즈버그",
-    "commanders": [
-      "조지 미드",
-      "로버트 E. 리"
-    ],
-    "description": "미국 남북전쟁의 전환점. 리 장군의 북부 침공이 게티즈버그의 구릉 지대에서 좌절된 3일간의 대전투. 고지에서의 방어선 유지가 승패를 결정지었다.",
-    "keywords": [
-      "고지 방어",
-      "구릉 지형",
-      "진군 경로",
-      "포병 진지",
-      "정면 돌파"
-    ],
-    "url": "pages/Battlefield Map/Battlefield Map detail.html?id=battle-of-gettysburg"
-  },
-  {
-    "id": "battle-of-hansando",
-    "title": "Battle of Hansan Island",
-    "titleKr": "한산도 대첩",
-    "era": "earlymodern",
-    "theater": "asia",
-    "date": "1592년 8월 14일",
-    "location": "대한민국 경상남도 통영시 한산도 앞바다",
-    "commanders": [
-      "이순신",
-      "와키자카 야스하루"
-    ],
-    "description": "이순신 장군이 학익진(鶴翼陣)을 펼쳐 일본 수군을 유인 후 섬멸한 해전. 좁은 해협에서 넓은 바다로 적을 유인하는 전술적 기동이 핵심이었다.",
-    "keywords": [
-      "해전",
-      "학익진",
-      "해협 지형",
-      "유인 전술",
-      "수비 해역",
-      "거북선"
-    ],
-    "url": "pages/Battlefield Map/Battlefield Map detail.html?id=battle-of-hansando"
-  },
-  {
-    "id": "battle-of-incheon",
-    "title": "Battle of Incheon",
-    "titleKr": "인천 상륙작전",
-    "era": "contemporary",
-    "theater": "asia",
-    "date": "1950년 9월 15일",
-    "location": "대한민국 인천",
-    "commanders": [
-      "더글러스 맥아더",
-      "김일성"
-    ],
-    "description": "한국전쟁 중 맥아더 장군의 대담한 후방 상륙작전. 인천항의 극심한 조수간만 차와 좁은 수로라는 지형적 악조건을 극복하고 적의 보급로를 차단한 역전의 일격.",
-    "keywords": [
-      "상륙 작전",
-      "항구 지형",
-      "조수간만",
-      "보급로 차단",
-      "진군 경로"
-    ],
-    "url": "pages/Battlefield Map/Battlefield Map detail.html?id=battle-of-incheon"
-  },
-  {
-    "id": "battle-of-midway",
-    "title": "Battle of Midway",
-    "titleKr": "미드웨이 해전",
-    "era": "worldwar",
-    "theater": "pacific",
-    "date": "1942년 6월 4일 – 7일",
-    "location": "태평양 미드웨이 환초",
-    "commanders": [
-      "체스터 니미츠, 레이먼드 스프루언스",
-      "야마모토 이소로쿠, 나구모 주이치"
-    ],
-    "description": "태평양 전쟁의 전환점. 미국이 암호 해독으로 일본의 공격 계획을 사전에 파악하고, 항공모함 기반의 급강하 폭격으로 일본 기동부대를 격멸한 해전.",
-    "keywords": [
-      "항공모함 전투",
-      "해양 지형",
-      "기습 공격",
-      "정보 우위",
-      "태평양 섬"
-    ],
-    "url": "pages/Battlefield Map/Battlefield Map detail.html?id=battle-of-midway"
-  },
-  {
-    "id": "battle-of-stalingrad",
-    "title": "Battle of Stalingrad",
-    "titleKr": "스탈린그라드 전투",
-    "era": "worldwar",
-    "theater": "europe",
-    "date": "1942년 8월 23일 – 1943년 2월 2일",
-    "location": "소련 스탈린그라드 (현재 볼고그라드)",
-    "commanders": [
-      "프리드리히 파울루스",
-      "게오르기 주코프, 바실리 추이코프"
-    ],
-    "description": "볼가 강변의 도시에서 벌어진 제2차 세계대전 최대의 격전. 시가전과 소련군의 '우라누스 작전'에 의한 대규모 포위로, 동부전선의 전환점이 되었다.",
-    "keywords": [
-      "시가전",
-      "포위 작전",
-      "강 방어선",
-      "도시 지형",
-      "방어 진지"
-    ],
-    "url": "pages/Battlefield Map/Battlefield Map detail.html?id=battle-of-stalingrad"
-  },
-  {
-    "id": "battle-of-thermopylae",
-    "title": "Battle of Thermopylae",
-    "titleKr": "테르모필레 전투",
-    "era": "ancient",
-    "theater": "mediterranean",
-    "date": "BC 480년 8월",
-    "location": "그리스 테르모필레 협곡",
-    "commanders": [
-      "레오니다스 1세",
-      "크세르크세스 1세"
-    ],
-    "description": "좁은 해안 협곡에서 레오니다스가 이끄는 300명의 스파르타 전사와 그리스 연합군이 페르시아 대군을 3일간 저지한 전투. 지형의 이점을 최대한 활용한 방어전의 교과서적 사례.",
-    "keywords": [
-      "협곡 방어",
-      "지형 이점",
-      "저지 작전",
-      "해안 지형",
-      "포위",
-      "팔랑크스"
-    ],
-    "url": "pages/Battlefield Map/Battlefield Map detail.html?id=battle-of-thermopylae"
-  },
-  {
-    "id": "normandy-landings",
-    "title": "Normandy Landings (D-Day)",
-    "titleKr": "노르망디 상륙작전",
-    "era": "worldwar",
-    "theater": "europe",
-    "date": "1944년 6월 6일",
-    "location": "프랑스 노르망디 해안 (오마하, 유타, 골드, 주노, 소드 해변)",
-    "commanders": [
-      "드와이트 D. 아이젠하워",
-      "에르빈 롬멜, 게르트 폰 룬트슈테트"
-    ],
-    "description": "역사상 최대의 상륙작전. 5개 해변에 동시 상륙하여 대서양 방벽을 돌파한 연합군의 작전으로, 유럽 해방의 시작점이 되었다.",
-    "keywords": [
-      "상륙 작전",
-      "해안 돌파",
-      "방어선 돌파",
-      "진군 경로",
-      "공수 작전"
-    ],
-    "url": "pages/Battlefield Map/Battlefield Map detail.html?id=normandy-landings"
-  }
+    {
+        "id":  "battle-of-austerlitz",
+        "title":  "Battle of Austerlitz",
+        "titleKr":  "아우스터리츠 전투",
+        "era":  "modern",
+        "theater":  "europe",
+        "date":  "1805년 12월 2일",
+        "location":  "현재 체코 아우스터리츠 (슬라브코프 우 브르나)",
+        "commanders":  [
+                           "나폴레옹 보나파르트",
+                           "알렉산드르 1세, 프란츠 2세"
+                       ],
+        "description":  "나폴레옹이 의도적으로 우익을 약화시켜 연합군을 유인한 뒤, 프라첸 고지를 점령하여 적을 양분 격파한 \u0027삼제 회전\u0027. 지형과 기만 전술의 완벽한 결합.",
+        "keywords":  [
+                         "고지 점령",
+                         "기만 전술",
+                         "진군 경로",
+                         "양분 격파",
+                         "지형 활용"
+                     ],
+        "url":  "pages/Battlefield Map/Battlefield Map detail.html?id=battle-of-austerlitz",
+        "result":  "프랑스 대승, 제3차 대프랑스 동맹 붕괴"
+    },
+    {
+        "id":  "battle-of-cannae",
+        "title":  "Battle of Cannae",
+        "titleKr":  "칸나에 전투",
+        "era":  "ancient",
+        "theater":  "mediterranean",
+        "date":  "BC 216년 8월 2일",
+        "location":  "이탈리아 남부 칸나에 (아풀리아 지방)",
+        "commanders":  [
+                           "한니발 바르카",
+                           "루키우스 아이밀리우스 파울루스, 가이우스 테렌티우스 바로"
+                       ],
+        "description":  "한니발이 수적으로 열세한 카르타고군으로 로마 대군을 완벽히 포위 섬멸한 전투. 양익 포위(이중 포위)의 교과서적 사례로, 2천 년이 넘도록 군사학의 이상적 전투로 연구되고 있다.",
+        "keywords":  [
+                         "포위 섬멸",
+                         "양익 포위",
+                         "기동",
+                         "평원 지형",
+                         "기병 우회"
+                     ],
+        "url":  "pages/Battlefield Map/Battlefield Map detail.html?id=battle-of-cannae",
+        "result":  "카르타고 대승, 로마군 약 5만~7만 전사"
+    },
+    {
+        "id":  "battle-of-gaugamela",
+        "title":  "Battle of Gaugamela",
+        "titleKr":  "가우가멜라 전투",
+        "era":  "ancient",
+        "theater":  "middle-east",
+        "date":  "BC 331년 10월 1일",
+        "location":  "현재 이라크 북부 (아르빌 근처)",
+        "commanders":  [
+                           "알렉산드로스 대왕",
+                           "다리우스 3세"
+                       ],
+        "description":  "알렉산드로스가 페르시아 대군에 맞서 사선 대형과 기병의 돌파를 결합한 전투. 넓은 평원에서 기동력과 지휘관의 결단력이 승패를 갈랐다.",
+        "keywords":  [
+                         "사선 대형",
+                         "기병 돌파",
+                         "평원 기동",
+                         "진군 경로",
+                         "결정적 돌파"
+                     ],
+        "url":  "pages/Battlefield Map/Battlefield Map detail.html?id=battle-of-gaugamela",
+        "result":  "마케도니아 대승, 페르시아 제국 사실상 멸망"
+    },
+    {
+        "id":  "battle-of-gettysburg",
+        "title":  "Battle of Gettysburg",
+        "titleKr":  "게티즈버그 전투",
+        "era":  "modern",
+        "theater":  "americas",
+        "date":  "1863년 7월 1일 – 3일",
+        "location":  "미국 펜실베이니아주 게티즈버그",
+        "commanders":  [
+                           "조지 미드",
+                           "로버트 E. 리"
+                       ],
+        "description":  "미국 남북전쟁의 전환점. 리 장군의 북부 침공이 게티즈버그의 구릉 지대에서 좌절된 3일간의 대전투. 고지에서의 방어선 유지가 승패를 결정지었다.",
+        "keywords":  [
+                         "고지 방어",
+                         "구릉 지형",
+                         "진군 경로",
+                         "포병 진지",
+                         "정면 돌파"
+                     ],
+        "url":  "pages/Battlefield Map/Battlefield Map detail.html?id=battle-of-gettysburg",
+        "result":  "북군 승리, 남부 침공 좌절"
+    },
+    {
+        "id":  "battle-of-hansando",
+        "title":  "Battle of Hansan Island",
+        "titleKr":  "한산도 대첩",
+        "era":  "earlymodern",
+        "theater":  "asia",
+        "date":  "1592년 8월 14일",
+        "location":  "대한민국 경상남도 통영시 한산도 앞바다",
+        "commanders":  [
+                           "이순신",
+                           "와키자카 야스하루"
+                       ],
+        "description":  "이순신 장군이 학익진(鶴翼陣)을 펼쳐 일본 수군을 유인 후 섬멸한 해전. 좁은 해협에서 넓은 바다로 적을 유인하는 전술적 기동이 핵심이었다.",
+        "keywords":  [
+                         "해전",
+                         "학익진",
+                         "해협 지형",
+                         "유인 전술",
+                         "수비 해역",
+                         "거북선"
+                     ],
+        "url":  "pages/Battlefield Map/Battlefield Map detail.html?id=battle-of-hansando",
+        "result":  "조선 수군 대승, 일본 수군 궤멸"
+    },
+    {
+        "id":  "battle-of-incheon",
+        "title":  "Battle of Incheon",
+        "titleKr":  "인천 상륙작전",
+        "era":  "contemporary",
+        "theater":  "asia",
+        "date":  "1950년 9월 15일",
+        "location":  "대한민국 인천",
+        "commanders":  [
+                           "더글러스 맥아더",
+                           "김일성"
+                       ],
+        "description":  "한국전쟁 중 맥아더 장군의 대담한 후방 상륙작전. 인천항의 극심한 조수간만 차와 좁은 수로라는 지형적 악조건을 극복하고 적의 보급로를 차단한 역전의 일격.",
+        "keywords":  [
+                         "상륙 작전",
+                         "항구 지형",
+                         "조수간만",
+                         "보급로 차단",
+                         "진군 경로"
+                     ],
+        "url":  "pages/Battlefield Map/Battlefield Map detail.html?id=battle-of-incheon",
+        "result":  "UN군 대승, 서울 탈환"
+    },
+    {
+        "id":  "battle-of-midway",
+        "title":  "Battle of Midway",
+        "titleKr":  "미드웨이 해전",
+        "era":  "worldwar",
+        "theater":  "pacific",
+        "date":  "1942년 6월 4일 – 7일",
+        "location":  "태평양 미드웨이 환초",
+        "commanders":  [
+                           "체스터 니미츠, 레이먼드 스프루언스",
+                           "야마모토 이소로쿠, 나구모 주이치"
+                       ],
+        "description":  "태평양 전쟁의 전환점. 미국이 암호 해독으로 일본의 공격 계획을 사전에 파악하고, 항공모함 기반의 급강하 폭격으로 일본 기동부대를 격멸한 해전.",
+        "keywords":  [
+                         "항공모함 전투",
+                         "해양 지형",
+                         "기습 공격",
+                         "정보 우위",
+                         "태평양 섬"
+                     ],
+        "url":  "pages/Battlefield Map/Battlefield Map detail.html?id=battle-of-midway",
+        "result":  "미국 대승, 일본 항공모함 4척 격침"
+    },
+    {
+        "id":  "battle-of-stalingrad",
+        "title":  "Battle of Stalingrad",
+        "titleKr":  "스탈린그라드 전투",
+        "era":  "worldwar",
+        "theater":  "europe",
+        "date":  "1942년 8월 23일 – 1943년 2월 2일",
+        "location":  "소련 스탈린그라드 (현재 볼고그라드)",
+        "commanders":  [
+                           "프리드리히 파울루스",
+                           "게오르기 주코프, 바실리 추이코프"
+                       ],
+        "description":  "볼가 강변의 도시에서 벌어진 제2차 세계대전 최대의 격전. 시가전과 소련군의 \u0027우라누스 작전\u0027에 의한 대규모 포위로, 동부전선의 전환점이 되었다.",
+        "keywords":  [
+                         "시가전",
+                         "포위 작전",
+                         "강 방어선",
+                         "도시 지형",
+                         "방어 진지"
+                     ],
+        "url":  "pages/Battlefield Map/Battlefield Map detail.html?id=battle-of-stalingrad",
+        "result":  "소련 대승, 독일 제6군 항복"
+    },
+    {
+        "id":  "battle-of-thermopylae",
+        "title":  "Battle of Thermopylae",
+        "titleKr":  "테르모필레 전투",
+        "era":  "ancient",
+        "theater":  "mediterranean",
+        "date":  "BC 480년 8월",
+        "location":  "그리스 테르모필레 협곡",
+        "commanders":  [
+                           "레오니다스 1세",
+                           "크세르크세스 1세"
+                       ],
+        "description":  "좁은 해안 협곡에서 레오니다스가 이끄는 300명의 스파르타 전사와 그리스 연합군이 페르시아 대군을 3일간 저지한 전투. 지형의 이점을 최대한 활용한 방어전의 교과서적 사례.",
+        "keywords":  [
+                         "협곡 방어",
+                         "지형 이점",
+                         "저지 작전",
+                         "해안 지형",
+                         "포위",
+                         "팔랑크스"
+                     ],
+        "url":  "pages/Battlefield Map/Battlefield Map detail.html?id=battle-of-thermopylae",
+        "result":  "페르시아 승리, 그리스군의 영웅적 저항"
+    },
+    {
+        "id":  "normandy-landings",
+        "title":  "Normandy Landings (D-Day)",
+        "titleKr":  "노르망디 상륙작전",
+        "era":  "worldwar",
+        "theater":  "europe",
+        "date":  "1944년 6월 6일",
+        "location":  "프랑스 노르망디 해안 (오마하, 유타, 골드, 주노, 소드 해변)",
+        "commanders":  [
+                           "드와이트 D. 아이젠하워",
+                           "에르빈 롬멜, 게르트 폰 룬트슈테트"
+                       ],
+        "description":  "역사상 최대의 상륙작전. 5개 해변에 동시 상륙하여 대서양 방벽을 돌파한 연합군의 작전으로, 유럽 해방의 시작점이 되었다.",
+        "keywords":  [
+                         "상륙 작전",
+                         "해안 돌파",
+                         "방어선 돌파",
+                         "진군 경로",
+                         "공수 작전"
+                     ],
+        "url":  "pages/Battlefield Map/Battlefield Map detail.html?id=normandy-landings",
+        "result":  "연합군 승리, 서부 전선 개막"
+    }
 ]

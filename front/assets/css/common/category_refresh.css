@@ -1,0 +1,103 @@
+/* ==========================================================================
+   War Archive — Category Refresh Overlay
+   각 카테고리 CSS 파일의 마지막 import로 추가하면
+   ALLCAPS / 과한 letter-spacing / 골드 강조를 일괄 정돈한다.
+   카테고리 고유 디자인(컴포넌트 형태/배경/배지 색)은 그대로 두고
+   "톤"만 통일하기 위한 시트.
+   ==========================================================================
+   사용법:
+     @import url('../common/category_tokens.css');
+     @import url('../common/category_refresh.css');
+     :root { --category-accent: var(--cat-XXX); --accent: var(--category-accent); }
+   ========================================================================== */
+
+/* ── 공용 라벨/네비게이션의 UPPERCASE 제거 & letter-spacing 축소 ── */
+.site-header .nav-links a,
+.header .nav a,
+.site-header .logo-text,
+.header .logo-text,
+.section-label,
+.hero-badge,
+.page-eyebrow,
+.filter-tab,
+.catalog-tab,
+.view-btn,
+.btn,
+.stat-label,
+.footer-col h4,
+.breadcrumb,
+.breadcrumb a,
+.toc-title,
+.side-toc-title,
+.meta-label,
+.casualty-label,
+.search-tag,
+.browse-chip,
+.card-tag,
+.tab-button,
+.filter-section h4,
+.filter-label,
+.era-badge,
+.role-badge,
+.type-badge,
+.shelf-tag,
+.book-spine .spine-label,
+.warning-badge {
+  text-transform: none !important;
+  letter-spacing: 0.3px !important;
+}
+
+/* 살짝 더 큰 폰트 사이즈에는 0.4px 정도 허용 */
+.section-title,
+.page-title,
+.doc-title,
+.card-title,
+.section-heading {
+  letter-spacing: -0.005em !important;
+}
+
+/* ── 골드 → 카테고리 액센트 매핑 (--accent 가 이미 재정의된 전제) ── */
+/* 별도 강제 색이 들어간 셀렉터들이 많지 않다면 자동으로 따라옴.
+   필요한 카테고리에서는 자기 파일에서 추가 override 가능. */
+
+/* ── 카드 분리감 강화 (기본 카드 컨테이너 후보들) ── */
+.person-card,
+.battle-card,
+.weapon-card,
+.weapon-category-card,
+.doc-card,
+.strategy-card,
+.shelf-card,
+.flow-card,
+.guideline-card,
+.step-card,
+.profile-card,
+.tech-card,
+.featured-card,
+.timeline-content {
+  box-shadow: var(--shadow-sm);
+  transition: background 0.25s ease, border-color 0.25s ease,
+              transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.person-card:hover,
+.battle-card:hover,
+.weapon-card:hover,
+.weapon-category-card:hover,
+.doc-card:hover,
+.strategy-card:hover,
+.shelf-card:hover,
+.flow-card:hover,
+.guideline-card:hover,
+.step-card:hover,
+.profile-card:hover,
+.tech-card:hover,
+.featured-card:hover {
+  box-shadow: var(--shadow-md);
+}
+
+/* ── 배경/보더는 베이스 토큰을 따라가도록 보정 (커스텀 색을 가진 카테고리는 자체 override 우선) ── */
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}

@@ -323,6 +323,59 @@
         document.getElementById('errorState').style.display = 'block';
     }
 
+    // 같은 카테고리 내 이전/다음 항목 연결
+    function loadSiblingNav(itemId, currentCategory) {
+        if (!currentCategory) return;
+        var indexUrl = '../../data/search/weapons and equipment search.json';
+        fetch(indexUrl)
+            .then(function (res) { return res.ok ? res.json() : []; })
+            .then(function (list) {
+                if (!Array.isArray(list) || !list.length) return;
+                // 같은 카테고리만
+                var siblings = list.filter(function (it) {
+                    return it && it.category === currentCategory && it.url;
+                });
+                // url에서 id 파라미터 추출 (?id=...)
+                function urlToId(u) {
+                    var m = String(u).match(/[?&]id=([^&]+)/);
+                    return m ? decodeURIComponent(m[1]) : '';
+                }
+                // 이름순 정렬 (한글 가나다 / 영문)
+                siblings.sort(function (a, b) {
+                    return String(a.name || '').localeCompare(String(b.name || ''), 'ko');
+                });
+                var idx = -1;
+                for (var i = 0; i < siblings.length; i++) {
+                    if (urlToId(siblings[i].url) === itemId) { idx = i; break; }
+                }
+                if (idx === -1) return;
+
+                var nav = document.getElementById('entryNav');
+                var prevEl = document.getElementById('navPrev');
+                var nextEl = document.getElementById('navNext');
+                var prevTitle = document.getElementById('navPrevTitle');
+                var nextTitle = document.getElementById('navNextTitle');
+
+                var prev = idx > 0 ? siblings[idx - 1] : null;
+                var next = idx < siblings.length - 1 ? siblings[idx + 1] : null;
+
+                if (!prev && !next) return; // 단일 항목이면 표시하지 않음
+                nav.hidden = false;
+
+                if (prev) {
+                    prevEl.hidden = false;
+                    prevEl.setAttribute('href', prev.url.replace(/^pages\/Weapons and Equipment\//, ''));
+                    prevTitle.textContent = prev.name || '';
+                }
+                if (next) {
+                    nextEl.hidden = false;
+                    nextEl.setAttribute('href', next.url.replace(/^pages\/Weapons and Equipment\//, ''));
+                    nextTitle.textContent = next.name || '';
+                }
+            })
+            .catch(function () { /* 무시: 내비게이션 미표시 */ });
+    }
+
     // 초기화
     document.addEventListener('DOMContentLoaded', function () {
         var itemId = getItemId();
@@ -333,7 +386,10 @@
         }
 
         loadItemData(itemId)
-            .then(renderPage)
+            .then(function (data) {
+                renderPage(data);
+                loadSiblingNav(itemId, data && data.category);
+            })
             .catch(function () {
                 showError();
             });

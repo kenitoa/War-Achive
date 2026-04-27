@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Playfair+Display:wght@700;900&display=swap');
+@import url('../common/category_tokens.css');
+@import url('../common/category_refresh.css');
 
 /* ── Reset & Base ── */
 *, *::before, *::after {
@@ -8,19 +10,22 @@
 }
 
 :root {
-  --bg-primary: #0a0a0a;
-  --bg-secondary: #111111;
-  --bg-card: #1a1a1a;
-  --bg-card-hover: #222222;
-  --accent: #c9a84c;
-  --accent-dark: #a07e2e;
-  --text-primary: #e8e8e8;
-  --text-secondary: #999999;
-  --text-muted: #666666;
-  --border: #2a2a2a;
-  --border-accent: #3a3a3a;
-  --danger: #8b3a3a;
-  --shadow: rgba(0, 0, 0, 0.5);
+  --bg-primary: #0e1013;
+  --bg-secondary: #14171b;
+  --bg-card: #1a1d22;
+  --bg-card-hover: #20242a;
+  --category-accent: var(--cat-weapons);
+  --category-accent-dim: rgba(124, 137, 149, 0.14);
+  --category-accent-line: rgba(124, 137, 149, 0.40);
+  --accent: var(--category-accent);
+  --accent-dark: #5b6671;
+  --text-primary: #e6e7e9;
+  --text-secondary: #9aa0a8;
+  --text-muted: #6a707a;
+  --border: #262a30;
+  --border-accent: #353a42;
+  --danger: #7a4747;
+  --shadow: rgba(0, 0, 0, 0.45);
 }
 
 html {

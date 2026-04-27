@@ -1,10 +1,11 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>WAR ARCHIVE — 기여하기</title>
+  <title>War Archive — 기여하기</title>
   <link rel="stylesheet" href="../../assets/css/info/contribution style.css">
+  <link rel="stylesheet" href="../../assets/css/common/archive_common.css">
 </head>
 <body>
 
@@ -12,7 +13,7 @@
   <header class="site-header">
     <div class="header-inner">
       <a href="../../index.html" class="logo">
-        <div class="logo-icon">&#9876;</div>
+        <span class="logo-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 9.5 L4 20"/><path d="M9.5 14.5 L20 4"/><path d="M2 18 L6 22"/><path d="M18 2 L22 6"/><path d="M14 6 L18 10"/></svg></span>
         <span class="logo-text">War Archive</span>
       </a>
       <nav class="nav-links">
@@ -32,17 +33,11 @@
     <div class="panel-bg"></div>
     <div class="panel-content reveal">
       <span class="label-tag">Contribution Guide</span>
-      <h1 class="display-title">
-        함께 만들어가는<br>
+      <h1 class="display-title">함께 만들어가는<br>
         <span class="accent">War Archive</span>
       </h1>
-      <p class="hero-desc">
-        프로젝트에 기여하는 방법과 가이드라인을 안내합니다.
+      <p class="hero-desc">프로젝트에 기여하는 방법과 가이드라인을 안내합니다.
       </p>
-    </div>
-    <div class="scroll-indicator">
-      <span>Scroll</span>
-      <div class="line"></div>
     </div>
   </section>
 
@@ -52,9 +47,7 @@
       <div class="center-block reveal">
         <span class="label-tag">01 — Overview</span>
         <h2 class="section-heading">기여 개요</h2>
-        <p class="body-text body-text-center">
-          War Archive는 오픈 프로젝트입니다. 역사에 관심 있는 누구나 기여할 수 있으며,<br>
-          아래 가이드라인을 따라 주시면 원활한 협업이 가능합니다.
+        <p class="body-text body-text-center">War Archive는 오픈 프로젝트입니다. 역사에 관심 있는 누구나 기여할 수 있으며,<br> 아래 가이드라인을 따라 주시면 원활한 협업이 가능합니다.
         </p>
       </div>
 
@@ -98,51 +91,50 @@
         <div class="split-left reveal">
           <span class="label-tag">02 — Project Structure</span>
           <h2 class="section-heading">프로젝트 구조</h2>
-          <p class="body-text">
-            기여하기 전에 프로젝트 폴더 구조를 이해하면 작업이 훨씬 수월합니다.
+          <p class="body-text">기여하기 전에 프로젝트 폴더 구조를 이해하면 작업이 훨씬 수월합니다.
           </p>
         </div>
         <div class="split-right reveal reveal-delay">
           <div class="structure-tree">
             <div class="tree-item tree-root">
-              <span class="tree-icon">📁</span> War Archive/
+              War Archive/
             </div>
             <div class="tree-item tree-depth-1">
-              <span class="tree-icon">📁</span> data/
+              data/
               <span class="tree-note">— JSON 데이터 파일</span>
             </div>
             <div class="tree-item tree-depth-2">
-              <span class="tree-icon">📄</span> war overview data/
+              war overview data/
             </div>
             <div class="tree-item tree-depth-2">
-              <span class="tree-icon">📄</span> biography of people data/
+              biography of people data/
             </div>
             <div class="tree-item tree-depth-2">
-              <span class="tree-icon">📄</span> weapons and equipment data/
+              weapons and equipment data/
             </div>
             <div class="tree-item tree-depth-2">
-              <span class="tree-icon">📄</span> strategy and tactics data/
+              strategy and tactics data/
             </div>
             <div class="tree-item tree-depth-2">
-              <span class="tree-icon">📄</span> Historical Sources & Documents data/
+              Historical Sources & Documents data/
             </div>
             <div class="tree-item tree-depth-2">
-              <span class="tree-icon">📄</span> Battlefield Map data/
+              Battlefield Map data/
             </div>
             <div class="tree-item tree-depth-1">
-              <span class="tree-icon">📁</span> pages/
+              pages/
               <span class="tree-note">— HTML 페이지 파일</span>
             </div>
             <div class="tree-item tree-depth-1">
-              <span class="tree-icon">📁</span> assets/css/
+              assets/css/
               <span class="tree-note">— CSS 스타일 파일</span>
             </div>
             <div class="tree-item tree-depth-1">
-              <span class="tree-icon">📁</span> assets/js/
+              assets/js/
               <span class="tree-note">— JavaScript 파일</span>
             </div>
             <div class="tree-item tree-depth-1">
-              <span class="tree-icon">📁</span> assets/images/
+              assets/images/
               <span class="tree-note">— 이미지 파일</span>
             </div>
           </div>
@@ -157,8 +149,7 @@
       <div class="center-block reveal">
         <span class="label-tag">03 — Data Format</span>
         <h2 class="section-heading">JSON 데이터 가이드라인</h2>
-        <p class="body-text body-text-center">
-          데이터 기여 시 아래 JSON 형식을 준수해 주세요.
+        <p class="body-text body-text-center">데이터 기여 시 아래 JSON 형식을 준수해 주세요.
         </p>
       </div>
 
@@ -220,8 +211,7 @@
       <div class="center-block reveal">
         <span class="label-tag">04 — Steps</span>
         <h2 class="section-heading">기여 절차</h2>
-        <p class="body-text body-text-center">
-          아래의 단계를 따라 프로젝트에 기여해 주세요.
+        <p class="body-text body-text-center">아래의 단계를 따라 프로젝트에 기여해 주세요.
         </p>
       </div>
 
@@ -256,8 +246,7 @@
           </div>
           <div class="step-card">
             <h3>변경 사항 작성</h3>
-            <p>가이드라인에 맞춰 데이터를 추가하거나 코드를 수정합니다.<br>
-            변경 전 로컬에서 테스트를 진행해 주세요.</p>
+            <p>가이드라인에 맞춰 데이터를 추가하거나 코드를 수정합니다.<br> 변경 전 로컬에서 테스트를 진행해 주세요.</p>
           </div>
         </div>
 
@@ -279,8 +268,7 @@
           </div>
           <div class="step-card">
             <h3>Pull Request 생성</h3>
-            <p>원본 저장소에 Pull Request를 생성합니다.<br>
-            변경 내용에 대한 설명을 상세히 작성해 주세요.</p>
+            <p>원본 저장소에 Pull Request를 생성합니다.<br> 변경 내용에 대한 설명을 상세히 작성해 주세요.</p>
           </div>
         </div>
 
@@ -308,7 +296,7 @@
       <div class="convention-grid convention-grid-single">
         <div class="convention-block reveal">
           <div class="convention-header">
-            <span class="convention-icon">&#128196;</span>
+            
             <h3>JSON 데이터</h3>
           </div>
           <ul class="convention-list">
@@ -339,7 +327,7 @@
         <div class="split-right reveal reveal-delay">
           <div class="rules-list">
             <div class="rule-item rule-do">
-              <span class="rule-icon">&#10003;</span>
+              
               <div>
                 <h4>해주세요</h4>
                 <ul>
@@ -351,7 +339,7 @@
               </div>
             </div>
             <div class="rule-item rule-dont">
-              <span class="rule-icon">&#10007;</span>
+              
               <div>
                 <h4>하지 마세요</h4>
                 <ul>
@@ -371,11 +359,9 @@
   <!-- ── Section 8: CTA ── -->
   <section class="panel panel-cta" id="cta">
     <div class="panel-content reveal">
-      <h2 class="display-title display-title-sm">
-        역사의 기록에<br><span class="accent">참여해 주세요.</span>
+      <h2 class="display-title display-title-sm">역사의 기록에<br><span class="accent">참여해 주세요.</span>
       </h2>
-      <p class="body-text body-text-center">
-        여러분의 기여가 War Archive를 더욱 풍성하게 만듭니다.
+      <p class="body-text body-text-center">여러분의 기여가 War Archive를 더욱 풍성하게 만듭니다.
       </p>
       <div class="cta-actions">
         <a href="https://github.com/kenitoa/War-Achive" class="btn-cta" target="_blank" rel="noopener noreferrer">GitHub에서 시작하기</a>
@@ -389,7 +375,7 @@
     <div class="footer-inner">
       <div class="footer-top">
         <a href="../../index.html" class="logo">
-          <div class="logo-icon">&#9876;</div>
+          <span class="logo-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 9.5 L4 20"/><path d="M9.5 14.5 L20 4"/><path d="M2 18 L6 22"/><path d="M18 2 L22 6"/><path d="M14 6 L18 10"/></svg></span>
           <span class="logo-text">War Archive</span>
         </a>
         <nav class="footer-nav">

@@ -1,10 +1,11 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>인물 열전 — War Archive</title>
   <link rel="stylesheet" href="../../assets/css/biography of people style/biography of people style.css">
+  <link rel="stylesheet" href="../../assets/css/common/archive_common.css">
 </head>
 <body>
 
@@ -12,15 +13,16 @@
   <header class="site-header">
     <div class="header-inner">
       <a href="../../index.html" class="logo">
-        <div class="logo-icon">&#9876;</div>
+        <span class="logo-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 9.5 L4 20"/><path d="M9.5 14.5 L20 4"/><path d="M2 18 L6 22"/><path d="M18 2 L22 6"/><path d="M14 6 L18 10"/></svg></span>
         <span class="logo-text">War Archive</span>
       </a>
 
       <nav class="nav-links">
         <a href="../../index.html#categories">아카이브</a>
+        <a href="../../index.html#browse">탐색</a>
         <a href="../../index.html#timeline">연대기</a>
-        <a href="../../index.html#featured">주요 기록</a>
         <a href="../../index.html#search">검색</a>
+        <a href="../../index.html#project">프로젝트</a>
       </nav>
 
       <button class="menu-toggle" aria-label="메뉴 열기">
@@ -41,8 +43,8 @@
         <span class="sep">/</span>
         <span class="current">인물 열전</span>
       </nav>
-      <h1 class="page-title">&#128587; 인물 열전</h1>
-      <p class="page-subtitle">전쟁의 흐름을 결정지은 지휘관, 전략가, 영웅, 그리고 민간인들의 이야기를 담습니다.</p>
+      <h1 class="page-title">인물 열전</h1>
+      <p class="page-subtitle">전쟁사에 등장한 지휘관, 전략가, 주요 인물의 이력·활동·평가를 정리합니다.</p>
       <div class="page-stats">
         <div class="page-stat"><strong id="statTotal">0</strong>명의 인물</div>
         <div class="page-stat"><strong id="statWars">0</strong>개 전쟁</div>
@@ -56,7 +58,7 @@
     <div class="filter-inner">
       <div class="filter-search">
         <input type="text" id="personSearch" placeholder="인물명, 전쟁, 국적으로 검색...">
-        <span class="search-icon">&#128269;</span>
+        <span class="search-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></span>
       </div>
       <div class="filter-tabs" id="roleTabs">
         <button class="filter-tab active" data-role="all">전체</button>
@@ -81,8 +83,8 @@
           <option value="all">모든 국적</option>
         </select>
         <div class="view-toggle">
-          <button class="view-btn active" data-view="card" title="카드 보기">&#9871;</button>
-          <button class="view-btn" data-view="table" title="표 보기">&#9776;</button>
+          <button class="view-btn active" data-view="card" title="카드 보기" aria-label="카드 보기"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></button>
+          <button class="view-btn" data-view="table" title="표 보기" aria-label="표 보기"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/></svg></button>
         </div>
       </div>
     </div>
@@ -118,7 +120,7 @@
 
     <!-- No Results -->
     <div class="no-results" id="noResults" style="display:none;">
-      <div class="no-results-icon">&#128587;</div>
+      
       <p>검색 결과가 없습니다</p>
       <span>다른 검색어나 필터를 시도해보세요</span>
     </div>
@@ -127,11 +129,23 @@
   <!-- ── Footer ── -->
   <footer class="site-footer">
     <div class="footer-inner">
-      <div class="footer-logo">
-        <div class="logo-icon">&#9876;</div>
-        <span class="logo-text">War Archive</span>
+      <div class="footer-top">
+        <a href="../../index.html" class="logo">
+          <span class="logo-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 9.5 L4 20"/><path d="M9.5 14.5 L20 4"/><path d="M2 18 L6 22"/><path d="M18 2 L22 6"/><path d="M14 6 L18 10"/></svg></span>
+          <span class="logo-text">War Archive</span>
+        </a>
+        <nav class="footer-nav">
+          <a href="../../index.html#categories">아카이브</a>
+          <a href="../../index.html#browse">탐색</a>
+          <a href="../../index.html#timeline">연대기</a>
+          <a href="../info/information.html">소개</a>
+          <a href="../info/contribution.html">자료 제보</a>
+          <a href="../info/developer information.html">운영자 · 문의</a>
+        </nav>
       </div>
-      <p class="footer-copy">&copy; 2026 War Archive. 역사를 기록하다.</p>
+      <div class="footer-bottom">
+        <p>&copy; 2026 War Archive. All rights reserved.</p>
+      </div>
     </div>
   </footer>
 

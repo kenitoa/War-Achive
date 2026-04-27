@@ -1,6 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Playfair+Display:wght@700;900&family=Noto+Serif+KR:wght@400;700;900&display=swap');
+﻿@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Playfair+Display:wght@700;900&family=Noto+Serif+KR:wght@400;700;900&display=swap');
+@import url('../common/category_tokens.css');
+@import url('../common/category_refresh.css');
 
-/* ── Reset & Base ── */
+/* ?? Reset & Base ?? */
 *, *::before, *::after {
   margin: 0;
   padding: 0;
@@ -8,25 +10,28 @@
 }
 
 :root {
-  --bg-primary: #0a0a0a;
-  --bg-secondary: #111111;
-  --bg-card: #1a1a1a;
-  --bg-card-hover: #222222;
-  --bg-field: #12110e;
-  --bg-field-light: #1a1812;
-  --accent: #c9a84c;
-  --accent-dark: #a07e2e;
-  --accent-warm: #d4a937;
-  --text-primary: #e8e8e8;
-  --text-secondary: #999999;
-  --text-muted: #666666;
-  --text-sepia: #c8b78a;
-  --border: #2a2a2a;
-  --border-accent: #3a3a3a;
-  --border-field: #3d3627;
-  --shadow: rgba(0, 0, 0, 0.5);
-  --terrain-dust: rgba(180, 155, 100, 0.04);
-  --terrain-fog: rgba(201, 168, 76, 0.02);
+  --bg-primary: #0e1013;
+  --bg-secondary: #14171b;
+  --bg-card: #1a1d22;
+  --bg-card-hover: #20242a;
+  --bg-field: #11140f;
+  --bg-field-light: #161a13;
+  --category-accent: var(--cat-map);
+  --category-accent-dim: rgba(111, 140, 94, 0.14);
+  --category-accent-line: rgba(111, 140, 94, 0.40);
+  --accent: var(--category-accent);
+  --accent-dark: #51694a;
+  --accent-warm: var(--gold);
+  --text-primary: #e6e7e9;
+  --text-secondary: #9aa0a8;
+  --text-muted: #6a707a;
+  --text-sepia: #b9c8a8;
+  --border: #262a30;
+  --border-accent: #353a42;
+  --border-field: #2f3a2a;
+  --shadow: rgba(0, 0, 0, 0.45);
+  --terrain-dust: rgba(111, 140, 94, 0.04);
+  --terrain-fog: rgba(111, 140, 94, 0.02);
   --serif: 'Noto Serif KR', 'Playfair Display', serif;
   --sans: 'Noto Sans KR', sans-serif;
 }
@@ -52,7 +57,7 @@ ul, ol {
   list-style: none;
 }
 
-/* ── Header ── */
+/* ?? Header ?? */
 .site-header {
   position: fixed;
   top: 0;
@@ -152,7 +157,7 @@ ul, ol {
   transition: 0.3s;
 }
 
-/* ── Page Hero (AR 현장감) ── */
+/* ?? Page Hero (AR ?꾩옣媛? ?? */
 .page-hero {
   padding: 10rem 2rem 5rem;
   text-align: center;
@@ -162,7 +167,7 @@ ul, ol {
   overflow: hidden;
 }
 
-/* 대기 효과 — 안개/먼지 레이어 */
+/* ?湲??④낵 ???덇컻/癒쇱? ?덉씠??*/
 .hero-atmosphere {
   position: absolute;
   inset: 0;
@@ -203,7 +208,7 @@ ul, ol {
   50% { transform: translateX(-3%) translateY(1%); }
 }
 
-/* 등고선 패턴 */
+/* ?깃퀬???⑦꽩 */
 .hero-topo-lines {
   position: absolute;
   inset: 0;
@@ -248,7 +253,7 @@ ul, ol {
   background: linear-gradient(90deg, transparent, var(--accent-dark), transparent);
 }
 
-/* AR 나침반 */
+/* AR ?섏묠諛?*/
 .hero-compass {
   position: absolute;
   top: 6.5rem;
@@ -411,7 +416,7 @@ ul, ol {
   letter-spacing: 1px;
 }
 
-/* AR 좌표 표시 */
+/* AR 醫뚰몴 ?쒖떆 */
 .hero-coordinates {
   display: inline-flex;
   align-items: center;
@@ -436,7 +441,7 @@ ul, ol {
   letter-spacing: 1px;
 }
 
-/* ── 명언 인용 배너 ── */
+/* ?? 紐낆뼵 ?몄슜 諛곕꼫 ?? */
 .quote-banner {
   background: var(--bg-primary);
   border-bottom: 1px solid var(--border);
@@ -483,7 +488,7 @@ ul, ol {
   font-style: normal;
 }
 
-/* ── Filter Bar ── */
+/* ?? Filter Bar ?? */
 .filter-bar {
   background: var(--bg-secondary);
   border-bottom: 1px solid var(--border);
@@ -616,7 +621,7 @@ ul, ol {
   color: #0a0a0a;
 }
 
-/* ── Result Info ── */
+/* ?? Result Info ?? */
 .result-info {
   max-width: 1400px;
   margin: 0 auto;
@@ -626,7 +631,7 @@ ul, ol {
   letter-spacing: 1px;
 }
 
-/* ── Battlefield Content ── */
+/* ?? Battlefield Content ?? */
 .battlefield-content {
   max-width: 1400px;
   margin: 0 auto;
@@ -634,9 +639,9 @@ ul, ol {
   position: relative;
 }
 
-/* ══════════════════════════════════════════
-   현장(Field) 뷰 — AR 전장 현장감
-   ══════════════════════════════════════════ */
+/* ?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧
+   ?꾩옣(Field) 酉???AR ?꾩옣 ?꾩옣媛?
+   ?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧 */
 .field-view {
   display: flex;
   flex-direction: column;
@@ -652,7 +657,7 @@ ul, ol {
   display: none;
 }
 
-/* 전장 엔트리 — 현장 보고서 스타일 */
+/* ?꾩옣 ?뷀듃由????꾩옣 蹂닿퀬???ㅽ???*/
 .field-entry {
   display: block;
   position: relative;
@@ -663,7 +668,7 @@ ul, ol {
   cursor: pointer;
 }
 
-/* 좌측 마커 — 지도 핀 */
+/* 醫뚯륫 留덉빱 ??吏??? */
 .field-entry::before {
   content: '';
   position: absolute;
@@ -689,7 +694,7 @@ ul, ol {
   box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.15);
 }
 
-/* 전장 좌표 태그 */
+/* ?꾩옣 醫뚰몴 ?쒓렇 */
 .field-entry-coords {
   position: absolute;
   top: 1.2rem;
@@ -757,9 +762,7 @@ ul, ol {
 }
 
 .field-entry-location::before {
-  content: '📍';
-  font-size: 0.7rem;
-  font-style: normal;
+  content: '';
 }
 
 .field-entry-desc {
@@ -770,7 +773,7 @@ ul, ol {
   margin-bottom: 1rem;
 }
 
-/* 전장 정보 메타 — 지형, 지휘관, 결과 */
+/* ?꾩옣 ?뺣낫 硫뷀? ??吏?? 吏?섍?, 寃곌낵 */
 .field-entry-meta {
   display: flex;
   gap: 1.5rem;
@@ -789,7 +792,7 @@ ul, ol {
   font-weight: 500;
 }
 
-/* 지형 태그 */
+/* 吏???쒓렇 */
 .field-terrain-tag {
   display: inline-flex;
   align-items: center;
@@ -802,7 +805,7 @@ ul, ol {
   background: rgba(201, 168, 76, 0.05);
 }
 
-/* 전장 구분선 */
+/* ?꾩옣 援щ텇??*/
 .field-divider {
   width: 100%;
   height: 1px;
@@ -810,7 +813,7 @@ ul, ol {
   margin-left: 3.5rem;
 }
 
-/* 하단 페이드 오버레이 */
+/* ?섎떒 ?섏씠???ㅻ쾭?덉씠 */
 .scroll-fade-overlay {
   position: sticky;
   bottom: 0;
@@ -824,9 +827,9 @@ ul, ol {
   transition: opacity 0.3s ease;
 }
 
-/* ══════════════════════════════════════════
-   Grid View (카드 스타일 — AR 현장 카드)
-   ══════════════════════════════════════════ */
+/* ?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧
+   Grid View (移대뱶 ?ㅽ?????AR ?꾩옣 移대뱶)
+   ?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧 */
 .grid-view {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -852,7 +855,7 @@ ul, ol {
   overflow: hidden;
 }
 
-/* 상단 지형 바 */
+/* ?곷떒 吏??諛?*/
 .grid-card::before {
   content: '';
   position: absolute;
@@ -864,7 +867,7 @@ ul, ol {
   transition: width 0.4s;
 }
 
-/* 우측 상단 좌표 마크 */
+/* ?곗륫 ?곷떒 醫뚰몴 留덊겕 */
 .grid-card::after {
   content: '';
   position: absolute;
@@ -962,7 +965,7 @@ ul, ol {
   text-transform: uppercase;
 }
 
-/* ── Pagination ── */
+/* ?? Pagination ?? */
 .pagination {
   display: flex;
   justify-content: center;
@@ -1010,7 +1013,7 @@ ul, ol {
   color: var(--text-muted);
 }
 
-/* ── Empty State ── */
+/* ?? Empty State ?? */
 .empty-state {
   text-align: center;
   padding: 5rem 2rem;
@@ -1030,7 +1033,7 @@ ul, ol {
   color: var(--text-secondary);
 }
 
-/* ── Footer ── */
+/* ?? Footer ?? */
 .site-footer {
   background: var(--bg-primary);
   border-top: 1px solid var(--border);
@@ -1064,7 +1067,7 @@ ul, ol {
   margin-top: 0.5rem;
 }
 
-/* ── Responsive ── */
+/* ?? Responsive ?? */
 @media (max-width: 1024px) {
   .grid-view {
     grid-template-columns: repeat(2, 1fr);
@@ -1150,463 +1153,6 @@ ul, ol {
   }
 }
 
-/* ══════════════════════════════════════════
-   AR / HUD 홀로그래픽 효과
-   ══════════════════════════════════════════ */
 
-/* AR 색상 변수 */
-:root {
-  --ar-cyan: #00e5ff;
-  --ar-cyan-dim: rgba(0, 229, 255, 0.15);
-  --ar-cyan-glow: rgba(0, 229, 255, 0.4);
-  --ar-green: #39ff14;
-  --ar-green-dim: rgba(57, 255, 20, 0.08);
-  --ar-amber: rgba(201, 168, 76, 0.6);
-  --ar-scanline: rgba(0, 229, 255, 0.03);
-}
+/* AR/HUD 효과는 아카이브 톤을 위해 제거되었습니다. */
 
-/* ── 전역 스캔라인 오버레이 ── */
-body::after {
-  content: '';
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 9999;
-  background: repeating-linear-gradient(
-    0deg,
-    transparent,
-    transparent 2px,
-    var(--ar-scanline) 2px,
-    var(--ar-scanline) 4px
-  );
-  opacity: 0.4;
-}
-
-/* ── AR HUD 오버레이 (HTML에서 추가) ── */
-.ar-hud-overlay {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 9998;
-}
-
-/* HUD 코너 브라켓 */
-.ar-hud-overlay .hud-corner {
-  position: absolute;
-  width: 40px;
-  height: 40px;
-  border-color: var(--ar-cyan);
-  border-style: solid;
-  border-width: 0;
-  opacity: 0.25;
-}
-
-.ar-hud-overlay .hud-corner.tl { top: 10px; left: 10px; border-top-width: 2px; border-left-width: 2px; }
-.ar-hud-overlay .hud-corner.tr { top: 10px; right: 10px; border-top-width: 2px; border-right-width: 2px; }
-.ar-hud-overlay .hud-corner.bl { bottom: 10px; left: 10px; border-bottom-width: 2px; border-left-width: 2px; }
-.ar-hud-overlay .hud-corner.br { bottom: 10px; right: 10px; border-bottom-width: 2px; border-right-width: 2px; }
-
-/* HUD 상단 상태표시 바 */
-.ar-hud-topbar {
-  position: fixed;
-  top: 71px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 9997;
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  padding: 0.3rem 1.5rem;
-  background: rgba(0, 229, 255, 0.04);
-  border: 1px solid rgba(0, 229, 255, 0.1);
-  border-top: none;
-  pointer-events: none;
-  font-family: 'Courier New', monospace;
-  font-size: 0.6rem;
-  color: var(--ar-cyan);
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  white-space: nowrap;
-}
-
-.ar-hud-topbar .hud-indicator {
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-}
-
-.ar-hud-topbar .hud-dot {
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: var(--ar-cyan);
-  animation: hudPulse 2s ease-in-out infinite;
-}
-
-.ar-hud-topbar .hud-dot.amber {
-  background: var(--accent);
-  animation-delay: 0.5s;
-}
-
-@keyframes hudPulse {
-  0%, 100% { opacity: 1; box-shadow: 0 0 4px var(--ar-cyan); }
-  50% { opacity: 0.3; box-shadow: none; }
-}
-
-/* ── 히어로 섹션 AR 강화 ── */
-.page-hero {
-  border-bottom-color: rgba(0, 229, 255, 0.15);
-}
-
-/* AR 그리드 배경 */
-.page-hero .hero-atmosphere::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(0, 229, 255, 0.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 229, 255, 0.02) 1px, transparent 1px);
-  background-size: 60px 60px;
-  animation: gridScroll 20s linear infinite;
-}
-
-@keyframes gridScroll {
-  0% { background-position: 0 0; }
-  100% { background-position: 60px 60px; }
-}
-
-/* 나침반 AR 글로우 */
-.hero-compass {
-  opacity: 0.5;
-  animation: compassScan 8s ease-in-out infinite;
-}
-
-.compass-ring {
-  border-color: var(--ar-cyan);
-  box-shadow: 0 0 10px rgba(0, 229, 255, 0.1), inset 0 0 10px rgba(0, 229, 255, 0.05);
-}
-
-.compass-ring::after {
-  border-color: rgba(0, 229, 255, 0.2);
-}
-
-.compass-needle {
-  background: linear-gradient(to top, transparent, var(--ar-cyan));
-}
-
-@keyframes compassScan {
-  0%, 100% { opacity: 0.5; }
-  50% { opacity: 0.7; }
-}
-
-/* 좌표 표시 AR 스타일 */
-.hero-coordinates {
-  border-color: rgba(0, 229, 255, 0.2);
-  background: rgba(0, 229, 255, 0.04);
-  position: relative;
-}
-
-.hero-coordinates::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(0, 229, 255, 0.06), transparent);
-  animation: coordScan 3s ease-in-out infinite;
-}
-
-@keyframes coordScan {
-  0% { transform: translateX(-100%); }
-  100% { transform: translateX(100%); }
-}
-
-.coord-value {
-  color: var(--ar-cyan);
-  text-shadow: 0 0 8px rgba(0, 229, 255, 0.4);
-}
-
-/* ══════════════════════════════════════════
-   Field View — AR HUD 전장 엔트리
-   ══════════════════════════════════════════ */
-
-/* 전장 엔트리 AR 브라켓 & 글로우 */
-.field-entry {
-  border-left-color: rgba(0, 229, 255, 0.15);
-  position: relative;
-}
-
-.field-entry::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  border: 1px solid transparent;
-  transition: border-color 0.4s, box-shadow 0.4s;
-}
-
-.field-entry:hover::after {
-  border-color: rgba(0, 229, 255, 0.12);
-  box-shadow: inset 0 0 30px rgba(0, 229, 255, 0.03), 0 0 20px rgba(0, 229, 255, 0.05);
-}
-
-.field-entry:hover {
-  border-left-color: var(--ar-cyan);
-  background: linear-gradient(135deg, rgba(0, 229, 255, 0.02), transparent, rgba(201, 168, 76, 0.02));
-}
-
-/* 좌측 마커 — AR 핑 */
-.field-entry::before {
-  border-color: rgba(0, 229, 255, 0.5);
-  box-shadow: 0 0 6px rgba(0, 229, 255, 0.2);
-}
-
-.field-entry:hover::before {
-  background: var(--ar-cyan);
-  border-color: var(--ar-cyan);
-  box-shadow: 0 0 12px rgba(0, 229, 255, 0.5), 0 0 24px rgba(0, 229, 255, 0.2);
-  animation: arPing 1.5s ease-out infinite;
-}
-
-@keyframes arPing {
-  0% { box-shadow: 0 0 0 0 rgba(0, 229, 255, 0.5); }
-  70% { box-shadow: 0 0 0 10px rgba(0, 229, 255, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(0, 229, 255, 0); }
-}
-
-/* 좌표 텍스트 AR 스타일 */
-.field-entry-coords {
-  color: var(--ar-cyan);
-  text-shadow: 0 0 6px rgba(0, 229, 255, 0.3);
-  font-size: 0.55rem;
-}
-
-.field-entry:hover .field-entry-coords {
-  opacity: 1;
-  animation: coordFlicker 0.1s ease-in-out 3;
-}
-
-@keyframes coordFlicker {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.5; }
-}
-
-/* 시대 뱃지 AR 글로우 */
-.field-entry-era {
-  background: rgba(0, 229, 255, 0.08);
-  border-color: rgba(0, 229, 255, 0.2);
-  color: var(--ar-cyan);
-  text-shadow: 0 0 4px rgba(0, 229, 255, 0.3);
-}
-
-/* 제목 AR 호버 */
-.field-entry:hover .field-entry-title {
-  color: var(--ar-cyan);
-  text-shadow: 0 0 10px rgba(0, 229, 255, 0.2);
-}
-
-/* 지형 태그 AR */
-.field-terrain-tag {
-  border-color: rgba(0, 229, 255, 0.15);
-  color: var(--ar-cyan);
-  background: rgba(0, 229, 255, 0.04);
-}
-
-/* 구분선 AR */
-.field-divider {
-  background: linear-gradient(90deg, rgba(0, 229, 255, 0.15), transparent);
-}
-
-/* ══════════════════════════════════════════
-   Grid Card — AR 홀로그래픽 카드
-   ══════════════════════════════════════════ */
-.grid-card {
-  border-color: rgba(0, 229, 255, 0.08);
-  position: relative;
-  overflow: visible;
-}
-
-/* HUD 코너 브라켓 */
-.grid-card .card-bracket {
-  position: absolute;
-  width: 12px;
-  height: 12px;
-  border-color: rgba(0, 229, 255, 0.3);
-  border-style: solid;
-  border-width: 0;
-  transition: border-color 0.3s, width 0.3s, height 0.3s;
-  z-index: 2;
-}
-
-.grid-card .card-bracket.tl { top: -1px; left: -1px; border-top-width: 2px; border-left-width: 2px; }
-.grid-card .card-bracket.tr { top: -1px; right: -1px; border-top-width: 2px; border-right-width: 2px; }
-.grid-card .card-bracket.bl { bottom: -1px; left: -1px; border-bottom-width: 2px; border-left-width: 2px; }
-.grid-card .card-bracket.br { bottom: -1px; right: -1px; border-bottom-width: 2px; border-right-width: 2px; }
-
-.grid-card:hover .card-bracket {
-  border-color: var(--ar-cyan);
-  width: 20px;
-  height: 20px;
-}
-
-/* 상단 바 AR 컬러 */
-.grid-card::before {
-  background: linear-gradient(90deg, var(--ar-cyan), var(--accent));
-}
-
-/* AR 호버 글로우 */
-.grid-card:hover {
-  border-color: rgba(0, 229, 255, 0.25);
-  box-shadow: 0 0 20px rgba(0, 229, 255, 0.08), 0 8px 30px rgba(0, 0, 0, 0.3);
-}
-
-/* 홀로그래픽 시머 이펙트 */
-.grid-card .holo-shimmer {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    105deg,
-    transparent 40%,
-    rgba(0, 229, 255, 0.04) 45%,
-    rgba(0, 229, 255, 0.08) 50%,
-    rgba(0, 229, 255, 0.04) 55%,
-    transparent 60%
-  );
-  transform: translateX(-100%);
-  pointer-events: none;
-  z-index: 1;
-}
-
-.grid-card:hover .holo-shimmer {
-  animation: holoShimmer 1.2s ease-in-out;
-}
-
-@keyframes holoShimmer {
-  0% { transform: translateX(-100%); }
-  100% { transform: translateX(100%); }
-}
-
-/* AR 상태 인디케이터 (카드 내) */
-.grid-card .ar-status {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  display: flex;
-  align-items: center;
-  gap: 0.3rem;
-  font-family: 'Courier New', monospace;
-  font-size: 0.5rem;
-  color: var(--ar-cyan);
-  opacity: 0;
-  transition: opacity 0.3s;
-  letter-spacing: 1px;
-  z-index: 2;
-}
-
-.grid-card .ar-status::before {
-  content: '';
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  background: var(--ar-cyan);
-  box-shadow: 0 0 6px var(--ar-cyan);
-}
-
-.grid-card:hover .ar-status {
-  opacity: 1;
-}
-
-.grid-card .grid-card-era {
-  color: var(--ar-cyan);
-  text-shadow: 0 0 4px rgba(0, 229, 255, 0.3);
-}
-
-.grid-card:hover .grid-card-title {
-  color: var(--ar-cyan);
-  text-shadow: 0 0 8px rgba(0, 229, 255, 0.2);
-}
-
-/* ══════════════════════════════════════════
-   Field View — AR 스캔 이펙트
-   ══════════════════════════════════════════ */
-.field-entry .ar-scan-line {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, var(--ar-cyan), transparent);
-  opacity: 0;
-  pointer-events: none;
-}
-
-.field-entry:hover .ar-scan-line {
-  opacity: 0.6;
-  animation: scanDown 1.5s ease-in-out;
-}
-
-@keyframes scanDown {
-  0% { top: 0; opacity: 0.6; }
-  100% { top: 100%; opacity: 0; }
-}
-
-/* ══════════════════════════════════════════
-   AR 데이터 리드아웃 패널
-   ══════════════════════════════════════════ */
-.ar-data-readout {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 9997;
-  font-family: 'Courier New', monospace;
-  font-size: 0.55rem;
-  color: var(--ar-cyan);
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  line-height: 1.8;
-  padding: 0.8rem 1rem;
-  border: 1px solid rgba(0, 229, 255, 0.1);
-  background: rgba(0, 0, 0, 0.7);
-  backdrop-filter: blur(4px);
-  pointer-events: none;
-  text-align: right;
-  opacity: 0.6;
-}
-
-.ar-data-readout .readout-line {
-  display: block;
-}
-
-.ar-data-readout .readout-label {
-  color: rgba(0, 229, 255, 0.4);
-}
-
-.ar-data-readout .readout-value {
-  color: var(--ar-cyan);
-  text-shadow: 0 0 4px rgba(0, 229, 255, 0.3);
-}
-
-/* ── Animations ── */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.fade-in {
-  opacity: 0;
-  animation: fadeInUp 0.6s ease forwards;
-}
-
-/* ── AR 반응형 조정 ── */
-@media (max-width: 768px) {
-  .ar-hud-topbar { display: none; }
-  .ar-data-readout { display: none; }
-  .ar-hud-overlay .hud-corner { width: 24px; height: 24px; }
-}

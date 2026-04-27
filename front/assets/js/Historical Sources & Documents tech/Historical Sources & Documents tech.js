@@ -55,14 +55,14 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   const typeIcons = {
-    treaty: '📜',
-    declaration: '⚔️',
-    letter: '✉️',
-    diary: '📔',
-    speech: '🎙️',
-    report: '📋',
-    order: '🗺️',
-    memoir: '📖'
+    treaty: '',
+    declaration: '',
+    letter: '',
+    diary: '',
+    speech: '',
+    report: '',
+    order: '',
+    memoir: ''
   };
 
   // ── 명언 데이터 ──
@@ -250,7 +250,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const header = document.createElement('div');
       header.className = 'shelf-type-header';
       header.innerHTML =
-        '<span class="shelf-type-icon">' + (typeIcons[type] || '📄') + '</span>' +
+        '<span class="shelf-type-icon">' + (typeIcons[type] || '') + '</span>' +
         '<span class="shelf-type-label">' + escapeHTML(typeLabels[type] || type) + '</span>' +
         '<span class="shelf-type-count">' + items.length + '편</span>';
       shelfView.appendChild(header);
@@ -270,7 +270,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const title = escapeHTML(item.titleKr || item.title || '제목 없음');
         const eraLabel = escapeHTML(eraLabels[item.era] || item.era || '');
         const typeLabel = escapeHTML(typeLabels[spineType] || spineType);
-        const icon = typeIcons[spineType] || '📄';
+        const icon = typeIcons[spineType] || '';
 
         // 이미지가 있으면 표지 이미지, 없으면 유형별 색상 폴백
         let coverHTML;

@@ -1,24 +1,29 @@
 /* ========================================
    Biography of People Detail — 인물 열전 상세 페이지
-   전쟁 개요 문헌 스타일과 차별화된 인물 중심 레이아웃
+   카테고리 액센트: 청회색 (인물·초상)
    ======================================== */
+@import url('../common/category_tokens.css');
+@import url('../common/category_refresh.css');
 
 /* --- CSS 변수 --- */
 :root {
-    --bg-primary: #0a0a0a;
-    --bg-secondary: #111111;
-    --bg-card: #1a1a1a;
-    --bg-elevated: #141414;
-    --accent: #c9a84c;
-    --accent-dim: rgba(201, 168, 76, 0.12);
-    --accent-border: rgba(201, 168, 76, 0.3);
-    --text-primary: #e8e8e8;
-    --text-secondary: #a0a0a0;
-    --text-muted: #666666;
-    --border-color: #2a2a2a;
-    --border-light: #1e1e1e;
+    --bg-primary: #0e1013;
+    --bg-secondary: #14171b;
+    --bg-card: #1a1d22;
+    --bg-elevated: #20242a;
+    --category-accent: var(--cat-bio);
+    --category-accent-dim: rgba(110, 138, 168, 0.14);
+    --category-accent-line: rgba(110, 138, 168, 0.40);
+    --accent: var(--category-accent);
+    --accent-dim: var(--category-accent-dim);
+    --accent-border: var(--category-accent-line);
+    --text-primary: #e6e7e9;
+    --text-secondary: #9aa0a8;
+    --text-muted: #6a707a;
+    --border-color: #262a30;
+    --border-light: #1f2329;
 
-    --role-commander: #cc5555;
+    --role-commander: #c25c5c;
     --role-strategist: #5588cc;
     --role-politician: #9966cc;
     --role-hero: #c9a84c;

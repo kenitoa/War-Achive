@@ -1,10 +1,11 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>전장 지도 — War Archive</title>
   <link rel="stylesheet" href="../../assets/css/Battlefield Map style/Battlefield Map style.css">
+  <link rel="stylesheet" href="../../assets/css/common/archive_common.css">
 </head>
 <body>
 
@@ -12,15 +13,16 @@
   <header class="site-header">
     <div class="header-inner">
       <a href="../../index.html" class="logo">
-        <div class="logo-icon">&#9876;</div>
+        <span class="logo-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 9.5 L4 20"/><path d="M9.5 14.5 L20 4"/><path d="M2 18 L6 22"/><path d="M18 2 L22 6"/><path d="M14 6 L18 10"/></svg></span>
         <span class="logo-text">War Archive</span>
       </a>
 
       <nav class="nav-links">
         <a href="../../index.html#categories">아카이브</a>
+        <a href="../../index.html#browse">탐색</a>
         <a href="../../index.html#timeline">연대기</a>
-        <a href="../../index.html#featured">주요 기록</a>
         <a href="../../index.html#search">검색</a>
+        <a href="../../index.html#project">프로젝트</a>
       </nav>
 
       <button class="menu-toggle" aria-label="메뉴 열기">
@@ -31,21 +33,8 @@
     </div>
   </header>
 
-  <!-- ── Page Hero (AR 현장감) ── -->
+  <!-- ── Page Hero ── -->
   <section class="page-hero">
-    <div class="hero-atmosphere">
-      <div class="hero-fog fog-1"></div>
-      <div class="hero-fog fog-2"></div>
-      <div class="hero-topo-lines"></div>
-    </div>
-    <div class="hero-compass">
-      <div class="compass-ring"></div>
-      <div class="compass-needle"></div>
-      <span class="compass-n">N</span>
-      <span class="compass-e">E</span>
-      <span class="compass-s">S</span>
-      <span class="compass-w">W</span>
-    </div>
     <div class="page-hero-content">
       <nav class="breadcrumb">
         <a href="../../index.html">홈</a>
@@ -54,12 +43,9 @@
         <span class="sep">/</span>
         <span class="current">전장 지도</span>
       </nav>
-      <div class="hero-emblem">&#9881;</div>
+      
       <h1 class="page-title">전장 지도</h1>
-      <p class="page-subtitle">
-        지도로 보는 전쟁의 흐름 — 고대 전장부터 현대 작전 지역까지<br>
-        홀로그래픽 HUD로 전투 현장을 입체적으로 조망하는 AR 아카이브
-      </p>
+      <p class="page-subtitle">주요 전투의 지형, 진군 경로, 방어선을 시대·지역별로 정리한 지도 아카이브입니다.</p>
       <div class="page-stats">
         <div class="page-stat">
           <div class="stat-info"><strong id="totalBattleCount">0</strong><span>개 전투</span></div>
@@ -73,18 +59,13 @@
           <div class="stat-info"><strong id="totalTheaterCount">0</strong><span>개 전역</span></div>
         </div>
       </div>
-      <div class="hero-coordinates" id="heroCoords">
-        <span class="coord-label">위치 좌표</span>
-        <span class="coord-value">—</span>
-      </div>
     </div>
   </section>
 
   <!-- ── 명언 인용 배너 ── -->
   <section class="quote-banner">
     <div class="quote-inner">
-      <blockquote class="quote-text" id="quoteText">
-        "지형을 아는 자가 전쟁을 지배한다."
+      <blockquote class="quote-text" id="quoteText"> "지형을 아는 자가 전쟁을 지배한다."
       </blockquote>
       <cite class="quote-author" id="quoteAuthor">— 손자(孫子), 『손자병법』 지형편</cite>
     </div>
@@ -95,7 +76,7 @@
     <div class="filter-inner">
       <div class="filter-search">
         <input type="text" id="battleSearch" placeholder="전투명, 지역, 지휘관, 키워드로 검색...">
-        <span class="search-icon">&#128269;</span>
+        <span class="search-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></span>
       </div>
       <div class="filter-tabs" id="eraTabs">
         <button class="filter-tab active" data-era="all">전체</button>
@@ -117,8 +98,8 @@
           <option value="americas">아메리카</option>
         </select>
         <div class="view-toggle">
-          <button class="view-btn active" data-view="field" title="현장 보기">&#127758;</button>
-          <button class="view-btn" data-view="grid" title="카드 보기">&#9871;</button>
+          <button class="view-btn active" data-view="field" title="지도 보기" aria-label="지도 보기"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12 H21"/><path d="M12 3 C 16 7 16 17 12 21 C 8 17 8 7 12 3"/></svg></button>
+          <button class="view-btn" data-view="grid" title="카드 보기" aria-label="카드 보기"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></button>
         </div>
       </div>
     </div>
@@ -132,7 +113,7 @@
   <!-- ── Main Content ── -->
   <main class="battlefield-content">
 
-    <!-- 현장(Field) 뷰 — AR 현장감 기본 뷰 -->
+    <!-- 지도(Map) 기본 뷰 -->
     <div class="field-view" id="fieldView">
       <!-- JS가 동적으로 생성 -->
     </div>
@@ -145,7 +126,7 @@
 
     <!-- 빈 결과 -->
     <div class="empty-state" id="emptyState" style="display:none;">
-      <div class="empty-icon">&#127758;</div>
+      
       <h3>검색 결과가 없습니다</h3>
       <p>다른 키워드나 필터로 다시 검색해 보세요.</p>
     </div>
@@ -155,9 +136,22 @@
   <!-- ── Footer ── -->
   <footer class="site-footer">
     <div class="footer-inner">
-      <div class="footer-brand">
-        <div class="footer-logo">&#9876; War Archive</div>
-        <p class="footer-copy">&copy; 2026 War Archive. All rights reserved.</p>
+      <div class="footer-top">
+        <a href="../../index.html" class="logo">
+          <span class="logo-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 9.5 L4 20"/><path d="M9.5 14.5 L20 4"/><path d="M2 18 L6 22"/><path d="M18 2 L22 6"/><path d="M14 6 L18 10"/></svg></span>
+          <span class="logo-text">War Archive</span>
+        </a>
+        <nav class="footer-nav">
+          <a href="../../index.html#categories">아카이브</a>
+          <a href="../../index.html#browse">탐색</a>
+          <a href="../../index.html#timeline">연대기</a>
+          <a href="../info/information.html">소개</a>
+          <a href="../info/contribution.html">자료 제보</a>
+          <a href="../info/developer information.html">운영자 · 문의</a>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 War Archive. All rights reserved.</p>
       </div>
     </div>
   </footer>

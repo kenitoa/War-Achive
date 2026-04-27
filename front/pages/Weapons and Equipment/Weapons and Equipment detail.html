@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
@@ -8,19 +8,30 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../assets/css/Weapons and Equipment Style/Weapons and Equipment detail style.css">
+  <link rel="stylesheet" href="../../assets/css/common/archive_common.css">
 </head>
 <body>
+    <noscript>
+      <div style="max-width:720px;margin:80px auto;padding:24px;border:1px solid #c9a84c;background:#1a1a1a;color:#eee;font-family:sans-serif;line-height:1.7;">
+        <h1 style="margin-top:0;font-size:1.4rem;color:#c9a84c;">무기·장비 카테고리</h1>
+        <p>이 페이지는 자료를 동적으로 불러옵니다. 내용을 보려면 브라우저에서 JavaScript를 활성화해 주세요.</p>
+        <p><a href="../../index.html" style="color:#c9a84c;">아카이브 홈으로 돌아가기</a></p>
+      </div>
+    </noscript>
+
 
     <!-- 헤더 -->
-    <header class="header">
+    <header class="site-header">
         <div class="header-inner">
             <a href="../../index.html" class="logo">
-                <span class="logo-icon">⚔</span>
-                <span class="logo-text">WAR ARCHIVE</span>
+                <span class="logo-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 9.5 L4 20"/><path d="M9.5 14.5 L20 4"/><path d="M2 18 L6 22"/><path d="M18 2 L22 6"/><path d="M14 6 L18 10"/></svg></span>
+                <span class="logo-text">War Archive</span>
             </a>
-            <nav class="nav">
-                <a href="../../index.html">홈</a>
-                <a href="Weapons and Equipment.html">무기 &amp; 장비</a>
+            <nav class="nav-links">
+                <a href="../../index.html#categories">아카이브</a>
+                <a href="../../index.html#timeline">연대기</a>
+                <a href="../../index.html#search">검색</a>
+                <a href="../../index.html#project">프로젝트</a>
             </nav>
         </div>
     </header>
@@ -39,7 +50,7 @@
 
         <!-- 카테고리 헤더 -->
         <section class="category-hero">
-            <div class="category-icon-wrap" id="categoryIcon"></div>
+            
             <div class="category-info">
                 <h1 class="category-title" id="categoryTitle"></h1>
                 <p class="category-desc" id="categoryDesc"></p>
@@ -62,10 +73,38 @@
     </main>
 
     <!-- 푸터 -->
+    <!-- Phase C: Archive notice + related categories -->
+    <section class="archive-related" aria-label="자료 안내 및 다른 카테고리">
+      <div class="related-inner">
+        <div class="related-trust">
+          <span class="related-eyebrow">자료 안내</span>
+          <p>본 페이지의 자료는 공개된 1·2차 사료와 학술 자료를 정리한 것입니다. 인용·재배포 시 출처를 함께 확인해 주세요.</p>
+          <ul class="related-trust-list">
+            <li>출처는 각 자료의 "참고 자료" 섹션에서 확인할 수 있습니다.</li>
+            <li>오류·보강 의견은 기여 가이드를 통해 알려주시면 검토 후 반영합니다.</li>
+            <li>구전·논쟁 자료는 별도로 미확인 자료집에 분리해 보관합니다.</li>
+          </ul>
+          <a class="related-link-quiet" href="../info/contribution.html">기여 가이드 보기 →</a>
+        </div>
+        <nav class="related-nav" aria-label="다른 카테고리 둘러보기">
+          <span class="related-eyebrow">다른 카테고리 둘러보기</span>
+          <ul>
+            <li><a href="../war overview/war overview.html">전쟁 개요</a></li>
+            <li><a href="../biography of people/biography of people.html">인물 열전</a></li>
+            <li class="is-current"><a href="../Weapons and Equipment/Weapons and Equipment.html">무기 & 장비</a></li>
+            <li><a href="../strategy and tactics/strategy and tactics.html">전략 & 전술</a></li>
+            <li><a href="../Historical Sources & Documents/Historical Sources & Documents.html">사료 & 문서</a></li>
+            <li><a href="../Battlefield Map/Battlefield Map.html">전장 지도</a></li>
+            <li><a href="../Undefine facts/Undefine facts.html">미확인 자료집</a></li>
+          </ul>
+        </nav>
+      </div>
+    </section>
+
     <footer class="site-footer">
         <div class="footer-inner">
             <div class="footer-logo">
-                <span class="logo-icon">⚔</span>
+                <span class="logo-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 9.5 L4 20"/><path d="M9.5 14.5 L20 4"/><path d="M2 18 L6 22"/><path d="M18 2 L22 6"/><path d="M14 6 L18 10"/></svg></span>
                 <span class="logo-text">War Archive</span>
             </div>
             <p class="footer-copy">&copy; 2026 War Archive. All rights reserved.</p>

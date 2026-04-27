@@ -127,7 +127,7 @@
         if (person.portrait) {
             var frame = document.getElementById('portraitFrame');
             var src = /^https?:\/\//.test(person.portrait) ? person.portrait : '../../' + person.portrait;
-            frame.innerHTML = '<img src="' + escapeHTML(src) + '" alt="' + escapeHTML(person.name) + ' 초상화" referrerpolicy="no-referrer" onerror="this.onerror=null;this.parentElement.innerHTML=\'<div class=portrait-placeholder><span class=portrait-icon>👤</span><span class=portrait-label>초상화를 불러올 수 없습니다</span></div>\'">';
+            frame.innerHTML = '<img src="' + escapeHTML(src) + '" alt="' + escapeHTML(person.name) + ' 초상화" referrerpolicy="no-referrer" onerror="this.onerror=null;this.parentElement.innerHTML=\'<div class=portrait-placeholder><span class=portrait-label>초상화를 불러올 수 없습니다</span></div>\'">';
         }
         var caption = document.getElementById('portraitCaption');
         caption.textContent = person.name + ' (' + (person.lifespan || '') + ')';

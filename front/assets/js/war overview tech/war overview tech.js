@@ -99,6 +99,28 @@ document.addEventListener('DOMContentLoaded', () => {
     if (countriesEl) countriesEl.textContent = countrySet.size.toLocaleString();
   }
 
+  // ── 자료형 대표 이미지 매핑 (외부 Wikimedia 등) ──
+  // war.id 또는 데이터 파일명을 키로 한다. 누락 시 placeholder 그라데이션을 사용한다.
+  const warImages = {
+    'greco-persian':  'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Battle_of_Thermopylae_and_movements_to_Salamis%2C_480_BC.gif/640px-Battle_of_Thermopylae_and_movements_to_Salamis%2C_480_BC.gif',
+    'peloponnesian':  'https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Map_Peloponnesian_War_431_BC-en.svg/640px-Map_Peloponnesian_War_431_BC-en.svg.png',
+    'punic':          'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Map_of_Rome_and_Carthage_at_the_start_of_the_Second_Punic_War.svg/640px-Map_of_Rome_and_Carthage_at_the_start_of_the_Second_Punic_War.svg.png',
+    'crusades':       'https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Counquest_of_Jeusalem_%281099%29.jpg/640px-Counquest_of_Jeusalem_%281099%29.jpg',
+    'hundred-years':  'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Bataille_d%27Azincourt.jpg/640px-Bataille_d%27Azincourt.jpg',
+    'mongol':         'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/MongolEmpireDivisions1300.png/640px-MongolEmpireDivisions1300.png',
+    'imjin':          'https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Korean_admiral_Yi_Sun-sin.jpg/480px-Korean_admiral_Yi_Sun-sin.jpg',
+    'thirty-years':   'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Sebastiaen_Vrancx_-_The_Battle_of_White_Mountain.jpg/640px-Sebastiaen_Vrancx_-_The_Battle_of_White_Mountain.jpg',
+    'napoleonic':     'https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Napoleon_at_the_Battle_of_Austerlitz%2C_by_Fran%C3%A7ois_G%C3%A9rard.jpg/640px-Napoleon_at_the_Battle_of_Austerlitz%2C_by_Fran%C3%A7ois_G%C3%A9rard.jpg',
+    'american-civil': 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Thure_de_Thulstrup_-_L._Prang_and_Co._-_Battle_of_Gettysburg_-_Restoration_by_Adam_Cuerden.jpg/640px-Thure_de_Thulstrup_-_L._Prang_and_Co._-_Battle_of_Gettysburg_-_Restoration_by_Adam_Cuerden.jpg',
+    'russo-japanese': 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Battle_of_Tsushima_Russian.jpg/640px-Battle_of_Tsushima_Russian.jpg',
+    'crimean':        'https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Battle_of_balaklava.jpg/640px-Battle_of_balaklava.jpg',
+    'ww1':            'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Cheshire_Regiment_trench_Somme_1916.jpg/640px-Cheshire_Regiment_trench_Somme_1916.jpg',
+    'ww2':            'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Into_the_Jaws_of_Death_23-0455M_edit.jpg/640px-Into_the_Jaws_of_Death_23-0455M_edit.jpg',
+    'korean':         'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/KoreanWarRefugeeWithBaby.jpg/480px-KoreanWarRefugeeWithBaby.jpg',
+    'vietnam':        'https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/UH-1D_helicopters_in_Vietnam_1966.jpg/640px-UH-1D_helicopters_in_Vietnam_1966.jpg',
+    'gulf':           'https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/DesertStormMap_v2.svg/640px-DesertStormMap_v2.svg.png'
+  };
+
   // ── Render Cards from JSON ──
   function renderCards() {
     warGrid.innerHTML = '';
@@ -107,27 +129,34 @@ document.addEventListener('DOMContentLoaded', () => {
                         : war.resultType === 'defeat' ? 'outcome-defeat' : '';
       const tagsHTML = war.tags.map(t => `<span class="war-tag">${escapeHTML(t)}</span>`).join('');
 
+      const imgSrc = war.image || warImages[war.id] || '';
+      const imageHTML = imgSrc
+        ? `<div class="war-card-image"><img src="${escapeHTML(imgSrc)}" alt="${escapeHTML(war.name)} 자료 이미지" loading="lazy" referrerpolicy="no-referrer" onerror="this.parentElement.remove()"></div>`
+        : '';
+
       const article = document.createElement('article');
       article.className = 'war-card';
       article.dataset.era = war.era;
       article.dataset.region = war.region;
-      article.style.cursor = 'pointer';
       article.addEventListener('click', () => {
         window.location.href = 'war overview detail.html?id=' + encodeURIComponent(war.id);
       });
       article.innerHTML = `
-        <div class="war-card-header">
-          <span class="era-badge ${war.era}">${escapeHTML(eraLabels[war.era] || war.era)}</span>
-          <span class="war-period">${escapeHTML(war.period)}</span>
+        ${imageHTML}
+        <div class="war-card-body">
+          <div class="war-card-header">
+            <span class="era-badge ${war.era}">${escapeHTML(eraLabels[war.era] || war.era)}</span>
+            <span class="war-period">${escapeHTML(war.period)}</span>
+          </div>
+          <h3 class="war-name">${escapeHTML(war.name)}</h3>
+          <p class="war-summary">${escapeHTML(war.summary)}</p>
+          <div class="war-meta">
+            <div class="meta-item"><span class="meta-label">교전국</span><span class="meta-value">${escapeHTML(war.belligerents)}</span></div>
+            <div class="meta-item"><span class="meta-label">지역</span><span class="meta-value">${escapeHTML(war.location)}</span></div>
+            <div class="meta-item"><span class="meta-label">결과</span><span class="meta-value ${resultClass}">${escapeHTML(war.result)}</span></div>
+          </div>
+          <div class="war-tags">${tagsHTML}</div>
         </div>
-        <h3 class="war-name">${escapeHTML(war.name)}</h3>
-        <p class="war-summary">${escapeHTML(war.summary)}</p>
-        <div class="war-meta">
-          <div class="meta-item"><span class="meta-label">교전국</span><span class="meta-value">${escapeHTML(war.belligerents)}</span></div>
-          <div class="meta-item"><span class="meta-label">지역</span><span class="meta-value">${escapeHTML(war.location)}</span></div>
-          <div class="meta-item"><span class="meta-label">결과</span><span class="meta-value ${resultClass}">${escapeHTML(war.result)}</span></div>
-        </div>
-        <div class="war-tags">${tagsHTML}</div>
       `;
       warGrid.appendChild(article);
     });

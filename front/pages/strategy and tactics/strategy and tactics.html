@@ -1,10 +1,11 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>전략 & 전술 — War Archive</title>
   <link rel="stylesheet" href="../../assets/css/strategy and tactics style/strategy and tactics style.css">
+  <link rel="stylesheet" href="../../assets/css/common/archive_common.css">
 </head>
 <body>
 
@@ -12,15 +13,16 @@
   <header class="site-header">
     <div class="header-inner">
       <a href="../../index.html" class="logo">
-        <div class="logo-icon">&#9876;</div>
+        <span class="logo-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 9.5 L4 20"/><path d="M9.5 14.5 L20 4"/><path d="M2 18 L6 22"/><path d="M18 2 L22 6"/><path d="M14 6 L18 10"/></svg></span>
         <span class="logo-text">War Archive</span>
       </a>
 
       <nav class="nav-links">
         <a href="../../index.html#categories">아카이브</a>
+        <a href="../../index.html#browse">탐색</a>
         <a href="../../index.html#timeline">연대기</a>
-        <a href="../../index.html#featured">주요 기록</a>
         <a href="../../index.html#search">검색</a>
+        <a href="../../index.html#project">프로젝트</a>
       </nav>
 
       <button class="menu-toggle" aria-label="메뉴 열기">
@@ -42,11 +44,9 @@
         <span class="sep">/</span>
         <span class="current">전략 &amp; 전술</span>
       </nav>
-      <div class="hero-emblem">&#128506;</div>
+      
       <h1 class="page-title">전략 &amp; 전술</h1>
-      <p class="page-subtitle">
-        고대의 병법서부터 현대의 교리까지 — 역사 속 모든 전략과 전술의 발전사를<br>
-        매우 상세하게 기록한 문헌 아카이브
+      <p class="page-subtitle">고대 병법서부터 현대 교리까지 시대별 전략·전술의 발전과<br> 주요 사례를 문헌 중심으로 정리한 아카이브입니다.
       </p>
       <div class="page-stats">
         <div class="page-stat">
@@ -67,8 +67,7 @@
   <!-- ── 명언 인용 배너 ── -->
   <section class="quote-banner">
     <div class="quote-inner">
-      <blockquote class="quote-text" id="quoteText">
-        "전쟁의 최고 경지는 싸우지 않고 이기는 것이다."
+      <blockquote class="quote-text" id="quoteText"> "전쟁의 최고 경지는 싸우지 않고 이기는 것이다."
       </blockquote>
       <cite class="quote-author" id="quoteAuthor">— 손자(孫子), 『손자병법』</cite>
     </div>
@@ -79,7 +78,7 @@
     <div class="filter-inner">
       <div class="filter-search">
         <input type="text" id="strategySearch" placeholder="전략명, 전술명, 인물, 키워드로 검색...">
-        <span class="search-icon">&#128269;</span>
+        <span class="search-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></span>
       </div>
       <div class="filter-tabs" id="eraTabs">
         <button class="filter-tab active" data-era="all">전체</button>
@@ -103,8 +102,8 @@
           <option value="doctrine">군사 교리</option>
         </select>
         <div class="view-toggle">
-          <button class="view-btn active" data-view="scroll" title="두루마리 보기">&#128220;</button>
-          <button class="view-btn" data-view="grid" title="카드 보기">&#9871;</button>
+          <button class="view-btn active" data-view="scroll" title="문헌 보기" aria-label="문헌 보기"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 5 H17 V19 H5 Z"/><path d="M17 5 C 19 5 19 9 17 9"/><path d="M5 19 C 3 19 3 15 5 15"/><line x1="8" y1="9" x2="14" y2="9"/><line x1="8" y1="13" x2="14" y2="13"/></svg></button>
+          <button class="view-btn" data-view="grid" title="카드 보기" aria-label="카드 보기"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></button>
         </div>
       </div>
     </div>
@@ -131,7 +130,7 @@
 
     <!-- 빈 결과 -->
     <div class="empty-state" id="emptyState" style="display:none;">
-      <div class="empty-icon">&#128220;</div>
+      
       <h3>검색 결과가 없습니다</h3>
       <p>다른 키워드나 필터로 다시 검색해 보세요.</p>
     </div>
@@ -141,11 +140,23 @@
   <!-- ── Footer ── -->
   <footer class="site-footer">
     <div class="footer-inner">
-      <div class="footer-brand">
-        <div class="footer-logo">&#9876; War Archive</div>
-        <p class="footer-copy">&copy; 2026 War Archive. All rights reserved.</p>
+      <div class="footer-top">
+        <a href="../../index.html" class="logo">
+          <span class="logo-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 9.5 L4 20"/><path d="M9.5 14.5 L20 4"/><path d="M2 18 L6 22"/><path d="M18 2 L22 6"/><path d="M14 6 L18 10"/></svg></span>
+          <span class="logo-text">War Archive</span>
+        </a>
+        <nav class="footer-nav">
+          <a href="../../index.html#categories">아카이브</a>
+          <a href="../../index.html#browse">탐색</a>
+          <a href="../../index.html#timeline">연대기</a>
+          <a href="../info/information.html">소개</a>
+          <a href="../info/contribution.html">자료 제보</a>
+          <a href="../info/developer information.html">운영자 · 문의</a>
+        </nav>
       </div>
-
+      <div class="footer-bottom">
+        <p>&copy; 2026 War Archive. All rights reserved.</p>
+      </div>
     </div>
   </footer>
 

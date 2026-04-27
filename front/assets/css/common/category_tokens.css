@@ -1,0 +1,97 @@
+/* ==========================================================================
+   War Archive — Category Tokens
+   index.html 기조와 일치시키는 공용 디자인 토큰.
+   각 카테고리 전용 CSS는 이 파일을 먼저 import 한 뒤
+   `--category-accent` 등을 자기 색으로 덮어씁니다.
+   ==========================================================================
+   설계 원칙:
+   - 다크 테마 유지, 골드(#b59a5b)는 브랜드(헤더/로고/index Hero)에만 한정
+   - 본문·카드·필터 강조는 카테고리별 보조색 사용
+   - 카드 분리감을 위해 border + 미세 inner-shadow + 상단 강조 바
+   - 라벨 letter-spacing은 0.5–1px로 축소, 과도한 UPPERCASE 지양
+   ========================================================================== */
+
+:root {
+  /* ── 베이스 (index와 통일) ── */
+  --bg-primary: #0e1013;
+  --bg-secondary: #14171b;
+  --bg-card: #1a1d22;
+  --bg-card-hover: #20242a;
+  --bg-elevated: #20242a;
+
+  --text-primary: #e6e7e9;
+  --text-secondary: #9aa0a8;
+  --text-muted: #6a707a;
+
+  --border: #262a30;
+  --border-accent: #353a42;
+  --border-soft: #1f2329;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.35);
+  --shadow-md: 0 6px 18px rgba(0, 0, 0, 0.45);
+  --shadow-lg: 0 14px 40px rgba(0, 0, 0, 0.55);
+
+  /* ── 브랜드 골드 (절제 사용) ── */
+  --gold: #b59a5b;
+  --gold-dark: #8d764a;
+  --gold-dim: rgba(181, 154, 91, 0.16);
+  --gold-line: rgba(181, 154, 91, 0.35);
+
+  /* 호환성: 기존 코드가 var(--accent) 를 쓰면 골드로 폴백 */
+  --accent: var(--gold);
+  --accent-dark: #8d764a;
+  --accent-dim: var(--gold-dim);
+  --accent-border: var(--gold-line);
+
+  /* ── 카테고리 보조색 (각 페이지에서 --category-accent 로 매핑) ── */
+  --cat-war:        #b56a3a;   /* 전쟁 개요 — 따뜻한 구리/벽돌 */
+  --cat-bio:        #6e8aa8;   /* 인물 열전 — 청회색 (초상·동판) */
+  --cat-weapons:    #7c8995;   /* 무기 & 장비 — 강철 */
+  --cat-tactics:    #4f6d8c;   /* 전략 & 전술 — 잉크 블루 */
+  --cat-docs:       #b59a6e;   /* 사료 & 문서 — 양피지 */
+  --cat-map:        #6f8c5e;   /* 전장 지도 — 지도 녹색 */
+  --cat-undefine:   #8a6f9c;   /* 미확인 자료 — 회보라 */
+
+  /* 기본 카테고리 액센트 (각 페이지 :root 에서 덮어씀) */
+  --category-accent: var(--gold);
+  --category-accent-dim: rgba(181, 154, 91, 0.14);
+  --category-accent-line: rgba(181, 154, 91, 0.32);
+
+  /* ── 시대 배지 색상 (전 카테고리 공유) ── */
+  --era-ancient:      #a0875b;
+  --era-medieval:     #7a9a6a;
+  --era-earlymodern:  #6a8aaa;
+  --era-modern:       #b07a64;
+  --era-worldwar:     #c25c5c;
+  --era-contemporary: #8a8acc;
+
+  /* ── 결과/상태 색 ── */
+  --outcome-victory: #7faf80;
+  --outcome-defeat:  #b07474;
+  --outcome-draw:    #a8a070;
+
+  --danger: #7a4747;
+}
+
+/* ── 공통 유틸리티 ── */
+.label-soft {
+  font-size: 0.72rem;
+  letter-spacing: 0.4px;
+  color: var(--text-muted);
+  text-transform: none;
+}
+
+/* 카드 분리감을 강화하는 공통 클래스 (각 카드 컴포넌트에 합성) */
+.archive-card-base {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  transition: background 0.25s ease, border-color 0.25s ease,
+              transform 0.25s ease, box-shadow 0.25s ease;
+}
+.archive-card-base:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-accent);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}

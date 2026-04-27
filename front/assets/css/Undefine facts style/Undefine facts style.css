@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Playfair+Display:wght@700;900&display=swap');
+@import url('../common/category_tokens.css');
+@import url('../common/category_refresh.css');
 
 /* ── Reset & Base ── */
 *, *::before, *::after {
@@ -8,22 +10,25 @@
 }
 
 :root {
-  --bg-primary: #0a0a0a;
-  --bg-secondary: #111111;
-  --bg-card: #1a1a1a;
-  --bg-card-hover: #222222;
-  --accent: #c9a84c;
-  --accent-dark: #a07e2e;
-  --accent-warm: #8b6914;
-  --text-primary: #e8e8e8;
-  --text-secondary: #999999;
-  --text-muted: #666666;
-  --border: #2a2a2a;
-  --border-accent: #3a3a3a;
-  --warehouse-wood: #3d2b1f;
-  --warehouse-dust: rgba(201, 168, 76, 0.04);
+  --bg-primary: #0e0d12;
+  --bg-secondary: #14121b;
+  --bg-card: #1a182a;
+  --bg-card-hover: #221f33;
+  --category-accent: var(--cat-undefine);
+  --category-accent-dim: rgba(138, 111, 156, 0.14);
+  --category-accent-line: rgba(138, 111, 156, 0.40);
+  --accent: var(--category-accent);
+  --accent-dark: #5d4a6b;
+  --accent-warm: #6e537c;
+  --text-primary: #e7e3ec;
+  --text-secondary: #9c98a8;
+  --text-muted: #6a657a;
+  --border: #2c2838;
+  --border-accent: #3a3548;
+  --warehouse-wood: #2b1f3d;
+  --warehouse-dust: rgba(138, 111, 156, 0.04);
   --status-waiting: #666666;
-  --status-review: #c9a84c;
+  --status-review: var(--cat-undefine);
   --status-verify: #4a7ec9;
   --status-complete: #4a9e6e;
 }
@@ -202,48 +207,14 @@ a { text-decoration: none; color: inherit; }
   z-index: 1;
 }
 
-/* 먼지 파티클 */
-.dust-particles {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 1;
-}
-
-.dust {
-  position: absolute;
-  width: 3px;
-  height: 3px;
-  background: rgba(201, 168, 76, 0.3);
-  border-radius: 50%;
-  animation: dustFloat linear infinite;
-}
-
-@keyframes dustFloat {
-  0% {
-    transform: translateY(0) translateX(0);
-    opacity: 0;
-  }
-  10% {
-    opacity: 1;
-  }
-  90% {
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(-100vh) translateX(50px);
-    opacity: 0;
-  }
-}
-
 .label-tag {
   display: inline-block;
-  font-size: 0.7rem;
+  font-size: 0.65rem;
   font-weight: 500;
-  letter-spacing: 3px;
+  letter-spacing: 2px;
   text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: 1.5rem;
+  color: var(--text-muted);
+  margin-bottom: 1.25rem;
 }
 
 .display-title {
@@ -423,12 +394,11 @@ a { text-decoration: none; color: inherit; }
   width: 120px;
   height: 220px;
   cursor: pointer;
-  transform-style: preserve-3d;
-  transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  transition: transform 0.35s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 .book:hover {
-  transform: translateY(-12px) rotateY(-25deg);
+  transform: translateY(-6px);
   z-index: 10;
 }
 
@@ -534,11 +504,11 @@ a { text-decoration: none; color: inherit; }
 }
 
 .popup-tag {
-  font-size: 0.5rem;
-  font-weight: 700;
-  letter-spacing: 3px;
+  font-size: 0.55rem;
+  font-weight: 500;
+  letter-spacing: 2px;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--text-muted);
   white-space: nowrap;
 }
 
@@ -1049,7 +1019,8 @@ a { text-decoration: none; color: inherit; }
   letter-spacing: 0.5px;
 }
 
-.warehouse-notice {
+.warehouse-notice,
+.status-notice {
   max-width: 800px;
   margin: 2rem auto 0;
   padding: 1.2rem 1.5rem;
@@ -1058,7 +1029,8 @@ a { text-decoration: none; color: inherit; }
   text-align: center;
 }
 
-.warehouse-notice p {
+.warehouse-notice p,
+.status-notice p {
   font-size: 0.88rem;
   color: var(--text-muted);
   line-height: 1.7;
@@ -1313,4 +1285,153 @@ a { text-decoration: none; color: inherit; }
   .book-popup {
     width: 94vw;
   }
+}
+
+
+/* ──────────────────────────────────────────────
+   상태 기반 자료실 카드 (책장 → 분류 카드 그리드)
+   기존 .book / .book-spine 마크업을 유지한 채
+   책장 외관을 평평한 status card로 재정의한다.
+   ────────────────────────────────────────────── */
+.shelf-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+  margin-top: 2.5rem;
+}
+
+/* 책장 데코 무력화 */
+.bookshelf, .bookshelf-row, .books-container { all: unset; display: contents; }
+.shelf-board { display: none !important; }
+
+/* 카드 본체 — .book 기반 오버라이드 */
+.shelf-grid .book.shelf-card {
+  position: relative;
+  width: auto;
+  height: auto;
+  perspective: none;
+  transform-style: flat;
+  transform: none;
+  transition: none;
+  cursor: pointer;
+  outline: none;
+}
+/* 부모 .book에 걸린 hover 부양(-6px) 무력화 — 평면 유지 */
+.shelf-grid .book.shelf-card:hover,
+.shelf-grid .book.shelf-card:focus-within {
+  transform: none;
+  z-index: auto;
+}
+.shelf-grid .book.shelf-card:focus-visible {
+  outline: 2px solid var(--accent, #c9a84c);
+  outline-offset: 3px;
+}
+
+/* 카드 면 — .book-spine 기반 오버라이드 (책등 외관 제거) */
+.shelf-grid .book.shelf-card .book-spine {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  padding: 1.25rem 1.3rem 1.2rem;
+  width: auto;
+  height: auto;
+  background: #1a1d22;
+  border: 1px solid #262a30;
+  border-radius: 3px;
+  box-shadow: none;
+  transform: none;
+  writing-mode: horizontal-tb;
+  text-orientation: mixed;
+  color: inherit;
+  min-height: 200px;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+/* hover/focus: 보더와 배경 색만 미세하게 — 위로 떠오르지 않음, 그림자 없음 */
+.shelf-grid .book.shelf-card:hover .book-spine,
+.shelf-grid .book.shelf-card:focus-visible .book-spine {
+  border-color: #c9a84c;
+  background: #1d2126;
+  transform: none;
+  box-shadow: none;
+}
+
+/* 카테고리별 색 라인 (좌측) — 책 색 대신 액센트 라인 */
+.shelf-grid .book.shelf-card .book-spine { border-left: 3px solid #3a3f47; }
+.shelf-grid .book-a .book-spine { border-left-color: #6b7785; }
+.shelf-grid .book-b .book-spine { border-left-color: #8a7355; }
+.shelf-grid .book-c .book-spine { border-left-color: #b8635a; }
+.shelf-grid .book-d .book-spine { border-left-color: #7a6090; }
+.shelf-grid .book-e .book-spine { border-left-color: #5a7a8a; }
+.shelf-grid .book-f .book-spine { border-left-color: #c9a84c; }
+
+/* 헤더: 신뢰도 배지 + A/B/C 코드 */
+.shelf-card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+.shelf-code {
+  font-family: 'Courier New', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 1px;
+  color: #6a707a;
+  padding: 0.1rem 0.45rem;
+  border: 1px solid #2e333a;
+  border-radius: 2px;
+  background: #161a1f;
+}
+
+/* 본문 */
+.shelf-grid .book.shelf-card .book-spine-title {
+  position: static;
+  writing-mode: horizontal-tb;
+  font-family: 'Playfair Display', 'Noto Sans KR', serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #e6e7e9;
+  margin: 0.15rem 0 0;
+  letter-spacing: 0;
+  text-orientation: mixed;
+  transform: none;
+  line-height: 1.35;
+}
+.shelf-card-en {
+  font-size: 0.7rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #8a909a;
+  margin: 0;
+  font-weight: 500;
+}
+.shelf-card-desc {
+  font-size: 0.82rem;
+  line-height: 1.6;
+  color: #b0b4bb;
+  margin: 0.25rem 0 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* 책 라벨(A/B/...) — 기존 큰 라벨은 숨김. shelf-code만 사용 */
+.shelf-grid .book.shelf-card .book-spine-label { display: none !important; }
+
+/* 푸터 */
+.shelf-card-foot {
+  margin-top: auto;
+  padding-top: 0.6rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.78rem;
+  color: #8a909a;
+}
+.shelf-card-cta { color: #c9a84c; }
+
+/* 팝업 — 카드 위로 자연스럽게 (3D 회전 효과 제거) */
+.shelf-grid .book.shelf-card .book-popup {
+  transform: none;
 }

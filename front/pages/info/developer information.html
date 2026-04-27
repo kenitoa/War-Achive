@@ -1,10 +1,11 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>WAR ARCHIVE — 개발자 정보</title>
+  <title>운영자 · 문의 — War Archive</title>
   <link rel="stylesheet" href="../../assets/css/info/developer information style.css">
+  <link rel="stylesheet" href="../../assets/css/common/archive_common.css">
 </head>
 <body>
 
@@ -12,11 +13,12 @@
   <header class="site-header">
     <div class="header-inner">
       <a href="../../index.html" class="logo">
-        <div class="logo-icon">&#9876;</div>
+        <span class="logo-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 9.5 L4 20"/><path d="M9.5 14.5 L20 4"/><path d="M2 18 L6 22"/><path d="M18 2 L22 6"/><path d="M14 6 L18 10"/></svg></span>
         <span class="logo-text">War Archive</span>
       </a>
       <nav class="nav-links">
         <a href="../../index.html#categories">아카이브</a>
+        <a href="../../index.html#browse">탐색</a>
         <a href="../../index.html#timeline">연대기</a>
         <a href="../../index.html#search">검색</a>
         <a href="../../index.html#project" class="active">프로젝트</a>
@@ -27,277 +29,102 @@
     </div>
   </header>
 
-  <!-- ── Section 1: Hero ── -->
+  <!-- ── Hero ── -->
   <section class="panel panel-hero" id="hero">
     <div class="panel-bg"></div>
-    <div class="hero-particles" id="particles"></div>
     <div class="panel-content reveal">
-      <span class="label-tag">Developer Portfolio</span>
-      <h1 class="display-title">
-        개발자 정보<br>
-        <span class="accent">& Portfolio</span>
-      </h1>
-      <p class="hero-desc">
-        개발자 문의 & 피드백 적극 환영
-      </p>
-    </div>
-    <div class="scroll-indicator">
-      <span>Scroll</span>
-      <div class="line"></div>
+      <span class="label-tag">Contact</span>
+      <h1 class="display-title">운영자 · 문의</h1>
+      <p class="hero-desc">자료 제보, 오류 수정, 협업 제안을 받습니다.</p>
     </div>
   </section>
 
-  <!-- ── Section 2: About Developer ── -->
+  <!-- ── About / Contact ── -->
   <section class="panel panel-about" id="about">
     <div class="panel-inner">
       <div class="center-block reveal">
         <span class="label-tag">01 — About</span>
-        <h2 class="section-heading">개발자 소개</h2>
+        <h2 class="section-heading">운영자 안내</h2>
+        <p class="body-text body-text-center">
+          War Archive는 1인이 기획·디자인·개발·자료 정리를 모두 담당하는 비영리 디지털 아카이브 프로젝트입니다.
+          공식 기관이 아니며, 수록된 자료는 공개된 1차·2차 자료를 정리·요약한 결과물입니다.
+        </p>
       </div>
 
       <div class="about-card-layout">
-        <!-- 왼쪽: 개발자 개인정보 카드 -->
+        <!-- 운영자 정보 -->
         <div class="profile-card reveal">
-          <h3 class="profile-card-title">개발자 개인정보</h3>
-          <div class="profile-photo-wrap">
-            <img src="../../assets/images/Photo.jpg" alt="개발자 사진" class="profile-photo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-            <div class="profile-photo-fallback" style="display:none;">
-              <span class="avatar-icon">&#128104;&#8205;&#128187;</span>
-            </div>
-          </div>
-
+          <h3 class="profile-card-title">운영자</h3>
           <div class="profile-info-list">
             <div class="profile-info-row">
-              <span class="profile-info-icon">&#128100;</span>
               <div class="profile-info-content">
-                <span class="profile-info-label">이름</span>
-                <span class="profile-info-value" id="devName">김동민</span>
+                <span class="profile-info-label">담당</span>
+                <span class="profile-info-value">기획 · 디자인 · 개발 · 데이터 정리</span>
               </div>
             </div>
             <div class="profile-info-row">
-              <span class="profile-info-icon">&#128231;</span>
               <div class="profile-info-content">
-                <span class="profile-info-label">이메일</span>
-                <span class="profile-info-value" id="devEmail">kiseno3231@gmail.com</span>
+                <span class="profile-info-label">소속</span>
+                <span class="profile-info-value">개인 프로젝트</span>
               </div>
             </div>
             <div class="profile-info-row">
-              <span class="profile-info-icon">&#128222;</span>
               <div class="profile-info-content">
-                <span class="profile-info-label">연락처</span>
-                <span class="profile-info-value" id="devPhone">010-9183-6224</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="profile-divider"></div>
-
-          <div class="profile-info-list">
-            <div class="profile-info-row">
-              <span class="profile-info-icon">&#127891;</span>
-              <div class="profile-info-content">
-                <span class="profile-info-label">학력</span>
-                <span class="profile-info-value" id="devEducation">Hanshin University Computer engineering</span>
-              </div>
-            </div>
-            <div class="profile-info-row">
-              <span class="profile-info-icon">&#128025;</span>
-              <div class="profile-info-content">
-                <span class="profile-info-label">GitHub</span>
-                <a href="https://github.com/kidit" class="profile-info-value profile-link" target="_blank" rel="noopener noreferrer">https://github.com/kenitoa</a>
-              </div>
-            </div>
-            <div class="profile-info-row">
-              <span class="profile-info-icon">&#128221;</span>
-              <div class="profile-info-content">
-                <span class="profile-info-label">블로그</span>
-                <a href="https://kiseno3231.tistory.com/" class="profile-info-value profile-link" target="_blank" rel="noopener noreferrer">https://kiseno3231.tistory.com/</a>
+                <span class="profile-info-label">운영 원칙</span>
+                <span class="profile-info-value">기록 · 보존 · 검증</span>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- 오른쪽 칼럼 -->
+        <!-- 문의 채널 -->
         <div class="profile-right-col">
-          <!-- 완료한 프로젝트 -->
           <div class="profile-card reveal reveal-delay">
-            <h3 class="profile-card-title">완료한 프로젝트</h3>
-            <div class="project-list">
-              <div class="project-item">
-                <h4 class="project-item-title">MuWorld</h4>
-                <p class="project-item-desc">리듬게임 프로젝트 <br>이미지파일, 음악파일 -> AI 제작<br>기획, 디자인, 개발 전 과정 담당</p>
+            <h3 class="profile-card-title">문의 채널</h3>
+            <div class="profile-info-list">
+              <div class="profile-info-row">
+                <div class="profile-info-content">
+                  <span class="profile-info-label">GitHub</span>
+                  <a href="https://github.com/kenitoa/War-Achive" class="profile-info-value profile-link" target="_blank" rel="noopener noreferrer">github.com/kenitoa/War-Achive</a>
+                </div>
               </div>
-              <div class="project-item">
-                <h4 class="project-item-title">War Archive</h4>
-                <p class="project-item-desc">전쟁 역사 아카이브 웹 프로젝트 — 기획, 디자인, 개발 전 과정을 담당.</p>
+              <div class="profile-info-row">
+                <div class="profile-info-content">
+                  <span class="profile-info-label">이메일</span>
+                  <a href="mailto:kiseno3231@gmail.com" class="profile-info-value profile-link">kiseno3231@gmail.com</a>
+                </div>
+              </div>
+              <div class="profile-info-row">
+                <div class="profile-info-content">
+                  <span class="profile-info-label">자료 제보</span>
+                  <a href="contribution.html" class="profile-info-value profile-link">자료 제보 · 오류 수정 가이드</a>
+                </div>
               </div>
             </div>
           </div>
 
-          <!-- 다룰 수 있는 언어 -->
           <div class="profile-card reveal reveal-delay-2">
-            <h3 class="profile-card-title">다룰 수 있는 언어</h3>
-            <div class="lang-grid">
-              <div class="lang-item">
-                <div class="lang-icon">&#128013;</div>
-                <span class="lang-name">Python</span>
-              </div>
-              <div class="lang-item">
-                <div class="lang-icon">&#9749;</div>
-                <span class="lang-name">Java</span>
-              </div>
-              <div class="lang-item">
-                <div class="lang-icon">&#128187;</div>
-                <span class="lang-name">JavaScript</span>
-            </div>
+            <h3 class="profile-card-title">문의 가능한 사항</h3>
+            <ul class="lang-grid" style="list-style:none; padding:0; margin:0;">
+              <li class="lang-item"><span class="lang-name">새로운 1차 사료 제보</span></li>
+              <li class="lang-item"><span class="lang-name">오기 · 오역 · 사실 오류 신고</span></li>
+              <li class="lang-item"><span class="lang-name">출처 보강 요청</span></li>
+              <li class="lang-item"><span class="lang-name">기능 제안 · 버그 리포트</span></li>
+            </ul>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ── Section 3: Tech Stack ── -->
-  <section class="panel panel-techstack" id="techstack">
-    <div class="panel-inner">
-      <div class="center-block reveal">
-        <span class="label-tag">02 — Tech Stack</span>
-        <h2 class="section-heading">기술 스택</h2>
-        <p class="body-text body-text-center">
-          War Archive 프로젝트에 사용된 기술과 도구들입니다.
-        </p>
-      </div>
-
-      <div class="tech-grid">
-        <div class="tech-card reveal">
-          <div class="tech-card-icon">&lt;/&gt;</div>
-          <h3 class="tech-card-title">HTML5</h3>
-          <p class="tech-card-desc">시맨틱 마크업으로 구조적이고 접근성 높은 웹 페이지를 구성합니다.</p>
-          <div class="tech-bar"><div class="tech-bar-fill" data-width="95"></div></div>
-        </div>
-        <div class="tech-card reveal reveal-delay">
-          <div class="tech-card-icon">{&nbsp;}</div>
-          <h3 class="tech-card-title">CSS3</h3>
-          <p class="tech-card-desc">애니메이션, 그리드, 반응형 디자인으로 몰입감 있는 UI를 구현합니다.</p>
-          <div class="tech-bar"><div class="tech-bar-fill" data-width="90"></div></div>
-        </div>
-        <div class="tech-card reveal reveal-delay-2">
-          <div class="tech-card-icon">&#9889;</div>
-          <h3 class="tech-card-title">JavaScript</h3>
-          <p class="tech-card-desc">바닐라 JS로 동적 인터랙션과 데이터 로딩을 처리합니다.</p>
-          <div class="tech-bar"><div class="tech-bar-fill" data-width="85"></div></div>
-        </div>
-        <div class="tech-card reveal">
-          <div class="tech-card-icon">&#128196;</div>
-          <h3 class="tech-card-title">JSON</h3>
-          <p class="tech-card-desc">모든 아카이브 데이터를 JSON 형식으로 구조화하여 관리합니다.</p>
-          <div class="tech-bar"><div class="tech-bar-fill" data-width="92"></div></div>
-        </div>
-        <div class="tech-card reveal reveal-delay">
-          <div class="tech-card-icon"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsTk6KPrGgqJ-Rhw_MEe0W8kUR3pDt-YTA8Q&s" alt="Tailscale" style="width:1.5em;height:1.5em;vertical-align:middle;"></div>
-          <h3 class="tech-card-title">Tailscale Funnel</h3>
-          <p class="tech-card-desc">Tailscale Funnel을 통해 안전하고 간편한 터널링 배포를 실현합니다.</p>
-          <div class="tech-bar"><div class="tech-bar-fill" data-width="80"></div></div>
-        </div>
-        <div class="tech-card reveal reveal-delay-2">
-          <div class="tech-card-icon">&#128736;</div>
-          <h3 class="tech-card-title">Git</h3>
-          <p class="tech-card-desc">버전 관리와 협업을 위한 분산 버전 관리 시스템을 활용합니다.</p>
-          <div class="tech-bar"><div class="tech-bar-fill" data-width="88"></div></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── Section 4: Project Highlights ── -->
-  <section class="panel panel-highlights" id="highlights">
-    <div class="panel-inner">
-      <div class="center-block reveal">
-        <span class="label-tag">03 — Highlights</span>
-        <h2 class="section-heading">프로젝트 하이라이트</h2>
-      </div>
-
-      <div class="highlights-timeline">
-        <div class="hl-line"></div>
-
-        <div class="hl-item reveal">
-          <div class="hl-dot"></div>
-          <div class="hl-card">
-            <span class="hl-date">2026</span>
-            <h3>프로젝트 시작</h3>
-            <p>War Archive 프로젝트 기획 및 초기 설계를 시작했습니다.</p>
-          </div>
-        </div>
-
-        <div class="hl-item reveal reveal-delay">
-          <div class="hl-dot"></div>
-          <div class="hl-card">
-            <span class="hl-date">데이터 구축</span>
-            <h3>아카이브 데이터 수집</h3>
-            <p>전쟁 개요, 인물 열전, 전장 지도 등 6개 카테고리의 JSON 데이터를 구축했습니다.</p>
-          </div>
-        </div>
-
-        <div class="hl-item reveal reveal-delay-2">
-          <div class="hl-dot"></div>
-          <div class="hl-card">
-            <span class="hl-date">디자인</span>
-            <h3>다크 테마 UI 구현</h3>
-            <p>밀리터리 감성의 골드 & 다크 테마로 통일감 있는 디자인 시스템을 완성했습니다.</p>
-          </div>
-        </div>
-
-        <div class="hl-item reveal">
-          <div class="hl-dot"></div>
-          <div class="hl-card">
-            <span class="hl-date">확장</span>
-            <h3>카테고리 확장</h3>
-            <p>사료 & 문서, 전략 & 전술, 미확인 자료집 등 아카이브 범위를 지속 확장 중입니다.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── Section 6: Contact / Feedback ── -->
-  <section class="panel panel-contact" id="contact">
-    <div class="panel-inner">
-      <div class="center-block reveal">
-        <span class="label-tag">05 — Contact</span>
-        <h2 class="section-heading">문의 & 피드백</h2>
-        <p class="body-text body-text-center">
-          프로젝트에 대한 문의, 버그 리포트, 기능 제안 등 어떤 피드백이든 환영합니다.
-        </p>
-      </div>
-
-      <div class="contact-grid">
-        <div class="contact-card reveal">
-          <div class="contact-icon"><img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub" style="width:48px;height:48px;"></div>
-          <h3>GitHub</h3>
-          <p>소스 코드 확인 및 이슈 등록</p>
-          <a href="https://github.com/kenitoa/War-Achive" class="contact-link">Repository 방문 &rarr;</a>
-        </div>
-        <div class="contact-card reveal reveal-delay">
-          <div class="contact-icon">&#128231;</div>
-          <h3>이메일</h3>
-          <p>직접 문의 및 협업 제안</p>
-          <a href="https://mail.google.com/mail/?view=cm&fs=1&to=kiseno3231@gmail.com" target="_blank" rel="noopener noreferrer" class="contact-link">이메일 보내기 &rarr;</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── Section 7: CTA ── -->
+  <!-- ── CTA ── -->
   <section class="panel panel-cta" id="cta">
     <div class="panel-content reveal">
-      <h2 class="display-title display-title-sm">
-        함께 만들어가는<br><span class="accent">War Archive</span>
-      </h2>
-      <p class="body-text body-text-center">
-        프로젝트에 관심이 있다면 언제든 참여해주세요.
-      </p>
+      <h2 class="display-title display-title-sm">함께 만들어가는<br><span class="accent">War Archive</span></h2>
+      <p class="body-text body-text-center">제보와 검증 협력을 통해 기록의 정확도를 높여갑니다.</p>
       <div class="cta-actions">
         <a href="../../index.html#categories" class="btn-cta">아카이브 탐색</a>
-        <a href="contribution.html" class="btn-cta-outline">기여하기</a>
+        <a href="contribution.html" class="btn-cta-outline">자료 제보 가이드</a>
       </div>
     </div>
   </section>
@@ -307,7 +134,7 @@
     <div class="footer-inner">
       <div class="footer-top">
         <a href="../../index.html" class="logo">
-          <div class="logo-icon">&#9876;</div>
+          <span class="logo-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 9.5 L4 20"/><path d="M9.5 14.5 L20 4"/><path d="M2 18 L6 22"/><path d="M18 2 L22 6"/><path d="M14 6 L18 10"/></svg></span>
           <span class="logo-text">War Archive</span>
         </a>
         <nav class="footer-nav">
@@ -323,6 +150,5 @@
   </footer>
 
   <script src="../../assets/js/info/developer information tech.js"></script>
-
 </body>
 </html>

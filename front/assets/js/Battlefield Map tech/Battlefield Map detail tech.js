@@ -88,7 +88,7 @@
     setInterval(tick, 1000);
   }
 
-  createDetailARHUD();
+  // createDetailARHUD(); // AR/HUD 효과는 아카이브 톤을 위해 비활성화
 
   // ── 초기화 ──
   function init() {
@@ -284,33 +284,15 @@
     gallery.style.display = '';
     grid.innerHTML = images.map(function (img, idx) {
       return '<div class="image-gallery-item" data-src="' + escapeHTML(img.url) + '" data-caption="' + escapeHTML(img.caption) + '" data-source="' + escapeHTML(img.source || '') + '" data-index="' + idx + '">' +
-        '<div class="ar-image-wrap">' +
+        '<div class="image-gallery-figure">' +
           '<img src="' + escapeHTML(img.url) + '" alt="' + escapeHTML(img.caption) + '" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.style.display=\'none\'">' +
-          '<div class="ar-image-scan"></div>' +
-          '<div class="ar-bracket tl"></div><div class="ar-bracket tr"></div>' +
-          '<div class="ar-bracket bl"></div><div class="ar-bracket br"></div>' +
-          '<div class="ar-image-status">AR SCAN</div>' +
-          '<div class="ar-image-coords">IMG-' + String(idx + 1).padStart(3, '0') + '</div>' +
         '</div>' +
         '<div class="image-gallery-caption">' +
           '<p>' + escapeHTML(img.caption) + '</p>' +
-          (img.source ? '<span class="image-source">' + escapeHTML(img.source) + '</span>' : '') +
+          (img.source ? '<span class="image-source">출처: ' + escapeHTML(img.source) + '</span>' : '') +
         '</div>' +
       '</div>';
     }).join('');
-
-    // 갤러리 아이템 3D 틸트
-    grid.querySelectorAll('.ar-image-wrap').forEach(function (wrap) {
-      wrap.addEventListener('mousemove', function (e) {
-        var rect = wrap.getBoundingClientRect();
-        var x = (e.clientX - rect.left) / rect.width - 0.5;
-        var y = (e.clientY - rect.top) / rect.height - 0.5;
-        wrap.style.transform = 'rotateY(' + (x * 12) + 'deg) rotateX(' + (-y * 12) + 'deg) scale(1.02)';
-      });
-      wrap.addEventListener('mouseleave', function () {
-        wrap.style.transform = '';
-      });
-    });
   }
 
   // ── 관련 전투 ──
@@ -335,24 +317,23 @@
     }).join('');
   }
 
-  // ── AR 3D 라이트박스 ──
+  // ── 이미지 라이트박스 (단순 확대 보기) ──
   function initLightbox() {
-    // AR 3D 패널 생성
     var panel = document.createElement('div');
     panel.className = 'ar-3d-panel';
+    panel.setAttribute('role', 'dialog');
+    panel.setAttribute('aria-modal', 'true');
+    panel.setAttribute('aria-label', '이미지 자료 보기');
     panel.innerHTML =
       '<button class="panel-close" aria-label="닫기">&times;</button>' +
       '<div class="panel-scene">' +
         '<div class="panel-card">' +
           '<img src="" alt="">' +
-          '<div class="panel-scanline"></div>' +
-          '<div class="panel-bracket tl"></div><div class="panel-bracket tr"></div>' +
-          '<div class="panel-bracket bl"></div><div class="panel-bracket br"></div>' +
           '<div class="panel-info" id="panelInfo"></div>' +
         '</div>' +
         '<div class="panel-caption" id="panelCaption"></div>' +
       '</div>' +
-      '<div class="panel-hint">마우스를 움직여 3D 효과 확인 · ESC로 닫기</div>';
+      '<div class="panel-hint">ESC 키 또는 바깥 영역을 클릭하면 닫힙니다.</div>';
     document.body.appendChild(panel);
 
     var panelImg = panel.querySelector('.panel-card img');
@@ -374,8 +355,8 @@
       panelCaption.innerHTML = escapeHTML(caption) +
         (source ? '<span class="caption-source">출처: ' + escapeHTML(source) + '</span>' : '');
 
-      // 3D 정보 패널 — 전투 데이터 표시
-      var infoHTML = '<div class="panel-info-title">ARCHIVE DATA</div>';
+      // 자료 정보 패널 — 전투 데이터 표시
+      var infoHTML = '<div class="panel-info-title">자료 정보</div>';
       if (currentBattle) {
         if (currentBattle.titleKr || currentBattle.title) {
           infoHTML += '<div class="panel-info-row"><span class="panel-info-label">전투</span><span class="panel-info-value">' + escapeHTML(currentBattle.titleKr || currentBattle.title) + '</span></div>';
@@ -406,21 +387,6 @@
       panelImg.src = '';
       panelCard.style.transform = '';
     }
-
-    // 3D 마우스 트래킹
-    panel.addEventListener('mousemove', function (e) {
-      if (!panel.classList.contains('active')) return;
-      var w = window.innerWidth;
-      var h = window.innerHeight;
-      var x = (e.clientX / w - 0.5) * 2;
-      var y = (e.clientY / h - 0.5) * 2;
-      panelCard.style.transform =
-        'rotateY(' + (x * 10) + 'deg) rotateX(' + (-y * 8) + 'deg)';
-    });
-
-    panel.addEventListener('mouseleave', function () {
-      panelCard.style.transform = '';
-    });
 
     // 갤러리 아이템 클릭
     document.querySelectorAll('.image-gallery-item').forEach(function (item) {

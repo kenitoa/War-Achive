@@ -2,28 +2,33 @@
    Historical Sources & Documents Detail
    사료 & 문서 상세 — 신문(Newspaper) 테마
    ======================================== */
+@import url('../common/category_tokens.css');
+@import url('../common/category_refresh.css');
 
 /* --- CSS 변수 --- */
 :root {
-    --bg-primary: #0a0a0a;
-    --bg-secondary: #111111;
-    --bg-card: #1a1a1a;
-    --bg-elevated: #141414;
-    --accent: #c9a84c;
-    --accent-dim: rgba(201, 168, 76, 0.12);
-    --accent-border: rgba(201, 168, 76, 0.3);
-    --text-primary: #e8e8e8;
-    --text-secondary: #a0a0a0;
-    --text-muted: #666666;
-    --border-color: #2a2a2a;
-    --border-light: #1e1e1e;
+    --bg-primary: #0e0d0a;
+    --bg-secondary: #14120e;
+    --bg-card: #1a1813;
+    --bg-elevated: #181610;
+    --category-accent: var(--cat-docs);
+    --category-accent-dim: rgba(181, 154, 110, 0.14);
+    --category-accent-line: rgba(181, 154, 110, 0.40);
+    --accent: var(--category-accent);
+    --accent-dim: var(--category-accent-dim);
+    --accent-border: var(--category-accent-line);
+    --text-primary: #e6e1d6;
+    --text-secondary: #a39a89;
+    --text-muted: #6e6452;
+    --border-color: #2a2620;
+    --border-light: #1e1c17;
 
-    /* 신문 테마 색상 */
+    /* 신문 테마 색상 (유지) */
     --newsprint: #d8d0c4;
     --newsprint-dark: #b8b0a4;
-    --column-rule: rgba(201, 168, 76, 0.15);
-    --headline-color: #e8e8e8;
-    --dateline-color: #c9a84c;
+    --column-rule: rgba(181, 154, 110, 0.18);
+    --headline-color: #e6e1d6;
+    --dateline-color: var(--cat-docs);
 
     /* 유형별 색상 */
     --type-treaty: #5588cc;

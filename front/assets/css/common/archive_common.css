@@ -1,0 +1,406 @@
+/* =====================================================
+   War Archive — Cross-page common primitives
+   (a11y, trust meta, related-section, reduced motion)
+   Loaded on all pages alongside category-specific CSS.
+   ===================================================== */
+
+/* ── A11y: focus-visible ring ── */
+:where(a, button, [role="button"], input, select, textarea, summary, [tabindex]):focus-visible {
+  outline: 2px solid #c9a84c;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: #1a1d22;
+  color: #c9a84c;
+  padding: 0.6rem 1rem;
+  border: 1px solid #c9a84c;
+  font-size: 0.85rem;
+  z-index: 10000;
+  text-decoration: none;
+}
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ── Trust meta primitives ── */
+.trust-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.18rem 0.55rem;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  border: 1px solid #353a42;
+  border-radius: 2px;
+  background: rgba(255,255,255,0.02);
+  color: #c4c8cf;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+.trust-badge::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #6a707a;
+  flex-shrink: 0;
+}
+.trust-badge.is-verified { color: #b9c7a6; border-color: #4f5a3e; }
+.trust-badge.is-verified::before { background: #8ea96a; }
+.trust-badge.is-pending  { color: #d2c089; border-color: #5a4f2c; }
+.trust-badge.is-pending::before  { background: #c9a84c; }
+.trust-badge.is-disputed { color: #e0a88a; border-color: #5e3e2e; }
+.trust-badge.is-disputed::before { background: #c87a4a; }
+.trust-badge.is-oral     { color: #b8a8c4; border-color: #4d3f5a; }
+.trust-badge.is-oral::before     { background: #9a82b4; }
+.trust-badge.is-primary  { color: #a6c4c7; border-color: #3e575a; }
+.trust-badge.is-primary::before  { background: #6aa4a9; }
+
+/* ── Detail page: archive notice + related navigation ── */
+.archive-related {
+  background: #14171b;
+  border-top: 1px solid #262a30;
+  border-bottom: 1px solid #262a30;
+  padding: 3rem 2rem;
+  margin-top: 4rem;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+.related-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: 2.5rem;
+  align-items: start;
+}
+@media (max-width: 768px) {
+  .related-inner { grid-template-columns: 1fr; gap: 2rem; }
+  .archive-related { padding: 2rem 1.25rem; }
+}
+.related-eyebrow {
+  display: inline-block;
+  font-size: 0.65rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #6a707a;
+  margin-bottom: 0.75rem;
+}
+.related-trust p {
+  font-size: 0.92rem;
+  line-height: 1.7;
+  color: #c4c8cf;
+  margin: 0 0 1rem;
+}
+.related-trust .related-trust-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  font-size: 0.82rem;
+  color: #c4c8cf;
+}
+.related-trust .related-trust-list li {
+  padding-left: 0.85rem;
+  position: relative;
+}
+.related-trust .related-trust-list li::before {
+  content: "·";
+  color: #c9a84c;
+  font-weight: 700;
+  position: absolute;
+  left: 0;
+  top: -2px;
+}
+.related-link-quiet {
+  display: inline-block;
+  font-size: 0.82rem;
+  color: #c9a84c;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 2px;
+  transition: border-color 0.2s;
+  text-decoration: none;
+}
+.related-link-quiet:hover { border-bottom-color: #c9a84c; }
+
+.related-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap: 0.5rem;
+}
+.related-nav li a {
+  display: block;
+  padding: 0.7rem 0.9rem;
+  border: 1px solid #262a30;
+  border-radius: 2px;
+  font-size: 0.85rem;
+  color: #e6e7e9;
+  background: #1a1d22;
+  text-decoration: none;
+  transition: border-color 0.2s, background 0.2s;
+}
+.related-nav li a:hover {
+  border-color: #c9a84c;
+  background: #20242a;
+}
+.related-nav li.is-current a {
+  border-color: #c9a84c;
+  color: #c9a84c;
+  background: transparent;
+  pointer-events: none;
+  cursor: default;
+}
+.related-nav li.is-current a::after {
+  content: " · 현재";
+  font-size: 0.7rem;
+  color: #6a707a;
+  letter-spacing: 1px;
+}
+
+/* ── Search highlight (Phase D) ── */
+.search-hl {
+  background: rgba(201, 168, 76, 0.22);
+  color: #f5e7b8;
+  padding: 0 2px;
+  border-radius: 2px;
+}
+
+
+/* ── Phase D: cross-category readability override ── */
+/* Body text containers: lift readability with neutral contrast */
+.section-body,
+.chapter-body,
+.section-body p,
+.chapter-body p,
+.doc-section p,
+.bio-section p,
+.legacy-body,
+.evaluation-card p {
+  font-size: 1rem;
+  line-height: 1.85;
+  color: #d8dadd;
+  letter-spacing: 0.01em;
+}
+
+/* Tame oversized decorative numbers/section markers */
+.section-number {
+  opacity: 0.55;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+
+/* Decorative English sub-labels: demote to muted secondary */
+.label-tag,
+.eyebrow,
+.section-eyebrow,
+.popup-tag {
+  font-weight: 500 !important;
+  letter-spacing: 1.5px !important;
+  color: #8a909a !important;
+}
+
+/* Quotes / blockquotes: neutralize background, keep typography */
+blockquote.summary-quote,
+.summary-quote {
+  background: transparent !important;
+  border-left: 2px solid #c9a84c;
+  padding: 0.4rem 0 0.4rem 1.25rem;
+  color: #e0e2e5;
+  font-style: italic;
+  line-height: 1.8;
+}
+
+/* Card-like content blocks across categories: shared elevation */
+.legacy-block,
+.casualties-box,
+.evaluation-card,
+.battles-grid > *,
+.figures-grid > * {
+  background: #1a1d22;
+  border: 1px solid #262a30;
+  border-radius: 3px;
+}
+
+/* Search result highlight (already added .search-hl above) */
+mark.search-hl,
+.search-hl {
+  background: rgba(201, 168, 76, 0.22);
+  color: #f5e7b8;
+  padding: 0 2px;
+  border-radius: 2px;
+}
+
+/* Search advanced controls polish */
+.search-results-tools .search-sort {
+  font-family: inherit;
+}
+.search-results-refine {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  padding: 0.5rem 0.25rem 1rem;
+}
+.search-results-refine .refine-chip {
+  background: #14171b;
+  color: #c4c8cf;
+  border: 1px solid #262a30;
+  padding: 0.35rem 0.7rem;
+  font-size: 0.78rem;
+  border-radius: 999px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+}
+.search-results-refine .refine-chip:hover {
+  border-color: #c9a84c;
+  color: #e6e7e9;
+}
+.search-results-refine .refine-chip.active {
+  border-color: #c9a84c;
+  color: #c9a84c;
+  background: rgba(201, 168, 76, 0.08);
+}
+
+/* Cross-category card consistency (lists like browse-grid, catalog-grid, etc.) */
+.browse-card,
+.shelf-card,
+.catalog-card,
+.battle-card,
+.weapon-card,
+.figure-card,
+.strategy-card,
+.source-card {
+  background: #1a1d22;
+  border: 1px solid #262a30;
+  border-radius: 3px;
+  transition: border-color 0.2s, transform 0.2s, background 0.2s;
+}
+.browse-card:hover,
+.shelf-card:hover,
+.catalog-card:hover,
+.battle-card:hover,
+.weapon-card:hover,
+.figure-card:hover,
+.strategy-card:hover,
+.source-card:hover {
+  border-color: #c9a84c;
+  background: #20242a;
+}
+
+/* ── Phase B: Featured records grid (home page) ── */
+.section-featured {
+  padding: 4rem 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+.featured-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+.featured-empty {
+  grid-column: 1 / -1;
+  padding: 3rem;
+  text-align: center;
+  color: #6a707a;
+  font-size: 0.9rem;
+  border: 1px dashed #262a30;
+  border-radius: 3px;
+}
+.featured-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding: 1.1rem 1.2rem 1.2rem;
+  background: #1a1d22;
+  border: 1px solid #262a30;
+  border-radius: 3px;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.2s, background 0.2s, transform 0.2s;
+  min-height: 220px;
+}
+.featured-card:hover {
+  border-color: #c9a84c;
+  background: #20242a;
+  transform: translateY(-2px);
+}
+.featured-card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+.featured-cat {
+  font-size: 0.7rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #8a909a;
+}
+.featured-title {
+  font-family: 'Playfair Display', 'Noto Sans KR', serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #e6e7e9;
+  margin: 0;
+  line-height: 1.35;
+}
+.featured-desc {
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: #b0b4bb;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.featured-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem 0.9rem;
+  margin: 0;
+  font-size: 0.75rem;
+  color: #8a909a;
+}
+.featured-meta dt {
+  display: inline;
+  color: #6a707a;
+  font-weight: 500;
+  margin-right: 0.25rem;
+}
+.featured-meta dt::after { content: ":"; }
+.featured-meta dd {
+  display: inline;
+  color: #c4c8cf;
+  margin: 0 0.5rem 0 0;
+}
+.featured-go {
+  margin-top: auto;
+  padding-top: 0.5rem;
+  font-size: 0.78rem;
+  color: #c9a84c;
+  letter-spacing: 0.5px;
+}
