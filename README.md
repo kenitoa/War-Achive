@@ -44,6 +44,20 @@
 
 프론트엔드는 JSON 파일을 `fetch()`로 로드하여 **클라이언트 사이드 렌더링**하고, 백엔드는 JWT 인증 기반의 사용자 관리/비공개 데이터 API를 제공합니다.
 
+###메인 화면 사진
+
+<img width="551" height="823" alt="image" src="https://github.com/user-attachments/assets/a8b7d8a3-a2df-4217-aee0-99940b9ce36b" />
+
+<img width="515" height="303" alt="image" src="https://github.com/user-attachments/assets/2eca8974-b2a5-4115-8d57-f01b3137be04" />
+
+<img width="539" height="816" alt="image" src="https://github.com/user-attachments/assets/5e0cad05-c48c-4951-9d9a-d4791853110e" />
+
+<img width="466" height="911" alt="image" src="https://github.com/user-attachments/assets/6b6ace4f-af7a-4974-a75a-f509379cb1af" />
+
+<img width="515" height="287" alt="image" src="https://github.com/user-attachments/assets/f98d3bd1-76db-437f-b250-00004511eee1" />
+
+
+
 ---
 
 ## 아키텍처 구조
