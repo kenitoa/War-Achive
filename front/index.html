@@ -1,30 +1,31 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>War Archive — 전쟁 아카이브</title>
-  <link rel="stylesheet" href="assets/css/common/main_style.css">
-  <link rel="stylesheet" href="assets/css/common/archive_common.css">
+  <title>War Archive | 전쟁사 디지털 아카이브</title>
+  <link rel="stylesheet" href="assets/css/common/home_clean.css">
+  <link rel="stylesheet" href="assets/css/common/auth.css">
 </head>
 <body>
+  <a class="skip-link" href="#mainContent">본문으로 이동</a>
 
-  <!-- ── Header ── -->
   <header class="site-header">
     <div class="header-inner">
-      <a href="index.html" class="logo">
+      <a href="index.html" class="logo" aria-label="War Archive 홈">
+        <span class="logo-mark" aria-hidden="true">WA</span>
         <span class="logo-text">War Archive</span>
       </a>
 
-      <nav class="nav-links">
-        <a href="#categories" class="active">아카이브</a>
+      <nav class="nav-links" aria-label="주요 메뉴">
+        <a href="#search" class="active">검색</a>
+        <a href="#categories">카테고리</a>
+        <a href="#featured">추천 자료</a>
         <a href="#browse">탐색</a>
-        <a href="#timeline">연대기</a>
-        <a href="#search">검색</a>
-        <a href="#project">프로젝트</a>
+        <a href="#project">안내</a>
       </nav>
 
-      <button class="menu-toggle" aria-label="메뉴 열기">
+      <button class="menu-toggle" type="button" aria-label="메뉴 열기">
         <span></span>
         <span></span>
         <span></span>
@@ -32,432 +33,318 @@
     </div>
   </header>
 
-  <!-- ── Hero ── -->
-  <section class="hero" id="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <span class="hero-badge">Digital Archive</span>
-      <h1 class="hero-title">
-        <span class="accent">War Archive</span>
-      </h1>
-      <p class="hero-subtitle">
-        전쟁사 자료를 시대, 지역, 인물, 전투, 사료 유형별로 정리한 디지털 아카이브입니다.
-      </p>
+  <main id="mainContent">
+    <section class="hero" id="search">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="hero-overlay" aria-hidden="true"></div>
 
-      <!-- 통합 검색창 -->
-      <div class="search-wrapper hero-search" id="search">
-        <div class="search-box search-box-lg">
-          <span class="search-box-icon" aria-hidden="true">&#128269;</span>
-          <input type="text" placeholder="인물·전쟁·무기·사료를 검색 (예: 이순신, 노르만디, 판저)">
-          <button type="button" aria-label="검색">검색</button>
-        </div>
-        <div class="search-hint">
-          <span class="search-hint-label">많이 찾는 키워드</span>
-          <div class="search-tags">
-            <span class="search-tag">제2차 세계대전</span>
-            <span class="search-tag">이순신</span>
-            <span class="search-tag">냉전</span>
-            <span class="search-tag">나폴레옹</span>
-            <span class="search-tag">참호전</span>
-            <span class="search-tag">핵무기</span>
+      <div class="hero-content">
+        <span class="hero-badge">전쟁사 디지털 아카이브</span>
+        <h1 class="hero-title">War Archive</h1>
+        <p class="hero-subtitle">
+          전쟁 · 인물 · 전투 · 무기 · 사료 · 전략
+        </p>
+
+        <div class="search-wrapper hero-search">
+          <div class="search-box search-box-lg" role="search">
+            <span class="search-box-icon" aria-hidden="true">&#128269;</span>
+            <input type="search" placeholder="예: 이순신, 노르망디, 참호전, AK-47" aria-label="아카이브 통합 검색">
+            <button type="button">검색</button>
           </div>
-        </div>
 
-        <!-- 검색 결과 영역 -->
-        <div class="search-results" id="searchResults">
-          <div class="search-results-header">
-            <span class="search-results-count" id="searchResultsCount"></span>
-            <div class="search-results-tools">
-              <label class="search-sort-label" for="searchSort">정렬</label>
-              <select class="search-sort" id="searchSort">
-                <option value="relevance">관련도</option>
-                <option value="year">연도순</option>
-                <option value="name">이름순</option>
-                <option value="era">시대순</option>
-                <option value="credibility">신뢰도순</option>
-              </select>
-              <button class="search-results-close" id="searchResultsClose" aria-label="검색 결과 닫기">&times;</button>
+          <div class="search-hint" aria-label="추천 검색어">
+            <span class="search-hint-label">추천</span>
+            <div class="search-tags">
+              <button type="button" class="search-tag">제2차 세계대전</button>
+              <button type="button" class="search-tag">이순신</button>
+              <button type="button" class="search-tag">나폴레옹</button>
+              <button type="button" class="search-tag">참호전</button>
+              <button type="button" class="search-tag">게티즈버그</button>
             </div>
           </div>
-          <div class="search-results-refine" id="searchResultsRefine" hidden></div>
-          <div class="search-results-list" id="searchResultsList"></div>
+
+          <div class="search-results" id="searchResults">
+            <div class="search-results-header">
+              <span class="search-results-count" id="searchResultsCount"></span>
+              <div class="search-results-tools">
+                <label class="search-sort-label" for="searchSort">정렬</label>
+                <select class="search-sort" id="searchSort">
+                  <option value="relevance">관련도</option>
+                  <option value="year">연도순</option>
+                  <option value="name">이름순</option>
+                  <option value="era">시대순</option>
+                  <option value="credibility">신뢰도순</option>
+                </select>
+                <button class="search-results-close" id="searchResultsClose" type="button" aria-label="검색 결과 닫기">&times;</button>
+              </div>
+            </div>
+            <div class="search-results-refine" id="searchResultsRefine" hidden></div>
+            <div class="search-results-list" id="searchResultsList"></div>
+          </div>
+        </div>
+
+        <nav class="hero-categories" aria-label="빠른 카테고리 이동">
+          <a href="pages/war overview/war overview.html" class="hero-cat">전쟁 개요</a>
+          <a href="pages/biography of people/biography of people.html" class="hero-cat">인물</a>
+          <a href="pages/Battlefield Map/Battlefield Map.html" class="hero-cat">전장 지도</a>
+          <a href="pages/Weapons and Equipment/Weapons and Equipment.html" class="hero-cat">무기</a>
+          <a href="pages/Historical Sources & Documents/Historical Sources & Documents.html" class="hero-cat">사료</a>
+          <a href="pages/strategy and tactics/strategy and tactics.html" class="hero-cat">전략</a>
+        </nav>
+      </div>
+    </section>
+
+    <section class="stats-bar" aria-label="아카이브 수록 현황">
+      <div class="stats-inner">
+        <div class="stat-item fade-in">
+          <div class="stat-number" id="statWarCount" data-count="0" data-suffix="">0</div>
+          <div class="stat-label">전쟁 기록</div>
+        </div>
+        <div class="stat-item fade-in">
+          <div class="stat-number" id="statDocCount" data-count="0" data-suffix="">0</div>
+          <div class="stat-label">전체 자료</div>
+        </div>
+        <div class="stat-item fade-in">
+          <div class="stat-number" id="statPeopleCount" data-count="0" data-suffix="">0</div>
+          <div class="stat-label">인물 기록</div>
+        </div>
+        <div class="stat-item fade-in">
+          <div class="stat-number" id="statBattleCount" data-count="0" data-suffix="">0</div>
+          <div class="stat-label">전투 기록</div>
         </div>
       </div>
-
-      <!-- 주요 카테고리 빠른 진입 -->
-      <nav class="hero-categories" aria-label="주요 카테고리">
-        <a href="pages/war overview/war overview.html" class="hero-cat">
-          <span class="hero-cat-label">전쟁 개요</span>
-        </a>
-        <a href="pages/biography of people/biography of people.html" class="hero-cat">
-          <span class="hero-cat-label">인물 열전</span>
-        </a>
-        <a href="pages/Battlefield Map/Battlefield Map.html" class="hero-cat">
-          <span class="hero-cat-label">전장 지도</span>
-        </a>
-        <a href="pages/Weapons and Equipment/Weapons and Equipment.html" class="hero-cat">
-          <span class="hero-cat-label">무기 &amp; 장비</span>
-        </a>
-        <a href="pages/Historical Sources & Documents/Historical Sources & Documents.html" class="hero-cat">
-          <span class="hero-cat-label">사료 &amp; 문서</span>
-        </a>
-        <a href="pages/strategy and tactics/strategy and tactics.html" class="hero-cat">
-          <span class="hero-cat-label">전략 &amp; 전술</span>
-        </a>
-      </nav>
-    </div>
-  </section>
-
-  <!-- ── Statistics ── -->
-  <div class="stats-bar">
-    <div class="stats-inner">
-      <div class="stat-item fade-in">
-        <div class="stat-number" id="statWarCount" data-count="0" data-suffix="">0</div>
-        <div class="stat-label">수록된 전쟁</div>
-      </div>
-      <div class="stat-item fade-in">
-        <div class="stat-number" id="statDocCount" data-count="0" data-suffix="">0</div>
-        <div class="stat-label">문서 및 기록</div>
-      </div>
-      <div class="stat-item fade-in">
-        <div class="stat-number" id="statPeopleCount" data-count="0" data-suffix="">0</div>
-        <div class="stat-label">역사적 인물</div>
-      </div>
-      <div class="stat-item fade-in">
-        <div class="stat-number" id="statBattleCount" data-count="0" data-suffix="">0</div>
-        <div class="stat-label">전투 기록</div>
-      </div>
-    </div>
-    <p class="stats-note">
-      모든 수치는 아카이브 인덱스(<code>data/search/*.json</code>)에서 자동 집계됩니다.
-      <span class="stats-updated">기준일: <time id="statsUpdated" datetime="">—</time></span>
-    </p>
-  </div>
-
-  <!-- ── Categories ── -->
-  <section class="section" id="categories">
-    <div class="section-header fade-in">
-      <span class="section-label">Archive Categories</span>
-      <h2 class="section-title">아카이브 카테고리</h2>
-      <p class="section-desc">자료를 시대, 지역, 인물, 전투, 사료 유형별로 정리한 카테고리입니다.</p>
-    </div>
-
-    <div class="categories-grid">
-      <a href="pages/war overview/war overview.html" class="category-card fade-in" data-source-type="secondary">
-        <span class="card-tag tag-secondary" title="공개 자료를 정리·요약한 2차 자료">정리·해설</span>
-        <h3 class="card-title">전쟁 개요</h3>
-        <p class="card-desc">고대부터 현대까지 주요 전쟁의 원인·경과·결과를 시대별로 정리한 기록입니다.</p>
-        <ul class="card-meta" id="warOverviewMeta">
-          <li class="card-meta-item"><span class="meta-key">시대</span><span class="meta-val" data-meta="era">—</span></li>
-          <li class="card-meta-item"><span class="meta-key">지역</span><span class="meta-val" data-meta="region">—</span></li>
-          <li class="card-meta-item"><span class="meta-key">유형</span><span class="meta-val">정리·해설</span></li>
-        </ul>
-        <span class="card-count" id="warOverviewCount">불러오는 중…</span>
-      </a>
-
-      <a href="pages/biography of people/biography of people.html" class="category-card fade-in" data-source-type="secondary">
-        <span class="card-tag tag-secondary" title="공개 자료를 정리·요약한 2차 자료">정리·해설</span>
-        <h3 class="card-title">인물 열전</h3>
-        <p class="card-desc">전쟁사에 등장한 지휘관, 전략가, 주요 인물의 이력·활동·평가를 정리합니다.</p>
-        <ul class="card-meta" id="biographyMeta">
-          <li class="card-meta-item"><span class="meta-key">시대</span><span class="meta-val" data-meta="era">—</span></li>
-          <li class="card-meta-item"><span class="meta-key">국적</span><span class="meta-val" data-meta="region">—</span></li>
-          <li class="card-meta-item"><span class="meta-key">유형</span><span class="meta-val">인물 정리</span></li>
-        </ul>
-        <span class="card-count" id="biographyCount">불러오는 중…</span>
-      </a>
-
-      <a href="pages/Weapons and Equipment/Weapons and Equipment.html" class="category-card fade-in" data-source-type="secondary">
-        <span class="card-tag tag-secondary" title="공개 자료를 정리·요약한 2차 자료">정리·해설</span>
-        <h3 class="card-title">무기 & 장비</h3>
-        <p class="card-desc">냉병기부터 핵무기까지 시대별 주요 무기·군사 장비를 유형별로 정리합니다.</p>
-        <ul class="card-meta" id="weaponsMeta">
-          <li class="card-meta-item"><span class="meta-key">시대</span><span class="meta-val" data-meta="era">—</span></li>
-          <li class="card-meta-item"><span class="meta-key">분류</span><span class="meta-val" data-meta="region">—</span></li>
-          <li class="card-meta-item"><span class="meta-key">유형</span><span class="meta-val">제원·해설</span></li>
-        </ul>
-        <span class="card-count" id="weaponsCount">불러오는 중…</span>
-      </a>
-
-      <a href="pages/strategy and tactics/strategy and tactics.html" class="category-card fade-in" data-source-type="secondary">
-        <span class="card-tag tag-secondary" title="공개 자료를 정리·요약한 2차 자료">정리·해설</span>
-        <h3 class="card-title">전략 & 전술</h3>
-        <p class="card-desc">시대별 병법서·교리와 주요 전투에서 관찰된 전략·전술을 문헌 중심으로 정리합니다.</p>
-        <ul class="card-meta" id="strategyTacticsMeta">
-          <li class="card-meta-item"><span class="meta-key">시대</span><span class="meta-val" data-meta="era">—</span></li>
-          <li class="card-meta-item"><span class="meta-key">분류</span><span class="meta-val" data-meta="region">—</span></li>
-          <li class="card-meta-item"><span class="meta-key">유형</span><span class="meta-val">교리·문헌 정리</span></li>
-        </ul>
-        <span class="card-count" id="strategyTacticsCount">불러오는 중…</span>
-      </a>
-
-      <a href="pages/Historical Sources & Documents/Historical Sources & Documents.html" class="category-card fade-in" data-source-type="primary">
-        <span class="card-tag tag-primary" title="원문·증언 등 1차 사료">1차 사료</span>
-        <h3 class="card-title">사료 & 문서</h3>
-        <p class="card-desc">조약문, 선전포고문, 편지, 일기, 연설문, 보고서 등 전쟁 관련 1차 사료를 수집·보관합니다.</p>
-        <ul class="card-meta" id="historicalSourcesMeta">
-          <li class="card-meta-item"><span class="meta-key">시대</span><span class="meta-val" data-meta="era">—</span></li>
-          <li class="card-meta-item"><span class="meta-key">유형</span><span class="meta-val" data-meta="region">—</span></li>
-          <li class="card-meta-item"><span class="meta-key">출처</span><span class="meta-val">공개 1차 사료</span></li>
-        </ul>
-        <span class="card-count" id="historicalSourcesCount">불러오는 중…</span>
-      </a>
-
-      <a href="pages/Battlefield Map/Battlefield Map.html" class="category-card fade-in" data-source-type="secondary">
-        <span class="card-tag tag-secondary" title="공개 자료를 정리·요약한 2차 자료">정리·해설</span>
-        <h3 class="card-title">전장 지도</h3>
-        <p class="card-desc">주요 전투의 지형, 진군 경로, 방어선 등을 지도로 시각화하여 제공합니다.</p>
-        <ul class="card-meta" id="battlefieldMapMeta">
-          <li class="card-meta-item"><span class="meta-key">시대</span><span class="meta-val" data-meta="era">—</span></li>
-          <li class="card-meta-item"><span class="meta-key">전역</span><span class="meta-val" data-meta="region">—</span></li>
-          <li class="card-meta-item"><span class="meta-key">유형</span><span class="meta-val">전투 정리</span></li>
-        </ul>
-        <span class="card-count" id="battlefieldMapCount">불러오는 중…</span>
-      </a>
-
-      <a href="pages/Undefine facts/Undefine facts.html" class="category-card card-warning fade-in" data-source-type="unverified">
-        <span class="card-tag tag-warning" title="사실 관계가 확정되지 않은 자료">미확인</span>
-        <h3 class="card-title">미확인 자료집</h3>
-        <p class="card-desc">사실 관계가 확정되지 않았거나 구전·전설·논쟁 중인 사료를 별도 분리해 보관합니다. 정식 카테고리와 동일한 신뢰도로 인용할 수 없습니다.</p>
-        <ul class="card-meta" id="undefineMeta">
-          <li class="card-meta-item"><span class="meta-key">분류</span><span class="meta-val" data-meta="region">—</span></li>
-          <li class="card-meta-item"><span class="meta-key">신뢰도</span><span class="meta-val">미확인 · 구전</span></li>
-          <li class="card-meta-item"><span class="meta-key">유형</span><span class="meta-val">참고용 자료</span></li>
-        </ul>
-        <span class="card-status status-warning" role="note">
-          <span class="status-dot" aria-hidden="true"></span>
-          인용 시 별도 검증 필요
-        </span>
-        <span class="card-count" id="undefineCount">불러오는 중…</span>
-      </a>
-    </div>
-  </section>
-
-  <!-- ── Featured / 대표 자료 (Phase B) ── -->
-  <section class="section section-featured" id="featured">
-    <div class="section-header fade-in">
-      <span class="section-label">Featured Records</span>
-      <h2 class="section-title">대표·최근 추가 자료</h2>
-      <p class="section-desc">
-        아카이브에 수록된 자료 중 카테고리별로 한 건씩 무작위로 노출됩니다. 새로고침하면 다른 자료가 표시됩니다.
+      <p class="stats-note">
+        <code>data/search/*.json</code> 인덱스 기준 자동 집계
+        <span class="stats-updated">기준일: <time id="statsUpdated" datetime="">-</time></span>
       </p>
-    </div>
+    </section>
 
-    <div class="featured-grid" id="featuredGrid" aria-busy="true">
-      <div class="featured-empty">자료를 불러오는 중…</div>
-    </div>
-  </section>
-
-  <!-- ── Browse / 탐색 (필터 도구) ── -->
-  <section class="section section-browse" id="browse" style="background: var(--bg-secondary);">
-    <div class="section-header fade-in">
-      <span class="section-label">Browse &amp; Filter</span>
-      <h2 class="section-title">탐색</h2>
-      <p class="section-desc">
-        시대·지역·자료 유형·신뢰도 필터를 조합해 자료를 좁혀가며 살펴보세요.
-        모든 결과는 아카이브 인덱스에서 자동 산출됩니다.
-      </p>
-    </div>
-
-    <div class="browse-shell fade-in">
-      <!-- 필터 패널 -->
-      <aside class="browse-filters" aria-label="아카이브 필터">
-        <div class="browse-filter-group" data-filter="era">
-          <h4 class="browse-filter-title">시대</h4>
-          <div class="browse-filter-options">
-            <button type="button" class="browse-chip active" data-value="">전체</button>
-            <button type="button" class="browse-chip" data-value="ancient">고대</button>
-            <button type="button" class="browse-chip" data-value="medieval">중세</button>
-            <button type="button" class="browse-chip" data-value="earlymodern">근세</button>
-            <button type="button" class="browse-chip" data-value="modern">근대</button>
-            <button type="button" class="browse-chip" data-value="worldwar">세계대전</button>
-            <button type="button" class="browse-chip" data-value="contemporary">현대</button>
-          </div>
-        </div>
-
-        <div class="browse-filter-group" data-filter="region">
-          <h4 class="browse-filter-title">지역</h4>
-          <div class="browse-filter-options">
-            <button type="button" class="browse-chip active" data-value="">전체</button>
-            <button type="button" class="browse-chip" data-value="eastasia">동아시아</button>
-            <button type="button" class="browse-chip" data-value="europe">유럽</button>
-            <button type="button" class="browse-chip" data-value="middleeast">중동</button>
-            <button type="button" class="browse-chip" data-value="americas">아메리카</button>
-            <button type="button" class="browse-chip" data-value="africa">아프리카</button>
-            <button type="button" class="browse-chip" data-value="global">전지구·기타</button>
-          </div>
-        </div>
-
-        <div class="browse-filter-group" data-filter="type">
-          <h4 class="browse-filter-title">자료 유형</h4>
-          <div class="browse-filter-options">
-            <button type="button" class="browse-chip active" data-value="">전체</button>
-            <button type="button" class="browse-chip" data-value="war">전쟁 개요</button>
-            <button type="button" class="browse-chip" data-value="bio">인물</button>
-            <button type="button" class="browse-chip" data-value="battle">전투</button>
-            <button type="button" class="browse-chip" data-value="weapons">무기</button>
-            <button type="button" class="browse-chip" data-value="docs">사료</button>
-            <button type="button" class="browse-chip" data-value="tactics">전략·전술</button>
-            <button type="button" class="browse-chip" data-value="undefine">미확인 기록</button>
-          </div>
-        </div>
-
-        <div class="browse-filter-group" data-filter="credibility">
-          <h4 class="browse-filter-title">신뢰도</h4>
-          <div class="browse-filter-options">
-            <button type="button" class="browse-chip active" data-value="">전체</button>
-            <button type="button" class="browse-chip cred-verified" data-value="verified">검증됨</button>
-            <button type="button" class="browse-chip cred-disputed" data-value="disputed">논쟁 있음</button>
-            <button type="button" class="browse-chip cred-unverified" data-value="unverified">미확인</button>
-            <button type="button" class="browse-chip cred-oral" data-value="oral">구전 자료</button>
-          </div>
-        </div>
-
-        <div class="browse-filter-actions">
-          <button type="button" class="browse-reset" id="browseReset">필터 초기화</button>
-        </div>
-      </aside>
-
-      <!-- 결과 영역 -->
-      <div class="browse-results">
-        <div class="browse-toolbar">
-          <div class="browse-keyword">
-            <input type="text" id="browseKeyword" placeholder="결과 내 키워드 검색…" aria-label="결과 내 키워드 검색">
-          </div>
-          <div class="browse-active-filters" id="browseActiveFilters" aria-live="polite"></div>
-          <div class="browse-sort">
-            <label for="browseSort">정렬</label>
-            <select id="browseSort">
-              <option value="name">가나다순</option>
-              <option value="era">시대순</option>
-              <option value="credibility">신뢰도순</option>
-              <option value="type">유형순</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="browse-summary">
-          <span id="browseCount">불러오는 중…</span>
-        </div>
-
-        <div class="browse-grid" id="browseGrid"></div>
-
-        <div class="browse-empty" id="browseEmpty" hidden>
-          <p>조건과 일치하는 자료가 없습니다.</p>
-          <p class="browse-empty-hint">다른 시대·지역 또는 신뢰도 필터를 해제해 보세요.</p>
-        </div>
-
-        <div class="browse-pagination" id="browsePagination" hidden></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── Timeline ── -->
-  <section class="section" id="timeline" style="background: var(--bg-secondary);">
-    <div class="section-header fade-in">
-      <span class="section-label">Historical Timeline</span>
-      <h2 class="section-title">전쟁 연대기</h2>
-      <p class="section-desc">아카이브에 수록된 전쟁과 주요 전투를 시기 순으로 정리한 연표입니다. 시대·유형으로 필터링하고, 항목을 클릭해 상세 자료로 이동하세요.</p>
-    </div>
-
-    <div class="timeline-shell">
-      <div class="timeline-controls" role="region" aria-label="연대기 필터">
-        <div class="timeline-filter-group" data-filter="era">
-          <span class="timeline-filter-label">시대</span>
-          <div class="timeline-chips">
-            <button type="button" class="timeline-chip active" data-value="all">전체</button>
-            <button type="button" class="timeline-chip" data-value="ancient">고대</button>
-            <button type="button" class="timeline-chip" data-value="medieval">중세</button>
-            <button type="button" class="timeline-chip" data-value="earlymodern">근세</button>
-            <button type="button" class="timeline-chip" data-value="modern">근대</button>
-            <button type="button" class="timeline-chip" data-value="worldwar">세계대전</button>
-            <button type="button" class="timeline-chip" data-value="contemporary">현대</button>
-          </div>
-        </div>
-        <div class="timeline-filter-group" data-filter="type">
-          <span class="timeline-filter-label">유형</span>
-          <div class="timeline-chips">
-            <button type="button" class="timeline-chip active" data-value="all">전체</button>
-            <button type="button" class="timeline-chip" data-value="war">전쟁</button>
-            <button type="button" class="timeline-chip" data-value="battle">전투</button>
-          </div>
-        </div>
-        <div class="timeline-filter-group" data-filter="sort">
-          <span class="timeline-filter-label">정렬</span>
-          <div class="timeline-chips">
-            <button type="button" class="timeline-chip active" data-value="asc">오래된순</button>
-            <button type="button" class="timeline-chip" data-value="desc">최근순</button>
-          </div>
-        </div>
-        <div class="timeline-summary" id="timelineSummary" aria-live="polite"></div>
+    <section class="section" id="categories">
+      <div class="section-header fade-in">
+        <span class="section-label">Archive Categories</span>
+        <h2 class="section-title">카테고리</h2>
+        <p class="section-desc">자료 유형별 빠른 진입</p>
       </div>
 
-      <div class="timeline-container" id="timelineContainer">
-        <!-- 동적 생성 -->
+      <div class="categories-grid">
+        <a href="pages/war overview/war overview.html" class="category-card fade-in" data-source-type="secondary">
+          <span class="card-tag tag-secondary">정리·해설</span>
+          <h3 class="card-title">전쟁 개요</h3>
+          <p class="card-desc">원인 · 전개 · 결과 · 시대 구분</p>
+          <ul class="card-meta" id="warOverviewMeta">
+            <li class="card-meta-item"><span class="meta-key">시대</span><span class="meta-val" data-meta="era">-</span></li>
+            <li class="card-meta-item"><span class="meta-key">지역</span><span class="meta-val" data-meta="region">-</span></li>
+          </ul>
+          <span class="card-count" id="warOverviewCount">불러오는 중...</span>
+        </a>
+
+        <a href="pages/biography of people/biography of people.html" class="category-card fade-in" data-source-type="secondary">
+          <span class="card-tag tag-secondary">인물 정리</span>
+          <h3 class="card-title">인물 열전</h3>
+          <p class="card-desc">지휘관 · 전략가 · 정치 지도자</p>
+          <ul class="card-meta" id="biographyMeta">
+            <li class="card-meta-item"><span class="meta-key">시대</span><span class="meta-val" data-meta="era">-</span></li>
+            <li class="card-meta-item"><span class="meta-key">국적</span><span class="meta-val" data-meta="region">-</span></li>
+          </ul>
+          <span class="card-count" id="biographyCount">불러오는 중...</span>
+        </a>
+
+        <a href="pages/Battlefield Map/Battlefield Map.html" class="category-card fade-in" data-source-type="secondary">
+          <span class="card-tag tag-secondary">전투 기록</span>
+          <h3 class="card-title">전장 지도</h3>
+          <p class="card-desc">전투 위치 · 전역 · 지휘관 · 결과</p>
+          <ul class="card-meta" id="battlefieldMapMeta">
+            <li class="card-meta-item"><span class="meta-key">시대</span><span class="meta-val" data-meta="era">-</span></li>
+            <li class="card-meta-item"><span class="meta-key">전역</span><span class="meta-val" data-meta="region">-</span></li>
+          </ul>
+          <span class="card-count" id="battlefieldMapCount">불러오는 중...</span>
+        </a>
+
+        <a href="pages/Weapons and Equipment/Weapons and Equipment.html" class="category-card fade-in" data-source-type="secondary">
+          <span class="card-tag tag-secondary">장비 자료</span>
+          <h3 class="card-title">무기 &amp; 장비</h3>
+          <p class="card-desc">무기 체계 · 군사 장비 · 유형 비교</p>
+          <ul class="card-meta" id="weaponsMeta">
+            <li class="card-meta-item"><span class="meta-key">시대</span><span class="meta-val" data-meta="era">-</span></li>
+            <li class="card-meta-item"><span class="meta-key">분류</span><span class="meta-val" data-meta="region">-</span></li>
+          </ul>
+          <span class="card-count" id="weaponsCount">불러오는 중...</span>
+        </a>
+
+        <a href="pages/Historical Sources & Documents/Historical Sources & Documents.html" class="category-card fade-in" data-source-type="primary">
+          <span class="card-tag tag-primary">1차 사료</span>
+          <h3 class="card-title">사료 &amp; 문서</h3>
+          <p class="card-desc">조약 · 연설 · 명령서 · 일기 · 증언</p>
+          <ul class="card-meta" id="historicalSourcesMeta">
+            <li class="card-meta-item"><span class="meta-key">시대</span><span class="meta-val" data-meta="era">-</span></li>
+            <li class="card-meta-item"><span class="meta-key">유형</span><span class="meta-val" data-meta="region">-</span></li>
+          </ul>
+          <span class="card-count" id="historicalSourcesCount">불러오는 중...</span>
+        </a>
+
+        <a href="pages/strategy and tactics/strategy and tactics.html" class="category-card fade-in" data-source-type="secondary">
+          <span class="card-tag tag-secondary">전술 분석</span>
+          <h3 class="card-title">전략 &amp; 전술</h3>
+          <p class="card-desc">작전술 · 병법 · 전술 개념 · 사례</p>
+          <ul class="card-meta" id="strategyTacticsMeta">
+            <li class="card-meta-item"><span class="meta-key">시대</span><span class="meta-val" data-meta="era">-</span></li>
+            <li class="card-meta-item"><span class="meta-key">분류</span><span class="meta-val" data-meta="region">-</span></li>
+          </ul>
+          <span class="card-count" id="strategyTacticsCount">불러오는 중...</span>
+        </a>
+
+        <a href="pages/Undefine facts/Undefine facts.html" class="category-card card-warning fade-in" data-source-type="unverified">
+          <span class="card-tag tag-warning">미확인</span>
+          <h3 class="card-title">미확인 자료집</h3>
+          <p class="card-desc">검증 전 자료 · 논쟁 기록 · 참고 자료</p>
+          <ul class="card-meta" id="undefineMeta">
+            <li class="card-meta-item"><span class="meta-key">분류</span><span class="meta-val" data-meta="region">-</span></li>
+            <li class="card-meta-item"><span class="meta-key">주의</span><span class="meta-val">인용 전 검증 필요</span></li>
+          </ul>
+          <span class="card-count" id="undefineCount">불러오는 중...</span>
+        </a>
       </div>
-      <p class="timeline-empty" id="timelineEmpty" hidden>선택한 조건에 해당하는 항목이 없습니다.</p>
-      <p class="timeline-note">BC 항목은 음수 연도로 정렬되며, 동일 연도 항목은 이름 순으로 안정 정렬됩니다. 전쟁/전투 데이터는 <code>war overview</code> · <code>Battlefield Map</code> 검색 인덱스에서 가져오고, 관련 인물은 인물 열전 데이터에서 자동 매칭됩니다.</p>
-    </div>
-  </section>
+    </section>
 
-  <!-- ── Search 섹션은 Hero로 통합되었습니다 ── -->
+    <section class="section section-featured" id="featured">
+      <div class="section-header fade-in">
+        <span class="section-label">Featured Records</span>
+        <h2 class="section-title">추천 자료</h2>
+        <p class="section-desc">카테고리별 대표 기록</p>
+      </div>
+      <div class="featured-grid" id="featuredGrid" aria-busy="true">
+        <div class="featured-empty">자료를 불러오는 중...</div>
+      </div>
+    </section>
 
-  <!-- ── Project (보조 정보 — 하단 유지) ── -->
-  <section class="section section-project" id="project">
-    <div class="section-header fade-in">
-      <span class="section-label">About the Archive</span>
-      <h2 class="section-title">프로젝트 안내</h2>
-      <p class="section-desc">아카이브 운영 원칙과 자료 제보 방법을 안내합니다. 운영자 연락처는 푸터에서 확인할 수 있습니다.</p>
-    </div>
+    <section class="section section-browse" id="browse">
+      <div class="section-header fade-in">
+        <span class="section-label">Browse &amp; Filter</span>
+        <h2 class="section-title">필터 탐색</h2>
+        <p class="section-desc">시대 · 지역 · 자료 유형 · 신뢰도</p>
+      </div>
 
-    <div class="project-grid project-grid-compact">
-      <a href="pages/info/information.html" class="category-card project-card fade-in">
-        <div class="project-icon icon-about">
-          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="32" cy="32" r="28" stroke="currentColor" stroke-width="2" opacity="0.15"/>
-            <rect x="20" y="14" width="24" height="36" rx="2" stroke="currentColor" stroke-width="2"/>
-            <line x1="20" y1="14" x2="20" y2="50" stroke="currentColor" stroke-width="2"/>
-            <rect x="24" y="20" width="16" height="2" rx="1" fill="currentColor" opacity="0.6"/>
-            <rect x="24" y="26" width="12" height="2" rx="1" fill="currentColor" opacity="0.4"/>
-            <rect x="24" y="32" width="14" height="2" rx="1" fill="currentColor" opacity="0.4"/>
-            <rect x="24" y="38" width="10" height="2" rx="1" fill="currentColor" opacity="0.3"/>
-            <circle cx="32" cy="11" r="3" fill="currentColor" opacity="0.8"/>
-            <line x1="32" y1="8" x2="32" y2="14" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
-          </svg>
+      <div class="browse-shell fade-in">
+        <aside class="browse-filters" aria-label="아카이브 필터">
+          <div class="browse-filter-group" data-filter="era">
+            <h3 class="browse-filter-title">시대</h3>
+            <div class="browse-filter-options">
+              <button type="button" class="browse-chip active" data-value="">전체</button>
+              <button type="button" class="browse-chip" data-value="ancient">고대</button>
+              <button type="button" class="browse-chip" data-value="medieval">중세</button>
+              <button type="button" class="browse-chip" data-value="earlymodern">근세</button>
+              <button type="button" class="browse-chip" data-value="modern">근대</button>
+              <button type="button" class="browse-chip" data-value="worldwar">세계대전</button>
+              <button type="button" class="browse-chip" data-value="contemporary">현대</button>
+            </div>
+          </div>
+
+          <div class="browse-filter-group" data-filter="region">
+            <h3 class="browse-filter-title">지역</h3>
+            <div class="browse-filter-options">
+              <button type="button" class="browse-chip active" data-value="">전체</button>
+              <button type="button" class="browse-chip" data-value="eastasia">동아시아</button>
+              <button type="button" class="browse-chip" data-value="europe">유럽</button>
+              <button type="button" class="browse-chip" data-value="middleeast">중동</button>
+              <button type="button" class="browse-chip" data-value="americas">아메리카</button>
+              <button type="button" class="browse-chip" data-value="africa">아프리카</button>
+              <button type="button" class="browse-chip" data-value="global">전지구</button>
+            </div>
+          </div>
+
+          <div class="browse-filter-group" data-filter="type">
+            <h3 class="browse-filter-title">자료 유형</h3>
+            <div class="browse-filter-options">
+              <button type="button" class="browse-chip active" data-value="">전체</button>
+              <button type="button" class="browse-chip" data-value="war">전쟁</button>
+              <button type="button" class="browse-chip" data-value="bio">인물</button>
+              <button type="button" class="browse-chip" data-value="battle">전투</button>
+              <button type="button" class="browse-chip" data-value="weapons">무기</button>
+              <button type="button" class="browse-chip" data-value="docs">사료</button>
+              <button type="button" class="browse-chip" data-value="tactics">전략</button>
+              <button type="button" class="browse-chip" data-value="undefine">미확인</button>
+            </div>
+          </div>
+
+          <div class="browse-filter-group" data-filter="credibility">
+            <h3 class="browse-filter-title">신뢰도</h3>
+            <div class="browse-filter-options">
+              <button type="button" class="browse-chip active" data-value="">전체</button>
+              <button type="button" class="browse-chip cred-verified" data-value="verified">검증됨</button>
+              <button type="button" class="browse-chip cred-disputed" data-value="disputed">논쟁 있음</button>
+              <button type="button" class="browse-chip cred-unverified" data-value="unverified">미확인</button>
+              <button type="button" class="browse-chip cred-oral" data-value="oral">구전</button>
+            </div>
+          </div>
+
+          <div class="browse-filter-actions">
+            <button type="button" class="browse-reset" id="browseReset">필터 초기화</button>
+          </div>
+        </aside>
+
+        <div class="browse-results">
+          <div class="browse-toolbar">
+            <div class="browse-keyword">
+              <input type="search" id="browseKeyword" placeholder="결과 내 검색" aria-label="결과 내 키워드 검색">
+            </div>
+            <div class="browse-active-filters" id="browseActiveFilters" aria-live="polite"></div>
+            <div class="browse-sort">
+              <label for="browseSort">정렬</label>
+              <select id="browseSort">
+                <option value="name">가나다순</option>
+                <option value="era">시대순</option>
+                <option value="credibility">신뢰도순</option>
+                <option value="type">유형순</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="browse-summary">
+            <span id="browseCount">불러오는 중...</span>
+          </div>
+          <div class="browse-grid" id="browseGrid"></div>
+          <div class="browse-empty" id="browseEmpty" hidden>
+            <p>일치 자료 없음</p>
+            <p class="browse-empty-hint">필터 축소 · 다른 키워드</p>
+          </div>
+          <div class="browse-pagination" id="browsePagination" hidden></div>
         </div>
-        <h3 class="card-title">아카이브 소개</h3>
-        <p class="card-desc">운영 원칙·자료 분류 기준·신뢰도 표기 규칙 등 아카이브의 작성 방침을 설명합니다.</p>
-      </a>
+      </div>
+    </section>
 
-      <a href="pages/info/contribution.html" class="category-card project-card fade-in">
-        <div class="project-icon icon-contribute">
-          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="32" cy="32" r="28" stroke="currentColor" stroke-width="2" opacity="0.15"/>
-            <circle cx="32" cy="18" r="4" stroke="currentColor" stroke-width="2"/>
-            <circle cx="18" cy="42" r="4" stroke="currentColor" stroke-width="2"/>
-            <circle cx="46" cy="42" r="4" stroke="currentColor" stroke-width="2"/>
-            <line x1="32" y1="22" x2="32" y2="30" stroke="currentColor" stroke-width="2"/>
-            <line x1="32" y1="30" x2="20" y2="38" stroke="currentColor" stroke-width="2"/>
-            <line x1="32" y1="30" x2="44" y2="38" stroke="currentColor" stroke-width="2"/>
-            <circle cx="32" cy="30" r="2" fill="currentColor" opacity="0.6"/>
-          </svg>
-        </div>
-        <h3 class="card-title">자료 제보 · 오류 수정</h3>
-        <p class="card-desc">새로운 1차 사료 제보, 오기·오역·사실 오류 신고, 출처 보강 요청을 받습니다. 제보된 자료는 검증 후 수록됩니다.</p>
-      </a>
-    </div>
-  </section>
+    <section class="section section-project" id="project">
+      <div class="section-header fade-in">
+        <span class="section-label">Archive Guide</span>
+        <h2 class="section-title">이용 안내</h2>
+        <p class="section-desc">자료 기준 · 제보 방식 · 운영 정보</p>
+      </div>
 
-  <!-- ── Footer ── -->
+      <div class="project-grid project-grid-compact">
+        <a href="pages/info/information.html" class="category-card project-card fade-in">
+          <h3 class="card-title">아카이브 소개</h3>
+          <p class="card-desc">자료 분류 기준 · 운영 원칙</p>
+        </a>
+        <a href="pages/info/contribution.html" class="category-card project-card fade-in">
+          <h3 class="card-title">자료 제보 · 오류 수정</h3>
+          <p class="card-desc">새 자료 제보 · 오탈자 · 사실 오류</p>
+        </a>
+        <a href="pages/info/developer information.html" class="category-card project-card fade-in">
+          <h3 class="card-title">운영자 · 문의</h3>
+          <p class="card-desc">운영 정보 · 문의 경로</p>
+        </a>
+      </div>
+    </section>
+  </main>
+
   <footer class="site-footer">
     <div class="footer-inner">
       <div class="footer-top">
         <div class="footer-about">
           <a href="index.html" class="logo">
+            <span class="logo-mark" aria-hidden="true">WA</span>
             <span class="logo-text">War Archive</span>
           </a>
-          <p>전쟁사 자료를 시대·지역·인물·전투·사료 유형별로 정리한<br>디지털 아카이브입니다.</p>
+          <p>전쟁사 자료 · 검색 · 탐색 · 검증</p>
         </div>
 
         <div class="footer-col">
@@ -466,7 +353,6 @@
             <li><a href="pages/war overview/war overview.html">전쟁 개요</a></li>
             <li><a href="pages/biography of people/biography of people.html">인물 열전</a></li>
             <li><a href="pages/Weapons and Equipment/Weapons and Equipment.html">무기 &amp; 장비</a></li>
-            <li><a href="pages/strategy and tactics/strategy and tactics.html">전략 &amp; 전술</a></li>
           </ul>
         </div>
 
@@ -475,7 +361,7 @@
           <ul>
             <li><a href="pages/Historical Sources & Documents/Historical Sources & Documents.html">사료 &amp; 문서</a></li>
             <li><a href="pages/Battlefield Map/Battlefield Map.html">전장 지도</a></li>
-            <li><a href="#timeline">연대기</a></li>
+            <li><a href="pages/strategy and tactics/strategy and tactics.html">전략 &amp; 전술</a></li>
           </ul>
         </div>
 
@@ -483,20 +369,20 @@
           <h4>프로젝트</h4>
           <ul>
             <li><a href="pages/info/information.html">아카이브 소개</a></li>
-            <li><a href="pages/info/contribution.html">자료 제보 · 오류 수정</a></li>
+            <li><a href="pages/info/contribution.html">자료 제보</a></li>
             <li><a href="pages/Undefine facts/Undefine facts.html">미확인 자료집</a></li>
-            <li><a href="pages/info/developer information.html">운영자 · 문의</a></li>
           </ul>
         </div>
       </div>
 
       <div class="footer-bottom">
-        <p>&copy; 2026 War Archive. All rights reserved.</p>
-        <p>기록·보존·검증을 원칙으로 운영되는 비영리 아카이브입니다. 통계와 카드 정보는 아카이브 인덱스(JSON)에서 자동 산출되며, 수치는 수록된 자료 수를 의미합니다.</p>
+        <p>&copy; 2026 War Archive.</p>
+        <p>JSON 인덱스 기반 통계 · 추천</p>
       </div>
     </div>
   </footer>
 
-  <script src="assets/js/common/main_tech.js"></script>
+  <script src="assets/js/common/home_index.js"></script>
+  <script src="assets/js/common/auth.js"></script>
 </body>
 </html>

@@ -1,0 +1,77 @@
+services:
+  mysql:
+    image: mysql:8.4
+    container_name: war-archive-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-war_archive}
+      MYSQL_USER: ${MYSQL_USER:-war_archive}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-war_archive_password}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-war_archive_root_password}
+    ports:
+      - "${MYSQL_PORT:-3306}:3306"
+    volumes:
+      - war-archive-mysql-data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h 127.0.0.1 -u$${MYSQL_USER} -p$${MYSQL_PASSWORD} --silent"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
+
+  war-archive:
+    build:
+      context: .
+      dockerfile: back/Dockerfile
+    container_name: war-archive
+    restart: unless-stopped
+    ports:
+      - "${WAR_ARCHIVE_PORT:-8080}:8080"
+    environment:
+      HOST: 0.0.0.0
+      PORT: 8080
+      FRONT_DIR: /app/front
+      MYSQL_HOST: mysql
+      MYSQL_PORT: 3306
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-war_archive}
+      MYSQL_USER: ${MYSQL_USER:-war_archive}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-war_archive_password}
+      AUTH_COOKIE_SECRET: ${AUTH_COOKIE_SECRET:-change-this-war-archive-secret}
+      AUTH_COOKIE_SECURE: ${AUTH_COOKIE_SECURE:-false}
+      ADMIN_NAME: ${ADMIN_NAME:-admin}
+      ADMIN_EMAIL: ${ADMIN_EMAIL:-admi}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD:-admin}
+    volumes:
+      - ./front:/app/front:ro
+    depends_on:
+      mysql:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://127.0.0.1:8080/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+  history-crawler:
+    build:
+      context: .
+      dockerfile: back/crowling/Dockerfile
+    container_name: war-archive-history-crawler
+    restart: unless-stopped
+    environment:
+      CRAWLING_DATABASE_PATH: /app/data/articles.sqlite3
+      CRAWLING_TARGET_SITES_PATH: /app/data/target-sites.json
+      CRAWLING_FRONT_DATA_PATH: /app/front/data
+      CRAWLING_HOURLY_LIMIT: 50
+      CRAWLING_DAEMON_INTERVAL_SECONDS: 300
+      CRAWLING_RECENT_ARTICLE_DAYS: 30
+      CRAWLING_REQUEST_TIMEOUT: 15
+      CRAWLING_USER_AGENT: Mozilla/5.0 War-Archive-History-Crawler/1.0
+    volumes:
+      - ./front/data:/app/front/data
+      - ./back/crowling/data:/app/data
+    depends_on:
+      - war-archive
+
+volumes:
+  war-archive-mysql-data:
