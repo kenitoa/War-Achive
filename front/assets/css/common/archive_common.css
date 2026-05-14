@@ -1,288 +1,233 @@
-/* =====================================================
-   War Archive — Cross-page common primitives
-   (a11y, trust meta, related-section, reduced motion)
-   Loaded on all pages alongside category-specific CSS.
-   ===================================================== */
+/* War Archive shared page layer.
+   This file is loaded after page-specific CSS and keeps old pages aligned
+   with the main screen design language. */
 
-/* ── A11y: focus-visible ring ── */
+:root {
+  --bg-primary: #0e1013;
+  --bg-secondary: #14171b;
+  --bg-card: #1a1d22;
+  --bg-card-hover: #20242a;
+  --accent: #b59a5b;
+  --accent-dark: #8d764a;
+  --text-primary: #e6e7e9;
+  --text-secondary: #9aa0a8;
+  --text-muted: #6a707a;
+  --border: #262a30;
+  --border-accent: #353a42;
+  --display: 'Playfair Display', serif;
+  --sans: 'Noto Sans KR', sans-serif;
+  --serif: 'Playfair Display', 'Noto Sans KR', serif;
+  --category-accent: var(--accent);
+  --category-accent-dim: rgba(181, 154, 91, 0.12);
+  --category-accent-line: rgba(181, 154, 91, 0.42);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg-primary) !important;
+  color: var(--text-primary) !important;
+  font-family: var(--sans) !important;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
 :where(a, button, [role="button"], input, select, textarea, summary, [tabindex]):focus-visible {
-  outline: 2px solid #c9a84c;
+  outline: 2px solid var(--accent);
   outline-offset: 2px;
   border-radius: 2px;
 }
 
-.skip-link {
-  position: absolute;
-  left: -9999px;
-  top: 0;
-  background: #1a1d22;
-  color: #c9a84c;
-  padding: 0.6rem 1rem;
-  border: 1px solid #c9a84c;
-  font-size: 0.85rem;
-  z-index: 10000;
-  text-decoration: none;
-}
-.skip-link:focus {
-  left: 1rem;
-  top: 1rem;
-}
-
-/* ── Reduced motion ── */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
   }
 }
 
-/* ── Trust meta primitives ── */
-.trust-badge {
+.site-header {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 1000;
+  background: rgba(10, 10, 10, 0.85) !important;
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border) !important;
+  box-shadow: none !important;
+}
+
+.header-inner {
+  max-width: 1400px;
+  height: 70px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.logo-icon {
+  width: 36px;
+  height: 36px;
   display: inline-flex;
   align-items: center;
-  gap: 0.35rem;
-  padding: 0.18rem 0.55rem;
-  font-size: 0.7rem;
-  font-weight: 500;
-  letter-spacing: 0.5px;
-  border: 1px solid #353a42;
-  border-radius: 2px;
-  background: rgba(255,255,255,0.02);
-  color: #c4c8cf;
-  line-height: 1.4;
-  white-space: nowrap;
+  justify-content: center;
+  border: 2px solid var(--accent) !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  color: var(--accent);
 }
-.trust-badge::before {
-  content: "";
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: #6a707a;
-  flex-shrink: 0;
-}
-.trust-badge.is-verified { color: #b9c7a6; border-color: #4f5a3e; }
-.trust-badge.is-verified::before { background: #8ea96a; }
-.trust-badge.is-pending  { color: #d2c089; border-color: #5a4f2c; }
-.trust-badge.is-pending::before  { background: #c9a84c; }
-.trust-badge.is-disputed { color: #e0a88a; border-color: #5e3e2e; }
-.trust-badge.is-disputed::before { background: #c87a4a; }
-.trust-badge.is-oral     { color: #b8a8c4; border-color: #4d3f5a; }
-.trust-badge.is-oral::before     { background: #9a82b4; }
-.trust-badge.is-primary  { color: #a6c4c7; border-color: #3e575a; }
-.trust-badge.is-primary::before  { background: #6aa4a9; }
 
-/* ── Detail page: archive notice + related navigation ── */
-.archive-related {
-  background: #14171b;
-  border-top: 1px solid #262a30;
-  border-bottom: 1px solid #262a30;
-  padding: 3rem 2rem;
-  margin-top: 4rem;
-  font-family: 'Noto Sans KR', sans-serif;
-}
-.related-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
-  gap: 2.5rem;
-  align-items: start;
-}
-@media (max-width: 768px) {
-  .related-inner { grid-template-columns: 1fr; gap: 2rem; }
-  .archive-related { padding: 2rem 1.25rem; }
-}
-.related-eyebrow {
-  display: inline-block;
-  font-size: 0.65rem;
+.logo-text {
+  font-family: var(--display) !important;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--accent) !important;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: #6a707a;
-  margin-bottom: 0.75rem;
 }
-.related-trust p {
-  font-size: 0.92rem;
-  line-height: 1.7;
-  color: #c4c8cf;
-  margin: 0 0 1rem;
-}
-.related-trust .related-trust-list {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 1.25rem;
+
+.nav-links {
   display: flex;
-  flex-direction: column;
-  gap: 0.45rem;
-  font-size: 0.82rem;
-  color: #c4c8cf;
+  gap: 2rem;
+  align-items: center;
 }
-.related-trust .related-trust-list li {
-  padding-left: 0.85rem;
+
+.nav-links a {
   position: relative;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-secondary) !important;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  transition: color 0.2s;
 }
-.related-trust .related-trust-list li::before {
-  content: "·";
-  color: #c9a84c;
-  font-weight: 700;
+
+.nav-links a::after {
+  content: '';
   position: absolute;
   left: 0;
-  top: -2px;
-}
-.related-link-quiet {
-  display: inline-block;
-  font-size: 0.82rem;
-  color: #c9a84c;
-  border-bottom: 1px solid transparent;
-  padding-bottom: 2px;
-  transition: border-color 0.2s;
-  text-decoration: none;
-}
-.related-link-quiet:hover { border-bottom-color: #c9a84c; }
-
-.related-nav ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0,1fr));
-  gap: 0.5rem;
-}
-.related-nav li a {
-  display: block;
-  padding: 0.7rem 0.9rem;
-  border: 1px solid #262a30;
-  border-radius: 2px;
-  font-size: 0.85rem;
-  color: #e6e7e9;
-  background: #1a1d22;
-  text-decoration: none;
-  transition: border-color 0.2s, background 0.2s;
-}
-.related-nav li a:hover {
-  border-color: #c9a84c;
-  background: #20242a;
-}
-.related-nav li.is-current a {
-  border-color: #c9a84c;
-  color: #c9a84c;
-  background: transparent;
-  pointer-events: none;
-  cursor: default;
-}
-.related-nav li.is-current a::after {
-  content: " · 현재";
-  font-size: 0.7rem;
-  color: #6a707a;
-  letter-spacing: 1px;
+  bottom: -4px;
+  width: 0;
+  height: 1px;
+  background: var(--accent);
+  transition: width 0.2s;
 }
 
-/* ── Search highlight (Phase D) ── */
-.search-hl {
-  background: rgba(201, 168, 76, 0.22);
-  color: #f5e7b8;
-  padding: 0 2px;
-  border-radius: 2px;
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--accent) !important;
 }
 
-
-/* ── Phase D: cross-category readability override ── */
-/* Body text containers: lift readability with neutral contrast */
-.section-body,
-.chapter-body,
-.section-body p,
-.chapter-body p,
-.doc-section p,
-.bio-section p,
-.legacy-body,
-.evaluation-card p {
-  font-size: 1rem;
-  line-height: 1.85;
-  color: #d8dadd;
-  letter-spacing: 0.01em;
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  width: 100%;
 }
 
-/* Tame oversized decorative numbers/section markers */
-.section-number {
-  opacity: 0.55;
-  font-weight: 500;
-  letter-spacing: 0;
+.page-hero,
+.category-hero,
+.doc-header,
+.doc-hero,
+.entry-hero,
+.profile-hero,
+.battle-hero,
+.strategy-hero,
+.source-hero,
+.undefine-hero,
+.era-hero {
+  background: var(--bg-secondary) !important;
+  background-image: none !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
 }
 
-/* Decorative English sub-labels: demote to muted secondary */
-.label-tag,
-.eyebrow,
-.section-eyebrow,
-.popup-tag {
-  font-weight: 500 !important;
-  letter-spacing: 1.5px !important;
-  color: #8a909a !important;
+.page-hero::before,
+.page-hero::after,
+.hero-library-overlay,
+.doc-hero::before,
+.entry-hero::before,
+.category-hero::before,
+.category-hero::after {
+  opacity: 0 !important;
+  background: none !important;
 }
 
-/* Quotes / blockquotes: neutralize background, keep typography */
-blockquote.summary-quote,
-.summary-quote {
-  background: transparent !important;
-  border-left: 2px solid #c9a84c;
-  padding: 0.4rem 0 0.4rem 1.25rem;
-  color: #e0e2e5;
-  font-style: italic;
-  line-height: 1.8;
+.document-container,
+.doc-page,
+.encyclopedia-page,
+.profile-page,
+.battle-detail-page,
+.strategy-detail-page,
+.undefine-detail-page {
+  background: var(--bg-primary) !important;
+  color: var(--text-primary) !important;
 }
 
-/* Card-like content blocks across categories: shared elevation */
-.legacy-block,
-.casualties-box,
-.evaluation-card,
-.battles-grid > *,
-.figures-grid > * {
-  background: #1a1d22;
-  border: 1px solid #262a30;
-  border-radius: 3px;
+.page-title,
+.hero-title,
+.category-title,
+.doc-title,
+.entry-name,
+.profile-name,
+.battle-title,
+.strategy-title,
+.source-title,
+.section-title,
+.enc-section-title,
+.bio-section-title,
+.content-section-title,
+.toc-title,
+.side-toc-title {
+  font-family: var(--display) !important;
+  color: var(--text-primary) !important;
+  letter-spacing: 0 !important;
+  text-shadow: none !important;
 }
 
-/* Search result highlight (already added .search-hl above) */
-mark.search-hl,
-.search-hl {
-  background: rgba(201, 168, 76, 0.22);
-  color: #f5e7b8;
-  padding: 0 2px;
-  border-radius: 2px;
+.page-subtitle,
+.hero-subtitle,
+.category-desc,
+.doc-title-en,
+.entry-name-en,
+.profile-subtitle,
+.battle-description,
+.strategy-description,
+.source-description {
+  color: var(--text-secondary) !important;
+  font-family: var(--sans) !important;
 }
 
-/* Search advanced controls polish */
-.search-results-tools .search-sort {
-  font-family: inherit;
-}
-.search-results-refine {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-  padding: 0.5rem 0.25rem 1rem;
-}
-.search-results-refine .refine-chip {
-  background: #14171b;
-  color: #c4c8cf;
-  border: 1px solid #262a30;
-  padding: 0.35rem 0.7rem;
-  font-size: 0.78rem;
-  border-radius: 999px;
-  cursor: pointer;
-  font-family: inherit;
-  transition: border-color 0.2s, color 0.2s, background 0.2s;
-}
-.search-results-refine .refine-chip:hover {
-  border-color: #c9a84c;
-  color: #e6e7e9;
-}
-.search-results-refine .refine-chip.active {
-  border-color: #c9a84c;
-  color: #c9a84c;
-  background: rgba(201, 168, 76, 0.08);
+.breadcrumb,
+.breadcrumb a,
+.breadcrumb .sep,
+.breadcrumb .current {
+  color: var(--text-muted) !important;
+  font-family: var(--sans) !important;
 }
 
-/* Cross-category card consistency (lists like browse-grid, catalog-grid, etc.) */
+.breadcrumb a:hover,
+.breadcrumb .current {
+  color: var(--accent) !important;
+}
+
+.category-card,
+.project-card,
 .browse-card,
 .shelf-card,
 .catalog-card,
@@ -290,12 +235,46 @@ mark.search-hl,
 .weapon-card,
 .figure-card,
 .strategy-card,
-.source-card {
-  background: #1a1d22;
-  border: 1px solid #262a30;
-  border-radius: 3px;
-  transition: border-color 0.2s, transform 0.2s, background 0.2s;
+.source-card,
+.doc-section,
+.enc-section,
+.bio-section,
+.content-section,
+.detail-card,
+.info-card,
+.stat-card,
+.profile-card,
+.tech-card,
+.hl-card,
+.contact-card,
+.timeline-content,
+.table-of-contents,
+.side-toc,
+.doc-summary-block,
+.manuscript-block,
+.physical-desc-block,
+.entry-quickfacts,
+.doc-details,
+.specs-table,
+.variant-card,
+.related-card,
+.casualties-box,
+.evaluation-card,
+.legacy-block,
+.phases-timeline > *,
+.battles-grid > *,
+.figures-grid > *,
+.related-list li,
+.references-list li {
+  background: var(--bg-card) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 3px !important;
+  box-shadow: none !important;
+  color: var(--text-primary);
 }
+
+.category-card:hover,
+.project-card:hover,
 .browse-card:hover,
 .shelf-card:hover,
 .catalog-card:hover,
@@ -303,104 +282,352 @@ mark.search-hl,
 .weapon-card:hover,
 .figure-card:hover,
 .strategy-card:hover,
-.source-card:hover {
-  border-color: #c9a84c;
-  background: #20242a;
-}
-
-/* ── Phase B: Featured records grid (home page) ── */
-.section-featured {
-  padding: 4rem 2rem;
-  max-width: 1400px;
-  margin: 0 auto;
-}
-.featured-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 1rem;
-  margin-top: 2rem;
-}
-.featured-empty {
-  grid-column: 1 / -1;
-  padding: 3rem;
-  text-align: center;
-  color: #6a707a;
-  font-size: 0.9rem;
-  border: 1px dashed #262a30;
-  border-radius: 3px;
-}
-.featured-card {
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
-  padding: 1.1rem 1.2rem 1.2rem;
-  background: #1a1d22;
-  border: 1px solid #262a30;
-  border-radius: 3px;
-  text-decoration: none;
-  color: inherit;
-  transition: border-color 0.2s, background 0.2s, transform 0.2s;
-  min-height: 220px;
-}
-.featured-card:hover {
-  border-color: #c9a84c;
-  background: #20242a;
+.source-card:hover,
+.tech-card:hover,
+.hl-card:hover,
+.contact-card:hover,
+.related-card:hover {
+  background: var(--bg-card-hover) !important;
+  border-color: var(--border-accent) !important;
   transform: translateY(-2px);
 }
-.featured-card-head {
-  display: flex;
-  justify-content: space-between;
+
+.doc-section,
+.enc-section,
+.bio-section,
+.content-section {
+  padding: 1.75rem !important;
+  margin-bottom: 1.25rem !important;
+}
+
+.section-header,
+.doc-section .section-header {
+  margin-bottom: 1rem !important;
+}
+
+.section-number,
+.enc-num,
+.enc-section-marker,
+.toc-header {
+  color: var(--accent) !important;
+  border-color: var(--accent) !important;
+  background: transparent !important;
+}
+
+.section-body,
+.enc-section-content,
+.enc-section-content p,
+.section-body p,
+.chapter-body,
+.chapter-body p,
+.doc-section p,
+.bio-section p,
+.legacy-body,
+.evaluation-card p,
+.manuscript-content,
+.physical-desc-block,
+.doc-footer-text {
+  color: #d8dadd !important;
+  font-family: var(--sans) !important;
+  font-size: 1rem;
+  line-height: 1.85;
+  letter-spacing: 0 !important;
+}
+
+.card-desc,
+.browse-card-desc,
+.source-card-desc,
+.strategy-card-desc,
+.weapon-card-desc,
+.battle-card-desc,
+.timeline-desc,
+.featured-desc,
+.detail-value,
+.fact-value,
+.meta-value {
+  color: var(--text-secondary) !important;
+}
+
+.meta-label,
+.detail-label,
+.fact-label,
+.card-count,
+.browse-card-type,
+.featured-cat,
+.label-tag,
+.eyebrow,
+.section-eyebrow,
+.popup-tag {
+  color: var(--text-muted) !important;
+  letter-spacing: 1.5px !important;
+  text-transform: uppercase;
+}
+
+.btn,
+.back-link,
+.doc-nav-tab,
+.filter-btn,
+.category-filter,
+.page-btn,
+.timeline-chip,
+.search-tag,
+.sug-chip,
+.entry-nav-link,
+.related-link-quiet {
+  border-radius: 2px !important;
+  font-family: var(--sans) !important;
+}
+
+.btn-primary,
+.doc-nav-tab.active,
+.filter-btn.active,
+.category-filter.active,
+.timeline-chip.active {
+  background: var(--accent) !important;
+  border-color: var(--accent) !important;
+  color: var(--bg-primary) !important;
+}
+
+.btn-outline,
+.back-link,
+.doc-nav-tab,
+.filter-btn,
+.category-filter,
+.page-btn,
+.timeline-chip,
+.search-tag,
+.sug-chip,
+.entry-nav-link {
+  background: transparent !important;
+  border: 1px solid var(--border) !important;
+  color: var(--text-secondary) !important;
+}
+
+.btn-outline:hover,
+.back-link:hover,
+.doc-nav-tab:hover,
+.filter-btn:hover,
+.category-filter:hover,
+.page-btn:not(:disabled):hover,
+.timeline-chip:hover,
+.search-tag:hover,
+.sug-chip:hover,
+.entry-nav-link:hover {
+  border-color: var(--accent) !important;
+  color: var(--accent) !important;
+}
+
+.doc-tags span,
+.entry-tag,
+.tag,
+.keyword,
+.tl-badge,
+.trust-badge,
+.category-badge,
+.era-badge,
+.doc-type-badge,
+.doc-era-badge,
+.weapon-card-badge,
+.browse-card-cred {
+  background: rgba(181, 154, 91, 0.08) !important;
+  border: 1px solid var(--border-accent) !important;
+  border-radius: 2px !important;
+  color: var(--accent) !important;
+  box-shadow: none !important;
+}
+
+.trust-badge {
+  display: inline-flex;
   align-items: center;
+  gap: 0.35rem;
+  padding: 0.18rem 0.55rem;
+  font-size: 0.7rem;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
+.doc-cover-frame,
+.visual-frame,
+.weapon-card-img,
+.entry-visual,
+.doc-cover-area,
+.profile-portrait,
+.image-frame,
+.figure-image,
+.battle-map,
+.map-frame {
+  background: var(--bg-secondary) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 3px !important;
+  box-shadow: none !important;
+}
+
+.doc-cover-frame img,
+.visual-frame img,
+.weapon-card-img img,
+.entry-visual img,
+.profile-portrait img,
+.image-frame img {
+  border-radius: 2px !important;
+}
+
+blockquote.summary-quote,
+.summary-quote {
+  background: transparent !important;
+  border-left: 2px solid var(--accent) !important;
+  padding: 0.4rem 0 0.4rem 1.25rem !important;
+  color: #e0e2e5 !important;
+  font-style: italic;
+  line-height: 1.8;
+}
+
+input,
+select,
+textarea,
+.search-input,
+.search-box input,
+.filter-select {
+  background: var(--bg-card) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 2px !important;
+  color: var(--text-primary) !important;
+  font-family: var(--sans) !important;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+.search-box input:focus {
+  border-color: var(--accent) !important;
+  outline: none;
+}
+
+.archive-related {
+  background: var(--bg-secondary) !important;
+  border-top: 1px solid var(--border) !important;
+  border-bottom: 1px solid var(--border) !important;
+  padding: 3rem 2rem;
+  margin-top: 4rem;
+}
+
+.related-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: 2.5rem;
+}
+
+.related-eyebrow {
+  display: inline-block;
+  margin-bottom: 0.75rem;
+  color: var(--text-muted);
+  font-size: 0.65rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.related-trust p,
+.related-trust-list {
+  color: var(--text-secondary);
+}
+
+.related-trust-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  font-size: 0.82rem;
+}
+
+.related-trust-list li::before {
+  content: "·";
+  color: var(--accent);
+  margin-right: 0.5rem;
+}
+
+.related-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0.5rem;
 }
-.featured-cat {
-  font-size: 0.7rem;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: #8a909a;
-}
-.featured-title {
-  font-family: 'Playfair Display', 'Noto Sans KR', serif;
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: #e6e7e9;
-  margin: 0;
-  line-height: 1.35;
-}
-.featured-desc {
+
+.related-nav li a {
+  display: block;
+  padding: 0.7rem 0.9rem;
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  background: var(--bg-card);
+  color: var(--text-primary);
   font-size: 0.85rem;
-  line-height: 1.6;
-  color: #b0b4bb;
-  margin: 0;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+  transition: border-color 0.2s, background 0.2s;
 }
-.featured-meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.3rem 0.9rem;
-  margin: 0;
-  font-size: 0.75rem;
-  color: #8a909a;
+
+.related-nav li a:hover {
+  border-color: var(--accent);
+  background: var(--bg-card-hover);
 }
-.featured-meta dt {
-  display: inline;
-  color: #6a707a;
-  font-weight: 500;
-  margin-right: 0.25rem;
+
+.related-nav li.is-current a {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: transparent;
+  pointer-events: none;
 }
-.featured-meta dt::after { content: ":"; }
-.featured-meta dd {
-  display: inline;
-  color: #c4c8cf;
-  margin: 0 0.5rem 0 0;
+
+.related-nav li.is-current a::after {
+  content: " · 현재";
+  color: var(--text-muted);
+  font-size: 0.7rem;
+  letter-spacing: 1px;
 }
-.featured-go {
-  margin-top: auto;
-  padding-top: 0.5rem;
-  font-size: 0.78rem;
-  color: #c9a84c;
-  letter-spacing: 0.5px;
+
+.site-footer {
+  background: var(--bg-secondary) !important;
+  border-top: 1px solid var(--border) !important;
+  color: var(--text-secondary) !important;
+}
+
+.footer-inner,
+.footer-logo {
+  color: var(--text-secondary) !important;
+}
+
+.search-hl,
+mark.search-hl {
+  background: rgba(181, 154, 91, 0.22);
+  color: #f5e7b8;
+  padding: 0 2px;
+  border-radius: 2px;
+}
+
+@media (max-width: 768px) {
+  .header-inner {
+    padding: 0 1rem;
+  }
+
+  .nav-links {
+    gap: 1rem;
+  }
+
+  .doc-section,
+  .enc-section,
+  .bio-section,
+  .content-section {
+    padding: 1.25rem !important;
+  }
+
+  .related-inner {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .archive-related {
+    padding: 2rem 1.25rem;
+  }
 }

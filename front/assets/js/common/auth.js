@@ -43,6 +43,24 @@
     });
   }
 
+  function storageKey(name) {
+    var id = state.user && state.user.id ? state.user.id : "guest";
+    return "war-archive:" + id + ":" + name;
+  }
+
+  function readStore(name, fallback) {
+    try {
+      var raw = localStorage.getItem(storageKey(name));
+      return raw ? JSON.parse(raw) : fallback;
+    } catch {
+      return fallback;
+    }
+  }
+
+  function writeStore(name, value) {
+    localStorage.setItem(storageKey(name), JSON.stringify(value));
+  }
+
   function ensureAuthActions() {
     var host = qs(".nav-links") || qs(".header-inner") || qs(".site-header") || document.body;
     var existing = qs(".wa-auth-actions", host);
@@ -68,7 +86,7 @@
 
     actions.innerHTML =
       '<span class="wa-auth-user" title="' + escapeHtml(state.user.email) + '">' + escapeHtml(state.user.name) + '</span>' +
-      '<a class="wa-auth-link" href="/mypage">Mypage</a>' +
+      '<a class="wa-auth-link" href="/my-archive">My Archive</a>' +
       '<button class="wa-auth-btn is-quiet" type="button" data-wa-logout>Logout</button>';
   }
 
@@ -95,12 +113,12 @@
       '      <input id="waAuthName" name="name" autocomplete="name" maxlength="80">' +
       '    </div>' +
       '    <div class="wa-auth-field">' +
-      '      <label for="waAuthEmail">이메일</label>' +
+      '      <label for="waAuthEmail">이메일 또는 로그인 ID</label>' +
       '      <input id="waAuthEmail" name="email" type="email" autocomplete="email" required>' +
       '    </div>' +
       '    <div class="wa-auth-field">' +
       '      <label for="waAuthPassword">비밀번호</label>' +
-      '      <input id="waAuthPassword" name="password" type="password" autocomplete="current-password" minlength="8" required>' +
+      '      <input id="waAuthPassword" name="password" type="password" autocomplete="current-password" minlength="4" required>' +
       '    </div>' +
       '    <p class="wa-auth-message" id="waAuthMessage" aria-live="polite"></p>' +
       '    <button class="wa-auth-submit" type="submit">로그인</button>' +
@@ -109,6 +127,13 @@
     document.body.appendChild(wrap);
     bindModal(wrap);
     return wrap;
+  }
+
+  function setMessage(message, ok) {
+    var el = qs("#waAuthMessage");
+    if (!el) return;
+    el.textContent = message || "";
+    el.classList.toggle("is-ok", Boolean(ok));
   }
 
   function setMode(mode) {
@@ -122,13 +147,6 @@
     qs(".wa-auth-submit", modal).textContent = isRegister ? "회원가입" : "로그인";
     qs("#waAuthPassword", modal).setAttribute("autocomplete", isRegister ? "new-password" : "current-password");
     setMessage("");
-  }
-
-  function setMessage(message, ok) {
-    var el = qs("#waAuthMessage");
-    if (!el) return;
-    el.textContent = message || "";
-    el.classList.toggle("is-ok", Boolean(ok));
   }
 
   function openModal(mode) {
@@ -148,12 +166,8 @@
 
   function bindModal(modal) {
     modal.addEventListener("click", function (event) {
-      if (event.target === modal || event.target.matches("[data-wa-close-login]")) {
-        closeModal();
-      }
-      if (event.target.matches("[data-wa-mode]")) {
-        setMode(event.target.dataset.waMode);
-      }
+      if (event.target === modal || event.target.matches("[data-wa-close-login]")) closeModal();
+      if (event.target.matches("[data-wa-mode]")) setMode(event.target.dataset.waMode);
     });
 
     qs("#waAuthForm", modal).addEventListener("submit", function (event) {
@@ -176,7 +190,7 @@
         state.user = result.user;
         state.ready = true;
         renderAuthActions();
-        renderMypage();
+        renderMyArchive();
         setMessage("로그인되었습니다.", true);
         setTimeout(closeModal, 250);
       }).catch(function (error) {
@@ -200,7 +214,7 @@
       .finally(function () {
         state.ready = true;
         renderAuthActions();
-        renderMypage();
+        renderMyArchive();
       });
   }
 
@@ -213,12 +227,29 @@
         state.user = null;
         state.ready = true;
         renderAuthActions();
-        renderMypage();
+        renderMyArchive();
       });
   }
 
-  function renderMypage() {
-    var root = qs("#mypageProfile");
+  function renderList(items) {
+    if (!items.length) {
+      return '<p class="wa-empty-text">아직 저장된 항목이 없습니다.</p>';
+    }
+    return items.map(function (item, index) {
+      return (
+        '<article class="wa-saved-item">' +
+        '  <div>' +
+        '    <a href="' + escapeHtml(item.url) + '" class="wa-saved-title">' + escapeHtml(item.title) + '</a>' +
+        '    <p>' + escapeHtml(item.note || "메모 없음") + '</p>' +
+        '  </div>' +
+        '  <button class="wa-mini-btn" type="button" data-wa-remove-save="' + index + '">삭제</button>' +
+        '</article>'
+      );
+    }).join("");
+  }
+
+  function renderMyArchive() {
+    var root = qs("#myArchiveProfile") || qs("#mypageProfile");
     if (!root) return;
 
     if (!state.ready) {
@@ -230,28 +261,46 @@
       root.innerHTML =
         '<div class="wa-login-required">' +
         '  <h2>로그인이 필요합니다</h2>' +
-        '  <p>War Archive 계정으로 로그인하면 개인 페이지를 사용할 수 있습니다.</p>' +
+        '  <p>War Archive 계정으로 로그인하면 개인 archive 화면을 사용할 수 있습니다.</p>' +
         '  <button class="wa-auth-btn" type="button" data-wa-open-login>Login</button>' +
         '</div>';
       return;
     }
 
+    var saved = readStore("saved", []);
+    var note = readStore("note", "");
     root.innerHTML =
-      '<div class="wa-mypage-grid">' +
-      '  <section class="wa-mypage-panel">' +
+      '<div class="wa-mypage-grid wa-myarchive-grid">' +
+      '  <section class="wa-mypage-panel wa-profile-panel">' +
       '    <h2>계정 정보</h2>' +
       '    <dl class="wa-profile-list">' +
       '      <div class="wa-profile-row"><dt>이름</dt><dd>' + escapeHtml(state.user.name) + '</dd></div>' +
       '      <div class="wa-profile-row"><dt>이메일</dt><dd>' + escapeHtml(state.user.email) + '</dd></div>' +
+      '      <div class="wa-profile-row"><dt>권한</dt><dd>' + escapeHtml(state.user.role || "user") + '</dd></div>' +
       '      <div class="wa-profile-row"><dt>가입일</dt><dd>' + escapeHtml(formatDate(state.user.createdAt)) + '</dd></div>' +
       '    </dl>' +
       '  </section>' +
-      '  <section class="wa-mypage-panel">' +
-      '    <h2>기본 메뉴</h2>' +
-      '    <div class="wa-mypage-placeholder">' +
-      '      <p>저장한 자료, 열람 기록, 기여 내역을 이 영역에 확장할 수 있습니다.</p>' +
-      '      <p>현재는 로그인 상태와 계정 정보를 확인하는 기본 형태만 제공합니다.</p>' +
+      '  <section class="wa-mypage-panel wa-stats-panel">' +
+      '    <h2>개인 활동</h2>' +
+      '    <div class="wa-stat-strip">' +
+      '      <div><strong>' + saved.length + '</strong><span>저장 자료</span></div>' +
+      '      <div><strong>' + (note.trim() ? "1" : "0") + '</strong><span>개인 메모</span></div>' +
       '    </div>' +
+      '  </section>' +
+      '  <section class="wa-mypage-panel wa-save-panel">' +
+      '    <h2>자료 저장</h2>' +
+      '    <form class="wa-save-form" data-wa-save-form>' +
+      '      <input name="title" placeholder="자료 제목" required>' +
+      '      <input name="url" placeholder="자료 주소" value="' + escapeHtml(location.pathname + location.search) + '" required>' +
+      '      <textarea name="note" placeholder="짧은 메모"></textarea>' +
+      '      <button class="wa-auth-btn" type="submit">저장</button>' +
+      '    </form>' +
+      '    <div class="wa-saved-list">' + renderList(saved) + '</div>' +
+      '  </section>' +
+      '  <section class="wa-mypage-panel wa-note-panel">' +
+      '    <h2>개인 메모</h2>' +
+      '    <textarea class="wa-private-note" data-wa-private-note placeholder="조사 중인 주제, 확인할 자료, 개인 기록을 적어두세요.">' + escapeHtml(note) + '</textarea>' +
+      '    <p class="wa-note-state" data-wa-note-state>브라우저에 자동 저장됩니다.</p>' +
       '  </section>' +
       '</div>';
   }
@@ -265,6 +314,36 @@
       event.preventDefault();
       logout();
     }
+
+    var remove = event.target.closest("[data-wa-remove-save]");
+    if (remove && state.user) {
+      var saved = readStore("saved", []);
+      saved.splice(Number(remove.dataset.waRemoveSave), 1);
+      writeStore("saved", saved);
+      renderMyArchive();
+    }
+  });
+
+  document.addEventListener("submit", function (event) {
+    var form = event.target.closest("[data-wa-save-form]");
+    if (!form || !state.user) return;
+    event.preventDefault();
+    var saved = readStore("saved", []);
+    saved.unshift({
+      title: form.title.value.trim(),
+      url: form.url.value.trim(),
+      note: form.note.value.trim(),
+      createdAt: new Date().toISOString(),
+    });
+    writeStore("saved", saved.slice(0, 30));
+    renderMyArchive();
+  });
+
+  document.addEventListener("input", function (event) {
+    if (!event.target.matches("[data-wa-private-note]") || !state.user) return;
+    writeStore("note", event.target.value);
+    var stateText = qs("[data-wa-note-state]");
+    if (stateText) stateText.textContent = "저장됨";
   });
 
   document.addEventListener("keydown", function (event) {

@@ -477,8 +477,15 @@ function resolveRequestPath(requestUrl) {
   }
 
   let relativePath = decodedPathname === "/" ? "index.html" : decodedPathname.replace(/^\/+/, "");
-  if (relativePath === "mypage" || relativePath === "mypage.html") {
-    relativePath = "pages/account/mypage.html";
+  if (
+    relativePath === "mypage" ||
+    relativePath === "mypage.html" ||
+    relativePath === "my-archive" ||
+    relativePath === "my-archive.html" ||
+    relativePath === "My Archive" ||
+    relativePath === "My Archive.html"
+  ) {
+    relativePath = "pages/My Archive/My Archive.html";
   }
 
   const filePath = path.resolve(FRONT_DIR, relativePath);

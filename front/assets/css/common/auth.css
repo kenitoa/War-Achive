@@ -261,6 +261,11 @@
   gap: 1rem;
 }
 
+.wa-myarchive-grid {
+  grid-template-columns: minmax(0, 0.9fr) minmax(280px, 0.7fr);
+  align-items: start;
+}
+
 .wa-mypage-panel {
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 6px;
@@ -317,12 +322,136 @@
   padding: 1.25rem;
 }
 
+.wa-save-panel,
+.wa-note-panel {
+  grid-column: span 1;
+}
+
+.wa-save-form {
+  display: grid;
+  gap: 0.7rem;
+  margin-bottom: 1rem;
+}
+
+.wa-save-form input,
+.wa-save-form textarea,
+.wa-private-note {
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 4px;
+  background: #0e1013;
+  color: #e6e7e9;
+  font: inherit;
+  padding: 0.75rem 0.85rem;
+  outline: none;
+}
+
+.wa-save-form textarea {
+  min-height: 5rem;
+  resize: vertical;
+}
+
+.wa-private-note {
+  min-height: 16rem;
+  resize: vertical;
+  line-height: 1.7;
+}
+
+.wa-save-form input:focus,
+.wa-save-form textarea:focus,
+.wa-private-note:focus {
+  border-color: #b59a5b;
+}
+
+.wa-saved-list {
+  display: grid;
+  gap: 0.7rem;
+}
+
+.wa-saved-item {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.75rem;
+  align-items: start;
+  padding: 0.85rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.wa-saved-title {
+  display: inline-block;
+  margin-bottom: 0.25rem;
+  color: #f1dfaa;
+  font-weight: 800;
+  overflow-wrap: anywhere;
+}
+
+.wa-saved-item p,
+.wa-empty-text,
+.wa-note-state {
+  margin: 0;
+  color: #9aa0a8;
+  font-size: 0.86rem;
+  line-height: 1.6;
+}
+
+.wa-mini-btn {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.04);
+  color: #9aa0a8;
+  font: inherit;
+  font-size: 0.78rem;
+  padding: 0.35rem 0.55rem;
+  cursor: pointer;
+}
+
+.wa-mini-btn:hover {
+  border-color: rgba(181, 154, 91, 0.5);
+  color: #e6e7e9;
+}
+
+.wa-stat-strip {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.wa-stat-strip div {
+  padding: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.wa-stat-strip strong,
+.wa-stat-strip span {
+  display: block;
+}
+
+.wa-stat-strip strong {
+  color: #f1dfaa;
+  font-size: 1.8rem;
+  line-height: 1;
+}
+
+.wa-stat-strip span {
+  margin-top: 0.45rem;
+  color: #9aa0a8;
+  font-size: 0.82rem;
+}
+
 @media (max-width: 900px) {
   .wa-auth-actions {
     margin-left: auto;
   }
 
   .wa-mypage-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .wa-myarchive-grid {
     grid-template-columns: 1fr;
   }
 }
