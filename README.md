@@ -5,7 +5,7 @@
 This repository is split into two deploy packages:
 
 - `netlify/`: Netlify project root. Deploy this with base directory `netlify` and publish directory `front`.
-- `NAS/`: Docker Compose project root. Upload this folder to the NAS/VPS and run `docker compose up -d --build`.
+- `NAS/`: Docker Compose project root. Upload this folder to the NAS/VPS and run `docker compose up -d --build` inside that folder.
 
 Public frontend URL:
 
@@ -14,6 +14,13 @@ https://knowtowars.netlify.app
 ```
 
 Important: `knowtowars.netlify.app` is the browser-facing Netlify URL. The API proxy target in `netlify/netlify.toml` must be the public NAS backend origin, not the Netlify URL itself.
+
+Path note:
+
+- Browser UI source: `netlify/front`
+- NAS Docker backend and crawler source: `NAS/back`
+- NAS crawler live data: `NAS/front/data`
+- Optional Discord bot source: `NAS/discord-Bot`
 
 War Archive는 전쟁사 자료를 모아 검색하고 탐색하는 디지털 아카이브입니다. 전쟁 개요, 인물, 전투, 무기와 장비, 사료, 전략과 전술, 검증 전 자료를 하나의 홈페이지에서 볼 수 있도록 구성했습니다.
 
@@ -77,9 +84,10 @@ images[0].url
 
 ### Docker로 실행
 
-프로젝트 루트에서 실행합니다.
+`NAS/` 폴더에서 실행합니다.
 
 ```bash
+cd NAS
 docker compose up -d --build
 ```
 
@@ -168,7 +176,7 @@ CRAWLING_FRONT_DATA_PATH=/app/front/data
 로그 확인:
 
 ```bash
-docker compose logs -f history-crawler
+docker compose -f NAS/docker-compose.yml logs -f history-crawler
 ```
 
 ## 검색 인덱스 수동 재생성
@@ -176,41 +184,35 @@ docker compose logs -f history-crawler
 프론트 JSON 인덱스만 수동으로 다시 만들 때는 Node.js 스크립트를 사용합니다.
 
 ```bash
-node front/assets/js/common/generate-index.js
+node netlify/front/assets/js/common/generate-index.js
 ```
 
 문법 확인:
 
 ```bash
-node --check front/assets/js/common/home_index.js
-node --check front/assets/js/common/archive_pages.js
-node --check front/assets/js/common/generate-index.js
+node --check netlify/front/assets/js/common/home_index.js
+node --check netlify/front/assets/js/common/archive_pages.js
+node --check netlify/front/assets/js/common/generate-index.js
 ```
 
 ## 폴더 구조
 
 ```text
 .
-├── docker-compose.yml
 ├── README.md
 ├── Update.md
-├── back/
-│   ├── server.js
-│   ├── Dockerfile
-│   └── crowling/
-│       ├── Dockerfile
-│       ├── crowling_core/
-│       └── reconstructure/
-├── discord-Bot/
-└── front/
-    ├── index.html
-    ├── assets/
-    │   ├── css/common/
-    │   └── js/common/
-    ├── data/
-    │   ├── search/
-    │   └── [category] data/
-    └── pages/
+├── netlify/
+│   ├── netlify.toml
+│   └── front/
+│       ├── index.html
+│       ├── assets/
+│       ├── data/
+│       └── pages/
+└── NAS/
+    ├── docker-compose.yml
+    ├── back/
+    ├── discord-Bot/
+    └── front/
 ```
 
 ## 운영 전 체크리스트
@@ -218,9 +220,8 @@ node --check front/assets/js/common/generate-index.js
 - `.env`를 프로젝트 루트에 배치했는지 확인
 - `ADMIN_PASSWORD`, `AUTH_COOKIE_SECRET`, MySQL 비밀번호 변경
 - `AUTH_COOKIE_SECURE=true` 설정
-- `docker compose config`로 포트와 환경변수 확인
+- `docker compose -f NAS/docker-compose.yml config`로 포트와 환경변수 확인
 - `http://NAS_IP:6279/health` 내부 접속 확인
 - Synology Reverse Proxy `443 → 127.0.0.1:6279` 설정
 - Let's Encrypt 인증서 연결
-- `docker compose logs -f war-archive`와 `history-crawler` 로그 확인
-
+- `docker compose -f NAS/docker-compose.yml logs -f war-archive`와 `history-crawler` 로그 확인

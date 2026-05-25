@@ -1,4 +1,4 @@
-﻿// ── War Archive - Main JavaScript ──
+// ── War Archive - Main JavaScript ──
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -85,12 +85,12 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   var searchUrls = {
-    war:     'data/search/war overview search.json',
-    bio:     'data/search/biography of people search.json',
-    weapons: 'data/search/weapons and equipment search.json',
-    tactics: 'data/search/strategy and tactics search.json',
-    docs:    'data/search/Historical Sources & Documents search.json',
-    battle:  'data/search/Battlefield Map search.json'
+    war:     '/data/search/war overview search.json',
+    bio:     '/data/search/biography of people search.json',
+    weapons: '/data/search/weapons and equipment search.json',
+    tactics: '/data/search/strategy and tactics search.json',
+    docs:    '/data/search/Historical Sources & Documents search.json',
+    battle:  '/data/search/Battlefield Map search.json'
   };
 
   Promise.all([
@@ -189,7 +189,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ── War Overview 카드 건수 + 메타데이터 ──
-  fetch('data/search/war overview search.json')
+  fetch('/data/search/war overview search.json')
     .then(function (r) { return r.json(); })
     .then(function (list) {
       setCardCount('warOverviewCount', list.length, '건의 기록');
@@ -247,7 +247,7 @@ document.addEventListener('DOMContentLoaded', () => {
       return s.length > n ? s.slice(0, n - 1) + '…' : s;
     }
 
-    var warOverviewIndex = fetch('data/search/war overview search.json')
+    var warOverviewIndex = fetch('/data/search/war overview search.json')
       .then(function (r) { return r.json(); })
       .then(function (items) {
         return items.map(function (d) {
@@ -268,7 +268,7 @@ document.addEventListener('DOMContentLoaded', () => {
       })
       .catch(function () { return []; });
 
-    var battlefieldIndex = fetch('data/search/Battlefield Map search.json')
+    var battlefieldIndex = fetch('/data/search/Battlefield Map search.json')
       .then(function (r) { return r.json(); })
       .then(function (items) {
         return items.map(function (d) {
@@ -289,7 +289,7 @@ document.addEventListener('DOMContentLoaded', () => {
       })
       .catch(function () { return []; });
 
-    var bioIndex = fetch('data/search/biography of people search.json')
+    var bioIndex = fetch('/data/search/biography of people search.json')
       .then(function (r) { return r.json(); })
       .then(function (list) { return Array.isArray(list) ? list : []; })
       .catch(function () { return []; });
@@ -454,7 +454,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ── Biography 카드 건수 + 메타데이터 ──
-  fetch('data/search/biography of people search.json')
+  fetch('/data/search/biography of people search.json')
     .then(function (r) { return r.json(); })
     .then(function (list) {
       setCardCount('biographyCount', list.length, '명 수록');
@@ -471,7 +471,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
   // ── Weapons & Equipment 카드 건수 + 메타데이터 ──
-  fetch('data/search/weapons and equipment search.json')
+  fetch('/data/search/weapons and equipment search.json')
     .then(function (r) { return r.json(); })
     .then(function (list) {
       setCardCount('weaponsCount', list.length, '건의 기록');
@@ -488,7 +488,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
   // ── Strategy & Tactics 카드 건수 + 메타데이터 ──
-  fetch('data/search/strategy and tactics search.json')
+  fetch('/data/search/strategy and tactics search.json')
     .then(function (r) { return r.json(); })
     .then(function (list) {
       setCardCount('strategyTacticsCount', list.length, '건의 기록');
@@ -505,7 +505,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
   // ── Historical Sources & Documents 카드 건수 + 메타데이터 ──
-  fetch('data/search/Historical Sources & Documents search.json')
+  fetch('/data/search/Historical Sources & Documents search.json')
     .then(function (r) { return r.json(); })
     .then(function (list) {
       setCardCount('historicalSourcesCount', list.length, '건의 기록');
@@ -522,7 +522,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
   // ── Battlefield Map 카드 건수 + 메타데이터 ──
-  fetch('data/search/Battlefield Map search.json')
+  fetch('/data/search/Battlefield Map search.json')
     .then(function (r) { return r.json(); })
     .then(function (list) {
       setCardCount('battlefieldMapCount', list.length, '건의 기록');
@@ -539,7 +539,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
   // ── Undefine Facts 카드 건수 + 메타데이터 ──
-  fetch('data/search/Undefine facts search.json')
+  fetch('/data/search/Undefine facts search.json')
     .then(function (r) { return r.json(); })
     .then(function (list) {
       setCardCount('undefineCount', list.length, '건의 미확인 자료');

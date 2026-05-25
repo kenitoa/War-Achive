@@ -399,12 +399,12 @@ function injectGlobalAssets(html) {
   const cssTag = '<link rel="stylesheet" href="/assets/css/common/auth.css">';
   const jsTag = '<script src="/assets/js/common/auth.js" defer></script>';
 
-  if (!output.includes("/assets/css/common/auth.css")) {
+  if (!output.includes("assets/css/common/auth.css")) {
     output = output.includes("</head>")
       ? output.replace("</head>", `  ${cssTag}\n</head>`)
       : `${cssTag}\n${output}`;
   }
-  if (!output.includes("/assets/js/common/auth.js")) {
+  if (!output.includes("assets/js/common/auth.js")) {
     output = output.includes("</body>")
       ? output.replace("</body>", `  ${jsTag}\n</body>`)
       : `${output}\n${jsTag}`;

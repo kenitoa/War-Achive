@@ -31,9 +31,5 @@
   status = 200
   force = true
 
-# Let Netlify serve the UI while NAS serves crawler-updated JSON data.
-[[redirects]]
-  from = "/data/*"
-  to = "https://warachive.synology.me/data/:splat"
-  status = 200
-  force = true
+# Static archive JSON is deployed with netlify/front/data.
+# Do not proxy /data/* until the NAS public data endpoint is live.

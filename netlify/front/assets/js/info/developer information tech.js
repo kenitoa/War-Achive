@@ -1,4 +1,4 @@
-﻿// ── War Archive - Developer Information Page JavaScript ──
+// ── War Archive - Developer Information Page JavaScript ──
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -118,7 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
     return fetch(url).then(r => r.json()).then(arr => arr.length).catch(() => 0);
   }
 
-  const basePath = '../../data/';
+  const basePath = '/data/';
 
   Promise.all([
     fetchSearchCount(basePath + 'search/war overview search.json'),

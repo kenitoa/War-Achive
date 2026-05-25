@@ -99,7 +99,7 @@
             const fileEntries = Object.entries(warFileMap);
             const allResponses = await Promise.all(
                 fileEntries.map(([id, fileName]) =>
-                    fetch('../../data/war overview data/' + encodeURIComponent(fileName) + '.json')
+                    fetch('/data/war overview data/' + encodeURIComponent(fileName) + '.json')
                         .then(res => res.ok ? res.json() : null)
                         .catch(() => null)
                 )

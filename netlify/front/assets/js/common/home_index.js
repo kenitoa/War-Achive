@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
     {
       type: "war",
       category: "전쟁개요",
-      url: "data/search/war overview search.json",
+      url: "/data/search/war overview search.json",
       map: (d) => ({
         name: d.name,
         desc: d.summary || d.period,
@@ -88,7 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
     {
       type: "bio",
       category: "인물",
-      url: "data/search/biography of people search.json",
+      url: "/data/search/biography of people search.json",
       map: (d) => ({
         name: d.name,
         desc: d.title || d.summary,
@@ -104,7 +104,7 @@ document.addEventListener("DOMContentLoaded", () => {
     {
       type: "battle",
       category: "전장지도",
-      url: "data/search/Battlefield Map search.json",
+      url: "/data/search/Battlefield Map search.json",
       map: (d) => ({
         name: d.titleKr || d.title,
         desc: d.description,
@@ -120,7 +120,7 @@ document.addEventListener("DOMContentLoaded", () => {
     {
       type: "weapons",
       category: "무기장비",
-      url: "data/search/weapons and equipment search.json",
+      url: "/data/search/weapons and equipment search.json",
       map: (d) => ({
         name: d.name,
         desc: d.nameEn || d.category || d.overview,
@@ -135,7 +135,7 @@ document.addEventListener("DOMContentLoaded", () => {
     {
       type: "docs",
       category: "사료",
-      url: "data/search/Historical Sources & Documents search.json",
+      url: "/data/search/Historical Sources & Documents search.json",
       map: (d) => ({
         name: d.titleKr || d.title,
         desc: d.description,
@@ -151,7 +151,7 @@ document.addEventListener("DOMContentLoaded", () => {
     {
       type: "tactics",
       category: "전략전술",
-      url: "data/search/strategy and tactics search.json",
+      url: "/data/search/strategy and tactics search.json",
       map: (d) => ({
         name: d.titleKr || d.title,
         desc: d.description,
@@ -166,7 +166,7 @@ document.addEventListener("DOMContentLoaded", () => {
     {
       type: "undefine",
       category: "미확인",
-      url: "data/search/Undefine facts search.json",
+      url: "/data/search/Undefine facts search.json",
       map: (d) => ({
         name: d.name,
         desc: d.nameEn || d.summary,

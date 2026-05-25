@@ -1,4 +1,4 @@
-﻿// Weapons & Equipment Detail — 도감 사전 스크립트
+// Weapons & Equipment Detail — 도감 사전 스크립트
 
 (function () {
     'use strict';
@@ -68,7 +68,7 @@
     // 데이터 파일 로드 (향후 data 폴더 연동)
     function loadItemData(itemId) {
         // 데이터 파일 경로 (추후 JSON 연동)
-        var dataPath = '../../data/weapons and equipment data/' + itemId + '.json';
+        var dataPath = '/data/weapons and equipment data/' + itemId + '.json';
 
         return fetch(dataPath)
             .then(function (res) {
@@ -326,7 +326,7 @@
     // 같은 카테고리 내 이전/다음 항목 연결
     function loadSiblingNav(itemId, currentCategory) {
         if (!currentCategory) return;
-        var indexUrl = '../../data/search/weapons and equipment search.json';
+        var indexUrl = '/data/search/weapons and equipment search.json';
         fetch(indexUrl)
             .then(function (res) { return res.ok ? res.json() : []; })
             .then(function (list) {

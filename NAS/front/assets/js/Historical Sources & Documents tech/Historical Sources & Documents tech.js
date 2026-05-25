@@ -119,7 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // ── Load JSON Data ──
   Promise.all(
     docFiles.map(name =>
-      fetch('../../data/Historical Sources & Documents data/' + encodeURIComponent(name) + '.json')
+      fetch('/data/Historical Sources & Documents data/' + encodeURIComponent(name) + '.json')
         .then(res => {
           if (!res.ok) throw new Error('File not found: ' + name);
           return res.json();

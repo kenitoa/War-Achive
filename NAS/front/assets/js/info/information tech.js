@@ -1,4 +1,4 @@
-﻿// ── War Archive - Information Page JavaScript ──
+// ── War Archive - Information Page JavaScript ──
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -93,12 +93,12 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   const searchUrls = {
-    war:     '../../data/search/war overview search.json',
-    bio:     '../../data/search/biography of people search.json',
-    weapons: '../../data/search/weapons and equipment search.json',
-    tactics: '../../data/search/strategy and tactics search.json',
-    docs:    '../../data/search/Historical Sources & Documents search.json',
-    battle:  '../../data/search/Battlefield Map search.json'
+    war:     '/data/search/war overview search.json',
+    bio:     '/data/search/biography of people search.json',
+    weapons: '/data/search/weapons and equipment search.json',
+    tactics: '/data/search/strategy and tactics search.json',
+    docs:    '/data/search/Historical Sources & Documents search.json',
+    battle:  '/data/search/Battlefield Map search.json'
   };
 
   Promise.all([

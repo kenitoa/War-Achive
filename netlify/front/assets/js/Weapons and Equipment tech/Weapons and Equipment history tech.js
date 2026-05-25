@@ -1,4 +1,4 @@
-﻿// Weapons & Equipment History — 시대별 무기 목록 스크립트
+// Weapons & Equipment History — 시대별 무기 목록 스크립트
 
 (function () {
     'use strict';
@@ -69,7 +69,7 @@
 
         Object.keys(categoryInfo).forEach(function (cat) {
             categoryInfo[cat].files.forEach(function (file) {
-                var path = '../../data/weapons and equipment data/' + cat + '/' + file + '.json';
+                var path = '/data/weapons and equipment data/' + cat + '/' + file + '.json';
                 promises.push(
                     fetch(path)
                         .then(function (res) {

@@ -41,11 +41,15 @@ npm --prefix discord-Bot install
 npm --prefix discord-Bot start
 ```
 
+Run the local commands above from the `NAS/` folder.
+
 Docker Compose에서 War Archive와 함께 실행:
 
 ```powershell
 docker compose --profile bot up -d --build
 ```
+
+Run the Docker Compose command above from the `NAS/` folder.
 
 ## 명령
 
