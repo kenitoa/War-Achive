@@ -1,0 +1,68 @@
+[
+  {
+    "name": "Smithsonian Magazine - History",
+    "base_url": "https://www.smithsonianmag.com",
+    "feeds": [
+      "https://www.smithsonianmag.com/category/history/",
+      "https://www.smithsonianmag.com/category/archaeology/",
+      "https://www.smithsonianmag.com/rss/history-archaeology/"
+    ],
+    "content_patterns": [
+      "/history/[^/]+/",
+      "/smart-news/[^/]+/",
+      "/science-nature/[^/]+/"
+    ],
+    "listing_patterns": [
+      "/category/history/",
+      "/category/archaeology/"
+    ],
+    "source_type": "magazine",
+    "language": "en",
+    "topics": [
+      "history",
+      "archaeology",
+      "culture"
+    ]
+  },
+  {
+    "name": "World History Encyclopedia",
+    "base_url": "https://www.worldhistory.org",
+    "feeds": [
+      "https://www.worldhistory.org/",
+      "https://www.worldhistory.org/article/"
+    ],
+    "content_patterns": [
+      "/article/\\d+/[^/]+/",
+      "/trans/[^/]+/"
+    ],
+    "listing_patterns": [
+      "/article/",
+      "/trans/"
+    ],
+    "source_type": "encyclopedia",
+    "language": "en",
+    "topics": [
+      "ancient-history",
+      "civilization"
+    ]
+  },
+  {
+    "name": "The National WWII Museum",
+    "base_url": "https://www.nationalww2museum.org",
+    "feeds": [
+      "https://www.nationalww2museum.org/war/articles"
+    ],
+    "content_patterns": [
+      "/war/articles/[^/]+"
+    ],
+    "listing_patterns": [
+      "/war/articles"
+    ],
+    "source_type": "museum",
+    "language": "en",
+    "topics": [
+      "world-war-ii",
+      "museum"
+    ]
+  }
+]
