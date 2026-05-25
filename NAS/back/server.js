@@ -55,6 +55,7 @@ const MIME_TYPES = {
 let authPool;
 let authStoreReady = false;
 let authStorePromise;
+let authStoreLastError = null;
 
 function mysqlConfig() {
   return {
@@ -116,6 +117,7 @@ async function ensureAuthStore() {
     await seedDefaultAdmin(pool);
     await pool.query("DELETE FROM user_sessions WHERE expires_at <= UTC_TIMESTAMP()");
     authStoreReady = true;
+    authStoreLastError = null;
     return pool;
   })();
 
@@ -123,7 +125,49 @@ async function ensureAuthStore() {
     return await authStorePromise;
   } catch (error) {
     authStorePromise = null;
+    authStoreReady = false;
+    authStoreLastError = publicError(error);
     throw error;
+  }
+}
+
+function publicError(error) {
+  if (!error) return null;
+  return {
+    code: error.code || "ERROR",
+    errno: error.errno,
+    sqlState: error.sqlState,
+    message: error.message || String(error),
+  };
+}
+
+async function checkAuthStore() {
+  const config = mysqlConfig();
+  try {
+    const pool = await ensureAuthStore();
+    await pool.query("SELECT 1");
+    return {
+      ok: true,
+      ready: authStoreReady,
+      mysql: {
+        host: config.host,
+        port: config.port,
+        database: config.database,
+        user: config.user,
+      },
+    };
+  } catch (error) {
+    return {
+      ok: false,
+      ready: authStoreReady,
+      mysql: {
+        host: config.host,
+        port: config.port,
+        database: config.database,
+        user: config.user,
+      },
+      error: publicError(error),
+    };
   }
 }
 
@@ -315,6 +359,12 @@ async function destroySession(req, res) {
 
 async function handleAuthApi(req, res, url) {
   try {
+    if (url.pathname === "/api/auth/health") {
+      if (req.method !== "GET") return sendMethodNotAllowed(res);
+      const auth = await checkAuthStore();
+      return sendJson(res, auth.ok ? 200 : 503, { ok: auth.ok, auth });
+    }
+
     if (url.pathname === "/api/auth/me") {
       if (req.method !== "GET") return sendMethodNotAllowed(res);
       const user = await findSessionUser(req);
@@ -457,6 +507,7 @@ const server = http.createServer((req, res) => {
       ok: true,
       service: "war-archive-backend",
       authStoreReady,
+      authStoreLastError,
       frontendOrigin: FRONTEND_ORIGIN,
       dataDir: DATA_DIR,
     });
