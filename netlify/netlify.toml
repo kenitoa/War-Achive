@@ -27,13 +27,13 @@
 # knowtowars.netlify.app, because that would proxy back to itself.
 [[redirects]]
   from = "/api/auth/*"
-  to = "https://warachive.synology.me/api/auth/:splat"
+  to = "https://war-archive.tail498403.ts.net/api/auth/:splat"
   status = 200
   force = true
 
 # Netlify owns the frontend. NAS owns crawler-updated public JSON data.
 [[redirects]]
   from = "/data/*"
-  to = "https://warachive.synology.me/data/:splat"
+  to = "https://war-archive.tail498403.ts.net/data/:splat"
   status = 200
   force = true

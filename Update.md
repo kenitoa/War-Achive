@@ -424,3 +424,177 @@ WAR_ARCHIVE_PUBLIC_URL=https://warachive.synology.me
 ```
 
 기본값 `admin/admin`, `change-this-war-archive-secret` 상태로 외부 공개하면 안 된다.
+# War Archive Update
+
+작성일: 2026-05-25
+
+## Netlify / NAS 역할 분리
+
+이번 작업의 핵심은 Netlify와 NAS가 같은 full-stack 복사본처럼 보이지 않도록 목적을 명확히 나누는 것이었다.
+
+- `netlify/front`
+  - 프론트엔드 전용 배포 위치로 정리했다.
+  - HTML, CSS, JS, 이미지 등 화면 파일만 담당한다.
+  - `netlify/front/data`는 제거했고, Netlify는 자체 JSON 원본을 들고 있지 않는다.
+
+- `NAS/back`
+  - 백엔드 전용으로 정리했다.
+  - 더 이상 `index.html` 같은 프론트 화면을 서빙하지 않는다.
+  - 담당 라우트는 `/health`, `/api/auth/*`, `/data/*`로 제한했다.
+
+- `NAS/back/crowling`
+  - 크롤러 전용으로 유지했다.
+  - 크롤러가 생성하거나 갱신하는 공개 JSON은 `NAS/data`에 쓰도록 정리했다.
+
+- `NAS/data`
+  - NAS가 소유하는 데이터 원본 위치로 분리했다.
+  - 검색 인덱스와 상세 JSON을 이 폴더에서 관리한다.
+
+## Netlify와 NAS 연결 방식
+
+사용자는 `https://knowtowars.netlify.app`에 접속하고, 프론트는 같은 origin 기준의 상대 경로를 호출한다.
+
+```text
+/api/auth/* -> NAS backend
+/data/*     -> NAS data endpoint
+```
+
+`netlify/netlify.toml`에는 다음 역할의 프록시를 둔다.
+
+```toml
+[[redirects]]
+  from = "/api/auth/*"
+  to = "https://warachive.synology.me/api/auth/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/data/*"
+  to = "https://warachive.synology.me/data/:splat"
+  status = 200
+  force = true
+```
+
+프론트 JS는 NAS 주소를 직접 호출하지 않고 `/api/auth/*`, `/data/*`만 호출한다. 로그인 쿠키도 Netlify 도메인 흐름에서 유지되도록 하기 위한 구조다.
+
+## NAS Docker 설정 변경
+
+`NAS/docker-compose.yml`은 더 이상 `./front`를 backend에 마운트하지 않는다.
+
+- backend:
+  - `DATA_DIR=/app/data`
+  - `./data:/app/data:ro`
+
+- crawler:
+  - `CRAWLING_FRONT_DATA_PATH=/app/public-data`
+  - `./data:/app/public-data`
+
+- discord bot:
+  - `FRONT_DATA_DIR=/app/data`
+  - `./data:/app/data:ro`
+
+즉 backend는 `NAS/data`를 읽고, crawler는 같은 `NAS/data`를 갱신한다.
+
+## NAS backend 변경
+
+- `NAS/back/server.js`
+  - 프론트 정적 파일 서빙 로직을 제거했다.
+  - HTML 자동 주입 로직을 제거했다.
+  - `/` 요청에는 backend 정보와 사용 가능한 라우트만 JSON으로 반환하도록 했다.
+  - `/data/*` 요청은 `DATA_DIR` 아래 파일만 안전하게 읽도록 했다.
+  - `/health`에는 backend 상태, frontend origin, data directory 정보를 포함했다.
+
+- `NAS/back/Dockerfile`
+  - `COPY front ./front`를 제거했다.
+  - `COPY data ./data`와 `DATA_DIR=/app/data` 기준으로 변경했다.
+
+- `NAS/back/package.json`
+  - 설명을 static backend가 아니라 API/data backend에 맞게 수정했다.
+
+## Cookie secret 생성기 추가
+
+`AUTH_COOKIE_SECRET`에 사용할 랜덤 문자열 생성기를 추가했다.
+
+- `NAS/back/generate-cookie-secret.js`
+  - Node 기본 `crypto.randomBytes`를 사용한다.
+  - 기본 64 bytes를 `base64url` 문자열로 출력한다.
+  - 외부 패키지 없이 실행된다.
+
+실행:
+
+```powershell
+npm.cmd --prefix NAS\back run secret --silent
+```
+
+출력값은 `NAS/.env`의 `AUTH_COOKIE_SECRET`에 넣는다.
+
+## Tailscale Funnel 사용 방향
+
+이중 NAT 때문에 `warachive.synology.me`를 직접 NAS로 연결하기 어렵다면 Tailscale Funnel을 NAS backend 공개 주소로 사용할 수 있다.
+
+NAS에서 backend가 `127.0.0.1:6279`로 동작 중일 때:
+
+```bash
+sudo tailscale funnel --bg --https=443 http://127.0.0.1:6279
+tailscale funnel status
+```
+
+Funnel 주소가 예를 들어 다음처럼 나온다면:
+
+```text
+https://nas-device.tailnet-name.ts.net
+```
+
+`netlify/netlify.toml`의 프록시 대상만 이 주소로 바꾸면 된다.
+
+```toml
+[[redirects]]
+  from = "/api/auth/*"
+  to = "https://nas-device.tailnet-name.ts.net/api/auth/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/data/*"
+  to = "https://nas-device.tailnet-name.ts.net/data/:splat"
+  status = 200
+  force = true
+```
+
+사용자는 계속 `https://knowtowars.netlify.app`만 접속한다.
+
+## 검증한 항목
+
+- `netlify/front/index.html` 존재 확인
+- `netlify/front/data` 제거 확인
+- `NAS/front` 제거 확인
+- `NAS/data` 존재 확인
+- `NAS/back/server.js` 존재 확인
+- `NAS/back/crowling` 존재 확인
+- `NAS/data/search/*.json` 총 140건 정상 파싱 확인
+- `NAS/data` 전체 JSON 147개 파싱 확인
+- BOM이 있던 JSON 100개를 표준 UTF-8 JSON으로 정리
+- `node --check NAS/back/server.js` 통과
+- `node --check NAS/discord-Bot/bot.js` 통과
+- `node --check netlify/front/assets/js/common/home_index.js` 통과
+- `node --check netlify/front/assets/js/common/auth.js` 통과
+- `docker compose -f NAS/docker-compose.yml config --services` 통과
+
+Docker 명령에서는 Windows Docker 설정 파일 접근 경고가 출력되었지만, Compose 설정 해석 자체는 성공했다.
+
+## 현재 운영 체크 순서
+
+NAS 또는 Funnel 배포 후 다음 순서로 확인한다.
+
+```text
+1. NAS Docker 실행
+2. NAS backend /health 확인
+3. NAS backend /data/search/war%20overview%20search.json 확인
+4. Netlify 배포
+5. https://knowtowars.netlify.app/data/search/war%20overview%20search.json 확인
+6. https://knowtowars.netlify.app 에서 로그인 테스트
+```
+
+이 순서가 통과하면 Netlify는 프론트만 담당하고, NAS는 로그인/API/크롤러/JSON 데이터를 담당하는 구조가 된다.
+
+---
