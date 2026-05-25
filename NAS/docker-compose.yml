@@ -1,0 +1,109 @@
+services:
+  mysql:
+    image: mysql:8.4
+    container_name: war-archive-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-war_archive}
+      MYSQL_USER: ${MYSQL_USER:-war_archive}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-war_archive_password}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-war_archive_root_password}
+    ports:
+      - "${MYSQL_PORT:-3306}:3306"
+    volumes:
+      - war-archive-mysql-data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping --host=127.0.0.1 --protocol=tcp --user=root --password=\"$${MYSQL_ROOT_PASSWORD}\" --silent"]
+      interval: 10s
+      timeout: 5s
+      retries: 20
+      start_period: 90s
+
+  war-archive:
+    build:
+      context: .
+      dockerfile: back/Dockerfile
+    container_name: war-archive
+    restart: unless-stopped
+    ports:
+      - "${WAR_ARCHIVE_PORT:-6279}:8080"
+    environment:
+      HOST: 0.0.0.0
+      PORT: 8080
+      FRONT_DIR: /app/front
+      MYSQL_HOST: mysql
+      MYSQL_PORT: 3306
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-war_archive}
+      MYSQL_USER: ${MYSQL_USER:-war_archive}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-war_archive_password}
+      AUTH_COOKIE_SECRET: ${AUTH_COOKIE_SECRET:-change-this-war-archive-secret}
+      AUTH_COOKIE_SECURE: ${AUTH_COOKIE_SECURE:-true}
+      ADMIN_NAME: ${ADMIN_NAME:-admin}
+      ADMIN_EMAIL: ${ADMIN_EMAIL:-admi}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD:-admin}
+    volumes:
+      - ./front:/app/front:ro
+    depends_on:
+      mysql:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://127.0.0.1:8080/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+  history-crawler:
+    build:
+      context: .
+      dockerfile: back/crowling/Dockerfile
+    container_name: war-archive-history-crawler
+    restart: unless-stopped
+    environment:
+      CRAWLING_DATABASE_PATH: /app/data/articles.sqlite3
+      CRAWLING_TARGET_SITES_PATH: /app/data/target-sites.json
+      CRAWLING_FRONT_DATA_PATH: /app/front/data
+      CRAWLING_HOURLY_LIMIT: 5
+      CRAWLING_DAEMON_INTERVAL_SECONDS: 3600
+      CRAWLING_RECENT_DAYS: 30
+      CRAWLING_REQUEST_TIMEOUT: 15
+      CRAWLING_USER_AGENT: Mozilla/5.0 War-Archive-History-Crawler/1.0
+    volumes:
+      - ./front/data:/app/front/data
+      - ./back/crowling/data:/app/data
+    depends_on:
+      - war-archive
+
+  discord-bot:
+    profiles:
+      - bot
+    build:
+      context: .
+      dockerfile: discord-Bot/Dockerfile
+    container_name: war-archive-discord-bot
+    restart: unless-stopped
+    environment:
+      DISCORD_BOT_TOKEN: ${DISCORD_BOT_TOKEN:-}
+      DISCORD_STATUS_CHANNEL_ID: ${DISCORD_STATUS_CHANNEL_ID:-}
+      DISCORD_GUILD_ID: ${DISCORD_GUILD_ID:-}
+      DISCORD_ALERT_ROLE_ID: ${DISCORD_ALERT_ROLE_ID:-}
+      WAR_ARCHIVE_HEALTH_URL: ${WAR_ARCHIVE_HEALTH_URL:-http://war-archive:8080/health}
+      WAR_ARCHIVE_BASE_URL: ${WAR_ARCHIVE_BASE_URL:-http://war-archive:8080}
+      WAR_ARCHIVE_PUBLIC_URL: ${WAR_ARCHIVE_PUBLIC_URL:-https://knowtowars.netlify.app}
+      MONITOR_INTERVAL_SECONDS: ${MONITOR_INTERVAL_SECONDS:-60}
+      MONITOR_FAILURE_THRESHOLD: ${MONITOR_FAILURE_THRESHOLD:-1}
+      MONITOR_REQUEST_TIMEOUT_MS: ${MONITOR_REQUEST_TIMEOUT_MS:-5000}
+      MONITOR_STALE_DATA_HOURS: ${MONITOR_STALE_DATA_HOURS:-48}
+      MONITOR_EXTRA_ROUTE_PATHS: ${MONITOR_EXTRA_ROUTE_PATHS:-}
+      DISCORD_ANNOUNCE_ON_STARTUP: ${DISCORD_ANNOUNCE_ON_STARTUP:-true}
+      DISCORD_STARTUP_PANEL: ${DISCORD_STARTUP_PANEL:-true}
+      FRONT_DATA_DIR: /app/front/data
+      CRAWLER_DATA_DIR: /app/crawler-data
+    volumes:
+      - ./front/data:/app/front/data:ro
+      - ./back/crowling/data:/app/crawler-data:ro
+    depends_on:
+      war-archive:
+        condition: service_healthy
+
+volumes:
+  war-archive-mysql-data:

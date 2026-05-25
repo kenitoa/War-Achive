@@ -1,0 +1,22 @@
+{
+  "id": "gettysburg-address",
+  "title": "Gettysburg Address",
+  "titleKr": "게티즈버그 연설",
+  "coverImage": "https://commons.wikimedia.org/wiki/Special:FilePath/Lincoln's_Gettysburg_Address,_Gettysburg.jpg?width=300",
+  "type": "speech",
+  "era": "modern",
+  "date": "1863년 11월 19일",
+  "author": "에이브러햄 링컨",
+  "origin": "게티즈버그, 펜실베이니아, 미국",
+  "description": "남북전쟁 게티즈버그 전투 전사자 추모식에서 링컨 대통령이 행한 연설. 272단어로 이루어진 짧은 연설이지만, 민주주의의 이상을 가장 강력하게 표현한 문서로 평가받는다.",
+  "keywords": ["남북전쟁", "링컨", "민주주의", "게티즈버그", "추모", "미국"],
+  "detail": {
+    "background": "1863년 7월 1일부터 3일까지 진행된 게티즈버그 전투는 남북전쟁 최대의 격전으로, 양측 합쳐 약 5만 명의 사상자를 냈다. 남부 연합의 북부 침공이 좌절된 이 전투는 전쟁의 전환점이 되었다. 4개월 후인 11월 19일, 전사자 매장지 봉헌식에서 링컨 대통령이 연설을 하게 되었다. 당일의 주요 연사는 당대 최고의 웅변가였던 에드워드 에버릿이었으며, 그의 2시간에 달하는 연설 후 링컨이 단 2분간의 연설을 하였다.",
+    "originalText": "'87년 전, 우리의 아버지들은 자유 속에 잉태되어 모든 사람은 평등하게 창조되었다는 명제에 헌신된 새 나라를 이 대륙에 세웠다.' '세계는 우리가 여기서 하는 말을 따지지도 오래 기억하지도 않을 것이다. 그러나 그들이 여기서 행한 것은 결코 잊을 수 없다.' '국민의, 국민에 의한, 국민을 위한 정부는 이 지상에서 결코 사라지지 않을 것이다.'",
+    "significance": "게티즈버그 연설은 단 272단어, 2분 남짓의 연설이었음에도 영어권 역사상 가장 위대한 연설 중 하나로 평가받는다. '국민의, 국민에 의한, 국민을 위한 정부(government of the people, by the people, for the people)'라는 문구는 민주주의의 본질을 가장 간결하고 강력하게 표현한 문장으로 전 세계에 인용된다. 이 연설은 남북전쟁을 단순한 군사적 분쟁이 아닌 자유와 평등이란 건국 이념의 시련대로 재정의하였으며, 전사자들의 희생에 숭고한 사명을 부여하였다.",
+    "aftermath": "연설 당시에는 에버릿의 2시간짜리 연설에 비해 주목받지 못했으나, 시간이 지남에 따라 그 가치가 재평가되었다. 이 연설의 '국민의, 국민에 의한, 국민을 위한 정부' 문구는 대한민국 헌법을 비롯한 전 세계 다수 국가의 헌법 전문에 영향을 미쳤다. 워싱턴 D.C.의 링컨 기념관 벽면에 연설 전문이 새겨져 있다.",
+    "relatedDocuments": ["노예해방선언(1863)", "독립선언서(1776)", "링컨의 제2차 취임 연설(1865)"],
+    "physicalDescription": "링컨 연설의 자필 원고는 현재 5개의 사본이 알려져 있다(니콜레이, 허어, 에버릿, 뱅스, 블리스 사본). 이 중 블리스 사본이 유일하게 링컨이 서명한 것으로, 링컨 수집실 내 백악관에 소장되어 있다. 원고는 잉크와 연필로 작성되었으며, 일부는 기차 안에서 작성된 것으로 전해진다.",
+    "references": ["Garry Wills, 'Lincoln at Gettysburg: The Words That Remade America', Simon & Schuster, 1992", "James M. McPherson, 'Battle Cry of Freedom', Oxford University Press, 1988", "Harold Holzer, 'Lincoln at the Cooper Union: The Speech That Made Abraham Lincoln President', Simon & Schuster, 2004"]
+  }
+}

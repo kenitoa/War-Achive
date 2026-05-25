@@ -1,0 +1,475 @@
+.wa-auth-actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-left: 0.75rem;
+  flex-shrink: 0;
+}
+
+.nav-links .wa-auth-actions {
+  margin-left: 0;
+  gap: 0.75rem;
+}
+
+.wa-auth-btn,
+.wa-auth-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.15rem;
+  padding: 0.45rem 0.85rem;
+  border: 1px solid rgba(181, 154, 91, 0.55);
+  border-radius: 3px;
+  background: rgba(181, 154, 91, 0.1);
+  color: #d8c28a;
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  line-height: 1;
+  text-decoration: none;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.wa-auth-btn:hover,
+.wa-auth-link:hover {
+  border-color: #b59a5b;
+  background: rgba(181, 154, 91, 0.18);
+  color: #f1dfaa;
+}
+
+.wa-auth-btn.is-quiet {
+  border-color: rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.04);
+  color: #9aa0a8;
+}
+
+.wa-auth-user {
+  max-width: 9rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #e6e7e9;
+  font-size: 0.78rem;
+  white-space: nowrap;
+}
+
+.nav-links .wa-auth-btn,
+.nav-links .wa-auth-link {
+  min-height: auto;
+  padding: 0.7rem 0.95rem;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--text-secondary, #c9c3b7);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.nav-links .wa-auth-btn:hover,
+.nav-links .wa-auth-link:hover {
+  background: rgba(255, 255, 255, 0.07);
+  color: var(--text-primary, #f0eee7);
+}
+
+.nav-links .wa-auth-btn::after,
+.nav-links .wa-auth-link::after {
+  display: none;
+}
+
+.wa-auth-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 5000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.72);
+  backdrop-filter: blur(6px);
+}
+
+.wa-auth-backdrop.is-open {
+  display: flex;
+}
+
+.wa-auth-modal {
+  width: min(100%, 420px);
+  border: 1px solid rgba(181, 154, 91, 0.35);
+  border-radius: 6px;
+  background: #15181d;
+  color: #e6e7e9;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.5);
+}
+
+.wa-auth-modal-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.25rem 1.35rem 0.75rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.wa-auth-title {
+  margin: 0;
+  font-size: 1.1rem;
+  line-height: 1.4;
+}
+
+.wa-auth-close {
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 4px;
+  background: transparent;
+  color: #9aa0a8;
+  font-size: 1.3rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.wa-auth-close:hover {
+  color: #e6e7e9;
+  border-color: rgba(181, 154, 91, 0.5);
+}
+
+.wa-auth-tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.4rem;
+  padding: 1rem 1.35rem 0;
+}
+
+.wa-auth-tab {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.03);
+  color: #9aa0a8;
+  padding: 0.65rem 0.75rem;
+  font: inherit;
+  font-size: 0.86rem;
+  cursor: pointer;
+}
+
+.wa-auth-tab.is-active {
+  border-color: rgba(181, 154, 91, 0.7);
+  color: #f1dfaa;
+  background: rgba(181, 154, 91, 0.12);
+}
+
+.wa-auth-form {
+  display: grid;
+  gap: 0.85rem;
+  padding: 1.1rem 1.35rem 1.35rem;
+}
+
+.wa-auth-field {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.wa-auth-field label {
+  color: #9aa0a8;
+  font-size: 0.76rem;
+  letter-spacing: 0.4px;
+}
+
+.wa-auth-field input {
+  width: 100%;
+  min-height: 2.7rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 4px;
+  background: #0e1013;
+  color: #e6e7e9;
+  font: inherit;
+  padding: 0.7rem 0.85rem;
+  outline: none;
+}
+
+.wa-auth-field input:focus {
+  border-color: #b59a5b;
+}
+
+.wa-auth-submit {
+  min-height: 2.75rem;
+  border: 0;
+  border-radius: 4px;
+  background: #b59a5b;
+  color: #111318;
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.wa-auth-submit:disabled {
+  opacity: 0.65;
+  cursor: wait;
+}
+
+.wa-auth-message {
+  min-height: 1.3rem;
+  color: #c9a07a;
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
+.wa-auth-message.is-ok {
+  color: #9ec3a4;
+}
+
+.wa-mypage-main {
+  min-height: 100vh;
+  padding: 7.5rem 1.25rem 4rem;
+  background: #0e1013;
+  color: #e6e7e9;
+}
+
+.wa-mypage-shell {
+  width: min(100%, 980px);
+  margin: 0 auto;
+}
+
+.wa-mypage-kicker {
+  display: block;
+  margin-bottom: 0.7rem;
+  color: #b59a5b;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.wa-mypage-title {
+  margin: 0 0 0.65rem;
+  font-size: clamp(1.9rem, 5vw, 3rem);
+  line-height: 1.15;
+}
+
+.wa-mypage-desc {
+  max-width: 620px;
+  margin: 0 0 2rem;
+  color: #9aa0a8;
+  line-height: 1.7;
+}
+
+.wa-mypage-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr);
+  gap: 1rem;
+}
+
+.wa-myarchive-grid {
+  grid-template-columns: minmax(0, 0.9fr) minmax(280px, 0.7fr);
+  align-items: start;
+}
+
+.wa-mypage-panel {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  background: #15181d;
+  padding: 1.25rem;
+}
+
+.wa-mypage-panel h2 {
+  margin: 0 0 1rem;
+  font-size: 1rem;
+}
+
+.wa-profile-list {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0;
+}
+
+.wa-profile-row {
+  display: grid;
+  grid-template-columns: 6rem 1fr;
+  gap: 1rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+}
+
+.wa-profile-row:last-child {
+  border-bottom: 0;
+}
+
+.wa-profile-row dt {
+  color: #6a707a;
+  font-size: 0.8rem;
+}
+
+.wa-profile-row dd {
+  margin: 0;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.wa-mypage-placeholder {
+  display: grid;
+  gap: 0.75rem;
+  color: #9aa0a8;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.wa-login-required {
+  border: 1px solid rgba(181, 154, 91, 0.35);
+  border-radius: 6px;
+  background: rgba(181, 154, 91, 0.08);
+  padding: 1.25rem;
+}
+
+.wa-save-panel,
+.wa-note-panel {
+  grid-column: span 1;
+}
+
+.wa-save-form {
+  display: grid;
+  gap: 0.7rem;
+  margin-bottom: 1rem;
+}
+
+.wa-save-form input,
+.wa-save-form textarea,
+.wa-private-note {
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 4px;
+  background: #0e1013;
+  color: #e6e7e9;
+  font: inherit;
+  padding: 0.75rem 0.85rem;
+  outline: none;
+}
+
+.wa-save-form textarea {
+  min-height: 5rem;
+  resize: vertical;
+}
+
+.wa-private-note {
+  min-height: 16rem;
+  resize: vertical;
+  line-height: 1.7;
+}
+
+.wa-save-form input:focus,
+.wa-save-form textarea:focus,
+.wa-private-note:focus {
+  border-color: #b59a5b;
+}
+
+.wa-saved-list {
+  display: grid;
+  gap: 0.7rem;
+}
+
+.wa-saved-item {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.75rem;
+  align-items: start;
+  padding: 0.85rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.wa-saved-title {
+  display: inline-block;
+  margin-bottom: 0.25rem;
+  color: #f1dfaa;
+  font-weight: 800;
+  overflow-wrap: anywhere;
+}
+
+.wa-saved-item p,
+.wa-empty-text,
+.wa-note-state {
+  margin: 0;
+  color: #9aa0a8;
+  font-size: 0.86rem;
+  line-height: 1.6;
+}
+
+.wa-mini-btn {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.04);
+  color: #9aa0a8;
+  font: inherit;
+  font-size: 0.78rem;
+  padding: 0.35rem 0.55rem;
+  cursor: pointer;
+}
+
+.wa-mini-btn:hover {
+  border-color: rgba(181, 154, 91, 0.5);
+  color: #e6e7e9;
+}
+
+.wa-stat-strip {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.wa-stat-strip div {
+  padding: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.wa-stat-strip strong,
+.wa-stat-strip span {
+  display: block;
+}
+
+.wa-stat-strip strong {
+  color: #f1dfaa;
+  font-size: 1.8rem;
+  line-height: 1;
+}
+
+.wa-stat-strip span {
+  margin-top: 0.45rem;
+  color: #9aa0a8;
+  font-size: 0.82rem;
+}
+
+@media (max-width: 900px) {
+  .wa-auth-actions {
+    margin-left: auto;
+  }
+
+  .wa-mypage-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .wa-myarchive-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .wa-auth-user {
+    display: none;
+  }
+
+  .wa-auth-btn,
+  .wa-auth-link {
+    min-height: 2rem;
+    padding: 0.4rem 0.65rem;
+    font-size: 0.72rem;
+  }
+
+  .wa-profile-row {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+  }
+}

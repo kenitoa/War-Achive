@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- Bow (curved left) -->
+  <path d="M20 8C8 20 8 44 20 56" stroke="#c9a84c" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <!-- String -->
+  <line x1="20" y1="8" x2="20" y2="56" stroke="#c9a84c" stroke-width="1.5" opacity="0.6"/>
+  <!-- Arrow shaft -->
+  <line x1="4" y1="32" x2="20" y2="32" stroke="#c9a84c" stroke-width="2"/>
+  <!-- Arrowhead (pointing left, same direction as bow curve) -->
+  <path d="M8 26L0 32l8 6" stroke="#c9a84c" stroke-width="2" fill="none" stroke-linejoin="round"/>
+  <!-- Feathers -->
+  <path d="M18 28l4 4M18 36l4-4" stroke="#c9a84c" stroke-width="1.5" opacity="0.5"/>
+</svg>

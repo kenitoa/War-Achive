@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- Fuselage -->
+  <path d="M4 32L18 26L52 28L62 32L52 36L18 38Z" stroke="#c9a84c" stroke-width="2" stroke-linejoin="round"/>
+  <!-- Wings -->
+  <path d="M24 28L20 12L36 26" stroke="#c9a84c" stroke-width="2" fill="none" stroke-linejoin="round"/>
+  <path d="M24 36L20 52L36 38" stroke="#c9a84c" stroke-width="2" fill="none" stroke-linejoin="round"/>
+  <!-- Tail fin -->
+  <path d="M52 28L56 18L58 28" stroke="#c9a84c" stroke-width="1.5" fill="none"/>
+  <path d="M52 36L56 46L58 36" stroke="#c9a84c" stroke-width="1.5" fill="none"/>
+  <!-- Cockpit -->
+  <ellipse cx="14" cy="32" rx="4" ry="3" stroke="#c9a84c" stroke-width="1.5" opacity="0.6"/>
+  <!-- Engine glow -->
+  <circle cx="60" cy="32" r="1.5" fill="#c9a84c" opacity="0.5"/>
+</svg>

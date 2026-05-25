@@ -1,5 +1,20 @@
 # War Archive
 
+## Deployment layout
+
+This repository is split into two deploy packages:
+
+- `netlify/`: Netlify project root. Deploy this with base directory `netlify` and publish directory `front`.
+- `NAS/`: Docker Compose project root. Upload this folder to the NAS/VPS and run `docker compose up -d --build`.
+
+Public frontend URL:
+
+```text
+https://knowtowars.netlify.app
+```
+
+Important: `knowtowars.netlify.app` is the browser-facing Netlify URL. The API proxy target in `netlify/netlify.toml` must be the public NAS backend origin, not the Netlify URL itself.
+
 War Archive는 전쟁사 자료를 모아 검색하고 탐색하는 디지털 아카이브입니다. 전쟁 개요, 인물, 전투, 무기와 장비, 사료, 전략과 전술, 검증 전 자료를 하나의 홈페이지에서 볼 수 있도록 구성했습니다.
 
 현재 화면은 고문서와 기록 채널 분위기의 `Archive Channel` 디자인을 사용합니다. 메인 페이지는 추천 기록, 시대 연표, 큐레이션 컬렉션, 필터 탐색을 제공하고, 각 상세 페이지는 같은 디자인 톤과 다크 모드를 공유합니다.

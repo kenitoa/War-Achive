@@ -1,0 +1,164 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>전장 지도 — War Archive</title>
+  <link rel="stylesheet" href="../../assets/css/Battlefield Map style/Battlefield Map style.css">
+  <link rel="stylesheet" href="../../assets/css/common/archive_common.css">
+  <link rel="stylesheet" href="../../assets/css/common/auth.css">
+</head>
+<body>
+
+  <!-- ── Header ── -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="../../index.html" class="logo">
+        <span class="logo-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 9.5 L4 20"/><path d="M9.5 14.5 L20 4"/><path d="M2 18 L6 22"/><path d="M18 2 L22 6"/><path d="M14 6 L18 10"/></svg></span>
+        <span class="logo-text">War Archive</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="../../index.html#categories">아카이브</a>
+        <a href="../../index.html#browse">탐색</a>
+        <a href="../../index.html#timeline">연대기</a>
+        <a href="../../index.html#search">검색</a>
+        <a href="../../index.html#project">프로젝트</a>
+      </nav>
+
+      <button class="menu-toggle" aria-label="메뉴 열기">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ── Page Hero ── -->
+  <section class="page-hero">
+    <div class="page-hero-content">
+      <nav class="breadcrumb">
+        <a href="../../index.html">홈</a>
+        <span class="sep">/</span>
+        <a href="../../index.html#categories">아카이브</a>
+        <span class="sep">/</span>
+        <span class="current">전장 지도</span>
+      </nav>
+      
+      <h1 class="page-title">전장 지도</h1>
+      <p class="page-subtitle">주요 전투의 지형, 진군 경로, 방어선을 시대·지역별로 정리한 지도 아카이브입니다.</p>
+      <div class="page-stats">
+        <div class="page-stat">
+          <div class="stat-info"><strong id="totalBattleCount">0</strong><span>개 전투</span></div>
+        </div>
+        <div class="stat-divider">|</div>
+        <div class="page-stat">
+          <div class="stat-info"><strong>6</strong><span>개 시대</span></div>
+        </div>
+        <div class="stat-divider">|</div>
+        <div class="page-stat">
+          <div class="stat-info"><strong id="totalTheaterCount">0</strong><span>개 전역</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 명언 인용 배너 ── -->
+  <section class="quote-banner">
+    <div class="quote-inner">
+      <blockquote class="quote-text" id="quoteText"> "지형을 아는 자가 전쟁을 지배한다."
+      </blockquote>
+      <cite class="quote-author" id="quoteAuthor">— 손자(孫子), 『손자병법』 지형편</cite>
+    </div>
+  </section>
+
+  <!-- ── Filter & Search Bar ── -->
+  <section class="filter-bar">
+    <div class="filter-inner">
+      <div class="filter-search">
+        <input type="text" id="battleSearch" placeholder="전투명, 지역, 지휘관, 키워드로 검색...">
+        <span class="search-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></span>
+      </div>
+      <div class="filter-tabs" id="eraTabs">
+        <button class="filter-tab active" data-era="all">전체</button>
+        <button class="filter-tab" data-era="ancient">고대</button>
+        <button class="filter-tab" data-era="medieval">중세</button>
+        <button class="filter-tab" data-era="earlymodern">근세</button>
+        <button class="filter-tab" data-era="modern">근대</button>
+        <button class="filter-tab" data-era="worldwar">세계대전</button>
+        <button class="filter-tab" data-era="contemporary">현대</button>
+      </div>
+      <div class="filter-options">
+        <select id="theaterFilter">
+          <option value="all">모든 전역</option>
+          <option value="europe">유럽</option>
+          <option value="asia">아시아</option>
+          <option value="mediterranean">지중해</option>
+          <option value="pacific">태평양</option>
+          <option value="middle-east">중동</option>
+          <option value="americas">아메리카</option>
+        </select>
+        <div class="view-toggle">
+          <button class="view-btn active" data-view="field" title="지도 보기" aria-label="지도 보기"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12 H21"/><path d="M12 3 C 16 7 16 17 12 21 C 8 17 8 7 12 3"/></svg></button>
+          <button class="view-btn" data-view="grid" title="카드 보기" aria-label="카드 보기"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 결과 카운트 ── -->
+  <div class="result-info">
+    <span id="resultCount"></span>
+  </div>
+
+  <!-- ── Main Content ── -->
+  <main class="battlefield-content">
+
+    <!-- 지도(Map) 기본 뷰 -->
+    <div class="field-view" id="fieldView">
+      <!-- JS가 동적으로 생성 -->
+    </div>
+
+    <!-- 카드(Grid) 뷰 -->
+    <div class="grid-view" id="gridView" style="display:none;">
+      <!-- JS가 동적으로 생성 -->
+    </div>
+    <div class="pagination" id="pagination" style="display:none;"></div>
+
+    <!-- 빈 결과 -->
+    <div class="empty-state" id="emptyState" style="display:none;">
+      
+      <h3>검색 결과가 없습니다</h3>
+      <p>다른 키워드나 필터로 다시 검색해 보세요.</p>
+    </div>
+
+  </main>
+
+  <!-- ── Footer ── -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <a href="../../index.html" class="logo">
+          <span class="logo-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 9.5 L4 20"/><path d="M9.5 14.5 L20 4"/><path d="M2 18 L6 22"/><path d="M18 2 L22 6"/><path d="M14 6 L18 10"/></svg></span>
+          <span class="logo-text">War Archive</span>
+        </a>
+        <nav class="footer-nav">
+          <a href="../../index.html#categories">아카이브</a>
+          <a href="../../index.html#browse">탐색</a>
+          <a href="../../index.html#timeline">연대기</a>
+          <a href="../info/information.html">소개</a>
+          <a href="../info/contribution.html">자료 제보</a>
+          <a href="../info/developer information.html">운영자 · 문의</a>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 War Archive. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/Battlefield Map tech/Battlefield Map tech.js"></script>
+  <script src="../../assets/js/common/archive_pages.js"></script>
+  <script src="../../assets/js/common/auth.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+{
+  "id": "geneva-convention",
+  "title": "Geneva Convention",
+  "titleKr": "제네바 협약",
+  "coverImage": "https://commons.wikimedia.org/wiki/Special:FilePath/Original_Geneva_Conventions.jpg?width=300",
+  "type": "treaty",
+  "era": "contemporary",
+  "date": "1949년 8월 12일",
+  "author": "국제적십자위원회 주도, 196개국 비준",
+  "origin": "제네바, 스위스",
+  "description": "전시 민간인과 포로의 인도적 처우에 관한 국제 조약. 4개의 협약과 3개의 추가 의정서로 구성되며, 현대 국제인도법의 핵심 기반이다.",
+  "keywords": ["국제법", "인도주의", "포로", "민간인", "적십자", "전쟁법"],
+  "detail": {
+    "background": "제네바 협약의 기원은 1859년 솔페리노 전투를 목격한 스위스 사업가 앙리 뒤낭으로 거슬러 올라간다. 그는 전장에서 군의관의 도움 없이 내버려진 수천 명의 부상병을 보고 '솔페리노의 추억'을 저술하였으며, 이를 계기로 1863년 국제적십자위원회(ICRC)가 설립되었다. 최초의 제네바 협약은 1864년 체결되었으며, 이후 1906년, 1929년에 개정되었다. 현재의 4개 협약 체제는 제2차 세계대전의 참혹한 경험을 반영하여 1949년에 전면 개정된 것이다.",
+    "originalText": "'전투를 멈춘 군대 구성원과 유사시에 있어서 적대 행위를 중지한 자는 어떠한 경우에도 인도적 대우를 받아야 한다.' '전쟁 포로는 범죄자가 아니며, 존엄과 공정한 대우를 받을 권리가 있다.' '어떠한 상황에서도 고문 및 비인도적 대우는 절대적으로 금지된다.' '민간인은 전시에도 보호받아야 하며, 군사 작전의 대상이 될 수 없다.'",
+    "significance": "제네바 협약은 현대 국제인도법의 근간을 이루는 가장 중요한 국제 조약이다. 196개국이 비준하여 전 세계적으로 보편적 효력을 가진다. 이 협약은 전쟁 중에도 인간의 존엄을 보호해야 한다는 원칙을 국제법으로 확립하였으며, 전쟁범죄 처벌의 법적 근거를 제공한다. 국제형사재판소(ICC)와 각국의 군사법 체계는 제네바 협약을 기반으로 운영되고 있다.",
+    "aftermath": "1949년 4개 협약 체결 이후, 1977년에 2개의 추가 의정서가, 2005년에 제3추가 의정서가 채택되었다. 그러나 현대 전쟁의 양상 변화(비대칭 분쟁, 테러리즘, 사이버전 등)로 인해 협약의 적용 범위와 효력에 대한 논의가 계속되고 있다. 관타나모 수용소 문제, 무인기 공격 등 새로운 유형의 무력 충돌에 협약을 어떻게 적용할지가 국제법의 주요 과제로 남아 있다.",
+    "relatedDocuments": ["헤이그 육법 협약(1899, 1907)", "로마 규정(1998, ICC 설립)", "솔페리노의 추억(1862)"],
+    "physicalDescription": "협약 원본은 프랑스어와 영어로 작성되었으며, 스위스 제네바의 국제적십자위원회(ICRC) 본부에 원본이 보관되어 있다. 4개의 별도 협약문으로 구성되어 있으며, 각 체약국의 서명과 비준서가 첨부되어 있다. 1949년 8월 12일 체결된 공식 문서는 방대한 분량의 법률 문서이다.",
+    "references": ["Jean S. Pictet, 'Commentary on the Geneva Conventions of 12 August 1949', ICRC, 1952-1960", "François Bugnion, 'The International Committee of the Red Cross and the Protection of War Victims', ICRC/Macmillan, 2003", "Gary D. Solis, 'The Law of Armed Conflict: International Humanitarian Law in War', Cambridge University Press, 2010"]
+  }
+}

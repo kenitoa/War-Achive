@@ -1,0 +1,39 @@
+[build]
+  publish = "front"
+
+# Friendly aliases that the Docker backend used to resolve dynamically.
+[[redirects]]
+  from = "/my-archive"
+  to = "/pages/My%20Archive/My%20Archive.html"
+  status = 200
+
+[[redirects]]
+  from = "/my-archive.html"
+  to = "/pages/My%20Archive/My%20Archive.html"
+  status = 200
+
+[[redirects]]
+  from = "/mypage"
+  to = "/pages/My%20Archive/My%20Archive.html"
+  status = 200
+
+[[redirects]]
+  from = "/mypage.html"
+  to = "/pages/My%20Archive/My%20Archive.html"
+  status = 200
+
+# Browser URL: https://knowtowars.netlify.app
+# API origin: the public NAS/VPS backend URL. Do not point this to
+# knowtowars.netlify.app, because that would proxy back to itself.
+[[redirects]]
+  from = "/api/auth/*"
+  to = "https://warachive.synology.me/api/auth/:splat"
+  status = 200
+  force = true
+
+# Let Netlify serve the UI while NAS serves crawler-updated JSON data.
+[[redirects]]
+  from = "/data/*"
+  to = "https://warachive.synology.me/data/:splat"
+  status = 200
+  force = true

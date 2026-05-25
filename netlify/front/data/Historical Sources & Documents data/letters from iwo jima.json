@@ -1,0 +1,22 @@
+{
+  "id": "letters-from-iwo-jima",
+  "title": "Letters from Iwo Jima",
+  "titleKr": "이오지마에서 온 편지들",
+  "coverImage": "https://commons.wikimedia.org/wiki/Special:FilePath/Raising_the_Flag_on_Iwo_Jima%2C_larger_-_edit1.jpg?width=300",
+  "type": "letter",
+  "era": "worldwar",
+  "date": "1945년 2~3월",
+  "author": "구리바야시 다다미치 외 일본군 병사들",
+  "origin": "이오지마, 일본",
+  "description": "이오지마 전투에서 일본군 수비대 사령관 구리바야시 다다미치와 병사들이 가족에게 보낸 편지 모음. 극한의 전투 상황에서 인간적 면모를 보여주는 1차 사료이다.",
+  "keywords": ["2차대전", "이오지마", "태평양전쟁", "일본군", "편지", "구리바야시"],
+  "detail": {
+    "background": "이오지마 전투는 1945년 2월 19일부터 3월 26일까지 태평양 전선의 작은 화산섬에서 벌어진 참혹한 전투였다. 일본군 수비대 사령관 구리바야시 다다미치 중장은 상륙 저지 대신 섬 내부 동굴과 지하 터널을 활용한 종심 방어 전략을 수립하여 미군에 막대한 피해를 입혔다. 약 21,000명의 일본군 수비대 중 생존자는 1,000명에 불과하였으며, 불가능한 상황에서 병사들은 가족에게 마지막 편지를 남겼다.",
+    "originalText": "구리바야시의 편지: '수달째 모든 것을 다해 나라를 위해 싸우고 있습니다. 우리는 더 이상 물도 식량도 없습니다. 그러나 정신은 건재합니다.' 일본군 병사의 편지: '사랑하는 아내에게, 나는 아마 돌아가지 못할 것입니다. 아이들을 부디 건강하게 키워주십시오. 당신을 만나 가장 행복했습니다.'",
+    "significance": "이오지마에서 온 편지들은 전쟁을 기록한 가장 인간적이고 사적인 1차 사료 중 하나로 평가받는다. 이 편지들은 적군 병사들 역시 사랑하는 가족이 있는 인간이었음을 보여주며, 전쟁의 비극성을 개인의 시선에서 전달한다. 특히 구리바야시의 편지는 인간적 품위를 지킨 적군 지휘관의 모습을 보여주어, 적과 아군이라는 이분법을 넘어선 전쟁의 보편성을 인식하게 하는 데 기여하였다.",
+    "aftermath": "이 편지들은 전후 미군이 동굴에서 수거한 문서들과 함께 발견되었으며, 일본에서 출판되어 큰 반향을 일으켰다. 2006년 클린트 이스트우드 감독의 영화 '이오지마에서 온 편지'로 제작되어 전 세계적으로 알려졌다. 이 영화는 적군의 시점에서 전쟁을 조명한 핵리우드 최초의 대작으로 평가받는다.",
+    "relatedDocuments": ["포츠담 선언(1945)", "부 인양 작전 명령서", "일본 항복 문서(1945)"],
+    "physicalDescription": "편지들은 주로 얗은 일본식 편지지에 연필이나 먹으로 작성되었으며, 일부는 동굴의 습기와 전투 피해로 손상된 상태로 발견되었다. 현재 일본 방위성 전사연구소와 미국 국립문서기록관리청에 나누어 보관되어 있으며, 일부 편지는 유족에게 반환되었다.",
+    "references": ["Kumiko Kakehashi, 'So Sad to Fall in Battle: An Account of War Based on General Tadamichi Kuribayashi's Letters from Iwo Jima', Presidio Press, 2007", "James Bradley, 'Flags of Our Fathers', Bantam, 2000", "Robert S. Burrell, 'The Ghosts of Iwo Jima', Texas A&M University Press, 2006"]
+  }
+}

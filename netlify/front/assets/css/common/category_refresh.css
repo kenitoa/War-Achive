@@ -1,0 +1,78 @@
+/* Category page polish shared by legacy category styles. */
+.site-header .nav-links a,
+.header .nav a,
+.site-header .logo-text,
+.header .logo-text,
+.section-label,
+.hero-badge,
+.page-eyebrow,
+.filter-tab,
+.catalog-tab,
+.view-btn,
+.btn,
+.stat-label,
+.footer-col h4,
+.breadcrumb,
+.breadcrumb a,
+.toc-title,
+.side-toc-title,
+.meta-label,
+.casualty-label,
+.search-tag,
+.browse-chip,
+.card-tag,
+.tab-button,
+.filter-section h4,
+.filter-label,
+.era-badge,
+.role-badge,
+.type-badge,
+.shelf-tag,
+.book-spine .spine-label,
+.warning-badge {
+  text-transform: none !important;
+  letter-spacing: 0.3px !important;
+}
+
+.section-title,
+.page-title,
+.doc-title,
+.card-title,
+.section-heading {
+  letter-spacing: -0.005em !important;
+}
+
+.person-card,
+.battle-card,
+.weapon-card,
+.weapon-category-card,
+.doc-card,
+.strategy-card,
+.shelf-card,
+.flow-card,
+.guideline-card,
+.step-card,
+.profile-card,
+.tech-card,
+.featured-card,
+.timeline-content {
+  box-shadow: var(--shadow-sm);
+  transition: background 0.25s ease, border-color 0.25s ease,
+              transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.person-card:hover,
+.battle-card:hover,
+.weapon-card:hover,
+.weapon-category-card:hover,
+.doc-card:hover,
+.strategy-card:hover,
+.shelf-card:hover,
+.flow-card:hover,
+.guideline-card:hover,
+.step-card:hover,
+.profile-card:hover,
+.tech-card:hover,
+.featured-card:hover {
+  box-shadow: var(--shadow-md);
+}

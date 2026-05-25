@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- Tank body -->
+  <rect x="10" y="28" width="44" height="14" rx="2" stroke="#c9a84c" stroke-width="2"/>
+  <!-- Turret -->
+  <rect x="22" y="18" width="20" height="12" rx="3" stroke="#c9a84c" stroke-width="2"/>
+  <!-- Cannon -->
+  <rect x="2" y="22" width="22" height="4" rx="2" stroke="#c9a84c" stroke-width="2"/>
+  <!-- Tracks -->
+  <ellipse cx="16" cy="48" rx="8" ry="6" stroke="#c9a84c" stroke-width="2"/>
+  <ellipse cx="48" cy="48" rx="8" ry="6" stroke="#c9a84c" stroke-width="2"/>
+  <line x1="16" y1="42" x2="48" y2="42" stroke="#c9a84c" stroke-width="2"/>
+  <line x1="16" y1="54" x2="48" y2="54" stroke="#c9a84c" stroke-width="2"/>
+  <!-- Track wheels -->
+  <circle cx="16" cy="48" r="2" fill="#c9a84c" opacity="0.4"/>
+  <circle cx="48" cy="48" r="2" fill="#c9a84c" opacity="0.4"/>
+  <circle cx="32" cy="48" r="2" fill="#c9a84c" opacity="0.4"/>
+</svg>

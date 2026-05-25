@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- Blade -->
+  <path d="M52 4L20 36" stroke="#c9a84c" stroke-width="3" stroke-linecap="round"/>
+  <!-- Blade edge width -->
+  <path d="M54 6L22 38L20 36L52 4Z" fill="#c9a84c" opacity="0.15"/>
+  <!-- Guard (crossguard) -->
+  <line x1="14" y1="38" x2="26" y2="44" stroke="#c9a84c" stroke-width="3" stroke-linecap="round"/>
+  <!-- Grip -->
+  <path d="M20 36L12 48" stroke="#c9a84c" stroke-width="3" stroke-linecap="round"/>
+  <!-- Pommel -->
+  <circle cx="11" cy="50" r="2.5" fill="#c9a84c" opacity="0.6"/>
+  <!-- Blade tip shine -->
+  <circle cx="53" cy="4" r="1.5" fill="#c9a84c" opacity="0.5"/>
+</svg>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- Barrel -->
+  <rect x="4" y="28" width="40" height="8" rx="1" stroke="#c9a84c" stroke-width="2"/>
+  <!-- Body/Receiver -->
+  <rect x="30" y="24" width="16" height="16" rx="2" stroke="#c9a84c" stroke-width="2"/>
+  <!-- Stock -->
+  <path d="M46 28L58 28C59 28 60 29 60 30V34C60 35 59 36 58 36L46 36" stroke="#c9a84c" stroke-width="2"/>
+  <!-- Grip -->
+  <path d="M38 40L36 52C36 53 37 54 38 54L40 54C41 54 42 53 42 52L42 40" stroke="#c9a84c" stroke-width="2" fill="none"/>
+  <!-- Trigger guard -->
+  <path d="M34 40C34 44 38 46 42 44" stroke="#c9a84c" stroke-width="1.5" fill="none" opacity="0.6"/>
+  <!-- Front sight -->
+  <line x1="6" y1="28" x2="6" y2="24" stroke="#c9a84c" stroke-width="1.5"/>
+  <!-- Muzzle -->
+  <circle cx="4" cy="32" r="1.5" fill="#c9a84c" opacity="0.4"/>
+</svg>

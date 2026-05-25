@@ -1,0 +1,22 @@
+{
+  "id": "treaty-of-westphalia",
+  "title": "Treaty of Westphalia",
+  "titleKr": "베스트팔렌 조약",
+  "coverImage": "https://commons.wikimedia.org/wiki/Special:FilePath/Westfaelischer_Friede_in_Muenster_(Gerard_Terborch_1648).jpg?width=300",
+  "type": "treaty",
+  "era": "earlymodern",
+  "date": "1648년 10월 24일",
+  "author": "신성로마제국, 프랑스, 스웨덴 외 다수",
+  "origin": "뮌스터 & 오스나브뤼크, 신성로마제국",
+  "description": "30년 전쟁을 종결시킨 일련의 평화 조약. 근대 국제법과 주권 국가 체제의 기초를 확립한 역사적 문서로, 종교적 관용과 영토 주권의 원칙을 선언하였다.",
+  "keywords": ["30년전쟁", "주권", "국제법", "종교전쟁", "신성로마제국", "평화조약"],
+  "detail": {
+    "background": "베스트팔렌 조약은 1618년부터 1648년까지 유럽 대륙을 황폐화시킨 30년 전쟁을 종결짓기 위해 체결되었다. 이 전쟁은 처음에는 신성로마제국 내 가톨릭과 개신교 간의 종교적 갈등으로 시작되었으나, 점차 합스부르크 왕가의 패권에 대항하는 프랑스, 스웨덴 등 유럽 열강들의 정치적 투쟁으로 확대되었다. 전쟁 기간 동안 독일 지역 인구의 약 30~40%가 사망하는 등 유례없는 참화가 벌어졌으며, 이에 따라 항구적 평화에 대한 갈망이 뮌스터와 오스나브뤼크에서의 협상으로 이어졌다.",
+    "originalText": "'각 영방국가는 자국 영토 내에서 종교 문제를 결정할 완전한 주권을 가진다.' '어떠한 제국의 구성원도 다른 구성원의 권리를 침해하거나 무력으로 강제할 수 없다.' '이 조약의 조항을 위반하는 자는 모든 체약국의 공동 적으로 간주된다.' '가톨릭과 개신교 신자들은 1624년의 상태를 기준으로 동등한 권리를 향유한다.'",
+    "significance": "베스트팔렌 조약은 근대 국제 질서의 기원으로 평가받는다. 이 조약은 영토 주권(territorial sovereignty)의 원칙을 확립하여, 각 국가가 자국 영토 내에서 최고 권위를 갖는다는 개념을 국제법적으로 인정하였다. 또한 종교적 관용의 원칙을 선언하여 가톨릭, 루터교, 칼뱅교 간의 동등한 지위를 보장하였으며, 이는 정교분리의 초석이 되었다. 이 조약으로 탄생한 '베스트팔렌 체제'는 주권 국가를 기본 단위로 하는 현대 국제 관계의 출발점으로, 오늘날까지 국제 질서의 근본 원칙으로 작동하고 있다.",
+    "aftermath": "베스트팔렌 조약 이후 신성로마제국은 사실상 형식적 존재로 전락하였고, 약 300개의 독립적 영방국가로 분열되었다. 프랑스는 유럽 대륙의 최강국으로 부상하였으며, 스웨덴은 발틱 해의 강대국으로 자리 잡았다. 이 조약이 확립한 주권 원칙은 이후 국제법의 발전과 외교 관행의 기초가 되었고, 유엔 헌장의 내정불간섭 원칙에까지 이어지고 있다.",
+    "relatedDocuments": ["뮌스터 조약", "오스나브뤼크 조약", "아우크스부르크 화의(1555)"],
+    "physicalDescription": "원본 조약문은 라틴어로 작성되었으며, 여러 부의 양피지 문서로 존재한다. 주요 사본은 뮌스터 시 문서보관소와 오스나브뤼크 시 문서보관소에 소장되어 있다. 각 사본에는 교전국 대표들의 서명과 밀랍 인장이 부착되어 있으며, 일부 원본은 제2차 세계대전 중 손상되었으나 복원되었다.",
+    "references": ["Leo Gross, 'The Peace of Westphalia, 1648-1948', American Journal of International Law, 1948", "Derek Croxton, 'The Peace of Westphalia of 1648 and the Origins of Sovereignty', International History Review, 1999", "Peter H. Wilson, 'The Thirty Years War: Europe's Tragedy', Harvard University Press, 2009"]
+  }
+}

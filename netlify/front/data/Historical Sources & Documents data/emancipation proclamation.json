@@ -1,0 +1,22 @@
+{
+  "id": "emancipation-proclamation",
+  "title": "Emancipation Proclamation",
+  "titleKr": "노예해방선언",
+  "coverImage": "https://commons.wikimedia.org/wiki/Special:FilePath/Emancipation_Proclamation.jpg?width=300",
+  "type": "declaration",
+  "era": "modern",
+  "date": "1863년 1월 1일",
+  "author": "에이브러햄 링컨",
+  "origin": "워싱턴 D.C., 미국",
+  "description": "미국 남북전쟁 중 링컨 대통령이 발표한 노예 해방 선언문. 남부 연합 지역의 노예를 자유인으로 선언하여 전쟁의 도덕적 의미를 변화시켰다.",
+  "keywords": ["남북전쟁", "링컨", "노예해방", "미국", "인권", "자유"],
+  "detail": {
+    "background": "노예해방선언은 미국 남북전쟁(1861-1865)의 한복판에서 탄생하였다. 전쟁 초기 링컨 대통령은 연방의 보존을 최우선 목표로 삼았으나, 전쟁이 장기화되면서 노예제 폐지가 전략적·도덕적으로 불가피하다는 인식이 확산되었다. 1862년 9월 앤티텀 전투의 승리 이후, 링컨은 예비 선언을 발표하여 남부 연합이 1863년 1월 1일까지 항복하지 않으면 노예를 해방하겠다고 경고하였다. 남부가 이를 거부하자, 링컨은 1863년 1월 1일 정식으로 노예해방선언에 서명하였다.",
+    "originalText": "'나 에이브러햄 링컨, 미합중국 대통령이자 육해군 총사령관은, 미합중국에 대한 반란 시기에 있어 적절하고 필요한 전쟁 조치로서, 1863년 1월 1일부터 미합중국에 대해 반란 상태에 있는 주 내의 노예로 억류된 모든 사람은 그때부터 영원히 자유인이 될 것을 명령하고 선언한다.' '해방된 이들이 자기 방어를 위한 경우를 제외하고는 어떠한 폭력 행위도 삼가기를 권고한다.' '적절한 조건의 자들은 미합중국 군대에 입대할 수 있다.'",
+    "significance": "노예해방선언은 남북전쟁의 성격을 근본적으로 변화시킨 역사적 문서이다. 이 선언으로 전쟁은 단순한 연방 보존의 싸움에서 인간 자유를 위한 도덕적 투쟁으로 전환되었다. 약 350만 명의 남부 노예들이 법적으로 자유의 신분을 얻었으며, 약 18만 명의 흑인이 연방군에 입대하여 전쟁 승리에 기여하였다. 또한 이 선언은 영국과 프랑스가 남부 연합을 외교적으로 승인하는 것을 효과적으로 차단하였는데, 노예해방을 지지하는 유럽 여론이 남부 지원을 불가능하게 만들었기 때문이다.",
+    "aftermath": "노예해방선언은 전쟁 종결 후 수정헌법 제13조(1865년, 노예제 폐지), 제14조(1868년, 시민권 보장), 제15조(1870년, 흑인 투표권)의 채택으로 이어졌다. 그러나 남부의 재건(Reconstruction) 시기 이후 짐 크로법 등 새로운 형태의 인종차별이 등장하였으며, 실질적 평등의 실현에는 100년 이상의 민권운동이 필요하였다.",
+    "relatedDocuments": ["수정헌법 제13조", "게티즈버그 연설", "드레드 스콧 판결(1857)"],
+    "physicalDescription": "원본 선언서는 대형 양피지에 링컨 대통령이 직접 서명하였으며, 국무장관 윌리엄 수어드의 부서가 첨부되어 있다. 미국 국립문서기록관리청(NARA)에 소장되어 있으며, 시간이 지남에 따라 잉크가 상당히 퇴색되었다. 총 5페이지로 구성되어 있으며, 대통령 인장이 날인되어 있다.",
+    "references": ["Eric Foner, 'The Fiery Trial: Abraham Lincoln and American Slavery', W.W. Norton, 2010", "Allen C. Guelzo, 'Lincoln's Emancipation Proclamation: The End of Slavery in America', Simon & Schuster, 2004", "James M. McPherson, 'Battle Cry of Freedom: The Civil War Era', Oxford University Press, 1988"]
+  }
+}
