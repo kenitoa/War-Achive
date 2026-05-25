@@ -14,7 +14,7 @@ The site URL should be:
 https://knowtowars.netlify.app
 ```
 
-`netlify.toml` keeps the frontend static and proxies `/api/auth/*` plus
+`netlify.toml` keeps this package frontend-only. It proxies `/api/auth/*` and
 `/data/*` to the public NAS backend origin. The proxy target must be the NAS
 backend URL, not `knowtowars.netlify.app`, or the request will loop back into
 Netlify.

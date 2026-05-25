@@ -18,8 +18,8 @@ Important: `knowtowars.netlify.app` is the browser-facing Netlify URL. The API p
 Path note:
 
 - Browser UI source: `netlify/front`
-- NAS Docker backend and crawler source: `NAS/back`
-- NAS crawler live data: `NAS/front/data`
+- NAS backend API and crawler source: `NAS/back`
+- NAS crawler live data and public JSON source: `NAS/data`
 - Optional Discord bot source: `NAS/discord-Bot`
 
 War Archive는 전쟁사 자료를 모아 검색하고 탐색하는 디지털 아카이브입니다. 전쟁 개요, 인물, 전투, 무기와 장비, 사료, 전략과 전술, 검증 전 자료를 하나의 홈페이지에서 볼 수 있도록 구성했습니다.
@@ -28,12 +28,12 @@ War Archive는 전쟁사 자료를 모아 검색하고 탐색하는 디지털 �
 
 ## 주요 기능
 
-- 통합 검색: `front/data/search/*.json` 인덱스를 읽어 모든 카테고리 자료를 검색합니다.
+- 통합 검색: Netlify가 NAS의 `/data/search/*.json` 인덱스를 읽어 모든 카테고리 자료를 검색합니다.
 - 카테고리 탐색: 전쟁, 인물, 전투, 무기, 사료, 전략, 미확인 자료를 구분해 볼 수 있습니다.
 - 추천 카드: JSON 데이터의 이미지 링크를 읽어 카드 배경으로 표시합니다.
 - 페이지네이션: 메인 화면의 주요 섹션은 좌우 넘김 방식으로 탐색합니다.
 - 다크 모드: 메인 화면과 각 페이지의 카드, 표, 상세 콘텐츠 색상을 다크 테마에 맞춥니다.
-- 자동 크롤링: Docker의 `history-crawler` 서비스가 주기적으로 자료를 수집하고 `front/data` 및 검색 인덱스를 갱신합니다.
+- 자동 크롤링: NAS Docker의 `history-crawler` 서비스가 주기적으로 자료를 수집하고 `NAS/data` 및 검색 인덱스를 갱신합니다.
 - 로그인/마이페이지: Node 백엔드와 MySQL 기반 인증 기능을 포함합니다.
 
 ## 화면 구성
@@ -51,13 +51,13 @@ War Archive는 전쟁사 자료를 모아 검색하고 탐색하는 디지털 �
 
 | 카테고리 | 경로 | 설명 |
 |---|---|---|
-| 전쟁 개요 | `front/data/war overview data` | 주요 전쟁의 원인, 전개, 결과 |
-| 인물 열전 | `front/data/biography of people data` | 지휘관, 정치 지도자, 전략가 |
-| 전장 지도 | `front/data/Battlefield Map data` | 전투 위치, 지휘관, 전개, 결과 |
-| 무기 & 장비 | `front/data/weapons and equipment data` | 항공기, 기갑, 화기, 해군 장비 등 |
-| 사료 & 문서 | `front/data/Historical Sources & Documents data` | 조약, 명령서, 연설, 증언 |
-| 전략 & 전술 | `front/data/strategy and tactics data` | 작전술, 병법, 전술 개념 |
-| 미확인 자료집 | `front/data/Undefine facts data` | 논쟁 자료, 구전, 미확인 문서 |
+| 전쟁 개요 | `NAS/data/war overview data` | 주요 전쟁의 원인, 전개, 결과 |
+| 인물 열전 | `NAS/data/biography of people data` | 지휘관, 정치 지도자, 전략가 |
+| 전장 지도 | `NAS/data/Battlefield Map data` | 전투 위치, 지휘관, 전개, 결과 |
+| 무기 & 장비 | `NAS/data/weapons and equipment data` | 항공기, 기갑, 화기, 해군 장비 등 |
+| 사료 & 문서 | `NAS/data/Historical Sources & Documents data` | 조약, 명령서, 연설, 증언 |
+| 전략 & 전술 | `NAS/data/strategy and tactics data` | 작전술, 병법, 전술 개념 |
+| 미확인 자료집 | `NAS/data/Undefine facts data` | 논쟁 자료, 구전, 미확인 문서 |
 
 ## 데이터 흐름
 
@@ -66,8 +66,8 @@ history-crawler
 → 원문 수집
 → SQLite 저장
 → 카테고리별 JSON으로 재구성
-→ front/data에 게시
-→ front/data/search/*.json 인덱스 재생성
+→ NAS/data에 게시
+→ NAS/data/search/*.json 인덱스 재생성
 → index.html과 각 페이지가 fetch로 읽음
 ```
 
@@ -159,7 +159,7 @@ KT 장비 뒤에 ASUS 공유기가 있는 환경처럼 ASUS WAN IP가 `192.x.x.x
 ```text
 CRAWLING_HOURLY_LIMIT=5
 CRAWLING_DAEMON_INTERVAL_SECONDS=3600
-CRAWLING_FRONT_DATA_PATH=/app/front/data
+CRAWLING_FRONT_DATA_PATH=/app/public-data
 ```
 
 동작:
@@ -167,7 +167,7 @@ CRAWLING_FRONT_DATA_PATH=/app/front/data
 ```text
 컨테이너 시작
 → 즉시 최대 5개 페이지 크롤링
-→ front/data에 게시
+→ NAS/data에 게시
 → 검색 인덱스 재생성
 → 3600초 대기
 → 반복

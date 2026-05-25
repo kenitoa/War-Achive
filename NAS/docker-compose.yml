@@ -30,7 +30,8 @@ services:
     environment:
       HOST: 0.0.0.0
       PORT: 8080
-      FRONT_DIR: /app/front
+      DATA_DIR: /app/data
+      FRONTEND_ORIGIN: ${WAR_ARCHIVE_PUBLIC_URL:-https://knowtowars.netlify.app}
       MYSQL_HOST: mysql
       MYSQL_PORT: 3306
       MYSQL_DATABASE: ${MYSQL_DATABASE:-war_archive}
@@ -42,7 +43,7 @@ services:
       ADMIN_EMAIL: ${ADMIN_EMAIL:-admi}
       ADMIN_PASSWORD: ${ADMIN_PASSWORD:-admin}
     volumes:
-      - ./front:/app/front:ro
+      - ./data:/app/data:ro
     depends_on:
       mysql:
         condition: service_healthy
@@ -61,14 +62,14 @@ services:
     environment:
       CRAWLING_DATABASE_PATH: /app/data/articles.sqlite3
       CRAWLING_TARGET_SITES_PATH: /app/data/target-sites.json
-      CRAWLING_FRONT_DATA_PATH: /app/front/data
+      CRAWLING_FRONT_DATA_PATH: /app/public-data
       CRAWLING_HOURLY_LIMIT: 5
       CRAWLING_DAEMON_INTERVAL_SECONDS: 3600
       CRAWLING_RECENT_DAYS: 30
       CRAWLING_REQUEST_TIMEOUT: 15
       CRAWLING_USER_AGENT: Mozilla/5.0 War-Archive-History-Crawler/1.0
     volumes:
-      - ./front/data:/app/front/data
+      - ./data:/app/public-data
       - ./back/crowling/data:/app/data
     depends_on:
       - war-archive
@@ -96,10 +97,10 @@ services:
       MONITOR_EXTRA_ROUTE_PATHS: ${MONITOR_EXTRA_ROUTE_PATHS:-}
       DISCORD_ANNOUNCE_ON_STARTUP: ${DISCORD_ANNOUNCE_ON_STARTUP:-true}
       DISCORD_STARTUP_PANEL: ${DISCORD_STARTUP_PANEL:-true}
-      FRONT_DATA_DIR: /app/front/data
+      FRONT_DATA_DIR: /app/data
       CRAWLER_DATA_DIR: /app/crawler-data
     volumes:
-      - ./front/data:/app/front/data:ro
+      - ./data:/app/data:ro
       - ./back/crowling/data:/app/crawler-data:ro
     depends_on:
       war-archive:

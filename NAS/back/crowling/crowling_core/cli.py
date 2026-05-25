@@ -25,10 +25,10 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--database", type=Path, default=None, help="SQLite database path")
     parser.add_argument("--sites", type=Path, default=None, help="target site JSON path")
     parser.add_argument("--output", type=Path, default=None, help="refined JSONL output directory")
-    parser.add_argument("--front-data", type=Path, default=None, help="front/data directory for published JSON")
+    parser.add_argument("--front-data", type=Path, default=None, help="public data directory for published JSON")
     parser.add_argument("--limit", type=int, default=None, help="page or row limit")
     parser.add_argument("--interval", type=int, default=None, help="daemon interval seconds")
-    parser.add_argument("--no-publish", action="store_true", help="crawl only; do not publish to front/data")
+    parser.add_argument("--no-publish", action="store_true", help="crawl only; do not publish to public data")
     return parser
 
 

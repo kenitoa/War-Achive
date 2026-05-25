@@ -2,11 +2,12 @@
   "name": "war-archive-backend",
   "version": "0.1.0",
   "private": true,
-  "description": "Minimal NAS-ready static backend for War Archive.",
+  "description": "NAS-ready API and public data backend for War Archive.",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "check": "node --check server.js"
+    "check": "node --check server.js",
+    "secret": "node generate-cookie-secret.js"
   },
   "dependencies": {
     "mysql2": "^3.14.0"

@@ -17,25 +17,26 @@ const AUTH_COOKIE_SECRET = process.env.AUTH_COOKIE_SECRET || "change-this-war-ar
 const DEFAULT_ADMIN_NAME = process.env.ADMIN_NAME || "admin";
 const DEFAULT_ADMIN_EMAIL = process.env.ADMIN_EMAIL || "admi";
 const DEFAULT_ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || "admin";
+const FRONTEND_ORIGIN = process.env.FRONTEND_ORIGIN || "https://knowtowars.netlify.app";
 
-function resolveFrontDir() {
+function resolveDataDir() {
   const candidates = [
-    process.env.FRONT_DIR,
-    path.resolve(__dirname, "front"),
-    path.resolve(__dirname, "..", "front"),
+    process.env.DATA_DIR,
+    path.resolve(__dirname, "data"),
+    path.resolve(__dirname, "..", "data"),
   ].filter(Boolean);
 
   for (const candidate of candidates) {
     const resolved = path.resolve(candidate);
-    if (fs.existsSync(path.join(resolved, "index.html"))) {
+    if (fs.existsSync(resolved)) {
       return resolved;
     }
   }
 
-  return path.resolve(process.env.FRONT_DIR || path.resolve(__dirname, "..", "front"));
+  return path.resolve(process.env.DATA_DIR || path.resolve(__dirname, "..", "data"));
 }
 
-const FRONT_DIR = resolveFrontDir();
+const DATA_DIR = resolveDataDir();
 
 const MIME_TYPES = {
   ".html": "text/html; charset=utf-8",
@@ -394,25 +395,6 @@ async function handleAuthApi(req, res, url) {
   }
 }
 
-function injectGlobalAssets(html) {
-  let output = html;
-  const cssTag = '<link rel="stylesheet" href="/assets/css/common/auth.css">';
-  const jsTag = '<script src="/assets/js/common/auth.js" defer></script>';
-
-  if (!output.includes("assets/css/common/auth.css")) {
-    output = output.includes("</head>")
-      ? output.replace("</head>", `  ${cssTag}\n</head>`)
-      : `${cssTag}\n${output}`;
-  }
-  if (!output.includes("assets/js/common/auth.js")) {
-    output = output.includes("</body>")
-      ? output.replace("</body>", `  ${jsTag}\n</body>`)
-      : `${output}\n${jsTag}`;
-  }
-
-  return output;
-}
-
 function sendFile(req, res, filePath) {
   fs.stat(filePath, (statError, stat) => {
     if (statError || !stat.isFile()) {
@@ -422,27 +404,6 @@ function sendFile(req, res, filePath) {
 
     const ext = path.extname(filePath).toLowerCase();
     const contentType = MIME_TYPES[ext] || "application/octet-stream";
-
-    if (ext === ".html") {
-      fs.readFile(filePath, "utf8", (readError, content) => {
-        if (readError) {
-          sendJson(res, 500, { ok: false, error: "Failed to read file" });
-          return;
-        }
-        const body = injectGlobalAssets(content);
-        res.writeHead(200, {
-          "Content-Type": contentType,
-          "Content-Length": Buffer.byteLength(body),
-          "Cache-Control": "no-cache",
-        });
-        if (req.method === "HEAD") {
-          res.end();
-        } else {
-          res.end(body);
-        }
-      });
-      return;
-    }
 
     res.writeHead(200, {
       "Content-Type": contentType,
@@ -466,7 +427,7 @@ function sendFile(req, res, filePath) {
   });
 }
 
-function resolveRequestPath(requestUrl) {
+function resolveDataPath(requestUrl) {
   const url = new URL(requestUrl, `http://${HOST}:${PORT}`);
   let decodedPathname;
 
@@ -476,21 +437,12 @@ function resolveRequestPath(requestUrl) {
     return null;
   }
 
-  let relativePath = decodedPathname === "/" ? "index.html" : decodedPathname.replace(/^\/+/, "");
-  if (
-    relativePath === "mypage" ||
-    relativePath === "mypage.html" ||
-    relativePath === "my-archive" ||
-    relativePath === "my-archive.html" ||
-    relativePath === "My Archive" ||
-    relativePath === "My Archive.html"
-  ) {
-    relativePath = "pages/My Archive/My Archive.html";
-  }
+  const relativePath = decodedPathname.replace(/^\/data\/?/, "");
+  if (!relativePath) return null;
 
-  const filePath = path.resolve(FRONT_DIR, relativePath);
+  const filePath = path.resolve(DATA_DIR, relativePath);
 
-  if (!filePath.startsWith(FRONT_DIR + path.sep) && filePath !== FRONT_DIR) {
+  if (!filePath.startsWith(DATA_DIR + path.sep) && filePath !== DATA_DIR) {
     return null;
   }
 
@@ -505,6 +457,18 @@ const server = http.createServer((req, res) => {
       ok: true,
       service: "war-archive-backend",
       authStoreReady,
+      frontendOrigin: FRONTEND_ORIGIN,
+      dataDir: DATA_DIR,
+    });
+    return;
+  }
+
+  if (url.pathname === "/") {
+    sendJson(res, 200, {
+      ok: true,
+      service: "war-archive-backend",
+      frontendOrigin: FRONTEND_ORIGIN,
+      routes: ["/health", "/api/auth/*", "/data/*"],
     });
     return;
   }
@@ -519,12 +483,16 @@ const server = http.createServer((req, res) => {
     return;
   }
 
-  const filePath = resolveRequestPath(req.url || "/");
+  if (!url.pathname.startsWith("/data/")) {
+    sendJson(res, 404, { ok: false, error: "Backend route not found. Use Netlify for frontend pages." });
+    return;
+  }
+
+  const filePath = resolveDataPath(req.url || "/");
   if (!filePath) {
     sendJson(res, 403, { ok: false, error: "Forbidden" });
     return;
   }
-
   sendFile(req, res, filePath);
 });
 
@@ -534,5 +502,6 @@ ensureAuthStore().catch((error) => {
 
 server.listen(PORT, HOST, () => {
   console.log(`War Archive backend listening on http://${HOST}:${PORT}`);
-  console.log(`Serving front from ${FRONT_DIR}`);
+  console.log(`Serving data from ${DATA_DIR}`);
+  console.log(`Frontend origin is ${FRONTEND_ORIGIN}`);
 });

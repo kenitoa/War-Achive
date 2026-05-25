@@ -5,12 +5,12 @@ WORKDIR /app
 ENV NODE_ENV=production
 ENV HOST=0.0.0.0
 ENV PORT=8080
-ENV FRONT_DIR=/app/front
+ENV DATA_DIR=/app/data
 
 COPY back/package.json back/package-lock.json ./
 RUN npm ci --omit=dev
 COPY back/server.js ./server.js
-COPY front ./front
+COPY data ./data
 
 EXPOSE 8080
 

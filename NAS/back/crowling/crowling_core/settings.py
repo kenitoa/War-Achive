@@ -30,7 +30,7 @@ class CrawlerSettings:
     target_sites_path: Path = Path(os.getenv("CRAWLING_TARGET_SITES_PATH", DEFAULT_ROOT / "data" / "target-sites.json"))
     output_path: Path = Path(os.getenv("CRAWLING_OUTPUT_PATH", DEFAULT_ROOT / "data" / "refined"))
     front_data_path: Path = Path(
-        os.getenv("CRAWLING_FRONT_DATA_PATH", DEFAULT_ROOT.parent.parent / "front" / "data")
+        os.getenv("CRAWLING_FRONT_DATA_PATH", DEFAULT_ROOT.parent.parent / "data")
     )
     page_limit: int = max(1, int(os.getenv("CRAWLING_PAGE_LIMIT", "20") or "20"))
     hourly_limit: int = max(1, int(os.getenv("CRAWLING_HOURLY_LIMIT", "5") or "5"))

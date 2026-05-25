@@ -1,6 +1,6 @@
 # Reconstructure
 
-`reconstructure` converts refined crawling output into the JSON formats used by `front/data`.
+`reconstructure` converts refined crawling output into the public JSON formats served from `NAS/data`.
 
 Input source:
 
@@ -12,18 +12,18 @@ These tables are read from the crawling SQLite database and joined by `page_url`
 
 Output targets are selected automatically:
 
-- `front/data/war overview data`
-- `front/data/biography of people data`
-- `front/data/weapons and equipment data/<subcategory>`
-- `front/data/strategy and tactics data`
-- `front/data/Historical Sources & Documents data`
-- `front/data/Battlefield Map data`
-- `front/data/Undefine facts data/<shelf>`
+- `data/war overview data`
+- `data/biography of people data`
+- `data/weapons and equipment data/<subcategory>`
+- `data/strategy and tactics data`
+- `data/Historical Sources & Documents data`
+- `data/Battlefield Map data`
+- `data/Undefine facts data/<shelf>`
 
 Run from the repository root:
 
 ```powershell
-python "back/crowling/reconstructure/cli.py" --database back/crowling/data/raw-crawling.sqlite3 --front-data front/data
+python "back/crowling/reconstructure/cli.py" --database back/crowling/data/raw-crawling.sqlite3 --front-data data
 ```
 
 Existing JSON files are not overwritten unless `--overwrite` is passed.

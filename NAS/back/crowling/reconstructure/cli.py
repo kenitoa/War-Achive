@@ -18,9 +18,9 @@ else:
 
 
 def build_parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(description="Convert refined crawling data into front/data JSON files")
+    parser = argparse.ArgumentParser(description="Convert refined crawling data into public data JSON files")
     parser.add_argument("--database", type=Path, default=NAS_ROOT / "back" / "crowling" / "data" / "raw-crawling.sqlite3")
-    parser.add_argument("--front-data", type=Path, default=NAS_ROOT / "front" / "data")
+    parser.add_argument("--front-data", type=Path, default=NAS_ROOT / "data")
     parser.add_argument("--limit", type=int, default=None)
     parser.add_argument("--overwrite", action="store_true")
     return parser

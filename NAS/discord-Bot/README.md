@@ -73,7 +73,7 @@ Run the Docker Compose command above from the `NAS/` folder.
 - 백엔드 `/health`
 - 주요 페이지 라우트
 - `/api/auth/me` 인증 API의 기대 응답
-- `front/data` 카테고리 존재 여부
+- `data` 카테고리 존재 여부
 - 전체 JSON 파싱 가능 여부
 - 검색 인덱스 파일 수
 - 미정의 사실 상태판 `status-index.json`
