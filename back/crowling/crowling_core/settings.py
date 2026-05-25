@@ -29,7 +29,12 @@ class CrawlerSettings:
     database_path: Path = Path(os.getenv("CRAWLING_DATABASE_PATH", DEFAULT_ROOT / "data" / "raw-crawling.sqlite3"))
     target_sites_path: Path = Path(os.getenv("CRAWLING_TARGET_SITES_PATH", DEFAULT_ROOT / "data" / "target-sites.json"))
     output_path: Path = Path(os.getenv("CRAWLING_OUTPUT_PATH", DEFAULT_ROOT / "data" / "refined"))
+    front_data_path: Path = Path(
+        os.getenv("CRAWLING_FRONT_DATA_PATH", DEFAULT_ROOT.parent.parent / "front" / "data")
+    )
     page_limit: int = max(1, int(os.getenv("CRAWLING_PAGE_LIMIT", "20") or "20"))
+    hourly_limit: int = max(1, int(os.getenv("CRAWLING_HOURLY_LIMIT", "5") or "5"))
+    daemon_interval_seconds: int = max(60, int(os.getenv("CRAWLING_DAEMON_INTERVAL_SECONDS", "3600") or "3600"))
     request_timeout: int = max(1, int(os.getenv("CRAWLING_REQUEST_TIMEOUT", "15") or "15"))
     recent_days: int = max(1, int(os.getenv("CRAWLING_RECENT_DAYS", "30") or "30"))
     user_agent: str = os.getenv("CRAWLING_USER_AGENT", "Mozilla/5.0 War-Archive-Crawler/2.0")
@@ -38,6 +43,7 @@ class CrawlerSettings:
         object.__setattr__(self, "database_path", Path(self.database_path))
         object.__setattr__(self, "target_sites_path", Path(self.target_sites_path))
         object.__setattr__(self, "output_path", Path(self.output_path))
+        object.__setattr__(self, "front_data_path", Path(self.front_data_path))
 
 
 DEFAULT_TARGET_SITES = [

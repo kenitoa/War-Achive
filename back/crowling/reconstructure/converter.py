@@ -5,6 +5,7 @@ import re
 import sqlite3
 from contextlib import closing
 from dataclasses import dataclass
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Callable
 
@@ -29,10 +30,11 @@ class ReconstructureResult:
 
 
 class ReconstructureRunner:
-    def __init__(self, database_path: Path, front_data_path: Path, overwrite: bool = False) -> None:
+    def __init__(self, database_path: Path, front_data_path: Path, overwrite: bool = False, pending_only: bool = False) -> None:
         self.database_path = Path(database_path)
         self.front_data_path = Path(front_data_path)
         self.overwrite = overwrite
+        self.pending_only = pending_only
 
     def run(self, limit: int | None = None) -> ReconstructureResult:
         records = self.load_records(limit=limit)
@@ -48,6 +50,7 @@ class ReconstructureRunner:
                 payload = merge_front_json(read_json(output_path), payload)
             output_path.parent.mkdir(parents=True, exist_ok=True)
             output_path.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
+            self.mark_exported(record, output_path)
             written.append(str(output_path))
             classified_counts[classified.category] = classified_counts.get(classified.category, 0) + 1
 
@@ -81,10 +84,21 @@ class ReconstructureRunner:
             return []
         with closing(sqlite3.connect(self.database_path)) as conn:
             conn.row_factory = sqlite3.Row
-            text_rows = conn.execute(
+            ensure_export_table(conn)
+            where = ""
+            if self.pending_only:
+                where = """
+                WHERE NOT EXISTS (
+                    SELECT 1
+                    FROM front_exports e
+                    WHERE e.fingerprint = text_assets.fingerprint
+                )
                 """
+            text_rows = conn.execute(
+                f"""
                 SELECT page_url, title, content_text, content_html, sentence_count, fingerprint
                 FROM text_assets
+                {where}
                 ORDER BY rowid ASC
                 LIMIT ?
                 """,
@@ -108,6 +122,27 @@ class ReconstructureRunner:
                     ).fetchall()
                 ]
         return records
+
+    def mark_exported(self, record: dict[str, Any], output_path: Path) -> None:
+        fingerprint = str(record.get("fingerprint") or "")
+        if not fingerprint:
+            return
+        with closing(sqlite3.connect(self.database_path)) as conn:
+            ensure_export_table(conn)
+            with conn:
+                conn.execute(
+                    """
+                    INSERT OR REPLACE INTO front_exports
+                      (fingerprint, page_url, output_path, exported_at)
+                    VALUES (?, ?, ?, ?)
+                    """,
+                    (
+                        fingerprint,
+                        str(record.get("page_url") or ""),
+                        str(output_path),
+                        datetime.now(timezone.utc).isoformat(),
+                    ),
+                )
 
 
 def unique_path(path: Path, overwrite: bool) -> Path:
@@ -175,6 +210,19 @@ def read_json(path: Path) -> dict[str, Any]:
         text = text[1:]
     data = json.loads(text)
     return data if isinstance(data, dict) else {}
+
+
+def ensure_export_table(conn: sqlite3.Connection) -> None:
+    conn.execute(
+        """
+        CREATE TABLE IF NOT EXISTS front_exports (
+            fingerprint TEXT PRIMARY KEY,
+            page_url TEXT NOT NULL,
+            output_path TEXT NOT NULL,
+            exported_at TEXT NOT NULL
+        )
+        """
+    )
 
 
 def merge_front_json(existing: dict[str, Any], incoming: dict[str, Any]) -> dict[str, Any]:

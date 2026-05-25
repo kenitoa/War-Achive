@@ -1,418 +1,211 @@
-# War Archive — 전쟁 아카이브
+# War Archive
 
-> 인류 역사에 존재하는 모든 전쟁 기록들을 체계적으로 보관하는 디지털 아카이브 프로젝트
+War Archive는 전쟁사 자료를 모아 검색하고 탐색하는 디지털 아카이브입니다. 전쟁 개요, 인물, 전투, 무기와 장비, 사료, 전략과 전술, 검증 전 자료를 하나의 홈페이지에서 볼 수 있도록 구성했습니다.
 
-[![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white)]()
-[![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)]()
-[![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)]()
-[![JSON](https://img.shields.io/badge/Data-JSON-292929?style=flat)]()
+현재 화면은 고문서와 기록 채널 분위기의 `Archive Channel` 디자인을 사용합니다. 메인 페이지는 추천 기록, 시대 연표, 큐레이션 컬렉션, 필터 탐색을 제공하고, 각 상세 페이지는 같은 디자인 톤과 다크 모드를 공유합니다.
 
----
+## 주요 기능
 
-## 목차
+- 통합 검색: `front/data/search/*.json` 인덱스를 읽어 모든 카테고리 자료를 검색합니다.
+- 카테고리 탐색: 전쟁, 인물, 전투, 무기, 사료, 전략, 미확인 자료를 구분해 볼 수 있습니다.
+- 추천 카드: JSON 데이터의 이미지 링크를 읽어 카드 배경으로 표시합니다.
+- 페이지네이션: 메인 화면의 주요 섹션은 좌우 넘김 방식으로 탐색합니다.
+- 다크 모드: 메인 화면과 각 페이지의 카드, 표, 상세 콘텐츠 색상을 다크 테마에 맞춥니다.
+- 자동 크롤링: Docker의 `history-crawler` 서비스가 주기적으로 자료를 수집하고 `front/data` 및 검색 인덱스를 갱신합니다.
+- 로그인/마이페이지: Node 백엔드와 MySQL 기반 인증 기능을 포함합니다.
 
-- [프로젝트 개요](#프로젝트-개요)
-- [아키텍처 구조](#아키텍처-구조)
-- [카테고리별 콘텐츠](#카테고리별-콘텐츠)
-- [데이터 스키마](#데이터-스키마)
-- [구현된 기능](#구현된-기능)
-- [추가 예정 기능](#추가-예정-기능)
-- [아쉬운 점 / 개선 필요 사항](#아쉬운-점--개선-필요-사항)
-- [폴더 구조](#폴더-구조)
-- [실행 방법](#실행-방법)
+## 화면 구성
 
----
+첫 화면은 `front/index.html`입니다.
 
-## 웹 사이트 주소 : https://war-archive.tail498403.ts.net/
+- Hero: 검색, 추천 키워드, Archive Channel 스타일 메인 비주얼
+- 수록 현황: 전쟁 기록, 전체 자료, 인물 기록, 전투 기록 자동 집계
+- 추천 기록: 카테고리별 대표 자료 카드
+- 역사 연표: 시대별 빠른 이동
+- 큐레이션 컬렉션: 자료 유형별 카테고리 카드
+- 필터 탐색: 시대, 지역, 자료 유형, 신뢰도 기준 탐색
 
----
+## 자료 카테고리
 
-## 프로젝트 개요
+| 카테고리 | 경로 | 설명 |
+|---|---|---|
+| 전쟁 개요 | `front/data/war overview data` | 주요 전쟁의 원인, 전개, 결과 |
+| 인물 열전 | `front/data/biography of people data` | 지휘관, 정치 지도자, 전략가 |
+| 전장 지도 | `front/data/Battlefield Map data` | 전투 위치, 지휘관, 전개, 결과 |
+| 무기 & 장비 | `front/data/weapons and equipment data` | 항공기, 기갑, 화기, 해군 장비 등 |
+| 사료 & 문서 | `front/data/Historical Sources & Documents data` | 조약, 명령서, 연설, 증언 |
+| 전략 & 전술 | `front/data/strategy and tactics data` | 작전술, 병법, 전술 개념 |
+| 미확인 자료집 | `front/data/Undefine facts data` | 논쟁 자료, 구전, 미확인 문서 |
 
-**War Archive**는 고대부터 현대까지의 전쟁 역사를 종합적으로 기록하고 보존하는 디지털 아카이브 프로젝트입니다.
+## 데이터 흐름
 
-- **프론트엔드**: HTML5 + CSS3 + Vanilla JavaScript (NAS WebStation)
-- **백엔드**: Node.js (Express) + MySQL (Docker)
-- **인프라**: Docker Compose + Nginx 리버스 프록시
-- **데이터**: JSON 기반 정적 데이터 + MySQL 사용자 데이터
-- **언어**: 한국어 (Korean)
-- **설립**: 2026년
-
-JSON 파일을 `fetch()`로 로드하여 동적으로 페이지를 구성하는 **클라이언트 사이드 렌더링** 방식을 채택했습니다.
-
----
-
-## 아키텍처 구조
-
-### 전체 데이터 흐름
-
-```
-┌──────────────────────────────────────────────────────────────────┐
-│                        사용자 브라우저                           │
-│                                                                  │
-│   main.html ─────────────────────────────────────────────────    │
-│       │                                                          │
-│       ├── 카테고리 선택 ──→ [카테고리].html (목록 페이지)        │
-│       │                         │                                │
-│       │                         ├── fetch() ──→ index.json       │
-│       │                         │                  (목록 로드)   │
-│       │                         │                                │
-│       │                         └── 항목 클릭 ──→ detail.html    │
-│       │                                              │           │
-│       │                                              └── fetch() │
-│       │                                      ──→ [항목명].json   │
-│       │                                           (상세 데이터)  │
-│       │                                                          │
-│       ├── 연대기 (Timeline) ──→ war overview + battlefield 병합  │
-│       │                         → 연도순 정렬 → 동적 렌더링      │
-│       │                                                          │
-│       └── 검색 ──→ 전체 index.json 로드 → 클라이언트 검색        │
-│                                                                  │
-└──────────────────────────────────────────────────────────────────┘
+```text
+history-crawler
+→ 원문 수집
+→ SQLite 저장
+→ 카테고리별 JSON으로 재구성
+→ front/data에 게시
+→ front/data/search/*.json 인덱스 재생성
+→ index.html과 각 페이지가 fetch로 읽음
 ```
 
-### 프론트엔드 구조 (pages / assets / data)
+메인 카드 이미지는 각 JSON의 다음 필드 중 가능한 값을 사용합니다.
 
+```text
+image
+coverImage
+portrait
+images[0].url
 ```
-front/
-├── index.html                     ← 메인 진입점
-│
-├── pages/            ← HTML 페이지 (구조 & 콘텐츠)
-│   ├── info/                      ← 프로젝트 소개, 기여, 개발자 정보
-│   └── [카테고리]/
-│       ├── [카테고리].html        ← 목록 페이지
-│       └── [카테고리] detail.html ← 상세 페이지
-│
-├── assets/           ← 정적 자산
-│   ├── css/
-│   │   ├── common/main_style.css  ← 공통 스타일
-│   │   ├── info/                  ← 프로젝트 정보 스타일
-│   │   └── [카테고리] style/      ← 카테고리별 스타일
-│   ├── js/
-│   │   ├── common/main_tech.js    ← 공통 JS
-│   │   ├── common/generate-index.js ← 검색 인덱스 자동 생성
-│   │   ├── info/                  ← 프로젝트 정보 JS
-│   │   └── [카테고리] tech/       ← 카테고리별 로직
-│   └── images/                    ← 이미지 에셋
-│       └── weapons/               ← 무기 카테고리 SVG 아이콘
-│
-└── data/             ← JSON 데이터 파일 (콘텐츠 저장소)
-    ├── search/                    ← 카테고리별 검색 인덱스
-    └── [카테고리] data/
-        └── [항목명].json          ← 개별 항목 데이터
-```
-
-### 페이지 구성 패턴 (공통)
-
-모든 카테고리가 동일한 UI 패턴을 따릅니다:
-
-```
-┌─ Header (고정) ─────────────────────────────┐
-│ Logo  │  아카이브 │ 연대기 │ 검색 │ 프로젝트│
-├─────────────────────────────────────────────┤
-│  Hero Section (타이틀 + 설명)               │
-├─────────────────────────────────────────────┤
-│  Statistics Bar (동적 카운트)               │
-├─────────────────────────────────────────────┤
-│ Filter Bar (시대 탭 + 지역 드롭다운 + 검색) │
-├─────────────────────────────────────────────┤
-│  Content Grid / Table (카드 목록)           │
-├─────────────────────────────────────────────┤
-│  Pagination                                 │
-├─────────────────────────────────────────────┤
-│  Footer                                     │
-└─────────────────────────────────────────────┘
-```
-
----
-
-## 카테고리별 콘텐츠
-
-| 카테고리 | 항목 수 | 설명 |
-|---------|---------|------|
-| **전쟁 개요** (War Overview) | 18건 | 고대~현대 주요 전쟁의 원인·경과·결과 종합 정리 |
-| **인물 열전** (Biography) | 22명 | 전쟁의 흐름을 결정지은 지휘관·전략가·영웅의 이야기 |
-| **전략 & 전술** (Strategy & Tactics) | 25건 | 팔랑크스부터 네트워크 중심전까지 전술 발전사 |
-| **사료 & 문서** (Historical Documents) | 17건 | 조약문, 선전포고문, 편지, 일기 등 1차 사료 |
-| **전장 지도** (Battlefield Map) | 11건 | 주요 전투의 지형·진군 경로·방어선 시각화 |
-| **무기 & 장비** (Weapons & Equipment) | 9개 분류 | 냉병기부터 핵무기까지 무기 체계 분석 |
-| **미분류 기록** (Undefined Facts) | 18건 | 구전 사료, 논쟁 사료, 전설, 기밀 해제 문서 등 |
-
-### 시대 분류 체계
-- **고대** (Ancient) — 그리스-페르시아 전쟁, 포에니 전쟁 등
-- **중세** (Medieval) — 십자군 전쟁, 백년전쟁 등
-- **근세** (Early Modern) — 임진왜란, 30년 전쟁 등
-- **근대** (Modern) — 나폴레옹 전쟁, 크림 전쟁, 남북전쟁 등
-- **세계대전** (World Wars) — 제1·2차 세계대전
-- **현대** (Contemporary) — 한국전쟁, 베트남전쟁, 걸프전 등
-
----
-
-## 데이터 스키마
-
-### 전쟁 개요 (War Overview)
-```json
-{
-  "id": "ww2",
-  "name": "제2차 세계대전",
-  "era": "worldwar",
-  "region": "global",
-  "period": "1939 – 1945",
-  "summary": "...",
-  "belligerents": "연합국 vs 추축국",
-  "location": "전 세계",
-  "result": "연합국 승리",
-  "resultType": "victory",
-  "tags": ["노르망디", "스탈린그라드"],
-  "detail": {
-    "background": "...",
-    "causes": [...],
-    "phases": [{ "title": "", "period": "", "description": "" }],
-    "majorBattles": [{ "name": "", "date": "", "result": "" }]
-  }
-}
-```
-
-### 인물 열전 (Biography)
-```json
-{
-  "id": "napoleon",
-  "name": "나폴레옹 보나파르트",
-  "title": "프랑스 제1제국 황제",
-  "role": "commander",
-  "era": "modern",
-  "nationality": "프랑스",
-  "lifespan": "1769 – 1821",
-  "portrait": "이미지 URL",
-  "detail": {
-    "earlyLife": "...",
-    "achievements": [...],
-    "warsBattles": [...],
-    "legacy": "..."
-  }
-}
-```
-
-### 전장 지도 (Battlefield Map)
-```json
-{
-  "id": "battle-of-midway",
-  "title": "Battle of Midway",
-  "titleKr": "미드웨이 해전",
-  "era": "worldwar",
-  "theater": "pacific",
-  "commanders": [...],
-  "forces": {...},
-  "casualties": {...},
-  "terrain": "...",
-  "strategicSignificance": "...",
-  "images": [{ "url": "", "caption": "", "source": "" }]
-}
-```
-
-### 무기 & 장비 (Weapons & Equipment)
-```
-weapons and equipment data/
-├── aircraft/      ← 항공기 (전투기, 폭격기)
-├── armor/         ← 기갑 (전차, 장갑차)
-├── artillery/     ← 포병 (야포, 박격포)
-├── defense/       ← 방어 시설 (요새, 벙커)
-├── firearms/      ← 화기 (소총, 기관총)
-├── melee/         ← 냉병기 (검, 창, 도끼)
-├── naval/         ← 해군 (전함, 잠수함)
-├── ranged/        ← 원거리 (활, 석궁)
-└── index.json     ← 카테고리별 통합 인덱스
-```
-
----
-
-## 구현된 기능
-
-### 핵심 기능
-- **7개 카테고리 아카이브 시스템** — 전쟁 개요, 인물, 전략, 사료, 전장 지도, 무기, 미분류 기록
-- **JSON 기반 동적 콘텐츠 렌더링** — `fetch()` + 클라이언트 사이드 렌더링
-- **목록 → 상세 2단계 네비게이션** — 각 카테고리에 목록/상세 페이지 분리
-- **다중 필터 시스템** — 시대별 탭, 지역 드롭다운, 텍스트 검색
-- **그리드/테이블 뷰 전환** — 사용자 선호에 따른 뷰 모드 선택
-- **페이지네이션** — 대규모 목록의 페이지 나누기 (9개 항목/페이지)
-
-### 메인 페이지 특화
-- **통계 카운터 애니메이션** — index.json 기반 실시간 카운트 (전쟁 수, 문서 수, 인물 수, 전투 수)
-- **전쟁 연대기 (Timeline)** — 전쟁 개요 + 전장 지도 데이터 병합 → 연도순 정렬 → 동적 타임라인 생성
-- **통합 검색** — 모든 카테고리의 index.json을 로드하여 클라이언트 사이드 전체 검색
-- **군사 명언 시스템** — 랜덤 군사 명언 표시
-
-### UI / UX
-- **다크 테마 디자인** — 골드 악센트(#c9a84c) + 다크 배경(#0a0a0a) 기반
-- **스크롤 기반 Fade-in 애니메이션** — IntersectionObserver 활용
-- **반응형 디자인** — 모바일 메뉴 토글 지원
-- **고정 헤더 + 블러 배경** — `backdrop-filter: blur(12px)`
-
-### 개발 도구
-- **`generate-index.js`** — Node.js 기반 index.json 자동 생성 스크립트
-  - `node generate-index.js` : 전체 인덱스 1회 생성
-  - `node generate-index.js --watch` : 파일 변경 실시간 감지 → 자동 갱신
-  - 일반 카테고리 (flat) + 무기 카테고리 (중첩) 각각 처리
-
-### 프로젝트 페이지
-- **프로젝트 소개** (information.html) — 미션, 비전, 프로젝트 철학 설명
-- **기여 가이드** (contribution.html) — 오픈소스 참여 방법 안내
-- **개발자 정보** (developer information.html) — 개발자 포트폴리오 & 연락처
-
----
-
-## 추가 예정 기능
-
-| 우선순위 | 기능 | 설명 |
-|---------|------|------|
-| 높음 | **전장 지도 시각화** | Leaflet/Mapbox 기반 인터랙티브 전장 지도 렌더링 |
-| 높음 | **무기 데이터 확충** | 각 무기 카테고리(aircraft, armor 등) 내 JSON 데이터 추가 |
-| 중간 | **검색 고도화** | 초성 검색, 자동완성, 카테고리별 필터 검색 |
-| 중간 | **다국어 지원** | 영한 병행 표기, 언어 전환 기능 |
-| 중간 | **북마크 / 즐겨찾기** | LocalStorage 기반 사용자 관심 항목 저장 |
-| 낮음 | **다크/라이트 모드 전환** | 현재 다크 모드 고정 → 토글 지원 |
-| 낮음 | **PDF 내보내기** | 개별 문서를 PDF로 저장하는 기능 |
-| 낮음 | **공유 기능** | SNS 공유 링크 생성 |
-
----
-
-## 아쉬운 점 / 개선 필요 사항
-
-### 아키텍처 관련
-- **백엔드 연동 미완** — Docker 기반 백엔드(Express + MySQL)를 구축했으나 프론트와의 연동이 아직 미완성
-- **SEO 취약** — 클라이언트 사이드 렌더링 방식으로 검색 엔진 크롤링에 불리
-- **URL 라우팅 미비** — 해시 기반 라우팅이나 SPA 방식이 아닌 직접 HTML 파일 이동 방식
-
-### 코드 구조 관련
-- **컴포넌트 재사용 부족** — Header, Footer 등 공통 UI가 각 HTML 파일에 중복 작성됨
-- **CSS 중복** — 카테고리별 CSS 파일에 공통 스타일이 반복적으로 정의됨
-- **에러 처리 최소화** — `fetch()` 실패 시 사용자 피드백이 제한적
-- **빌드 시스템 부재** — 번들링, 압축, 코드 분할 등의 최적화 파이프라인 없음
-
-### 콘텐츠 관련
-- **무기 & 장비 데이터 미완성** — 카테고리 구조는 있으나 개별 무기 JSON 데이터가 부족
-- **전장 지도 실제 지도 미구현** — 텍스트 기반 설명만 존재, 인터랙티브 지도 렌더링 미구현
-- **미분류 기록 카테고리 정리 필요** — "Undefine Facts" → "Unverified Records" 등 명칭 개선 여지
-
----
-
-## 폴더 구조
-
-```
-War Archive/
-│
-├── README.md
-│
-├── front/                                    ← 프론트엔드 (NAS WebStation)
-│   ├── index.html                            ← 메인 페이지
-│   ├── pages/                                ← HTML 페이지
-│   │   ├── info/                             ← 프로젝트 소개, 기여, 개발자 정보
-│   │   ├── war overview/                     ← 전쟁 개요
-│   │   ├── biography of people/              ← 인물 열전
-│   │   ├── strategy and tactics/             ← 전략 & 전술
-│   │   ├── Historical Sources & Documents/   ← 사료 & 문서
-│   │   ├── Battlefield Map/                  ← 전장 지도
-│   │   ├── Undefine facts/                   ← 미분류 기록
-│   │   └── Weapons and Equipment/            ← 무기 & 장비
-│   ├── assets/                               ← 정적 자산
-│   │   ├── css/                              ← 스타일시트
-│   │   │   ├── common/                       ← 공통 스타일
-│   │   │   ├── info/                         ← 프로젝트 정보 스타일
-│   │   │   └── [카테고리] style/             ← 카테고리별 CSS
-│   │   ├── js/                               ← JavaScript
-│   │   │   ├── common/                       ← 공통 JS (main_tech, generate-index)
-│   │   │   ├── info/                         ← 프로젝트 정보 JS
-│   │   │   └── [카테고리] tech/              ← 카테고리별 JS
-│   │   └── images/                           ← 이미지
-│   └── data/                                 ← JSON 데이터
-│       ├── search/                           ← 검색 인덱스
-│       ├── war overview data/                ← 16개 전쟁
-│       ├── biography of people data/         ← 21명 인물
-│       ├── strategy and tactics data/        ← 24개 전략·전술
-│       ├── Historical Sources & Documents data/ ← 16개 사료
-│       ├── Battlefield Map data/             ← 10개 전투
-│       ├── weapons and equipment data/       ← 8개 하위 카테고리
-│       └── Undefine facts data/              ← 6개 하위 카테고리
-│
-├── back/                                     ← 백엔드 API (Docker)
-│   ├── src/                                  ← Express 서버
-│   ├── package.json
-│   └── Dockerfile
-│
-├── data/                                     ← 데이터 저장소 (Docker 볼륨)
-│   ├── db/                                   ← SQL 스키마
-│   ├── uploads/
-│   ├── logs/
-│   ├── cache/
-│   └── private-json/
-│
-├── infra/                                    ← 인프라 (Docker Compose)
-│   ├── docker-compose.yml
-│   ├── .env
-│   ├── nginx/
-│   └── scripts/
-│
-├── backup/                                   ← 백업 저장소
-│
-└── docs/                                     ← 프로젝트 문서
-```
-
----
 
 ## 실행 방법
 
-### 로컬에서 실행 (프론트엔드만)
+### Docker로 실행
+
+프로젝트 루트에서 실행합니다.
+
 ```bash
-# 1. 리포지토리 클론
-git clone https://github.com/[username]/War-Archive.git
-
-# 2. 인덱스 파일 생성 (Node.js 필요)
-cd War-Archive/front/assets/js/common
-node generate-index.js
-
-# 3. 로컬 서버 실행 (fetch()를 위해 HTTP 서버 필요)
-cd ../../../
-# Python 3
-python -m http.server 8000
-# 또는 Node.js
-npx serve .
-
-# 4. 브라우저에서 접속
-# http://localhost:8000/index.html
+docker compose up -d --build
 ```
 
-### Docker 전체 스택 실행
+기본 외부 포트는 `6279`입니다.
+
+```text
+http://localhost:6279
+```
+
+컨테이너 내부의 웹 서버는 `8080`에서 실행되고, Docker가 호스트 `6279`를 내부 `8080`으로 연결합니다.
+
+```yaml
+ports:
+  - "${WAR_ARCHIVE_PORT:-6279}:8080"
+```
+
+### 환경 변수
+
+외부 공개 환경에서는 프로젝트 루트에 `.env` 파일을 두고 기본 계정과 시크릿을 반드시 바꿔야 합니다.
+
+```env
+WAR_ARCHIVE_PORT=6279
+
+MYSQL_DATABASE=war_archive
+MYSQL_USER=war_archive
+MYSQL_PASSWORD=change-this-db-password
+MYSQL_ROOT_PASSWORD=change-this-root-password
+
+AUTH_COOKIE_SECRET=change-this-long-random-secret
+AUTH_COOKIE_SECURE=true
+ADMIN_NAME=admin
+ADMIN_EMAIL=admin@example.com
+ADMIN_PASSWORD=change-this-admin-password
+```
+
+`.env`는 `.gitignore`에 포함되어 있어 저장소에 올리지 않습니다.
+
+## Synology 배포
+
+Synology NAS에서 Docker Compose로 서비스를 올린 뒤 Reverse Proxy를 사용합니다.
+
+```text
+Source:
+HTTPS / warachive.synology.me / 443
+
+Destination:
+HTTP / 127.0.0.1 / 6279
+```
+
+전체 흐름은 다음과 같습니다.
+
+```text
+https://warachive.synology.me
+→ Synology Reverse Proxy 443
+→ 127.0.0.1:6279
+→ Docker war-archive 컨테이너 내부 8080
+```
+
+공유기에서 직접 열어야 하는 포트는 일반적으로 `80`, `443`입니다. `6279`는 외부에 직접 열지 않고 Synology 내부 Reverse Proxy 대상 포트로만 사용합니다.
+
+KT 장비 뒤에 ASUS 공유기가 있는 환경처럼 ASUS WAN IP가 `192.x.x.x`이고 공인 IP가 다른 경우에는 이중 NAT 상태입니다. 이 경우 KT 장비를 브릿지 모드로 바꾸거나, KT 장비에서 ASUS WAN IP로 `80`, `443`을 한 번 더 포트포워딩해야 합니다.
+
+## 크롤러
+
+`history-crawler` 서비스는 Docker에서 자동 실행됩니다.
+
+기본 설정:
+
+```text
+CRAWLING_HOURLY_LIMIT=5
+CRAWLING_DAEMON_INTERVAL_SECONDS=3600
+CRAWLING_FRONT_DATA_PATH=/app/front/data
+```
+
+동작:
+
+```text
+컨테이너 시작
+→ 즉시 최대 5개 페이지 크롤링
+→ front/data에 게시
+→ 검색 인덱스 재생성
+→ 3600초 대기
+→ 반복
+```
+
+로그 확인:
+
 ```bash
-cd War-Archive/infra
-# 환경 변수 설정
-nano .env
-# Docker 서비스 시작
-docker compose up -d
+docker compose logs -f history-crawler
 ```
 
-### 인덱스 자동 갱신 (개발 시)
+## 검색 인덱스 수동 재생성
+
+프론트 JSON 인덱스만 수동으로 다시 만들 때는 Node.js 스크립트를 사용합니다.
+
 ```bash
-cd front/assets/js/common
-node generate-index.js --watch
+node front/assets/js/common/generate-index.js
 ```
 
----
+문법 확인:
 
-## 프로젝트 현황 요약
-
-```
-전체 콘텐츠       ██████████████████░░  ~120건+ 데이터 파일
-전쟁 개요         ████████████████████  18/18 완료
-인물 열전         ████████████████████  22/22 완료
-전략 & 전술       ████████████████████  25/25 완료
-사료 & 문서       ████████████████████  17/17 완료
-전장 지도         ████████████████░░░░  11건 (지도 시각화 미구현)
-무기 & 장비       ████████░░░░░░░░░░░░  구조만 완성, 데이터 확충 필요
-미분류 기록       ████████████████████  18/18 완료
+```bash
+node --check front/assets/js/common/home_index.js
+node --check front/assets/js/common/archive_pages.js
+node --check front/assets/js/common/generate-index.js
 ```
 
----
+## 폴더 구조
 
-<p align="center">
-  <sub>Built for preserving history — War Archive Project, 2026</sub>
-</p>
+```text
+.
+├── docker-compose.yml
+├── README.md
+├── Update.md
+├── back/
+│   ├── server.js
+│   ├── Dockerfile
+│   └── crowling/
+│       ├── Dockerfile
+│       ├── crowling_core/
+│       └── reconstructure/
+├── discord-Bot/
+└── front/
+    ├── index.html
+    ├── assets/
+    │   ├── css/common/
+    │   └── js/common/
+    ├── data/
+    │   ├── search/
+    │   └── [category] data/
+    └── pages/
+```
+
+## 운영 전 체크리스트
+
+- `.env`를 프로젝트 루트에 배치했는지 확인
+- `ADMIN_PASSWORD`, `AUTH_COOKIE_SECRET`, MySQL 비밀번호 변경
+- `AUTH_COOKIE_SECURE=true` 설정
+- `docker compose config`로 포트와 환경변수 확인
+- `http://NAS_IP:6279/health` 내부 접속 확인
+- Synology Reverse Proxy `443 → 127.0.0.1:6279` 설정
+- Let's Encrypt 인증서 연결
+- `docker compose logs -f war-archive`와 `history-crawler` 로그 확인
+

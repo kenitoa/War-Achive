@@ -81,6 +81,7 @@ document.addEventListener("DOMContentLoaded", () => {
         credibility: "verified",
         year: extractYear(d.period),
         searchText: [d.name, d.era, d.region, d.period, d.summary, d.belligerents, join(d.tags)],
+        image: getRecordImage(d),
         url: d.url,
       }),
     },
@@ -96,6 +97,7 @@ document.addEventListener("DOMContentLoaded", () => {
         credibility: "verified",
         year: extractYear(d.birth) || extractYear(d.period),
         searchText: [d.name, d.title, d.role, d.nationality, d.summary, join(d.tags), join(d.wars)],
+        image: getRecordImage(d),
         url: d.url,
       }),
     },
@@ -111,6 +113,7 @@ document.addEventListener("DOMContentLoaded", () => {
         credibility: "verified",
         year: extractYear(d.date),
         searchText: [d.title, d.titleKr, d.era, d.theater, d.description, join(d.commanders), join(d.keywords)],
+        image: getRecordImage(d),
         url: d.url,
       }),
     },
@@ -125,6 +128,7 @@ document.addEventListener("DOMContentLoaded", () => {
         region: normRegion(d.origin),
         credibility: "verified",
         searchText: [d.name, d.nameEn, d.category, d.era, d.origin, join(d.tags), d.overview],
+        image: getRecordImage(d),
         url: d.url,
       }),
     },
@@ -140,6 +144,7 @@ document.addEventListener("DOMContentLoaded", () => {
         credibility: "verified",
         year: extractYear(d.date) || extractYear(d.year),
         searchText: [d.title, d.titleKr, d.type, d.era, d.author, d.description, join(d.keywords)],
+        image: getRecordImage(d),
         url: d.url,
       }),
     },
@@ -154,6 +159,7 @@ document.addEventListener("DOMContentLoaded", () => {
         region: normRegion(d.region),
         credibility: "verified",
         searchText: [d.title, d.titleKr, d.era, d.category, d.description, d.keyFigure, join(d.keywords)],
+        image: getRecordImage(d),
         url: d.url,
       }),
     },
@@ -168,6 +174,7 @@ document.addEventListener("DOMContentLoaded", () => {
         region: normRegion(d.origin),
         credibility: credibilityFromShelf(d.shelf),
         searchText: [d.name, d.nameEn, d.shelf, d.era, d.origin, d.summary, join(d.tags)],
+        image: getRecordImage(d),
         url: d.url,
       }),
     },
@@ -177,7 +184,9 @@ document.addEventListener("DOMContentLoaded", () => {
   let allItems = [];
   let searchMatches = [];
   let currentQuery = "";
+  const sectionPagers = [];
 
+  initTheme();
   initMenu();
   initFade();
   initSmoothAnchors();
@@ -186,6 +195,7 @@ document.addEventListener("DOMContentLoaded", () => {
     renderStats(items);
     renderCategoryCards(items);
     renderFeatured(items);
+    initSectionPagers();
     initSearch();
     initBrowse();
     updateActiveNav();
@@ -224,6 +234,32 @@ document.addEventListener("DOMContentLoaded", () => {
     $$(".nav-links a").forEach((link) => link.addEventListener("click", () => nav.classList.remove("open")));
   }
 
+  function initTheme() {
+    const toggle = $("#themeToggle");
+    if (!toggle) return;
+
+    const storageKey = "war-archive-theme";
+    const getTheme = () => (document.documentElement.dataset.theme === "dark" ? "dark" : "light");
+    const applyTheme = (theme) => {
+      const isDark = theme === "dark";
+      document.documentElement.dataset.theme = isDark ? "dark" : "";
+      toggle.setAttribute("aria-pressed", String(isDark));
+      toggle.setAttribute("aria-label", isDark ? "라이트 모드 켜기" : "다크 모드 켜기");
+      toggle.title = isDark ? "라이트 모드" : "다크 모드";
+    };
+
+    applyTheme(getTheme());
+    toggle.addEventListener("click", () => {
+      const nextTheme = getTheme() === "dark" ? "light" : "dark";
+      applyTheme(nextTheme);
+      try {
+        localStorage.setItem(storageKey, nextTheme);
+      } catch {
+        /* Theme persistence is optional when storage is blocked. */
+      }
+    });
+  }
+
   function initFade() {
     const items = $$(".fade-in");
     if (!("IntersectionObserver" in window)) {
@@ -252,6 +288,95 @@ document.addEventListener("DOMContentLoaded", () => {
         target.scrollIntoView({ behavior: "smooth", block: "start" });
       });
     });
+  }
+
+  function initSectionPagers() {
+    sectionPagers.length = 0;
+    setupSectionPager("#featuredGrid", ".featured-card", "추천 기록", () => responsiveCount(4, 2, 1));
+    setupSectionPager(".timeline-track", ".timeline-node", "역사 연표", () => responsiveCount(5, 3, 1));
+    setupSectionPager(".categories-grid", ".category-card", "컬렉션", () => responsiveCount(5, 3, 1));
+    setupSectionPager(".project-grid", ".project-card", "이용 안내", () => responsiveCount(3, 2, 1));
+    refreshSectionPagers();
+    window.addEventListener("resize", debounce(refreshSectionPagers, 160), { passive: true });
+  }
+
+  function setupSectionPager(containerSelector, itemSelector, label, perPage) {
+    const container = $(containerSelector);
+    if (!container) return;
+    const items = Array.from(container.children).filter((child) => child.matches(itemSelector));
+    if (!items.length) return;
+
+    const pagerId = container.id || `pager-${sectionPagers.length + 1}`;
+    container.dataset.page = container.dataset.page || "1";
+    container.classList.add("paged-grid");
+
+    let controls = container.parentElement.querySelector(`.section-pager-controls[data-for="${pagerId}"]`);
+    if (!controls) {
+      controls = document.createElement("div");
+      controls.className = "section-pager-controls";
+      controls.dataset.for = pagerId;
+      controls.setAttribute("aria-label", `${label} 페이지 이동`);
+      container.insertAdjacentElement("afterend", controls);
+    }
+
+    const pager = { container, controls, itemSelector, label, perPage };
+    sectionPagers.push(pager);
+
+    if (!controls.dataset.bound) {
+      controls.dataset.bound = "true";
+      controls.addEventListener("click", (event) => {
+        const button = event.target.closest("[data-pager-action], [data-pager-page]");
+        if (!button) return;
+        const current = Number(container.dataset.page || "1");
+        if (button.dataset.pagerAction === "prev") container.dataset.page = String(current - 1);
+        if (button.dataset.pagerAction === "next") container.dataset.page = String(current + 1);
+        if (button.dataset.pagerPage) container.dataset.page = button.dataset.pagerPage;
+        refreshSectionPager(pager);
+      });
+    }
+  }
+
+  function refreshSectionPagers() {
+    sectionPagers.forEach(refreshSectionPager);
+  }
+
+  function refreshSectionPager(pager) {
+    const items = Array.from(pager.container.children).filter((child) => child.matches(pager.itemSelector));
+    const perPage = Math.max(1, Number(pager.perPage()) || 1);
+    const totalPages = Math.max(1, Math.ceil(items.length / perPage));
+    const page = Math.min(Math.max(1, Number(pager.container.dataset.page || "1")), totalPages);
+    const start = (page - 1) * perPage;
+    const end = start + perPage;
+
+    pager.container.dataset.page = String(page);
+    pager.container.style.setProperty("--paged-columns", String(Math.min(perPage, items.length || perPage)));
+    items.forEach((item, index) => {
+      const visible = index >= start && index < end;
+      item.hidden = !visible;
+      item.classList.toggle("is-pager-hidden", !visible);
+    });
+
+    pager.controls.hidden = totalPages <= 1;
+    pager.controls.innerHTML = totalPages <= 1
+      ? ""
+      : `<button type="button" class="section-pager-btn" data-pager-action="prev" ${page === 1 ? "disabled" : ""} aria-label="${escapeHtml(pager.label)} 이전 페이지">←</button>
+        <span class="section-pager-status">${page} / ${totalPages}</span>
+        <div class="section-pager-dots" aria-hidden="true">${Array.from({ length: totalPages }, (_, index) => `<button type="button" class="section-pager-dot ${index + 1 === page ? "active" : ""}" data-pager-page="${index + 1}" tabindex="-1"></button>`).join("")}</div>
+        <button type="button" class="section-pager-btn" data-pager-action="next" ${page === totalPages ? "disabled" : ""} aria-label="${escapeHtml(pager.label)} 다음 페이지">→</button>`;
+  }
+
+  function responsiveCount(desktop, tablet, mobile) {
+    if (window.innerWidth <= 720) return mobile;
+    if (window.innerWidth <= 1240) return tablet;
+    return desktop;
+  }
+
+  function debounce(fn, delay) {
+    let timer;
+    return (...args) => {
+      window.clearTimeout(timer);
+      timer = window.setTimeout(() => fn(...args), delay);
+    };
   }
 
   function initActiveNav() {
@@ -305,6 +430,9 @@ document.addEventListener("DOMContentLoaded", () => {
       const group = items.filter((item) => item.type === type);
       const count = $(`#${countId}`);
       if (count) count.textContent = `${group.length.toLocaleString()}${suffix}`;
+      const imageItem = group.find((item) => item.image);
+      const card = count?.closest(".category-card");
+      if (card) applyCardImage(card, imageItem?.image || "");
       setMeta(metaId, {
         era: summarize(group.map((item) => item.era), ERA_LABELS, ERA_RANK),
         [regionKey]: summarize(group.map((item) => item.region), REGION_LABELS),
@@ -421,7 +549,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function initBrowse() {
     const browse = $("#browse");
     if (!browse) return;
-    const state = { era: "", region: "", type: "", credibility: "", keyword: "", sort: "name", page: 1, perPage: 24 };
+    const state = { era: "", region: "", type: "", credibility: "", keyword: "", sort: "name", page: 1, perPage: getBrowsePerPage() };
 
     $$(".browse-filter-group", browse).forEach((group) => {
       const key = group.dataset.filter;
@@ -460,6 +588,14 @@ document.addEventListener("DOMContentLoaded", () => {
       renderBrowse(state);
     });
 
+    window.addEventListener("resize", debounce(() => {
+      const nextPerPage = getBrowsePerPage();
+      if (nextPerPage === state.perPage) return;
+      state.perPage = nextPerPage;
+      state.page = 1;
+      renderBrowse(state);
+    }, 160), { passive: true });
+
     renderBrowse(state);
   }
 
@@ -469,6 +605,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const empty = $("#browseEmpty");
     const pagination = $("#browsePagination");
     if (!grid) return;
+    state.perPage = getBrowsePerPage();
 
     const filtered = allItems
       .filter((item) => !state.era || item.era === state.era)
@@ -502,8 +639,13 @@ document.addEventListener("DOMContentLoaded", () => {
     $$(".page-btn", pagination).forEach((button) => button.addEventListener("click", () => {
       state.page = Number(button.dataset.page);
       renderBrowse(state);
-      grid.scrollIntoView({ behavior: "smooth", block: "start" });
     }));
+  }
+
+  function getBrowsePerPage() {
+    if (window.innerWidth <= 720) return 2;
+    if (window.innerWidth <= 1240) return 4;
+    return 6;
   }
 
   function renderActiveFilters(state) {
@@ -562,6 +704,7 @@ document.addEventListener("DOMContentLoaded", () => {
     grid.innerHTML = picks.length
       ? picks.map(renderFeaturedCard).join("")
       : '<div class="featured-empty">표시 자료 없음</div>';
+    applyRenderedCardImages(grid);
     grid.removeAttribute("aria-busy");
   }
 
@@ -572,7 +715,7 @@ document.addEventListener("DOMContentLoaded", () => {
       unverified: ["is-pending", "미확인"],
       oral: ["is-oral", "구전"],
     }[item.credibility] || ["is-verified", "검증"];
-    return `<a class="featured-card" href="${escapeHtml(item.url)}">
+    return `<a class="featured-card" href="${escapeHtml(item.url)}" data-card-image="${escapeHtml(item.image || "")}">
       <div class="featured-card-head">
         <span class="featured-cat">${escapeHtml(TYPE_LABELS[item.type] || item.category)}</span>
         <span class="trust-badge ${cred[0]}">${cred[1]}</span>
@@ -665,6 +808,33 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function join(value) {
     return Array.isArray(value) ? value.join(" ") : value || "";
+  }
+
+  function getRecordImage(record) {
+    if (!record || typeof record !== "object") return "";
+    if (typeof record.image === "string") return record.image;
+    if (typeof record.coverImage === "string") return record.coverImage;
+    if (typeof record.portrait === "string") return record.portrait;
+    if (Array.isArray(record.images)) {
+      const first = record.images.find((image) => image && typeof image.url === "string");
+      return first ? first.url : "";
+    }
+    return "";
+  }
+
+  function applyCardImage(element, imageUrl) {
+    if (!element || !imageUrl) return;
+    element.style.setProperty("--card-image", cssImageValue(imageUrl));
+  }
+
+  function applyRenderedCardImages(root) {
+    $$("[data-card-image]", root).forEach((element) => {
+      applyCardImage(element, element.dataset.cardImage || "");
+    });
+  }
+
+  function cssImageValue(imageUrl) {
+    return `url("${String(imageUrl).replace(/\\/g, "\\\\").replace(/"/g, '\\"')}")`;
   }
 
   function truncate(value, limit) {

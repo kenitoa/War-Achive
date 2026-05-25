@@ -26,7 +26,7 @@ services:
     container_name: war-archive
     restart: unless-stopped
     ports:
-      - "${WAR_ARCHIVE_PORT:-8080}:8080"
+      - "${WAR_ARCHIVE_PORT:-6279}:8080"
     environment:
       HOST: 0.0.0.0
       PORT: 8080
@@ -62,9 +62,9 @@ services:
       CRAWLING_DATABASE_PATH: /app/data/articles.sqlite3
       CRAWLING_TARGET_SITES_PATH: /app/data/target-sites.json
       CRAWLING_FRONT_DATA_PATH: /app/front/data
-      CRAWLING_HOURLY_LIMIT: 50
-      CRAWLING_DAEMON_INTERVAL_SECONDS: 300
-      CRAWLING_RECENT_ARTICLE_DAYS: 30
+      CRAWLING_HOURLY_LIMIT: 5
+      CRAWLING_DAEMON_INTERVAL_SECONDS: 3600
+      CRAWLING_RECENT_DAYS: 30
       CRAWLING_REQUEST_TIMEOUT: 15
       CRAWLING_USER_AGENT: Mozilla/5.0 War-Archive-History-Crawler/1.0
     volumes:
@@ -88,7 +88,7 @@ services:
       DISCORD_ALERT_ROLE_ID: ${DISCORD_ALERT_ROLE_ID:-}
       WAR_ARCHIVE_HEALTH_URL: ${WAR_ARCHIVE_HEALTH_URL:-http://war-archive:8080/health}
       WAR_ARCHIVE_BASE_URL: ${WAR_ARCHIVE_BASE_URL:-http://war-archive:8080}
-      WAR_ARCHIVE_PUBLIC_URL: ${WAR_ARCHIVE_PUBLIC_URL:-http://127.0.0.1:8080}
+      WAR_ARCHIVE_PUBLIC_URL: ${WAR_ARCHIVE_PUBLIC_URL:-http://127.0.0.1:6279}
       MONITOR_INTERVAL_SECONDS: ${MONITOR_INTERVAL_SECONDS:-60}
       MONITOR_FAILURE_THRESHOLD: ${MONITOR_FAILURE_THRESHOLD:-1}
       MONITOR_REQUEST_TIMEOUT_MS: ${MONITOR_REQUEST_TIMEOUT_MS:-5000}
