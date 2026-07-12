@@ -1,0 +1,19 @@
+{
+  "name": "@war-archive/pipeline",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/run-pipeline.js",
+    "start:collector": "node dist/collection-scheduler.js",
+    "start:publisher": "node dist/publication-scheduler.js",
+    "audit:sources": "node dist/audit-sources.js",
+    "test": "node --test test/*.test.mjs",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "^22.18.0",
+    "typescript": "^5.9.2"
+  }
+}

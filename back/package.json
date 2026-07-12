@@ -1,0 +1,21 @@
+{
+  "name": "war-archive-back",
+  "version": "0.1.0",
+  "private": true,
+  "workspaces": [
+    "admin",
+    "pipeline"
+  ],
+  "scripts": {
+    "build": "npm run build --workspace @war-archive/pipeline && npm run build --workspace @war-archive/admin",
+    "dev:admin": "npm run dev --workspace @war-archive/admin",
+    "start:admin": "npm run start --workspace @war-archive/admin",
+    "pipeline": "npm run build --workspace @war-archive/pipeline && npm run start --workspace @war-archive/pipeline",
+    "audit:sources": "npm run build --workspace @war-archive/pipeline && npm run audit:sources --workspace @war-archive/pipeline",
+    "test": "npm run test --workspace @war-archive/pipeline && npm run test --workspace @war-archive/admin",
+    "typecheck": "npm run typecheck --workspaces --if-present"
+  },
+  "engines": {
+    "node": ">=22.13.0"
+  }
+}

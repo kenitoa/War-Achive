@@ -1,0 +1,31 @@
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: war-archive-backend:local
+    restart: unless-stopped
+    init: true
+    environment:
+      TZ: ${TZ:-Asia/Seoul}
+      ADMIN_PORT: 9231
+      WAR_ARCHIVE_DATA_ROOT: /data
+      COLLECTION_INTERVAL_MS: ${COLLECTION_INTERVAL_MS:-1800000}
+      PUBLICATION_INTERVAL_MS: ${PUBLICATION_INTERVAL_MS:-2400000}
+      GITHUB_FRONT_REPOSITORY: ${GITHUB_FRONT_REPOSITORY:-kenitoa/warsachive}
+      GITHUB_FRONT_TOKEN: ${GITHUB_FRONT_TOKEN:?GITHUB_FRONT_TOKEN must be set in .env}
+      GITHUB_FRONT_REF: ${GITHUB_FRONT_REF:-main}
+      GITHUB_FRONT_CONTENT_PATH: ${GITHUB_FRONT_CONTENT_PATH:-web/content/archive.json}
+    volumes:
+      - archive-data:/data
+    ports:
+      - "${ADMIN_PORT:-9231}:9231"
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+volumes:
+  archive-data:
+    name: ${COMPOSE_PROJECT_NAME:-war-archive}_data
