@@ -20,6 +20,7 @@ COPY --from=build /app/pipeline/dist pipeline/dist
 COPY --from=build /app/admin/dist admin/dist
 COPY admin/server.mjs admin/server.mjs
 COPY pipeline/config pipeline/config
+COPY pipeline/sources pipeline/sources
 COPY infra/start-backend.sh /usr/local/bin/start-backend
 RUN chmod +x /usr/local/bin/start-backend \
   && mkdir -p /data \

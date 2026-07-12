@@ -1,5 +1,6 @@
 services:
   backend:
+    container_name: ${COMPOSE_PROJECT_NAME:-war-archive}-backend
     build:
       context: .
       dockerfile: Dockerfile
@@ -11,7 +12,9 @@ services:
       ADMIN_PORT: 9231
       WAR_ARCHIVE_DATA_ROOT: /data
       COLLECTION_INTERVAL_MS: ${COLLECTION_INTERVAL_MS:-1800000}
+      PROCESSING_DELAY_MS: ${PROCESSING_DELAY_MS:-600000}
       PUBLICATION_INTERVAL_MS: ${PUBLICATION_INTERVAL_MS:-2400000}
+      PUBLICATION_MIN_QUALITY_SCORE: ${PUBLICATION_MIN_QUALITY_SCORE:-0.6}
       GITHUB_FRONT_REPOSITORY: ${GITHUB_FRONT_REPOSITORY:-kenitoa/warsachive}
       GITHUB_FRONT_TOKEN: ${GITHUB_FRONT_TOKEN:?GITHUB_FRONT_TOKEN must be set in .env}
       GITHUB_FRONT_REF: ${GITHUB_FRONT_REF:-main}
@@ -20,6 +23,12 @@ services:
       - archive-data:/data
     ports:
       - "${ADMIN_PORT:-9231}:9231"
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:9231/api/health').then((r)=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 20s
     logging:
       driver: json-file
       options:

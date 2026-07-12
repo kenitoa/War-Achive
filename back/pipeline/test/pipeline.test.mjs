@@ -42,10 +42,17 @@ test("pipeline writes collection, labeling, and informationization artifacts", a
 test("informationization emits a searchable front archive record", async () => {
   const final = JSON.parse(await readFile(join(directory, "informationized", "records.json"), "utf-8"));
   assert.equal(final.total, 1);
-  assert.equal(final.items[0].id, "foundation-001");
+  assert.equal(final.items[0].id, "imjin-war");
   assert.equal(final.items[0].documentCount, 2);
   assert.ok(final.items[0].indexedTerms > 0);
-  assert.match(stdout, /pipeline complete: collected foundation-001, 1 total records/);
+  assert.equal(final.items[0].curator.format, "history-curator-v1");
+  assert.ok(final.items[0].curator.keyPoints.length > 0);
+  assert.ok(final.items[0].curator.chronology.length > 0);
+  assert.ok(final.items[0].curator.peopleAndPlaces.length > 0);
+  assert.match(final.items[0].curator.sourceBasis, /등록 출처 2건/);
+  assert.ok(final.items[0].qualityScore >= 0.6);
+  assert.equal(final.items[0].qualityGate.passed, true);
+  assert.match(stdout, /pipeline complete: swept 1 topics, 2 sources, 1 total records/);
 });
 
 test("pipeline rejects an empty topic source configuration", async () => {

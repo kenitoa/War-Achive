@@ -1,6 +1,6 @@
-import { collectNextTopic } from "./collection.js";
+import { collectSourceCycle } from "./collection.js";
 
-const result = await collectNextTopic();
+const result = await collectSourceCycle();
 console.log(result.collected
-  ? `pipeline complete: collected ${result.topicId}, ${result.totalRecords} total records`
-  : "pipeline complete: no pending topics");
+  ? `pipeline complete: swept ${result.topicIds.length} topics, ${result.attemptedSources} sources, ${result.totalRecords} total records`
+  : "pipeline complete: no configured topics");

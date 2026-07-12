@@ -57,7 +57,8 @@ test("admin status API reads NAS pipeline state without exposing credentials", a
     informationizedRecords: 1,
     publishedRecords: 1
   });
-  assert.equal(status.state.nextTopicId, "topic-2");
+  assert.equal(status.state.nextTopicId, "all-configured-sources");
+  assert.equal(status.schedules.processingDelayMs, 10 * 60 * 1000);
   assert.equal(JSON.stringify(status).includes("GITHUB_FRONT_TOKEN"), false);
 });
 

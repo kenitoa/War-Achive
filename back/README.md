@@ -6,14 +6,15 @@
 
 ```text
 NAS Docker
-  30분마다 미수집 역사 주제 1개 선택
-  → 주제에 등록된 관련 출처 전체 수집
+  30분마다 등록된 역사 주제와 출처 전체 sweep
+  → 합법·허용된 역사 사료와 자료를 가능한 한 많이 수집
   → ID·URL·본문 해시 중복 제거
-  → 라벨링
-  → 주제 단위 정보화
+  → 신뢰도·연관성·맥락 라벨링
+  → 주제 단위 역사 큐레이터 양식으로 정보화
+  → 10분 가공 구간에서 방대한 수집 데이터를 정리
   → NAS Docker 볼륨에 발행 대기
 
-  40분마다 발행 대기 기록 1개 선택
+  40분마다 가공 완료 기록 1개 선택
   → GitHub Contents API로 front/web/content/archive.json에 누적
   → main 브랜치에 커밋 생성
   → front의 Pages 워크플로가 push 감지
@@ -27,11 +28,11 @@ GitHub에 올라가는 것은 가공이 끝난 공개 기록뿐입니다. 원시
 
 | 항목 | 책임 |
 | --- | --- |
-| `backend` 컨테이너 | 30분 수집 스케줄러와 40분 정적 발행 스케줄러 |
+| `backend` 컨테이너 | 30분 수집 스케줄러, 10분 가공 구간, 40분 품질 발행 스케줄러 |
 | `back/admin` | NAS 상태 파일을 읽는 React 관제 화면과 로컬 상태 API |
 | `war-archive_data` 볼륨 | 원문, 라벨링, 정보화 결과, 완료 ID와 실행 시각 |
 
-컨테이너는 NAS의 `9231` 포트를 관제 화면에 사용합니다. 인터넷 공유기에는 이 포트를 전달하지 않고 NAS 내부망에서만 접근하는 것을 권장합니다. 외부로 나가는 HTTPS 연결은 자료 출처 접근과 GitHub API 호출에만 사용합니다.
+컨테이너 이름은 기본적으로 `war-archive-backend`이며 `/api/health` healthcheck로 Docker에서 상태를 확인합니다. NAS의 `9231` 포트는 관제 화면에 사용합니다. 인터넷 공유기에는 이 포트를 전달하지 않고 NAS 내부망에서만 접근하는 것을 권장합니다. 외부로 나가는 HTTPS 연결은 자료 출처 접근과 GitHub API 호출에만 사용합니다.
 
 ## GitHub 토큰
 
@@ -41,6 +42,8 @@ Fine-grained personal access token은 다음 최소 권한만 사용합니다.
 - Repository permission: **Contents → Read and write**
 
 토큰은 NAS의 `back/.env`에만 저장하고 Git에 커밋하지 않습니다. 발행기는 워크플로 파일을 수정하지 않으므로 Workflows 쓰기 권한은 필요하지 않습니다.
+
+이 토큰은 NAS가 `kenitoa/warsachive` 저장소에 공개 기록을 누적 커밋하기 위한 필수 운영 설정입니다. 제거 대상이 아니며, 실제 값이 로그·문서·채팅·화면 캡처에 노출된 경우에만 해당 값을 새 토큰으로 교체합니다. `verify:secrets`는 저장소 안에 토큰 값이 남는 실수를 막는 검증이며 NAS 발행 토큰을 대체하지 않습니다.
 
 ## NAS 설치
 
@@ -58,15 +61,19 @@ COMPOSE_PROJECT_NAME=war-archive
 TZ=Asia/Seoul
 ADMIN_PORT=9231
 COLLECTION_INTERVAL_MS=1800000
+PROCESSING_DELAY_MS=600000
 PUBLICATION_INTERVAL_MS=2400000
+PUBLICATION_MIN_QUALITY_SCORE=0.6
 GITHUB_FRONT_REPOSITORY=kenitoa/warsachive
 GITHUB_FRONT_TOKEN=replace-with-fine-grained-token
 GITHUB_FRONT_REF=main
 GITHUB_FRONT_CONTENT_PATH=web/content/archive.json
 ```
 
-- `1800000`: 30분마다 역사 주제 최대 1개 수집
-- `2400000`: 40분마다 공개 기록 최대 1개 누적 커밋
+- `1800000`: 30분마다 등록된 모든 주제와 출처를 가능한 한 많이 수집
+- `600000`: 수집 후 10분 동안 라벨링·신뢰도·연관성·큐레이터 정보화에 사용하는 가공 구간
+- `2400000`: 40분마다 가공 완료 공개 기록 최대 1개 누적 커밋
+- `0.6`: 품질 점수가 0.6 이상인 기록만 front 저장소에 발행
 - 성공 시각과 완료 ID는 볼륨에 저장되어 재시작 후에도 유지
 - GitHub 커밋 실패 시 같은 기록을 다음 발행 주기에 재시도
 - GitHub 파일에 이미 같은 ID가 있으면 중복 커밋하지 않고 완료 처리
@@ -99,7 +106,7 @@ GITHUB_FRONT_CONTENT_PATH=web/content/archive.json
 }
 ```
 
-목표는 공개·공공·만료·허가 자료와 신뢰할 수 있는 기관 출처를 가능한 한 많이 발굴해 등록하는 것입니다. 등록된 주제의 관련 출처는 한 번의 수집 작업에서 모두 처리합니다.
+목표는 공개·공공·만료·허가 자료와 신뢰할 수 있는 기관 출처를 가능한 한 많이 발굴해 등록하는 것입니다. 등록된 모든 주제의 관련 출처는 30분 수집 작업마다 모두 처리하며, 중복 자료는 ID·URL·본문 해시로 제거합니다.
 
 우선순위:
 
@@ -114,6 +121,7 @@ GITHUB_FRONT_CONTENT_PATH=web/content/archive.json
 
 ```bash
 docker compose ps
+docker compose ps --format "table {{.Name}}\t{{.Status}}\t{{.Ports}}"
 docker compose logs -f --tail=200 backend
 sh nas-install.sh
 ```
@@ -124,8 +132,11 @@ sh nas-install.sh
 npm run typecheck
 npm run build
 npm test
+npm run verify:ops
 npm run audit:sources
 ```
+
+`verify:ops`는 토큰 유출 스캔, 공개 `front` 저장소의 admin 제거 상태, Docker/품질/가공 설정, 출처 감사를 함께 확인합니다. NAS에서는 `npm run preflight:strict` 또는 `sh nas-install.sh`가 Docker Compose 설정, 컨테이너 실행, healthcheck를 확인합니다.
 
 `docker compose down -v`는 NAS 수집 자료와 발행 상태를 삭제하므로 사용하지 마세요.
 

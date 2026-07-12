@@ -11,8 +11,13 @@
     "dev:admin": "npm run dev --workspace @war-archive/admin",
     "start:admin": "npm run start --workspace @war-archive/admin",
     "pipeline": "npm run build --workspace @war-archive/pipeline && npm run start --workspace @war-archive/pipeline",
+    "local:sync": "npm run build --workspace @war-archive/pipeline && npm run local:sync --workspace @war-archive/pipeline",
     "audit:sources": "npm run build --workspace @war-archive/pipeline && npm run audit:sources --workspace @war-archive/pipeline",
-    "test": "npm run test --workspace @war-archive/pipeline && npm run test --workspace @war-archive/admin",
+    "preflight": "node scripts/preflight.mjs",
+    "preflight:strict": "node scripts/preflight.mjs --strict",
+    "verify:secrets": "node scripts/verify-secrets.mjs",
+    "verify:ops": "npm run verify:secrets && npm run preflight && npm run audit:sources",
+    "test": "npm run build && npm run test --workspace @war-archive/pipeline && npm run test --workspace @war-archive/admin",
     "typecheck": "npm run typecheck --workspaces --if-present"
   },
   "engines": {

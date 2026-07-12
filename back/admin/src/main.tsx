@@ -6,6 +6,7 @@ type Status = {
   checkedAt: string;
   schedules: {
     collectionIntervalMs: number;
+    processingDelayMs: number;
     publicationIntervalMs: number;
     nextCollectionAt: string | null;
     nextPublicationAt: string | null;
@@ -29,17 +30,17 @@ type Status = {
 
 const emptyStatus: Status = {
   checkedAt: new Date().toISOString(),
-  schedules: { collectionIntervalMs: 1_800_000, publicationIntervalMs: 2_400_000, nextCollectionAt: null, nextPublicationAt: null },
+  schedules: { collectionIntervalMs: 1_800_000, processingDelayMs: 600_000, publicationIntervalMs: 2_400_000, nextCollectionAt: null, nextPublicationAt: null },
   counts: { topics: 0, collectedTopics: 0, rawDocuments: 0, labeledDocuments: 0, informationizedRecords: 0, publishedRecords: 0 },
   state: { lastCollectedAt: null, lastPublishedAt: null, pendingTopicId: null, nextTopicId: null },
   recentRecords: []
 };
 
 const stageMeta = [
-  ["01", "역사 자료 수집", "COLLECTION", "30분마다 주제 1개", "raw/documents.json"],
-  ["02", "중복 제거·라벨링", "LABELING", "수집 직후", "labeled/documents.json"],
-  ["03", "역사 자료 정보화", "INFORMATIONIZATION", "라벨링 직후", "informationized/records.json"],
-  ["04", "GitHub 누적 발행", "STATIC PUBLISH", "40분마다 기록 1개", "web/content/archive.json"],
+  ["01", "역사 자료 수집", "COLLECTION", "30분마다 등록 출처 전체 sweep", "raw/documents.json"],
+  ["02", "신뢰도·연관성 라벨링", "LABELING", "수집 직후 맥락별 분류", "labeled/documents.json"],
+  ["03", "역사 큐레이터 정보화", "INFORMATIONIZATION", "10분 가공 구간", "informationized/records.json"],
+  ["04", "GitHub 누적 발행", "STATIC PUBLISH", "40분마다 가공 완료 기록 1개", "web/content/archive.json"],
   ["05", "GitHub Pages 배포", "PAGES DEPLOYMENT", "push 감지 즉시", "kenitoa.github.io/warsachive"]
 ];
 
@@ -118,8 +119,8 @@ function App() {
         </section>
 
         <section className="scheduleGrid" id="schedule">
-          <article><span>COLLECTOR / 30 MIN</span><h2>다음 수집</h2><strong>{formatDate(status.schedules.nextCollectionAt)}</strong><dl><div><dt>다음 주제</dt><dd>{status.state.nextTopicId ?? "대기 주제 없음"}</dd></div><div><dt>마지막 완료</dt><dd>{formatDate(status.state.lastCollectedAt)}</dd></div></dl></article>
-          <article><span>PUBLISHER / 40 MIN</span><h2>다음 발행</h2><strong>{formatDate(status.schedules.nextPublicationAt)}</strong><dl><div><dt>발행 대기</dt><dd>{status.state.pendingTopicId ?? "대기 기록 없음"}</dd></div><div><dt>마지막 완료</dt><dd>{formatDate(status.state.lastPublishedAt)}</dd></div></dl></article>
+          <article><span>COLLECTOR / 30 MIN</span><h2>다음 수집</h2><strong>{formatDate(status.schedules.nextCollectionAt)}</strong><dl><div><dt>수집 범위</dt><dd>{status.state.nextTopicId ? "등록된 모든 출처" : "등록 출처 없음"}</dd></div><div><dt>마지막 완료</dt><dd>{formatDate(status.state.lastCollectedAt)}</dd></div></dl></article>
+          <article><span>PUBLISHER / 40 MIN</span><h2>다음 발행</h2><strong>{formatDate(status.schedules.nextPublicationAt)}</strong><dl><div><dt>가공 구간</dt><dd>{Math.round(status.schedules.processingDelayMs / 60000)}분</dd></div><div><dt>마지막 완료</dt><dd>{formatDate(status.state.lastPublishedAt)}</dd></div></dl></article>
         </section>
 
         <section className="panel" id="records">

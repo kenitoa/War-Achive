@@ -1,4 +1,5 @@
 import { createHash } from "node:crypto";
+import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { assertDeclaredCompliance, assertRobotsAllowed, waitForSourceInterval } from "../compliance.js";
 import { dataRoot, readJson, writeJson } from "./common.js";
@@ -18,6 +19,10 @@ function stripHtml(html: string): string {
 async function fetchSource(source: SourceDefinition): Promise<string> {
   const kind = source.kind ?? "url";
   if (kind === "inline") return source.content?.trim() ?? "";
+  if (kind === "file") {
+    if (!source.path) throw new Error(`file source path가 없습니다: ${source.id ?? "id 없음"}`);
+    return (await readFile(source.path, "utf-8")).trim();
+  }
   if (kind !== "url") throw new Error(`지원하지 않는 source kind: ${String(kind)}`);
   if (!source.url?.startsWith("http://") && !source.url?.startsWith("https://")) {
     throw new Error("URL 소스는 http:// 또는 https:// 주소가 필요합니다.");

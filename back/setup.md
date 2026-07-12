@@ -11,9 +11,23 @@
 | GitHub Actions 변수 | `SITE_URL` | 필수 | `https://kenitoa.github.io/warsachive` |
 | NAS `back/.env` | `GITHUB_FRONT_REF` | 선택 | `main` |
 | NAS `back/.env` | `GITHUB_FRONT_CONTENT_PATH` | 선택 | `web/content/archive.json` |
+| NAS `back/.env` | `PROCESSING_DELAY_MS` | 선택 | `600000` |
+| NAS `back/.env` | `PUBLICATION_MIN_QUALITY_SCORE` | 선택 | `0.6` |
+| 로컬 실행 | `WAR_ARCHIVE_FRONT_ARCHIVE_PATH` | 로컬 검증 시 선택 | `../front/web/content/archive.json` |
 | 로컬 `front/.env.local` | `NEXT_PUBLIC_SITE_URL` | 로컬 빌드 시 선택 | `https://kenitoa.github.io/warsachive` |
 
 백엔드 API 주소, 백엔드 도메인, `API_BASE_URL`, CORS, HTTPS 인증서와 포트 포워딩 값은 입력하지 않습니다.
+
+## 로컬 폴더에서 실제 반영 확인
+
+NAS와 GitHub 토큰 없이 현재 폴더에서 수집·정보화·공개 JSON 반영을 한 번 검증하려면 다음을 실행합니다.
+
+```powershell
+cd back
+npm run local:sync
+```
+
+이 명령은 `back/.local-data`에 처리 상태를 저장하고 `front/web/content/archive.json`에 새 공개 기록을 누적합니다. 같은 기록 ID가 이미 있으면 중복 추가하지 않습니다.
 
 ## 1. front GitHub 저장소 만들기
 
@@ -117,7 +131,7 @@ Settings
 - Administration 쓰기
 - Pages 쓰기
 
-NAS는 이 토큰으로 `web/content/archive.json`만 읽고 갱신합니다.
+NAS는 이 토큰으로 `kenitoa/warsachive` 저장소의 `web/content/archive.json`만 읽고 갱신합니다. 이 토큰은 40분 발행 주기마다 공개 기록을 누적 커밋하는 필수 운영 설정입니다. 토큰 흐름을 제거하지 말고, 실제 값이 외부에 노출된 경우에만 새 토큰을 발급해 NAS `back/.env`의 값만 교체합니다.
 
 ## 5. NAS에 back 폴더 업로드
 
@@ -166,7 +180,9 @@ TZ=Asia/Seoul
 ADMIN_PORT=9231
 
 COLLECTION_INTERVAL_MS=1800000
+PROCESSING_DELAY_MS=600000
 PUBLICATION_INTERVAL_MS=2400000
+PUBLICATION_MIN_QUALITY_SCORE=0.6
 
 GITHUB_FRONT_REPOSITORY=kenitoa/warsachive
 GITHUB_FRONT_TOKEN=실제_토큰
@@ -187,7 +203,9 @@ GITHUB_FRONT_TOKEN=실제_토큰
 COMPOSE_PROJECT_NAME=war-archive
 TZ=Asia/Seoul
 COLLECTION_INTERVAL_MS=1800000
+PROCESSING_DELAY_MS=600000
 PUBLICATION_INTERVAL_MS=2400000
+PUBLICATION_MIN_QUALITY_SCORE=0.6
 GITHUB_FRONT_REF=main
 GITHUB_FRONT_CONTENT_PATH=web/content/archive.json
 ```
@@ -207,7 +225,20 @@ sh nas-install.sh
 
 ```bash
 docker compose ps
+docker compose ps --format "table {{.Name}}\t{{.Status}}\t{{.Ports}}"
 docker compose logs --tail=200 backend
+```
+
+로컬 또는 NAS 업로드 전 점검:
+
+```bash
+npm run verify:ops
+```
+
+NAS에서 Docker까지 포함해 엄격하게 확인하려면 다음을 실행합니다.
+
+```bash
+npm run preflight:strict
 ```
 
 브라우저에서 다음 주소를 확인합니다.
@@ -236,13 +267,13 @@ http://NAS-IP:9231
 
 ```text
 https://kenitoa.github.io/warsachive/
-https://kenitoa.github.io/warsachive/archive/foundation-001/
+https://kenitoa.github.io/warsachive/archive/imjin-war/
 https://kenitoa.github.io/warsachive/sitemap.xml
 ```
 
 ## 9. 자동 누적 발행 확인
 
-NAS가 새로운 주제를 수집·정보화하면 40분 발행 주기마다 최대 한 건을 다음 파일에 누적합니다.
+NAS가 30분마다 등록된 모든 출처를 수집하고 10분 가공 구간을 거쳐 정보화하면, 40분 발행 주기마다 품질 점수 기준을 넘은 가공 완료 기록 최대 한 건을 다음 파일에 누적합니다.
 
 ```text
 front 저장소/web/content/archive.json
@@ -255,7 +286,7 @@ front 저장소/web/content/archive.json
 - [ ] 해당 push로 Pages Actions가 자동 실행되는지 확인합니다.
 - [ ] 배포 후 `/archive/기록ID/` 페이지가 열리는지 확인합니다.
 
-초기 `foundation-001`은 front의 기본 `archive.json`에 이미 들어 있으므로 첫 발행에서는 새 커밋이 생기지 않을 수 있습니다. 새로운 topic을 등록한 뒤 누적 여부를 확인하세요.
+이미 같은 기록 ID가 `archive.json`에 있으면 발행기는 중복 커밋하지 않습니다. 새로운 topic을 등록한 뒤 누적 여부를 확인하세요.
 
 ## 10. 오류별 확인 위치
 
@@ -268,6 +299,8 @@ front 저장소/web/content/archive.json
 | GitHub `422` | `main` 브랜치 존재 여부, `archive.json` JSON 형식 |
 | Pages 빌드 실패 | Actions 로그, `SITE_URL`, `archive.json` 형식 |
 | 컨테이너 재시작 반복 | `docker compose logs --tail=200 backend` 확인 |
+| 토큰 노출 우려 | `npm run verify:secrets`로 저장소 내 유출 여부를 확인하고, 실제 값이 노출된 경우 NAS `back/.env`의 값만 새 토큰으로 교체 |
+| Docker health 미통과 | `docker compose ps`의 health 상태와 `/api/health` 확인 |
 
 ## 완료 체크
 
@@ -277,5 +310,6 @@ front 저장소/web/content/archive.json
 - [ ] Fine-grained token의 front 저장소 Contents 권한 설정 완료
 - [ ] NAS `back/.env`에 저장소와 토큰 입력 완료
 - [ ] Docker 컨테이너 실행 확인
+- [ ] `npm run verify:ops` 또는 NAS `sh nas-install.sh` healthcheck 성공 확인
 - [x] Pages 최초 자동 배포 성공
 - [ ] 새 역사 기록의 누적 커밋과 자동 Pages 배포 확인

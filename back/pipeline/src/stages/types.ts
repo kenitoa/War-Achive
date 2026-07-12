@@ -1,11 +1,12 @@
 export type SourceDefinition = {
   id?: string;
   topicId?: string;
-  kind?: "inline" | "url";
+  kind?: "file" | "inline" | "url";
   title?: string;
   period?: string;
   region?: string;
   url?: string;
+  path?: string;
   content?: string;
   compliance?: {
     reviewedAt: string;
@@ -27,6 +28,9 @@ export type RawDocument = {
   content: string;
   collectedAt: string;
   labels?: string[];
+  reliability?: "high" | "medium" | "needs-review";
+  relevanceScore?: number;
+  contextGroup?: string;
   labelingVersion?: string;
 };
 

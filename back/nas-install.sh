@@ -41,15 +41,19 @@ if [ ! -f .env ]; then
     echo "COMPOSE_PROJECT_NAME=war-archive"
     echo "TZ=Asia/Seoul"
     echo "COLLECTION_INTERVAL_MS=1800000"
+    echo "PROCESSING_DELAY_MS=600000"
     echo "PUBLICATION_INTERVAL_MS=2400000"
+    echo "PUBLICATION_MIN_QUALITY_SCORE=0.6"
     echo "GITHUB_FRONT_REPOSITORY=$github_repository"
     echo "GITHUB_FRONT_TOKEN=$github_token"
     echo "GITHUB_FRONT_REF=main"
     echo "GITHUB_FRONT_CONTENT_PATH=web/content/archive.json"
   } > .env
+  chmod 600 .env 2>/dev/null || true
   echo "Created .env"
 else
   echo "Using existing .env"
+  chmod 600 .env 2>/dev/null || true
 fi
 
 echo "Validating Docker Compose configuration..."
@@ -64,6 +68,23 @@ until [ "$(docker compose ps --status running --services | grep -c '^backend$' |
   attempt=$((attempt + 1))
   if [ "$attempt" -ge 30 ]; then
     echo "ERROR: Backend scheduler container is not running. Recent logs:" >&2
+    docker compose logs --tail=100 backend >&2
+    exit 1
+  fi
+  sleep 2
+done
+
+echo "Checking backend health..."
+attempt=0
+while :; do
+  container_id="$(docker compose ps -q backend)"
+  health="$(docker inspect -f '{{if .State.Health}}{{.State.Health.Status}}{{else}}none{{end}}' "$container_id" 2>/dev/null || echo unknown)"
+  if [ "$health" = "healthy" ] || [ "$health" = "none" ]; then
+    break
+  fi
+  attempt=$((attempt + 1))
+  if [ "$health" = "unhealthy" ] || [ "$attempt" -ge 30 ]; then
+    echo "ERROR: Backend healthcheck did not become healthy. Current status: $health. Recent logs:" >&2
     docker compose logs --tail=100 backend >&2
     exit 1
   fi

@@ -1,22 +1,22 @@
 {
   "topics": [
     {
-      "id": "foundation-001",
-      "title": "전쟁 역사 아카이브 구축 기록",
-      "period": "초기 구성",
-      "region": "디지털 아카이브",
+      "id": "imjin-war",
+      "title": "임진왜란",
+      "period": "1592-1598",
+      "region": "조선과 동아시아",
       "sources": [
         {
           "id": "overview",
-          "kind": "inline",
-          "url": "internal://foundation/overview",
-          "content": "전쟁 역사 자료를 출처 중심으로 수집하고 사건, 인물, 지역, 전투, 평화 협정 정보를 연결한다."
+          "kind": "file",
+          "url": "internal://seed/imjin-war/overview",
+          "path": "../sources/imjin-war/overview.md"
         },
         {
-          "id": "workflow",
-          "kind": "inline",
-          "url": "internal://foundation/workflow",
-          "content": "하나의 역사 주제에 연결된 모든 등록 출처를 함께 수집하고 라벨링한 뒤 하나의 정보화 기록으로 통합한다."
+          "id": "people-and-places",
+          "kind": "file",
+          "url": "internal://seed/imjin-war/people-and-places",
+          "path": "../sources/imjin-war/people-and-places.md"
         }
       ]
     }

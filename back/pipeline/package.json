@@ -6,6 +6,7 @@
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "start": "node dist/run-pipeline.js",
+    "local:sync": "node dist/run-local-sync.js",
     "start:collector": "node dist/collection-scheduler.js",
     "start:publisher": "node dist/publication-scheduler.js",
     "audit:sources": "node dist/audit-sources.js",

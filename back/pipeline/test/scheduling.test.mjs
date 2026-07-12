@@ -1,9 +1,9 @@
 import assert from "node:assert/strict";
-import { mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
+import { mkdir, mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { after, before, test } from "node:test";
-import { collectNextTopic } from "../dist/collection.js";
+import { collectSourceCycle } from "../dist/collection.js";
 import { mergeArchiveRecords, publishNextRecord, pushRecordToFront } from "../dist/publication.js";
 import { remainingDelay } from "../dist/scheduler-utils.js";
 
@@ -29,20 +29,25 @@ before(async () => {
   process.env.WAR_ARCHIVE_DATA_ROOT = directory;
   process.env.WAR_ARCHIVE_TOPICS_PATH = topicsPath;
   process.env.GITHUB_PUBLISH_DISABLED = "true";
+  process.env.PROCESSING_DELAY_MS = "0";
 });
 
 after(async () => {
   delete process.env.WAR_ARCHIVE_DATA_ROOT;
   delete process.env.WAR_ARCHIVE_TOPICS_PATH;
   delete process.env.GITHUB_PUBLISH_DISABLED;
+  delete process.env.PROCESSING_DELAY_MS;
   await rm(directory, { recursive: true, force: true });
 });
 
-test("one topic collects all unique registered sources and prevents recollection", async () => {
-  const first = await collectNextTopic();
-  const second = await collectNextTopic();
-  assert.equal(first.topicId, "imjin-war");
-  assert.equal(second.collected, false);
+test("one collection cycle sweeps all registered sources and deduplicates repeat cycles", async () => {
+  const first = await collectSourceCycle();
+  const second = await collectSourceCycle();
+  assert.deepEqual(first.topicIds, ["imjin-war"]);
+  assert.equal(first.attemptedSources, 4);
+  assert.equal(first.addedDocuments, 2);
+  assert.equal(second.collected, true);
+  assert.equal(second.addedDocuments, 0);
   const records = JSON.parse(await readFile(join(directory, "informationized", "records.json"), "utf-8"));
   assert.equal(records.total, 1);
   assert.equal(records.items[0].id, "imjin-war");
@@ -57,6 +62,63 @@ test("publisher releases at most one pending record per call", async () => {
   const state = JSON.parse(await readFile(join(directory, "state", "publication.json"), "utf-8"));
   assert.deepEqual(state.publishedTopicIds, ["imjin-war"]);
   assert.ok(state.lastPublishedAt);
+});
+
+test("publisher waits for the 10 minute processing window before release", async () => {
+  const delayRoot = await mkdtemp(join(tmpdir(), "war-archive-delay-"));
+  process.env.WAR_ARCHIVE_DATA_ROOT = delayRoot;
+  process.env.PROCESSING_DELAY_MS = String(10 * 60 * 1000);
+  const collectedAtMs = Date.parse("2026-07-12T00:00:00Z");
+  await mkdir(join(delayRoot, "informationized"), { recursive: true });
+  await writeFile(join(delayRoot, "informationized", "records.json"), JSON.stringify({
+    items: [{
+      id: "delayed",
+      title: "가공 대기 기록",
+      period: "1",
+      region: "A",
+      summary: "가공 대기",
+      sourceCount: 1,
+      collectedAt: new Date(collectedAtMs).toISOString()
+    }]
+  }), "utf-8");
+  try {
+    const early = await publishNextRecord(collectedAtMs + 9 * 60 * 1000);
+    const ready = await publishNextRecord(collectedAtMs + 10 * 60 * 1000);
+    assert.equal(early.published, false);
+    assert.equal(early.processingWaitMs, 60_000);
+    assert.equal(ready.published, true);
+    assert.equal(ready.topicId, "delayed");
+  } finally {
+    process.env.WAR_ARCHIVE_DATA_ROOT = directory;
+    process.env.PROCESSING_DELAY_MS = "0";
+    await rm(delayRoot, { recursive: true, force: true });
+  }
+});
+
+test("publisher skips records below the publication quality threshold", async () => {
+  const qualityRoot = await mkdtemp(join(tmpdir(), "war-archive-quality-"));
+  process.env.WAR_ARCHIVE_DATA_ROOT = qualityRoot;
+  process.env.PROCESSING_DELAY_MS = "0";
+  process.env.PUBLICATION_MIN_QUALITY_SCORE = "0.6";
+  await mkdir(join(qualityRoot, "informationized"), { recursive: true });
+  await writeFile(join(qualityRoot, "informationized", "records.json"), JSON.stringify({
+    items: [
+      { id: "low", title: "낮은 품질", period: "1", region: "A", summary: "부족", sourceCount: 1, qualityScore: 0.4 },
+      { id: "high", title: "높은 품질", period: "2", region: "B", summary: "충분", sourceCount: 3, qualityScore: 0.8 }
+    ]
+  }), "utf-8");
+  try {
+    const result = await publishNextRecord();
+    assert.equal(result.published, true);
+    assert.equal(result.topicId, "high");
+    const state = JSON.parse(await readFile(join(qualityRoot, "state", "publication.json"), "utf-8"));
+    assert.deepEqual(state.publishedTopicIds, ["high"]);
+  } finally {
+    process.env.WAR_ARCHIVE_DATA_ROOT = directory;
+    process.env.PROCESSING_DELAY_MS = "0";
+    delete process.env.PUBLICATION_MIN_QUALITY_SCORE;
+    await rm(qualityRoot, { recursive: true, force: true });
+  }
 });
 
 test("front archive push accumulates unique records without replacing older records", () => {
@@ -98,6 +160,27 @@ test("GitHub publisher writes the cumulative archive file to the front repositor
     process.env.GITHUB_PUBLISH_DISABLED = "true";
     delete process.env.GITHUB_FRONT_REPOSITORY;
     delete process.env.GITHUB_FRONT_TOKEN;
+  }
+});
+
+test("local publisher writes the cumulative archive file without a GitHub token", async () => {
+  const archivePath = join(directory, "front-archive.json");
+  await writeFile(archivePath, JSON.stringify({
+    version: 1,
+    items: [{ id: "first", title: "첫 기록", period: "1", region: "A", summary: "첫 자료", sourceCount: 1 }]
+  }), "utf-8");
+  const candidate = { id: "local-second", title: "로컬 기록", period: "2", region: "B", summary: "로컬 자료", sourceCount: 1 };
+  const previousDisabled = process.env.GITHUB_PUBLISH_DISABLED;
+  process.env.WAR_ARCHIVE_FRONT_ARCHIVE_PATH = archivePath;
+  process.env.GITHUB_PUBLISH_DISABLED = "true";
+  try {
+    await pushRecordToFront(candidate);
+    const written = JSON.parse(await readFile(archivePath, "utf-8"));
+    assert.deepEqual(written.items.map((record) => record.id), ["first", "local-second"]);
+  } finally {
+    delete process.env.WAR_ARCHIVE_FRONT_ARCHIVE_PATH;
+    if (previousDisabled === undefined) delete process.env.GITHUB_PUBLISH_DISABLED;
+    else process.env.GITHUB_PUBLISH_DISABLED = previousDisabled;
   }
 });
 

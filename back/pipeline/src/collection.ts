@@ -1,4 +1,4 @@
-import { join } from "node:path";
+import { dirname, isAbsolute, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { crawl } from "./stages/crawl.js";
 import { informationize } from "./stages/informationize.js";
@@ -32,30 +32,62 @@ export async function loadCollectionState(): Promise<CollectionState> {
   }
 }
 
-export async function collectNextTopic(): Promise<{ collected: boolean; topicId?: string; totalRecords?: number }> {
-  const configuration = await readJson<{ topics?: TopicDefinition[] }>(topicsPath());
-  if (!Array.isArray(configuration.topics)) throw new Error("topics가 배열이 아닙니다.");
-  const state = await loadCollectionState();
-  const topic = configuration.topics.find((candidate) => !state.collectedTopicIds.includes(candidate.id));
-  if (!topic) return { collected: false };
+function validateTopic(topic: TopicDefinition): void {
   if (!/^[a-zA-Z0-9_-]{1,80}$/.test(topic.id) || !Array.isArray(topic.sources) || topic.sources.length === 0) {
     throw new Error(`주제 설정이 올바르지 않습니다: ${topic.id}`);
   }
+}
 
-  const sources: SourceDefinition[] = topic.sources.map((source, index) => ({
+function sourcesForTopic(topic: TopicDefinition, configurationPath: string): SourceDefinition[] {
+  return topic.sources.map((source, index) => ({
     ...source,
     id: `${topic.id}-${source.id ?? index + 1}`,
+    path: source.kind === "file" && source.path && !isAbsolute(source.path)
+      ? resolve(dirname(configurationPath), source.path)
+      : source.path,
     topicId: topic.id,
     title: topic.title,
     period: topic.period,
     region: topic.region
   }));
+}
 
-  await crawl(sources);
+export async function collectSourceCycle(): Promise<{
+  collected: boolean;
+  topicIds: string[];
+  attemptedSources: number;
+  addedDocuments: number;
+  totalRecords: number;
+}> {
+  const configurationPath = topicsPath();
+  const configuration = await readJson<{ topics?: TopicDefinition[] }>(configurationPath);
+  if (!Array.isArray(configuration.topics)) throw new Error("topics가 배열이 아닙니다.");
+  const state = await loadCollectionState();
+  const topics = configuration.topics;
+  if (topics.length === 0) return { collected: false, topicIds: [], attemptedSources: 0, addedDocuments: 0, totalRecords: 0 };
+  topics.forEach(validateTopic);
+
+  const sources = topics.flatMap((topic) => sourcesForTopic(topic, configurationPath));
+  const crawlResult = await crawl(sources);
   await label();
   const result = await informationize();
-  state.collectedTopicIds.push(topic.id);
+  state.collectedTopicIds = [...new Set([...state.collectedTopicIds, ...topics.map((topic) => topic.id)])];
   state.lastCollectedAt = new Date().toISOString();
   await writeJson(collectionStatePath(), state);
-  return { collected: true, topicId: topic.id, totalRecords: result.total };
+  return {
+    collected: true,
+    topicIds: topics.map((topic) => topic.id),
+    attemptedSources: sources.length,
+    addedDocuments: crawlResult.added,
+    totalRecords: result.total
+  };
+}
+
+export async function collectNextTopic(): Promise<{ collected: boolean; topicId?: string; totalRecords?: number }> {
+  const result = await collectSourceCycle();
+  return {
+    collected: result.collected,
+    topicId: result.topicIds[0],
+    totalRecords: result.totalRecords
+  };
 }

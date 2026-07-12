@@ -13,6 +13,7 @@ const topicsPath = process.env.WAR_ARCHIVE_TOPICS_PATH
   ?? fileURLToPath(new URL("../pipeline/config/topics.json", import.meta.url));
 const collectionInterval = Number(process.env.COLLECTION_INTERVAL_MS ?? 30 * 60 * 1000);
 const publicationInterval = Number(process.env.PUBLICATION_INTERVAL_MS ?? 40 * 60 * 1000);
+const processingDelay = Number(process.env.PROCESSING_DELAY_MS ?? 10 * 60 * 1000);
 
 async function readJson(path, fallback) {
   try {
@@ -47,6 +48,7 @@ async function loadStatus() {
     checkedAt: new Date().toISOString(),
     schedules: {
       collectionIntervalMs: collectionInterval,
+      processingDelayMs: processingDelay,
       publicationIntervalMs: publicationInterval,
       nextCollectionAt: nextAt(collection.lastCollectedAt, collectionInterval),
       nextPublicationAt: nextAt(publication.lastPublishedAt, publicationInterval)
@@ -63,7 +65,7 @@ async function loadStatus() {
       lastCollectedAt: collection.lastCollectedAt ?? null,
       lastPublishedAt: publication.lastPublishedAt ?? null,
       pendingTopicId: publication.pendingTopicId ?? null,
-      nextTopicId: topicItems.find((topic) => !collectedIds.includes(topic.id))?.id ?? null
+      nextTopicId: topicItems.length > 0 ? "all-configured-sources" : null
     },
     recentRecords: records.slice(-5).reverse().map((record) => ({
       id: record.id,
@@ -97,6 +99,14 @@ function sendJson(response, statusCode, body) {
 const server = createServer(async (request, response) => {
   try {
     const url = new URL(request.url ?? "/", "http://localhost");
+    if (url.pathname === "/api/health") {
+      sendJson(response, 200, {
+        ok: true,
+        service: "war-archive-backend",
+        checkedAt: new Date().toISOString()
+      });
+      return;
+    }
     if (url.pathname === "/api/status") {
       sendJson(response, 200, await loadStatus());
       return;
