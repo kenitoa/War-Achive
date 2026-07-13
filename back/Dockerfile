@@ -19,6 +19,7 @@ ENV WAR_ARCHIVE_DATA_ROOT=/data
 COPY --from=build /app/pipeline/dist pipeline/dist
 COPY --from=build /app/admin/dist admin/dist
 COPY admin/server.mjs admin/server.mjs
+COPY ["Discord Bot", "Discord Bot"]
 COPY pipeline/config pipeline/config
 COPY pipeline/sources pipeline/sources
 COPY infra/start-backend.sh /usr/local/bin/start-backend

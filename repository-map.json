@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "repositories": {
+    "back": {
+      "path": "back",
+      "repository": "kenitoa/warachive",
+      "role": "collector, clustering pipeline, NAS admin dashboard, GitHub publisher"
+    },
+    "front": {
+      "path": "front",
+      "repository": "kenitoa/warsachive",
+      "role": "GitHub Pages static archive reading web/content/archive.json"
+    }
+  },
+  "rules": [
+    "Back changes belong to kenitoa/warachive.",
+    "Front changes and web/content/archive.json belong to kenitoa/warsachive.",
+    "Do not commit the nested front repository as ordinary files in the back repository."
+  ]
+}

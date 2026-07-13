@@ -20,6 +20,20 @@ for (const source of sources) {
     report.push({ topicId: source.topicId, id: source.id, kind: "file", path: source.path, status: "approved-local" });
     continue;
   }
+  if (source.kind === "api-json") {
+    assertDeclaredCompliance(source);
+    report.push({
+      topicId: source.topicId,
+      id: source.id,
+      kind: "api-json",
+      url: source.url,
+      status: source.requiredEnv && !process.env[source.requiredEnv] ? "approved-requires-env" : "approved",
+      requiredEnv: source.requiredEnv,
+      reviewedAt: source.compliance?.reviewedAt,
+      minIntervalMs: source.compliance?.minIntervalMs
+    });
+    continue;
+  }
   if ((source.kind ?? "url") !== "url") {
     report.push({ topicId: source.topicId, id: source.id, kind: source.kind ?? "url", status: "not-applicable" });
     continue;
@@ -42,6 +56,6 @@ for (const source of sources) {
 console.log(JSON.stringify({
   checkedAt: new Date().toISOString(),
   totalSources: report.length,
-  externalSources: report.filter((item) => item.kind === "url").length,
+  externalSources: report.filter((item) => item.kind === "url" || item.kind === "api-json").length,
   sources: report
 }, null, 2));

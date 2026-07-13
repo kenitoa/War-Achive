@@ -1,4 +1,4 @@
-import { readdir, readFile, stat } from "node:fs/promises";
+import { access, readdir, readFile, stat } from "node:fs/promises";
 import { join, relative } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -36,12 +36,21 @@ const textExtensions = new Set([
 const placeholders = new Set([
   "",
   "replace-with-fine-grained-token",
+  "replace-with-admin-token",
+  "replace-with-discord-bot-token",
   "token",
   "test-token",
   "actual_token",
   "실제_토큰",
   "발급한_토큰"
 ]);
+const requiredRuntimeSecrets = [
+  "GITHUB_FRONT_TOKEN",
+  "WAR_ARCHIVE_ADMIN_TOKEN"
+];
+const sensitiveOptionalEnvKeys = [
+  "DISCORD_BOT_TOKEN"
+];
 
 function extensionOf(name) {
   const index = name.lastIndexOf(".");
@@ -71,6 +80,24 @@ async function walk(directory, files = []) {
   return files;
 }
 
+async function exists(path) {
+  try {
+    await access(path);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+function parseEnv(text) {
+  const values = new Map();
+  for (const line of text.split(/\r?\n/)) {
+    const match = line.match(/^\s*([A-Z0-9_]+)\s*=\s*(.*)\s*$/);
+    if (match) values.set(match[1], normalizeTokenValue(match[2]));
+  }
+  return values;
+}
+
 const findings = [];
 for (const file of await walk(root)) {
   const rel = relative(root, file).replaceAll("\\", "/");
@@ -86,7 +113,24 @@ for (const file of await walk(root)) {
       const value = normalizeTokenValue(match[1]);
       if (!placeholders.has(value)) findings.push(`${rel}:${index + 1} contains a non-placeholder GITHUB_FRONT_TOKEN`);
     }
+    for (const key of sensitiveOptionalEnvKeys) {
+      const optionalMatch = line.match(new RegExp(`^\\s*${key}\\s*=\\s*(.+)\\s*$`));
+      if (!optionalMatch) continue;
+      const value = normalizeTokenValue(optionalMatch[1]);
+      if (!placeholders.has(value)) findings.push(`${rel}:${index + 1} contains a non-placeholder ${key}`);
+    }
   });
+}
+
+const envPath = join(root, "back", ".env");
+if (!(await exists(envPath))) {
+  findings.push("back/.env is required for secure NAS operation");
+} else {
+  const runtimeEnv = parseEnv(await readFile(envPath, "utf-8"));
+  for (const key of requiredRuntimeSecrets) {
+    const value = runtimeEnv.get(key) ?? "";
+    if (!value || placeholders.has(value)) findings.push(`back/.env contains a missing or placeholder ${key}`);
+  }
 }
 
 if (findings.length > 0) {

@@ -8,11 +8,14 @@
 | --- | --- | --- | --- |
 | NAS `back/.env` | `GITHUB_FRONT_REPOSITORY` | 기본값 설정됨 | `kenitoa/warsachive` |
 | NAS `back/.env` | `GITHUB_FRONT_TOKEN` | 필수·비밀 | `github_pat_...` |
+| NAS `back/.env` | `WAR_ARCHIVE_ADMIN_TOKEN` | 필수·비밀 | 24자 이상 임의 문자열 |
 | GitHub Actions 변수 | `SITE_URL` | 필수 | `https://kenitoa.github.io/warsachive` |
 | NAS `back/.env` | `GITHUB_FRONT_REF` | 선택 | `main` |
 | NAS `back/.env` | `GITHUB_FRONT_CONTENT_PATH` | 선택 | `web/content/archive.json` |
 | NAS `back/.env` | `PROCESSING_DELAY_MS` | 선택 | `600000` |
 | NAS `back/.env` | `PUBLICATION_MIN_QUALITY_SCORE` | 선택 | `0.6` |
+| NAS `back/.env` | `DISCORD_BOT_TOKEN` | 선택·비밀 | Discord bot token |
+| NAS `back/.env` | `DISCORD_CHANNEL_ID` | Discord bot 사용 시 필수 | 대상 채널 ID |
 | 로컬 실행 | `WAR_ARCHIVE_FRONT_ARCHIVE_PATH` | 로컬 검증 시 선택 | `../front/web/content/archive.json` |
 | 로컬 `front/.env.local` | `NEXT_PUBLIC_SITE_URL` | 로컬 빌드 시 선택 | `https://kenitoa.github.io/warsachive` |
 
@@ -131,7 +134,7 @@ Settings
 - Administration 쓰기
 - Pages 쓰기
 
-NAS는 이 토큰으로 `kenitoa/warsachive` 저장소의 `web/content/archive.json`만 읽고 갱신합니다. 이 토큰은 40분 발행 주기마다 공개 기록을 누적 커밋하는 필수 운영 설정입니다. 토큰 흐름을 제거하지 말고, 실제 값이 외부에 노출된 경우에만 새 토큰을 발급해 NAS `back/.env`의 값만 교체합니다.
+NAS는 이 토큰으로 `kenitoa/warsachive` 저장소의 `web/content/archive.json`만 읽고 갱신합니다. 이 토큰은 1시간 발행 주기마다 공개 기록을 누적 커밋하는 필수 운영 설정입니다. 토큰 흐름을 제거하지 말고, 실제 값이 외부에 노출된 경우에만 새 토큰을 발급해 NAS `back/.env`의 값만 교체합니다.
 
 ## 5. NAS에 back 폴더 업로드
 
@@ -179,15 +182,27 @@ COMPOSE_PROJECT_NAME=war-archive
 TZ=Asia/Seoul
 ADMIN_PORT=9231
 
-COLLECTION_INTERVAL_MS=1800000
+ADMIN_PORT=9231
+WAR_ARCHIVE_ADMIN_TOKEN=긴_임의_관리자_토큰
+
+COLLECTION_INTERVAL_MS=600000
 PROCESSING_DELAY_MS=600000
-PUBLICATION_INTERVAL_MS=2400000
+PUBLICATION_INTERVAL_MS=3600000
+COLLECTION_MAX_ITEMS_PER_SOURCE=100
 PUBLICATION_MIN_QUALITY_SCORE=0.6
+MONITOR_INTERVAL_MS=60000
+MONITOR_FAILURE_THRESHOLD=3
+DISCORD_BOT_TOKEN=
+DISCORD_CHANNEL_ID=
+DISCORD_WEBHOOK_URL=
 
 GITHUB_FRONT_REPOSITORY=kenitoa/warsachive
 GITHUB_FRONT_TOKEN=실제_토큰
 GITHUB_FRONT_REF=main
 GITHUB_FRONT_CONTENT_PATH=web/content/archive.json
+SMITHSONIAN_API_KEY=
+EUROPEANA_API_KEY=
+DPLA_API_KEY=
 ```
 
 반드시 바꿔야 하는 값:
@@ -202,12 +217,21 @@ GITHUB_FRONT_TOKEN=실제_토큰
 ```dotenv
 COMPOSE_PROJECT_NAME=war-archive
 TZ=Asia/Seoul
-COLLECTION_INTERVAL_MS=1800000
+COLLECTION_INTERVAL_MS=600000
 PROCESSING_DELAY_MS=600000
-PUBLICATION_INTERVAL_MS=2400000
+PUBLICATION_INTERVAL_MS=3600000
+COLLECTION_MAX_ITEMS_PER_SOURCE=100
 PUBLICATION_MIN_QUALITY_SCORE=0.6
+MONITOR_INTERVAL_MS=60000
+MONITOR_FAILURE_THRESHOLD=3
+DISCORD_BOT_TOKEN=
+DISCORD_CHANNEL_ID=
+DISCORD_WEBHOOK_URL=
 GITHUB_FRONT_REF=main
 GITHUB_FRONT_CONTENT_PATH=web/content/archive.json
+SMITHSONIAN_API_KEY=
+EUROPEANA_API_KEY=
+DPLA_API_KEY=
 ```
 
 이전에 만들었던 `.env`에 `API_DOMAIN`, `PAGES_ORIGIN`, `HTTP_PORT`, `HTTPS_PORT`가 있다면 기존 파일을 백업한 뒤 현재 `.env.example` 기준으로 새로 작성하세요.
@@ -251,8 +275,8 @@ http://NAS-IP:9231
 
 ```text
 [war-archive] collector and static publisher started
-[collector] one topic every 1800000ms
-[publisher] one record every 2400000ms
+[collector] maximum registered source sweep every 600000ms
+[publisher] one processed record every 3600000ms
 ```
 
 ## 8. GitHub Pages 최초 배포 확인
@@ -273,7 +297,7 @@ https://kenitoa.github.io/warsachive/sitemap.xml
 
 ## 9. 자동 누적 발행 확인
 
-NAS가 30분마다 등록된 모든 출처를 수집하고 10분 가공 구간을 거쳐 정보화하면, 40분 발행 주기마다 품질 점수 기준을 넘은 가공 완료 기록 최대 한 건을 다음 파일에 누적합니다.
+NAS가 10분마다 등록된 모든 출처에서 가능한 한 많은 item을 수집하고 10분 가공 구간에서 사건 제목 연관성 기준으로 X(a,b), Y(c,d) 형태의 군집을 만든 뒤, 1시간 발행 주기마다 품질 점수 기준을 넘은 가공 완료 기록 최대 한 건을 다음 파일에 누적합니다.
 
 ```text
 front 저장소/web/content/archive.json
@@ -282,11 +306,11 @@ front 저장소/web/content/archive.json
 확인 순서:
 
 - [ ] `archive: publish 기록ID` 형식의 새 커밋이 생기는지 확인합니다.
-- [ ] 커밋에서 기존 기록이 유지되고 새 기록 한 건만 추가됐는지 확인합니다.
+- [ ] 커밋에서 기존 기록이 유지되고 새 사건은 추가되며, 기존 사건에 새 문서가 붙은 경우 같은 ID 항목이 갱신되는지 확인합니다.
 - [ ] 해당 push로 Pages Actions가 자동 실행되는지 확인합니다.
 - [ ] 배포 후 `/archive/기록ID/` 페이지가 열리는지 확인합니다.
 
-이미 같은 기록 ID가 `archive.json`에 있으면 발행기는 중복 커밋하지 않습니다. 새로운 topic을 등록한 뒤 누적 여부를 확인하세요.
+이미 같은 기록 ID가 `archive.json`에 있고 내용도 같으면 발행기는 중복 커밋하지 않습니다. 같은 사건 군집의 문서 묶음이 늘어나면 기존 항목을 갱신해 다시 발행합니다.
 
 ## 10. 오류별 확인 위치
 

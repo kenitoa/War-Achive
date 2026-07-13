@@ -89,14 +89,23 @@ function qualityScore(args: {
 }
 
 export async function informationize() {
-  const labeled = await readJson<{ documents?: RawDocument[] }>(join(dataRoot(), "labeled", "documents.json"));
+  let payload: { documents?: RawDocument[] };
+  try {
+    payload = await readJson<{ documents?: RawDocument[] }>(join(dataRoot(), "clustered", "documents.json"));
+  } catch (error: unknown) {
+    if ((error as NodeJS.ErrnoException).code !== "ENOENT") throw error;
+    payload = await readJson<{ documents?: RawDocument[] }>(join(dataRoot(), "labeled", "documents.json"));
+  }
+  const labeled = payload;
   if (!Array.isArray(labeled.documents)) throw new Error("라벨링 산출물 형식이 올바르지 않습니다.");
 
+  const publishableDocuments = labeled.documents.filter((document) => document.qualityDecision !== "rejected");
   const grouped = new Map<string, RawDocument[]>();
-  for (const document of labeled.documents) {
-    const group = grouped.get(document.topicId) ?? [];
+  for (const document of publishableDocuments) {
+    const groupId = document.eventClusterId ?? document.topicId;
+    const group = grouped.get(groupId) ?? [];
     group.push(document);
-    grouped.set(document.topicId, group);
+    grouped.set(groupId, group);
   }
 
   const items = [...grouped.entries()].map(([topicId, documents]) => {
@@ -107,16 +116,17 @@ export async function informationize() {
     const curator = curatorRecord({ combinedContent, documents, labels, sourceUrls });
     const averageRelevance = documents.reduce((sum, document) => sum + (document.relevanceScore ?? 0), 0) / Math.max(1, documents.length);
     const mediumOrBetterReliability = documents.filter((document) => document.reliability === "high" || document.reliability === "medium").length;
-    const score = qualityScore({
+    const algorithmQuality = documents.reduce((sum, document) => sum + (document.qualityScore ?? 0.5), 0) / Math.max(1, documents.length);
+    const score = rounded((qualityScore({
       documentCount: documents.length,
       sourceCount: sourceUrls.length,
       averageRelevance,
       mediumOrBetterReliability,
       curatorComplete: curator.keyPoints.length > 0 && curator.chronology.length > 0 && curator.peopleAndPlaces.length > 0
-    });
+    }) * 0.55) + (algorithmQuality * 0.45));
     return {
       id: topicId,
-      title: primary.title || "제목 없음",
+      title: primary.eventClusterTitle || primary.title || "제목 없음",
       period: primary.period || "미분류",
       region: primary.region || "미분류",
       summary: summarize(combinedContent),
@@ -124,6 +134,8 @@ export async function informationize() {
       labels,
       sourceUrl: sourceUrls[0] ?? "",
       sourceUrls,
+      documentIds: documents.map((document) => document.id),
+      sentenceIds: [...new Set(documents.flatMap((document) => document.sentenceIds ?? []))],
       sourceCount: sourceUrls.length,
       documentCount: documents.length,
       indexedTerms: indexedTermCount(combinedContent),

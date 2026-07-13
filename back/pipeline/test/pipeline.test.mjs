@@ -10,10 +10,23 @@ let stdout = "";
 
 before(async () => {
   directory = await mkdtemp(join(tmpdir(), "war-archive-pipeline-"));
+  const topicsPath = join(directory, "topics.json");
+  await writeFile(topicsPath, JSON.stringify({
+    topics: [{
+      id: "imjin-war",
+      title: "임진왜란",
+      period: "1592-1598",
+      region: "조선과 동아시아",
+      sources: [
+        { id: "overview", kind: "inline", url: "internal://imjin/overview", content: "임진왜란 사건 개요와 전투 기록" },
+        { id: "people", kind: "inline", url: "internal://imjin/people", content: "임진왜란 관련 인물과 증언 자료" }
+      ]
+    }]
+  }), "utf-8");
   stdout = await new Promise((resolve, reject) => {
     const child = spawn(process.execPath, ["dist/run-pipeline.js"], {
       cwd: new URL("..", import.meta.url),
-      env: { ...process.env, WAR_ARCHIVE_DATA_ROOT: directory },
+      env: { ...process.env, WAR_ARCHIVE_DATA_ROOT: directory, WAR_ARCHIVE_TOPICS_PATH: topicsPath },
       stdio: ["ignore", "pipe", "pipe"]
     });
     let output = "";
@@ -33,10 +46,13 @@ test("pipeline writes collection, labeling, and informationization artifacts", a
   const relativePaths = [
     "raw/documents.json",
     "labeled/documents.json",
+    "clustered/documents.json",
     "informationized/records.json"
   ];
   const payloads = await Promise.all(relativePaths.map(async (path) => JSON.parse(await readFile(join(directory, path), "utf-8"))));
-  assert.deepEqual(payloads.map((payload) => payload.stage), ["crawled", "labeled", "informationized"]);
+  assert.deepEqual(payloads.map((payload) => payload.stage), ["crawled", "labeled", "clustered", "informationized"]);
+  assert.equal(payloads[2].totalClusters, 1);
+  assert.equal(payloads[2].clusters[0].documentIds.length, 2);
 });
 
 test("informationization emits a searchable front archive record", async () => {

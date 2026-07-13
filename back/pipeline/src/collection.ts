@@ -1,6 +1,7 @@
 import { dirname, isAbsolute, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { crawl } from "./stages/crawl.js";
+import { clusterByEventTitle } from "./stages/cluster.js";
 import { informationize } from "./stages/informationize.js";
 import { label } from "./stages/label.js";
 import { dataRoot, readJson, writeJson } from "./stages/common.js";
@@ -9,6 +10,8 @@ import type { SourceDefinition, TopicDefinition } from "./stages/types.js";
 export type CollectionState = {
   version: 1;
   lastCollectedAt?: string;
+  lastAttemptedAt?: string;
+  lastError?: string;
   collectedTopicIds: string[];
 };
 
@@ -52,6 +55,16 @@ function sourcesForTopic(topic: TopicDefinition, configurationPath: string): Sou
   }));
 }
 
+function shuffledSources(sources: SourceDefinition[]): SourceDefinition[] {
+  if (process.env.COLLECTION_SHUFFLE_SOURCES === "false") return sources;
+  const shuffled = [...sources];
+  for (let index = shuffled.length - 1; index > 0; index -= 1) {
+    const swapIndex = Math.floor(Math.random() * (index + 1));
+    [shuffled[index], shuffled[swapIndex]] = [shuffled[swapIndex], shuffled[index]];
+  }
+  return shuffled;
+}
+
 export async function collectSourceCycle(): Promise<{
   collected: boolean;
   topicIds: string[];
@@ -67,12 +80,15 @@ export async function collectSourceCycle(): Promise<{
   if (topics.length === 0) return { collected: false, topicIds: [], attemptedSources: 0, addedDocuments: 0, totalRecords: 0 };
   topics.forEach(validateTopic);
 
-  const sources = topics.flatMap((topic) => sourcesForTopic(topic, configurationPath));
+  const sources = shuffledSources(topics.flatMap((topic) => sourcesForTopic(topic, configurationPath)));
   const crawlResult = await crawl(sources);
   await label();
+  await clusterByEventTitle();
   const result = await informationize();
   state.collectedTopicIds = [...new Set([...state.collectedTopicIds, ...topics.map((topic) => topic.id)])];
+  state.lastAttemptedAt = new Date().toISOString();
   state.lastCollectedAt = new Date().toISOString();
+  delete state.lastError;
   await writeJson(collectionStatePath(), state);
   return {
     collected: true,

@@ -7,10 +7,12 @@
     "build": "tsc -p tsconfig.json",
     "start": "node dist/run-pipeline.js",
     "local:sync": "node dist/run-local-sync.js",
+    "publish:once": "node dist/run-publish.js",
     "start:collector": "node dist/collection-scheduler.js",
     "start:publisher": "node dist/publication-scheduler.js",
     "audit:sources": "node dist/audit-sources.js",
-    "test": "node --test test/*.test.mjs",
+    "rollback": "node dist/run-rollback.js",
+    "test": "node --test --test-concurrency=1 test/*.test.mjs",
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
   "devDependencies": {

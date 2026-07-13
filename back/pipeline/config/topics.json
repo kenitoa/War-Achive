@@ -19,6 +19,149 @@
           "path": "../sources/imjin-war/people-and-places.md"
         }
       ]
+    },
+    {
+      "id": "global-history-open-sources",
+      "title": "세계 역사 공개 자료",
+      "period": "미분류",
+      "region": "전세계",
+      "sources": [
+        {
+          "id": "library-of-congress-history",
+          "kind": "api-json",
+          "title": "Library of Congress history records",
+          "url": "https://www.loc.gov/search/?fo=json&c=25&q=history",
+          "api": {
+            "itemPath": "results",
+            "idPath": "id",
+            "titlePath": "title",
+            "contentPaths": ["title", "description", "subject", "date", "location"],
+            "urlPath": "url",
+            "maxItems": 25
+          },
+          "compliance": {
+            "reviewedAt": "2026-07-13",
+            "crawlAllowed": true,
+            "termsUrl": "https://www.loc.gov/legal/",
+            "copyrightUrl": "https://www.loc.gov/legal/",
+            "minIntervalMs": 3000,
+            "notes": "Library of Congress loc.gov JSON API. Public API metadata collection only."
+          }
+        },
+        {
+          "id": "internet-archive-history",
+          "kind": "api-json",
+          "title": "Internet Archive history metadata",
+          "url": "https://archive.org/advancedsearch.php?q=subject%3Ahistory&fl[]=identifier&fl[]=title&fl[]=description&fl[]=subject&rows=25&page=1&output=json",
+          "api": {
+            "itemPath": "response.docs",
+            "idPath": "identifier",
+            "titlePath": "title",
+            "contentPaths": ["title", "description", "subject"],
+            "urlPath": "identifier",
+            "maxItems": 25
+          },
+          "compliance": {
+            "reviewedAt": "2026-07-13",
+            "crawlAllowed": true,
+            "termsUrl": "https://archive.org/about/terms.php",
+            "copyrightUrl": "https://archive.org/about/terms.php",
+            "minIntervalMs": 3000,
+            "notes": "Internet Archive Advanced Search metadata endpoint. Source URL is item identifier when no item URL is returned."
+          }
+        },
+        {
+          "id": "wikidata-history-entities",
+          "kind": "api-json",
+          "title": "Wikidata historical event entities",
+          "url": "https://query.wikidata.org/sparql?query=SELECT%20%3Fitem%20%3FitemLabel%20%3Fdescription%20WHERE%20%7B%20%3Fitem%20wdt%3AP31%2Fwdt%3AP279%2A%20wd%3AQ1190554.%20SERVICE%20wikibase%3Alabel%20%7B%20bd%3AserviceParam%20wikibase%3Alanguage%20%22ko%2Cen%22.%20%7D%20%7D%20LIMIT%2025&format=json",
+          "api": {
+            "itemPath": "results.bindings",
+            "idPath": "item.value",
+            "titlePath": "itemLabel.value",
+            "contentPaths": ["itemLabel.value", "description.value", "item.value"],
+            "urlPath": "item.value",
+            "maxItems": 25
+          },
+          "compliance": {
+            "reviewedAt": "2026-07-13",
+            "crawlAllowed": true,
+            "termsUrl": "https://www.wikidata.org/wiki/Wikidata:Data_access",
+            "copyrightUrl": "https://www.wikidata.org/wiki/Wikidata:Copyright",
+            "minIntervalMs": 5000,
+            "notes": "Wikidata Query Service for historical event entities. Metadata/entity facts only."
+          }
+        },
+        {
+          "id": "smithsonian-history",
+          "kind": "api-json",
+          "title": "Smithsonian Open Access history records",
+          "requiredEnv": "SMITHSONIAN_API_KEY",
+          "url": "https://api.si.edu/openaccess/api/v1.0/search?q=history&rows=25&api_key=${SMITHSONIAN_API_KEY}",
+          "api": {
+            "itemPath": "response.rows",
+            "idPath": "id",
+            "titlePath": "title",
+            "contentPaths": ["title", "content.descriptiveNonRepeating.title.content", "content.indexedStructured.topic", "content.freetext.notes"],
+            "urlPath": "url",
+            "maxItems": 25
+          },
+          "compliance": {
+            "reviewedAt": "2026-07-13",
+            "crawlAllowed": true,
+            "termsUrl": "https://www.si.edu/termsofuse",
+            "copyrightUrl": "https://www.si.edu/openaccess",
+            "minIntervalMs": 5000,
+            "notes": "Enabled only when SMITHSONIAN_API_KEY is present."
+          }
+        },
+        {
+          "id": "europeana-history",
+          "kind": "api-json",
+          "title": "Europeana cultural heritage history records",
+          "requiredEnv": "EUROPEANA_API_KEY",
+          "url": "https://api.europeana.eu/record/v2/search.json?query=history&rows=25&wskey=${EUROPEANA_API_KEY}",
+          "api": {
+            "itemPath": "items",
+            "idPath": "id",
+            "titlePath": "title",
+            "contentPaths": ["title", "dcDescription", "dataProvider", "edmConceptLabel", "year"],
+            "urlPath": "guid",
+            "maxItems": 25
+          },
+          "compliance": {
+            "reviewedAt": "2026-07-13",
+            "crawlAllowed": true,
+            "termsUrl": "https://www.europeana.eu/en/rights",
+            "copyrightUrl": "https://www.europeana.eu/en/rights",
+            "minIntervalMs": 5000,
+            "notes": "Enabled only when EUROPEANA_API_KEY is present."
+          }
+        },
+        {
+          "id": "dpla-history",
+          "kind": "api-json",
+          "title": "Digital Public Library of America history records",
+          "requiredEnv": "DPLA_API_KEY",
+          "url": "https://api.dp.la/v2/items?q=history&page_size=25&api_key=${DPLA_API_KEY}",
+          "api": {
+            "itemPath": "docs",
+            "idPath": "id",
+            "titlePath": "sourceResource.title",
+            "contentPaths": ["sourceResource.title", "sourceResource.description", "sourceResource.subject", "sourceResource.date", "sourceResource.spatial"],
+            "urlPath": "isShownAt",
+            "maxItems": 25
+          },
+          "compliance": {
+            "reviewedAt": "2026-07-13",
+            "crawlAllowed": true,
+            "termsUrl": "https://pro.dp.la/developers/api-codex",
+            "copyrightUrl": "https://dp.la/about/rights",
+            "minIntervalMs": 5000,
+            "notes": "Enabled only when DPLA_API_KEY is present."
+          }
+        }
+      ]
     }
   ]
 }

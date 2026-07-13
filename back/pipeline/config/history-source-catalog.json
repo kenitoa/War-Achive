@@ -1,0 +1,67 @@
+{
+  "version": 1,
+  "purpose": "Broad public-history source targets for expanding topics.json without scraping arbitrary websites.",
+  "policy": "Prefer official APIs, metadata endpoints, public-domain/open-license collections, and institution-provided bulk or harvest interfaces.",
+  "targets": [
+    {
+      "name": "Library of Congress",
+      "url": "https://www.loc.gov/apis/",
+      "status": "active in topics.json",
+      "notes": "Public loc.gov JSON API for structured collection records."
+    },
+    {
+      "name": "Internet Archive Advanced Search",
+      "url": "https://archive.org/advancedsearch.php",
+      "status": "active in topics.json",
+      "notes": "Metadata search endpoint for public archive items."
+    },
+    {
+      "name": "Wikidata Query Service",
+      "url": "https://query.wikidata.org/",
+      "status": "active in topics.json",
+      "notes": "Linked open entity data used for RAG entity resolution and event discovery."
+    },
+    {
+      "name": "Smithsonian Open Access",
+      "url": "https://api.si.edu/openaccess/",
+      "status": "requires SMITHSONIAN_API_KEY",
+      "notes": "Open Access metadata and collection records."
+    },
+    {
+      "name": "Europeana APIs",
+      "url": "https://pro.europeana.eu/page/apis",
+      "status": "requires EUROPEANA_API_KEY",
+      "notes": "European cultural heritage metadata, Record API, Entity API, OAI-PMH."
+    },
+    {
+      "name": "Digital Public Library of America",
+      "url": "https://pro.dp.la/developers/api-codex",
+      "status": "requires DPLA_API_KEY",
+      "notes": "US cultural heritage aggregator metadata."
+    },
+    {
+      "name": "National Archives Catalog",
+      "url": "https://catalog.archives.gov/",
+      "status": "candidate",
+      "notes": "Add after API endpoint and terms are verified in the current deployment environment."
+    },
+    {
+      "name": "Chronicling America",
+      "url": "https://chroniclingamerica.loc.gov/",
+      "status": "candidate",
+      "notes": "Historic newspaper metadata and OCR; add as a dedicated newspaper topic."
+    },
+    {
+      "name": "World Digital Library collections hosted by Library of Congress",
+      "url": "https://www.loc.gov/collections/world-digital-library/",
+      "status": "candidate",
+      "notes": "Use through loc.gov API filters after collection-specific checks."
+    },
+    {
+      "name": "National library, museum, archive open-data portals",
+      "url": "institution-specific",
+      "status": "expansion bucket",
+      "notes": "Register each institution only after robots, terms, copyright, and API shape are reviewed."
+    }
+  ]
+}

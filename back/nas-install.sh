@@ -16,6 +16,7 @@ fi
 if [ ! -f .env ]; then
   github_repository="${1:-${GITHUB_FRONT_REPOSITORY:-kenitoa/warsachive}}"
   github_token="${GITHUB_FRONT_TOKEN:-}"
+  admin_token="${WAR_ARCHIVE_ADMIN_TOKEN:-}"
 
   if [ -z "$github_repository" ]; then
     echo "Usage: GITHUB_FRONT_TOKEN=token sh nas-install.sh [owner/repository]" >&2
@@ -36,18 +37,38 @@ if [ ! -f .env ]; then
     exit 1
   fi
 
+  if [ -z "$admin_token" ]; then
+    if command -v openssl >/dev/null 2>&1; then
+      admin_token="$(openssl rand -base64 32 | tr '+/' '-_' | tr -d '=')"
+    else
+      admin_token="$(dd if=/dev/urandom bs=32 count=1 2>/dev/null | od -An -tx1 | tr -d ' \n')"
+    fi
+  fi
+
   umask 077
   {
     echo "COMPOSE_PROJECT_NAME=war-archive"
     echo "TZ=Asia/Seoul"
-    echo "COLLECTION_INTERVAL_MS=1800000"
+    echo "ADMIN_PORT=9231"
+    echo "WAR_ARCHIVE_ADMIN_TOKEN=$admin_token"
+    echo "COLLECTION_INTERVAL_MS=600000"
     echo "PROCESSING_DELAY_MS=600000"
-    echo "PUBLICATION_INTERVAL_MS=2400000"
+    echo "PUBLICATION_INTERVAL_MS=3600000"
+    echo "COLLECTION_MAX_ITEMS_PER_SOURCE=100"
     echo "PUBLICATION_MIN_QUALITY_SCORE=0.6"
+    echo "SCHEDULER_RETRY_MS=60000"
+    echo "MONITOR_INTERVAL_MS=60000"
+    echo "MONITOR_FAILURE_THRESHOLD=3"
+    echo "DISCORD_BOT_TOKEN=${DISCORD_BOT_TOKEN:-}"
+    echo "DISCORD_CHANNEL_ID=${DISCORD_CHANNEL_ID:-}"
+    echo "DISCORD_WEBHOOK_URL=${DISCORD_WEBHOOK_URL:-}"
     echo "GITHUB_FRONT_REPOSITORY=$github_repository"
     echo "GITHUB_FRONT_TOKEN=$github_token"
     echo "GITHUB_FRONT_REF=main"
     echo "GITHUB_FRONT_CONTENT_PATH=web/content/archive.json"
+    echo "SMITHSONIAN_API_KEY="
+    echo "EUROPEANA_API_KEY="
+    echo "DPLA_API_KEY="
   } > .env
   chmod 600 .env 2>/dev/null || true
   echo "Created .env"
@@ -94,3 +115,4 @@ done
 echo "War Archive collector is running. No public API domain or internet-facing port is required."
 echo "Published records will accumulate in the front repository at web/content/archive.json."
 echo "Admin dashboard: http://NAS-IP:${ADMIN_PORT:-9231} (LAN access only)"
+echo "Admin token is stored only in back/.env as WAR_ARCHIVE_ADMIN_TOKEN."

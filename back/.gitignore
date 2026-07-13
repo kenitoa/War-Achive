@@ -5,3 +5,4 @@ dist/
 npm-debug.log*
 *.tsbuildinfo
 .DS_Store
+Discord Bot/logs/*.log
