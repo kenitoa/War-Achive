@@ -31,6 +31,12 @@ type WorkingCluster = {
   entityResolution: EventCluster["entityResolution"];
 };
 
+type ReviewQueue = {
+  version: 1;
+  updatedAt: string;
+  documents: RawDocument[];
+};
+
 const vectorDimensions = 96;
 const stopWords = new Set([
   "the", "and", "for", "with", "from", "this", "that", "history", "record", "records",
@@ -263,6 +269,28 @@ async function loadRegistry(): Promise<EntityRegistryEntry[]> {
   }
 }
 
+async function loadReviewQueue(): Promise<RawDocument[]> {
+  try {
+    const payload = await readJson<Partial<ReviewQueue>>(join(dataRoot(), "review", "documents.json"));
+    return Array.isArray(payload.documents) ? payload.documents : [];
+  } catch (error: unknown) {
+    if ((error as NodeJS.ErrnoException).code === "ENOENT") return [];
+    throw error;
+  }
+}
+
+function mergeClusterInputs(current: RawDocument[], queued: RawDocument[]): RawDocument[] {
+  const byId = new Map(queued.map((document) => [document.id, document]));
+  for (const document of current) byId.set(document.id, document);
+  return [...byId.values()];
+}
+
+function shouldHoldForReview(document: RawDocument): boolean {
+  return document.qualityDecision !== "accepted"
+    || document.outlier === true
+    || Number(document.eventClusterConfidence ?? 0) < 0.6;
+}
+
 function registryId(title: string, documents: RawDocument[], registry: EntityRegistryEntry[]): { id: string; matchedExisting: boolean; score: number } {
   const vector = vectorize(`${title} ${documents.map((document) => document.title).join(" ")}`);
   const match = registry
@@ -354,13 +382,15 @@ export async function clusterByEventTitle(): Promise<{
 }> {
   const labeled = await readJson<{ documents?: RawDocument[] }>(join(dataRoot(), "labeled", "documents.json"));
   if (!Array.isArray(labeled.documents)) throw new Error("labeled documents must be an array.");
+  const queuedReviewDocuments = await loadReviewQueue();
+  const inputDocuments = mergeClusterInputs(labeled.documents, queuedReviewDocuments);
 
-  const sentences = makeSentences(labeled.documents);
+  const sentences = makeSentences(inputDocuments);
   const dbscanGroups = groupsFromLabels(sentences, dbscan(sentences));
   const densityGroups = stableDensityGroups(dbscanGroups.flat());
   const finalGroups = refineKMeans(densityGroups);
   const registry = await loadRegistry();
-  const documentById = new Map(labeled.documents.map((document) => [document.id, document]));
+  const documentById = new Map(inputDocuments.map((document) => [document.id, document]));
   const usedEntityIds = new Set<string>();
   const similarityByDocument = new Map<string, number>();
 
@@ -402,11 +432,11 @@ export async function clusterByEventTitle(): Promise<{
     return cluster;
   });
 
-  const outlierScores = isolationScores(labeled.documents, similarityByDocument);
+  const outlierScores = isolationScores(inputDocuments, similarityByDocument);
   const clusterByDocumentId = new Map<string, WorkingCluster>();
   for (const cluster of workingClusters) for (const documentId of cluster.documents.keys()) clusterByDocumentId.set(documentId, cluster);
 
-  const clusteredDocuments = labeled.documents.map((document) => {
+  const clusteredDocuments = inputDocuments.map((document) => {
     const cluster = clusterByDocumentId.get(document.id);
     const clusterSimilarity = cluster?.confidences.get(document.id) ?? 0;
     const quality = qualityDecision(document, clusterSimilarity, outlierScores.get(document.id) ?? 0);
@@ -423,6 +453,11 @@ export async function clusterByEventTitle(): Promise<{
 
   const clusters = workingClusters.map(clusterSummary);
   await persistVectorStores(sentences, clusters);
+  await writeJson(join(dataRoot(), "review", "documents.json"), {
+    version: 1,
+    updatedAt: new Date().toISOString(),
+    documents: clusteredDocuments.filter(shouldHoldForReview)
+  } satisfies ReviewQueue);
   const result = {
     stage: "clustered",
     totalDocuments: clusteredDocuments.length,

@@ -18,6 +18,8 @@ before(async () => {
   await mkdir(join(directory, "labeled"), { recursive: true });
   await mkdir(join(directory, "clustered"), { recursive: true });
   await mkdir(join(directory, "informationized"), { recursive: true });
+  await mkdir(join(directory, "published"), { recursive: true });
+  await mkdir(join(directory, "review"), { recursive: true });
   await writeFile(topicsPath, JSON.stringify({ topics: [{ id: "topic-1" }, { id: "topic-2" }] }), "utf-8");
   await writeFile(join(directory, "state", "collection.json"), JSON.stringify({ collectedTopicIds: ["topic-1"], lastCollectedAt: "2026-07-12T00:00:00Z" }), "utf-8");
   await writeFile(join(directory, "state", "publication.json"), JSON.stringify({ publishedTopicIds: ["topic-1"], lastPublishedAt: "2026-07-12T00:10:00Z" }), "utf-8");
@@ -46,6 +48,9 @@ before(async () => {
     }]
   }), "utf-8");
   await writeFile(join(directory, "informationized", "records.json"), JSON.stringify({ items: [{ id: "topic-1", title: "첫 기록", period: "1592", region: "조선" }] }), "utf-8");
+
+  await writeFile(join(directory, "published", "archive.json"), JSON.stringify({ version: 1, items: [{ id: "topic-1", title: "First record" }] }), "utf-8");
+  await writeFile(join(directory, "review", "documents.json"), JSON.stringify({ version: 1, documents: [] }), "utf-8");
 
   baseUrl = await new Promise((resolve, reject) => {
     server = spawn(process.execPath, ["server.mjs"], {

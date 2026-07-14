@@ -61,7 +61,7 @@ function sourcesFrom(topics) {
 }
 
 async function loadStatus() {
-  const [topics, collection, publication, history, raw, labeled, clustered, informationized] = await Promise.all([
+  const [topics, collection, publication, history, raw, labeled, clustered, informationized, publishedArchive, reviewQueue] = await Promise.all([
     readJson(topicsPath, { topics: [] }),
     readJson(join(dataRoot, "state", "collection.json"), { collectedTopicIds: [] }),
     readJson(join(dataRoot, "state", "publication.json"), { publishedTopicIds: [] }),
@@ -69,7 +69,9 @@ async function loadStatus() {
     readJson(join(dataRoot, "raw", "documents.json"), { documents: [] }),
     readJson(join(dataRoot, "labeled", "documents.json"), { documents: [] }),
     readJson(join(dataRoot, "clustered", "documents.json"), { documents: [], clusters: [] }),
-    readJson(join(dataRoot, "informationized", "records.json"), { items: [] })
+    readJson(join(dataRoot, "informationized", "records.json"), { items: [] }),
+    readJson(join(dataRoot, "published", "archive.json"), { items: [] }),
+    readJson(join(dataRoot, "review", "documents.json"), { documents: [] })
   ]);
 
   const topicItems = Array.isArray(topics.topics) ? topics.topics : [];
@@ -82,12 +84,23 @@ async function loadStatus() {
   const clusterItems = Array.isArray(clustered.clusters) ? clustered.clusters : [];
   const records = Array.isArray(informationized.items) ? informationized.items : [];
   const historyEntries = Array.isArray(history.entries) ? history.entries : [];
-  const reviewDocuments = clusteredItems.filter((document) =>
+  const derivedReviewDocuments = clusteredItems.filter((document) =>
     document.qualityDecision === "review"
     || document.qualityDecision === "rejected"
     || document.outlier === true
     || Number(document.eventClusterConfidence ?? 0) < 0.6
   );
+  const queuedReviewDocuments = Array.isArray(reviewQueue.documents) ? reviewQueue.documents : [];
+  const reviewDocuments = queuedReviewDocuments.length > 0 ? queuedReviewDocuments : derivedReviewDocuments;
+  const snapshotItems = Array.isArray(publishedArchive.items) ? publishedArchive.items : [];
+  const latestPublishedArchive = [...historyEntries].reverse().find((entry) =>
+    !entry.rolledBackAt && Array.isArray(entry.nextArchive?.items)
+  )?.nextArchive?.items;
+  const publishedRecords = snapshotItems.length > 0
+    ? snapshotItems
+    : Array.isArray(latestPublishedArchive) ? latestPublishedArchive : [];
+  const publishedRecordIds = new Set(publishedRecords.map((record) => record.id));
+  const publicationCountMismatch = publishedIds.length !== publishedRecords.length;
 
   return {
     checkedAt: new Date().toISOString(),
@@ -120,7 +133,10 @@ async function loadStatus() {
     },
     errors: {
       collection: collection.lastError ?? null,
-      publication: publication.lastError ?? null
+      publication: publication.lastError
+        ?? (publicationCountMismatch
+          ? `published state has ${publishedIds.length} records but the last verified archive has ${publishedRecords.length}.`
+          : null)
     },
     counts: {
       topics: topicItems.length,
@@ -130,7 +146,7 @@ async function loadStatus() {
       clusteredDocuments: clusteredItems.length,
       eventClusters: clusterItems.length,
       informationizedRecords: records.length,
-      publishedRecords: publishedIds.length
+      publishedRecords: publishedRecords.length
     },
     sources: {
       configured: sourceItems.length,
@@ -159,7 +175,7 @@ async function loadStatus() {
       algorithm: cluster.algorithm,
       entityResolution: cluster.entityResolution
     })),
-    reviewDocuments: reviewDocuments.slice(-20).reverse().map((document) => ({
+    reviewDocuments: [...reviewDocuments].reverse().map((document) => ({
       id: document.id,
       title: document.title,
       sourceUrl: document.sourceUrl,
@@ -185,7 +201,7 @@ async function loadStatus() {
       title: record.title,
       period: record.period,
       region: record.region,
-      published: publishedIds.includes(record.id)
+      published: publishedRecordIds.has(record.id)
     }))
   };
 }

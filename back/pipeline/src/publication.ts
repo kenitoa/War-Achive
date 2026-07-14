@@ -35,6 +35,7 @@ export type ArchiveRecord = {
 };
 
 type FrontArchive = { version: 1; items: ArchiveRecord[] };
+type PublicationMode = "disabled" | "local" | "github";
 
 type ArchiveChange = {
   addedDocumentIds: string[];
@@ -84,6 +85,10 @@ export function publicationStatePath(): string {
 
 export function publicationHistoryPath(): string {
   return join(dataRoot(), "state", "publication-history.json");
+}
+
+export function publishedArchivePath(): string {
+  return join(dataRoot(), "published", "archive.json");
 }
 
 export function frontArchiveLocalPath(): string | undefined {
@@ -201,6 +206,55 @@ async function appendPublicationHistory(entry: PublicationHistoryEntry): Promise
   await writeJson(publicationHistoryPath(), history);
 }
 
+async function persistPublishedArchive(archive: FrontArchive): Promise<void> {
+  await writeJson(publishedArchivePath(), archive);
+}
+
+async function loadVerifiedPublishedArchive(): Promise<FrontArchive | undefined> {
+  const localArchivePath = frontArchiveLocalPath();
+  if (localArchivePath) {
+    try {
+      const localArchive = await readJson<Partial<FrontArchive>>(localArchivePath);
+      if (Array.isArray(localArchive.items) && localArchive.items.every(isArchiveRecord)) return { version: 1, items: localArchive.items };
+    } catch (error: unknown) {
+      if ((error as NodeJS.ErrnoException).code !== "ENOENT") throw error;
+    }
+  }
+
+  const repository = process.env.GITHUB_FRONT_REPOSITORY;
+  const token = process.env.GITHUB_FRONT_TOKEN;
+  if (process.env.GITHUB_PUBLISH_DISABLED !== "true" && repository && /^[^/]+\/[^/]+$/.test(repository) && token) {
+    const reference = process.env.GITHUB_FRONT_REF ?? "main";
+    const contentPath = process.env.GITHUB_FRONT_CONTENT_PATH ?? "web/content/archive.json";
+    const encodedPath = contentPath.split("/").map(encodeURIComponent).join("/");
+    const response = await fetch(`https://api.github.com/repos/${repository}/contents/${encodedPath}?ref=${encodeURIComponent(reference)}`, {
+      headers: githubHeaders(token),
+      signal: AbortSignal.timeout(20_000)
+    });
+    if (response.status === 404) return { version: 1, items: [] };
+    if (!response.ok) throw new Error(`GitHub published archive read failed: ${response.status} ${await response.text()}`);
+    const file = await response.json() as { type?: string; encoding?: string; content?: string };
+    if (file.type !== "file" || file.encoding !== "base64" || typeof file.content !== "string") {
+      throw new Error("GitHub published archive response format is invalid.");
+    }
+    const archive = JSON.parse(Buffer.from(file.content.replace(/\s/g, ""), "base64").toString("utf-8")) as Partial<FrontArchive>;
+    if (!Array.isArray(archive.items) || !archive.items.every(isArchiveRecord)) throw new Error("GitHub published archive format is invalid.");
+    const verified = { version: 1 as const, items: archive.items };
+    await persistPublishedArchive(verified);
+    return verified;
+  }
+
+  try {
+    const snapshot = await readJson<Partial<FrontArchive>>(publishedArchivePath());
+    if (Array.isArray(snapshot.items) && snapshot.items.every(isArchiveRecord)) return { version: 1, items: snapshot.items };
+  } catch (error: unknown) {
+    if ((error as NodeJS.ErrnoException).code !== "ENOENT") throw error;
+  }
+  const history = await loadPublicationHistory();
+  const entry = [...history.entries].reverse().find((item) => !item.rolledBackAt && item.nextArchive?.items?.every(isArchiveRecord));
+  return entry?.nextArchive;
+}
+
 async function updatePublicationHistory(entry: PublicationHistoryEntry): Promise<void> {
   const history = await loadPublicationHistory();
   const index = history.entries.findIndex((item) => item.id === entry.id);
@@ -236,7 +290,7 @@ function createHistoryEntry(args: {
   };
 }
 
-async function pushRecordToLocalArchive(candidate: ArchiveRecord, archivePath: string): Promise<void> {
+async function pushRecordToLocalArchive(candidate: ArchiveRecord, archivePath: string): Promise<PublicationMode> {
   let current: FrontArchive = { version: 1, items: [] };
   try {
     const parsed = await readJson<Partial<FrontArchive>>(archivePath);
@@ -249,14 +303,19 @@ async function pushRecordToLocalArchive(candidate: ArchiveRecord, archivePath: s
   }
 
   const merged = mergeArchiveRecords(current.items, candidate);
-  if (merged === current.items) return;
+  if (merged === current.items) {
+    await persistPublishedArchive(current);
+    return "local";
+  }
   const nextArchive: FrontArchive = { version: 1, items: merged };
   const historyEntry = createHistoryEntry({ mode: "local", candidate, previousArchive: current, nextArchive });
   await writeJson(archivePath, nextArchive);
   try {
     const written = await readJson<FrontArchive>(archivePath);
     if (archiveFingerprint(written) !== archiveFingerprint(nextArchive)) throw new Error("local archive write verification failed.");
+    await persistPublishedArchive(nextArchive);
     await appendPublicationHistory(historyEntry);
+    return "local";
   } catch (error) {
     await writeJson(archivePath, current);
     throw error;
@@ -273,14 +332,13 @@ function githubHeaders(token: string): Record<string, string> {
   };
 }
 
-export async function pushRecordToFront(candidate: ArchiveRecord): Promise<void> {
+export async function pushRecordToFront(candidate: ArchiveRecord): Promise<PublicationMode> {
   const localArchivePath = frontArchiveLocalPath();
   if (localArchivePath) {
-    await pushRecordToLocalArchive(candidate, localArchivePath);
-    return;
+    return pushRecordToLocalArchive(candidate, localArchivePath);
   }
 
-  if (process.env.GITHUB_PUBLISH_DISABLED === "true") return;
+  if (process.env.GITHUB_PUBLISH_DISABLED === "true") return "disabled";
 
   const repository = process.env.GITHUB_FRONT_REPOSITORY;
   const token = process.env.GITHUB_FRONT_TOKEN;
@@ -319,7 +377,10 @@ export async function pushRecordToFront(candidate: ArchiveRecord): Promise<void>
   }
 
   const merged = mergeArchiveRecords(current.items, candidate);
-  if (merged === current.items) return;
+  if (merged === current.items) {
+    await persistPublishedArchive(current);
+    return "github";
+  }
   const nextArchive: FrontArchive = { version: 1, items: merged };
   const historyEntry = createHistoryEntry({
     mode: "github",
@@ -365,7 +426,9 @@ export async function pushRecordToFront(candidate: ArchiveRecord): Promise<void>
     await restoreGitHubArchive({ endpoint, headers, reference, archive: current, message: `archive: rollback ${candidate.id} verify-mismatch` });
     throw new Error("GitHub content verification failed after publish.");
   }
+  await persistPublishedArchive(nextArchive);
   await appendPublicationHistory(historyEntry);
+  return "github";
 }
 
 async function restoreGitHubArchive(args: {
@@ -432,7 +495,7 @@ export async function rollbackLastPublication(entryId?: string): Promise<{ rolle
   return { rolledBack: true, entryId: entry.id, recordId: entry.recordId };
 }
 
-export async function publishNextRecord(now = Date.now()): Promise<{ published: boolean; topicId?: string; processingWaitMs?: number }> {
+export async function publishNextRecord(now = Date.now()): Promise<{ published: boolean; topicId?: string; processingWaitMs?: number; publicationDisabled?: boolean }> {
   let records: ArchiveRecord[] = [];
   try {
     const payload = await readJson<{ items?: ArchiveRecord[] }>(join(dataRoot(), "informationized", "records.json"));
@@ -444,10 +507,9 @@ export async function publishNextRecord(now = Date.now()): Promise<{ published: 
   const state = await loadPublicationState();
   state.publishedRecordFingerprints ??= {};
   const minQuality = publicationMinQualityScore();
-  const unpublished = records.filter((record) => {
-    if (!state.publishedTopicIds.includes(record.id)) return true;
-    return state.publishedRecordFingerprints?.[record.id] !== recordFingerprint(record);
-  });
+  const verifiedArchive = await loadVerifiedPublishedArchive();
+  const verifiedFingerprints = new Map((verifiedArchive?.items ?? []).map((record) => [record.id, recordFingerprint(record)]));
+  const unpublished = records.filter((record) => verifiedFingerprints.get(record.id) !== recordFingerprint(record));
   const candidate = state.pendingTopicId
     ? records.find((record) => record.id === state.pendingTopicId)
     : unpublished.find((record) => (record.qualityScore ?? 1) >= minQuality);
@@ -460,11 +522,18 @@ export async function publishNextRecord(now = Date.now()): Promise<{ published: 
   state.pendingTopicId = candidate.id;
   state.lastAttemptedAt = new Date().toISOString();
   await writeJson(publicationStatePath(), state);
-  await pushRecordToFront(candidate);
+  const mode = await pushRecordToFront(candidate);
+  if (mode === "disabled") {
+    delete state.pendingTopicId;
+    state.lastError = "GitHub publication is disabled; no public archive commit was created.";
+    await writeJson(publicationStatePath(), state);
+    return { published: false, topicId: candidate.id, publicationDisabled: true };
+  }
 
-  state.publishedTopicIds.push(candidate.id);
-  state.publishedTopicIds = [...new Set(state.publishedTopicIds)];
-  state.publishedRecordFingerprints[candidate.id] = recordFingerprint(candidate);
+  const confirmedArchive = await loadVerifiedPublishedArchive();
+  const confirmedRecords = confirmedArchive?.items ?? [candidate];
+  state.publishedTopicIds = [...new Set(confirmedRecords.map((record) => record.id))];
+  state.publishedRecordFingerprints = Object.fromEntries(confirmedRecords.map((record) => [record.id, recordFingerprint(record)]));
   delete state.pendingTopicId;
   delete state.lastError;
   state.lastPublishedAt = new Date().toISOString();

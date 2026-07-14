@@ -30,6 +30,8 @@ while (true) {
     const result = await publishNextRecord();
     console.log(result.published
       ? `[publisher] dispatched ${result.topicId}`
+      : result.publicationDisabled
+        ? "[publisher] GitHub publication disabled; no record was marked published"
       : result.processingWaitMs
         ? `[publisher] processing window active for ${result.topicId}, ${result.processingWaitMs}ms remaining`
         : "[publisher] no unpublished processed records");

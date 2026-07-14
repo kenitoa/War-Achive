@@ -99,7 +99,11 @@ export async function informationize() {
   const labeled = payload;
   if (!Array.isArray(labeled.documents)) throw new Error("라벨링 산출물 형식이 올바르지 않습니다.");
 
-  const publishableDocuments = labeled.documents.filter((document) => document.qualityDecision !== "rejected");
+  const publishableDocuments = labeled.documents.filter((document) =>
+    document.qualityDecision === "accepted"
+    && document.outlier !== true
+    && Number(document.eventClusterConfidence ?? 0) >= 0.6
+  );
   const grouped = new Map<string, RawDocument[]>();
   for (const document of publishableDocuments) {
     const groupId = document.eventClusterId ?? document.topicId;
