@@ -37,7 +37,14 @@
             "titlePath": "title",
             "contentPaths": ["title", "description", "subject", "date", "location"],
             "urlPath": "url",
-            "maxItems": 25
+            "maxItems": 25,
+            "pagination": {
+              "strategy": "query-param",
+              "param": "sp",
+              "start": 1,
+              "step": 1,
+              "pagesPerRun": 2
+            }
           },
           "compliance": {
             "reviewedAt": "2026-07-13",
@@ -59,7 +66,14 @@
             "titlePath": "title",
             "contentPaths": ["title", "description", "subject"],
             "urlPath": "identifier",
-            "maxItems": 25
+            "maxItems": 25,
+            "pagination": {
+              "strategy": "query-param",
+              "param": "page",
+              "start": 1,
+              "step": 1,
+              "pagesPerRun": 2
+            }
           },
           "compliance": {
             "reviewedAt": "2026-07-13",
@@ -81,7 +95,13 @@
             "titlePath": "itemLabel.value",
             "contentPaths": ["itemLabel.value", "description.value", "item.value"],
             "urlPath": "item.value",
-            "maxItems": 25
+            "maxItems": 25,
+            "pagination": {
+              "strategy": "sparql-offset",
+              "start": 0,
+              "step": 25,
+              "pagesPerRun": 2
+            }
           },
           "compliance": {
             "reviewedAt": "2026-07-13",
@@ -104,7 +124,14 @@
             "titlePath": "title",
             "contentPaths": ["title", "content.descriptiveNonRepeating.title.content", "content.indexedStructured.topic", "content.freetext.notes"],
             "urlPath": "url",
-            "maxItems": 25
+            "maxItems": 25,
+            "pagination": {
+              "strategy": "query-param",
+              "param": "start",
+              "start": 0,
+              "step": 25,
+              "pagesPerRun": 2
+            }
           },
           "compliance": {
             "reviewedAt": "2026-07-13",
@@ -127,7 +154,14 @@
             "titlePath": "title",
             "contentPaths": ["title", "dcDescription", "dataProvider", "edmConceptLabel", "year"],
             "urlPath": "guid",
-            "maxItems": 25
+            "maxItems": 25,
+            "pagination": {
+              "strategy": "query-param",
+              "param": "start",
+              "start": 1,
+              "step": 25,
+              "pagesPerRun": 2
+            }
           },
           "compliance": {
             "reviewedAt": "2026-07-13",
@@ -150,7 +184,14 @@
             "titlePath": "sourceResource.title",
             "contentPaths": ["sourceResource.title", "sourceResource.description", "sourceResource.subject", "sourceResource.date", "sourceResource.spatial"],
             "urlPath": "isShownAt",
-            "maxItems": 25
+            "maxItems": 25,
+            "pagination": {
+              "strategy": "query-param",
+              "param": "page",
+              "start": 1,
+              "step": 1,
+              "pagesPerRun": 2
+            }
           },
           "compliance": {
             "reviewedAt": "2026-07-13",

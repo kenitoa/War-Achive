@@ -279,6 +279,16 @@ async function loadReviewQueue(): Promise<RawDocument[]> {
   }
 }
 
+async function loadPreviousClusteredDocuments(): Promise<RawDocument[]> {
+  try {
+    const payload = await readJson<{ documents?: RawDocument[] }>(join(dataRoot(), "clustered", "documents.json"));
+    return Array.isArray(payload.documents) ? payload.documents : [];
+  } catch (error: unknown) {
+    if ((error as NodeJS.ErrnoException).code === "ENOENT") return [];
+    throw error;
+  }
+}
+
 function mergeClusterInputs(current: RawDocument[], queued: RawDocument[]): RawDocument[] {
   const byId = new Map(queued.map((document) => [document.id, document]));
   for (const document of current) byId.set(document.id, document);
@@ -331,6 +341,140 @@ function clusterSummary(cluster: WorkingCluster): EventCluster {
     },
     updatedAt: new Date().toISOString()
   };
+}
+
+function documentVector(document: RawDocument): number[] {
+  return vectorize(`${document.title} ${document.content}`);
+}
+
+function assignmentThreshold(): number {
+  const configured = Number(process.env.CLUSTER_EXISTING_ASSIGNMENT_THRESHOLD ?? 0.42);
+  if (!Number.isFinite(configured)) return 0.42;
+  return Math.max(0.2, Math.min(0.9, configured));
+}
+
+function sentencesByDocument(sentences: SentenceRecord[]): Map<string, SentenceRecord[]> {
+  const byDocument = new Map<string, SentenceRecord[]>();
+  for (const sentence of sentences) {
+    const group = byDocument.get(sentence.documentId) ?? [];
+    group.push(sentence);
+    byDocument.set(sentence.documentId, group);
+  }
+  return byDocument;
+}
+
+function emptyWorkingCluster(id: string, title: string, matchedExisting: boolean, score: number): WorkingCluster {
+  return {
+    id,
+    title,
+    documents: new Map(),
+    sentenceIds: [],
+    labels: new Set(),
+    termCounts: new Map(),
+    confidences: new Map(),
+    centroid: Array.from({ length: vectorDimensions }, () => 0),
+    entityResolution: { method: "rag-vector-registry", matchedExisting, score }
+  };
+}
+
+function addDocumentToCluster(cluster: WorkingCluster, document: RawDocument, documentSentences: SentenceRecord[]): void {
+  cluster.documents.set(document.id, document);
+  cluster.sentenceIds.push(...documentSentences.map((sentence) => sentence.id));
+  for (const label of document.labels ?? []) cluster.labels.add(label);
+  cluster.centroid = averageVector([...cluster.documents.values()].map(documentVector));
+}
+
+function rebuildClusterMetrics(cluster: WorkingCluster): void {
+  const documentVectors = [...cluster.documents.values()].map(documentVector);
+  cluster.centroid = averageVector(documentVectors);
+  cluster.termCounts = new Map();
+  cluster.confidences = new Map();
+  cluster.labels = new Set([...cluster.documents.values()].flatMap((document) => document.labels ?? []));
+  for (const document of cluster.documents.values()) {
+    for (const token of tokens(`${document.title} ${document.content}`).slice(0, 120)) {
+      cluster.termCounts.set(token, (cluster.termCounts.get(token) ?? 0) + 1);
+    }
+    const similarity = rounded(Math.max(0.2, cosine(documentVector(document), cluster.centroid)));
+    cluster.confidences.set(document.id, similarity);
+  }
+}
+
+function newClusterId(title: string, documents: RawDocument[], registry: EntityRegistryEntry[], usedEntityIds: Set<string>): {
+  id: string;
+  matchedExisting: boolean;
+  score: number;
+} {
+  const resolution = registryId(title, documents, registry);
+  let entityId = resolution.id;
+  let suffix = 2;
+  while (usedEntityIds.has(entityId)) {
+    entityId = `${resolution.id}-${suffix}`;
+    suffix += 1;
+  }
+  usedEntityIds.add(entityId);
+  return { id: entityId, matchedExisting: resolution.matchedExisting, score: resolution.score };
+}
+
+async function seededWorkingClusters(inputDocuments: RawDocument[], sentences: SentenceRecord[], registry: EntityRegistryEntry[]): Promise<WorkingCluster[]> {
+  const previousDocuments = await loadPreviousClusteredDocuments();
+  const previousById = new Map(previousDocuments.map((document) => [document.id, document]));
+  const sentenceGroups = sentencesByDocument(sentences);
+  const clusters = new Map<string, WorkingCluster>();
+  const seededDocumentIds = new Set<string>();
+
+  for (const document of inputDocuments) {
+    const previous = previousById.get(document.id);
+    if (!previous?.eventClusterId) continue;
+    const cluster = clusters.get(previous.eventClusterId)
+      ?? emptyWorkingCluster(previous.eventClusterId, previous.eventClusterTitle ?? previous.title, true, 1);
+    clusters.set(previous.eventClusterId, cluster);
+    addDocumentToCluster(cluster, document, sentenceGroups.get(document.id) ?? []);
+    seededDocumentIds.add(document.id);
+  }
+  for (const cluster of clusters.values()) rebuildClusterMetrics(cluster);
+
+  const seededClusters = [...clusters.values()];
+  const unassignedDocuments: RawDocument[] = [];
+  const threshold = assignmentThreshold();
+  for (const document of inputDocuments) {
+    if (seededDocumentIds.has(document.id)) continue;
+    const vector = documentVector(document);
+    const match = seededClusters
+      .map((cluster) => ({ cluster, score: cosine(vector, cluster.centroid) }))
+      .sort((left, right) => right.score - left.score)[0];
+    if (match && match.score >= threshold) {
+      addDocumentToCluster(match.cluster, document, sentenceGroups.get(document.id) ?? []);
+      rebuildClusterMetrics(match.cluster);
+    } else {
+      unassignedDocuments.push(document);
+    }
+  }
+
+  const usedEntityIds = new Set(seededClusters.map((cluster) => cluster.id));
+  if (unassignedDocuments.length > 0) {
+    const unassignedDocumentIds = new Set(unassignedDocuments.map((document) => document.id));
+    const unassignedSentences = sentences.filter((sentence) => unassignedDocumentIds.has(sentence.documentId));
+    const dbscanGroups = groupsFromLabels(unassignedSentences, dbscan(unassignedSentences));
+    const densityGroups = stableDensityGroups(dbscanGroups.flat());
+    const finalGroups = refineKMeans(densityGroups);
+    const documentById = new Map(inputDocuments.map((document) => [document.id, document]));
+    const assignedNewDocumentIds = new Set<string>();
+    for (const group of finalGroups) {
+      const documents = [...new Set(group.map((sentence) => sentence.documentId))]
+        .filter((documentId) => !assignedNewDocumentIds.has(documentId))
+        .map((documentId) => documentById.get(documentId))
+        .filter((document): document is RawDocument => Boolean(document));
+      if (documents.length === 0) continue;
+      const title = titleFor(documents, group);
+      const resolution = newClusterId(title, documents, registry, usedEntityIds);
+      const cluster = emptyWorkingCluster(resolution.id, title, resolution.matchedExisting, resolution.score);
+      for (const document of documents) addDocumentToCluster(cluster, document, sentenceGroups.get(document.id) ?? []);
+      for (const document of documents) assignedNewDocumentIds.add(document.id);
+      rebuildClusterMetrics(cluster);
+      seededClusters.push(cluster);
+    }
+  }
+  return seededClusters;
 }
 
 function qualityDecision(document: RawDocument, clusterSimilarity: number, outlierScore: number): Pick<RawDocument, "qualityScore" | "qualityDecision" | "outlier" | "outlierScore" | "outlierReasons"> {
@@ -386,51 +530,12 @@ export async function clusterByEventTitle(): Promise<{
   const inputDocuments = mergeClusterInputs(labeled.documents, queuedReviewDocuments);
 
   const sentences = makeSentences(inputDocuments);
-  const dbscanGroups = groupsFromLabels(sentences, dbscan(sentences));
-  const densityGroups = stableDensityGroups(dbscanGroups.flat());
-  const finalGroups = refineKMeans(densityGroups);
   const registry = await loadRegistry();
-  const documentById = new Map(inputDocuments.map((document) => [document.id, document]));
-  const usedEntityIds = new Set<string>();
+  const workingClusters = await seededWorkingClusters(inputDocuments, sentences, registry);
   const similarityByDocument = new Map<string, number>();
-
-  const workingClusters: WorkingCluster[] = finalGroups.map((group) => {
-    const documents = [...new Set(group.map((sentence) => sentence.documentId))]
-      .map((documentId) => documentById.get(documentId))
-      .filter((document): document is RawDocument => Boolean(document));
-    const title = titleFor(documents, group);
-    const resolution = registryId(title, documents, registry);
-    let entityId = resolution.id;
-    let suffix = 2;
-    while (usedEntityIds.has(entityId)) {
-      entityId = `${resolution.id}-${suffix}`;
-      suffix += 1;
-    }
-    usedEntityIds.add(entityId);
-
-    const centroid = averageVector(group.map((sentence) => sentence.vector));
-    const cluster: WorkingCluster = {
-      id: entityId,
-      title,
-      documents: new Map(documents.map((document) => [document.id, document])),
-      sentenceIds: group.map((sentence) => sentence.id),
-      labels: new Set(documents.flatMap((document) => document.labels ?? [])),
-      termCounts: new Map(),
-      confidences: new Map(),
-      centroid,
-      entityResolution: { method: "rag-vector-registry", matchedExisting: resolution.matchedExisting, score: resolution.score }
-    };
-
-    for (const document of documents) {
-      for (const token of tokens(`${document.title} ${document.content}`).slice(0, 120)) {
-        cluster.termCounts.set(token, (cluster.termCounts.get(token) ?? 0) + 1);
-      }
-      const similarity = rounded(Math.max(0.2, cosine(vectorize(`${document.title} ${document.content}`), centroid)));
-      similarityByDocument.set(document.id, similarity);
-      cluster.confidences.set(document.id, similarity);
-    }
-    return cluster;
-  });
+  for (const cluster of workingClusters) {
+    for (const [documentId, confidence] of cluster.confidences.entries()) similarityByDocument.set(documentId, confidence);
+  }
 
   const outlierScores = isolationScores(inputDocuments, similarityByDocument);
   const clusterByDocumentId = new Map<string, WorkingCluster>();

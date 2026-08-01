@@ -5,6 +5,12 @@ import { assertDeclaredCompliance, assertRobotsAllowed, waitForSourceInterval } 
 import { dataRoot, readJson, writeJson } from "./common.js";
 import type { RawDocument, SourceDefinition } from "./types.js";
 
+export type SourceFailure = {
+  sourceId: string;
+  sourceUrl?: string;
+  message: string;
+};
+
 type FetchedDocument = {
   id?: string;
   title?: string;
@@ -103,7 +109,13 @@ async function fetchSource(source: SourceDefinition): Promise<FetchedDocument[]>
   return [{ id: source.id, title: source.title, sourceUrl: source.url, content: stripHtml((await response.text()).slice(0, 2_000_000)) }];
 }
 
-export async function crawl(sources: SourceDefinition[]): Promise<{ stage: string; total: number; added: number; documents: RawDocument[] }> {
+export async function crawl(sources: SourceDefinition[]): Promise<{
+  stage: string;
+  total: number;
+  added: number;
+  sourceFailures: SourceFailure[];
+  documents: RawDocument[];
+}> {
   if (!Array.isArray(sources) || sources.length === 0) {
     throw new Error("역사 주제에 하나 이상의 sources 항목이 필요합니다.");
   }
@@ -122,9 +134,20 @@ export async function crawl(sources: SourceDefinition[]): Promise<{ stage: strin
   const knownHashes = new Set(existing.map((document) => createHash("sha256").update(document.content).digest("hex").slice(0, 16)));
   const existingBySource = new Map(existing.filter((document) => document.sourceUrl).map((document) => [document.sourceUrl, document]));
   const seenSourcesThisCycle = new Set<string>();
+  const sourceFailures: SourceFailure[] = [];
   let added = 0;
   for (const [index, source] of sources.entries()) {
-    const fetchedDocuments = await fetchSource(source);
+    let fetchedDocuments: FetchedDocument[];
+    try {
+      fetchedDocuments = await fetchSource(source);
+    } catch (error) {
+      sourceFailures.push({
+        sourceId: source.id ?? `source-${index + 1}`,
+        sourceUrl: source.url,
+        message: error instanceof Error ? error.message : String(error)
+      });
+      continue;
+    }
     if (fetchedDocuments.length === 0) continue;
     for (const [documentIndex, fetched] of fetchedDocuments.entries()) {
     const content = fetched.content;
@@ -193,7 +216,7 @@ export async function crawl(sources: SourceDefinition[]): Promise<{ stage: strin
     }
   }
 
-  const result = { stage: "crawled", total: documents.length, added, documents };
+  const result = { stage: "crawled", total: documents.length, added, sourceFailures, documents };
   await writeJson(outputPath, result);
   return result;
 }

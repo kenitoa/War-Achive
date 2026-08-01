@@ -45,7 +45,7 @@ NAS는 자료를 내려받고 GitHub에 기록을 올리는 발신 연결과 내
 - [ ] 발급 직후 한 번만 표시되는 토큰을 암호 관리자에 저장합니다.
 - [ ] 토큰을 Git, `usersetting.md`, 메신저, 화면 캡처에 남기지 않습니다.
 
-이 토큰은 NAS가 `kenitoa/warsachive` 저장소의 `web/content/archive.json`을 읽고 새 기록 한 건을 누적 커밋할 때 사용하는 필수 운영 설정입니다. 커밋의 push가 Pages 워크플로를 자동 실행합니다. 토큰 흐름은 제거하지 않으며, 실제 값이 로그·문서·채팅·화면 캡처에 노출된 경우에만 새 토큰을 발급해 NAS `back/.env`의 값을 교체합니다. 실제 토큰 호출은 이 PC에서 실행하지 않았으므로 NAS 설치 후 6번 절차로 확인해야 합니다.
+이 토큰은 NAS가 `kenitoa/warsachive` 저장소의 `web/content/archive/*.json`을 읽고 새 기록 한 건을 군집별 파일로 커밋할 때 사용하는 필수 운영 설정입니다. 커밋의 push가 Pages 워크플로를 자동 실행합니다. 토큰 흐름은 제거하지 않으며, 실제 값이 로그·문서·채팅·화면 캡처에 노출된 경우에만 새 토큰을 발급해 NAS `back/.env`의 값을 교체합니다. 실제 토큰 호출은 이 PC에서 실행하지 않았으므로 NAS 설치 후 6번 절차로 확인해야 합니다.
 
 ## 5. NAS 설치 실행
 
@@ -70,12 +70,12 @@ docker compose logs --tail=200 backend
 - [ ] GitHub 저장소의 **Actions** 탭에서 `Deploy front to GitHub Pages`를 수동 실행합니다.
 - [ ] 빌드와 deploy 작업이 모두 성공하는지 확인합니다.
 - [ ] GitHub Pages 주소를 열어 HTTPS로 표시되는지 확인합니다.
-- [ ] front 저장소에 `web/content/archive.json`이 있는지 확인합니다.
+- [ ] front 저장소에 `web/content/archive` 디렉터리가 있는지 확인합니다.
 - [ ] NAS 로그에서 publisher 오류가 없는지 확인합니다.
 - [ ] 정보화 기록이 생긴 뒤 10분 가공 구간을 지난 기록이 40분 발행 주기에서 `archive: publish 기록ID` 커밋으로 올라가는지 확인합니다.
 - [ ] 위 커밋의 push로 Pages Actions 실행이 추가되는지 확인합니다.
 - [ ] 새 기록이 한 번에 한 건만 공개되는지 확인합니다.
-- [ ] 이전 기록이 `archive.json`에 그대로 남아 누적되는지 확인합니다.
+- [ ] 이전 기록이 `web/content/archive/{recordId}.json` 파일로 남아 누적되는지 확인합니다.
 
 점검 명령:
 
@@ -83,7 +83,7 @@ docker compose logs --tail=200 backend
 docker compose logs -f --tail=200 backend
 ```
 
-GitHub 호출이 `401`이면 토큰 값 또는 만료 여부, `403`이면 저장소 선택과 Contents 쓰기 권한, `404`이면 `GITHUB_FRONT_REPOSITORY`와 `web/content/archive.json` 경로, `409`이면 같은 파일의 동시 변경, `422`이면 `main` 브랜치와 파일 형식을 확인합니다.
+GitHub 호출이 `401`이면 토큰 값 또는 만료 여부, `403`이면 저장소 선택과 Contents 쓰기 권한, `404`이면 `GITHUB_FRONT_REPOSITORY`와 `web/content/archive` 경로, `409`이면 같은 파일의 동시 변경, `422`이면 `main` 브랜치와 record JSON 형식을 확인합니다.
 
 ## 7. 합법적 최대 수집을 위한 출처 등록 원칙
 

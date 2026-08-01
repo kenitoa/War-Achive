@@ -1,0 +1,10 @@
+.env
+back/.env
+front/.env*
+node_modules/
+dist/
+.local-data/
+back/.local-data/
+npm-debug.log*
+*.tsbuildinfo
+.DS_Store

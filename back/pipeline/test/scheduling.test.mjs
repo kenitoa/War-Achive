@@ -31,6 +31,8 @@ before(async () => {
   process.env.WAR_ARCHIVE_DATA_ROOT = directory;
   process.env.WAR_ARCHIVE_TOPICS_PATH = topicsPath;
   process.env.WAR_ARCHIVE_FRONT_ARCHIVE_PATH = join(directory, "front-archive.json");
+  delete process.env.WAR_ARCHIVE_FRONT_ARCHIVE_DIR;
+  delete process.env.GITHUB_FRONT_ARCHIVE_DIR;
   delete process.env.GITHUB_PUBLISH_DISABLED;
   process.env.PROCESSING_DELAY_MS = "0";
   process.env.COLLECTION_SHUFFLE_SOURCES = "false";
@@ -41,6 +43,8 @@ after(async () => {
   delete process.env.WAR_ARCHIVE_TOPICS_PATH;
   delete process.env.GITHUB_PUBLISH_DISABLED;
   delete process.env.WAR_ARCHIVE_FRONT_ARCHIVE_PATH;
+  delete process.env.WAR_ARCHIVE_FRONT_ARCHIVE_DIR;
+  delete process.env.GITHUB_FRONT_ARCHIVE_DIR;
   delete process.env.PROCESSING_DELAY_MS;
   delete process.env.COLLECTION_SHUFFLE_SOURCES;
   await rm(directory, { recursive: true, force: true });
@@ -58,6 +62,157 @@ test("one collection cycle sweeps all registered sources and deduplicates repeat
   assert.equal(records.total, 1);
   assert.equal(records.items[0].id, "imjin-war");
   assert.equal(records.items[0].documentCount, 2);
+});
+
+test("collection advances paginated API sources across repeated cycles", async () => {
+  const pagedRoot = await mkdtemp(join(tmpdir(), "war-archive-paged-"));
+  const topicsPath = join(pagedRoot, "topics.json");
+  const previousFetch = globalThis.fetch;
+  process.env.WAR_ARCHIVE_DATA_ROOT = pagedRoot;
+  process.env.WAR_ARCHIVE_TOPICS_PATH = topicsPath;
+  process.env.COLLECTION_API_PAGES_PER_SOURCE = "2";
+  process.env.COLLECTION_SHUFFLE_SOURCES = "false";
+  globalThis.fetch = async (url) => {
+    const page = new URL(String(url)).searchParams.get("page") ?? "1";
+    return new Response(JSON.stringify({
+      items: [{
+        id: `item-${page}`,
+        title: `Historical page ${page}`,
+        body: `History archive battle record for page ${page}.`,
+        url: `https://example.invalid/items/${page}`
+      }]
+    }), { status: 200, headers: { "content-type": "application/json" } });
+  };
+  await writeFile(topicsPath, JSON.stringify({
+    topics: [{
+      id: "paged",
+      title: "Paged API",
+      period: "1900",
+      region: "A",
+      sources: [{
+        id: "api",
+        kind: "api-json",
+        url: "https://example.invalid/search?page=1",
+        api: {
+          itemPath: "items",
+          idPath: "id",
+          titlePath: "title",
+          contentPaths: ["title", "body"],
+          urlPath: "url",
+          maxItems: 10,
+          pagination: { strategy: "query-param", param: "page", start: 1, step: 1 }
+        },
+        compliance: {
+          reviewedAt: "2026-08-01",
+          crawlAllowed: true,
+          termsUrl: "https://example.invalid/terms",
+          copyrightUrl: "https://example.invalid/copyright",
+          minIntervalMs: 1000
+        }
+      }]
+    }]
+  }), "utf-8");
+  try {
+    const first = await collectSourceCycle();
+    const second = await collectSourceCycle();
+    const raw = JSON.parse(await readFile(join(pagedRoot, "raw", "documents.json"), "utf-8"));
+    const state = JSON.parse(await readFile(join(pagedRoot, "state", "collection.json"), "utf-8"));
+    assert.equal(first.addedDocuments, 2);
+    assert.equal(second.addedDocuments, 2);
+    assert.equal(raw.documents.length, 4);
+    assert.equal(state.sourceCursors["paged-api"], 5);
+  } finally {
+    if (previousFetch) globalThis.fetch = previousFetch;
+    else delete globalThis.fetch;
+    process.env.WAR_ARCHIVE_DATA_ROOT = directory;
+    process.env.WAR_ARCHIVE_TOPICS_PATH = join(directory, "topics.json");
+    process.env.COLLECTION_SHUFFLE_SOURCES = "false";
+    delete process.env.COLLECTION_API_PAGES_PER_SOURCE;
+    await rm(pagedRoot, { recursive: true, force: true });
+  }
+});
+
+test("collection does not advance API cursor when a paginated source page fails", async () => {
+  const pagedRoot = await mkdtemp(join(tmpdir(), "war-archive-paged-failure-"));
+  const topicsPath = join(pagedRoot, "topics.json");
+  const previousFetch = globalThis.fetch;
+  process.env.WAR_ARCHIVE_DATA_ROOT = pagedRoot;
+  process.env.WAR_ARCHIVE_TOPICS_PATH = topicsPath;
+  process.env.COLLECTION_API_PAGES_PER_SOURCE = "2";
+  process.env.COLLECTION_SHUFFLE_SOURCES = "false";
+  globalThis.fetch = async (url) => {
+    const page = new URL(String(url)).searchParams.get("page") ?? "1";
+    if (page === "2") return new Response("temporary failure", { status: 503 });
+    return new Response(JSON.stringify({
+      items: [{
+        id: `item-${page}`,
+        title: `Historical page ${page}`,
+        body: `History archive battle record for page ${page}.`,
+        url: `https://example.invalid/items/${page}`
+      }]
+    }), { status: 200, headers: { "content-type": "application/json" } });
+  };
+  await writeFile(topicsPath, JSON.stringify({
+    topics: [{
+      id: "paged",
+      title: "Paged API",
+      period: "1900",
+      region: "A",
+      sources: [{
+        id: "api",
+        kind: "api-json",
+        url: "https://example.invalid/search?page=1",
+        api: {
+          itemPath: "items",
+          idPath: "id",
+          titlePath: "title",
+          contentPaths: ["title", "body"],
+          urlPath: "url",
+          maxItems: 10,
+          pagination: { strategy: "query-param", param: "page", start: 1, step: 1 }
+        },
+        compliance: {
+          reviewedAt: "2026-08-01",
+          crawlAllowed: true,
+          termsUrl: "https://example.invalid/terms",
+          copyrightUrl: "https://example.invalid/copyright",
+          minIntervalMs: 1000
+        }
+      }]
+    }]
+  }), "utf-8");
+  try {
+    const result = await collectSourceCycle();
+    const state = JSON.parse(await readFile(join(pagedRoot, "state", "collection.json"), "utf-8"));
+    assert.equal(result.addedDocuments, 1);
+    assert.equal(result.failedSources, 1);
+    assert.equal(state.sourceCursors?.["paged-api"], undefined);
+    assert.equal(state.lastPartialErrors.length, 1);
+  } finally {
+    if (previousFetch) globalThis.fetch = previousFetch;
+    else delete globalThis.fetch;
+    process.env.WAR_ARCHIVE_DATA_ROOT = directory;
+    process.env.WAR_ARCHIVE_TOPICS_PATH = join(directory, "topics.json");
+    process.env.COLLECTION_SHUFFLE_SOURCES = "false";
+    delete process.env.COLLECTION_API_PAGES_PER_SOURCE;
+    await rm(pagedRoot, { recursive: true, force: true });
+  }
+});
+
+test("collection stores direct-run failures in collection state", async () => {
+  const failureRoot = await mkdtemp(join(tmpdir(), "war-archive-collect-state-failure-"));
+  process.env.WAR_ARCHIVE_DATA_ROOT = failureRoot;
+  process.env.WAR_ARCHIVE_TOPICS_PATH = join(failureRoot, "missing-topics.json");
+  try {
+    await assert.rejects(() => collectSourceCycle(), /ENOENT|no such file/i);
+    const state = JSON.parse(await readFile(join(failureRoot, "state", "collection.json"), "utf-8"));
+    assert.match(state.lastError, /ENOENT|no such file/i);
+    assert.ok(state.lastAttemptedAt);
+  } finally {
+    process.env.WAR_ARCHIVE_DATA_ROOT = directory;
+    process.env.WAR_ARCHIVE_TOPICS_PATH = join(directory, "topics.json");
+    await rm(failureRoot, { recursive: true, force: true });
+  }
 });
 
 test("same URL updates overwrite the existing raw document with changed fragments", async () => {
@@ -100,6 +255,39 @@ test("same URL updates overwrite the existing raw document with changed fragment
   }
 });
 
+test("source failures do not block successful collection artifacts", async () => {
+  const partialRoot = await mkdtemp(join(tmpdir(), "war-archive-partial-"));
+  const topicsPath = join(partialRoot, "topics.json");
+  process.env.WAR_ARCHIVE_DATA_ROOT = partialRoot;
+  process.env.WAR_ARCHIVE_TOPICS_PATH = topicsPath;
+  await writeFile(topicsPath, JSON.stringify({
+    topics: [{
+      id: "partial",
+      title: "Partial source event",
+      period: "1900",
+      region: "A",
+      sources: [
+        { id: "good", kind: "inline", url: "internal://partial/good", content: "History battle archive record with enough source material." },
+        { id: "bad", kind: "url", url: "https://example.invalid/bad" }
+      ]
+    }]
+  }), "utf-8");
+  try {
+    const result = await collectSourceCycle();
+    const raw = JSON.parse(await readFile(join(partialRoot, "raw", "documents.json"), "utf-8"));
+    const state = JSON.parse(await readFile(join(partialRoot, "state", "collection.json"), "utf-8"));
+    assert.equal(result.addedDocuments, 1);
+    assert.equal(result.failedSources, 1);
+    assert.equal(raw.documents.length, 1);
+    assert.equal(raw.sourceFailures.length, 1);
+    assert.equal(state.lastPartialErrors.length, 1);
+  } finally {
+    process.env.WAR_ARCHIVE_DATA_ROOT = directory;
+    process.env.WAR_ARCHIVE_TOPICS_PATH = join(directory, "topics.json");
+    await rm(partialRoot, { recursive: true, force: true });
+  }
+});
+
 test("publisher releases at most one pending record per call", async () => {
   const first = await publishNextRecord();
   const second = await publishNextRecord();
@@ -108,6 +296,64 @@ test("publisher releases at most one pending record per call", async () => {
   const state = JSON.parse(await readFile(join(directory, "state", "publication.json"), "utf-8"));
   assert.deepEqual(state.publishedTopicIds, ["imjin-war"]);
   assert.ok(state.lastPublishedAt);
+});
+
+test("publisher stores GitHub credential read failures in publication state", async () => {
+  const authRoot = await mkdtemp(join(tmpdir(), "war-archive-auth-failure-"));
+  const previousFetch = globalThis.fetch;
+  const previousRepository = process.env.GITHUB_FRONT_REPOSITORY;
+  const previousToken = process.env.GITHUB_FRONT_TOKEN;
+  const previousRef = process.env.GITHUB_FRONT_REF;
+  const previousArchiveDir = process.env.GITHUB_FRONT_ARCHIVE_DIR;
+  const previousFrontArchivePath = process.env.WAR_ARCHIVE_FRONT_ARCHIVE_PATH;
+  process.env.WAR_ARCHIVE_DATA_ROOT = authRoot;
+  process.env.PROCESSING_DELAY_MS = "0";
+  delete process.env.WAR_ARCHIVE_FRONT_ARCHIVE_PATH;
+  process.env.GITHUB_FRONT_REPOSITORY = "owner/front";
+  process.env.GITHUB_FRONT_TOKEN = "bad-token";
+  process.env.GITHUB_FRONT_REF = "main";
+  process.env.GITHUB_FRONT_ARCHIVE_DIR = "web/content/archive";
+  globalThis.fetch = async () => new Response(JSON.stringify({
+    message: "Bad credentials",
+    documentation_url: "https://docs.github.com/rest",
+    status: "401"
+  }), { status: 401, headers: { "content-type": "application/json" } });
+  await mkdir(join(authRoot, "informationized"), { recursive: true });
+  await writeFile(join(authRoot, "informationized", "records.json"), JSON.stringify({
+    items: [{
+      id: "auth-failure",
+      title: "Auth failure record",
+      period: "1",
+      region: "A",
+      summary: "ready",
+      sourceCount: 1,
+      qualityScore: 1,
+      collectedAt: new Date(0).toISOString()
+    }]
+  }), "utf-8");
+
+  try {
+    await assert.rejects(() => publishNextRecord(), /GITHUB_FRONT_TOKEN is not accepted/);
+    const state = JSON.parse(await readFile(join(authRoot, "state", "publication.json"), "utf-8"));
+    assert.match(state.lastError, /GitHub published archive directory read failed for owner\/front: 401/);
+    assert.match(state.lastError, /GITHUB_FRONT_TOKEN is not accepted/);
+    assert.ok(state.lastAttemptedAt);
+  } finally {
+    if (previousFetch) globalThis.fetch = previousFetch;
+    else delete globalThis.fetch;
+    process.env.WAR_ARCHIVE_DATA_ROOT = directory;
+    process.env.WAR_ARCHIVE_FRONT_ARCHIVE_PATH = previousFrontArchivePath ?? join(directory, "front-archive.json");
+    process.env.PROCESSING_DELAY_MS = "0";
+    if (previousRepository === undefined) delete process.env.GITHUB_FRONT_REPOSITORY;
+    else process.env.GITHUB_FRONT_REPOSITORY = previousRepository;
+    if (previousToken === undefined) delete process.env.GITHUB_FRONT_TOKEN;
+    else process.env.GITHUB_FRONT_TOKEN = previousToken;
+    if (previousRef === undefined) delete process.env.GITHUB_FRONT_REF;
+    else process.env.GITHUB_FRONT_REF = previousRef;
+    if (previousArchiveDir === undefined) delete process.env.GITHUB_FRONT_ARCHIVE_DIR;
+    else process.env.GITHUB_FRONT_ARCHIVE_DIR = previousArchiveDir;
+    await rm(authRoot, { recursive: true, force: true });
+  }
 });
 
 test("publisher repairs stale published state from the verified archive snapshot", async () => {
@@ -198,6 +444,27 @@ test("publisher skips records below the publication quality threshold", async ()
   }
 });
 
+test("publisher records heartbeat when no publishable records exist", async () => {
+  const heartbeatRoot = await mkdtemp(join(tmpdir(), "war-archive-publisher-heartbeat-"));
+  process.env.WAR_ARCHIVE_DATA_ROOT = heartbeatRoot;
+  process.env.WAR_ARCHIVE_FRONT_ARCHIVE_PATH = join(heartbeatRoot, "front-archive.json");
+  process.env.PROCESSING_DELAY_MS = "0";
+  await mkdir(join(heartbeatRoot, "informationized"), { recursive: true });
+  await writeFile(join(heartbeatRoot, "informationized", "records.json"), JSON.stringify({ items: [] }), "utf-8");
+  try {
+    const result = await publishNextRecord();
+    const state = JSON.parse(await readFile(join(heartbeatRoot, "state", "publication.json"), "utf-8"));
+    assert.equal(result.published, false);
+    assert.ok(state.lastAttemptedAt);
+    assert.deepEqual(state.publishedTopicIds, []);
+  } finally {
+    process.env.WAR_ARCHIVE_DATA_ROOT = directory;
+    process.env.WAR_ARCHIVE_FRONT_ARCHIVE_PATH = join(directory, "front-archive.json");
+    process.env.PROCESSING_DELAY_MS = "0";
+    await rm(heartbeatRoot, { recursive: true, force: true });
+  }
+});
+
 test("disabled publication does not mark a record as publicly published", async () => {
   const disabledRoot = await mkdtemp(join(tmpdir(), "war-archive-disabled-"));
   process.env.WAR_ARCHIVE_DATA_ROOT = disabledRoot;
@@ -248,6 +515,55 @@ test("review documents are persisted and reconsidered with later clustering inpu
   }
 });
 
+test("new documents attach to existing seeded clusters or form new clusters", async () => {
+  const clusterRoot = await mkdtemp(join(tmpdir(), "war-archive-seeded-cluster-"));
+  process.env.WAR_ARCHIVE_DATA_ROOT = clusterRoot;
+  const base = {
+    period: "1",
+    region: "A",
+    collectedAt: new Date().toISOString(),
+    labels: ["battle"],
+    reliability: "high",
+    sourceReliabilityScore: 0.9,
+    relevanceScore: 0.9
+  };
+  const doc = (id, title, content, clusterId, clusterTitle) => ({
+    ...base,
+    id,
+    topicId: id,
+    title,
+    sourceUrl: `https://example.invalid/${id}`,
+    content,
+    ...(clusterId ? { eventClusterId: clusterId, eventClusterTitle: clusterTitle } : {})
+  });
+  const a = doc("a", "Naval blockade", "naval blockade admiral fleet sea cannon busan naval fleet battle", "cluster-a", "Naval blockade");
+  const b = doc("b", "Fleet battle", "admiral naval fleet sea cannon blockade busan naval combat", "cluster-a", "Naval blockade");
+  const c = doc("c", "Treaty mission", "armistice treaty envoy diplomacy negotiation court embassy treaty", "cluster-b", "Treaty mission");
+  const d = doc("d", "Envoy negotiation", "diplomacy envoy treaty court embassy armistice negotiation", "cluster-b", "Treaty mission");
+  const e = doc("e", "New naval evidence", "naval admiral fleet cannon sea blockade busan battle evidence");
+  const f = doc("f", "Field hospital", "field hospital plague quarantine medicine surgeon epidemic medical");
+  const g = doc("g", "New treaty evidence", "treaty envoy diplomacy armistice court embassy negotiation evidence");
+  const h = doc("h", "Quarantine record", "plague quarantine field hospital medicine surgeon epidemic record");
+  await mkdir(join(clusterRoot, "labeled"), { recursive: true });
+  await mkdir(join(clusterRoot, "clustered"), { recursive: true });
+  await writeFile(join(clusterRoot, "clustered", "documents.json"), JSON.stringify({ documents: [a, b, c, d] }), "utf-8");
+  await writeFile(join(clusterRoot, "labeled", "documents.json"), JSON.stringify({ documents: [a, b, c, d, e, f, g, h] }), "utf-8");
+  try {
+    await clusterByEventTitle();
+    const clustered = JSON.parse(await readFile(join(clusterRoot, "clustered", "documents.json"), "utf-8"));
+    const byId = new Map(clustered.documents.map((document) => [document.id, document]));
+    assert.equal(byId.get("e").eventClusterId, "cluster-a");
+    assert.equal(byId.get("g").eventClusterId, "cluster-b");
+    assert.notEqual(byId.get("f").eventClusterId, "cluster-a");
+    assert.notEqual(byId.get("f").eventClusterId, "cluster-b");
+    assert.equal(byId.get("f").eventClusterId, byId.get("h").eventClusterId);
+  } finally {
+    process.env.WAR_ARCHIVE_DATA_ROOT = directory;
+    process.env.WAR_ARCHIVE_FRONT_ARCHIVE_PATH = join(directory, "front-archive.json");
+    await rm(clusterRoot, { recursive: true, force: true });
+  }
+});
+
 test("informationization excludes review documents from publishable records", async () => {
   const informationRoot = await mkdtemp(join(tmpdir(), "war-archive-information-"));
   process.env.WAR_ARCHIVE_DATA_ROOT = informationRoot;
@@ -281,64 +597,83 @@ test("front archive push accumulates unique records and updates changed event cl
   assert.equal(updated[0].documentCount, 4);
 });
 
-test("GitHub publisher writes the cumulative archive file to the front repository", async () => {
+test("GitHub publisher writes an archive record file to the front repository", async () => {
   const originalFetch = globalThis.fetch;
   const previousLocalArchivePath = process.env.WAR_ARCHIVE_FRONT_ARCHIVE_PATH;
+  const previousArchiveDir = process.env.GITHUB_FRONT_ARCHIVE_DIR;
   const first = { id: "first", title: "첫 기록", period: "1", region: "A", summary: "첫 자료", sourceCount: 1 };
   const second = { id: "second", title: "둘째 기록", period: "2", region: "B", summary: "둘째 자료", sourceCount: 2 };
-  let updateBody;
-  let storedContent = Buffer.from(JSON.stringify({ version: 1, items: [first] })).toString("base64");
+  const files = new Map([
+    ["web/content/archive/first.json", { sha: "first-sha", content: first }]
+  ]);
+  const updateBodies = new Map();
   delete process.env.WAR_ARCHIVE_FRONT_ARCHIVE_PATH;
   delete process.env.GITHUB_PUBLISH_DISABLED;
   process.env.GITHUB_FRONT_REPOSITORY = "owner/front";
   process.env.GITHUB_FRONT_TOKEN = "test-token";
-  globalThis.fetch = async (_input, init = {}) => {
+  process.env.GITHUB_FRONT_ARCHIVE_DIR = "web/content/archive";
+  globalThis.fetch = async (input, init = {}) => {
+    const url = String(input);
+    const path = decodeURIComponent(url.match(/\/contents\/([^?]+)/)?.[1] ?? "");
     if (init.method === "PUT") {
-      updateBody = JSON.parse(String(init.body));
-      storedContent = updateBody.content;
+      const body = JSON.parse(String(init.body));
+      updateBodies.set(path, body);
+      files.set(path, { sha: `${path}-sha`, content: JSON.parse(Buffer.from(body.content, "base64").toString("utf-8")) });
       return new Response(JSON.stringify({ commit: { sha: "new-sha" } }), { status: 200, headers: { "content-type": "application/json" } });
     }
+    if (path === "web/content/archive") {
+      return new Response(JSON.stringify([...files.entries()].map(([filePath]) => ({
+        type: "file",
+        name: filePath.split("/").at(-1),
+        path: filePath
+      }))), { status: 200, headers: { "content-type": "application/json" } });
+    }
+    const file = files.get(path);
+    if (!file) return new Response(JSON.stringify({ message: "Not Found" }), { status: 404, headers: { "content-type": "application/json" } });
     return new Response(JSON.stringify({
       type: "file",
       encoding: "base64",
-      sha: "old-sha",
-      content: storedContent
+      sha: file.sha,
+      content: Buffer.from(JSON.stringify(file.content)).toString("base64")
     }), { status: 200, headers: { "content-type": "application/json" } });
   };
   try {
     await pushRecordToFront(second);
-    const written = JSON.parse(Buffer.from(updateBody.content, "base64").toString("utf-8"));
-    assert.deepEqual(written.items.map((record) => record.id), ["first", "second"]);
-    assert.equal(updateBody.sha, "old-sha");
-    assert.equal(updateBody.branch, "main");
+    assert.deepEqual(files.get("web/content/archive/second.json")?.content, second);
+    assert.equal(updateBodies.get("web/content/archive/second.json").branch, "main");
+    assert.equal(updateBodies.has("web/content/archive/index.json"), true);
   } finally {
     globalThis.fetch = originalFetch;
     process.env.GITHUB_PUBLISH_DISABLED = "true";
     if (previousLocalArchivePath === undefined) delete process.env.WAR_ARCHIVE_FRONT_ARCHIVE_PATH;
     else process.env.WAR_ARCHIVE_FRONT_ARCHIVE_PATH = previousLocalArchivePath;
+    if (previousArchiveDir === undefined) delete process.env.GITHUB_FRONT_ARCHIVE_DIR;
+    else process.env.GITHUB_FRONT_ARCHIVE_DIR = previousArchiveDir;
     delete process.env.GITHUB_FRONT_REPOSITORY;
     delete process.env.GITHUB_FRONT_TOKEN;
   }
 });
 
-test("local publisher writes the cumulative archive file without a GitHub token", async () => {
-  const archivePath = join(directory, "front-archive.json");
-  await writeFile(archivePath, JSON.stringify({
-    version: 1,
-    items: [{ id: "first", title: "첫 기록", period: "1", region: "A", summary: "첫 자료", sourceCount: 1 }]
-  }), "utf-8");
+test("local publisher writes archive record files without a GitHub token", async () => {
+  const archiveDir = join(directory, "front-archive");
+  await mkdir(archiveDir, { recursive: true });
+  await writeFile(join(archiveDir, "first.json"), JSON.stringify({ id: "first", title: "첫 기록", period: "1", region: "A", summary: "첫 자료", sourceCount: 1 }), "utf-8");
   const candidate = { id: "local-second", title: "로컬 기록", period: "2", region: "B", summary: "로컬 자료", sourceCount: 1 };
   const previousDisabled = process.env.GITHUB_PUBLISH_DISABLED;
-  process.env.WAR_ARCHIVE_FRONT_ARCHIVE_PATH = archivePath;
+  const previousLocalArchivePath = process.env.WAR_ARCHIVE_FRONT_ARCHIVE_PATH;
+  process.env.WAR_ARCHIVE_FRONT_ARCHIVE_DIR = archiveDir;
+  delete process.env.WAR_ARCHIVE_FRONT_ARCHIVE_PATH;
   process.env.GITHUB_PUBLISH_DISABLED = "true";
   try {
     await pushRecordToFront(candidate);
-    const written = JSON.parse(await readFile(archivePath, "utf-8"));
-    const snapshot = JSON.parse(await readFile(join(directory, "published", "archive.json"), "utf-8"));
-    assert.deepEqual(written.items.map((record) => record.id), ["first", "local-second"]);
+    const written = JSON.parse(await readFile(join(archiveDir, "local-second.json"), "utf-8"));
+    const snapshot = JSON.parse(await readFile(join(directory, "published", "archive", "index.json"), "utf-8"));
+    assert.equal(written.id, "local-second");
     assert.deepEqual(snapshot.items.map((record) => record.id), ["first", "local-second"]);
   } finally {
-    delete process.env.WAR_ARCHIVE_FRONT_ARCHIVE_PATH;
+    delete process.env.WAR_ARCHIVE_FRONT_ARCHIVE_DIR;
+    if (previousLocalArchivePath === undefined) delete process.env.WAR_ARCHIVE_FRONT_ARCHIVE_PATH;
+    else process.env.WAR_ARCHIVE_FRONT_ARCHIVE_PATH = previousLocalArchivePath;
     if (previousDisabled === undefined) delete process.env.GITHUB_PUBLISH_DISABLED;
     else process.env.GITHUB_PUBLISH_DISABLED = previousDisabled;
   }

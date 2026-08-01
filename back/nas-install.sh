@@ -65,7 +65,7 @@ if [ ! -f .env ]; then
     echo "GITHUB_FRONT_REPOSITORY=$github_repository"
     echo "GITHUB_FRONT_TOKEN=$github_token"
     echo "GITHUB_FRONT_REF=main"
-    echo "GITHUB_FRONT_CONTENT_PATH=web/content/archive.json"
+    echo "GITHUB_FRONT_ARCHIVE_DIR=web/content/archive"
     echo "SMITHSONIAN_API_KEY="
     echo "EUROPEANA_API_KEY="
     echo "DPLA_API_KEY="
@@ -113,6 +113,6 @@ while :; do
 done
 
 echo "War Archive collector is running. No public API domain or internet-facing port is required."
-echo "Published records will accumulate in the front repository at web/content/archive.json."
+echo "Published records will accumulate in the front repository under web/content/archive/*.json."
 echo "Admin dashboard: http://NAS-IP:${ADMIN_PORT:-9231} (LAN access only)"
 echo "Admin token is stored only in back/.env as WAR_ARCHIVE_ADMIN_TOKEN."

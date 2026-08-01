@@ -27,7 +27,7 @@ while (true) {
   try {
     const result = await collectSourceCycle();
     console.log(result.collected
-      ? `[collector] swept ${result.topicIds.length} topics, ${result.attemptedSources} sources, ${result.addedDocuments} new documents`
+      ? `[collector] swept ${result.topicIds.length} topics, ${result.attemptedSources} sources, ${result.addedDocuments} new documents, ${result.failedSources} failed sources`
       : "[collector] no configured topics");
   } catch (error) {
     console.error("[collector] collection failed", error);

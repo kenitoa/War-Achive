@@ -13,14 +13,27 @@ const adminToken = "test-admin-token-value-1234567890";
 before(async () => {
   directory = await mkdtemp(join(tmpdir(), "war-archive-admin-"));
   const topicsPath = join(directory, "topics.json");
+  const seedPath = join(directory, "seed.md");
   await mkdir(join(directory, "state"), { recursive: true });
   await mkdir(join(directory, "raw"), { recursive: true });
   await mkdir(join(directory, "labeled"), { recursive: true });
   await mkdir(join(directory, "clustered"), { recursive: true });
   await mkdir(join(directory, "informationized"), { recursive: true });
-  await mkdir(join(directory, "published"), { recursive: true });
+  await mkdir(join(directory, "published", "archive"), { recursive: true });
   await mkdir(join(directory, "review"), { recursive: true });
-  await writeFile(topicsPath, JSON.stringify({ topics: [{ id: "topic-1" }, { id: "topic-2" }] }), "utf-8");
+  await writeFile(seedPath, "History archive seed document.", "utf-8");
+  await writeFile(topicsPath, JSON.stringify({
+    topics: [
+      {
+        id: "topic-1",
+        title: "Topic 1",
+        period: "1592",
+        region: "조선",
+        sources: [{ id: "seed", kind: "file", path: seedPath, url: "internal://test/seed" }]
+      },
+      { id: "topic-2", title: "Topic 2", period: "1593", region: "조선", sources: [] }
+    ]
+  }), "utf-8");
   await writeFile(join(directory, "state", "collection.json"), JSON.stringify({ collectedTopicIds: ["topic-1"], lastCollectedAt: "2026-07-12T00:00:00Z" }), "utf-8");
   await writeFile(join(directory, "state", "publication.json"), JSON.stringify({ publishedTopicIds: ["topic-1"], lastPublishedAt: "2026-07-12T00:10:00Z" }), "utf-8");
   await writeFile(join(directory, "raw", "documents.json"), JSON.stringify({ documents: [{ id: "raw-1" }] }), "utf-8");
@@ -47,9 +60,28 @@ before(async () => {
       entityResolution: { method: "rag-vector-registry", matchedExisting: false, score: 0 }
     }]
   }), "utf-8");
-  await writeFile(join(directory, "informationized", "records.json"), JSON.stringify({ items: [{ id: "topic-1", title: "첫 기록", period: "1592", region: "조선" }] }), "utf-8");
+  await writeFile(join(directory, "informationized", "records.json"), JSON.stringify({
+    items: [{
+      id: "topic-1",
+      title: "첫 기록",
+      period: "1592",
+      region: "조선",
+      documentIds: ["raw-1", "raw-2"],
+      sourceUrls: ["internal://test/a", "internal://test/b"]
+    }]
+  }), "utf-8");
 
-  await writeFile(join(directory, "published", "archive.json"), JSON.stringify({ version: 1, items: [{ id: "topic-1", title: "First record" }] }), "utf-8");
+  await writeFile(join(directory, "published", "archive", "topic-1.json"), JSON.stringify({
+    id: "topic-1",
+    title: "First record",
+    documentIds: ["raw-1", "raw-2"],
+    sourceUrls: ["internal://test/a", "internal://test/b"]
+  }), "utf-8");
+  await writeFile(join(directory, "published", "archive", "index.json"), JSON.stringify({
+    version: 1,
+    updatedAt: "2026-07-12T00:10:00Z",
+    items: [{ id: "topic-1", path: "topic-1.json", title: "First record", fingerprint: "test", updatedAt: "2026-07-12T00:10:00Z" }]
+  }), "utf-8");
   await writeFile(join(directory, "review", "documents.json"), JSON.stringify({ version: 1, documents: [] }), "utf-8");
 
   baseUrl = await new Promise((resolve, reject) => {
@@ -86,7 +118,12 @@ test("admin status API reads NAS pipeline state without exposing credentials", a
     clusteredDocuments: 1,
     eventClusters: 1,
     informationizedRecords: 1,
-    publishedRecords: 1
+    informationizedDocuments: 2,
+    informationizedSources: 2,
+    publishedRecords: 1,
+    publishedDocuments: 2,
+    publishedSources: 2,
+    reviewDocuments: 0
   });
   assert.equal(status.state.nextTopicId, "all-configured-sources");
   assert.equal(status.schedules.processingDelayMs, 10 * 60 * 1000);
@@ -98,6 +135,24 @@ test("admin status API reads NAS pipeline state without exposing credentials", a
 test("admin status API rejects missing token", async () => {
   const response = await fetch(`${baseUrl}/api/status`);
   assert.equal(response.status, 401);
+});
+
+test("admin action API runs built pipeline commands directly", async () => {
+  const response = await fetch(`${baseUrl}/api/actions`, {
+    method: "POST",
+    headers: {
+      authorization: `Bearer ${adminToken}`,
+      "content-type": "application/json"
+    },
+    body: JSON.stringify({ action: "audit" })
+  });
+  const payload = await response.json();
+  assert.equal(response.status, 200);
+  assert.equal(payload.status, "completed");
+  assert.match(payload.output, /approved-local/);
+  assert.equal(payload.output.includes("npm error"), false);
+  assert.equal(payload.deltas.rawDocuments, 0);
+  assert.equal(payload.deltas.publishedDocuments, 0);
 });
 
 test("admin server returns the built React page", async () => {

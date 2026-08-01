@@ -22,7 +22,7 @@ async function recordPublicationFailure(error: unknown): Promise<void> {
 console.log(`[publisher] one processed record every ${intervalMs}ms after ${processingDelayMs}ms processing window`);
 while (true) {
   const state = await loadPublicationState();
-  const remaining = state.pendingTopicId ? 0 : remainingDelay(state.lastPublishedAt, intervalMs);
+  const remaining = state.pendingTopicId ? 0 : remainingDelay(state.lastAttemptedAt ?? state.lastPublishedAt, intervalMs);
   if (remaining > 0) await sleep(remaining);
 
   let nextDelayMs = intervalMs;

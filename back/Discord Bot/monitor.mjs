@@ -45,7 +45,7 @@ const issueCatalog = {
   },
   PUBLISH_FAILED_CONFLICT: {
     severity: "warning",
-    causes: ["archive.json changed between read and write", "parallel publisher run", "manual GitHub edit"],
+    causes: ["archive record JSON changed between read and write", "parallel publisher run", "manual GitHub edit"],
     fixes: ["wait for next retry", "stop duplicate publishers", "compare publication-history.json before rollback"]
   },
   PUBLISH_FAILED_RATE_LIMIT: {
@@ -56,7 +56,7 @@ const issueCatalog = {
   PUBLISH_FAILED_VALIDATION: {
     severity: "critical",
     causes: ["invalid archive JSON", "branch protection", "invalid path", "malformed commit body"],
-    fixes: ["run npm test", "check branch protection and GITHUB_FRONT_CONTENT_PATH", "use admin rollback if a bad archive was pushed"]
+    fixes: ["run npm test", "check branch protection and GITHUB_FRONT_ARCHIVE_DIR", "use admin rollback if a bad archive record was pushed"]
   },
   COLLECTOR_STALLED: {
     severity: "critical",
@@ -76,7 +76,7 @@ const issueCatalog = {
   URL_UPDATES_DETECTED: {
     severity: "info",
     causes: ["same URL content changed", "source corrected metadata", "new sentences added to an existing item"],
-    fixes: ["confirm changedFragments", "verify updated cluster record", "publish will overwrite same archive item when fingerprint changes"]
+    fixes: ["confirm changedFragments", "verify updated cluster record", "publish will overwrite the same archive record file when fingerprint changes"]
   },
   DISCORD_DESTINATION_MISSING: {
     severity: "info",
@@ -153,8 +153,13 @@ async function detectIssues() {
   if (ageMs(collection.lastCollectedAt) > collectionInterval * failureThreshold) {
     issues.push(issue("COLLECTOR_STALLED", { lastCollectedAt: collection.lastCollectedAt ?? null, thresholdMs: collectionInterval * failureThreshold }));
   }
-  if (ageMs(publication.lastPublishedAt) > (publicationInterval + processingDelay) * failureThreshold) {
-    issues.push(issue("PUBLISHER_STALLED", { lastPublishedAt: publication.lastPublishedAt ?? null, thresholdMs: (publicationInterval + processingDelay) * failureThreshold }));
+  const lastPublicationActivityAt = publication.lastAttemptedAt ?? publication.lastPublishedAt;
+  if (ageMs(lastPublicationActivityAt) > (publicationInterval + processingDelay) * failureThreshold) {
+    issues.push(issue("PUBLISHER_STALLED", {
+      lastAttemptedAt: publication.lastAttemptedAt ?? null,
+      lastPublishedAt: publication.lastPublishedAt ?? null,
+      thresholdMs: (publicationInterval + processingDelay) * failureThreshold
+    }));
   }
 
   const documents = Array.isArray(clustered.documents) ? clustered.documents : [];

@@ -5,6 +5,11 @@ const crawlerName = "wararchivebot";
 type RobotsRule = { directive: "allow" | "disallow"; pattern: string };
 type RobotsGroup = { agents: string[]; rules: RobotsRule[] };
 
+function isExternalSource(source: SourceDefinition): boolean {
+  const kind = source.kind ?? "url";
+  return kind === "url" || kind === "api-json";
+}
+
 function patternMatches(pattern: string, path: string): boolean {
   const endAnchored = pattern.endsWith("$");
   const raw = endAnchored ? pattern.slice(0, -1) : pattern;
@@ -57,7 +62,7 @@ export function robotsAllows(robotsText: string, targetUrl: string): boolean {
 }
 
 export function assertDeclaredCompliance(source: SourceDefinition): void {
-  if ((source.kind ?? "url") !== "url") return;
+  if (!isExternalSource(source)) return;
   const declaration = source.compliance;
   if (!declaration) throw new Error(`정책 확인 정보가 없습니다: ${source.url ?? "URL 없음"}`);
   if (!declaration.crawlAllowed) throw new Error(`크롤링 허용 확인이 false입니다: ${source.url}`);
@@ -86,7 +91,7 @@ export async function assertRobotsAllowed(sourceUrl: string): Promise<void> {
 const lastRequestByOrigin = new Map<string, number>();
 
 export async function waitForSourceInterval(source: SourceDefinition): Promise<void> {
-  if ((source.kind ?? "url") !== "url" || !source.url || !source.compliance) return;
+  if (!isExternalSource(source) || !source.url || !source.compliance) return;
   const origin = new URL(source.url).origin;
   const elapsed = Date.now() - (lastRequestByOrigin.get(origin) ?? 0);
   const remaining = source.compliance.minIntervalMs - elapsed;

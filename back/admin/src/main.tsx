@@ -10,6 +10,7 @@ type Command = {
   finishedAt: string | null;
   exitCode: number | null;
   output: string;
+  deltas?: Record<string, number>;
 };
 
 type Status = {
@@ -34,9 +35,23 @@ type Status = {
     clusteredDocuments: number;
     eventClusters: number;
     informationizedRecords: number;
+    informationizedDocuments: number;
+    informationizedSources: number;
     publishedRecords: number;
+    publishedDocuments: number;
+    publishedSources: number;
+    reviewDocuments: number;
   };
-  sources: { configured: number; activeApi: number; requiresEnv: number };
+  sources: {
+    configured: number;
+    apiConfigured: number;
+    activeApi: number;
+    requiresEnv: number;
+    missingRequiredEnv: number;
+    paginatedApi: number;
+    cursorTracked: number;
+    missingRequiredEnvNames: string[];
+  };
   quality: {
     minPublicationScore: number;
     lowConfidenceDocuments: number;
@@ -44,8 +59,24 @@ type Status = {
     rejectedDocuments: number;
     reviewDocuments: number;
   };
+  publicationReadiness: {
+    informationizedRecords: number;
+    readyRecords: number;
+    waitingRecords: number;
+    alreadyPublishedRecords: number;
+    belowQualityRecords: number;
+    reviewBreakdown: {
+      lowConfidence: number;
+      outlier: number;
+      rejected: number;
+      reviewDecision: number;
+    };
+    nextReadyRecord: { id: string; title: string; qualityScore: number | null } | null;
+  };
   state: {
+    lastCollectionAttemptedAt: string | null;
     lastCollectedAt: string | null;
+    lastPublicationAttemptedAt: string | null;
     lastPublishedAt: string | null;
     pendingTopicId: string | null;
     nextTopicId: string | null;
@@ -96,6 +127,34 @@ function Metric({ label, value, detail }: { label: string; value: string | numbe
   return <article className="metric"><span>{label}</span><strong>{value}</strong><p>{detail}</p></article>;
 }
 
+const deltaLabels: Record<string, string> = {
+  rawDocuments: "raw",
+  eventClusters: "clusters",
+  informationizedRecords: "records",
+  informationizedDocuments: "record docs",
+  publishedRecords: "published records",
+  publishedDocuments: "published docs",
+  reviewDocuments: "review",
+  readyRecords: "ready",
+  waitingRecords: "waiting",
+  belowQualityRecords: "low quality"
+};
+
+function formatDelta(value: number) {
+  return value > 0 ? `+${value}` : String(value);
+}
+
+function DeltaSummary({ deltas }: { deltas?: Record<string, number> }) {
+  if (!deltas) return null;
+  return (
+    <div className="deltaList">
+      {Object.entries(deltaLabels).map(([key, label]) => (
+        <span key={key}>{label} {formatDelta(deltas[key] ?? 0)}</span>
+      ))}
+    </div>
+  );
+}
+
 function App() {
   const [token, setToken] = useState(() => window.localStorage.getItem("warArchiveAdminToken") ?? "");
   const [draftToken, setDraftToken] = useState(token);
@@ -143,9 +202,9 @@ function App() {
         body: JSON.stringify({ action })
       });
       const payload = await response.json();
-      if (!response.ok) throw new Error(payload.error ?? payload.output ?? `action ${response.status}`);
       const refreshed = await fetch("./api/status", { cache: "no-store", headers: authHeaders });
       if (refreshed.ok) setStatus(await refreshed.json());
+      if (!response.ok) throw new Error(payload.error ?? payload.output ?? `action ${response.status}`);
     } catch (caught) {
       setError(caught instanceof Error ? caught.message : "action failed");
     } finally {
@@ -191,9 +250,10 @@ function App() {
 
         <section className="grid metrics" id="overview">
           <Metric label="RAW" value={status.counts.rawDocuments} detail="수집 문서" />
-          <Metric label="CLUSTERS" value={status.counts.eventClusters} detail="사건 군집" />
-          <Metric label="PUBLISHED" value={status.counts.publishedRecords} detail="공개 기록" />
-          <Metric label="REVIEW" value={status.quality.reviewDocuments} detail="검토 필요" />
+          <Metric label="CLUSTERS" value={status.counts.eventClusters} detail={`${status.counts.clusteredDocuments}개 문서 포함`} />
+          <Metric label="RECORDS" value={status.counts.informationizedRecords} detail={`${status.counts.informationizedDocuments}개 자료 포함`} />
+          <Metric label="PUBLISHED" value={status.counts.publishedDocuments} detail={`${status.counts.publishedRecords}개 공개 기록`} />
+          <Metric label="REVIEW" value={status.counts.reviewDocuments} detail="검토 필요 문서" />
         </section>
 
         <section className="panel">
@@ -207,7 +267,7 @@ function App() {
           <div className="timeline">
             <div><b>수집</b><span>{formatMinutes(status.schedules.collectionIntervalMs)}</span><small>{formatDate(status.state.lastCollectedAt)}</small></div>
             <div><b>가공</b><span>{formatMinutes(status.schedules.processingDelayMs)}</span><small>문장 기반 군집화</small></div>
-            <div><b>발행</b><span>{formatMinutes(status.schedules.publicationIntervalMs)}</span><small>{formatDate(status.state.lastPublishedAt)}</small></div>
+            <div><b>발행</b><span>{formatMinutes(status.schedules.publicationIntervalMs)}</span><small>시도 {formatDate(status.state.lastPublicationAttemptedAt)} / 성공 {formatDate(status.state.lastPublishedAt)}</small></div>
             <div><b>Pages</b><span>즉시</span><small>{status.publishing.targetUrl}</small></div>
           </div>
         </section>
@@ -233,6 +293,8 @@ function App() {
                 <b>{command.action}</b>
                 <span>{command.status}</span>
                 <small>{formatDate(command.finishedAt ?? command.startedAt)}</small>
+                <DeltaSummary deltas={command.deltas} />
+                {command.output ? <pre>{command.output}</pre> : null}
               </article>
             ))}
           </div>
@@ -244,9 +306,15 @@ function App() {
             <h2>출처 상태</h2>
             <dl>
               <div><dt>전체</dt><dd>{status.sources.configured}</dd></div>
+              <div><dt>API</dt><dd>{status.sources.apiConfigured}</dd></div>
               <div><dt>활성 API</dt><dd>{status.sources.activeApi}</dd></div>
-              <div><dt>키 필요</dt><dd>{status.sources.requiresEnv}</dd></div>
+              <div><dt>키 누락</dt><dd>{status.sources.missingRequiredEnv}</dd></div>
+              <div><dt>페이지 수집</dt><dd>{status.sources.paginatedApi}</dd></div>
+              <div><dt>커서 추적</dt><dd>{status.sources.cursorTracked}</dd></div>
             </dl>
+            {status.sources.missingRequiredEnvNames.length > 0 ? (
+              <p className="mutedText">{status.sources.missingRequiredEnvNames.join(", ")}</p>
+            ) : null}
           </article>
           <article className="panel">
             <p className="eyebrow">QUALITY</p>
@@ -257,6 +325,31 @@ function App() {
               <div><dt>거절</dt><dd>{status.quality.rejectedDocuments}</dd></div>
             </dl>
           </article>
+        </section>
+
+        <section className="panel">
+          <div className="panelHead">
+            <div>
+              <p className="eyebrow">PUBLICATION READINESS</p>
+              <h2>발행 가능성</h2>
+            </div>
+            <span>{status.publicationReadiness.nextReadyRecord ? status.publicationReadiness.nextReadyRecord.id : "대기"}</span>
+          </div>
+          <dl>
+            <div><dt>정보화 기록</dt><dd>{status.publicationReadiness.informationizedRecords}</dd></div>
+            <div><dt>정보화 자료</dt><dd>{status.counts.informationizedDocuments}</dd></div>
+            <div><dt>발행 가능</dt><dd>{status.publicationReadiness.readyRecords}</dd></div>
+            <div><dt>가공 대기</dt><dd>{status.publicationReadiness.waitingRecords}</dd></div>
+            <div><dt>이미 공개 기록</dt><dd>{status.publicationReadiness.alreadyPublishedRecords}</dd></div>
+            <div><dt>이미 공개 자료</dt><dd>{status.counts.publishedDocuments}</dd></div>
+            <div><dt>품질 미달</dt><dd>{status.publicationReadiness.belowQualityRecords}</dd></div>
+          </dl>
+          <dl>
+            <div><dt>낮은 군집 확신도</dt><dd>{status.publicationReadiness.reviewBreakdown.lowConfidence}</dd></div>
+            <div><dt>검토 판정</dt><dd>{status.publicationReadiness.reviewBreakdown.reviewDecision}</dd></div>
+            <div><dt>이상치</dt><dd>{status.publicationReadiness.reviewBreakdown.outlier}</dd></div>
+            <div><dt>거절</dt><dd>{status.publicationReadiness.reviewBreakdown.rejected}</dd></div>
+          </dl>
         </section>
 
         <section className="panel" id="clusters">

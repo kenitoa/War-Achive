@@ -68,7 +68,7 @@ test("informationization emits a searchable front archive record", async () => {
   assert.match(final.items[0].curator.sourceBasis, /등록 출처 2건/);
   assert.ok(final.items[0].qualityScore >= 0.6);
   assert.equal(final.items[0].qualityGate.passed, true);
-  assert.match(stdout, /pipeline complete: swept 1 topics, 2 sources, 1 total records/);
+  assert.match(stdout, /pipeline complete: swept 1 topics, 2 sources, 0 failed sources, 1 total records/);
 });
 
 test("pipeline rejects an empty topic source configuration", async () => {

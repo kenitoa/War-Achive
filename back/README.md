@@ -2,7 +2,7 @@
 
 `back`은 NAS 내부에서 실행되는 자료 수집·가공·발행 작업기입니다. API 도메인, Caddy, 외부 포트 포워딩과 GitHub Pages의 NAS 직접 연결은 필요하지 않습니다. 같은 내부망에서는 `http://NAS-IP:9231`로 처리 관제 화면을 볼 수 있습니다.
 
-저장소 역할은 루트의 `repository-map.json`을 기준으로 분리합니다. `back`은 `kenitoa/warachive`, `front`는 `kenitoa/warsachive`이며, 공개 Pages 데이터는 항상 `front/web/content/archive.json`에 누적합니다.
+저장소 역할은 `back/repository-map.json`을 기준으로 분리합니다. `back`은 `kenitoa/warachive`, `front`는 `kenitoa/warsachive`이며, 공개 Pages 데이터는 `front/web/content/archive/*.json`에 군집별로 누적합니다.
 
 ## 전체 흐름
 
@@ -18,7 +18,7 @@ NAS Docker
   → NAS Docker 볼륨에 발행 대기
 
   1시간마다 가공 완료 기록 1개 선택
-  → GitHub Contents API로 front/web/content/archive.json에 누적
+  → GitHub Contents API로 front/web/content/archive/{clusterId}.json 갱신
   → main 브랜치에 커밋 생성
   → front의 Pages 워크플로가 push 감지
   → 정적 상세 페이지와 sitemap 재생성
@@ -79,7 +79,7 @@ DISCORD_WEBHOOK_URL=
 GITHUB_FRONT_REPOSITORY=kenitoa/warsachive
 GITHUB_FRONT_TOKEN=replace-with-fine-grained-token
 GITHUB_FRONT_REF=main
-GITHUB_FRONT_CONTENT_PATH=web/content/archive.json
+GITHUB_FRONT_ARCHIVE_DIR=web/content/archive
 SMITHSONIAN_API_KEY=
 EUROPEANA_API_KEY=
 DPLA_API_KEY=
@@ -93,7 +93,7 @@ DPLA_API_KEY=
 - `SMITHSONIAN_API_KEY`, `EUROPEANA_API_KEY`, `DPLA_API_KEY`: 있으면 해당 공개 역사 API 출처도 수집 대상에 포함
 - 성공 시각과 완료 ID는 볼륨에 저장되어 재시작 후에도 유지
 - GitHub 커밋 실패 시 같은 기록을 다음 발행 주기에 재시도
-- GitHub 파일에 이미 같은 사건 ID가 있고 문서 묶음이 늘어나면 기존 항목을 교체해 X(a,b,e,g) 형태로 갱신
+- GitHub archive 폴더에 이미 같은 사건 ID 파일이 있고 문서 묶음이 늘어나면 해당 JSON 파일만 교체해 X(a,b,e,g) 형태로 갱신
 
 ## 주제와 출처 등록
 

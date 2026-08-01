@@ -3,17 +3,19 @@ import { dataRoot, readJson, writeJson } from "./common.js";
 import type { RawDocument } from "./types.js";
 
 const labelRules: Record<string, string[]> = {
-  battle: ["battle", "war", "siege", "invasion", "campaign", "army", "navy", "combat", "attack", "defense"],
-  people: ["king", "queen", "general", "admiral", "soldier", "emperor", "minister", "witness", "biography"],
-  place: ["province", "city", "fortress", "castle", "river", "sea", "border", "route", "map", "region"],
-  diplomacy: ["treaty", "truce", "envoy", "diplomacy", "negotiation", "alliance", "peace"],
-  "primary-source": ["archive", "record", "letter", "diary", "manuscript", "document", "memoir", "collection"],
-  chronology: ["century", "year", "timeline", "dated", "period", "era"]
+  battle: ["battle", "war", "siege", "invasion", "campaign", "army", "navy", "combat", "attack", "defense", "전쟁", "전투", "침공", "공격", "방어", "수군", "육군", "의병", "군대", "전역"],
+  people: ["king", "queen", "general", "admiral", "soldier", "emperor", "minister", "witness", "biography", "왕", "장군", "제독", "군인", "황제", "신하", "증언", "인물", "지휘관", "사절"],
+  place: ["province", "city", "fortress", "castle", "river", "sea", "border", "route", "map", "region", "지역", "도시", "성", "성곽", "강", "해상", "국경", "경로", "지도", "장소"],
+  diplomacy: ["treaty", "truce", "envoy", "diplomacy", "negotiation", "alliance", "peace", "조약", "휴전", "사신", "외교", "교섭", "동맹", "강화", "평화"],
+  "primary-source": ["archive", "record", "letter", "diary", "manuscript", "document", "memoir", "collection", "사료", "기록", "문서", "서신", "일기", "원문", "자료", "소장품"],
+  chronology: ["century", "year", "timeline", "dated", "period", "era", "세기", "연도", "연표", "시기", "시대", "기간", "년"]
 };
 
 const historyKeywords = [
   "history", "historical", "archive", "record", "war", "battle", "king", "dynasty", "empire",
-  "treaty", "museum", "library", "manuscript", "chronology", "invasion", "memorial"
+  "treaty", "museum", "library", "manuscript", "chronology", "invasion", "memorial",
+  "역사", "사료", "기록", "전쟁", "전투", "왕", "왕조", "제국", "조약", "박물관",
+  "도서관", "문서", "연표", "침공", "기념", "인물", "장소", "외교"
 ];
 
 const trustedSourcePatterns: Array<[RegExp, number]> = [

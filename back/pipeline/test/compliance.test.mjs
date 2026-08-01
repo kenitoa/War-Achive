@@ -19,6 +19,13 @@ test("URL source without reviewed policy is rejected", () => {
   );
 });
 
+test("API JSON source without reviewed policy is rejected", () => {
+  assert.throws(
+    () => assertDeclaredCompliance({ kind: "api-json", url: "https://example.com/history.json" }),
+    /정책 확인 정보/
+  );
+});
+
 test("declared policy enforces a minimum one-second interval", () => {
   assert.throws(
     () => assertDeclaredCompliance({

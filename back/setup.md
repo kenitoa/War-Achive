@@ -11,12 +11,12 @@
 | NAS `back/.env` | `WAR_ARCHIVE_ADMIN_TOKEN` | 필수·비밀 | 24자 이상 임의 문자열 |
 | GitHub Actions 변수 | `SITE_URL` | 필수 | `https://kenitoa.github.io/warsachive` |
 | NAS `back/.env` | `GITHUB_FRONT_REF` | 선택 | `main` |
-| NAS `back/.env` | `GITHUB_FRONT_CONTENT_PATH` | 선택 | `web/content/archive.json` |
+| NAS `back/.env` | `GITHUB_FRONT_ARCHIVE_DIR` | 선택 | `web/content/archive` |
 | NAS `back/.env` | `PROCESSING_DELAY_MS` | 선택 | `600000` |
 | NAS `back/.env` | `PUBLICATION_MIN_QUALITY_SCORE` | 선택 | `0.6` |
 | NAS `back/.env` | `DISCORD_BOT_TOKEN` | 선택·비밀 | Discord bot token |
 | NAS `back/.env` | `DISCORD_CHANNEL_ID` | Discord bot 사용 시 필수 | 대상 채널 ID |
-| 로컬 실행 | `WAR_ARCHIVE_FRONT_ARCHIVE_PATH` | 로컬 검증 시 선택 | `../front/web/content/archive.json` |
+| 로컬 실행 | `WAR_ARCHIVE_FRONT_ARCHIVE_DIR` | 로컬 검증 시 선택 | `../front/web/content/archive` |
 | 로컬 `front/.env.local` | `NEXT_PUBLIC_SITE_URL` | 로컬 빌드 시 선택 | `https://kenitoa.github.io/warsachive` |
 
 백엔드 API 주소, 백엔드 도메인, `API_BASE_URL`, CORS, HTTPS 인증서와 포트 포워딩 값은 입력하지 않습니다.
@@ -30,7 +30,7 @@ cd back
 npm run local:sync
 ```
 
-이 명령은 `back/.local-data`에 처리 상태를 저장하고 `front/web/content/archive.json`에 새 공개 기록을 누적합니다. 같은 기록 ID가 이미 있으면 중복 추가하지 않습니다.
+이 명령은 `back/.local-data`에 처리 상태를 저장하고 `front/web/content/archive/{recordId}.json`에 새 공개 기록을 누적합니다. 같은 기록 ID가 이미 있으면 해당 파일만 갱신합니다.
 
 ## 1. front GitHub 저장소 만들기
 
@@ -38,7 +38,7 @@ npm run local:sync
 - [x] 로컬 `front`의 원격은 `https://github.com/kenitoa/warsachive.git`로 연결했습니다.
 - [x] 로컬 `front` 변경을 `main`에 push했습니다. 최초 게시 커밋: `3b36ed2`
 - [x] GitHub에서 `.github/workflows/pages.yml` 경로를 확인했습니다.
-- [x] GitHub에서 `web/content/archive.json` 경로를 확인했습니다.
+- [x] GitHub에서 `web/content/archive` 경로를 확인했습니다.
 - [ ] 기본 브랜치를 `main`으로 설정합니다.
 
 저장소 이름 예시:
@@ -134,7 +134,7 @@ Settings
 - Administration 쓰기
 - Pages 쓰기
 
-NAS는 이 토큰으로 `kenitoa/warsachive` 저장소의 `web/content/archive.json`만 읽고 갱신합니다. 이 토큰은 1시간 발행 주기마다 공개 기록을 누적 커밋하는 필수 운영 설정입니다. 토큰 흐름을 제거하지 말고, 실제 값이 외부에 노출된 경우에만 새 토큰을 발급해 NAS `back/.env`의 값만 교체합니다.
+NAS는 이 토큰으로 `kenitoa/warsachive` 저장소의 `web/content/archive/*.json`만 읽고 갱신합니다. 이 토큰은 1시간 발행 주기마다 공개 기록을 누적 커밋하는 필수 운영 설정입니다. 토큰 흐름을 제거하지 말고, 실제 값이 외부에 노출된 경우에만 새 토큰을 발급해 NAS `back/.env`의 값만 교체합니다.
 
 ## 5. NAS에 back 폴더 업로드
 
@@ -199,7 +199,7 @@ DISCORD_WEBHOOK_URL=
 GITHUB_FRONT_REPOSITORY=kenitoa/warsachive
 GITHUB_FRONT_TOKEN=실제_토큰
 GITHUB_FRONT_REF=main
-GITHUB_FRONT_CONTENT_PATH=web/content/archive.json
+GITHUB_FRONT_ARCHIVE_DIR=web/content/archive
 SMITHSONIAN_API_KEY=
 EUROPEANA_API_KEY=
 DPLA_API_KEY=
@@ -228,7 +228,7 @@ DISCORD_BOT_TOKEN=
 DISCORD_CHANNEL_ID=
 DISCORD_WEBHOOK_URL=
 GITHUB_FRONT_REF=main
-GITHUB_FRONT_CONTENT_PATH=web/content/archive.json
+GITHUB_FRONT_ARCHIVE_DIR=web/content/archive
 SMITHSONIAN_API_KEY=
 EUROPEANA_API_KEY=
 DPLA_API_KEY=
@@ -300,7 +300,7 @@ https://kenitoa.github.io/warsachive/sitemap.xml
 NAS가 10분마다 등록된 모든 출처에서 가능한 한 많은 item을 수집하고 10분 가공 구간에서 사건 제목 연관성 기준으로 X(a,b), Y(c,d) 형태의 군집을 만든 뒤, 1시간 발행 주기마다 품질 점수 기준을 넘은 가공 완료 기록 최대 한 건을 다음 파일에 누적합니다.
 
 ```text
-front 저장소/web/content/archive.json
+front 저장소/web/content/archive/{recordId}.json
 ```
 
 확인 순서:
@@ -310,7 +310,7 @@ front 저장소/web/content/archive.json
 - [ ] 해당 push로 Pages Actions가 자동 실행되는지 확인합니다.
 - [ ] 배포 후 `/archive/기록ID/` 페이지가 열리는지 확인합니다.
 
-이미 같은 기록 ID가 `archive.json`에 있고 내용도 같으면 발행기는 중복 커밋하지 않습니다. 같은 사건 군집의 문서 묶음이 늘어나면 기존 항목을 갱신해 다시 발행합니다.
+이미 같은 기록 ID의 JSON 파일이 `web/content/archive`에 있고 내용도 같으면 발행기는 중복 커밋하지 않습니다. 같은 사건 군집의 문서 묶음이 늘어나면 해당 파일을 갱신해 다시 발행합니다.
 
 ## 10. 오류별 확인 위치
 
@@ -320,8 +320,8 @@ front 저장소/web/content/archive.json
 | GitHub `403` | front 저장소 선택 여부, Contents Read and write 권한 |
 | GitHub `404` | `owner/repository`, 브랜치명, 파일 경로 |
 | GitHub `409` | 같은 파일이 동시에 수정됐는지 확인 후 다음 주기 재시도 |
-| GitHub `422` | `main` 브랜치 존재 여부, `archive.json` JSON 형식 |
-| Pages 빌드 실패 | Actions 로그, `SITE_URL`, `archive.json` 형식 |
+| GitHub `422` | `main` 브랜치 존재 여부, record JSON 형식 |
+| Pages 빌드 실패 | Actions 로그, `SITE_URL`, archive record JSON 형식 |
 | 컨테이너 재시작 반복 | `docker compose logs --tail=200 backend` 확인 |
 | 토큰 노출 우려 | `npm run verify:secrets`로 저장소 내 유출 여부를 확인하고, 실제 값이 노출된 경우 NAS `back/.env`의 값만 새 토큰으로 교체 |
 | Docker health 미통과 | `docker compose ps`의 health 상태와 `/api/health` 확인 |

@@ -9,12 +9,12 @@
     "front": {
       "path": "front",
       "repository": "kenitoa/warsachive",
-      "role": "GitHub Pages static archive reading web/content/archive.json"
+      "role": "GitHub Pages static archive reading web/content/archive/*.json"
     }
   },
   "rules": [
     "Back changes belong to kenitoa/warachive.",
-    "Front changes and web/content/archive.json belong to kenitoa/warsachive.",
+    "Front changes and web/content/archive/*.json belong to kenitoa/warsachive.",
     "Do not commit the nested front repository as ordinary files in the back repository."
   ]
 }

@@ -16,6 +16,13 @@ export type SourceDefinition = {
     contentPaths: string[];
     urlPath?: string;
     maxItems?: number;
+    pagination?: {
+      strategy: "query-param" | "sparql-offset";
+      param?: string;
+      start?: number;
+      step?: number;
+      pagesPerRun?: number;
+    };
   };
   compliance?: {
     reviewedAt: string;

@@ -1,5 +1,5 @@
 import { createReadStream } from "node:fs";
-import { readFile, stat } from "node:fs/promises";
+import { readFile, readdir, stat } from "node:fs/promises";
 import { spawn } from "node:child_process";
 import { timingSafeEqual } from "node:crypto";
 import { createServer } from "node:http";
@@ -7,7 +7,6 @@ import { extname, join, normalize } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const backRoot = fileURLToPath(new URL("..", import.meta.url));
-const npmCommand = process.platform === "win32" ? "npm.cmd" : "npm";
 
 async function loadDotEnv() {
   try {
@@ -60,6 +59,67 @@ function sourcesFrom(topics) {
   return topics.flatMap((topic) => Array.isArray(topic.sources) ? topic.sources : []);
 }
 
+function recordFingerprint(record) {
+  return JSON.stringify(record);
+}
+
+function uniqueCount(values) {
+  return new Set(values.filter((value) => typeof value === "string" && value.length > 0)).size;
+}
+
+function documentIdsFromRecords(records) {
+  const explicitIds = records.flatMap((record) => Array.isArray(record.documentIds) ? record.documentIds : []);
+  if (explicitIds.length > 0) return uniqueCount(explicitIds);
+  return records.reduce((sum, record) => sum + Math.max(1, Number(record.documentCount ?? 0)), 0);
+}
+
+function sourceUrlsFromRecords(records) {
+  const explicitUrls = records.flatMap((record) => {
+    if (Array.isArray(record.sourceUrls)) return record.sourceUrls;
+    return record.sourceUrl ? [record.sourceUrl] : [];
+  });
+  if (explicitUrls.length > 0) return uniqueCount(explicitUrls);
+  return records.reduce((sum, record) => sum + Math.max(0, Number(record.sourceCount ?? 0)), 0);
+}
+
+function archiveRecordFromPayload(payload) {
+  if (payload && typeof payload === "object" && typeof payload.id === "string") return payload;
+  if (payload?.record && typeof payload.record === "object" && typeof payload.record.id === "string") return payload.record;
+  return null;
+}
+
+async function loadPublishedArchiveSnapshot() {
+  const archiveDir = join(dataRoot, "published", "archive");
+  try {
+    const index = await readJson(join(archiveDir, "index.json"), { items: [] });
+    if (Array.isArray(index.items)) {
+      const items = [];
+      for (const entry of index.items) {
+        if (!entry?.id) continue;
+        const record = archiveRecordFromPayload(await readJson(join(archiveDir, `${entry.id}.json`), null));
+        if (record) items.push(record);
+      }
+      if (items.length > 0) return { version: 1, items };
+    }
+  } catch (error) {
+    if (error?.code !== "ENOENT") throw error;
+  }
+
+  try {
+    const files = await readdir(archiveDir);
+    const items = [];
+    for (const file of files.filter((item) => item.endsWith(".json") && item !== "index.json")) {
+      const record = archiveRecordFromPayload(await readJson(join(archiveDir, file), null));
+      if (record) items.push(record);
+    }
+    if (items.length > 0) return { version: 1, items };
+  } catch (error) {
+    if (error?.code !== "ENOENT") throw error;
+  }
+
+  return readJson(join(dataRoot, "published", "archive.json"), { items: [] });
+}
+
 async function loadStatus() {
   const [topics, collection, publication, history, raw, labeled, clustered, informationized, publishedArchive, reviewQueue] = await Promise.all([
     readJson(topicsPath, { topics: [] }),
@@ -70,12 +130,18 @@ async function loadStatus() {
     readJson(join(dataRoot, "labeled", "documents.json"), { documents: [] }),
     readJson(join(dataRoot, "clustered", "documents.json"), { documents: [], clusters: [] }),
     readJson(join(dataRoot, "informationized", "records.json"), { items: [] }),
-    readJson(join(dataRoot, "published", "archive.json"), { items: [] }),
+    loadPublishedArchiveSnapshot(),
     readJson(join(dataRoot, "review", "documents.json"), { documents: [] })
   ]);
 
   const topicItems = Array.isArray(topics.topics) ? topics.topics : [];
   const sourceItems = sourcesFrom(topicItems);
+  const apiSourceItems = sourceItems.filter((source) => source.kind === "api-json");
+  const envRequiredSourceItems = sourceItems.filter((source) => source.requiredEnv);
+  const missingRequiredEnvItems = envRequiredSourceItems.filter((source) => !process.env[source.requiredEnv]);
+  const collectionSourceCursors = collection.sourceCursors && typeof collection.sourceCursors === "object"
+    ? collection.sourceCursors
+    : {};
   const collectedIds = Array.isArray(collection.collectedTopicIds) ? collection.collectedTopicIds : [];
   const publishedIds = Array.isArray(publication.publishedTopicIds) ? publication.publishedTopicIds : [];
   const rawItems = Array.isArray(raw.documents) ? raw.documents : [];
@@ -84,6 +150,7 @@ async function loadStatus() {
   const clusterItems = Array.isArray(clustered.clusters) ? clustered.clusters : [];
   const records = Array.isArray(informationized.items) ? informationized.items : [];
   const historyEntries = Array.isArray(history.entries) ? history.entries : [];
+  const collectionPartialErrors = Array.isArray(collection.lastPartialErrors) ? collection.lastPartialErrors : [];
   const derivedReviewDocuments = clusteredItems.filter((document) =>
     document.qualityDecision === "review"
     || document.qualityDecision === "rejected"
@@ -93,14 +160,44 @@ async function loadStatus() {
   const queuedReviewDocuments = Array.isArray(reviewQueue.documents) ? reviewQueue.documents : [];
   const reviewDocuments = queuedReviewDocuments.length > 0 ? queuedReviewDocuments : derivedReviewDocuments;
   const snapshotItems = Array.isArray(publishedArchive.items) ? publishedArchive.items : [];
-  const latestPublishedArchive = [...historyEntries].reverse().find((entry) =>
-    !entry.rolledBackAt && Array.isArray(entry.nextArchive?.items)
-  )?.nextArchive?.items;
-  const publishedRecords = snapshotItems.length > 0
-    ? snapshotItems
-    : Array.isArray(latestPublishedArchive) ? latestPublishedArchive : [];
+  const publishedRecords = snapshotItems;
   const publishedRecordIds = new Set(publishedRecords.map((record) => record.id));
+  const publishedFingerprints = new Map(publishedRecords.map((record) => [record.id, recordFingerprint(record)]));
   const publicationCountMismatch = publishedIds.length !== publishedRecords.length;
+  const minPublicationScore = Number(process.env.PUBLICATION_MIN_QUALITY_SCORE ?? 0.6);
+  const isProcessingReady = (record) => {
+    const collectedAt = record.collectedAt ? Date.parse(record.collectedAt) : Number.NaN;
+    return !Number.isFinite(collectedAt) || Date.now() - collectedAt >= processingDelay;
+  };
+  const unpublishedQualityRecords = records.filter((record) =>
+    publishedFingerprints.get(record.id) !== recordFingerprint(record)
+    && Number(record.qualityScore ?? 1) >= minPublicationScore
+  );
+  const waitingPublicationRecords = unpublishedQualityRecords.filter((record) => !isProcessingReady(record));
+  const readyPublicationRecords = unpublishedQualityRecords.filter(isProcessingReady);
+  const belowQualityRecords = records.filter((record) => Number(record.qualityScore ?? 1) < minPublicationScore);
+  const alreadyPublishedRecords = records.filter((record) =>
+    publishedFingerprints.get(record.id) === recordFingerprint(record)
+  );
+  const reviewBreakdown = {
+    lowConfidence: clusteredItems.filter((document) => Number(document.eventClusterConfidence ?? 0) < 0.6).length,
+    outlier: clusteredItems.filter((document) => document.outlier === true).length,
+    rejected: clusteredItems.filter((document) => document.qualityDecision === "rejected").length,
+    reviewDecision: clusteredItems.filter((document) => document.qualityDecision === "review").length
+  };
+  const inventory = {
+    rawDocuments: uniqueCount(rawItems.map((document) => document.id)),
+    labeledDocuments: uniqueCount(labeledItems.map((document) => document.id)),
+    clusteredDocuments: uniqueCount(clusteredItems.map((document) => document.id)),
+    eventClusters: clusterItems.length,
+    informationizedRecords: records.length,
+    informationizedDocuments: documentIdsFromRecords(records),
+    informationizedSources: sourceUrlsFromRecords(records),
+    publishedRecords: publishedRecords.length,
+    publishedDocuments: documentIdsFromRecords(publishedRecords),
+    publishedSources: sourceUrlsFromRecords(publishedRecords),
+    reviewDocuments: uniqueCount(reviewDocuments.map((document) => document.id))
+  };
 
   return {
     checkedAt: new Date().toISOString(),
@@ -115,12 +212,15 @@ async function loadStatus() {
       publicationIntervalMs: publicationInterval,
       schedulerRetryMs: schedulerRetry,
       nextCollectionAt: nextAt(collection.lastCollectedAt, collectionInterval),
-      nextPublicationAt: nextAt(publication.lastPublishedAt, publicationInterval)
+      nextPublicationAt: nextAt(publication.lastAttemptedAt ?? publication.lastPublishedAt, publicationInterval)
     },
     publishing: {
       repository: process.env.GITHUB_FRONT_REPOSITORY ?? "kenitoa/warsachive",
       branch: process.env.GITHUB_FRONT_REF ?? "main",
-      contentPath: process.env.GITHUB_FRONT_CONTENT_PATH ?? "web/content/archive.json",
+      contentPath: process.env.GITHUB_FRONT_ARCHIVE_DIR
+        ?? (process.env.GITHUB_FRONT_CONTENT_PATH && !process.env.GITHUB_FRONT_CONTENT_PATH.endsWith(".json")
+          ? process.env.GITHUB_FRONT_CONTENT_PATH
+          : "web/content/archive"),
       targetUrl: "https://kenitoa.github.io/warsachive/"
     },
     operations: {
@@ -132,7 +232,10 @@ async function loadStatus() {
       recent: commandHistory.slice(-8).reverse()
     },
     errors: {
-      collection: collection.lastError ?? null,
+      collection: collection.lastError
+        ?? (collectionPartialErrors.length > 0
+          ? `partial source failures: ${collectionPartialErrors.map((failure) => failure.sourceId ?? "unknown").join(", ")}`
+          : null),
       publication: publication.lastError
         ?? (publicationCountMismatch
           ? `published state has ${publishedIds.length} records but the last verified archive has ${publishedRecords.length}.`
@@ -141,27 +244,54 @@ async function loadStatus() {
     counts: {
       topics: topicItems.length,
       collectedTopics: collectedIds.length,
-      rawDocuments: rawItems.length,
-      labeledDocuments: labeledItems.length,
-      clusteredDocuments: clusteredItems.length,
-      eventClusters: clusterItems.length,
-      informationizedRecords: records.length,
-      publishedRecords: publishedRecords.length
+      rawDocuments: inventory.rawDocuments,
+      labeledDocuments: inventory.labeledDocuments,
+      clusteredDocuments: inventory.clusteredDocuments,
+      eventClusters: inventory.eventClusters,
+      informationizedRecords: inventory.informationizedRecords,
+      informationizedDocuments: inventory.informationizedDocuments,
+      informationizedSources: inventory.informationizedSources,
+      publishedRecords: inventory.publishedRecords,
+      publishedDocuments: inventory.publishedDocuments,
+      publishedSources: inventory.publishedSources,
+      reviewDocuments: inventory.reviewDocuments
     },
     sources: {
       configured: sourceItems.length,
-      activeApi: sourceItems.filter((source) => source.kind === "api-json" && !source.requiredEnv).length,
-      requiresEnv: sourceItems.filter((source) => source.requiredEnv).length
+      apiConfigured: apiSourceItems.length,
+      activeApi: apiSourceItems.filter((source) => !source.requiredEnv || process.env[source.requiredEnv]).length,
+      requiresEnv: envRequiredSourceItems.length,
+      missingRequiredEnv: missingRequiredEnvItems.length,
+      paginatedApi: apiSourceItems.filter((source) => source.api?.pagination).length,
+      cursorTracked: Object.keys(collectionSourceCursors).length,
+      missingRequiredEnvNames: missingRequiredEnvItems.map((source) => source.requiredEnv).filter(Boolean)
     },
     quality: {
-      minPublicationScore: Number(process.env.PUBLICATION_MIN_QUALITY_SCORE ?? 0.6),
-      lowConfidenceDocuments: clusteredItems.filter((document) => Number(document.eventClusterConfidence ?? 0) < 0.6).length,
-      outlierDocuments: clusteredItems.filter((document) => document.outlier === true).length,
-      rejectedDocuments: clusteredItems.filter((document) => document.qualityDecision === "rejected").length,
-      reviewDocuments: reviewDocuments.length
+      minPublicationScore,
+      lowConfidenceDocuments: reviewBreakdown.lowConfidence,
+      outlierDocuments: reviewBreakdown.outlier,
+      rejectedDocuments: reviewBreakdown.rejected,
+      reviewDocuments: inventory.reviewDocuments
+    },
+    publicationReadiness: {
+      informationizedRecords: records.length,
+      readyRecords: readyPublicationRecords.length,
+      waitingRecords: waitingPublicationRecords.length,
+      alreadyPublishedRecords: alreadyPublishedRecords.length,
+      belowQualityRecords: belowQualityRecords.length,
+      reviewBreakdown,
+      nextReadyRecord: readyPublicationRecords[0]
+        ? {
+          id: readyPublicationRecords[0].id,
+          title: readyPublicationRecords[0].title,
+          qualityScore: readyPublicationRecords[0].qualityScore ?? null
+        }
+        : null
     },
     state: {
+      lastCollectionAttemptedAt: collection.lastAttemptedAt ?? null,
       lastCollectedAt: collection.lastCollectedAt ?? null,
+      lastPublicationAttemptedAt: publication.lastAttemptedAt ?? null,
       lastPublishedAt: publication.lastPublishedAt ?? null,
       pendingTopicId: publication.pendingTopicId ?? null,
       nextTopicId: topicItems.length > 0 ? "all-configured-sources" : null
@@ -252,12 +382,31 @@ function sanitizeOutput(text) {
     .slice(-4000);
 }
 
-function runAction(action) {
+function actionCountsFromStatus(status) {
+  return {
+    rawDocuments: status.counts.rawDocuments,
+    eventClusters: status.counts.eventClusters,
+    informationizedRecords: status.counts.informationizedRecords,
+    informationizedDocuments: status.counts.informationizedDocuments,
+    publishedRecords: status.counts.publishedRecords,
+    publishedDocuments: status.counts.publishedDocuments,
+    reviewDocuments: status.counts.reviewDocuments,
+    readyRecords: status.publicationReadiness.readyRecords,
+    waitingRecords: status.publicationReadiness.waitingRecords,
+    belowQualityRecords: status.publicationReadiness.belowQualityRecords
+  };
+}
+
+function actionDeltas(before, after) {
+  return Object.fromEntries(Object.keys(after).map((key) => [key, after[key] - (before[key] ?? 0)]));
+}
+
+async function runAction(action) {
   const definitions = {
-    collect: ["run", "pipeline"],
-    publish: ["run", "publish:once"],
-    rollback: ["run", "rollback"],
-    audit: ["run", "audit:sources"]
+    collect: ["pipeline/dist/run-pipeline.js"],
+    publish: ["pipeline/dist/run-publish.js"],
+    rollback: ["pipeline/dist/run-rollback.js"],
+    audit: ["pipeline/dist/audit-sources.js"]
   };
   const args = definitions[action];
   if (!args) return Promise.reject(new Error(`unsupported action: ${action}`));
@@ -274,9 +423,14 @@ function runAction(action) {
   };
   runningCommand = entry;
   commandHistory.push(entry);
+  try {
+    entry.beforeCounts = actionCountsFromStatus(await loadStatus());
+  } catch {
+    entry.beforeCounts = null;
+  }
 
   return new Promise((resolve) => {
-    const child = spawn(npmCommand, args, {
+    const child = spawn(process.execPath, args, {
       cwd: backRoot,
       env: process.env,
       windowsHide: true,
@@ -285,11 +439,18 @@ function runAction(action) {
     const chunks = [];
     child.stdout.setEncoding("utf-8").on("data", (chunk) => chunks.push(chunk));
     child.stderr.setEncoding("utf-8").on("data", (chunk) => chunks.push(chunk));
-    child.once("exit", (code) => {
+    child.once("exit", async (code) => {
       entry.status = code === 0 ? "completed" : "failed";
       entry.finishedAt = new Date().toISOString();
       entry.exitCode = code;
       entry.output = sanitizeOutput(chunks.join(""));
+      try {
+        const afterCounts = actionCountsFromStatus(await loadStatus());
+        entry.afterCounts = afterCounts;
+        if (entry.beforeCounts) entry.deltas = actionDeltas(entry.beforeCounts, afterCounts);
+      } catch {
+        // Keep the original action result even if status refresh fails.
+      }
       runningCommand = null;
       resolve(entry);
     });
