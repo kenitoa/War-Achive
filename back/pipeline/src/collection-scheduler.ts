@@ -20,10 +20,14 @@ async function recordCollectionFailure(error: unknown): Promise<void> {
 console.log(`[collector] maximum registered source sweep every ${intervalMs}ms`);
 while (true) {
   const state = await loadCollectionState();
-  const remaining = remainingDelay(state.lastCollectedAt, intervalMs);
-  if (remaining > 0) await sleep(remaining);
+  const scheduleBaseAt = state.lastError ? state.lastAttemptedAt : state.lastCollectedAt;
+  const scheduleIntervalMs = state.lastError ? retryMs : intervalMs;
+  const remaining = remainingDelay(scheduleBaseAt, scheduleIntervalMs);
+  if (remaining > 0) {
+    await sleep(remaining);
+    continue;
+  }
 
-  let nextDelayMs = intervalMs;
   try {
     const result = await collectSourceCycle();
     console.log(result.collected
@@ -36,7 +40,5 @@ while (true) {
     } catch (stateError) {
       console.error("[collector] failed to persist collection error", stateError);
     }
-    nextDelayMs = retryMs;
   }
-  await sleep(nextDelayMs);
 }

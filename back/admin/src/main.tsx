@@ -265,9 +265,9 @@ function App() {
             <span>{status.publishing.repository} / {status.publishing.branch}</span>
           </div>
           <div className="timeline">
-            <div><b>수집</b><span>{formatMinutes(status.schedules.collectionIntervalMs)}</span><small>{formatDate(status.state.lastCollectedAt)}</small></div>
+            <div><b>수집</b><span>{formatMinutes(status.schedules.collectionIntervalMs)}</span><small>최근 {formatDate(status.state.lastCollectedAt)} / 다음 {formatDate(status.schedules.nextCollectionAt)}</small></div>
             <div><b>가공</b><span>{formatMinutes(status.schedules.processingDelayMs)}</span><small>문장 기반 군집화</small></div>
-            <div><b>발행</b><span>{formatMinutes(status.schedules.publicationIntervalMs)}</span><small>시도 {formatDate(status.state.lastPublicationAttemptedAt)} / 성공 {formatDate(status.state.lastPublishedAt)}</small></div>
+            <div><b>발행</b><span>{formatMinutes(status.schedules.publicationIntervalMs)}</span><small>시도 {formatDate(status.state.lastPublicationAttemptedAt)} / 성공 {formatDate(status.state.lastPublishedAt)} / 다음 {formatDate(status.schedules.nextPublicationAt)}</small></div>
             <div><b>Pages</b><span>즉시</span><small>{status.publishing.targetUrl}</small></div>
           </div>
         </section>

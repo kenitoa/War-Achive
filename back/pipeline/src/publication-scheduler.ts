@@ -22,10 +22,17 @@ async function recordPublicationFailure(error: unknown): Promise<void> {
 console.log(`[publisher] one processed record every ${intervalMs}ms after ${processingDelayMs}ms processing window`);
 while (true) {
   const state = await loadPublicationState();
-  const remaining = state.pendingTopicId ? 0 : remainingDelay(state.lastAttemptedAt ?? state.lastPublishedAt, intervalMs);
-  if (remaining > 0) await sleep(remaining);
+  const lastPublicationActivityAt = state.lastAttemptedAt ?? state.lastPublishedAt;
+  const scheduleBaseAt = state.lastError ? state.lastAttemptedAt : lastPublicationActivityAt;
+  const scheduleIntervalMs = state.lastError ? retryMs : intervalMs;
+  const remaining = state.pendingTopicId
+    ? 0
+    : remainingDelay(scheduleBaseAt, scheduleIntervalMs);
+  if (remaining > 0) {
+    await sleep(remaining);
+    continue;
+  }
 
-  let nextDelayMs = intervalMs;
   try {
     const result = await publishNextRecord();
     console.log(result.published
@@ -35,9 +42,7 @@ while (true) {
       : result.processingWaitMs
         ? `[publisher] processing window active for ${result.topicId}, ${result.processingWaitMs}ms remaining`
         : "[publisher] no unpublished processed records");
-    nextDelayMs = result.processingWaitMs
-      ? Math.min(intervalMs, Math.max(5_000, result.processingWaitMs))
-      : intervalMs;
+    if (result.processingWaitMs) await sleep(Math.min(intervalMs, Math.max(5_000, result.processingWaitMs)));
   } catch (error) {
     console.error("[publisher] publication failed", error);
     try {
@@ -45,7 +50,5 @@ while (true) {
     } catch (stateError) {
       console.error("[publisher] failed to persist publication error", stateError);
     }
-    nextDelayMs = retryMs;
   }
-  await sleep(nextDelayMs);
 }

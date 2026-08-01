@@ -179,6 +179,11 @@ async function loadStatus() {
   const alreadyPublishedRecords = records.filter((record) =>
     publishedFingerprints.get(record.id) === recordFingerprint(record)
   );
+  const nextCollectionBaseAt = collection.lastError ? collection.lastAttemptedAt : collection.lastCollectedAt;
+  const nextCollectionInterval = collection.lastError ? schedulerRetry : collectionInterval;
+  const lastPublicationActivityAt = publication.lastAttemptedAt ?? publication.lastPublishedAt;
+  const nextPublicationBaseAt = publication.lastError ? publication.lastAttemptedAt : lastPublicationActivityAt;
+  const nextPublicationInterval = publication.lastError ? schedulerRetry : publicationInterval;
   const reviewBreakdown = {
     lowConfidence: clusteredItems.filter((document) => Number(document.eventClusterConfidence ?? 0) < 0.6).length,
     outlier: clusteredItems.filter((document) => document.outlier === true).length,
@@ -211,8 +216,8 @@ async function loadStatus() {
       processingDelayMs: processingDelay,
       publicationIntervalMs: publicationInterval,
       schedulerRetryMs: schedulerRetry,
-      nextCollectionAt: nextAt(collection.lastCollectedAt, collectionInterval),
-      nextPublicationAt: nextAt(publication.lastAttemptedAt ?? publication.lastPublishedAt, publicationInterval)
+      nextCollectionAt: nextAt(nextCollectionBaseAt, nextCollectionInterval),
+      nextPublicationAt: nextAt(nextPublicationBaseAt, nextPublicationInterval)
     },
     publishing: {
       repository: process.env.GITHUB_FRONT_REPOSITORY ?? "kenitoa/warsachive",
