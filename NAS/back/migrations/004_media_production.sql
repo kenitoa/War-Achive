@@ -1,0 +1,3 @@
+ALTER TABLE jobs DROP CONSTRAINT jobs_kind_check;
+ALTER TABLE jobs ADD CONSTRAINT jobs_kind_check CHECK(kind IN ('collect','normalize','publish','produce'));
+CREATE TABLE media_assets (id text PRIMARY KEY, record_id text NOT NULL REFERENCES records(id), sha256 text NOT NULL, mime_type text NOT NULL, file_path text NOT NULL, filename text NOT NULL, size_bytes bigint NOT NULL CHECK(size_bytes>0), rights_attestation text NOT NULL, publish_derivatives boolean NOT NULL DEFAULT false, status text NOT NULL CHECK(status IN ('queued','complete','unavailable','failed')), production jsonb, created_at timestamptz NOT NULL DEFAULT now(), updated_at timestamptz NOT NULL DEFAULT now(), UNIQUE(record_id,sha256));

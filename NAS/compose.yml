@@ -1,0 +1,76 @@
+name: war-archive
+services:
+  db:
+    image: postgres:17-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: archive
+      POSTGRES_DB: archive
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in NAS/.env}
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U archive -d archive"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    networks: [private]
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    init: true
+    env_file: .env
+    environment:
+      NODE_ENV: production
+      HOST: 0.0.0.0
+      ADMIN_PORT: 4310
+      DATABASE_URL: ${DATABASE_URL:?Run node scripts/configure-nas.mjs --production}
+      DATA_DIR: /var/lib/war-archive
+      EXPORT_DIR: /var/lib/war-archive-releases
+    ports:
+      - "127.0.0.1:${ADMIN_PORT:-4310}:4310"
+    volumes:
+      - archive-data:/var/lib/war-archive
+      - archive-releases:/var/lib/war-archive-releases
+    depends_on:
+      db: { condition: service_healthy }
+    networks: [private]
+    security_opt: ["no-new-privileges:true"]
+    cap_drop: [ALL]
+    stop_grace_period: 35s
+  worker:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    init: true
+    env_file: .env
+    environment:
+      NODE_ENV: production
+      DATABASE_URL: ${DATABASE_URL:?Run node scripts/configure-nas.mjs --production}
+      DATA_DIR: /var/lib/war-archive
+      EXPORT_DIR: /var/lib/war-archive-releases
+    command: ["node", "dist/workers/run.js"]
+    healthcheck:
+      test: ["CMD", "node", "-e", "const f=require('node:fs');try{const x=JSON.parse(f.readFileSync('/var/lib/war-archive/worker-heartbeat.json'));process.exit(Date.now()-Date.parse(x.at)<120000?0:1)}catch{process.exit(1)}"]
+      interval: 30s
+      timeout: 5s
+      start_period: 45s
+      retries: 3
+    volumes:
+      - archive-data:/var/lib/war-archive
+      - archive-releases:/var/lib/war-archive-releases
+    depends_on:
+      api: { condition: service_healthy }
+    networks: [private]
+    security_opt: ["no-new-privileges:true"]
+    cap_drop: [ALL]
+    stop_grace_period: 35s
+volumes:
+  postgres-data:
+  archive-data:
+  archive-releases:
+networks:
+  private:

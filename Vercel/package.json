@@ -1,0 +1,35 @@
+{
+  "name": "war-archive-public",
+  "version": "1.0.0",
+  "private": true,
+  "engines": {
+    "node": "22.x"
+  },
+  "scripts": {
+    "dev": "next dev --hostname 127.0.0.1",
+    "lint": "eslint . --max-warnings=0",
+    "typecheck": "next typegen && tsc --noEmit",
+    "test": "tsx --test tests/*.test.ts",
+    "configure:security": "node scripts/configure-security.mjs",
+    "build": "node scripts/check-csp.mjs && next build",
+    "preview": "node scripts/preview.mjs",
+    "test:browser": "node scripts/browser-smoke.mjs",
+    "test:media": "node scripts/media-fallback-smoke.mjs"
+  },
+  "dependencies": {
+    "next": "16.4.2",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "zod": "4.6.7"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "eslint": "^9.39.4",
+    "eslint-config-next": "16.4.2",
+    "playwright": "^1.58.2",
+    "tsx": "^4.20.0",
+    "typescript": "^5.9.3"
+  }
+}

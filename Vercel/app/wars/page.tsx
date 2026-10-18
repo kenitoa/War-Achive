@@ -1,0 +1,6 @@
+import Link from '@/components/static-link';
+import { archive } from '@/lib/archive';
+import { PageHeading, EmptyState, Arrow } from '@/components/common';
+import { routeId } from '@/lib/security';
+export const metadata = { title: '전쟁 탐색' };
+export default function WarsPage() { const data = archive(); return <><PageHeading index="EXPLORE / WARS & CONFLICTS" title="전쟁 탐색" intro="사건의 배경에서 사람들의 경험까지. 전쟁의 맥락 안에서 기록을 함께 읽습니다." /><div className="war-list">{data.wars.map((war, index) => <article key={war.id} className="war-card"><span className="war-index mono">{String(index + 1).padStart(2, '0')}</span><div><p className="eyebrow">{war.period} · {war.regions.join(' / ')}</p><h2><Link href={`/wars/${routeId(war.id)}/`}>{war.name} <Arrow /></Link></h2><p>{war.summary}</p><div className="tag-row">{war.aliases.slice(0, 3).map(alias => <span className="tag" key={alias}>{alias}</span>)}</div></div><span className="war-count"><strong>{data.records.filter(record => record.warIds.includes(war.id)).length}</strong>공개 자료</span></article>)}</div>{!data.wars.length && <EmptyState title="전쟁별 기록을 준비하고 있습니다" />}<p className="notice">목록은 현재 공개본에 포함된 범위입니다. 전 세계 전쟁이나 각 전쟁의 모든 자료를 수록했다는 의미는 아닙니다. <Link href="/about/#coverage">수집 현황 ↗</Link></p></>; }

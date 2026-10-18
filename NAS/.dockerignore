@@ -1,0 +1,16 @@
+.env
+.env.*
+!.env.example
+**/.env
+**/.env.*
+**/node_modules
+**/dist
+**/coverage
+**/*.log
+**/*.tsbuildinfo
+data
+releases
+backups
+artifacts
+.git
+back/artifacts

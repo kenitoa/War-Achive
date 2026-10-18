@@ -1,0 +1,34 @@
+import { mkdir, readFile, writeFile, copyFile, access } from 'node:fs/promises';
+import { spawn } from 'node:child_process';
+import { resolve } from 'node:path';
+import { PGlite } from '@electric-sql/pglite';
+import { randomUUID } from 'node:crypto';
+import pg from 'pg';
+import type { ArchiveService } from '../application/archive-service.js';
+import { within, sha256 } from './files.js';
+
+interface BackupManifest { version:1;createdAt:string;databaseType:'pglite'|'postgresql';databaseFile:string;databaseHash:string;files:{hash:string;relativePath:string;kind?:'raw'|'media'}[] }
+async function freshDirectory(path:string):Promise<void>{try{await access(path);throw new Error('Target directory must not exist');}catch(error){if(!(error instanceof Error&&'code'in error&&error.code==='ENOENT'))throw error;}await mkdir(path,{recursive:true,mode:0o700});}
+function pgEnvironment(databaseUrl:string):NodeJS.ProcessEnv{const u=new URL(databaseUrl);return{...process.env,PGHOST:u.hostname,PGPORT:u.port||'5432',PGDATABASE:decodeURIComponent(u.pathname.slice(1)),PGUSER:decodeURIComponent(u.username),PGPASSWORD:decodeURIComponent(u.password),...(u.searchParams.get('sslmode')?{PGSSLMODE:u.searchParams.get('sslmode')!}:{})};}
+async function postgresTool(tool:string,args:string[],url:string):Promise<void>{await new Promise<void>((done,fail)=>{const p=spawn(tool,args,{env:pgEnvironment(url),stdio:['ignore','ignore','ignore'],windowsHide:true});p.once('error',()=>fail(new Error(`${tool} could not start`)));p.once('exit',code=>code===0?done():fail(new Error(`${tool} failed (${code})`)));});}
+export async function backupArchive(service:ArchiveService,destination:string):Promise<BackupManifest>{
+  const root=resolve(destination);await freshDirectory(root);
+  const type=service.options.databaseUrl?'postgresql':'pglite';const databaseFile=type==='pglite'?'database.tar.gz':'database.dump';
+  if(type==='pglite'){if(!service.db.dump)throw new Error('Database dump is unavailable');const dump=await service.db.dump();await writeFile(within(root,databaseFile),Buffer.from(await dump.arrayBuffer()),{flag:'wx',mode:0o600});}
+  else await postgresTool('pg_dump',['--format=custom','--no-owner','--no-acl','--file',within(root,databaseFile)],service.options.databaseUrl!);
+  const rows=(await service.db.query("SELECT DISTINCT raw_hash AS hash,file_path,'raw' AS kind FROM raw_items UNION ALL SELECT DISTINCT sha256 AS hash,file_path,'media' AS kind FROM media_assets")).rows;const files:BackupManifest['files']=[];
+  for(const row of rows){const hash=String(row.hash);if(!/^[a-f0-9]{64}$/.test(hash))throw new Error('Invalid preservation hash');const original=String(row.file_path);const content=await readFile(original);if(sha256(content)!==hash)throw new Error('Original integrity check failed');const kind=row.kind==='media'?'media':'raw';const relativePath=kind==='media'?`originals/media/${hash.slice(0,2)}/${hash}.bin`:`originals/${hash.slice(0,2)}/${hash}.json`;const target=within(root,relativePath);await mkdir(resolve(target,'..'),{recursive:true,mode:0o700});await copyFile(original,target);files.push({hash,relativePath,kind});}
+  const manifest:BackupManifest={version:1,createdAt:new Date().toISOString(),databaseType:type,databaseFile,databaseHash:sha256(await readFile(within(root,databaseFile))),files};await writeFile(within(root,'manifest.json'),JSON.stringify(manifest,null,2),{flag:'wx',mode:0o600});return manifest;
+}
+export async function verifyBackup(backupDir:string):Promise<BackupManifest>{const value:unknown=JSON.parse(await readFile(within(backupDir,'manifest.json'),'utf8'));if(!value||typeof value!=='object'||!('version'in value)||value.version!==1)throw new Error('Invalid backup manifest');const m=value as BackupManifest;if(!['pglite','postgresql'].includes(m.databaseType)||!Array.isArray(m.files)||!['database.tar.gz','database.dump'].includes(m.databaseFile))throw new Error('Invalid backup manifest');if(sha256(await readFile(within(backupDir,m.databaseFile)))!==m.databaseHash)throw new Error('Database backup integrity failed');for(const f of m.files){if(!/^[a-f0-9]{64}$/.test(f.hash)||sha256(await readFile(within(backupDir,f.relativePath)))!==f.hash)throw new Error('Original backup integrity failed');}return m;}
+export async function restoreBackup(backupDir:string,destination:string,targetDatabaseUrl?:string):Promise<void>{
+  const manifest=await verifyBackup(backupDir);if(manifest.databaseType==='postgresql'&&!targetDatabaseUrl)throw new Error('A new empty PostgreSQL target database is required');
+  const root=resolve(destination);await freshDirectory(root);
+  for(const file of manifest.files){const to=within(root,file.relativePath);await mkdir(resolve(to,'..'),{recursive:true,mode:0o700});await copyFile(within(backupDir,file.relativePath),to);}
+  if(manifest.databaseType==='pglite'){
+    const db=await PGlite.create({dataDir:within(root,'database'),loadDataDir:new Blob([new Uint8Array(await readFile(within(backupDir,manifest.databaseFile)))])});
+    try{await db.exec('BEGIN');for(const file of manifest.files)await db.query(file.kind==='media'?'UPDATE media_assets SET file_path=$2,status=\'queued\',production=null WHERE sha256=$1':'UPDATE raw_items SET file_path=$2 WHERE raw_hash=$1',[file.hash,within(root,file.relativePath)]);const records=await db.query<{record_id:string}>('SELECT DISTINCT record_id FROM media_assets');for(const r of records.rows)await db.query("INSERT INTO jobs(id,kind,payload,dedupe_key) VALUES($1,'produce',$2,$3) ON CONFLICT DO NOTHING",[`job-${randomUUID()}`,JSON.stringify({recordId:r.record_id}),`produce:restore:${r.record_id}`]);await db.exec('COMMIT');}finally{await db.close();}
+  }else{
+    const pool=new pg.Pool({connectionString:targetDatabaseUrl});try{const existing=await pool.query("SELECT count(*)::integer AS n FROM information_schema.tables WHERE table_schema='public'");if(Number(existing.rows[0]?.n)>0)throw new Error('PostgreSQL target must be empty');await postgresTool('pg_restore',['--no-owner','--no-acl','--exit-on-error','--dbname',decodeURIComponent(new URL(targetDatabaseUrl!).pathname.slice(1)),within(backupDir,manifest.databaseFile)],targetDatabaseUrl!);for(const file of manifest.files)await pool.query(file.kind==='media'?'UPDATE media_assets SET file_path=$2,status=\'queued\',production=null WHERE sha256=$1':'UPDATE raw_items SET file_path=$2 WHERE raw_hash=$1',[file.hash,within(root,file.relativePath)]);const records=await pool.query<{record_id:string}>('SELECT DISTINCT record_id FROM media_assets');for(const r of records.rows)await pool.query("INSERT INTO jobs(id,kind,payload,dedupe_key) VALUES($1,'produce',$2,$3) ON CONFLICT DO NOTHING",[`job-${randomUUID()}`,JSON.stringify({recordId:r.record_id}),`produce:restore:${r.record_id}`]);}finally{await pool.end();}
+  }
+}

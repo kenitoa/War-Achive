@@ -1,0 +1,6 @@
+import Link from '@/components/static-link';
+import { archive } from '@/lib/archive';
+import { EmptyState, PageHeading } from '@/components/common';
+import { routeId } from '@/lib/security';
+export const metadata = { title: '주제별 모음' };
+export default function CollectionsPage() { const data = archive(); return <><PageHeading index="COLLECTIONS / READING TOGETHER" title="주제별 모음" intro="하나의 질문으로 여러 기록을 엮습니다. 원자료의 소장 질서와 구분되는 편집 모음입니다." />{data.collections.length ? <div className="collection-grid">{data.collections.map((collection, index) => <Link className="collection-card" href={`/collections/${routeId(collection.id)}/`} key={collection.id}><div className="collection-art" aria-hidden="true"><span>{String(index + 1).padStart(2, '0')}</span><i /><i /><i /></div><div><p className="eyebrow">{collection.recordIds.length} RECORDS</p><h2>{collection.title} ↗</h2><p>{collection.summary}</p><div className="tag-row">{collection.topics.map(topic => <span className="tag" key={topic}>{topic}</span>)}</div></div></Link>)}</div> : <EmptyState title="자료를 엮어 새로운 맥락을 준비합니다" description="검수된 자료를 바탕으로 구성한 모음이 공개되면 여기에 표시됩니다. 내 서재에서는 직접 자료 모음을 만들 수 있습니다." action={<Link className="button" href="/shelf/">내 자료 모음 만들기 ↗</Link>} />}</>; }

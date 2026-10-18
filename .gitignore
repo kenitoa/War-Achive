@@ -1,0 +1,21 @@
+# Keep local environment values out of version control at every depth.
+.env
+.env.*
+!.env.example
+node_modules/
+.next/
+out/
+dist/
+coverage/
+*.tsbuildinfo
+NAS/data/
+NAS/releases/
+NAS/back/data/
+NAS/back/artifacts/
+NAS/artifacts/
+NAS/backups/
+Vercel/artifacts/
+.vscode/
+*.log
+.vercel/
+.DS_Store
