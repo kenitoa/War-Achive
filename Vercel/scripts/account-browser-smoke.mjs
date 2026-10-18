@@ -30,6 +30,15 @@ try {
   assert.match(initialSession.headers()['content-type'], /application\/json/);
   assert.match(initialSession.headers()['cache-control'], /no-store/);
   checked('공개 계정 API의 리디렉션 없는 비로그인 응답');
+  const staticContext = await browser.newContext({ javaScriptEnabled: false });
+  try {
+    const staticPage = await staticContext.newPage();
+    await staticPage.goto(`${base}/account/`, { waitUntil: 'domcontentloaded' });
+    assert.equal(await staticPage.getByLabel('이메일', { exact: true }).isDisabled(), true);
+    assert.equal(await staticPage.getByRole('button', { name: '회원가입', exact: true }).isDisabled(), true);
+    assert.equal(await staticPage.locator('form.account-form').getAttribute('method'), 'post');
+    checked('계정 화면 준비 전 입력 차단과 비밀번호 GET 전송 방지');
+  } finally { await staticContext.close(); }
   await page.goto(`${base}/account/`, { waitUntil: 'domcontentloaded' });
   await page.getByRole('button', { name: '회원가입', exact: true }).click();
   await page.getByLabel('이메일', { exact: true }).fill(email);
@@ -84,6 +93,7 @@ try {
   await page.goto(`${base}/account/`, { waitUntil: 'domcontentloaded' });
   await loginThroughForm();
   await page.getByText('계정과 서버 서재 삭제', { exact: true }).click();
+  assert.equal(await page.locator('.account-deletion form').getAttribute('method'), 'post');
   await page.getByLabel('현재 비밀번호', { exact: true }).fill(password);
   page.once('dialog', dialog => dialog.accept());
   const removed = page.waitForResponse(response => new URL(response.url()).pathname === '/api/v1/account' && response.request().method() === 'DELETE');
