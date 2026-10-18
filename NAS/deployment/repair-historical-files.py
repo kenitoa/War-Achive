@@ -6,10 +6,50 @@ import json
 import os
 from pathlib import Path
 import re
+import signal
 import subprocess
 import tarfile
 import time
 import uuid
+
+LABEL = "org.war-archive.historical-repair"
+
+
+def run_container(docker, options, name, timeout=1800):
+    """Keep the caller's deployment lock until this exact container has exited."""
+    def call(arguments, capture=False):
+        return subprocess.run(docker + arguments, check=True, timeout=60, stdout=subprocess.PIPE if capture else None, encoding="utf-8")
+
+    def state():
+        return json.loads(call(["inspect", "--format", "{{json .State}}", name], True).stdout)
+
+    created = False
+    try:
+        call(["create", "--name", name, "--label", LABEL + "=" + name] + options, True)
+        created = True
+        call(["start", name], True)
+        until = time.monotonic() + timeout
+        while True:
+            observed = state()
+            if not observed["Running"]:
+                call(["logs", name])
+                if observed["ExitCode"] != 0:
+                    raise RuntimeError("Historical installer exited unsuccessfully")
+                return
+            if time.monotonic() >= until:
+                raise TimeoutError("Historical installer exceeded its bounded runtime")
+            time.sleep(2)
+    finally:
+        if created:
+            label = call(["inspect", "--format", '{{index .Config.Labels "%s"}}' % LABEL, name], True).stdout.strip()
+            if label != name:
+                raise RuntimeError("Refusing to manage a container without this invocation's exact label")
+            if state()["Running"]:
+                call(["stop", "--time", "30", name], True)
+                if state()["Running"]:
+                    raise RuntimeError("Historical installer did not stop; container retained for inspection")
+            # No volumes, images, networks, or existing services are removed.
+            call(["rm", name], True)
 
 
 def extract_verified(bundle, expected, destination):
@@ -52,6 +92,10 @@ def extract_verified(bundle, expected, destination):
 
 def main():
     import fcntl
+    def interrupted(_signum, _frame):
+        raise InterruptedError("Historical installer interrupted")
+    signal.signal(signal.SIGTERM, interrupted)
+    signal.signal(signal.SIGINT, interrupted)
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root", required=True)
     parser.add_argument("--bundle", required=True)
@@ -84,15 +128,16 @@ def main():
         extract_verified(bundle, args.sha256, stage)
         (stage / "install-historical-files.mjs").write_bytes(content)
         (stage / "install-historical-files.mjs").chmod(0o644)
-        command = ([] if os.getuid() == 0 else ["sudo", "-n"]) + [
-            "/usr/local/bin/docker", "run", "--rm", "--pull", "never", "--network", "none", "--read-only", "--cap-drop", "ALL",
+        docker = ([] if os.getuid() == 0 else ["sudo", "-n"]) + ["/usr/local/bin/docker"]
+        options = [
+            "--pull", "never", "--no-healthcheck", "--network", "none", "--read-only", "--cap-drop", "ALL",
             "--security-opt", "no-new-privileges:true", "--user", "1000:1000",
             "--mount", "type=volume,src=war-archive-data,dst=/var/lib/war-archive",
             "--mount", "type=volume,src=war-archive-releases,dst=/var/lib/war-archive-releases",
             "--mount", "type=bind,src=%s,dst=/repair,readonly" % stage,
             "--entrypoint", "node", "war-archive-backend:" + commit, "/repair/install-historical-files.mjs",
         ] + (["--apply"] if args.apply else [])
-        subprocess.run(command, check=True, timeout=120)
+        run_container(docker, options, "war-archive-history-" + uuid.uuid4().hex)
 
 
 if __name__ == "__main__":

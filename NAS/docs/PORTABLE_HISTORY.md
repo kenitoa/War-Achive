@@ -25,6 +25,8 @@ node dist/commands/import-portable.js /private/new-bundle /private/new-data /pri
 
 `deployment/repair-historical-files.py`는 bundle 전체 SHA256, tar 허용 경로, 일반 파일 여부, 중복, 크기 상한, 파일별 SHA256을 검증한다. `update.flock` 아래에서 현재 이미지의 기존 UID 1000으로 자체 데이터/발행 volume에만 접근하고 네트워크와 capability를 제거한다. 모든 대상의 기존 파일을 먼저 검사한 뒤 누락 파일만 원자적으로 추가하며, 기존 바이트가 다르면 중단한다. DB에는 접속하지 않는다. 기본은 dry run이며 `--apply`를 명시해야 적용한다.
 
+느린 NAS의 파일별 동기 쓰기를 고려해 각 실행에 고유 컨테이너 이름과 label을 지정하고 최대 30분 동안 완료를 감시한다. Docker CLI의 종료만으로 복사 완료를 판정하지 않는다. 해당 컨테이너가 끝났음을 확인한 뒤 실행 자원만 정리하고 lock을 해제한다. 시간 초과나 중단에서는 정확한 소유 label을 확인한 자체 컨테이너만 정지하며 volume, 이미지, 다른 서비스는 정리하지 않는다.
+
 ```sh
 python3 deployment/repair-historical-files.py \
   --root /volume3/docker/War_Archive_Server \

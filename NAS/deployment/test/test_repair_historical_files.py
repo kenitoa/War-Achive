@@ -6,6 +6,8 @@ from pathlib import Path
 import tarfile
 import tempfile
 import unittest
+from types import SimpleNamespace
+from unittest.mock import patch
 
 SPEC = importlib.util.spec_from_file_location("repair_history", Path(__file__).resolve().parents[1] / "repair-historical-files.py")
 repair = importlib.util.module_from_spec(SPEC)
@@ -57,6 +59,56 @@ class ArchiveSafetyTests(unittest.TestCase):
                 with self.assertRaises(ValueError):
                     repair.extract_verified(bundle, expected, root / "stage")
             self.assertFalse((root / "stage").exists())
+
+
+class ContainerLifecycleTests(unittest.TestCase):
+    def execute(self, timeout=1800, wrong_label=False):
+        calls = []
+        self.calls = calls
+        running = True
+        reads = 0
+        name = "war-archive-history-fixture"
+
+        def run(command, **_options):
+            nonlocal running, reads
+            calls.append(command)
+            output = ""
+            if command[1] == "inspect":
+                if ".Config.Labels" in command[3]:
+                    output = "another-container" if wrong_label else name
+                else:
+                    reads += 1
+                    if timeout and reads > 1:
+                        running = False
+                    output = json.dumps({"Running": running, "ExitCode": 0})
+            elif command[1] == "stop":
+                running = False
+            return SimpleNamespace(stdout=output)
+
+        with patch.object(repair.subprocess, "run", side_effect=run), patch.object(repair.time, "sleep"):
+            repair.run_container(["docker"], ["--network", "none", "fixture-image"], name, timeout)
+        return calls
+
+    def test_named_labeled_container_is_removed_only_after_confirmed_completion(self):
+        calls = self.execute()
+        self.assertIn("--name", calls[0])
+        self.assertIn(repair.LABEL + "=war-archive-history-fixture", calls[0])
+        self.assertFalse(any(command[1] == "stop" for command in calls))
+        self.assertEqual(calls[-1], ["docker", "rm", "war-archive-history-fixture"])
+        self.assertFalse(any("-v" in command for command in calls))
+
+    def test_timeout_stops_only_own_container_before_cleanup_returns(self):
+        with self.assertRaises(TimeoutError):
+            self.execute(timeout=0)
+        commands = [command[1] for command in self.calls]
+        self.assertLess(commands.index("stop"), commands.index("rm"))
+        self.assertEqual(self.calls[commands.index("stop")], ["docker", "stop", "--time", "30", "war-archive-history-fixture"])
+        self.assertEqual(self.calls[-1], ["docker", "rm", "war-archive-history-fixture"])
+
+    def test_wrong_ownership_label_is_never_stopped_or_removed(self):
+        with self.assertRaisesRegex(RuntimeError, "exact label"):
+            self.execute(wrong_label=True)
+        self.assertFalse(any(command[1] in ["stop", "rm"] for command in self.calls))
 
 
 if __name__ == "__main__":

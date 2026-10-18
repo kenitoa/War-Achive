@@ -45,4 +45,6 @@ Get-ScheduledTask -TaskName 'War Archive encrypted external backup'
 
 `recovery/runtime-images.tar.gz`는 네트워크 없이 `docker load`할 수 있는 이미지 집합이다. `recovery/source-and-bootstrap.tar.gz`는 활성 릴리스를 포함한다. 새 환경에서 `environment.env`와 `secrets.tar`를 원래의 비공개 위치로 복구하고 파일 소유권/권한을 맞춘 뒤 Compose 경로를 새 NAS 위치에 맞춰 생성한다. worker와 원격 발행을 끄고 세션/복구 토큰을 폐기한 상태로 검증한 다음 운영 연결을 전환한다.
 
+운영 NAS에서 외부 사본의 이미지까지 검증하는 경우 `python3 deployment/verify-recovery-runtime.py <되가져온-새-폴더>/restored --load-images`를 실행한다. 환경 설정과 배포 키의 비공개 권한, 소스·bootstrap, 이미지 archive의 세 태그와 이미지 ID를 먼저 검증한다. 현재 backend·gateway·PostgreSQL 태그가 보관된 이미지 ID와 전부 같은 경우에만 실제 이미지 로드를 허용하고, 로드 후 ID를 다시 확인한다. 다른 서비스가 공유하는 PostgreSQL 태그를 과거 이미지로 바꾸지 않는다. 이 보호장치의 POSIX 권한 테스트는 실제 NAS/Linux에서 `python3 -m unittest discover -s deployment/test -p 'test_recovery_runtime.py'`로 실행한다.
+
 DPAPI 키는 현재 PC의 현재 사용자에 묶여 있다. **다른 PC에서 복구하려면 별도로 보관한 복구용 키가 필요하다.** 현재 구현은 키를 임의의 클라우드나 암호문 폴더로 복사하지 않는다. PC 손실까지 대비하려면 사용자가 별도의 암호 관리자/오프라인 매체에 복구 키를 보관해야 한다. PC 전용 폴더는 NAS 밖의 사본이지만 물리적으로 같은 장소에 있으면 원격지 백업이 아니다. 자동 보존본 삭제는 하지 않으므로 디스크 사용량과 실패 상태를 확인해야 한다.
