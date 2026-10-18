@@ -229,8 +229,16 @@ export class ArchiveService {
   async listPublications():Promise<Row[]>{return(await this.db.query('SELECT id,target,status,record_count AS "recordCount",manifest,created_at AS "createdAt",published_at AS "publishedAt",last_error AS "lastError" FROM publications ORDER BY created_at DESC LIMIT 100')).rows;}
   async verifyPendingPublications():Promise<number>{
     const url=this.options.github?.deploymentUrl;if(!url)return 0;
-    const pending=await this.db.query("SELECT id,manifest FROM publications WHERE target='github' AND status='prepared' ORDER BY created_at DESC LIMIT 10");let completed=0;
-    for(const row of pending.rows){const id=String(row.id),manifest=row.manifest as Record<string,unknown>;try{if(await verifyDeployment(id,url,this.options.fetcher,String(manifest.sha256))){await this.db.transaction(async(tx)=>{await tx.query("UPDATE publications SET status='published',published_at=now(),last_error=null WHERE id=$1 AND status='prepared'",[id]);await this.audit('publication.live-verified','worker',id,{target:'github'},tx);});completed++;break;}}catch{await this.db.query("UPDATE publications SET last_error='DEPLOYMENT_VERIFICATION_PENDING' WHERE id=$1 AND status='prepared'",[id]);}}
+    const pending=await this.db.query("SELECT id,manifest FROM publications WHERE target='github' AND (status='prepared' OR (status='published' AND (manifest->'evidence'->>'verified') IS DISTINCT FROM 'true')) ORDER BY created_at DESC LIMIT 10");let completed=0;
+    for(const row of pending.rows){const id=String(row.id),manifest=row.manifest as Record<string,unknown>;try{if(await verifyDeployment(id,url,this.options.fetcher,String(manifest.sha256))){const updated=await this.db.transaction(async(tx)=>{
+      const current=(await tx.query("SELECT manifest FROM publications WHERE id=$1 AND status IN ('prepared','published') FOR UPDATE",[id])).rows[0];if(!current)return false;
+      const latest=current.manifest as Record<string,unknown>,oldEvidence=latest.evidence&&typeof latest.evidence==='object'&&!Array.isArray(latest.evidence)?latest.evidence as Record<string,unknown>:{};
+      if(latest.sha256!==manifest.sha256)return false;
+      const liveVerifiedAt=new Date().toISOString();
+      await tx.query("UPDATE publications SET status='published',published_at=COALESCE(published_at,now()),manifest=$2,last_error=null WHERE id=$1",[id,JSON.stringify({...latest,evidence:{...oldEvidence,verified:true,liveVerifiedAt}})]);
+      await this.audit('publication.live-verified','worker',id,{target:'github',sha256:manifest.sha256,liveVerifiedAt},tx);
+      return true;
+    });if(updated){completed++;break;}}}catch{await this.db.query("UPDATE publications SET last_error='DEPLOYMENT_VERIFICATION_PENDING' WHERE id=$1 AND status='prepared'",[id]);}}
     return completed;
   }
   async createRequest(input:unknown):Promise<{id:string}>{const parsed=z.object({kind:z.enum(['correction','contribution','privacy']),recordId:z.string().max(100).optional(),message:z.string().min(10).max(8000),contact:z.string().max(300).optional()}).strict().parse(input);const id=`req-${randomUUID()}`;await this.db.query('INSERT INTO requests(id,kind,record_id,message,contact) VALUES($1,$2,$3,$4,$5)',[id,parsed.kind,parsed.recordId??null,parsed.message,parsed.contact??null]);return{id};}

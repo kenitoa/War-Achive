@@ -18,13 +18,13 @@
 
 ## 앱 검사
 
-- NAS/back: 최종 lint·typecheck·test 31건·build 통과. portable 이전 CLI와 원본/DB 이전 회귀 검사를 포함한다.
+- NAS/back: 최종 lint·typecheck·test 32건·build 통과. portable 이전 CLI와 원본/DB 이전, 지연 발행 검증 증거, 물리 복구의 세션 무효화 회귀 검사를 포함한다.
 - NAS/admin: lint·typecheck·test 4건·build 통과. 실제 API 9231에서 데스크톱 10개 메뉴, 390px 모바일 7개 메뉴, 자료·원본 목록·이전 개정 조회와 로그인·로그아웃 통과. 자료 쓰기를 수행하지 않았다. 출처 후보 반영은 브라우저 GET에만 격리한 UI 검사다.
 - Vercel: lint·typecheck·test 16건·build 140개 경로 통과. 로컬 Edge 11개 핵심 흐름과 390px 주요 9개 경로 통과. JavaScript 런타임 오류 0건. 연결된 회원 API UI는 미검증이며 미연결 안내를 확인했다.
 - 공용 계약: `node NAS/scripts/sync-contracts.mjs --check` 통과.
 - Portable 이전 회귀 검사: 새로운 PGlite DB와 CLI 기본 경로, ID/checkpoint/철회/서재/원본 보존, 인증 세션 제외, lease 재대기, ingest sequence 보존, 비어 있지 않은 대상/변조 거부 통과.
 - 현재 실제 자료의 portable export/import: 4개 출처·120개 자료·192개 개정·120개 원본을 내보내고 별도 새 PGlite DB로 가져오기 성공. 원본을 보존하고 세션은 무효화했다. NAS PostgreSQL은 별도 확인 대상이다.
-- Git 후보 155개 파일 검사에서 실제 환경 비밀값/토큰 패턴/운영 데이터 유입 0건. NAS/.env·기존 back/.env·DB·원본·이전 bundle·스크린샷은 Git에서 제외했다.
+- 최종 Git 소스 156개 파일 검사에서 실제 환경 비밀값/토큰 패턴/운영 데이터 유입 0건. NAS/.env·기존 back/.env·DB·원본·이전 bundle·스크린샷은 Git에서 제외했다.
 
 ## 실제 수집과 공개 자료
 
@@ -42,6 +42,20 @@ Commons에서 120건 원본 응답을 보존했고 118건을 공개했다. 민�
 - 주요 페이지 10개 HTTP 200, CSP·nosniff·frame DENY 확인. NAS/.env, /.env, NAS/back/.env, 관리자 설정 경로는 HTTP 404.
 - 실제 배포 Edge의 12개 흐름, 모바일 주요 9개 경로, 릴리스 해시와 JavaScript 오류 0건 확인.
 - 외부 미리보기 HEAD는 4개 200, 4개 429. 외부 이미지의 지속 가용성을 보장하지 않는다. 카드/상세의 429 대체 표시·출처 이동·재시도와 귀속 정보 보존은 격리된 브라우저 응답 검사 4개로 확인했다.
+
+### 실제 NAS 발행 코드 → GitHub → 자동 Vercel 재배포
+
+기존 PC의 시스템 Git 인증을 프로세스 메모리에서만 사용해 실제 발행 코드를 실행했다. NAS/.env의 인증 비밀값은 바꾸거나 복사하지 않았다.
+
+- 소스 커밋 `eac97f03b975680fad17b81e0cd1cf4c6efbd652`를 현재 저장소 main에 반영했다.
+- NAS 발행기가 공개본을 GitHub에 PUT하고 다시 읽어 일치 확인: 커밋 `f763cfaa4b7eb426133d248568ac9e128f0962bb`.
+- 이 커밋으로 시작된 Git 소스 배포 `dpl_7rr6z3cCXXiwhTi6NDBwpYGQ3Sj5`가 READY가 됐다.
+- 최종 공개본 `rel-77075743-dbe1-4194-8d99-6ff9e2a89efb`, SHA-256 `42eca96064cbb4a8121053e3bf1e52016ca3b3f27afaabaa39185a66eeb3182a`, 공개 자료 118건.
+- 실제 /release.json의 ID와 해시 확인 후 DB 발행 상태 published 및 manifest.evidence.verified=true를 확인했다.
+- 최종 배포에서 Edge 12개 흐름과 390px 주요 9개 경로, 모의 이미지 429 대응 4개 흐름을 다시 통과했다. JavaScript 런타임 오류 0건.
+- 발행 검증을 포함한 최종 portable bundle은 NAS/data/transfer/ready-20261018이며 새 로컬 DB로 가져오기를 다시 통과했다. 120개 자료·120개 원본·4개 출처를 보존한다.
+
+이 증거는 실제 한 차례의 전송·자동 재배포 경로를 검증한 것이다. NAS에서 상시 운전하려면 NAS 전용 유효 토큰과 실제 장비 배포가 필요하다.
 
 Vercel Next.js 프리셋은 기본 .next manifest를 읽은 뒤 정적 export를 처리하므로 Output Directory override를 해제했다. 로컬 산출물 out을 Vercel 어댑터 출력으로 강제하면 manifest 탐색이 실패한다. [공식 Vercel 빌드 설정](https://vercel.com/docs/builds/configure-a-build#output-directory), [공식 Next 어댑터](https://github.com/vercel/vercel/blob/main/packages/next/src/index.ts).
 

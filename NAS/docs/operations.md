@@ -26,12 +26,12 @@ Compose는 PostgreSQL 볼륨, 원본/제작물 볼륨, 공개 릴리스 볼륨�
 
 ### 현재 Windows 자료를 새 NAS PostgreSQL로 이전
 
-폴더 복사만으로 Windows PGlite의 행이 PostgreSQL에 들어가지는 않는다. 현재 자료는 `NAS/data/transfer/initial-20261018/`에 portable 논리 bundle로 내보냈다. 4개 출처·120개 자료·192개 개정·120개 보존 원본을 포함하며 새 PGlite 경로로 실제 가져오기와 해시 보존을 확인했다. 이 bundle은 공개 Git에서 제외되므로 **현재 NAS 폴더를 복사할 때 함께 전달**한다. 회원/연락처 등이 포함될 수 있는 비공개 bundle이며 별도로 보호한다.
+폴더 복사만으로 Windows PGlite의 행이 PostgreSQL에 들어가지는 않는다. 현재 자료는 `NAS/data/transfer/ready-20261018/`에 portable 논리 bundle로 내보냈다. 4개 출처·120개 자료·192개 개정·120개 보존 원본을 포함하며 새 PGlite 경로로 실제 가져오기와 해시 보존을 확인했다. 이 bundle은 공개 Git에서 제외되므로 **현재 NAS 폴더를 복사할 때 함께 전달**한다. 회원/연락처 등이 포함될 수 있는 비공개 bundle이며 별도로 보호한다.
 
 새 NAS의 DB를 생성·마이그레이션한 뒤, API와 worker를 시작하기 전에 실행한다. 대상 DB는 마이그레이션만 적용한 빈 DB이고 `/var/lib/war-archive` 볼륨은 비어 있어야 한다. bundle에는 컨테이너 UID 1000의 읽기 권한만 필요한 범위로 부여하고 전체 공개 권한을 주지 않는다.
 
 ```sh
-docker compose run --rm --no-deps -T --volume "$PWD/data/transfer/initial-20261018:/import:ro" api node dist/commands/import-portable.js /import /var/lib/war-archive
+docker compose run --rm --no-deps -T --volume "$PWD/data/transfer/ready-20261018:/import:ro" api node dist/commands/import-portable.js /import /var/lib/war-archive
 ```
 
 가져오기는 테이블/열 허용 목록과 migration 파일 해시, 원본 해시, 경로, 행 수를 검사한다. 원본 경로를 NAS로 바꾸고 ID·출처 checkpoint·개정·철회를 보존한다. 로그인 세션과 비밀번호 재설정 토큰은 이전하지 않는다. 실행 중 lease는 다시 대기 상태로 만들고 파생 파일을 재제작한다. 기존 운영 DB/파일은 덮어쓰지 않는다. 실제 PostgreSQL로의 실행은 NAS에서 확인해야 한다.
@@ -85,9 +85,10 @@ docker compose -p <새 프로젝트> exec -T db pg_restore -U archive -d archive
 docker compose -p <새 프로젝트> run --rm --no-deps -T api tar -C /var/lib/war-archive -xf - < <백업>/archive-files.tar
 docker compose -p <새 프로젝트> run --rm --no-deps -T api tar -C /var/lib/war-archive-releases -xf - < <백업>/releases.tar
 docker compose -p <새 프로젝트> run --rm api node dist/commands/migrate.js
+docker compose -p <새 프로젝트> exec -T db psql -U archive -d archive -v ON_ERROR_STOP=1 -c "BEGIN; DELETE FROM member_sessions; DELETE FROM member_reset_tokens; UPDATE jobs SET state='queued',owner=NULL,lease_until=NULL,run_at=now() WHERE state='running'; COMMIT;"
 ```
 
-`<...>`는 실제 경로/이름으로 바꾼다. 관리자 포트를 운영과 다르게 설정하고 REMOTE_PUBLISH_ENABLED=false로 둔 상태에서 새 API만 시작한다. 원본 해시·DB·자료·권리 상태를 확인한 후 worker와 발행을 순서대로 활성화한다. 운영 볼륨이나 이전 백업을 삭제하지 않는다. 이 NAS 복원 절차는 실제 Docker에서 아직 실행하지 않았다. 개발용 PostgreSQL 백업 CLI를 별도 사용할 경우 호스트에 pg_dump/pg_restore도 필요하며 API 런타임 이미지에는 포함하지 않는다.
+`<...>`는 실제 경로/이름으로 바꾼다. 마지막 명령은 **새 복원 DB에서만** 실행해 과거에 폐기한 세션·복구 토큰이 백업 복원으로 살아나지 않도록 무효화한다. 회원·서재·자료는 삭제하지 않는다. 관리자는 다시 로그인해야 한다. 관리자 포트를 운영과 다르게 설정하고 REMOTE_PUBLISH_ENABLED=false로 둔 상태에서 새 API만 시작한다. 원본 해시·DB·자료·권리 상태를 확인한 후 worker와 발행을 순서대로 활성화한다. 운영 볼륨이나 이전 백업을 삭제하지 않는다. 이 NAS 복원 절차는 실제 Docker에서 아직 실행하지 않았다. 개발용 PostgreSQL 백업 CLI를 별도 사용할 경우 호스트에 pg_dump/pg_restore도 필요하며 API 런타임 이미지에는 포함하지 않는다.
 
 주기적 백업은 NAS 작업 스케줄러에서 위 스크립트를 호출하도록 설정한다. 이 작업에서 실제 NAS의 스케줄러를 등록한 것은 아니다. 별도 저장소 복사와 정기 복원 연습을 확인한 후 백업을 보호 완료로 기록한다.
 

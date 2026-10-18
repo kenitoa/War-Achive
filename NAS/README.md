@@ -51,7 +51,7 @@ docker compose logs --tail=100 api worker
 
 설정 도구는 비어 있는 필수 비밀값만 생성한다. 기존 PostgreSQL 볼륨의 비밀번호를 임의로 바꾸지 않는다. API는 시작 시 추가형 마이그레이션을 적용한다. worker는 API 헬스 체크 이후 시작한다. DB는 외부 포트를 열지 않고 관리자 포트는 NAS loopback에만 바인딩한다. VPN 또는 SSH 터널과 HTTPS를 사용한다. 공개 회원 API가 필요할 때의 경로 허용 목록은 [API 계약](docs/api.md)을 따른다.
 
-현재 Windows 자료를 NAS PostgreSQL에 유지하려면 API/worker를 시작하기 전에 `data/transfer/initial-20261018/` bundle을 [이전 절차](docs/operations.md)에 따라 가져온다. 실제 120개 자료·120개 원본을 내보내 새 로컬 DB에 가져오는 검증을 마쳤다. 폴더 복사만으로 저장 엔진이 자동 변환되지는 않는다. bundle은 Git 제외이므로 현재 폴더 복사 시 함께 보존한다.
+현재 Windows 자료를 NAS PostgreSQL에 유지하려면 API/worker를 시작하기 전에 `data/transfer/ready-20261018/` bundle을 [이전 절차](docs/operations.md)에 따라 가져온다. 실제 120개 자료·120개 원본을 내보내 새 로컬 DB에 가져오는 검증을 마쳤다. 폴더 복사만으로 저장 엔진이 자동 변환되지는 않는다. bundle은 Git 제외이므로 현재 폴더 복사 시 함께 보존한다.
 
 ## 자동 운영과 발행
 
