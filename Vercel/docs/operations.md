@@ -48,11 +48,34 @@ npm.cmd run build
 
 API 서버는 공개 사이트의 정확한 origin에 대해 CORS와 credentials를 허용해야 한다. 서로 다른 사이트에 배포하면 쿠키 정책의 영향을 받으므로 사용자 정의 같은 사이트 도메인 또는 검증한 프록시 구성을 사용한다. session cookie는 API가 설정하며 localStorage에는 넣지 않는다.
 
+### NAS의 공개 게이트웨이를 같은 출처로 연결
+
+Vercel의 [외부 rewrite](https://vercel.com/docs/routing/rewrites)를 이용하여 브라우저 요청은 공개 사이트 origin에 남기고 NAS의 제한된 HTTPS 게이트웨이로 전달할 수 있다. 배포 소스를 업로드하기 전에 다음을 실행한다.
+
+```powershell
+$env:NEXT_PUBLIC_API_ORIGIN = 'https://kenitoa-war-achive.vercel.app'
+$env:NAS_PUBLIC_GATEWAY_URL = '검증한 NAS 공개 게이트웨이의 HTTPS 주소'
+npm.cmd run configure:gateway
+npm.cmd run lint
+npm.cmd run typecheck
+npm.cmd run test
+npm.cmd run build
+```
+
+`configure:gateway`는 `vercel.json`에 `/api/v1/accounts`, `/api/v1/account`, `/api/v1/account/session`, `/api/v1/account/shelf`, `/api/v1/account/reset`, `/api/v1/requests` 여섯 경로만 추가한다. 포괄적인 `/api/:path*` rewrite를 사용하지 않는다. 계정 응답에는 브라우저·CDN 모두 `no-store`를 적용한다. `NAS_PUBLIC_GATEWAY_URL`은 배포 설정을 생성하는 공개 주소이며 HTTPS origin 또는 `/war-archive-api` prefix를 지원한다. 기존 NAS 호스트의 다른 서비스 경로는 변경하지 않는다. 브라우저 코드에 비밀키를 추가하는 변수가 아니다.
+
+NAS 게이트웨이는 위 경로의 지원 HTTP 메서드만 전달하고 관리자·원본·수집 경로를 거부해야 한다. API의 `PUBLIC_ACCOUNT_API_ENABLED=true`, 정확한 공개 사이트 `ALLOWED_ORIGINS`, `COOKIE_SECURE=true`, `COOKIE_SAME_SITE=lax`를 함께 설정한다. Vercel 프로젝트의 빌드 환경에도 같은 `NEXT_PUBLIC_API_ORIGIN`을 지정한다. 쿠키는 NAS 응답의 Domain 없는 HttpOnly 쿠키를 프록시를 통해 공개 사이트에 저장하며, 브라우저 저장소에는 인증 토큰을 넣지 않는다.
+
+회원가입은 계정 생성만 수행하고 별도 로그인으로 세션을 시작한다. 실제 배포 후 회원가입 → 로그인 → 서재 저장·재조회 → 로그아웃 → 비인가 조회 거부까지 확인해야 연결을 검증한 것으로 간주한다. 로컬 유닛 테스트와 프록시 설정 생성 성공만으로 실제 NAS·Vercel 왕복을 검증했다고 보고하지 않는다.
+
+`RUN_ACCOUNT_WRITE_TEST=1`과 대상 `BASE_URL`을 명시한 뒤 `npm run test:account`를 실행하면 위 흐름과 CSRF 거부, 검증 계정 삭제까지 실제 브라우저에서 확인한다. 이 검사는 실행 중 만든 일회성 검증 계정과 그 서재에만 쓰며, 임의 비밀번호는 메모리에만 보관한다. 정상 종료 시 해당 계정을 삭제하고 실패 시에도 정리를 시도한다. 다른 운영 계정이나 운영 서재는 변경하지 않는다.
+
 | 작업 | 경로 |
 |---|---|
 | 회원가입 | `POST /api/v1/accounts` |
 | 로그인·조회·로그아웃 | `POST/GET/DELETE /api/v1/account/session` |
 | 비밀번호 재설정 | `POST /api/v1/account/reset` |
+| 본인 계정·서버 서재 삭제 | `DELETE /api/v1/account` |
 | 서재 조회·낙관적 갱신 | `GET/PUT /api/v1/account/shelf` |
 | 자료·정정 접수 | `POST /api/v1/requests` |
 

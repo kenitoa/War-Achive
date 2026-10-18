@@ -3,6 +3,7 @@ import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { parseEnv } from 'node:util';
 import { z } from 'zod';
+import { validGitTarget } from './infrastructure/publisher-git.js';
 
 export const backendRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 export const nasRoot = resolve(backendRoot, '..');
@@ -20,6 +21,7 @@ const EnvSchema = z.object({
   COOKIE_SAME_SITE: z.enum(['lax', 'none']).default('lax'),
   PUBLIC_ACCOUNT_API_ENABLED: z.enum(['true', 'false']).default('false'),
   GITHUB_FRONT_REPOSITORY: optionalText, GITHUB_FRONT_TOKEN: optionalText,
+  GITHUB_FRONT_SSH_KEY_PATH: optionalText, GITHUB_FRONT_SSH_KNOWN_HOSTS_PATH: optionalText,
   GITHUB_FRONT_REF: z.string().default('main'), GITHUB_FRONT_CONTENT_PATH: z.string().default('Vercel/content/archive.json'),
   REMOTE_PUBLISH_ENABLED: z.enum(['true', 'false']).default('false'),
   PUBLIC_ARCHIVE_VERIFY_URL: optionalText,
@@ -54,9 +56,11 @@ export function loadConfig(overrides?: Record<string, string | undefined>) {
   }
   const dataDir = resolve(env.DATA_DIR ?? resolve(nasRoot, 'data'));
   const github = env.REMOTE_PUBLISH_ENABLED === 'true' ? {
-    repository: env.GITHUB_FRONT_REPOSITORY ?? '', token: env.GITHUB_FRONT_TOKEN ?? '', ref: env.GITHUB_FRONT_REF, contentPath: env.GITHUB_FRONT_CONTENT_PATH, deploymentUrl: env.PUBLIC_ARCHIVE_VERIFY_URL,
+    repository: env.GITHUB_FRONT_REPOSITORY ?? '', token: env.GITHUB_FRONT_TOKEN, ref: env.GITHUB_FRONT_REF, contentPath: env.GITHUB_FRONT_CONTENT_PATH, deploymentUrl: env.PUBLIC_ARCHIVE_VERIFY_URL,
+    sshKeyPath: env.GITHUB_FRONT_SSH_KEY_PATH, sshKnownHostsPath: env.GITHUB_FRONT_SSH_KNOWN_HOSTS_PATH,
   } : undefined;
-  if (github && (!/^[A-Za-z0-9_.-]+\/[A-Za-z0-9_.-]+$/.test(github.repository) || !github.token || github.contentPath.includes('..') || github.contentPath.startsWith('/'))) throw new Error('원격 발행의 저장소·토큰·콘텐츠 경로 설정을 확인하세요.');
+  if (Boolean(env.GITHUB_FRONT_SSH_KEY_PATH) !== Boolean(env.GITHUB_FRONT_SSH_KNOWN_HOSTS_PATH)) throw new Error('Configure both GITHUB_FRONT_SSH_KEY_PATH and GITHUB_FRONT_SSH_KNOWN_HOSTS_PATH.');
+  if (github && (!validGitTarget(github.repository, github.ref, github.contentPath) || (!github.token && !github.sshKeyPath))) throw new Error('원격 발행의 저장소·인증·브랜치·콘텐츠 경로 설정을 확인하세요.');
   const s3Keys = [env.S3_REGION, env.S3_BUCKET, env.S3_ACCESS_KEY_ID, env.S3_SECRET_ACCESS_KEY];
   if (s3Keys.some(Boolean) && !s3Keys.every(Boolean)) throw new Error('S3_REGION, S3_BUCKET, S3_ACCESS_KEY_ID, S3_SECRET_ACCESS_KEY를 모두 설정하세요.');
   for (const value of [env.S3_ENDPOINT, env.MEDIA_PUBLIC_BASE_URL, env.PUBLIC_ARCHIVE_VERIFY_URL]) if (value) {

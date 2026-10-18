@@ -5,8 +5,9 @@ import { sha256 } from './files.js';
 import { safeFetchJson } from './collector.js';
 import { lookup } from 'node:dns/promises';
 import { isPublicAddress } from './collector.js';
+import { publishSnapshotWithDeployKey, validGitTarget } from './publisher-git.js';
 
-export interface GitHubTarget { repository: string; token: string; ref: string; contentPath: string; deploymentUrl?: string }
+export interface GitHubTarget { repository: string; token?: string; ref: string; contentPath: string; deploymentUrl?: string; sshKeyPath?: string; sshKnownHostsPath?: string }
 export async function verifyDeployment(releaseId:string,url:string,fetcher:typeof fetch=fetch,expectedHash?:string):Promise<boolean>{
   const target=new URL(url);if(target.protocol!=='https:'||target.username||target.password||target.port)throw new ArchiveError('VERIFY_URL_INVALID','배포 확인 URL이 올바르지 않습니다.');
   const addresses=await lookup(target.hostname,{all:true});if(!addresses.length||addresses.some(a=>!isPublicAddress(a.address)))throw new ArchiveError('VERIFY_URL_INVALID','배포 확인 대상은 공개 네트워크여야 합니다.');
@@ -20,7 +21,12 @@ export async function verifyDeployment(releaseId:string,url:string,fetcher:typeo
   const archive=PublicArchiveSchema.safeParse(live);return archive.success&&sha256(JSON.stringify(archive.data))===expectedHash;
 }
 export async function uploadGitHub(snapshot: PublicArchive, config: GitHubTarget, fetcher: typeof fetch = fetch): Promise<{ uploaded: boolean; verified: boolean; commit?: string }> {
-  if (!/^[\w.-]+\/[\w.-]+$/.test(config.repository) || !/^[\w./-]+$/.test(config.contentPath) || config.contentPath.includes('..') || !/^[\w./-]+$/.test(config.ref) || config.ref.includes('..')) throw new ArchiveError('INVALID_GITHUB_TARGET', 'GitHub 공개본 경로가 잘못되었습니다.');
+  if (config.sshKeyPath || config.sshKnownHostsPath) {
+    if (!config.sshKeyPath || !config.sshKnownHostsPath) throw new ArchiveError('GITHUB_SSH_CONFIG_INVALID', 'Both SSH key and known-hosts paths are required.');
+    const uploaded = await publishSnapshotWithDeployKey(snapshot, { repository: config.repository, ref: config.ref, contentPath: config.contentPath, sshKeyPath: config.sshKeyPath, sshKnownHostsPath: config.sshKnownHostsPath });
+    return { ...uploaded, verified: config.deploymentUrl ? await verifyDeployment(snapshot.releaseId, config.deploymentUrl, fetcher, sha256(JSON.stringify(snapshot))) : false };
+  }
+  if (!config.token || !validGitTarget(config.repository, config.ref, config.contentPath)) throw new ArchiveError('INVALID_GITHUB_TARGET', 'GitHub repository, token, ref and path must be configured.');
   const path = config.contentPath.split('/').map(encodeURIComponent).join('/'); const url = `https://api.github.com/repos/${config.repository}/contents/${path}`;
   const headers = { Accept: 'application/vnd.github+json', Authorization: `Bearer ${config.token}`, 'X-GitHub-Api-Version': '2022-11-28', 'User-Agent': 'WarArchive/1.0' };
   const previous = await fetcher(`${url}?ref=${encodeURIComponent(config.ref)}`, { headers, redirect: 'error', signal: AbortSignal.timeout(25_000) });

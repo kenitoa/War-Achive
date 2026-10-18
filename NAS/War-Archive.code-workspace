@@ -1,0 +1,32 @@
+{
+  "folders": [
+    { "name": "NAS", "path": "." },
+    { "name": "Vercel", "path": "../Vercel" }
+  ],
+  "settings": {
+    "git.autofetch": true,
+    "git.enableSmartCommit": false
+  },
+  "tasks": {
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "전쟁 아카이브: 전체 검사",
+        "type": "process",
+        "command": "powershell.exe",
+        "args": ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "${workspaceFolder:NAS}/scripts/verify-all.ps1", "-SkipInstall"],
+        "options": { "cwd": "${workspaceFolder:NAS}/.." },
+        "problemMatcher": []
+      },
+      {
+        "label": "전쟁 아카이브: 검증 후 main 푸시",
+        "type": "process",
+        "command": "git",
+        "args": ["push", "origin", "main"],
+        "options": { "cwd": "${workspaceFolder:NAS}/.." },
+        "dependsOn": ["전쟁 아카이브: 전체 검사"],
+        "problemMatcher": []
+      }
+    ]
+  }
+}

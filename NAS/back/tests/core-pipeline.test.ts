@@ -29,13 +29,18 @@ it('restores originals into a fresh directory while invalidating old sessions, r
   await service.db.query("INSERT INTO member_reset_tokens(token_hash,member_id,expires_at) VALUES($1,$2,now()+interval '1 hour')",['b'.repeat(64),'backup-member']);
   await service.collectSource(source.id);const running=await service.claimJob();expect(running?.state).toBe('running');
   const backup=join(root,'backup'),restored=join(root,'restored');await backupArchive(service,backup);expect((await verifyBackup(backup)).files).toHaveLength(1);await restoreBackup(backup,restored);
-  const reopened=await createArchiveService({pglitePath:join(restored,'database'),dataDir:restored,exportDir:join(restored,'release'),autoPublish:false});
+  const reopened=await createArchiveService({pglitePath:join(restored,'database'),dataDir:restored,exportDir:join(restored,'release'),autoPublish:false,skipDnsCheckForTests:true,fetcher:async()=>Response.json(provider())});
   try{
     expect(await reopened.listRecords()).toHaveLength(1);const row=(await reopened.db.query('SELECT file_path FROM raw_items')).rows[0]!;expect(String(row.file_path)).toContain('restored');expect(await readFile(String(row.file_path),'utf8')).toContain('Archive source description');
     expect((await reopened.db.query('SELECT count(*)::integer AS n FROM members')).rows[0]?.n).toBe(1);
     expect((await reopened.db.query('SELECT count(*)::integer AS n FROM member_sessions')).rows[0]?.n).toBe(0);
     expect((await reopened.db.query('SELECT count(*)::integer AS n FROM member_reset_tokens')).rows[0]?.n).toBe(0);
     const recovered=(await reopened.listJobs()).find(job=>job.id===running?.id)!;expect(recovered.state).toBe('queued');expect(recovered.leaseUntil).toBeNull();expect(recovered.attempts).toBe(0);
+    const metadataOnly=(await reopened.listRecords())[0]!;expect(await reopened.listAssets(metadataOnly.id)).toHaveLength(0);
+    expect((await reopened.listJobs()).some(job=>job.kind==='produce'&&job.state==='queued'&&job.payload.recordId===metadataOnly.id)).toBe(true);
+    for(let i=0;i<4;i++){const job=await reopened.runNextJob();if(job?.kind==='produce'){expect(job.state).toBe('done');break;}}
+    const regenerated=(await reopened.listProductions(metadataOnly.id))[0]!.data as {files:{kind:string;path:string}[]};
+    const citation=regenerated.files.find(file=>file.kind==='citation')!;expect(citation.path).toContain('restored');expect(await readFile(citation.path,'utf8')).toContain(metadataOnly.public.title);
   }finally{await reopened.close();}
   await expect(restoreBackup(backup,restored)).rejects.toThrow('must not exist');
 });

@@ -9,6 +9,22 @@ import { spawn } from 'node:child_process';
 const services:ArchiveService[]=[],roots:string[]=[];
 afterEach(async()=>{for(const service of services.splice(0))await service.close();for(const root of roots.splice(0))await rm(root,{force:true,recursive:true,maxRetries:10,retryDelay:100});});
 describe('portable logical archive migration',()=>{
+it('regenerates citations and source descriptions after importing metadata-only records without media assets',async()=>{
+  const root=await mkdtemp(join(tmpdir(),'archive-portable-metadata-'));roots.push(root);
+  const source=await createArchiveService({dataDir:join(root,'source-data'),exportDir:join(root,'source-release'),autoPublish:false,skipDnsCheckForTests:true,fetcher:async()=>Response.json({query:{pages:{12:{pageid:12,title:'File:Metadata archive.jpg',imageinfo:[{descriptionurl:'https://commons.wikimedia.org/wiki/File:Metadata_archive.jpg',extmetadata:{ImageDescription:{value:'An original catalogue description.'}}}]}}}})});services.push(source);
+  const registry=await source.createSource({name:'Metadata-only source',provider:'commons',query:'Korean War',policy:{status:'approved',allowAutoPublish:true,metadataOnly:true,rightsLabel:'Metadata links only'}});
+  await source.collectSource(registry.id);for(let i=0;i<3;i++)await source.runNextJob();
+  const record=(await source.listRecords())[0]!;expect(await source.listAssets(record.id)).toHaveLength(0);
+  const bundle=join(root,'bundle');await exportPortable(source.db,source.options.dataDir,bundle);
+  const target=await createArchiveService({dataDir:join(root,'target-data'),exportDir:join(root,'target-release'),autoPublish:false});services.push(target);
+  await importPortable(target.db,bundle,target.options.dataDir);
+  const queued=(await target.listJobs()).filter(job=>job.kind==='produce'&&job.state==='queued');expect(queued).toHaveLength(1);expect(queued[0]?.payload.recordId).toBe(record.id);
+  const job=await target.runNextJob();expect(job?.kind).toBe('produce');expect(job?.state).toBe('done');
+  const regenerated=(await target.listProductions(record.id))[0]!.data as {files:{kind:string;path:string}[]};
+  const citation=regenerated.files.find(file=>file.kind==='citation')!,description=regenerated.files.find(file=>file.path.endsWith('source-description.txt'))!;
+  expect(citation.path).toContain('target-data');expect(await readFile(citation.path,'utf8')).toContain(record.public.title);
+  expect(description.path).toContain('target-data');expect(await readFile(description.path,'utf8')).toBe(record.public.summary);
+});
 it('roundtrips IDs, checkpoints, original files, identity shelves and withdrawals into a fresh migrated database; rejects overwrite and tamper',async()=>{
   const root=await mkdtemp(join(tmpdir(),'archive-portable-'));roots.push(root);
   const source=await createArchiveService({dataDir:join(root,'source-data'),exportDir:join(root,'source-release'),autoPublish:false,skipDnsCheckForTests:true,fetcher:async()=>Response.json({query:{pages:Object.fromEntries([12,13].map(id=>[id,{pageid:id,title:`File:Archive ${id}.jpg`,imageinfo:[{descriptionurl:`https://commons.wikimedia.org/wiki/File:Archive_${id}.jpg`,extmetadata:{ImageDescription:{value:`Original source ${id}`},DateTimeOriginal:{value:'1951'}}}]}]))}})});services.push(source);

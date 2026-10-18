@@ -1,0 +1,12 @@
+{
+  "name": "war-archive-public-gateway",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": { "node": "22.x" },
+  "scripts": {
+    "start": "node src/server.mjs",
+    "lint": "node --check src/server.mjs && node --check test/gateway.test.mjs",
+    "test": "node --test test/gateway.test.mjs"
+  }
+}

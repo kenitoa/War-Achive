@@ -23,4 +23,6 @@ npm.cmd run dev
 
 `NEXT_PUBLIC_API_ORIGIN`은 선택적 공개 API 주소입니다. 기본값은 미설정이며 로컬 서재·자료 탐색에는 필요하지 않습니다. API를 연결할 경우 배포 시작 전 `npm.cmd run configure:security`로 정확한 origin을 CSP에 반영해야 합니다.
 
+NAS Docker의 공개 계정·서재·접수 API를 Vercel과 같은 출처에서 사용할 때는 `NEXT_PUBLIC_API_ORIGIN`에 공개 사이트 origin을, `NAS_PUBLIC_GATEWAY_URL`에 검증된 NAS HTTPS 게이트웨이 주소를 설정하고 `npm.cmd run configure:gateway`를 실행합니다. 게이트웨이 주소는 HTTPS origin 또는 기존 서비스를 보존하는 `/war-archive-api` prefix를 지원합니다. 이 명령은 여섯 공개 경로의 정확한 rewrite와 비캐시 헤더를 생성합니다. 관리자·수집·원본 파일 API는 연결하지 않습니다. 게이트웨이 자체에서도 허용한 경로와 HTTP 메서드를 검증해야 합니다.
+
 설치·검증·환경 변수·발행·철회·API·복구의 상세 절차는 [운영 문서](docs/operations.md)를 참고하세요. 실제 NAS/Vercel 배포와 외부 API 연결 여부는 별도 증거로 확인해야 합니다.

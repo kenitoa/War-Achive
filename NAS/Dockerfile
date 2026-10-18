@@ -1,5 +1,6 @@
 FROM node:22-bookworm-slim AS backend-build
 WORKDIR /build/back
+RUN apt-get update && apt-get install -y --no-install-recommends git openssh-client && rm -r /var/lib/apt/lists/*
 COPY back/package.json back/package-lock.json ./
 RUN npm ci
 COPY back/tsconfig.json back/eslint.config.js back/vitest.config.ts ./
@@ -19,7 +20,7 @@ RUN npm run lint && npm run typecheck && npm run test && npm run build
 FROM node:22-bookworm-slim AS runtime
 ENV NODE_ENV=production HOST=0.0.0.0 ADMIN_PORT=4310 DATA_DIR=/var/lib/war-archive EXPORT_DIR=/var/lib/war-archive-releases
 WORKDIR /app/back
-RUN apt-get update && apt-get install -y --no-install-recommends tesseract-ocr tesseract-ocr-kor poppler-utils ffmpeg && rm -r /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y --no-install-recommends git openssh-client tesseract-ocr tesseract-ocr-kor poppler-utils ffmpeg && rm -r /var/lib/apt/lists/*
 RUN mkdir -p /var/lib/war-archive /var/lib/war-archive-releases && chown node:node /var/lib/war-archive /var/lib/war-archive-releases
 COPY --from=backend-build --chown=node:node /build/back/package.json ./package.json
 COPY --from=backend-build --chown=node:node /build/back/node_modules ./node_modules

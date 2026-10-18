@@ -28,7 +28,8 @@
 | GITHUB_FRONT_REPOSITORY | 사용자가 지정한 kenitoa/War-Achive |
 | GITHUB_FRONT_REF | 운영 콘텐츠 브랜치. 기본 main |
 | GITHUB_FRONT_CONTENT_PATH | Vercel/content/archive.json |
-| GITHUB_FRONT_TOKEN | 위 저장소의 필요한 콘텐츠 쓰기 권한만 가진 토큰. NAS에 직접 설정 |
+| GITHUB_FRONT_TOKEN | REST 방식에서만 필요. 위 저장소의 필요한 콘텐츠 쓰기 권한만 가진 토큰. SSH 배포 키를 사용하는 NAS에는 불필요 |
+| GITHUB_FRONT_SSH_KEY_PATH / GITHUB_FRONT_SSH_KNOWN_HOSTS_PATH | 선택. 두 절대 경로를 함께 설정하면 REST 토큰 대신 저장소 전용 SSH 배포 키를 사용. API와 worker에 동일한 파일을 읽기 전용 마운트. 개인 키는 실행 사용자 소유의 0600 또는 0400 파일. known_hosts는 신뢰한 GitHub 공개 호스트 키로 사전 구성하며 자동 수락 금지 |
 | PUBLIC_ARCHIVE_VERIFY_URL | 실제 공개 사이트의 /release.json HTTPS URL. 릴리스 ID/해시 일치 전 원격 발행 완료 처리 금지 |
 | S3_ENDPOINT / S3_REGION / S3_BUCKET | 선택. S3 호환 저장소 주소(HTTPS)·지역·전용 bucket |
 | S3_ACCESS_KEY_ID / S3_SECRET_ACCESS_KEY | 선택. region/bucket과 함께 모두 설정. 파생 파일 전용 최소 권한 |

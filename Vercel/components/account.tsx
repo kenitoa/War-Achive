@@ -2,7 +2,7 @@
 import Link from '@/components/static-link';
 import { useState } from 'react';
 import { z } from 'zod';
-import { ApiError, apiOrigin, apiRequest, RemoteShelfSchema, SessionSchema, type Session } from '@/lib/api';
+import { ApiError, apiOrigin, apiRequest, RegistrationSchema, RemoteShelfSchema, SessionSchema, type Session } from '@/lib/api';
 import { mergeShelves, ShelfSchema, type Shelf } from '@/lib/shelf';
 import { saveShelf } from './shelf-store';
 
@@ -16,9 +16,12 @@ export function AccountPanel() {
       if (mode === 'reset') {
         await apiRequest('/api/v1/account/reset', z.unknown(), { method: 'POST', body: { token: fields.get('token'), password: fields.get('password') } });
         setMessage('비밀번호를 재설정했습니다. 새 비밀번호로 로그인해 주세요.'); setMode('login'); form.reset();
+      } else if (mode === 'register') {
+        await apiRequest('/api/v1/accounts', RegistrationSchema, { method: 'POST', body: { email: fields.get('email'), password: fields.get('password'), displayName: fields.get('displayName') } });
+        setMode('login'); setMessage('계정을 만들었습니다. 이메일과 비밀번호로 로그인해 주세요.'); form.reset();
       } else {
-        const next = await apiRequest(mode === 'login' ? '/api/v1/account/session' : '/api/v1/accounts', SessionSchema, { method: 'POST', body: { email: fields.get('email'), password: fields.get('password'), ...(mode === 'register' ? { displayName: fields.get('displayName') } : {}) } });
-        setSession(next); setMessage(mode === 'login' ? '로그인했습니다.' : '계정을 만들었습니다.'); form.reset();
+        const next = await apiRequest('/api/v1/account/session', SessionSchema, { method: 'POST', body: { email: fields.get('email'), password: fields.get('password') } });
+        setSession(next); setMessage('로그인했습니다.'); form.reset();
       }
     } catch (error) { setMessage(error instanceof Error ? error.message : '처리하지 못했습니다.'); }
     finally { setBusy(false); }
