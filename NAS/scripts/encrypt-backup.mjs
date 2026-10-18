@@ -1,13 +1,16 @@
 import { createCipheriv, createDecipheriv, randomBytes, randomUUID } from 'node:crypto';
-import { createReadStream, createWriteStream } from 'node:fs';
+import { createReadStream, createWriteStream, readFileSync } from 'node:fs';
 import { stat, open, copyFile, unlink } from 'node:fs/promises';
 import { constants } from 'node:fs';
 import { pipeline } from 'node:stream/promises';
 import { resolve } from 'node:path';
 
-const [mode, input, output] = process.argv.slice(2);
+const [mode, input, output, keyInput] = process.argv.slice(2);
 if (!['encrypt', 'decrypt'].includes(mode) || !input || !output || resolve(input) === resolve(output)) throw new Error('Usage: encrypt-backup.mjs encrypt|decrypt input output. Key: BACKUP_ENCRYPTION_KEY (base64, 32 bytes).');
-const key = Buffer.from(process.env.BACKUP_ENCRYPTION_KEY ?? '', 'base64');
+if (keyInput !== undefined && keyInput !== '--key-stdin') throw new Error('Unknown key input option.');
+const keyValue = keyInput === '--key-stdin' ? readFileSync(0, 'utf8').trim() : process.env.BACKUP_ENCRYPTION_KEY ?? '';
+if (!/^[A-Za-z0-9+/]{43}=$/.test(keyValue)) throw new Error('BACKUP_ENCRYPTION_KEY must contain a 32-byte base64 key.');
+const key = Buffer.from(keyValue, 'base64');
 if (key.length !== 32) throw new Error('BACKUP_ENCRYPTION_KEY must contain a 32-byte base64 key.');
 if (mode === 'encrypt') {
   const iv = randomBytes(12), cipher = createCipheriv('aes-256-gcm', key, iv);
