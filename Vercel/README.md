@@ -25,4 +25,6 @@ npm.cmd run dev
 
 NAS Docker의 공개 계정·서재·접수 API를 Vercel과 같은 출처에서 사용할 때는 `NEXT_PUBLIC_API_ORIGIN`에 공개 사이트 origin을, `NAS_PUBLIC_GATEWAY_URL`에 검증된 NAS HTTPS 게이트웨이 주소를 설정하고 `npm.cmd run configure:gateway`를 실행합니다. 게이트웨이 주소는 HTTPS origin 또는 기존 서비스를 보존하는 `/war-archive-api` prefix를 지원합니다. 이 명령은 여섯 공개 경로의 정확한 rewrite와 비캐시 헤더를 생성합니다. 관리자·수집·원본 파일 API는 연결하지 않습니다. 게이트웨이 자체에서도 허용한 경로와 HTTP 메서드를 검증해야 합니다.
 
+프록시를 연결한 프로젝트는 로컬 검사에도 같은 `NEXT_PUBLIC_API_ORIGIN`이 필요합니다. Git에서 제외된 `Vercel/.env.local`에 공개 사이트의 HTTPS origin만 저장하면 보안 검사와 Next.js 빌드가 함께 읽습니다. Vercel 운영 환경에도 같은 키를 설정하며, NAS 비밀번호·관리자 토큰·SSH 개인 키는 Vercel에 저장하지 않습니다. 정적 로컬 미리보기에서는 Vercel의 외부 rewrite가 실행되지 않으므로 실제 계정 연결은 운영 URL에서 검증합니다.
+
 설치·검증·환경 변수·발행·철회·API·복구의 상세 절차는 [운영 문서](docs/operations.md)를 참고하세요. 실제 NAS/Vercel 배포와 외부 API 연결 여부는 별도 증거로 확인해야 합니다.
