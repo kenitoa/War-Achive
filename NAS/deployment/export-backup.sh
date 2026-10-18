@@ -77,7 +77,11 @@ docker_call image inspect --format '{{.Id}} {{json .RepoTags}}' "war-archive-bac
 task_phase=recovery-manifest
 printf '{"version":1,"createdAt":"%s","commit":"%s","scope":"war-archive-application","database":"postgresql-17","keyIncluded":false}\n' "$(date -u +%Y-%m-%dT%H:%M:%SZ)" "$task_commit" > "$task_stage/manifest.json"
 (cd "$task_stage" && sha256sum manifest.json backup/database.dump backup/archive-files.tar backup/releases.tar backup/database-contents.txt backup/SHA256SUMS recovery/environment.env recovery/secrets.tar recovery/source-and-bootstrap.tar.gz recovery/runtime-images.tar.gz recovery/image-identities.txt > SHA256SUMS)
-tar -C "$task_stage" -czf "$task_stage/bundle.tar.gz" --exclude=bundle.tar.gz .
+# gzip creates its output asynchronously; an output inside '.' changes that input's
+# mtime and GNU tar correctly exits 1 on large backups. Package outside, then move in.
+task_bundle="$task_root/backups/.bundle-$task_id.tar.gz"
+/usr/bin/python3 "$task_root/deployment/package-backup.py" "$task_stage" "$task_bundle"
+mv "$task_bundle" "$task_stage/bundle.tar.gz"
 task_plain_hash=$(sha256sum "$task_stage/bundle.tar.gz" | cut -d ' ' -f 1)
 task_phase=encryption
 printf '%s\n' "$BACKUP_ENCRYPTION_KEY" | docker_call run --rm -i --network none --read-only --cap-drop ALL --security-opt no-new-privileges:true --user "$task_uid:$task_gid" --mount "type=bind,src=$task_stage,dst=/backup" --mount "type=bind,src=$task_root/deployment/encrypt-backup.mjs,dst=/encrypt-backup.mjs,readonly" --entrypoint node "war-archive-backend:$task_commit" /encrypt-backup.mjs encrypt /backup/bundle.tar.gz /backup/bundle.tar.gz.enc --key-stdin >/dev/null
