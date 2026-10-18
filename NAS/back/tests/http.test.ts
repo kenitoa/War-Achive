@@ -107,6 +107,37 @@ describe('HTTP authorization and persistent accounts', () => {
     expect(result.body).not.toContain('private@example.test');
     expect((await app.inject('/api/v1/requests')).statusCode).toBe(401);
   });
+  it('allows 100 independent registration and submission attempts per peer each hour and rejects header spoofing', async () => {
+    const limitedApp = buildApi(service, config(), { logger: false });
+    const remoteAddress = '198.51.100.100';
+    let now = Date.now();
+    const clock = vi.spyOn(Date, 'now').mockImplementation(() => now);
+    const post = (url: string, payload: Record<string, unknown>, forwarded: string, peer = remoteAddress) => limitedApp.inject({ method: 'POST', url, payload, remoteAddress: peer, headers: { 'x-forwarded-for': forwarded, forwarded: `for=${forwarded}` } });
+    try {
+      for (let attempt = 1; attempt < 100; attempt += 1) {
+        expect((await post('/api/v1/accounts', {}, `203.0.113.${attempt}`)).statusCode).toBe(400);
+        expect((await post('/api/v1/requests', {}, `203.0.113.${attempt}`)).statusCode).toBe(400);
+      }
+      const registration = await post('/api/v1/accounts', { email: 'rate-boundary@example.test', displayName: '한도 검증 독자', password: 'a-rate-boundary-passphrase' }, '203.0.113.100');
+      expect(registration.statusCode).toBe(201);
+      const submission = await post('/api/v1/requests', { type: 'contribution', message: '시간당 백 번째 자료 접수도 정상 처리됩니다.' }, '203.0.113.100');
+      expect(submission.statusCode).toBe(201);
+      for (const url of ['/api/v1/accounts', '/api/v1/requests']) {
+        const blocked = await post(url, {}, '203.0.113.101');
+        expect(blocked.statusCode).toBe(429);
+        expect(errorCode(blocked.body)).toBe('RATE_LIMITED');
+        expect(blocked.headers['cache-control']).toBe('no-store');
+        expect((await post(url, {}, remoteAddress, '198.51.100.101')).statusCode).toBe(400);
+      }
+      now += 59 * 60000;
+      for (const url of ['/api/v1/accounts', '/api/v1/requests']) expect((await post(url, {}, '203.0.113.102')).statusCode).toBe(429);
+      now += 60000;
+      for (const url of ['/api/v1/accounts', '/api/v1/requests']) expect((await post(url, {}, '203.0.113.103')).statusCode).toBe(400);
+    } finally {
+      clock.mockRestore();
+      await limitedApp.close();
+    }
+  });
   it('paginates the database beyond the previous in-memory job limit', async () => {
     await service.db.query("INSERT INTO jobs(id,kind,payload,dedupe_key) SELECT 'page-test-'||n::text,'collect','{}'::jsonb,'page-test-'||n::text FROM generate_series(1,601) AS n");
     const result = await app.inject({ url: '/api/v1/jobs?page=4&pageSize=200', headers: { cookie: adminCookie } });

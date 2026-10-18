@@ -124,7 +124,7 @@ export function buildApi(service: ArchiveService, config: Config, options: { log
   app.get('/api/v1/audit', async (request, reply) => { requireRole(request, 'reviewer', 'publisher'); return data(reply, await queries.list('audit', request.query)); });
   app.get('/api/v1/requests', async (request, reply) => data(reply, await queries.list('requests', request.query)));
   app.post('/api/v1/requests', async (request, reply) => {
-    if (!limiter.take(`requests:${request.ip}`, 5, 3600000)) throw new ArchiveError('RATE_LIMITED', '요청 접수 한도에 도달했습니다. 나중에 다시 시도하세요.', 429);
+    if (!limiter.take(`requests:${request.ip}`, 100, 3600000)) throw new ArchiveError('RATE_LIMITED', '요청 접수 한도에 도달했습니다. 나중에 다시 시도하세요.', 429);
     const body = requestSchema.parse(request.body);
     if (!body.type && !body.kind) throw new ArchiveError('VALIDATION_ERROR', '요청 유형이 필요합니다.');
     return data(reply.code(201), await service.createRequest({ kind: body.type ?? body.kind ?? 'correction', recordId: body.recordId, message: body.sourceUrl ? `${body.message}\n근거: ${body.sourceUrl}` : body.message, contact: body.contact }));
@@ -172,7 +172,7 @@ export function buildApi(service: ArchiveService, config: Config, options: { log
     return data(reply, await service.upsertCatalog(kind, body, actor(request)));
   });
 
-  app.post('/api/v1/accounts', async (request, reply) => { if (!limiter.take(`register:${request.ip}`, 5, 3600000)) throw new ArchiveError('RATE_LIMITED', '잠시 후 다시 시도하세요.', 429); const user = await identities.register(RegistrationSchema.parse(request.body)); await audit('account.register', user.id); return data(reply.code(201), { user }); });
+  app.post('/api/v1/accounts', async (request, reply) => { if (!limiter.take(`register:${request.ip}`, 100, 3600000)) throw new ArchiveError('RATE_LIMITED', '잠시 후 다시 시도하세요.', 429); const user = await identities.register(RegistrationSchema.parse(request.body)); await audit('account.register', user.id); return data(reply.code(201), { user }); });
   app.post('/api/v1/account/session', async (request, reply) => {
     if (!limiter.take(`member-login:${request.ip}`, 10)) throw new ArchiveError('RATE_LIMITED', '잠시 후 다시 로그인하세요.', 429);
     const result = await identities.login(MemberLoginSchema.parse(request.body));
