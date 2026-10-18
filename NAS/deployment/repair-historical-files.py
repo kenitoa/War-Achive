@@ -112,7 +112,7 @@ def main():
     if hashlib.sha256(content).hexdigest() != args.installer_sha256:
         raise ValueError("Historical installer checksum mismatch")
     with (root / "state/update.flock").open("a") as lock:
-        until = time.monotonic() + 600
+        until = time.monotonic() + 1800
         while True:
             try:
                 fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
