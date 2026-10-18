@@ -37,6 +37,6 @@ Remove-Item -LiteralPath $taskDraft
 $taskAction = New-ScheduledTaskAction -Execute $taskNode -Argument ('"{0}" backup-if-due "{1}"' -f $taskInstalledClient, $taskConfig)
 $taskTriggers = @((New-ScheduledTaskTrigger -Daily -At '02:20'), (New-ScheduledTaskTrigger -AtLogOn -User $taskSid))
 $taskPrincipal = New-ScheduledTaskPrincipal -UserId $taskSid -LogonType Interactive -RunLevel Limited
-$taskSettings = New-ScheduledTaskSettingsSet -StartWhenAvailable -MultipleInstances IgnoreNew -ExecutionTimeLimit (New-TimeSpan -Hours 4) -RestartCount 3 -RestartInterval (New-TimeSpan -Minutes 10)
+$taskSettings = New-ScheduledTaskSettingsSet -StartWhenAvailable -AllowStartIfOnBatteries -DontStopIfGoingOnBatteries -MultipleInstances IgnoreNew -ExecutionTimeLimit (New-TimeSpan -Hours 4) -RestartCount 3 -RestartInterval (New-TimeSpan -Minutes 10)
 Register-ScheduledTask -TaskName 'War Archive encrypted external backup' -Action $taskAction -Trigger $taskTriggers -Principal $taskPrincipal -Settings $taskSettings -Description 'Copies an authenticated AES-256-GCM application backup from the dedicated NAS project to this PC; requires this user to be logged in.' | Out-Null
 Write-Output 'Daily external backup installed. The PC must be on, signed in, and able to reach the NAS. Encryption key is protected separately with Windows DPAPI.'

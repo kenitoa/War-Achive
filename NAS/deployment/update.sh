@@ -98,7 +98,7 @@ dc "$task_compose" run --rm --no-deps -T --entrypoint tar api -C /var/lib/war-ar
 (cd "$task_backup" && sha256sum database.dump archive-files.tar releases.tar > SHA256SUMS)
 dc "$task_compose" run --rm --no-deps -T api node dist/commands/migrate.js
 if [ -d "$task_root/shared/import" ] && [ ! -f "$task_root/state/portable-import-complete" ]; then
-  dc "$task_compose" run --rm --no-deps -T --volume "$task_root/shared/import:/import:ro" api node dist/commands/import-portable.js /import /var/lib/war-archive
+  dc "$task_compose" run --rm --no-deps -T --volume "$task_root/shared/import:/import:ro" api node dist/commands/import-portable.js /import /var/lib/war-archive /var/lib/war-archive-releases
   printf '%s\n' "$task_commit" > "$task_root/state/portable-import-complete"
 fi
 dc "$task_compose" up -d --no-build api worker publicgateway

@@ -1,10 +1,11 @@
 import { afterEach,describe,expect,it } from 'vitest';
-import { mkdtemp,readFile,rm,appendFile,access } from 'node:fs/promises';
+import { mkdtemp,readFile,rm,appendFile,access,writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { createArchiveService,type ArchiveService } from '../src/application/archive-service.js';
 import { exportPortable,importPortable,verifyPortable } from '../src/infrastructure/portable.js';
 import { spawn } from 'node:child_process';
+import { sha256 } from '../src/infrastructure/files.js';
 
 const services:ArchiveService[]=[],roots:string[]=[];
 afterEach(async()=>{for(const service of services.splice(0))await service.close();for(const root of roots.splice(0))await rm(root,{force:true,recursive:true,maxRetries:10,retryDelay:100});});
@@ -15,9 +16,10 @@ it('regenerates citations and source descriptions after importing metadata-only 
   const registry=await source.createSource({name:'Metadata-only source',provider:'commons',query:'Korean War',policy:{status:'approved',allowAutoPublish:true,metadataOnly:true,rightsLabel:'Metadata links only'}});
   await source.collectSource(registry.id);for(let i=0;i<3;i++)await source.runNextJob();
   const record=(await source.listRecords())[0]!;expect(await source.listAssets(record.id)).toHaveLength(0);
-  const bundle=join(root,'bundle');await exportPortable(source.db,source.options.dataDir,bundle);
+  const bundle=join(root,'bundle'),manifest=await exportPortable(source.db,source.options.dataDir,bundle,{exportDir:source.options.exportDir});
+  const legacy:Record<string,unknown>={...manifest,version:1};delete legacy.preservedFiles;await writeFile(join(bundle,'manifest.json'),JSON.stringify(legacy));expect((await verifyPortable(bundle)).version).toBe(1);
   const target=await createArchiveService({dataDir:join(root,'target-data'),exportDir:join(root,'target-release'),autoPublish:false});services.push(target);
-  await importPortable(target.db,bundle,target.options.dataDir);
+  expect((await importPortable(target.db,bundle,target.options.dataDir,{exportDir:target.options.exportDir})).historyPreserved).toBe(false);
   const queued=(await target.listJobs()).filter(job=>job.kind==='produce'&&job.state==='queued');expect(queued).toHaveLength(1);expect(queued[0]?.payload.recordId).toBe(record.id);
   const job=await target.runNextJob();expect(job?.kind).toBe('produce');expect(job?.state).toBe('done');
   const regenerated=(await target.listProductions(record.id))[0]!.data as {files:{kind:string;path:string}[]};
@@ -36,9 +38,9 @@ it('roundtrips IDs, checkpoints, original files, identity shelves and withdrawal
   const catalog=await source.getSource(registry.id);catalog.checkpoint={...catalog.checkpoint,backfillPage:4,refreshOffset:1};await source.db.query('UPDATE sources SET data=$2 WHERE id=$1',[registry.id,JSON.stringify(catalog)]);
   await source.db.query('INSERT INTO members(id,email,display_name,password_hash) VALUES($1,$2,$3,$4)',['member-migration','migration@example.test','Migration member','salted-password-hash-fixture']);await source.db.query('INSERT INTO member_shelves(member_id,revision,document) VALUES($1,$2,$3)',['member-migration',3,JSON.stringify({savedIds:[first.id]})]);await source.db.query("INSERT INTO member_sessions(token_hash,member_id,expires_at) VALUES($1,$2,now()+interval '1 hour')",['a'.repeat(64),'member-migration']);await source.db.query("INSERT INTO member_reset_tokens(token_hash,member_id,expires_at) VALUES($1,$2,now()+interval '1 hour')",['b'.repeat(64),'member-migration']);
   await source.collectSource(registry.id);const leased=await source.claimJob();expect(leased?.state).toBe('running');
-  const bundle=join(root,'portable');const manifest=await exportPortable(source.db,source.options.dataDir,bundle);expect(manifest.originals).toHaveLength(3);expect(manifest.tables.some(t=>String(t.name)==='member_sessions')).toBe(false);expect((await verifyPortable(bundle)).migrations).toHaveLength(6);
+  const bundle=join(root,'portable');const manifest=await exportPortable(source.db,source.options.dataDir,bundle,{exportDir:source.options.exportDir});expect(manifest.originals).toHaveLength(3);expect(manifest.tables.some(t=>String(t.name)==='member_sessions')).toBe(false);expect((await verifyPortable(bundle)).migrations).toHaveLength(6);
   const target=await createArchiveService({dataDir:join(root,'target-data'),exportDir:join(root,'target-release'),autoPublish:false});services.push(target);
-  const result=await importPortable(target.db,bundle,target.options.dataDir);expect(result).toMatchObject({records:2,sources:1,originals:3,invalidatedSessions:true});
+  const result=await importPortable(target.db,bundle,target.options.dataDir,{exportDir:target.options.exportDir});expect(result).toMatchObject({records:2,sources:1,originals:3,invalidatedSessions:true});
   expect((await target.getSource(registry.id)).checkpoint).toEqual(catalog.checkpoint);expect((await target.listRecords()).map(r=>r.id).sort()).toEqual(records.map(r=>r.id).sort());expect((await target.getRecord(second.id)).status).toBe('withdrawn');expect((await target.buildSnapshot()).records.some(r=>r.id===second.id)).toBe(false);
   const raw=(await target.db.query('SELECT file_path,ingest_sequence FROM raw_items ORDER BY ingest_sequence')).rows;expect(raw.map(r=>Number(r.ingest_sequence))).toEqual([1,2]);for(const row of raw){expect(String(row.file_path)).toContain('target-data');expect(await readFile(String(row.file_path),'utf8')).toContain('Original source');}expect(Number((await target.db.query("SELECT nextval(pg_get_serial_sequence('raw_items','ingest_sequence')) AS n")).rows[0]?.n)).toBe(3);
   const media=(await target.listAssets(first.id))[0]!;expect(media.filePath).toContain('target-data');expect(await readFile(media.filePath)).toEqual(letter);expect(media.production).toBeNull();expect((await target.listJobs()).some(job=>job.kind==='produce'&&job.state==='queued')).toBe(true);const requeued=(await target.listJobs()).find(job=>job.id===leased?.id)!;expect(requeued.state).toBe('queued');expect(requeued.leaseUntil).toBeNull();expect(requeued.attempts).toBe(0);
@@ -50,5 +52,24 @@ it('roundtrips IDs, checkpoints, original files, identity shelves and withdrawal
   expect(command.code,command.output).toBe(0);expect(command.output).toContain('portable.import');await expect(access(join(source.options.dataDir,'database'))).rejects.toThrow();
   const cliTarget=await createArchiveService({pglitePath:join(cliData,'database'),dataDir:cliData,exportDir:join(root,'cli-release'),autoPublish:false});services.push(cliTarget);expect(await cliTarget.listRecords()).toHaveLength(2);
   await appendFile(join(bundle,'records.jsonl'),'{}\n');await expect(verifyPortable(bundle)).rejects.toThrow('변조');
+});
+it('preserves every historical production and publication byte before any regeneration and detects missing history',async()=>{
+  const root=await mkdtemp(join(tmpdir(),'archive-portable-history-'));roots.push(root);
+  const source=await createArchiveService({dataDir:join(root,'source-data'),exportDir:join(root,'source-release'),autoPublish:false,skipDnsCheckForTests:true,fetcher:async()=>Response.json({query:{pages:{12:{pageid:12,title:'File:History archive.jpg',imageinfo:[{descriptionurl:'https://commons.wikimedia.org/wiki/File:History_archive.jpg',extmetadata:{ImageDescription:{value:'The first preserved description.'}}}]}}}})});services.push(source);
+  const registry=await source.createSource({name:'Historical source',provider:'commons',query:'Korean War',policy:{status:'approved',allowAutoPublish:true,metadataOnly:true,rightsLabel:'Metadata links only'}});
+  await source.collectSource(registry.id);for(let i=0;i<3;i++)await source.runNextJob();
+  const record=(await source.listRecords())[0]!;await source.publish({target:'local'});
+  await source.updateRecord(record.id,{expectedRevision:record.public.revision,public:{summary:'A later description preserves a separate production history.'}});await source.queueProduction(record.id);await source.runNextJob();await source.publish({target:'local'});
+  const before=await source.listProductions(record.id);expect(before).toHaveLength(2);
+  const bundle=join(root,'bundle'),manifest=await exportPortable(source.db,source.options.dataDir,bundle,{exportDir:source.options.exportDir});
+  expect(manifest.version).toBe(2);expect(manifest.preservedFiles.filter(file=>file.file.startsWith('releases/'))).toHaveLength(4);
+  const target=await createArchiveService({dataDir:join(root,'target-data'),exportDir:join(root,'target-release'),autoPublish:false});services.push(target);
+  const existingRelease=join(target.options.exportDir,'existing.txt');await writeFile(existingRelease,'keep-existing-release');await expect(importPortable(target.db,bundle,target.options.dataDir,{exportDir:target.options.exportDir})).rejects.toThrow('새 빈 디렉터리');expect(await readFile(existingRelease,'utf8')).toBe('keep-existing-release');expect(await target.listRecords()).toHaveLength(0);await rm(existingRelease);
+  const result=await importPortable(target.db,bundle,target.options.dataDir,{exportDir:target.options.exportDir});expect(result.historyPreserved).toBe(true);expect(result.historicalFiles).toBe(manifest.preservedFiles.length);
+  const after=await target.listProductions(record.id);expect(after).toHaveLength(2);
+  for(const row of after){const data=row.data as {files:{path:string;sha256:string}[]};for(const file of data.files){expect(file.path).toContain(join('target-data','derivatives','preserved'));expect(sha256(await readFile(file.path))).toBe(file.sha256);}}
+  const publications=await target.listPublications();expect(publications).toHaveLength(2);
+  for(const publication of publications)for(const file of ['archive.json','manifest.json'])expect(await readFile(join(target.options.exportDir,String(publication.id),file))).toEqual(await readFile(join(source.options.exportDir,String(publication.id),file)));
+  const historical=manifest.preservedFiles.find(file=>file.file.startsWith('derivatives/'))!;await appendFile(join(bundle,historical.file),'corruption');await expect(verifyPortable(bundle)).rejects.toThrow('이력 파일');
 });
 });

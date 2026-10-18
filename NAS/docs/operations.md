@@ -48,12 +48,12 @@ API의 자동 trailing slash 리디렉션은 `skipTrailingSlashRedirect=true`로
 다음 명령은 향후 별도의 새 NAS를 준비할 때만 사용한다. 새 DB를 생성·마이그레이션한 뒤, API와 worker를 시작하기 전에 실행한다. 대상 DB는 마이그레이션만 적용한 빈 DB이고 `/var/lib/war-archive` 볼륨은 비어 있어야 한다. bundle에는 컨테이너 UID 1000의 읽기 권한만 필요한 범위로 부여하고 전체 공개 권한을 주지 않는다.
 
 ```sh
-docker compose run --rm --no-deps -T --volume "$PWD/data/transfer/nas-handoff-20261018:/import:ro" api node dist/commands/import-portable.js /import /var/lib/war-archive
+docker compose run --rm --no-deps -T --volume "$PWD/data/transfer/nas-handoff-20261018:/import:ro" api node dist/commands/import-portable.js /import /var/lib/war-archive /var/lib/war-archive-releases
 ```
 
 가져오기는 테이블/열 허용 목록과 migration 파일 해시, 원본 해시, 경로, 행 수를 검사한다. 원본 경로를 NAS로 바꾸고 ID·출처 checkpoint·개정·철회를 보존한다. 로그인 세션과 비밀번호 재설정 토큰은 이전하지 않는다. 실행 중 lease는 다시 대기 상태로 만들고 파생 파일을 재제작한다. 기존 운영 DB/파일은 덮어쓰지 않는다. 이번 NAS 이전과 재제작 후 파일 해시 검사를 통과했다.
 
-새 bundle 생성은 API/worker를 종료한 뒤 `NAS/back`에서 `node dist/commands/export-portable.js <존재하지 않는 새 bundle 경로>`로 수행한다. 로컬 시험 가져오기는 `node dist/commands/import-portable.js <bundle 경로> <새 데이터 경로>`다. 서로 다른 저장 엔진을 이전하는 portable 형식, PGlite 물리 백업, NAS dump/tar 백업은 구분한다.
+새 bundle 생성은 API/worker를 종료한 뒤 `NAS/back`에서 `node dist/commands/export-portable.js <존재하지 않는 새 bundle 경로>`로 수행한다. 로컬 시험 가져오기는 `node dist/commands/import-portable.js <bundle 경로> <새 데이터 경로> <새 발행 경로>`다. 마지막 경로를 생략하면 `<새 데이터 경로>/releases`를 사용하므로 발행 볼륨이 별도인 NAS에서는 반드시 명시한다. v2는 모든 과거 제작 파일과 발행본을 함께 보존하고, v1은 원본 중심의 이전 형식이므로 이력 파일 보존 여부를 결과에 표시한다. 자세한 검증은 [이관 이력 보존](PORTABLE_HISTORY.md)을 따른다. 서로 다른 저장 엔진을 이전하는 portable 형식, PGlite 물리 백업, NAS dump/tar 백업은 구분한다.
 
 ## 자동 발행 연결
 

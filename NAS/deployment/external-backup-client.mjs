@@ -10,7 +10,7 @@ import { fileURLToPath } from 'node:url';
 function run(command, args, input, timeout = 1_800_000) {
   return new Promise((done, fail) => {
     const child = spawn(command, args, { windowsHide: true, stdio: ['pipe', 'pipe', 'pipe'] });
-    const chunks = [], errors = []; let bytes = 0; let errorBytes = 0;
+    const chunks = [], errors = []; let bytes = 0; let errorBytes = 0; let inputFailure;
     const timer = setTimeout(() => child.kill(), timeout);
     child.stdout.on('data', chunk => { bytes += chunk.length; if (bytes > 1024 * 1024) child.kill(); else chunks.push(chunk); });
     // Child diagnostics can contain private server paths; report a bounded status only.
@@ -18,16 +18,16 @@ function run(command, args, input, timeout = 1_800_000) {
     child.once('error', error => { clearTimeout(timer); fail(new Error(`${command} could not start (${error.code ?? 'UNKNOWN'})`)); });
     child.once('close', code => {
       clearTimeout(timer);
-      if (code === 0 && bytes <= 1024 * 1024) done(Buffer.concat(chunks).toString('utf8'));
+      if (code === 0 && bytes <= 1024 * 1024 && !inputFailure) done(Buffer.concat(chunks).toString('utf8'));
       else {
         let phase = '';
         for (const line of Buffer.concat(errors).toString('utf8').trim().split(/\r?\n/)) {
           try { const value = JSON.parse(line); if (value && value.operation === 'backup.export' && value.status === 'failed' && /^[a-z-]{1,40}$/.test(value.phase)) phase = `, phase ${value.phase}`; } catch (error) { if (error instanceof SyntaxError) continue; throw error; }
         }
-        fail(new Error(`${command} failed (exit ${code ?? 'terminated'}${phase})`));
+        fail(new Error(`${command} failed (exit ${code ?? 'terminated'}${phase}${inputFailure ? ', input pipe closed' : ''})`));
       }
     });
-    child.stdin.on('error', () => {}); // A child can reject its input before the pipe is drained.
+    child.stdin.on('error', error => { inputFailure = error.code ?? 'INPUT_ERROR'; });
     child.stdin.end(input);
   });
 }

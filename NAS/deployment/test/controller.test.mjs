@@ -149,5 +149,6 @@ test('updater lock contract uses kernel flock and preserves active legacy deploy
   assert.doesNotMatch(script, /rm[^\n]*update\.flock/);
   assert.match(script, /sudo -n "\$task_docker" "\$@"/);
   assert.match(script, /--user "\$task_uid:\$task_gid"/);
+  assert.match(script, /import-portable\.js \/import \/var\/lib\/war-archive \/var\/lib\/war-archive-releases\r?\n/);
   assert.ok(script.indexOf('task_done=true\n# The current shell') < script.indexOf('helper none refresh-bootstrap'));
 });
