@@ -13,3 +13,16 @@ foreach ($taskApp in @('NAS\back', 'NAS\admin', 'Vercel')) {
     }
   } finally { Pop-Location }
 }
+Push-Location (Join-Path $taskRoot 'NAS\gateway')
+try {
+  foreach ($taskCheck in @('lint', 'test')) {
+    npm.cmd run $taskCheck
+    if ($LASTEXITCODE -ne 0) { throw "Verification failed: NAS\gateway / $taskCheck" }
+  }
+} finally { Pop-Location }
+$taskDeploymentTests = @(Get-ChildItem -LiteralPath (Join-Path $taskRoot 'NAS\deployment\test') -Filter '*.test.mjs' -File | ForEach-Object { $_.FullName })
+if ($taskDeploymentTests.Count -eq 0) { throw 'Deployment controller tests were not found.' }
+node --test @taskDeploymentTests
+if ($LASTEXITCODE -ne 0) { throw 'Deployment controller verification failed.' }
+python -m unittest discover -s (Join-Path $taskRoot 'NAS\scripts\tests') -p 'test_configure_funnel.py' -v
+if ($LASTEXITCODE -ne 0) { throw 'Funnel configuration verification failed.' }

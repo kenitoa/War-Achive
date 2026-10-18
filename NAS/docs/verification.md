@@ -2,6 +2,8 @@
 
 검증일: 2026-10-18. 이 기록은 로컬·실제 외부 수집·실제 웹 배포와 미검증 운영 환경을 구분한다. 세 앱은 Node.js 22/npm, 각자의 package-lock.json을 사용한다.
 
+실제 NAS 재배포는 진행 중이며 최종 성공은 아직 확인되지 않았다. 설치·접근 경로·업데이트 잠금·SSH 배포 키 구성은 [전용 NAS 배포 문서](../deployment/README.md)를 따른다. 아래 PC에서 확인한 수집·Vercel 배포 이력과 NAS의 최종 운영 결과는 구분한다.
+
 ## 구현 연결
 
 | 요구 | 구현 | 검증 범위 |
@@ -18,12 +20,12 @@
 
 ## 앱 검사
 
-- NAS/back: 최종 lint·typecheck·test 32건·build 통과. portable 이전 CLI와 원본/DB 이전, 지연 발행 검증 증거, 물리 복구의 세션 무효화 회귀 검사를 포함한다.
+- NAS/back: 로컬 lint·typecheck·test 36건·build 통과. portable 이전 CLI와 원본/DB 이전, 메타데이터 전용 제작물 재생성, 지연 발행 검증 증거, 물리 복구의 세션 무효화, Git 배포 키 회귀 검사를 포함한다. NAS Docker 재빌드 결과는 별도 확인 중이다.
 - NAS/admin: lint·typecheck·test 4건·build 통과. 실제 API 9231에서 데스크톱 10개 메뉴, 390px 모바일 7개 메뉴, 자료·원본 목록·이전 개정 조회와 로그인·로그아웃 통과. 자료 쓰기를 수행하지 않았다. 출처 후보 반영은 브라우저 GET에만 격리한 UI 검사다.
 - Vercel: lint·typecheck·test 16건·build 140개 경로 통과. 로컬 Edge 11개 핵심 흐름과 390px 주요 9개 경로 통과. JavaScript 런타임 오류 0건. 연결된 회원 API UI는 미검증이며 미연결 안내를 확인했다.
 - 공용 계약: `node NAS/scripts/sync-contracts.mjs --check` 통과.
 - Portable 이전 회귀 검사: 새로운 PGlite DB와 CLI 기본 경로, ID/checkpoint/철회/서재/원본 보존, 인증 세션 제외, lease 재대기, ingest sequence 보존, 비어 있지 않은 대상/변조 거부 통과.
-- 현재 실제 자료의 portable export/import: 4개 출처·120개 자료·192개 개정·120개 원본을 내보내고 별도 새 PGlite DB로 가져오기 성공. 원본을 보존하고 세션은 무효화했다. NAS PostgreSQL은 별도 확인 대상이다.
+- 최신 이전 준비 bundle: `NAS/data/transfer/nas-handoff-20261018/`. manifest 기준 4개 출처·230개 자료·597개 개정·415개 보존 원본이다. 로컬 portable 이전 회귀 검사와 이 준비본의 실제 NAS PostgreSQL 가져오기는 구분하며, 후자는 아직 성공을 확정하지 않았다.
 - 최종 Git 소스 156개 파일 검사에서 실제 환경 비밀값/토큰 패턴/운영 데이터 유입 0건. NAS/.env·기존 back/.env·DB·원본·이전 bundle·스크린샷은 Git에서 제외했다.
 
 ## 실제 수집과 공개 자료
@@ -53,9 +55,9 @@ Commons에서 120건 원본 응답을 보존했고 118건을 공개했다. 민�
 - 최종 공개본 `rel-77075743-dbe1-4194-8d99-6ff9e2a89efb`, SHA-256 `42eca96064cbb4a8121053e3bf1e52016ca3b3f27afaabaa39185a66eeb3182a`, 공개 자료 118건.
 - 실제 /release.json의 ID와 해시 확인 후 DB 발행 상태 published 및 manifest.evidence.verified=true를 확인했다.
 - 최종 배포에서 Edge 12개 흐름과 390px 주요 9개 경로, 모의 이미지 429 대응 4개 흐름을 다시 통과했다. JavaScript 런타임 오류 0건.
-- 발행 검증을 포함한 최종 portable bundle은 NAS/data/transfer/ready-20261018이며 새 로컬 DB로 가져오기를 다시 통과했다. 120개 자료·120개 원본·4개 출처를 보존한다.
+- 후속 수집을 반영한 최신 NAS 이전 준비본은 `NAS/data/transfer/nas-handoff-20261018/`이다. 4개 출처·230개 자료·597개 개정·415개 보존 원본을 포함하며, 위 PC 발행 이력과 별도로 NAS 이전 결과를 확인한다.
 
-이 증거는 실제 한 차례의 전송·자동 재배포 경로를 검증한 것이다. NAS에서 상시 운전하려면 NAS 전용 유효 토큰과 실제 장비 배포가 필요하다.
+이 증거는 PC에서 실행한 실제 한 차례의 전송·자동 재배포 경로를 검증한 것이다. NAS 상시 운전은 저장소 전용 SSH 배포 키를 사용하는 별도 배포 구성으로 검증 중이다.
 
 Vercel Next.js 프리셋은 기본 .next manifest를 읽은 뒤 정적 export를 처리하므로 Output Directory override를 해제했다. 로컬 산출물 out을 Vercel 어댑터 출력으로 강제하면 manifest 탐색이 실패한다. [공식 Vercel 빌드 설정](https://vercel.com/docs/builds/configure-a-build#output-directory), [공식 Next 어댑터](https://github.com/vercel/vercel/blob/main/packages/next/src/index.ts).
 
@@ -63,6 +65,6 @@ Vercel Next.js 프리셋은 기본 .next manifest를 읽은 뒤 정적 export를
 
 NAS/back·NAS/admin 전체 감사와 공개 앱 운영 의존성 감사는 0건이다. 공개 앱 개발용 Next ESLint 경로의 braces 관련 수정 버전 없는 high 경고 5건은 남아 있다. 외부 자료를 glob 입력으로 사용하지 않으며 강제 다운그레이드로 lint를 무력화하지 않았다.
 
-실제 NAS·Docker 이미지·운영 PostgreSQL·실제 S3/CDN 공급자·물리 모바일 기기·실환경 OTP·공개 회원 API 게이트웨이는 미검증이다. 소스·명령·시험용 HTTP 어댑터 검증을 해당 운영 환경의 성공으로 간주하지 않는다.
+실제 NAS의 최종 이미지 빌드·운영 PostgreSQL 이전·서비스 건강 상태·상시 수집/발행·공개 회원 API gateway는 확인 중이다. 실제 S3/CDN 공급자·물리 모바일 기기·실환경 OTP는 미검증이다. 소스·명령·시험용 HTTP 어댑터 검증을 해당 운영 환경의 성공으로 간주하지 않는다.
 
-NAS/.env의 기존 GitHub 토큰은 API 401이며 비밀값을 보존했다. 실제 NAS 자동 발행 활성화 전 해당 저장소 전용 토큰을 직접 갱신해야 한다. 외부 메시지는 발송하지 않았다. 이전 배포 URL·Git 이력·제3자 복제본 삭제는 구현된 파일 cleanup과 별도 운영 범위다.
+NAS/.env의 기존 GitHub 토큰은 API 401 이력이 있으며 비밀값을 보존했다. 현재 전용 NAS 배포는 SSH 배포 키를 사용하므로 개인 액세스 토큰 갱신을 요구하지 않는다. NAS에서의 실제 업로드와 Vercel 반영 성공은 별도 확인한다. 외부 메시지는 발송하지 않았다. 이전 배포 URL·Git 이력·제3자 복제본 삭제는 구현된 파일 cleanup과 별도 운영 범위다.

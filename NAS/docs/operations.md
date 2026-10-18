@@ -10,6 +10,8 @@ NAS가 원본·DB·계정·검수·큐를 소유한다. 공개 웹은 공개 스
 
 ## 첫 NAS 배포
 
+현재 `/volume3/docker/War_Archive_Server`의 자동 배포는 [전용 NAS 배포 문서](../deployment/README.md)를 따른다. 이 구성은 `shared/.env`·저장소 전용 SSH 배포 키를 사용하며 관리자 loopback 9231은 SSH 터널로, 공개 gateway 9232는 HTTPS 역방향 프록시로 연결한다. 아래 루트 Compose 명령은 별도의 수동 구성·복구 참고 절차이므로 전용 자동 배포 절차와 구분한다.
+
 1. `NAS/.env`, 기존 DB·원본을 비공개 백업한다. 비밀값을 Git에 추가하지 않는다.
 2. NAS에 `NAS/`만 복사하고 `node scripts/configure-nas.mjs --production`으로 비어 있는 초기 설정을 생성한다. Docker Engine/Compose와 Node.js 22 이상이 필요하다.
 3. `docker compose config --quiet`와 `docker compose build`를 실행한다. 실제 `.env`가 포함된 `docker compose config` 전체 출력은 공유하지 않는다.
@@ -20,18 +22,18 @@ NAS가 원본·DB·계정·검수·큐를 소유한다. 공개 웹은 공개 스
 
 Compose는 PostgreSQL 볼륨, 원본/제작물 볼륨, 공개 릴리스 볼륨을 분리한다. API/worker는 비루트 사용자이며 관리자 포트는 NAS loopback에만 연다. `docker compose down -v`, DB 초기화, 볼륨 삭제는 운영 절차에 포함하지 않는다.
 
-컨테이너 내부 포트는 4310이며 외부 포트는 NAS/.env의 ADMIN_PORT다. 외부 포트가 다르면 실제 브라우저에서 사용하는 정확한 origin을 ALLOWED_ORIGINS에 명시한다. 예를 들어 로컬 SSH 터널의 9231 포트라면 http://127.0.0.1:9231 및 사용하는 경우 http://localhost:9231을 추가한다. 역방향 프록시는 해당 HTTPS origin을 추가하고 NAS/.env를 바꾼 뒤 컨테이너를 다시 생성한다.
+수동 Compose의 컨테이너 내부 포트는 4310이며 관리자 외부 포트는 NAS/.env의 ADMIN_PORT다. 관리자는 SSH 터널로 접속하고 실제 브라우저에서 사용하는 정확한 origin을 ALLOWED_ORIGINS에 명시한다. 예를 들어 로컬 SSH 터널의 9231 포트라면 http://127.0.0.1:9231 및 사용하는 경우 http://localhost:9231을 추가한다. 전용 배포의 공개 HTTPS 프록시는 gateway 9232의 `/war-archive-api`만 전달하며, 설정 경로는 위 전용 배포 문서를 따른다.
 
-현재 실행 환경에는 Docker/실제 NAS 접속이 없어 이 절차의 원격 실행은 미검증이다. 로컬 파일 PGlite 검증과 실제 PostgreSQL 운영 검증을 구분한다.
+실제 NAS 재배포를 진행 중이며 최종 성공은 아직 확인되지 않았다. 이미지 빌드·PostgreSQL 이전·각 서비스 건강 상태·NAS에서의 수집과 발행을 각각 확인한 뒤 결과를 기록한다. 로컬 파일 PGlite 검증을 실제 PostgreSQL 운영 성공으로 간주하지 않는다.
 
 ### 현재 Windows 자료를 새 NAS PostgreSQL로 이전
 
-폴더 복사만으로 Windows PGlite의 행이 PostgreSQL에 들어가지는 않는다. 현재 자료는 `NAS/data/transfer/ready-20261018/`에 portable 논리 bundle로 내보냈다. 4개 출처·120개 자료·192개 개정·120개 보존 원본을 포함하며 새 PGlite 경로로 실제 가져오기와 해시 보존을 확인했다. 이 bundle은 공개 Git에서 제외되므로 **현재 NAS 폴더를 복사할 때 함께 전달**한다. 회원/연락처 등이 포함될 수 있는 비공개 bundle이며 별도로 보호한다.
+폴더 복사만으로 Windows PGlite의 행이 PostgreSQL에 들어가지는 않는다. 최신 이전 준비본은 `NAS/data/transfer/nas-handoff-20261018/`의 portable 논리 bundle이다. manifest 기준 4개 출처·230개 자료·597개 개정·415개 보존 원본을 포함한다. 이는 이전 준비 정보이며 실제 NAS PostgreSQL 가져오기 성공을 뜻하지 않는다. 이 bundle은 공개 Git에서 제외되므로 **현재 NAS 폴더를 복사할 때 함께 전달**한다. 회원/연락처 등이 포함될 수 있는 비공개 bundle이며 별도로 보호한다.
 
 새 NAS의 DB를 생성·마이그레이션한 뒤, API와 worker를 시작하기 전에 실행한다. 대상 DB는 마이그레이션만 적용한 빈 DB이고 `/var/lib/war-archive` 볼륨은 비어 있어야 한다. bundle에는 컨테이너 UID 1000의 읽기 권한만 필요한 범위로 부여하고 전체 공개 권한을 주지 않는다.
 
 ```sh
-docker compose run --rm --no-deps -T --volume "$PWD/data/transfer/ready-20261018:/import:ro" api node dist/commands/import-portable.js /import /var/lib/war-archive
+docker compose run --rm --no-deps -T --volume "$PWD/data/transfer/nas-handoff-20261018:/import:ro" api node dist/commands/import-portable.js /import /var/lib/war-archive
 ```
 
 가져오기는 테이블/열 허용 목록과 migration 파일 해시, 원본 해시, 경로, 행 수를 검사한다. 원본 경로를 NAS로 바꾸고 ID·출처 checkpoint·개정·철회를 보존한다. 로그인 세션과 비밀번호 재설정 토큰은 이전하지 않는다. 실행 중 lease는 다시 대기 상태로 만들고 파생 파일을 재제작한다. 기존 운영 DB/파일은 덮어쓰지 않는다. 실제 PostgreSQL로의 실행은 NAS에서 확인해야 한다.
@@ -42,7 +44,7 @@ docker compose run --rm --no-deps -T --volume "$PWD/data/transfer/ready-20261018
 
 확정 대상은 `kenitoa/War-Achive`, `main`, `Vercel/content/archive.json`이다. 이전 `kenitoa/warsachive`와 기존 Vercel `kenitoa-warsachive`는 이 프로젝트의 대상이 아니다.
 
-1. NAS에서 `GITHUB_FRONT_TOKEN`을 해당 저장소 콘텐츠 쓰기 최소 권한으로 갱신한다. 기존 값은 API 401로 실패했으며 자동으로 대체하지 않았다.
+1. 전용 NAS 배포에서는 저장소 쓰기 권한의 SSH 배포 키와 검증한 GitHub 호스트 키를 준비한다. `shared/.env`의 `GITHUB_FRONT_SSH_KEY_PATH`, `GITHUB_FRONT_SSH_KNOWN_HOSTS_PATH`가 읽기 전용 secret 마운트를 가리키도록 한다. 이 방식에는 `GITHUB_FRONT_TOKEN`이 필요 없다. 키 준비와 권한은 [전용 배포 문서](../deployment/README.md)를 따른다.
 2. Vercel 프로젝트의 Git 연결이 위 저장소를 가리키고 Production Branch가 `main`, Root Directory가 `Vercel`인지 확인한다.
 3. 실제 배포의 `https://<도메인>/release.json`을 `PUBLIC_ARCHIVE_VERIFY_URL`로 설정한다.
 4. `REMOTE_PUBLISH_ENABLED=true`로 바꾸고 API/worker를 재시작한다. 작은 공개 변경으로 GitHub 커밋과 실제 사이트 릴리스 ID·SHA-256을 확인한다.
