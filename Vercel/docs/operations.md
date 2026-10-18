@@ -64,6 +64,8 @@ npm.cmd run build
 
 `configure:gateway`는 `vercel.json`에 `/api/v1/accounts`, `/api/v1/account`, `/api/v1/account/session`, `/api/v1/account/shelf`, `/api/v1/account/reset`, `/api/v1/requests` 여섯 경로만 추가한다. 포괄적인 `/api/:path*` rewrite를 사용하지 않는다. 계정 응답에는 브라우저·CDN 모두 `no-store`를 적용한다. `NAS_PUBLIC_GATEWAY_URL`은 배포 설정을 생성하는 공개 주소이며 HTTPS origin 또는 `/war-archive-api` prefix를 지원한다. 기존 NAS 호스트의 다른 서비스 경로는 변경하지 않는다. 브라우저 코드에 비밀키를 추가하는 변수가 아니다.
 
+Next.js의 `trailingSlash: true`는 정적 페이지를 `경로/index.html`로 내보내기 위해 유지한다. `skipTrailingSlashRedirect: true`로 API 요청에 자동으로 `/`를 붙이는 리디렉션을 끄며 여섯 API 경로는 요청한 주소 그대로 프록시한다. 기본 리디렉션을 다시 켜면 `/api/v1/account/session`이 308 응답 후 프록시되지 않는 주소로 바뀔 수 있다. 배포 후 해당 API가 리디렉션 없이 401 JSON·`no-store`를 반환하는지 계정 브라우저 검사에서 먼저 확인한다. 롤백은 라우팅 설정과 프록시 변경을 함께 되돌리며 NAS DB나 원본은 변경하지 않는다.
+
 NAS 게이트웨이는 위 경로의 지원 HTTP 메서드만 전달하고 관리자·원본·수집 경로를 거부해야 한다. API의 `PUBLIC_ACCOUNT_API_ENABLED=true`, 정확한 공개 사이트 `ALLOWED_ORIGINS`, `COOKIE_SECURE=true`, `COOKIE_SAME_SITE=lax`를 함께 설정한다. Vercel 프로젝트의 빌드 환경에도 같은 `NEXT_PUBLIC_API_ORIGIN`을 지정한다. 쿠키는 NAS 응답의 Domain 없는 HttpOnly 쿠키를 프록시를 통해 공개 사이트에 저장하며, 브라우저 저장소에는 인증 토큰을 넣지 않는다.
 
 현재 API는 전달받은 클라이언트 IP 헤더를 신뢰하지 않는다. 따라서 NAS gateway를 거치는 공개 요청은 하나의 주소로 합산되며, 회원가입·자료 접수는 각각 시간당 5회, 회원 로그인은 분당 10회 제한을 공유한다. 이는 초기 운영의 보수적인 한도이며 여러 사용자의 요청으로 429가 발생할 수 있다. 이용자별 제한으로 확장할 때는 신뢰할 수 있는 프록시 식별 경계를 먼저 검증한다. 임의의 `X-Forwarded-For`를 신뢰하거나 제한을 제거하지 않는다.

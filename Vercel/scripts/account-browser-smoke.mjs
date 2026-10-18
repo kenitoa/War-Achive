@@ -25,6 +25,11 @@ async function loginThroughForm() {
 }
 
 try {
+  const initialSession = await context.request.get(`${base}/api/v1/account/session`, { maxRedirects: 0 });
+  assert.equal(initialSession.status(), 401, '공개 계정 API는 주소 보정 리디렉션 없이 JSON으로 응답해야 합니다.');
+  assert.match(initialSession.headers()['content-type'], /application\/json/);
+  assert.match(initialSession.headers()['cache-control'], /no-store/);
+  checked('공개 계정 API의 리디렉션 없는 비로그인 응답');
   await page.goto(`${base}/account/`, { waitUntil: 'domcontentloaded' });
   await page.getByRole('button', { name: '회원가입', exact: true }).click();
   await page.getByLabel('이메일', { exact: true }).fill(email);

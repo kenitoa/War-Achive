@@ -104,8 +104,14 @@ try {
   }
   checked('실제 좌표만 사용하는 지도와 전체 기록 연표');
   await page.goto(`${base}/account/`, { waitUntil: 'domcontentloaded' });
-  if (!process.env.NEXT_PUBLIC_API_ORIGIN) await page.getByRole('heading', { name: '현재는 공개 열람과 브라우저 서재를 제공합니다' }).waitFor();
-  checked('서버 미연결 계정의 명확한 안내');
+  if (process.env.NEXT_PUBLIC_API_ORIGIN) {
+    await page.getByLabel('이메일', { exact: true }).waitFor();
+    await page.getByRole('button', { name: '로그인', exact: true }).last().waitFor();
+    checked('연결된 서버의 계정 로그인 화면');
+  } else {
+    await page.getByRole('heading', { name: '현재는 공개 열람과 브라우저 서재를 제공합니다' }).waitFor();
+    checked('서버 미연결 계정의 명확한 안내');
+  }
 
   await page.setViewportSize({ width: 390, height: 844 });
   for (const route of ['/', '/archive/', `/archive/${first.id}/`, '/shelf/', '/explore/', '/about/', '/wars/', '/collections/', '/contribute/']) {
