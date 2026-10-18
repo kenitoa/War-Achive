@@ -24,7 +24,7 @@ NAS가 원본·DB·계정·검수·큐를 소유한다. 공개 웹은 공개 스
 
 Compose는 PostgreSQL 볼륨, 원본/제작물 볼륨, 공개 릴리스 볼륨을 분리한다. API/worker는 비루트 사용자이며 관리자 포트는 NAS loopback에만 연다. `docker compose down -v`, DB 초기화, 볼륨 삭제는 운영 절차에 포함하지 않는다.
 
-수동 Compose의 컨테이너 내부 포트는 4310이며 관리자 외부 포트는 NAS/.env의 ADMIN_PORT다. 관리자 접속에는 별도로 승인된 사설 접속 경로와 정확한 ALLOWED_ORIGINS 설정이 필요하다. 현재 NAS의 SSH TCP forwarding은 서버 정책으로 거부되므로 SSH 터널로 관리자 브라우저에 접속했다고 간주하지 않는다. NAS 내부 관리자 페이지 HTTP 200과 인증·권한 검사는 통과했지만 원격 관리자 브라우저 접속은 미검증이다. 공개 gateway에는 관리자 페이지나 관리자 API를 전달하지 않는다.
+수동 Compose의 컨테이너 내부 포트는 4310이며 관리자 외부 포트는 NAS/.env의 ADMIN_PORT다. 현재 전용 배포의 관리실은 Tailscale에 연결한 PC에서 `https://stock-platform.tail498403.ts.net:8446/admin/`로 접속한다. API 자체는 NAS loopback 9231에 유지하고 Tailscale 내부 HTTPS 8446만 연결했다. 해당 포트에 Funnel 권한은 없으며 기존 다른 서비스 설정도 보존했다. 정확한 HTTPS origin을 ALLOWED_ORIGINS에 추가한 뒤 실제 원격 브라우저 로그인과 10개 메뉴의 데이터 조회를 확인했다. SSH TCP forwarding 차단 정책은 변경하지 않았으며 공개 gateway에는 관리자 페이지나 관리자 API를 전달하지 않는다.
 
 ### 실제 NAS 운영 확인 — 2026-10-18
 
@@ -111,9 +111,9 @@ docker compose -p <새 프로젝트> run --rm api node dist/commands/migrate.js
 docker compose -p <새 프로젝트> exec -T db psql -U archive -d archive -v ON_ERROR_STOP=1 -c "BEGIN; DELETE FROM member_sessions; DELETE FROM member_reset_tokens; UPDATE jobs SET state='queued',owner=NULL,lease_until=NULL,run_at=now() WHERE state='running'; COMMIT;"
 ```
 
-`<...>`는 실제 경로/이름으로 바꾼다. 마지막 명령은 **새 복원 DB에서만** 실행해 과거에 폐기한 세션·복구 토큰이 백업 복원으로 살아나지 않도록 무효화한다. 회원·서재·자료는 삭제하지 않는다. 관리자는 다시 로그인해야 한다. 관리자 포트를 운영과 다르게 설정하고 REMOTE_PUBLISH_ENABLED=false로 둔 상태에서 새 API만 시작한다. 원본 해시·DB·자료·권리 상태를 확인한 후 worker와 발행을 순서대로 활성화한다. 운영 볼륨이나 이전 백업을 삭제하지 않는다. 이 NAS 복원 절차는 실제 Docker에서 아직 실행하지 않았다. 개발용 PostgreSQL 백업 CLI를 별도 사용할 경우 호스트에 pg_dump/pg_restore도 필요하며 API 런타임 이미지에는 포함하지 않는다.
+`<...>`는 실제 경로/이름으로 바꾼다. 마지막 명령은 **새 복원 DB에서만** 실행해 과거에 폐기한 세션·복구 토큰이 백업 복원으로 살아나지 않도록 무효화한다. 회원·서재·자료는 삭제하지 않는다. 관리자는 다시 로그인해야 한다. 관리자 포트를 운영과 다르게 설정하고 REMOTE_PUBLISH_ENABLED=false로 둔 상태에서 새 API만 시작한다. 원본 해시·DB·자료·권리 상태를 확인한 후 worker와 발행을 순서대로 활성화한다. 운영 볼륨이나 이전 백업을 삭제하지 않는다. 실제 Docker 복원 검증은 [격리 복원 도구](RESTORE_REHEARSAL.md)로 수행하며, 모든 과거 제작 파일과 발행본까지 검사한다. 개발용 PostgreSQL 백업 CLI를 별도 사용할 경우 호스트에 pg_dump/pg_restore도 필요하며 API 런타임 이미지에는 포함하지 않는다.
 
-실제 자동 재배포가 생성한 `backups/20261018T132136Z-892c6dc41d2dc45690f50c224d301d9f95c712b8`에서 `database.dump`, `archive-files.tar`, `releases.tar` 세 파일의 `sha256sum -c SHA256SUMS`가 모두 통과했고 `pg_restore --list`도 확인했다. 배포 전 백업은 실제 구성했지만 별도의 정기 백업 작업, 암호화한 외부 저장소 복사, 실제 NAS의 전체 복원 연습은 완료로 기록하지 않는다. 코드 변경이 없는 기간에도 백업이 생성되도록 별도 주기적 백업을 구성하고 새 환경의 복원 검증을 수행해야 한다.
+배포 전 자동 백업은 DB dump·자료 tar·발행 tar와 체크섬을 보존한다. 별도로 Windows 작업 스케줄러 `War Archive encrypted external backup`을 매일 02:20과 사용자 로그인 때 실행하도록 등록했다. NAS의 설정·전용 배포 키·소스·Docker 이미지까지 포함한 AES-256-GCM 백업을 `C:/Users/abc20/WarArchiveBackups`에 저장하고, 키는 별도 Windows DPAPI 저장소로 보호한다. 최근 검증된 사본이 있으면 로그인 시 중복 생성을 건너뛴다. PC가 켜져 있고 해당 사용자가 로그인되어 있으며 NAS에 접근할 수 있어야 한다. 자세한 절차와 한계는 [외부 백업](../deployment/EXTERNAL_BACKUP.md)을 따른다. 성공 여부는 PC 영수증의 `external-authenticated`, 격리 복원 `result.json`의 `passed`로 확인하며 문서나 스케줄 등록만으로 복원 성공을 대신하지 않는다.
 
 ## 모니터링·롤백
 
