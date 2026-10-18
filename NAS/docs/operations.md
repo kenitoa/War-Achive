@@ -24,16 +24,18 @@ NAS가 원본·DB·계정·검수·큐를 소유한다. 공개 웹은 공개 스
 
 Compose는 PostgreSQL 볼륨, 원본/제작물 볼륨, 공개 릴리스 볼륨을 분리한다. API/worker는 비루트 사용자이며 관리자 포트는 NAS loopback에만 연다. `docker compose down -v`, DB 초기화, 볼륨 삭제는 운영 절차에 포함하지 않는다.
 
-수동 Compose의 컨테이너 내부 포트는 4310이며 관리자 외부 포트는 NAS/.env의 ADMIN_PORT다. 현재 전용 배포의 관리실은 Tailscale에 연결한 PC에서 `https://stock-platform.tail498403.ts.net:8446/admin/`로 접속한다. API 자체는 NAS loopback 9231에 유지하고 Tailscale 내부 HTTPS 8446만 연결했다. 해당 포트에 Funnel 권한은 없으며 기존 다른 서비스 설정도 보존했다. 정확한 HTTPS origin을 ALLOWED_ORIGINS에 추가한 뒤 실제 원격 브라우저 로그인과 10개 메뉴의 데이터 조회를 확인했다. SSH TCP forwarding 차단 정책은 변경하지 않았으며 공개 gateway에는 관리자 페이지나 관리자 API를 전달하지 않는다.
+수동 Compose의 컨테이너 내부 포트는 4310이며 관리자 외부 포트는 NAS/.env의 ADMIN_PORT다. 현재 전용 배포의 관리실은 Tailscale에 연결한 PC에서 `https://stock-platform.tail498403.ts.net:8446/admin/`로 접속한다. API 자체는 NAS loopback 9231에 유지하고 Tailscale 내부 HTTPS 8446만 연결했다. 해당 포트에 Funnel 권한은 없으며 기존 다른 서비스 설정도 보존했다. 정확한 HTTPS origin을 ALLOWED_ORIGINS에 추가한 뒤 원격 브라우저의 10개 메뉴 조회를 소스 `a0273a4`에서 확인했고, 최종 앱 소스 `95293fc`에서도 2026-10-18 16:14:40 UTC에 Chrome 로그인과 현황 조회를 확인했다. SSH TCP forwarding 차단 정책은 변경하지 않았으며 공개 gateway에는 관리자 페이지나 관리자 API를 전달하지 않는다.
 
 ### 실제 NAS 운영 확인 — 2026-10-18
 
 - DSM의 `War Archive auto deploy` 작업은 일반 NAS 사용자로 5분마다 실행한다. `main`의 NAS 소스가 바뀌면 빌드·검증·백업·마이그레이션·건강 확인 후 활성화한다. 실행 잠금은 중복 배포를 막고, 활성화된 소스로 bootstrap을 교체한다.
 - 커밋 `892c6dc41d2dc45690f50c224d301d9f95c712b8`에 이어 소스 `4a46ade2a5ef1463678fba29b5085bafcfc23fbc`의 자동 재배포를 확인했다. `war-archive` 프로젝트의 PostgreSQL·API·worker·publicgateway 네 컨테이너가 모두 healthy이며 기존 다른 NAS 서비스는 유지했다.
+- 최종 앱 소스 `95293fc2751b7b66e690f3f0f7b4f2bad0f0042e`는 2026-10-18 16:17:13 UTC의 읽기 전용 검사에서 활성 상태·실제 이미지 일치와 네 서비스 healthy를 확인했다. 기존 NAS 서비스 10개와 기존 HTTPS 경로·포트는 유지됐고 검증용 회원은 0개였다. 가입·접수 각각 시간당 100회와 proxy 헤더 비신뢰도 실제 배포의 컴파일된 API에서 확인했다. 이후 배포·백업 도구 변경은 해당 도구 검사와 구분한다.
+- 후속 배포·백업 도구 소스 `d1a91a1`도 실제 NAS의 활성 상태와 `state/bootstrap.json`의 보조 파일 7개 반영을 확인했다. 2026-10-18 16:31 UTC에 네 서비스 healthy를 재확인했고, 컨트롤러 10건은 운영 데이터와 분리한 NAS Linux 검사에서 통과했다. 앱 기능의 전체 검증 기준 소스는 위 `95293fc`로 유지한다.
 - 2026-10-18 13:45:00.738 UTC의 실제 PostgreSQL 읽기 전용 재검사에서 마이그레이션 6개, 자료 270개, 개정 637개를 확인했다. 보존 원본 455개 전부와 인용·출처 설명·메타데이터 제작 파일 810개 전부의 SHA-256이 일치했다. 메타데이터 제작 완료 자료는 270개다. 이는 후속 자동 재배포 이후에도 영속 볼륨의 데이터와 파일이 유지된 결과다.
 - NAS에서 실제 Commons 수집을 실행해 이전 자료 230개에 새 자료 40개가 추가됐다. 현재 승인된 Commons 출처의 수집 간격은 6시간, 발행 배치 간격은 2시간, worker의 스케줄 확인 간격은 1분이다. 출처의 승인·활성 상태와 checkpoint에 따라 실행하며 검수 대기 자료는 자동 공개하지 않는다.
 - PC의 PGlite worker는 종료했고 로컬 `LOCAL_WORKER_ENABLED=false`로 두었다. 운영 수집·정제·제작·발행의 실행 주체는 NAS worker다. VS Code 수정 → `main` push 후 NAS는 DSM 작업으로 백엔드 변경을 감지해 업데이트하고, Vercel은 Git 연결로 공개 웹을 배포한다.
-- NAS 내부 API 검사 14건에서 비로그인 관리자·서재 접근 차단, 공개 gateway의 관리자 차단, 허용하지 않은 Origin 차단, 관리자 로그인·현황 조회·CSRF·로그아웃 후 세션 차단과 미디어 도구 설치를 확인했다. 관리자 원격 브라우저 접속 성공을 뜻하지는 않는다.
+- NAS 내부 API 검사 14건에서 비로그인 관리자·서재 접근 차단, 공개 gateway의 관리자 차단, 허용하지 않은 Origin 차단, 관리자 로그인·현황 조회·CSRF·로그아웃 후 세션 차단과 미디어 도구 설치를 확인했다. 이 API 검사와 별도로 위 Tailscale 내부 HTTPS의 원격 Chrome 검증을 완료했다.
 
 사용자가 승인한 DSM 관리자 일회성 작업으로 `stock-platform.tail498403.ts.net:443`의 `/war-archive-api` 경로 설정을 적용했다. 검증된 `configure-funnel.py` 결과는 `status=applied`, `attempts=1`, `priorConfigurationPreserved=true`다. 기존 HTTPS 설정을 보존하며 공개 gateway로 전달할 해당 경로만 추가했다. 2026-10-18 14:45:31.899 UTC의 실제 공개 HTTPS 검사 6건에서 health 200, 비인증 회원 세션·서재 401, 관리자 로그인·페이지 404, 미허용 Origin의 회원가입 403과 no-store 응답을 확인했다. Vercel Production의 `NEXT_PUBLIC_API_ORIGIN`은 공개 웹 자체 origin으로 설정했다.
 
@@ -115,11 +117,15 @@ docker compose -p <새 프로젝트> exec -T db psql -U archive -d archive -v ON
 
 배포 전 자동 백업은 DB dump·자료 tar·발행 tar와 체크섬을 보존한다. 별도로 Windows 작업 스케줄러 `War Archive encrypted external backup`을 매일 02:20과 사용자 로그인 때 실행하도록 등록했다. NAS의 설정·전용 배포 키·소스·Docker 이미지까지 포함한 AES-256-GCM 백업을 `C:/Users/abc20/WarArchiveBackups`에 저장하고, 키는 별도 Windows DPAPI 저장소로 보호한다. 최근 검증된 사본이 있으면 로그인 시 중복 생성을 건너뛴다. PC가 켜져 있고 해당 사용자가 로그인되어 있으며 NAS에 접근할 수 있어야 한다. 자세한 절차와 한계는 [외부 백업](../deployment/EXTERNAL_BACKUP.md)을 따른다. 성공 여부는 PC 영수증의 `external-authenticated`, 격리 복원 `result.json`의 `passed`로 확인하며 문서나 스케줄 등록만으로 복원 성공을 대신하지 않는다.
 
+최종 앱 스냅샷 `95293fc`·도구 `d1a91a1`의 실제 외부 PC 사본은 2026-10-18 16:33:49.507 UTC에 `external-authenticated`를 확인했다. 암호문 546,719,473바이트의 SHA-256 `8e166b07ecb448e65714e4368955200cae62320532af37fc8ea095d04d996d51`, NAS 암호화 왕복, PC의 GCM·평문 해시와 설치된 클라이언트 검사를 통과했다. 실제 PC 암호문을 NAS의 새 경로로 반환해 체크섬 11개, 비공개 설정·키·소스·bootstrap과 Docker 이미지 3개의 실제 재로딩도 확인했다. 등록된 Windows 작업은 16:36:09 UTC에 종료 코드 0을 반환했고, 최근 20시간 내 검증 사본이 있어 중복 생성은 건너뛰었다. 증거는 PC의 `latest.json`과 `NAS/artifacts/external-backup-proof-20261019.json`이다.
+
+반환한 실제 PC 사본으로 이미지 `95293fc`의 새 격리 PostgreSQL/API 환경을 복원해 2026-10-18 16:42:22 UTC에 `passed`를 확인했다. 자료 270개·개정 637개·제작 이력 565개·마이그레이션 6개를 보존했고, 원본 455개·중복 제외 제작 파일 1,571개(전체 참조 1,695개)·발행본 9개의 해시를 모두 확인했다. API와 관리자 로그인·조회, 복원 후 세션·재설정 토큰 0개와 네트워크·볼륨 격리, 검사 후 소유 격리 자원의 잔존 0개도 확인했다. 백업에 실행 중 작업이 없어 재대기 처리로 바뀐 행은 0개였다. 결과는 `NAS/artifacts/final-external-restore-proof-20261019.json`에 기록했다. 이 검증은 전쟁 아카이브 애플리케이션 전체 복원이며, DSM·다른 프로젝트를 포함한 NAS 기기 전체 복원이나 지리적으로 분리된 보관을 완료한 것으로 표시하지 않는다.
+
 ## 모니터링·롤백
 
 `/healthz`, worker heartbeat, 작업 queued/retry/failed, 출처별 마지막 성공·checkpoint, 발행 상태·실제 릴리스, 디스크·백업 나이를 점검한다. 구조화 로그는 토큰·쿠키·비밀번호·연락처 원문을 출력하지 않는다. Discord 등 외부 메시지는 자동 전송하지 않는다.
 
-현재 Tailscale 장치 키 만료는 `2026-10-30T14:13:55Z`(한국 시각 2026-10-30 23:13:55)로 재확인했다. 사용자는 무인 인증 유지를 요청했으나 현재 Tailscale 관리자 콘솔에 로그인할 수 없어 해당 정책은 아직 변경하지 않았다. [공식 서버 운영 방법](https://tailscale.com/docs/features/access-control/key-expiry)은 신뢰하는 서버 장치에 한해 키 만료를 해제하는 것이다. 이는 주기적으로 인증키를 갱신하는 것과 다르다. 장치 한 대의 정책을 변경한 뒤 실제 NAS의 KeyExpiry와 공개 API를 재검증해야 완료다. 강제 재인증은 원격 연결을 끊을 수 있어 예약 실행하지 않는다. 키 만료나 NAS 중단 시 이미 배포된 정적 자료는 Vercel에서 계속 열람할 수 있지만 NAS에 의존하는 수집·발행·회원 동기화는 영향을 받는다.
+현재 Tailscale 장치 키 만료는 `2026-10-30T14:13:55Z`(한국 시각 2026-10-30 23:13:55)로 재확인했다. 사용자는 무인 인증 유지를 요청했으나 현재 Tailscale 관리자 콘솔에 로그인할 수 없어 해당 정책은 아직 변경하지 않았다. [공식 서버 운영 방법](https://tailscale.com/docs/features/access-control/key-expiry)은 신뢰하는 서버 장치에 한해 키 만료를 해제하는 것이다. 이는 주기적으로 인증키를 갱신하는 것과 다르다. 장치 한 대의 정책을 변경한 뒤 실제 NAS의 KeyExpiry와 공개 API를 재검증해야 완료다. 강제 재인증은 원격 연결을 끊을 수 있어 예약 실행하지 않는다. 장치 키 만료는 Tailscale을 경유하는 관리자 접속·공개 회원·서재 API의 연결에 영향을 준다. NAS 자체와 인터넷이 정상이면 수집·Git 업로드는 계속 실행될 수 있다. NAS가 중단되면 수집·정제·제작·발행·회원 동기화도 중단된다. 이미 배포된 정적 자료는 Vercel에서 계속 열람할 수 있다.
 
 현재 API는 proxy 헤더를 신뢰하지 않아 공개 gateway를 거친 요청이 같은 gateway IP의 속도 제한을 공유한다. 회원가입·자료 접수는 각각 해당 IP당 시간당 100회 제한이므로 공개 웹에서는 사이트 전체가 각 한도를 공유한다. 실패한 입력도 요청 횟수에 포함되며 현재 카운터는 API 재시작 시 초기화된다. 로그인·비밀번호 재설정·전체 요청 제한은 별도로 유지한다. 실제 클라이언트 식별이 필요하면 신뢰할 수 있는 프록시 경계를 먼저 설계하고 검증한다.
 

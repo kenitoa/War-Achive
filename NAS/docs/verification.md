@@ -4,26 +4,30 @@
 
 실제 NAS에서 PostgreSQL 이전, Docker 이미지 빌드, 네 서비스의 정상 상태, 후속 자동 재배포, 수집·정제·제작·GitHub 발행·Vercel 공개본 검증을 확인했다. 설치·접근 경로·업데이트 잠금·SSH 배포 키 구성은 [전용 NAS 배포 문서](../deployment/README.md)를 따른다. 사용자가 승인한 공개 회원 API의 HTTPS 경로 설정은 DSM 관리자 일회성 작업으로 적용했고 실제 외부 gateway 검사 6건과 Vercel 프록시를 거치는 운영 계정 검사 9건을 통과했다.
 
+최종 앱 검증 기준 소스는 `95293fc2751b7b66e690f3f0f7b4f2bad0f0042e`다. 이후 배포·백업 도구 변경은 해당 도구의 별도 검증으로 기록하며 앱 전체 검사를 다시 실행한 것으로 표시하지 않는다.
+
 ## 구현 연결
 
 | 요구 | 구현 | 검증 범위 |
 |---|---|---|
 | NAS/Vercel 작업 폴더 분리 | 비밀값·원본·DB는 NAS, 공개 웹만 Vercel | Git 후보/배포 staging 비밀값 검사 |
 | 지속 수집 | 출처별 과거·증분·순환 재확인, DB checkpoint/작업 큐 | 실제 NAS Commons 수집 40건 추가, 임대/중복/재시작/변경 회귀 검사 |
-| 지속 정제·자료 제작 | 원본 해시·버전·검수 후보·파일 제작/권리 | 실제 NAS 원본 455개와 제작 파일 810개 SHA-256 전수 일치, OCR/PDF/영상 도구 설치 확인 |
+| 지속 정제·자료 제작 | 원본 해시·버전·검수 후보·파일 제작/권리 | 과거 이력까지 보완한 원본 455개·제작 파일 1,571개·발행본 9개의 전체 SHA-256 검증과 격리 복원 통과 |
 | 지속 자동 업로드 | GitHub 공개본·원격 재조회·Vercel 실제 해시 확인 | 실제 NAS worker 발행 작업 완료, GitHub 커밋과 Vercel 공개 릴리스 일치 |
 | 공개 탐색 | 전쟁/검색/자료/사전/모음/지도/연표/서재 | 정적 빌드·로컬 및 실제 배포 Edge 검사 |
-| 관리자 운영 | 10개 메뉴·역할·검수·작업·발행·감사·복구 | 로컬 API 브라우저 검사, 실제 NAS 비공개 API 인증·권한·CSRF 검사 |
+| 관리자 운영 | 10개 메뉴·역할·검수·작업·발행·감사·복구 | 실제 NAS 비공개 API 인증·권한·CSRF, Tailscale 내부 HTTPS의 원격 Chrome 로그인·메뉴 조회 |
 | 계정과 개인 정보 | scrypt·세션 해시·소유자·서재 revision·복구·계정 삭제 | DB/API 통합 검사, 실제 NAS Funnel·공개 HTTPS 6건, 운영 웹 계정 검사 9건 통과 |
 | 보존·철회 | 원본 불변 보존·공개본 guard·범위 cleanup | 파일 무결성·권리 취소·S3 삭제/재시도/CDN HTTP 검사 |
-| 백업·운영 | 전체 DB/원본 백업·암호화·새 환경 복원·Compose | 로컬 복원/암호화, 실제 NAS 자동 백업 3개 파일 해시·dump 목록 검사. NAS 전체 복원과 외부 보관 미검증 |
+| 백업·운영 | 전체 DB/원본 백업·암호화·새 환경 복원·Compose | 실제 외부 PC 사본의 해시·GCM 인증, NAS 반환 후 이미지 재로딩과 전체 이력의 격리 앱 복원 통과 |
 
 ## 앱 검사
 
-- NAS/back: 로컬 및 실제 NAS Linux Docker 빌드에서 lint·typecheck·test 36건·build 통과. portable 이전 CLI와 원본/DB 이전, 메타데이터 전용 제작물 재생성, 지연 발행 검증 증거, 물리 복구의 세션 무효화, Git 배포 키 회귀 검사를 포함한다.
-- NAS/admin: lint·typecheck·test 4건·build 통과, 실제 NAS Docker 이미지 빌드에서도 통과. 기존 로컬 API 9231의 브라우저 검사에서 데스크톱 10개 메뉴, 390px 모바일 7개 메뉴, 자료·원본 목록·이전 개정 조회와 로그인·로그아웃을 확인했다. 자료 쓰기를 수행하지 않았다. 출처 후보 반영은 브라우저 GET에만 격리한 UI 검사다. 실제 NAS 관리자 페이지 HTTP 200과 비공개 API는 확인했으나 원격 관리자 브라우저 조작은 미검증이다.
+- NAS/back: 소스 `95293fc`의 로컬 및 실제 NAS Linux Docker 빌드에서 lint·typecheck·test 38건·build 통과. 가입·접수의 시간당 100/101회 경계와 전달 헤더 우회 거부, portable v2의 이전 제작 이력·발행 파일 보존, 세션 무효화, Git 배포 키 회귀 검사를 포함한다.
+- NAS/admin: lint·typecheck·test 4건·build 통과, 실제 NAS Docker 이미지 빌드에서도 통과. 기존 로컬 API 9231의 브라우저 검사에서 데스크톱 10개 메뉴, 390px 모바일 7개 메뉴, 자료·원본 목록·이전 개정 조회와 로그인·로그아웃을 확인했다. 자료 쓰기를 수행하지 않았다. 출처 후보 반영은 브라우저 GET에만 격리한 UI 검사다. 실제 원격 Tailscale HTTPS의 10개 메뉴 조회는 소스 `a0273a4`에서, 최종 소스 `95293fc`의 Chrome 로그인·현황 조회는 2026-10-18 16:14:40 UTC에 확인했다. 증거는 `NAS/artifacts/private-admin-browser-proof.json`과 `private-admin-final-95293fc.png`다.
 - Vercel: 최신 NAS 공개본 93건과 API 프록시·계정 초기 폼 보호를 반영한 로컬 lint·typecheck·test 22건·build 115개 경로가 통과했다. 소스 `6584311bb763d07ed887c6661eb7b5cf6b0d8764`의 실제 공개 배포에서 운영 계정 검사 9건과 일반 공개 탐색 Edge 12개 흐름·390px 주요 9개 경로를 모두 통과했고 JavaScript 런타임 오류는 0건이었다. 최종 일반 검사 결과는 `Vercel/artifacts/final-connected-production-20261019/browser-results.json`이며 실행 종료 코드는 0이다. 결과에는 외부 이미지 요청 1건의 `net::ERR_ABORTED`가 남아 있으므로 모든 외부 네트워크 요청의 성공을 주장하지 않는다.
-- 배포 구성: 공개 게이트웨이 HTTP 검사 7건, 배포 컨트롤러 검사 8건, Python Funnel 설정 검사 12건 통과. NAS Linux에서 컨트롤러와 실행 중 파일의 원자적 교체를 확인했고, 커널 flock의 동시 실행 거부와 강제 종료 후 잠금 해제를 확인했다.
+- 후속 공개 앱 소스 `95293fc`의 Production 배포 `dpl_8eiHpBmoJC2fPkTTfpkcBAyGRx6G`도 READY를 확인했다. 2026-10-18 16:15:18 UTC의 HTTP 검사에서 공개 페이지 200, 비인증 회원 API의 리디렉션 없는 JSON 401·no-store, gateway health 200, 공개 관리자 404, 비공개 관리자 페이지 200·비인증 세션 401과 공개 자료 93개의 릴리스 ID·해시 유지를 확인했다. 이는 이전 소스의 전체 브라우저 흐름 검사와 구분하며 결과는 `NAS/artifacts/final-http-state-95293fc.json`이다.
+- 배포 구성: 기존 공개 게이트웨이 HTTP 검사 7건 통과. 소스 `95293fc`의 실제 NAS Linux에서 Node 배포·암호화·이력 보완 18건, Python 공개/비공개 HTTPS 설정 25건 및 복원·이력·런타임 21건, 총 64건이 종료 코드 0·SKIP 0으로 통과했다. Node는 UID 1026·네트워크 차단·읽기 전용 소스와 루트·임시 tmpfs에서 실행했고 운영 volume이나 비밀값은 연결하지 않았다. 결과는 `NAS/artifacts/final-linux-infrastructure-95293fc.json`이다. 별도로 NAS Linux의 실행 중 파일 원자 교체와 커널 flock의 동시 실행 거부·강제 종료 후 해제를 확인했다.
+- 후속 bootstrap 도구 소스 `d1a91a1`의 컨트롤러 10건도 동일한 NAS Linux 격리 조건에서 종료 코드 0·SKIP 0으로 통과했다. 전송 소스의 SHA-256 일치, 실행 중 파일 inode 보존, 백업 보조 파일 일괄 검증과 불완전한 교체 거부를 확인했다. 이 검사는 `NAS/artifacts/final-linux-controller-d1a91a1.json`에 기록했다. 별도로 실제 NAS의 `state/current.json`과 `state/bootstrap.json`에서 `d1a91a1` 활성화와 보조 파일 7개 반영을 확인했으며, 2026-10-18 16:31 UTC에도 네 서비스 healthy를 확인했다.
 - 이전 전체 로컬 검사에서 backend 36건·admin 4건·당시 frontend 21건과 각 앱 lint·typecheck·build, 게이트웨이 7건·컨트롤러 8건·Python 12건을 끝까지 실행했다. 개별 검사는 통과했으나 PowerShell 로그 리디렉션 래퍼가 Fastify deprecation의 stderr 출력을 `NativeCommandError`로 표시해 외부 종료 코드 1을 반환했다. 이를 전체 래퍼 종료 코드 0으로 기록하지 않는다. 후속 직접 실행에서는 최신 프론트엔드 22건·lint·typecheck·build와 Python 검사의 종료 코드 0을 확인했다.
 - 공용 계약: `node NAS/scripts/sync-contracts.mjs --check` 통과.
 - Portable 이전 회귀 검사: 새로운 PGlite DB와 CLI 기본 경로, ID/checkpoint/철회/서재/원본 보존, 인증 세션 제외, lease 재대기, ingest sequence 보존, 비어 있지 않은 대상/변조 거부 통과.
@@ -35,12 +39,15 @@
 - 전용 설치 경로는 `/volume3/docker/War_Archive_Server`, Compose 프로젝트는 `war-archive`다. 기존 NAS의 다른 서비스와 데이터를 유지했다.
 - 최초 배포 `5be636d03f4f2d2c5614b4d9faf386c7faeed35a` 이후 DSM의 5분 주기 작업이 소스 `892c6dc41d2dc45690f50c224d301d9f95c712b8`을 자동으로 가져와 백업·빌드·마이그레이션·서비스 교체·bootstrap 갱신을 완료했다. 후속 소스 `4a46ade2a5ef1463678fba29b5085bafcfc23fbc`의 자동 재배포도 확인했다.
 - 실제 `db`, `api`, `worker`, `publicgateway` 네 서비스 모두 healthy를 확인했다. API와 공개 게이트웨이는 NAS loopback 9231/9232에만 바인딩하며 PostgreSQL은 호스트 포트를 공개하지 않는다.
+- 2026-10-18 16:17:13 UTC에 활성 상태와 실제 API·worker·gateway 이미지의 소스 `95293fc` 일치, 네 서비스 healthy, 기존 다른 NAS 서비스 10개 실행 유지와 검증용 회원 0개를 읽기 전용으로 재확인했다. Tailscale 내부 HTTPS 8446의 관리자 연결과 해당 포트의 Funnel 비허용, 기존 443/8443/10000 및 다른 서비스 경로 보존도 확인했다. `NAS/artifacts/final-runtime-state-95293fc.json`과 `final-active-rate-policy-95293fc.json`을 따른다.
 - 2026-10-18 13:45:00.738 UTC의 읽기 전용 재검증에서 마이그레이션 6개, 자료 270개, 개정 637개, 보존 원본 455개를 확인했다. 원본 파일 455개 전부와 제작 파일 810개 전부의 SHA-256이 일치했고, 메타데이터 전용 자료 270개 모두 제작 완료 상태였다. 이 검사는 후속 자동 재배포 후 수행해 볼륨 지속성도 확인했다.
 - 실제 NAS 수집 작업 `job-0f7580b2-0feb-4c8b-9dcf-5ba6ca74e792`으로 Commons 자료 40건을 추가했다. 최종 자료 수가 이전 bundle의 230개에서 270개로 증가했다.
 - 실제 NAS 비공개 API와 도구 검사 14건이 통과했다. 비인증 관리자/서재 접근 차단, 공개 게이트웨이의 관리자 경로 차단, 미허용 Origin 거부, 관리자 로그인·조회·로그아웃·세션 폐기, 잘못된 CSRF 거부, PostgreSQL 및 저장소 한정 발행 설정, 한국어/영어 OCR·PDF 추출·영상 처리 도구 설치를 확인했다. 도구 설치 확인을 모든 미디어 형식의 실제 처리 성공으로 해석하지 않는다.
 - DSM 관리자 일회성 작업으로 `stock-platform.tail498403.ts.net:443`의 `/war-archive-api` 경로를 적용했다. `configure-funnel.py` 실행 결과는 `status=applied`, `attempts=1`, `priorConfigurationPreserved=true`로 기존 HTTPS 구성을 보존한 설정 반영을 확인했다. 후속 Vercel 경유 운영 계정 검증은 아래 별도 항목을 따른다.
 - 2026-10-18 14:45:31.899 UTC의 실제 공개 gateway HTTPS 검사 6건이 통과했다. prefix 아래 health는 200, 비인증 회원 세션·서재는 401, 관리자 로그인·관리자 페이지는 404, 미허용 Origin의 회원가입은 403이며 no-store 응답도 확인했다. Vercel Production의 `NEXT_PUBLIC_API_ORIGIN`은 공개 사이트 자체 origin으로 설정했다.
 - 자동 재배포 백업 `backups/20261018T132136Z-892c6dc41d2dc45690f50c224d301d9f95c712b8`의 `database.dump`, `archive-files.tar`, `releases.tar` 세 파일 모두 SHA-256 검사를 통과했고 dump 목록도 읽을 수 있었다. 이 백업을 사용한 NAS 전체 복원과 NAS 외부 보관은 확인하지 않았다.
+- 최종 앱 스냅샷 `95293fc`와 별도 도구 `d1a91a1`의 백업은 NAS 암호화 왕복 뒤 실제 외부 PC `C:/Users/abc20/WarArchiveBackups`에 저장했고 2026-10-18 16:33:49.507 UTC에 `external-authenticated`를 확인했다. 실제 암호문은 546,719,473바이트이며 SHA-256은 `8e166b07ecb448e65714e4368955200cae62320532af37fc8ea095d04d996d51`이다. PC 암호문·평문 해시와 GCM 인증 및 설치된 클라이언트 검사를 통과했다. 이 PC 암호문을 NAS의 새 경로로 반환해 체크섬 11개, 비공개 설정·키·소스·bootstrap과 Docker 이미지 3개의 실제 재로딩·식별자 검증도 통과했다. 증거는 `NAS/artifacts/external-backup-proof-20261019.json`과 PC의 `latest.json` 영수증이다.
+- 이 실제 PC 사본으로 소스·이미지 `95293fc`의 새 격리 PostgreSQL/API 환경을 복원했고 2026-10-18 16:42:22 UTC에 `passed`를 확인했다. 마이그레이션 6개, 자료 270개, 개정 637개, 제작 이력 565개와 발행본 9개를 보존했으며 원본 455개, 제작 파일 참조 1,695개에 해당하는 중복 제외 파일 1,571개와 모든 발행본의 SHA-256 검사를 통과했다. API health·관리자 페이지·비인증 거부·관리자 로그인·현황 조회, 복원 후 세션·재설정 토큰 0개와 운영과 분리된 네트워크·볼륨을 확인했다. 백업에 실행 중 작업이 없어 재대기 처리로 바뀐 행은 0개였다. 검사 후 소유한 격리 자원은 모두 정리해 잔존 0개를 확인했다. 증거는 `NAS/artifacts/final-external-restore-proof-20261019.json`과 `final-external-restore-20261019.log`다.
 - worker는 매분 작업을 확인하고, 승인된 Commons 출처의 수집 간격은 6시간, 자동 발행 묶음 간격은 2시간이다. 이번 검증은 실제 작업 실행과 재배포를 확인한 것이며 장기간 무장애 운전을 보장하지 않는다.
 
 ## 초기 PC 수집과 공개 자료 이력
@@ -107,9 +114,9 @@ Vercel Next.js 프리셋은 기본 .next manifest를 읽은 뒤 정적 export를
 
 NAS/back·NAS/admin 전체 감사와 공개 앱 운영 의존성 감사는 0건이다. 공개 앱 개발용 Next ESLint 경로의 braces 관련 수정 버전 없는 high 경고 5건은 남아 있다. 외부 자료를 glob 입력으로 사용하지 않으며 강제 다운그레이드로 lint를 무력화하지 않았다.
 
-실제 NAS의 이미지 빌드·운영 PostgreSQL 이전·네 서비스의 healthy 상태·수집과 worker 발행·자동 재배포를 확인했다. 공개 회원 API 게이트웨이의 Funnel 적용·외부 HTTPS 6건·Vercel 프록시를 통한 실제 회원가입·로그인·서재 동기화·로그아웃·검증 계정 삭제를 포함한 운영 계정 검사 9건을 통과했다. SSH 포워딩이 NAS 정책으로 거부되어 실제 NAS 관리자 화면의 원격 브라우저 검사는 완료하지 않았다. 관리자 API를 공개 경로로 확장하지 않는다.
+실제 NAS의 이미지 빌드·운영 PostgreSQL 이전·네 서비스의 healthy 상태·수집과 worker 발행·자동 재배포를 확인했다. 공개 회원 API 게이트웨이의 Funnel 적용·외부 HTTPS 6건·Vercel 프록시를 통한 실제 회원가입·로그인·서재 동기화·로그아웃·검증 계정 삭제를 포함한 운영 계정 검사 9건을 통과했다. 관리자 원격 브라우저는 Tailscale 내부 HTTPS 8446에서 로그인과 조회를 확인했다. SSH 포워딩 차단은 유지하며 공개 Funnel에는 관리자 경로를 전달하지 않는다.
 
-실제 NAS 전체 백업 복원·NAS 외부 백업 보관·S3/CDN 공급자·물리 모바일 기기·실환경 OTP는 미검증이다. Tailscale 인증 키의 현재 만료 시각은 2026-10-30 14:13:55 UTC(한국 시각 23:13:55)이며 만료 전 갱신이 필요하다. 소스·명령·시험용 HTTP 어댑터 검증을 해당 운영 환경의 성공으로 간주하지 않는다.
+전쟁 아카이브 백업의 실제 외부 PC 보관·인증, NAS 반환 후 런타임 이미지 재로딩과 그 PC 사본을 사용하는 전체 이력의 격리 앱 복원을 확인했다. DSM과 다른 프로젝트를 포함한 NAS 기기 전체 복원, 지리적으로 분리된 보관, S3/CDN 공급자, 물리 모바일 기기와 실환경 OTP는 검증 범위가 아니다. Tailscale은 online이지만 장치 키 만료 시각은 2026-10-30 14:13:55 UTC(한국 시각 23:13:55)로 남아 있다. 관리자 콘솔에 로그인할 수 없어 무인 인증 유지 정책은 아직 적용하지 않았다. 소스·명령·시험용 HTTP 어댑터 검증을 해당 운영 환경의 성공으로 간주하지 않는다.
 
 현재 공개 gateway를 거친 요청은 API에서 같은 gateway IP의 속도 제한을 공유한다. 회원가입과 제보 접수는 각각 해당 IP당 시간당 100회이므로 여러 이용자의 합산 요청이 제한에 도달할 수 있다. 101번째 시도는 429로 거부하며 두 경로의 한도는 독립적이다. 실제 클라이언트 IP를 구분하려면 신뢰할 수 있는 프록시 경계와 전달 헤더 검증을 별도로 설계해야 한다.
 
