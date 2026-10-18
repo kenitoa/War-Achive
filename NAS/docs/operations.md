@@ -1,5 +1,7 @@
 # 운영·배포·복구
 
+최종 검증일: 2026-10-19(한국 시각). NAS의 개별 작업 증거는 아래에 기록한 UTC 시각을 따른다.
+
 ## 책임과 데이터 흐름
 
 NAS가 원본·DB·계정·검수·큐를 소유한다. 공개 웹은 공개 스키마를 통과한 snapshot만 읽는다. Vercel의 로컬 파일 시스템에 운영 DB를 두지 않는다.
@@ -27,13 +29,17 @@ Compose는 PostgreSQL 볼륨, 원본/제작물 볼륨, 공개 릴리스 볼륨�
 ### 실제 NAS 운영 확인 — 2026-10-18
 
 - DSM의 `War Archive auto deploy` 작업은 일반 NAS 사용자로 5분마다 실행한다. `main`의 NAS 소스가 바뀌면 빌드·검증·백업·마이그레이션·건강 확인 후 활성화한다. 실행 잠금은 중복 배포를 막고, 활성화된 소스로 bootstrap을 교체한다.
-- 커밋 `892c6dc41d2dc45690f50c224d301d9f95c712b8`의 자동 재배포를 확인했다. `war-archive` 프로젝트의 PostgreSQL·API·worker·publicgateway 네 컨테이너가 모두 healthy이며 기존 다른 NAS 서비스는 유지했다.
-- 2026-10-18 13:24:43 UTC의 실제 PostgreSQL 읽기 전용 검사에서 마이그레이션 6개, 자료 270개, 개정 637개를 확인했다. 보존 원본 455개 전부와 인용·출처 설명·메타데이터 제작 파일 810개 전부의 SHA-256이 일치했다. 메타데이터 제작 완료 자료는 270개다. 이는 자동 재배포 이후 영속 볼륨의 데이터와 파일을 검사한 결과다.
+- 커밋 `892c6dc41d2dc45690f50c224d301d9f95c712b8`에 이어 소스 `4a46ade2a5ef1463678fba29b5085bafcfc23fbc`의 자동 재배포를 확인했다. `war-archive` 프로젝트의 PostgreSQL·API·worker·publicgateway 네 컨테이너가 모두 healthy이며 기존 다른 NAS 서비스는 유지했다.
+- 2026-10-18 13:45:00.738 UTC의 실제 PostgreSQL 읽기 전용 재검사에서 마이그레이션 6개, 자료 270개, 개정 637개를 확인했다. 보존 원본 455개 전부와 인용·출처 설명·메타데이터 제작 파일 810개 전부의 SHA-256이 일치했다. 메타데이터 제작 완료 자료는 270개다. 이는 후속 자동 재배포 이후에도 영속 볼륨의 데이터와 파일이 유지된 결과다.
 - NAS에서 실제 Commons 수집을 실행해 이전 자료 230개에 새 자료 40개가 추가됐다. 현재 승인된 Commons 출처의 수집 간격은 6시간, 발행 배치 간격은 2시간, worker의 스케줄 확인 간격은 1분이다. 출처의 승인·활성 상태와 checkpoint에 따라 실행하며 검수 대기 자료는 자동 공개하지 않는다.
 - PC의 PGlite worker는 종료했고 로컬 `LOCAL_WORKER_ENABLED=false`로 두었다. 운영 수집·정제·제작·발행의 실행 주체는 NAS worker다. VS Code 수정 → `main` push 후 NAS는 DSM 작업으로 백엔드 변경을 감지해 업데이트하고, Vercel은 Git 연결로 공개 웹을 배포한다.
 - NAS 내부 API 검사 14건에서 비로그인 관리자·서재 접근 차단, 공개 gateway의 관리자 차단, 허용하지 않은 Origin 차단, 관리자 로그인·현황 조회·CSRF·로그아웃 후 세션 차단과 미디어 도구 설치를 확인했다. 관리자 원격 브라우저 접속 성공을 뜻하지는 않는다.
 
-공개 `/war-archive-api` HTTPS 경로 추가는 사용자 승인을 받았지만 DSM 관리자 재인증을 기다리고 있다. 아직 외부 gateway 연결이나 Vercel 회원 동기화가 완료된 상태로 기록하지 않는다. 재인증 후 검증된 일회성 연결 작업으로 기존 HTTPS 설정을 보존하며 해당 경로만 추가하고, 공개 health·관리자 경로 차단·Origin 차단을 확인한다. 이후 Vercel의 정확한 계정·제보 경로 프록시와 공개 API origin을 설정하고 실제 회원가입·로그인·서재 저장·로그아웃을 검사한다.
+사용자가 승인한 DSM 관리자 일회성 작업으로 `stock-platform.tail498403.ts.net:443`의 `/war-archive-api` 경로 설정을 적용했다. 검증된 `configure-funnel.py` 결과는 `status=applied`, `attempts=1`, `priorConfigurationPreserved=true`다. 기존 HTTPS 설정을 보존하며 공개 gateway로 전달할 해당 경로만 추가했다. 2026-10-18 14:45:31.899 UTC의 실제 공개 HTTPS 검사 6건에서 health 200, 비인증 회원 세션·서재 401, 관리자 로그인·페이지 404, 미허용 Origin의 회원가입 403과 no-store 응답을 확인했다. Vercel Production의 `NEXT_PUBLIC_API_ORIGIN`은 공개 웹 자체 origin으로 설정했다.
+
+2026-10-19(한국 시각)에 실제 공개 사이트의 배포 소스 `6584311bb763d07ed887c6661eb7b5cf6b0d8764`, Vercel 배포 `dpl_HvjoSYdg6nAKEXp2ECq3g7xNtuHQ`가 READY인 상태에서 운영 계정 검사 9건을 통과했다. 회원가입 201과 별도 로그인, HttpOnly·Secure·Path=/api/v1 세션 쿠키, NAS 서재 저장 revision 1과 메모 재조회, 잘못된 CSRF 403, 로그아웃 후 401, 재로그인 후 검증용 계정·해당 서재 삭제 200과 세션 폐기를 확인했다. 브라우저 런타임 오류는 0건이며 검증용 계정은 정리했다. 실제 결과는 `Vercel/artifacts/final-connected-account-20261018.log`에 비공개로 보관한다.
+
+API의 자동 trailing slash 리디렉션은 `skipTrailingSlashRedirect=true`로 방지하고 정적 페이지의 trailing slash 설정은 유지한다. 비로그인 API가 리디렉션 없이 JSON 401·no-store로 응답하는지 확인했다. 계정 폼은 hydration 전 입력·버튼이 비활성화되며 `method=post`를 사용해 비밀번호의 GET 전송을 막는다. 운영 회원 동기화는 공개 사이트 → Vercel의 6개 허용 API 경로 → NAS 공개 gateway → PostgreSQL 순서로 처리한다.
 
 ### 현재 Windows 자료를 새 NAS PostgreSQL로 이전
 
@@ -61,7 +67,9 @@ docker compose run --rm --no-deps -T --volume "$PWD/data/transfer/nas-handoff-20
 
 GitHub 파일 갱신은 현재 파일 SHA를 사용하며 충돌을 덮어쓰지 않는다. 재시도는 동일 릴리스의 고정 snapshot을 사용한다. 철회와 발행은 DB guard로 순서를 맞춰 이전 공개본의 재전송을 방지한다. 배포가 실패하면 마지막 정상 공개본이 유지되며 새 릴리스 완료로 표시하지 않는다.
 
-실제 NAS의 첫 SSH 발행은 커밋 `b273218a5c4666ee46aa191959d9062f1134c140`, 릴리스 `rel-16b86f0b-5a1c-475e-9e6c-a677099aa93a`의 공개 자료 54개를 전송했다. GitHub를 통한 Vercel Production 배포와 공개 `release.json`의 ID·해시 일치를 확인해 published로 완료했다. 이어 NAS worker가 실제 발행 작업 `job-b541ee82-3cb4-4a6e-aa83-7f1a1b8967c7`을 한 번에 완료했다. 최신 확인 릴리스는 `rel-fa0d3710-8961-47d5-ad08-85640b3b9df4`, 공개 자료 93개, 커밋 `d2731a02dc9bcd6578bee581cf0c28d81368dc30`이며 2026-10-18 13:26:38 UTC에 실제 사이트 검증까지 통과했다. SHA-256은 `ba663129cce66540ddb51d18937d3c2d7fa8d7fa0af3d5d078c2f8fdd3fd4a90`이다. 공개 자료 수와 비공개 검수 대기를 포함한 DB 전체 자료 수는 구분한다.
+실제 NAS의 첫 SSH 발행은 커밋 `b273218a5c4666ee46aa191959d9062f1134c140`, 릴리스 `rel-16b86f0b-5a1c-475e-9e6c-a677099aa93a`의 공개 자료 54개를 전송했다. GitHub를 통한 Vercel Production 배포와 공개 `release.json`의 ID·해시 일치를 확인해 published로 완료했다. 이어 NAS worker가 실제 발행 작업 `job-b541ee82-3cb4-4a6e-aa83-7f1a1b8967c7`을 한 번에 완료했다. 릴리스 `rel-fa0d3710-8961-47d5-ad08-85640b3b9df4`의 공개 자료 93개, 커밋 `d2731a02dc9bcd6578bee581cf0c28d81368dc30`은 2026-10-18 13:26:38 UTC에 실제 사이트 검증까지 통과했다.
+
+후속 정기 발행의 최신 확인 릴리스는 `rel-727e3b95-1253-4702-889c-18e56c8e7e3d`, 공개 자료 93개, 커밋 `c3bc7b58f8ed51608c5e2da89c7d04eacfe5482d`다. 2026-10-18 14:17:43.050 UTC에 실제 공개본을 검증하고 published로 완료했다. SHA-256은 `c00afd65f8ca10e919ef7039c9bb95b100693f634aebbd8c1b3feefa4d57c0f0`이다. 공개 자료 수와 비공개 검수 대기를 포함한 DB 전체 자료 수는 구분한다.
 
 PC에서 후속 작업을 push하기 전에는 NAS 발행기가 추가한 공개본 커밋을 먼저 가져온다. 로컬 변경을 보존하고 공개본을 오래된 파일로 덮어쓰지 않는다. 실제 공개 사이트는 [kenitoa-war-achive.vercel.app](https://kenitoa-war-achive.vercel.app)이며 배포 증거는 [release.json](https://kenitoa-war-achive.vercel.app/release.json)에서 확인한다.
 
@@ -112,5 +120,7 @@ docker compose -p <새 프로젝트> exec -T db psql -U archive -d archive -v ON
 `/healthz`, worker heartbeat, 작업 queued/retry/failed, 출처별 마지막 성공·checkpoint, 발행 상태·실제 릴리스, 디스크·백업 나이를 점검한다. 구조화 로그는 토큰·쿠키·비밀번호·연락처 원문을 출력하지 않는다. Discord 등 외부 메시지는 자동 전송하지 않는다.
 
 현재 Tailscale 장치 키 만료는 `2026-10-30T14:13:55Z`(한국 시각 2026-10-30 23:13:55)로 확인했다. 기한 전에 장치 재인증·갱신을 수행하고 HTTPS 연결과 회원 API를 다시 확인한다. 키 만료나 NAS 중단 시 이미 배포된 정적 자료는 Vercel에서 계속 열람할 수 있지만 NAS에 의존하는 수집·발행·회원 동기화는 영향을 받는다. 키 만료 정책을 임의로 해제하지 않는다.
+
+현재 API는 proxy 헤더를 신뢰하지 않아 공개 gateway를 거친 요청이 같은 gateway IP의 속도 제한을 공유한다. 회원가입·제보 접수는 각각 해당 IP당 시간당 5회 제한이므로 여러 이용자의 요청이 같은 한도에 도달할 수 있다. 운영 규모가 커지면 신뢰할 수 있는 프록시 경계와 실제 클라이언트 식별 정책을 설계해 검증한 뒤 조정한다.
 
 코드 롤백은 이전 이미지/커밋과 마지막 정상 공개 릴리스를 사용한다. DB 추가형 마이그레이션은 삭제하지 않는다. 스키마 되돌리기가 필요하면 별도 새 DB 복원본에서 이전 코드 호환성을 확인한 뒤 전환한다. 수집 중단은 출처 disabled, 발행 중단은 REMOTE_PUBLISH_ENABLED=false로 처리하고 원본·큐를 보존한다.

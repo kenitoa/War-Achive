@@ -56,7 +56,7 @@ try {
   assert.match(sessionResponse.headers()['cache-control'], /no-store/);
   const session = (await sessionResponse.json()).data;
   assert.equal(session.user.email, email);
-  const memberCookie = (await context.cookies(base)).find(cookie => cookie.name === 'wa_member');
+  const memberCookie = (await context.cookies(`${base}/api/v1/account/session`)).find(cookie => cookie.name === 'wa_member');
   assert.equal(memberCookie?.httpOnly, true);
   if (base.startsWith('https://')) assert.equal(memberCookie?.secure, true);
   checked('같은 출처 프록시의 HttpOnly 세션 쿠키와 비캐시 응답');
