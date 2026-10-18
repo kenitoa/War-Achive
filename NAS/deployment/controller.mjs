@@ -210,24 +210,35 @@ export async function refreshBootstrap(root, commit, options = {}) {
   if (metadata.repository !== repository || metadata.commit !== commit) throw new Error('Bootstrap source does not match the validated release');
   const target = join(root, 'deployment');
   await directory(target);
-  const names = ['controller.mjs', 'update.sh'];
+  const candidates = [
+    ['controller.mjs', 'deployment/controller.mjs', 'node'],
+    ['update.sh', 'deployment/update.sh', 'shell'],
+    ['export-backup.sh', 'deployment/export-backup.sh', 'shell'],
+    ['package-backup.py', 'deployment/package-backup.py'],
+    ['prepare-backup-rehearsal.py', 'deployment/prepare-backup-rehearsal.py'],
+    ['verify-recovery-runtime.py', 'deployment/verify-recovery-runtime.py'],
+    ['encrypt-backup.mjs', 'scripts/encrypt-backup.mjs', 'node'],
+  ];
   const files = [];
-  for (const name of names) {
-    const source = join(release, 'deployment', name), information = await lstat(source);
+  for (const [name, relative, syntax] of candidates) {
+    const source = join(release, relative), information = await lstat(source);
     if (!information.isFile() || information.isSymbolicLink() || information.size > 1024 * 1024) throw new Error('Bootstrap must consist of bounded regular source files');
-    files.push({ name, source, bytes: await readFile(source) });
+    files.push({ name, source, syntax, bytes: await readFile(source) });
   }
-  // Validate both candidates before changing either bootstrap path. Do not expose source in errors.
+  // Validate every candidate before replacing the updater or its backup dependencies.
+  // Python files are bounded release sources; Python is not installed in the Node helper image.
   try {
-    await run(process.execPath, ['--check', files[0].source], { timeout: 30_000 });
-    await run(options.shell ?? '/bin/sh', ['-n', files[1].source], { timeout: 30_000 });
+    for (const file of files) {
+      if (file.syntax === 'node') await run(process.execPath, ['--check', file.source], { timeout: 30_000 });
+      if (file.syntax === 'shell') await run(options.shell ?? '/bin/sh', ['-n', file.source], { timeout: 30_000 });
+    }
   } catch { throw new Error('Candidate bootstrap syntax validation failed; existing bootstrap preserved'); }
   for (const file of files) {
     file.temporary = join(target, `.${file.name}.${randomUUID()}.partial`);
     await writeFile(file.temporary, file.bytes, { flag: 'wx', mode: 0o600 });
   }
   // Rename replaces the directory entry, preserving any inode open by the running updater.
-  // Both command interfaces remain compatible across the two sequential atomic replacements.
+  // The deployment lock also excludes backups during these compatible atomic replacements.
   for (const file of files) await rename(file.temporary, join(target, file.name));
   await atomicJson(join(root, 'state/bootstrap.json'), { commit, refreshedAt: new Date().toISOString(), files: files.map(file => ({ name: file.name, sha256: createHash('sha256').update(file.bytes).digest('hex') })) });
   console.log(JSON.stringify({ operation: 'deployment.bootstrap', status: 'complete', commit }));

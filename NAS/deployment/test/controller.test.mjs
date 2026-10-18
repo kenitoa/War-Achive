@@ -107,6 +107,10 @@ async function bootstrapFixture() {
   await writeFile(join(root, 'deployment/update.sh'), '#!/bin/sh\nprintf previous\n');
   await writeFile(join(source, 'deployment/controller.mjs'), 'export const version = "next";\n');
   await writeFile(join(source, 'deployment/update.sh'), '#!/bin/sh\nprintf next\n');
+  await writeFile(join(source, 'deployment/export-backup.sh'), '#!/bin/sh\nprintf backup\n');
+  for (const name of ['package-backup.py', 'prepare-backup-rehearsal.py', 'verify-recovery-runtime.py']) await writeFile(join(source, 'deployment', name), 'print("backup helper")\n');
+  await mkdir(join(source, 'scripts'));
+  await writeFile(join(source, 'scripts/encrypt-backup.mjs'), 'export const encryptionHelper = true;\n');
   return { root, source, options: { shell: process.platform === 'win32' ? 'C:/Program Files/Git/bin/bash.exe' : '/bin/sh' } };
 }
 
@@ -120,10 +124,28 @@ test('bootstrap refresh replaces validated files by rename and preserves an alre
     await refreshBootstrap(root, first, options);
     assert.equal(await readFile(join(root, 'deployment/controller.mjs'), 'utf8'), 'export const version = "next";\n');
     assert.equal(await readFile(join(root, 'deployment/update.sh'), 'utf8'), '#!/bin/sh\nprintf next\n');
+    assert.equal(await readFile(join(root, 'deployment/package-backup.py'), 'utf8'), 'print("backup helper")\n');
+    assert.equal(await readFile(join(root, 'deployment/encrypt-backup.mjs'), 'utf8'), 'export const encryptionHelper = true;\n');
     if (running) assert.equal(await running.readFile('utf8'), '#!/bin/sh\nprintf previous\n');
-    assert.equal(JSON.parse(await readFile(join(root, 'state/bootstrap.json'), 'utf8')).commit, first);
+    const receipt = JSON.parse(await readFile(join(root, 'state/bootstrap.json'), 'utf8'));
+    assert.equal(receipt.commit, first);
+    assert.deepEqual(receipt.files.map(file => file.name), ['controller.mjs', 'update.sh', 'export-backup.sh', 'package-backup.py', 'prepare-backup-rehearsal.py', 'verify-recovery-runtime.py', 'encrypt-backup.mjs']);
     assert.equal((await readdir(join(root, 'deployment'))).some(name => name.endsWith('.partial')), false);
   } finally { await running?.close(); await rm(root, { recursive: true, force: true }); }
+});
+
+test('missing backup dependency preserves the complete previous bootstrap', async () => {
+  const { root, source, options } = await bootstrapFixture();
+  try {
+    await activate(root, first);
+    await writeFile(join(root, 'deployment/export-backup.sh'), 'previous backup');
+    await rm(join(source, 'deployment/package-backup.py'));
+    await assert.rejects(() => refreshBootstrap(root, first, options), { code: 'ENOENT' });
+    assert.equal(await readFile(join(root, 'deployment/controller.mjs'), 'utf8'), 'export const version = "previous";\n');
+    assert.equal(await readFile(join(root, 'deployment/update.sh'), 'utf8'), '#!/bin/sh\nprintf previous\n');
+    assert.equal(await readFile(join(root, 'deployment/export-backup.sh'), 'utf8'), 'previous backup');
+    assert.equal((await readdir(join(root, 'deployment'))).some(name => name.endsWith('.partial')), false);
+  } finally { await rm(root, { recursive: true, force: true }); }
 });
 
 test('inactive or invalid candidate bootstrap leaves both current files untouched', async () => {
@@ -135,6 +157,21 @@ test('inactive or invalid candidate bootstrap leaves both current files untouche
     await assert.rejects(() => refreshBootstrap(root, first, options), /syntax validation failed/);
     assert.equal(await readFile(join(root, 'deployment/controller.mjs'), 'utf8'), 'export const version = "previous";\n');
     assert.equal(await readFile(join(root, 'deployment/update.sh'), 'utf8'), '#!/bin/sh\nprintf previous\n');
+  } finally { await rm(root, { recursive: true, force: true }); }
+});
+
+test('invalid encryption helper or oversized Python helper cannot partially refresh the bootstrap', async () => {
+  const { root, source, options } = await bootstrapFixture();
+  try {
+    await activate(root, first);
+    await writeFile(join(source, 'scripts/encrypt-backup.mjs'), 'export const broken = ;');
+    await assert.rejects(() => refreshBootstrap(root, first, options), /syntax validation failed/);
+    await writeFile(join(source, 'scripts/encrypt-backup.mjs'), 'export const valid = true;');
+    await writeFile(join(source, 'deployment/package-backup.py'), Buffer.alloc(1024 * 1024 + 1));
+    await assert.rejects(() => refreshBootstrap(root, first, options), /bounded regular source files/);
+    assert.equal(await readFile(join(root, 'deployment/controller.mjs'), 'utf8'), 'export const version = "previous";\n');
+    assert.equal(await readFile(join(root, 'deployment/update.sh'), 'utf8'), '#!/bin/sh\nprintf previous\n');
+    assert.equal((await readdir(join(root, 'deployment'))).some(name => name.endsWith('.partial')), false);
   } finally { await rm(root, { recursive: true, force: true }); }
 });
 
