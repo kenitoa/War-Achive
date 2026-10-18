@@ -23,7 +23,9 @@ sh /volume3/docker/War_Archive_Server/deployment/update.sh /volume3/docker/War_A
 
 스크립트는 누락된 강한 관리자 토큰·DB 비밀번호만 생성하고 기존 값을 보존한다. DB URL은 전용 `db/archive` 및 동일한 DB 비밀번호를 사용해야 한다. 비밀값을 출력하지 않는다. 초기에는 `REMOTE_PUBLISH_ENABLED=false`이고 저장소 전용 SSH 배포 키·GitHub 호스트 키·공개 URL을 확인한 뒤 활성화한다. 이 발행 방식에는 GitHub 개인 액세스 토큰이 필요 없다.
 
-관리자 API는 loopback `127.0.0.1:9231`에 두고 SSH 터널로 접속한다. 공개 HTTPS 역방향 프록시는 `127.0.0.1:9232`의 gateway에만 연결해 `/war-archive-api` 경로를 전달한다. 공개 웹과 관리자 SSH 터널에서 사용하는 정확한 origin을 `shared/.env`의 `ALLOWED_ORIGINS`에 명시한다.
+관리자 API는 loopback `127.0.0.1:9231`에 둔다. 현재 NAS의 SSH TCP 전달은 관리 정책으로 차단되어 있으므로 이 NAS에서 SSH 터널 접속이 된다고 가정하지 않는다. 관리자 페이지의 HTTP 응답과 인증·권한 API는 NAS 내부에서 확인했으며, 원격 관리자 브라우저 접속은 별도 승인된 접근 경로가 필요하다. 공개 HTTPS 역방향 프록시는 `127.0.0.1:9232`의 gateway에만 연결해 `/war-archive-api` 경로를 전달한다. 공개 웹에서 사용하는 정확한 origin을 `shared/.env`의 `ALLOWED_ORIGINS`에 명시한다.
+
+기존 Tailscale Funnel에 경로를 추가하는 작업은 코드 자동 배포와 분리한다. `scripts/configure-funnel.py`는 현재 구성과 ETag를 읽고, 기존 HTTPS·공개 설정을 보존하면서 지정한 경로 하나만 조건부 갱신한다. 현재 NAS 사용자는 이 설정의 쓰기 권한이 없으므로 승인된 DSM root 일회성 작업으로만 적용한다. 작업 스케줄은 비활성화한 채 수동으로 한 번 실행하며, DSM 재인증이 표시되면 사용자가 직접 완료한다. 이 권한은 주기적 코드 업데이트 작업에 부여하지 않는다.
 
 ## DSM 자동 업데이트 작업
 

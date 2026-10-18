@@ -10,12 +10,12 @@ const run = promisify(execFile);
 const source = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const target = resolve(source, 'artifacts', `nas-package-${randomUUID()}`);
 const stage = resolve(target, 'source', 'NAS');
-const skip = new Set(['node_modules', '.next', 'out', 'dist', 'coverage', '.git', '.vercel', 'data', 'releases', 'backups', 'artifacts']);
+const skip = new Set(['node_modules', '.next', 'out', 'dist', 'coverage', '.git', '.vercel', 'data', 'releases', 'backups', 'artifacts', '__pycache__', '.pytest_cache']);
 const inventory = [];
 await mkdir(stage, { recursive: true });
 async function copyTree(path) {
   for (const entry of await readdir(path, { withFileTypes: true })) {
-    if (skip.has(entry.name) || (entry.name.startsWith('.env') && entry.name !== '.env.example') || entry.name.endsWith('.log') || entry.name.endsWith('.tsbuildinfo')) continue;
+    if (skip.has(entry.name) || (entry.name.startsWith('.env') && entry.name !== '.env.example') || entry.name.endsWith('.log') || entry.name.endsWith('.tsbuildinfo') || /\.py[cod]$/.test(entry.name)) continue;
     const input = resolve(path, entry.name), name = relative(source, input), output = resolve(stage, name);
     if (entry.isSymbolicLink() || (await lstat(input)).isSymbolicLink()) throw new Error('Symbolic links are excluded from NAS delivery');
     if (entry.isDirectory()) { await mkdir(output, { recursive: true }); await copyTree(input); }

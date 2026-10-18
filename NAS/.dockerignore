@@ -8,6 +8,11 @@
 **/coverage
 **/*.log
 **/*.tsbuildinfo
+**/__pycache__
+**/.pytest_cache
+**/*.pyc
+**/*.pyo
+**/*.pyd
 data
 releases
 backups
