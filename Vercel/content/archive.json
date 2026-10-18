@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "releaseId": "rel-16b86f0b-5a1c-475e-9e6c-a677099aa93a",
-  "generatedAt": "2026-10-18T13:12:57.421Z",
+  "releaseId": "rel-fa0d3710-8961-47d5-ad08-85640b3b9df4",
+  "generatedAt": "2026-10-18T13:25:23.599Z",
   "records": [
     {
       "id": "rec-05ba7a26fde49e7bf5ba5791",
@@ -56,6 +56,64 @@
       "changes": [
         {
           "at": "2026-10-18T10:57:28.629Z",
+          "summary": "원 소장처 메타데이터 수집"
+        }
+      ]
+    },
+    {
+      "id": "rec-0b6c021593e26d5a634fa794",
+      "title": "6.25전쟁관련자료39.jpg",
+      "originalTitle": "6.25전쟁관련자료39.jpg",
+      "summary": "6.25전쟁",
+      "kind": "photograph",
+      "language": "und",
+      "source": {
+        "name": "Wikimedia Commons · 한국전쟁",
+        "url": "https://commons.wikimedia.org/wiki/File:6.25%EC%A0%84%EC%9F%81%EA%B4%80%EB%A0%A8%EC%9E%90%EB%A3%8C39.jpg",
+        "identifier": "91548972",
+        "accessedAt": "2026-10-18T13:17:02.738Z"
+      },
+      "dates": {
+        "display": "1950",
+        "start": "1950",
+        "precision": "year"
+      },
+      "warIds": [
+        "korean-war"
+      ],
+      "entityIds": [],
+      "topics": [
+        "PD-South Korea",
+        "PD-1996",
+        "Korean War in 1950",
+        "Republic of Korea Navy in the Korean War"
+      ],
+      "rights": {
+        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
+        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
+        "downloadAllowed": false,
+        "reuseAllowed": false
+      },
+      "review": {
+        "provenance": "checked",
+        "content": "source-description",
+        "translation": "none"
+      },
+      "media": {
+        "displayAllowed": false
+      },
+      "citations": [
+        {
+          "label": "Wikimedia Commons · 한국전쟁 원 소장처",
+          "url": "https://commons.wikimedia.org/wiki/File:6.25%EC%A0%84%EC%9F%81%EA%B4%80%EB%A0%A8%EC%9E%90%EB%A3%8C39.jpg"
+        }
+      ],
+      "revision": 1,
+      "updatedAt": "2026-10-18T13:17:02.738Z",
+      "sensitivity": "none",
+      "changes": [
+        {
+          "at": "2026-10-18T13:17:02.738Z",
           "summary": "원 소장처 메타데이터 수집"
         }
       ]
@@ -180,6 +238,64 @@
       "changes": [
         {
           "at": "2026-10-18T10:57:28.676Z",
+          "summary": "원 소장처 메타데이터 수집"
+        }
+      ]
+    },
+    {
+      "id": "rec-11f4e8c10b877346af3918e7",
+      "title": "6.25전쟁관련자료24.jpg",
+      "originalTitle": "6.25전쟁관련자료24.jpg",
+      "summary": "6.25 전쟁",
+      "kind": "photograph",
+      "language": "und",
+      "source": {
+        "name": "Wikimedia Commons · 한국전쟁",
+        "url": "https://commons.wikimedia.org/wiki/File:6.25%EC%A0%84%EC%9F%81%EA%B4%80%EB%A0%A8%EC%9E%90%EB%A3%8C24.jpg",
+        "identifier": "91548978",
+        "accessedAt": "2026-10-18T13:17:04.645Z"
+      },
+      "dates": {
+        "display": "1950",
+        "start": "1950",
+        "precision": "year"
+      },
+      "warIds": [
+        "korean-war"
+      ],
+      "entityIds": [],
+      "topics": [
+        "PD-South Korea",
+        "Republic of Korea Army",
+        "PD-1996",
+        "Korean War in 1950"
+      ],
+      "rights": {
+        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
+        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
+        "downloadAllowed": false,
+        "reuseAllowed": false
+      },
+      "review": {
+        "provenance": "checked",
+        "content": "source-description",
+        "translation": "none"
+      },
+      "media": {
+        "displayAllowed": false
+      },
+      "citations": [
+        {
+          "label": "Wikimedia Commons · 한국전쟁 원 소장처",
+          "url": "https://commons.wikimedia.org/wiki/File:6.25%EC%A0%84%EC%9F%81%EA%B4%80%EB%A0%A8%EC%9E%90%EB%A3%8C24.jpg"
+        }
+      ],
+      "revision": 1,
+      "updatedAt": "2026-10-18T13:17:04.645Z",
+      "sensitivity": "none",
+      "changes": [
+        {
+          "at": "2026-10-18T13:17:04.645Z",
           "summary": "원 소장처 메타데이터 수집"
         }
       ]
@@ -358,6 +474,63 @@
       "changes": [
         {
           "at": "2026-10-18T10:57:28.606Z",
+          "summary": "원 소장처 메타데이터 수집"
+        }
+      ]
+    },
+    {
+      "id": "rec-19a4f157702571c6af4b35a6",
+      "title": "6.25전쟁관련자료51.jpg",
+      "originalTitle": "6.25전쟁관련자료51.jpg",
+      "summary": "6.25 전쟁",
+      "kind": "photograph",
+      "language": "und",
+      "source": {
+        "name": "Wikimedia Commons · 한국전쟁",
+        "url": "https://commons.wikimedia.org/wiki/File:6.25%EC%A0%84%EC%9F%81%EA%B4%80%EB%A0%A8%EC%9E%90%EB%A3%8C51.jpg",
+        "identifier": "91548960",
+        "accessedAt": "2026-10-18T13:17:02.129Z"
+      },
+      "dates": {
+        "display": "1950",
+        "start": "1950",
+        "precision": "year"
+      },
+      "warIds": [
+        "korean-war"
+      ],
+      "entityIds": [],
+      "topics": [
+        "PD-South Korea",
+        "PD-1996",
+        "Korean War in 1950"
+      ],
+      "rights": {
+        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
+        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
+        "downloadAllowed": false,
+        "reuseAllowed": false
+      },
+      "review": {
+        "provenance": "checked",
+        "content": "source-description",
+        "translation": "none"
+      },
+      "media": {
+        "displayAllowed": false
+      },
+      "citations": [
+        {
+          "label": "Wikimedia Commons · 한국전쟁 원 소장처",
+          "url": "https://commons.wikimedia.org/wiki/File:6.25%EC%A0%84%EC%9F%81%EA%B4%80%EB%A0%A8%EC%9E%90%EB%A3%8C51.jpg"
+        }
+      ],
+      "revision": 1,
+      "updatedAt": "2026-10-18T13:17:02.129Z",
+      "sensitivity": "none",
+      "changes": [
+        {
+          "at": "2026-10-18T13:17:02.129Z",
           "summary": "원 소장처 메타데이터 수집"
         }
       ]
@@ -971,6 +1144,185 @@
       ]
     },
     {
+      "id": "rec-3c3a28f8032ac9aba2925fce",
+      "title": "6.25전쟁관련자료30.jpg",
+      "originalTitle": "6.25전쟁관련자료30.jpg",
+      "summary": "Photographs of the Korean War",
+      "kind": "photograph",
+      "language": "und",
+      "source": {
+        "name": "Wikimedia Commons · 한국전쟁",
+        "url": "https://commons.wikimedia.org/wiki/File:6.25%EC%A0%84%EC%9F%81%EA%B4%80%EB%A0%A8%EC%9E%90%EB%A3%8C30.jpg",
+        "identifier": "91549017",
+        "accessedAt": "2026-10-18T13:17:14.595Z"
+      },
+      "dates": {
+        "display": "1950",
+        "start": "1950",
+        "precision": "year"
+      },
+      "warIds": [
+        "korean-war"
+      ],
+      "entityIds": [],
+      "topics": [
+        "PD-South Korea",
+        "Republic of Korea Army",
+        "M1 helmets",
+        "PD-1996",
+        "Paik Sun-yup in 1950",
+        "Korean War in 1950"
+      ],
+      "rights": {
+        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
+        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
+        "downloadAllowed": false,
+        "reuseAllowed": false
+      },
+      "review": {
+        "provenance": "checked",
+        "content": "source-description",
+        "translation": "none"
+      },
+      "media": {
+        "displayAllowed": false
+      },
+      "citations": [
+        {
+          "label": "Wikimedia Commons · 한국전쟁 원 소장처",
+          "url": "https://commons.wikimedia.org/wiki/File:6.25%EC%A0%84%EC%9F%81%EA%B4%80%EB%A0%A8%EC%9E%90%EB%A3%8C30.jpg"
+        }
+      ],
+      "revision": 1,
+      "updatedAt": "2026-10-18T13:17:14.595Z",
+      "sensitivity": "none",
+      "changes": [
+        {
+          "at": "2026-10-18T13:17:14.595Z",
+          "summary": "원 소장처 메타데이터 수집"
+        }
+      ]
+    },
+    {
+      "id": "rec-3eea5da6e930ee8fea6cf1a2",
+      "title": "6.25전쟁관련자료17.jpg",
+      "originalTitle": "6.25전쟁관련자료17.jpg",
+      "summary": "6.25 전쟁",
+      "kind": "photograph",
+      "language": "und",
+      "source": {
+        "name": "Wikimedia Commons · 한국전쟁",
+        "url": "https://commons.wikimedia.org/wiki/File:6.25%EC%A0%84%EC%9F%81%EA%B4%80%EB%A0%A8%EC%9E%90%EB%A3%8C17.jpg",
+        "identifier": "91548984",
+        "accessedAt": "2026-10-18T13:17:06.972Z"
+      },
+      "dates": {
+        "display": "1950",
+        "start": "1950",
+        "precision": "year"
+      },
+      "warIds": [
+        "korean-war"
+      ],
+      "entityIds": [],
+      "topics": [
+        "M3 37 mm gun",
+        "PD-South Korea",
+        "PD-1996",
+        "Korean War in 1950"
+      ],
+      "rights": {
+        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
+        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
+        "downloadAllowed": false,
+        "reuseAllowed": false
+      },
+      "review": {
+        "provenance": "checked",
+        "content": "source-description",
+        "translation": "none"
+      },
+      "media": {
+        "displayAllowed": false
+      },
+      "citations": [
+        {
+          "label": "Wikimedia Commons · 한국전쟁 원 소장처",
+          "url": "https://commons.wikimedia.org/wiki/File:6.25%EC%A0%84%EC%9F%81%EA%B4%80%EB%A0%A8%EC%9E%90%EB%A3%8C17.jpg"
+        }
+      ],
+      "revision": 1,
+      "updatedAt": "2026-10-18T13:17:06.972Z",
+      "sensitivity": "none",
+      "changes": [
+        {
+          "at": "2026-10-18T13:17:06.972Z",
+          "summary": "원 소장처 메타데이터 수집"
+        }
+      ]
+    },
+    {
+      "id": "rec-431a9236d14476efd84a31c4",
+      "title": "The People's Volunteer Army disembarks on a western Korean island under the cover of artillery and machine guns, c. 1951.jpg",
+      "originalTitle": "The People's Volunteer Army disembarks on a western Korean island under the cover of artillery and machine guns, c. 1951.jpg",
+      "summary": "The People's Volunteer Army disembarks on a western Korean island under the cover of artillery and machine guns, c. 1951",
+      "kind": "photograph",
+      "language": "und",
+      "source": {
+        "name": "Wikimedia Commons · 한국전쟁",
+        "url": "https://commons.wikimedia.org/wiki/File:The_People%27s_Volunteer_Army_disembarks_on_a_western_Korean_island_under_the_cover_of_artillery_and_machine_guns,_c._1951.jpg",
+        "identifier": "139597905",
+        "accessedAt": "2026-10-18T13:17:39.511Z"
+      },
+      "dates": {
+        "display": "circa 1951 date QS:P,+1951-00-00T00:00:00Z/9,P1480,Q5727902",
+        "start": "1951",
+        "precision": "circa"
+      },
+      "warIds": [
+        "korean-war"
+      ],
+      "entityIds": [],
+      "topics": [
+        "PD-South Korea",
+        "PD-1996",
+        "1951 in North Korea",
+        "Template Unknown (author)",
+        "PD-North Korea",
+        "Korean War in 1951",
+        "Chinese People's Volunteer Army soldiers"
+      ],
+      "rights": {
+        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
+        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
+        "downloadAllowed": false,
+        "reuseAllowed": false
+      },
+      "review": {
+        "provenance": "checked",
+        "content": "source-description",
+        "translation": "none"
+      },
+      "media": {
+        "displayAllowed": false
+      },
+      "citations": [
+        {
+          "label": "Wikimedia Commons · 한국전쟁 원 소장처",
+          "url": "https://commons.wikimedia.org/wiki/File:The_People%27s_Volunteer_Army_disembarks_on_a_western_Korean_island_under_the_cover_of_artillery_and_machine_guns,_c._1951.jpg"
+        }
+      ],
+      "revision": 1,
+      "updatedAt": "2026-10-18T13:17:39.511Z",
+      "sensitivity": "none",
+      "changes": [
+        {
+          "at": "2026-10-18T13:17:39.511Z",
+          "summary": "원 소장처 메타데이터 수집"
+        }
+      ]
+    },
+    {
       "id": "rec-45a0f58c10bf9c0551a3cabd",
       "title": "\"Let's make this year pedestrian protection year\" - NARA - 514882.tif",
       "originalTitle": "\"Let's make this year pedestrian protection year\" - NARA - 514882.tif",
@@ -1089,6 +1441,64 @@
       "changes": [
         {
           "at": "2026-10-18T10:57:28.653Z",
+          "summary": "원 소장처 메타데이터 수집"
+        }
+      ]
+    },
+    {
+      "id": "rec-495fd63858bd54afff2a3dca",
+      "title": "6.25전쟁관련자료47.jpg",
+      "originalTitle": "6.25전쟁관련자료47.jpg",
+      "summary": "Photographs of the Korean War",
+      "kind": "photograph",
+      "language": "und",
+      "source": {
+        "name": "Wikimedia Commons · 한국전쟁",
+        "url": "https://commons.wikimedia.org/wiki/File:6.25%EC%A0%84%EC%9F%81%EA%B4%80%EB%A0%A8%EC%9E%90%EB%A3%8C47.jpg",
+        "identifier": "91549007",
+        "accessedAt": "2026-10-18T13:17:14.296Z"
+      },
+      "dates": {
+        "display": "1950",
+        "start": "1950",
+        "precision": "year"
+      },
+      "warIds": [
+        "korean-war"
+      ],
+      "entityIds": [],
+      "topics": [
+        "PD-South Korea",
+        "Republic of Korea Army",
+        "PD-1996",
+        "Korean War in 1950"
+      ],
+      "rights": {
+        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
+        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
+        "downloadAllowed": false,
+        "reuseAllowed": false
+      },
+      "review": {
+        "provenance": "checked",
+        "content": "source-description",
+        "translation": "none"
+      },
+      "media": {
+        "displayAllowed": false
+      },
+      "citations": [
+        {
+          "label": "Wikimedia Commons · 한국전쟁 원 소장처",
+          "url": "https://commons.wikimedia.org/wiki/File:6.25%EC%A0%84%EC%9F%81%EA%B4%80%EB%A0%A8%EC%9E%90%EB%A3%8C47.jpg"
+        }
+      ],
+      "revision": 1,
+      "updatedAt": "2026-10-18T13:17:14.296Z",
+      "sensitivity": "none",
+      "changes": [
+        {
+          "at": "2026-10-18T13:17:14.296Z",
           "summary": "원 소장처 메타데이터 수집"
         }
       ]
@@ -1214,6 +1624,65 @@
       ]
     },
     {
+      "id": "rec-4e124b32673ba04e18a03c00",
+      "title": "6.25전쟁관련자료7.jpg",
+      "originalTitle": "6.25전쟁관련자료7.jpg",
+      "summary": "Photographs of the Korean War",
+      "kind": "photograph",
+      "language": "und",
+      "source": {
+        "name": "Wikimedia Commons · 한국전쟁",
+        "url": "https://commons.wikimedia.org/wiki/File:6.25%EC%A0%84%EC%9F%81%EA%B4%80%EB%A0%A8%EC%9E%90%EB%A3%8C7.jpg",
+        "identifier": "91548992",
+        "accessedAt": "2026-10-18T13:17:11.887Z"
+      },
+      "dates": {
+        "display": "1950",
+        "start": "1950",
+        "precision": "year"
+      },
+      "warIds": [
+        "korean-war"
+      ],
+      "entityIds": [],
+      "topics": [
+        "PD-South Korea",
+        "Republic of Korea Army",
+        "M1 helmets",
+        "PD-1996",
+        "Korean War in 1950"
+      ],
+      "rights": {
+        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
+        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
+        "downloadAllowed": false,
+        "reuseAllowed": false
+      },
+      "review": {
+        "provenance": "checked",
+        "content": "source-description",
+        "translation": "none"
+      },
+      "media": {
+        "displayAllowed": false
+      },
+      "citations": [
+        {
+          "label": "Wikimedia Commons · 한국전쟁 원 소장처",
+          "url": "https://commons.wikimedia.org/wiki/File:6.25%EC%A0%84%EC%9F%81%EA%B4%80%EB%A0%A8%EC%9E%90%EB%A3%8C7.jpg"
+        }
+      ],
+      "revision": 1,
+      "updatedAt": "2026-10-18T13:17:11.887Z",
+      "sensitivity": "none",
+      "changes": [
+        {
+          "at": "2026-10-18T13:17:11.887Z",
+          "summary": "원 소장처 메타데이터 수집"
+        }
+      ]
+    },
+    {
       "id": "rec-4ecb385f51047ec1709e09df",
       "title": "\"Fighting Fish and Fighting Men\" - NARA - 513513.tif",
       "originalTitle": "\"Fighting Fish and Fighting Men\" - NARA - 513513.tif",
@@ -1275,6 +1744,127 @@
       ]
     },
     {
+      "id": "rec-4f93d3275392d893733ee4e8",
+      "title": "폐허가 된 학교에서 수업받는 아이들.jpg",
+      "originalTitle": "폐허가 된 학교에서 수업받는 아이들.jpg",
+      "summary": "전쟁으로 폐허가 된 학교에서도 수업은 계속된다.",
+      "kind": "photograph",
+      "language": "und",
+      "source": {
+        "name": "Wikimedia Commons · 한국전쟁",
+        "url": "https://commons.wikimedia.org/wiki/File:%ED%8F%90%ED%97%88%EA%B0%80_%EB%90%9C_%ED%95%99%EA%B5%90%EC%97%90%EC%84%9C_%EC%88%98%EC%97%85%EB%B0%9B%EB%8A%94_%EC%95%84%EC%9D%B4%EB%93%A4.jpg",
+        "identifier": "91547589",
+        "accessedAt": "2026-10-18T13:17:00.629Z"
+      },
+      "dates": {
+        "display": "1950",
+        "start": "1950",
+        "precision": "year"
+      },
+      "warIds": [
+        "korean-war"
+      ],
+      "entityIds": [],
+      "topics": [
+        "PD-South Korea",
+        "Template Unknown (author)",
+        "PD-old missing SDC copyright status",
+        "Korean War in 1950",
+        "Children in the Korean War"
+      ],
+      "rights": {
+        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
+        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
+        "downloadAllowed": false,
+        "reuseAllowed": false
+      },
+      "review": {
+        "provenance": "checked",
+        "content": "source-description",
+        "translation": "none"
+      },
+      "media": {
+        "displayAllowed": false
+      },
+      "citations": [
+        {
+          "label": "Wikimedia Commons · 한국전쟁 원 소장처",
+          "url": "https://commons.wikimedia.org/wiki/File:%ED%8F%90%ED%97%88%EA%B0%80_%EB%90%9C_%ED%95%99%EA%B5%90%EC%97%90%EC%84%9C_%EC%88%98%EC%97%85%EB%B0%9B%EB%8A%94_%EC%95%84%EC%9D%B4%EB%93%A4.jpg"
+        }
+      ],
+      "revision": 1,
+      "updatedAt": "2026-10-18T13:17:00.629Z",
+      "sensitivity": "none",
+      "changes": [
+        {
+          "at": "2026-10-18T13:17:00.629Z",
+          "summary": "원 소장처 메타데이터 수집"
+        }
+      ]
+    },
+    {
+      "id": "rec-5211bdd7c738a37f48e4e5ff",
+      "title": "Freddie Antonson, 1953.jpg",
+      "originalTitle": "Freddie Antonson, 1953.jpg",
+      "summary": "\"Freddie Antonson proving he could still remember also. Freddie was an Aleut from Kodiak, Alaska. A small village called Karluk. Freddie liked to volunteer for long tours in nearby ridge for outpost duty. He liked to be alone. He was friendly when around us just fine.\" From the Ronald Trayer Collection (COLL/5635) at the Archives Branch, Marine Corps History Division OFFICIAL USMC PHOTOGRAPH",
+      "kind": "photograph",
+      "language": "und",
+      "source": {
+        "name": "Wikimedia Commons · 한국전쟁",
+        "url": "https://commons.wikimedia.org/wiki/File:Freddie_Antonson,_1953.jpg",
+        "identifier": "92976343",
+        "accessedAt": "2026-10-18T13:17:39.093Z"
+      },
+      "dates": {
+        "display": "2018-01-15 09:16:16",
+        "precision": "unknown"
+      },
+      "warIds": [
+        "korean-war"
+      ],
+      "entityIds": [],
+      "topics": [
+        "History of Native Americans in the United States",
+        "Flickr images reviewed by FlickreviewR 2"
+      ],
+      "rights": {
+        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
+        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
+        "downloadAllowed": false,
+        "reuseAllowed": false
+      },
+      "review": {
+        "provenance": "checked",
+        "content": "source-description",
+        "translation": "none"
+      },
+      "media": {
+        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e4/Freddie_Antonson%2C_1953.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "displayAllowed": true,
+        "attribution": {
+          "creator": "USMC Archives",
+          "credit": "https://www.flickr.com/photos/usmcarchives/47892896281/",
+          "license": "CC BY 2.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by/2.0"
+        }
+      },
+      "citations": [
+        {
+          "label": "Wikimedia Commons · 한국전쟁 원 소장처",
+          "url": "https://commons.wikimedia.org/wiki/File:Freddie_Antonson,_1953.jpg"
+        }
+      ],
+      "revision": 1,
+      "updatedAt": "2026-10-18T13:17:39.093Z",
+      "sensitivity": "none",
+      "changes": [
+        {
+          "at": "2026-10-18T13:17:39.093Z",
+          "summary": "원 소장처 메타데이터 수집"
+        }
+      ]
+    },
+    {
       "id": "rec-52ba6652932772e2eaec384f",
       "title": "SAVE A SHOVEL EVERY TIME YOU CAN. THE SUPPLY IS RUNNING LOW. - NARA - 515336.tif",
       "originalTitle": "SAVE A SHOVEL EVERY TIME YOU CAN. THE SUPPLY IS RUNNING LOW. - NARA - 515336.tif",
@@ -1331,6 +1921,68 @@
       "changes": [
         {
           "at": "2026-10-18T10:57:29.341Z",
+          "summary": "원 소장처 메타데이터 수집"
+        }
+      ]
+    },
+    {
+      "id": "rec-54ddddb87709d9480855715e",
+      "title": "Troops from a People's Volunteer Army unit that landed the first ship during the battle to capture Taehwa-do, c. 1951.jpg",
+      "originalTitle": "Troops from a People's Volunteer Army unit that landed the first ship during the battle to capture Taehwa-do, c. 1951.jpg",
+      "summary": "Troops from a People's Volunteer Army unit that landed the first ship during the battle to capture Taehwa-do, c. 1951",
+      "kind": "photograph",
+      "language": "und",
+      "source": {
+        "name": "Wikimedia Commons · 한국전쟁",
+        "url": "https://commons.wikimedia.org/wiki/File:Troops_from_a_People%27s_Volunteer_Army_unit_that_landed_the_first_ship_during_the_battle_to_capture_Taehwa-do,_c._1951.jpg",
+        "identifier": "139597912",
+        "accessedAt": "2026-10-18T13:17:30.571Z"
+      },
+      "dates": {
+        "display": "circa 1951 date QS:P,+1951-00-00T00:00:00Z/9,P1480,Q5727902",
+        "start": "1951",
+        "precision": "circa"
+      },
+      "warIds": [
+        "korean-war"
+      ],
+      "entityIds": [],
+      "topics": [
+        "Images with watermarks",
+        "PD-South Korea",
+        "PD-1996",
+        "1951 in North Korea",
+        "Template Unknown (author)",
+        "PD-North Korea",
+        "Korean War in 1951",
+        "Chinese People's Volunteer Army soldiers"
+      ],
+      "rights": {
+        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
+        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
+        "downloadAllowed": false,
+        "reuseAllowed": false
+      },
+      "review": {
+        "provenance": "checked",
+        "content": "source-description",
+        "translation": "none"
+      },
+      "media": {
+        "displayAllowed": false
+      },
+      "citations": [
+        {
+          "label": "Wikimedia Commons · 한국전쟁 원 소장처",
+          "url": "https://commons.wikimedia.org/wiki/File:Troops_from_a_People%27s_Volunteer_Army_unit_that_landed_the_first_ship_during_the_battle_to_capture_Taehwa-do,_c._1951.jpg"
+        }
+      ],
+      "revision": 1,
+      "updatedAt": "2026-10-18T13:17:30.571Z",
+      "sensitivity": "none",
+      "changes": [
+        {
+          "at": "2026-10-18T13:17:30.571Z",
           "summary": "원 소장처 메타데이터 수집"
         }
       ]
@@ -1628,6 +2280,126 @@
       ]
     },
     {
+      "id": "rec-6730df6748f275cdf81aab4c",
+      "title": "미국 제5해병연대 중구 만석동 적색해안 상륙 3 2024.jpg",
+      "originalTitle": "미국 제5해병연대 중구 만석동 적색해안 상륙 3 2024.jpg",
+      "summary": "Incheon Landing Operation Memorial Hall (a memorial hall honoring the spirits of veterans of the U.S. Marine Corps, UN forces, and Korean forces) located at 138 Cheongnyang-ro, Yeonsu-gu, Incheon Metropolitan City",
+      "kind": "photograph",
+      "language": "und",
+      "source": {
+        "name": "Wikimedia Commons · 한국전쟁",
+        "url": "https://commons.wikimedia.org/wiki/File:%EB%AF%B8%EA%B5%AD_%EC%A0%9C5%ED%95%B4%EB%B3%91%EC%97%B0%EB%8C%80_%EC%A4%91%EA%B5%AC_%EB%A7%8C%EC%84%9D%EB%8F%99_%EC%A0%81%EC%83%89%ED%95%B4%EC%95%88_%EC%83%81%EB%A5%99_3_2024.jpg",
+        "identifier": "155113618",
+        "accessedAt": "2026-10-18T13:17:18.887Z"
+      },
+      "dates": {
+        "display": "2024-11-10 12:55:35",
+        "precision": "unknown"
+      },
+      "warIds": [
+        "korean-war"
+      ],
+      "entityIds": [],
+      "topics": [
+        "Incheon",
+        "Self-published work",
+        "Files with coordinates missing SDC location of creation"
+      ],
+      "rights": {
+        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
+        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
+        "downloadAllowed": false,
+        "reuseAllowed": false
+      },
+      "review": {
+        "provenance": "checked",
+        "content": "source-description",
+        "translation": "none"
+      },
+      "media": {
+        "displayAllowed": false
+      },
+      "citations": [
+        {
+          "label": "Wikimedia Commons · 한국전쟁 원 소장처",
+          "url": "https://commons.wikimedia.org/wiki/File:%EB%AF%B8%EA%B5%AD_%EC%A0%9C5%ED%95%B4%EB%B3%91%EC%97%B0%EB%8C%80_%EC%A4%91%EA%B5%AC_%EB%A7%8C%EC%84%9D%EB%8F%99_%EC%A0%81%EC%83%89%ED%95%B4%EC%95%88_%EC%83%81%EB%A5%99_3_2024.jpg"
+        }
+      ],
+      "revision": 1,
+      "updatedAt": "2026-10-18T13:17:18.887Z",
+      "sensitivity": "none",
+      "location": {
+        "name": "원 소장처 자료 지오태그",
+        "lat": 37.419731,
+        "lon": 126.653344,
+        "precision": "approximate"
+      },
+      "changes": [
+        {
+          "at": "2026-10-18T13:17:18.887Z",
+          "summary": "원 소장처 메타데이터 수집"
+        }
+      ]
+    },
+    {
+      "id": "rec-67d35803b50a984ac4413e5d",
+      "title": "중공군과의 임진강 전투에서 공을 세운 영국군 1.jpg",
+      "originalTitle": "중공군과의 임진강 전투에서 공을 세운 영국군 1.jpg",
+      "summary": "중공군과의 임진강 전투에서 공을 세운 영국군이 행군하고 있다.",
+      "kind": "photograph",
+      "language": "und",
+      "source": {
+        "name": "Wikimedia Commons · 한국전쟁",
+        "url": "https://commons.wikimedia.org/wiki/File:%EC%A4%91%EA%B3%B5%EA%B5%B0%EA%B3%BC%EC%9D%98_%EC%9E%84%EC%A7%84%EA%B0%95_%EC%A0%84%ED%88%AC%EC%97%90%EC%84%9C_%EA%B3%B5%EC%9D%84_%EC%84%B8%EC%9A%B4_%EC%98%81%EA%B5%AD%EA%B5%B0_1.jpg",
+        "identifier": "91546870",
+        "accessedAt": "2026-10-18T13:16:58.256Z"
+      },
+      "dates": {
+        "display": "1951",
+        "start": "1951",
+        "precision": "year"
+      },
+      "warIds": [
+        "korean-war"
+      ],
+      "entityIds": [],
+      "topics": [
+        "PD-South Korea",
+        "Template Unknown (author)",
+        "PD-old missing SDC copyright status",
+        "Korean War in 1951"
+      ],
+      "rights": {
+        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
+        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
+        "downloadAllowed": false,
+        "reuseAllowed": false
+      },
+      "review": {
+        "provenance": "checked",
+        "content": "source-description",
+        "translation": "none"
+      },
+      "media": {
+        "displayAllowed": false
+      },
+      "citations": [
+        {
+          "label": "Wikimedia Commons · 한국전쟁 원 소장처",
+          "url": "https://commons.wikimedia.org/wiki/File:%EC%A4%91%EA%B3%B5%EA%B5%B0%EA%B3%BC%EC%9D%98_%EC%9E%84%EC%A7%84%EA%B0%95_%EC%A0%84%ED%88%AC%EC%97%90%EC%84%9C_%EA%B3%B5%EC%9D%84_%EC%84%B8%EC%9A%B4_%EC%98%81%EA%B5%AD%EA%B5%B0_1.jpg"
+        }
+      ],
+      "revision": 1,
+      "updatedAt": "2026-10-18T13:16:58.256Z",
+      "sensitivity": "none",
+      "changes": [
+        {
+          "at": "2026-10-18T13:16:58.256Z",
+          "summary": "원 소장처 메타데이터 수집"
+        }
+      ]
+    },
+    {
       "id": "rec-680ea830634e5e68d1ee2690",
       "title": "Japanese Forty Fourth Army Operations 1945.png",
       "originalTitle": "Japanese Forty Fourth Army Operations 1945.png",
@@ -1682,6 +2454,65 @@
       "changes": [
         {
           "at": "2026-10-18T10:57:28.743Z",
+          "summary": "원 소장처 메타데이터 수집"
+        }
+      ]
+    },
+    {
+      "id": "rec-690dbcdd90a5b1fd93d23bf8",
+      "title": "6.25전쟁관련자료13.jpg",
+      "originalTitle": "6.25전쟁관련자료13.jpg",
+      "summary": "6.25 전쟁",
+      "kind": "photograph",
+      "language": "und",
+      "source": {
+        "name": "Wikimedia Commons · 한국전쟁",
+        "url": "https://commons.wikimedia.org/wiki/File:6.25%EC%A0%84%EC%9F%81%EA%B4%80%EB%A0%A8%EC%9E%90%EB%A3%8C13.jpg",
+        "identifier": "91548987",
+        "accessedAt": "2026-10-18T13:17:11.287Z"
+      },
+      "dates": {
+        "display": "1950",
+        "start": "1950",
+        "precision": "year"
+      },
+      "warIds": [
+        "korean-war"
+      ],
+      "entityIds": [],
+      "topics": [
+        "PD-South Korea",
+        "PD-1996",
+        "North Korean T-34-85 tanks during the Korean War",
+        "Korean War in 1950",
+        "Destroyed T-34 tanks"
+      ],
+      "rights": {
+        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
+        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
+        "downloadAllowed": false,
+        "reuseAllowed": false
+      },
+      "review": {
+        "provenance": "checked",
+        "content": "source-description",
+        "translation": "none"
+      },
+      "media": {
+        "displayAllowed": false
+      },
+      "citations": [
+        {
+          "label": "Wikimedia Commons · 한국전쟁 원 소장처",
+          "url": "https://commons.wikimedia.org/wiki/File:6.25%EC%A0%84%EC%9F%81%EA%B4%80%EB%A0%A8%EC%9E%90%EB%A3%8C13.jpg"
+        }
+      ],
+      "revision": 1,
+      "updatedAt": "2026-10-18T13:17:11.287Z",
+      "sensitivity": "none",
+      "changes": [
+        {
+          "at": "2026-10-18T13:17:11.287Z",
           "summary": "원 소장처 메타데이터 수집"
         }
       ]
@@ -1920,6 +2751,63 @@
       ]
     },
     {
+      "id": "rec-7621fc6b5a81e4eef76b4c17",
+      "title": "6.25전쟁관련자료52.jpg",
+      "originalTitle": "6.25전쟁관련자료52.jpg",
+      "summary": "6.25 전쟁",
+      "kind": "photograph",
+      "language": "und",
+      "source": {
+        "name": "Wikimedia Commons · 한국전쟁",
+        "url": "https://commons.wikimedia.org/wiki/File:6.25%EC%A0%84%EC%9F%81%EA%B4%80%EB%A0%A8%EC%9E%90%EB%A3%8C52.jpg",
+        "identifier": "91548961",
+        "accessedAt": "2026-10-18T13:17:02.446Z"
+      },
+      "dates": {
+        "display": "1950",
+        "start": "1950",
+        "precision": "year"
+      },
+      "warIds": [
+        "korean-war"
+      ],
+      "entityIds": [],
+      "topics": [
+        "PD-South Korea",
+        "PD-1996",
+        "Korean War in 1950"
+      ],
+      "rights": {
+        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
+        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
+        "downloadAllowed": false,
+        "reuseAllowed": false
+      },
+      "review": {
+        "provenance": "checked",
+        "content": "source-description",
+        "translation": "none"
+      },
+      "media": {
+        "displayAllowed": false
+      },
+      "citations": [
+        {
+          "label": "Wikimedia Commons · 한국전쟁 원 소장처",
+          "url": "https://commons.wikimedia.org/wiki/File:6.25%EC%A0%84%EC%9F%81%EA%B4%80%EB%A0%A8%EC%9E%90%EB%A3%8C52.jpg"
+        }
+      ],
+      "revision": 1,
+      "updatedAt": "2026-10-18T13:17:02.446Z",
+      "sensitivity": "none",
+      "changes": [
+        {
+          "at": "2026-10-18T13:17:02.446Z",
+          "summary": "원 소장처 메타데이터 수집"
+        }
+      ]
+    },
+    {
       "id": "rec-7e367f522db7062d58d6829a",
       "title": "\"How to Recap With F Grade Capping Stock\" - NARA - 514548.jpg",
       "originalTitle": "\"How to Recap With F Grade Capping Stock\" - NARA - 514548.jpg",
@@ -2041,6 +2929,69 @@
       ]
     },
     {
+      "id": "rec-7ff076763d6a50a680a73ec6",
+      "title": "6.25전쟁 전선.gif",
+      "originalTitle": "6.25전쟁 전선.gif",
+      "summary": "대한민국 6.25전쟁의 전선이다.",
+      "kind": "photograph",
+      "language": "und",
+      "source": {
+        "name": "Wikimedia Commons · 한국전쟁",
+        "url": "https://commons.wikimedia.org/wiki/File:6.25%EC%A0%84%EC%9F%81_%EC%A0%84%EC%84%A0.gif",
+        "identifier": "112468202",
+        "accessedAt": "2026-10-18T13:17:38.826Z"
+      },
+      "dates": {
+        "display": "2021-11-13",
+        "start": "2021-11-13",
+        "precision": "exact"
+      },
+      "warIds": [
+        "korean-war"
+      ],
+      "entityIds": [],
+      "topics": [
+        "Self-published work",
+        "Maps of the Korean War"
+      ],
+      "rights": {
+        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
+        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
+        "downloadAllowed": false,
+        "reuseAllowed": false
+      },
+      "review": {
+        "provenance": "checked",
+        "content": "source-description",
+        "translation": "none"
+      },
+      "media": {
+        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b9/6.25%EC%A0%84%EC%9F%81_%EC%A0%84%EC%84%A0.gif?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "displayAllowed": true,
+        "attribution": {
+          "creator": "김인겸",
+          "credit": "Own work",
+          "license": "CC BY-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+        }
+      },
+      "citations": [
+        {
+          "label": "Wikimedia Commons · 한국전쟁 원 소장처",
+          "url": "https://commons.wikimedia.org/wiki/File:6.25%EC%A0%84%EC%9F%81_%EC%A0%84%EC%84%A0.gif"
+        }
+      ],
+      "revision": 1,
+      "updatedAt": "2026-10-18T13:17:38.826Z",
+      "sensitivity": "none",
+      "changes": [
+        {
+          "at": "2026-10-18T13:17:38.826Z",
+          "summary": "원 소장처 메타데이터 수집"
+        }
+      ]
+    },
+    {
       "id": "rec-839368b3c5730c868a534bd0",
       "title": "Boncourt Zollposten und Grenzmarkierung D2.7602.jpg",
       "originalTitle": "Boncourt Zollposten und Grenzmarkierung D2.7602.jpg",
@@ -2157,6 +3108,132 @@
       "changes": [
         {
           "at": "2026-10-18T10:57:20.156Z",
+          "summary": "원 소장처 메타데이터 수집"
+        }
+      ]
+    },
+    {
+      "id": "rec-89589d19693ce17a33838040",
+      "title": "Korean War Observation Regiment soldiers with tripod.jpg",
+      "originalTitle": "Korean War Observation Regiment soldiers with tripod.jpg",
+      "summary": "Major General Hong Soon-chil (center) is observing the front line with his troops at the Dokdo observation post.",
+      "kind": "photograph",
+      "language": "und",
+      "source": {
+        "name": "Wikimedia Commons · 한국전쟁",
+        "url": "https://commons.wikimedia.org/wiki/File:Korean_War_Observation_Regiment_soldiers_with_tripod.jpg",
+        "identifier": "170427773",
+        "accessedAt": "2026-10-18T13:17:16.409Z"
+      },
+      "dates": {
+        "display": "1953-04-20",
+        "start": "1953-04-20",
+        "precision": "exact"
+      },
+      "warIds": [
+        "korean-war"
+      ],
+      "entityIds": [],
+      "topics": [
+        "CC-Zero",
+        "Template Unknown (author)",
+        "Korean War in 1953"
+      ],
+      "rights": {
+        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
+        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
+        "downloadAllowed": false,
+        "reuseAllowed": false
+      },
+      "review": {
+        "provenance": "checked",
+        "content": "source-description",
+        "translation": "none"
+      },
+      "media": {
+        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/b/bd/Korean_War_Observation_Regiment_soldiers_with_tripod.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "displayAllowed": true,
+        "attribution": {
+          "creator": "Unknown author Unknown author",
+          "credit": "https://m.yeongnam.com/view.php?key=20110921.010070753590001",
+          "license": "CC0",
+          "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+        }
+      },
+      "citations": [
+        {
+          "label": "Wikimedia Commons · 한국전쟁 원 소장처",
+          "url": "https://commons.wikimedia.org/wiki/File:Korean_War_Observation_Regiment_soldiers_with_tripod.jpg"
+        }
+      ],
+      "revision": 1,
+      "updatedAt": "2026-10-18T13:17:16.409Z",
+      "sensitivity": "none",
+      "changes": [
+        {
+          "at": "2026-10-18T13:17:16.409Z",
+          "summary": "원 소장처 메타데이터 수집"
+        }
+      ]
+    },
+    {
+      "id": "rec-899ac18d6815727973bce3f4",
+      "title": "Korean People's Army armored fighting vehicle unit moves in formation, 1950.png",
+      "originalTitle": "Korean People's Army armored fighting vehicle unit moves in formation, 1950.png",
+      "summary": "Korean People's Army armored fighting vehicle unit moves in formation, 1950",
+      "kind": "photograph",
+      "language": "und",
+      "source": {
+        "name": "Wikimedia Commons · 한국전쟁",
+        "url": "https://commons.wikimedia.org/wiki/File:Korean_People%27s_Army_armored_fighting_vehicle_unit_moves_in_formation,_1950.png",
+        "identifier": "140134200",
+        "accessedAt": "2026-10-18T13:17:28.603Z"
+      },
+      "dates": {
+        "display": "1950",
+        "start": "1950",
+        "precision": "year"
+      },
+      "warIds": [
+        "korean-war"
+      ],
+      "entityIds": [],
+      "topics": [
+        "PD-South Korea",
+        "PD-1996",
+        "Template Unknown (author)",
+        "PD-North Korea",
+        "PD-old missing SDC copyright status",
+        "PD-US missing SDC copyright status",
+        "Korean War in 1950",
+        "Korean People's Army in the Korean War"
+      ],
+      "rights": {
+        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
+        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
+        "downloadAllowed": false,
+        "reuseAllowed": false
+      },
+      "review": {
+        "provenance": "checked",
+        "content": "source-description",
+        "translation": "none"
+      },
+      "media": {
+        "displayAllowed": false
+      },
+      "citations": [
+        {
+          "label": "Wikimedia Commons · 한국전쟁 원 소장처",
+          "url": "https://commons.wikimedia.org/wiki/File:Korean_People%27s_Army_armored_fighting_vehicle_unit_moves_in_formation,_1950.png"
+        }
+      ],
+      "revision": 1,
+      "updatedAt": "2026-10-18T13:17:28.603Z",
+      "sensitivity": "none",
+      "changes": [
+        {
+          "at": "2026-10-18T13:17:28.603Z",
           "summary": "원 소장처 메타데이터 수집"
         }
       ]
@@ -2406,6 +3483,66 @@
       ]
     },
     {
+      "id": "rec-99d15cfd00b49ac6b466bfe0",
+      "title": "대구에서 열린 유엔한국위원회 공개회담에 모인 군중들 모습.jpg",
+      "originalTitle": "대구에서 열린 유엔한국위원회 공개회담에 모인 군중들 모습.jpg",
+      "summary": "전쟁발발 후 대구 문화관에서 처음 열린 유엔위원단 군중집회. 극장에 천명이 착석했다. 이 사진은 밖에서 집회를 듣고 있는 6천여명의 군중 중 일부이다.",
+      "kind": "photograph",
+      "language": "und",
+      "source": {
+        "name": "Wikimedia Commons · 한국전쟁",
+        "url": "https://commons.wikimedia.org/wiki/File:%EB%8C%80%EA%B5%AC%EC%97%90%EC%84%9C_%EC%97%B4%EB%A6%B0_%EC%9C%A0%EC%97%94%ED%95%9C%EA%B5%AD%EC%9C%84%EC%9B%90%ED%9A%8C_%EA%B3%B5%EA%B0%9C%ED%9A%8C%EB%8B%B4%EC%97%90_%EB%AA%A8%EC%9D%B8_%EA%B5%B0%EC%A4%91%EB%93%A4_%EB%AA%A8%EC%8A%B5.jpg",
+        "identifier": "91547517",
+        "accessedAt": "2026-10-18T13:17:00.221Z"
+      },
+      "dates": {
+        "display": "1950",
+        "start": "1950",
+        "precision": "year"
+      },
+      "warIds": [
+        "korean-war"
+      ],
+      "entityIds": [],
+      "topics": [
+        "Daegu",
+        "PD-South Korea",
+        "Template Unknown (author)",
+        "PD-old missing SDC copyright status",
+        "Korean War in July 1950",
+        "United Nations Commission on Korea"
+      ],
+      "rights": {
+        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
+        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
+        "downloadAllowed": false,
+        "reuseAllowed": false
+      },
+      "review": {
+        "provenance": "checked",
+        "content": "source-description",
+        "translation": "none"
+      },
+      "media": {
+        "displayAllowed": false
+      },
+      "citations": [
+        {
+          "label": "Wikimedia Commons · 한국전쟁 원 소장처",
+          "url": "https://commons.wikimedia.org/wiki/File:%EB%8C%80%EA%B5%AC%EC%97%90%EC%84%9C_%EC%97%B4%EB%A6%B0_%EC%9C%A0%EC%97%94%ED%95%9C%EA%B5%AD%EC%9C%84%EC%9B%90%ED%9A%8C_%EA%B3%B5%EA%B0%9C%ED%9A%8C%EB%8B%B4%EC%97%90_%EB%AA%A8%EC%9D%B8_%EA%B5%B0%EC%A4%91%EB%93%A4_%EB%AA%A8%EC%8A%B5.jpg"
+        }
+      ],
+      "revision": 1,
+      "updatedAt": "2026-10-18T13:17:00.221Z",
+      "sensitivity": "none",
+      "changes": [
+        {
+          "at": "2026-10-18T13:17:00.221Z",
+          "summary": "원 소장처 메타데이터 수집"
+        }
+      ]
+    },
+    {
       "id": "rec-9c46e2cb8cd63c418996fe03",
       "title": "\"Now is the time for men of 18-19 to choose\" - NARA - 513622.jpg",
       "originalTitle": "\"Now is the time for men of 18-19 to choose\" - NARA - 513622.jpg",
@@ -2461,6 +3598,250 @@
       "changes": [
         {
           "at": "2026-10-18T10:57:29.134Z",
+          "summary": "원 소장처 메타데이터 수집"
+        }
+      ]
+    },
+    {
+      "id": "rec-9efe710d8e9d919245325d62",
+      "title": "MiG-15BIS fighter jets displayed at the Memorial Hall to Resist U.S. Aggression and Aid Korea.jpg",
+      "originalTitle": "MiG-15BIS fighter jets displayed at the Memorial Hall to Resist U.S. Aggression and Aid Korea.jpg",
+      "summary": "​米格-15比斯战斗机",
+      "kind": "photograph",
+      "language": "und",
+      "source": {
+        "name": "Wikimedia Commons · 한국전쟁",
+        "url": "https://commons.wikimedia.org/wiki/File:MiG-15BIS_fighter_jets_displayed_at_the_Memorial_Hall_to_Resist_U.S._Aggression_and_Aid_Korea.jpg",
+        "identifier": "149171421",
+        "accessedAt": "2026-10-18T13:17:21.329Z"
+      },
+      "dates": {
+        "display": "7 June 2024, 13:57:09",
+        "precision": "unknown"
+      },
+      "warIds": [
+        "korean-war"
+      ],
+      "entityIds": [],
+      "topics": [
+        "Self-published work",
+        "China photographs taken on 2024-06-07",
+        "Mikoyan-Gurevich MiG-15bis in museums",
+        "Military aircraft in Memorial Hall of the War to Resist US Aggression and Aid Korea"
+      ],
+      "rights": {
+        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
+        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
+        "downloadAllowed": false,
+        "reuseAllowed": false
+      },
+      "review": {
+        "provenance": "checked",
+        "content": "source-description",
+        "translation": "none"
+      },
+      "media": {
+        "displayAllowed": false
+      },
+      "citations": [
+        {
+          "label": "Wikimedia Commons · 한국전쟁 원 소장처",
+          "url": "https://commons.wikimedia.org/wiki/File:MiG-15BIS_fighter_jets_displayed_at_the_Memorial_Hall_to_Resist_U.S._Aggression_and_Aid_Korea.jpg"
+        }
+      ],
+      "revision": 1,
+      "updatedAt": "2026-10-18T13:17:21.329Z",
+      "sensitivity": "none",
+      "changes": [
+        {
+          "at": "2026-10-18T13:17:21.329Z",
+          "summary": "원 소장처 메타데이터 수집"
+        }
+      ]
+    },
+    {
+      "id": "rec-a1045484d86d7051685f5de9",
+      "title": "People's Volunteer Army landing unit uses firepower to block the reinforcement of enemy ships and cover the landing of arriving troops after capturing the commanding heights of a western Korean island, c. 1951.jpg",
+      "originalTitle": "People's Volunteer Army landing unit uses firepower to block the reinforcement of enemy ships and cover the landing of arriving troops after capturing the commanding heights of a western Korean island, c. 1951.jpg",
+      "summary": "People's Volunteer Army landing unit uses firepower to block the reinforcement of enemy ships and cover the landing of arriving troops after capturing the commanding heights of a western Korean island, c. 1951",
+      "kind": "photograph",
+      "language": "und",
+      "source": {
+        "name": "Wikimedia Commons · 한국전쟁",
+        "url": "https://commons.wikimedia.org/wiki/File:People%27s_Volunteer_Army_landing_unit_uses_firepower_to_block_the_reinforcement_of_enemy_ships_and_cover_the_landing_of_arriving_troops_after_capturing_the_commanding_heights_of_a_western_Korean_island,_c._1951.jpg",
+        "identifier": "139597908",
+        "accessedAt": "2026-10-18T13:17:34.111Z"
+      },
+      "dates": {
+        "display": "circa 1951 date QS:P,+1951-00-00T00:00:00Z/9,P1480,Q5727902",
+        "start": "1951",
+        "precision": "circa"
+      },
+      "warIds": [
+        "korean-war"
+      ],
+      "entityIds": [],
+      "topics": [
+        "PD-South Korea",
+        "People's Volunteer Army",
+        "PD-1996",
+        "1951 in North Korea",
+        "Template Unknown (author)",
+        "PD-North Korea",
+        "Korean War in 1951"
+      ],
+      "rights": {
+        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
+        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
+        "downloadAllowed": false,
+        "reuseAllowed": false
+      },
+      "review": {
+        "provenance": "checked",
+        "content": "source-description",
+        "translation": "none"
+      },
+      "media": {
+        "displayAllowed": false
+      },
+      "citations": [
+        {
+          "label": "Wikimedia Commons · 한국전쟁 원 소장처",
+          "url": "https://commons.wikimedia.org/wiki/File:People%27s_Volunteer_Army_landing_unit_uses_firepower_to_block_the_reinforcement_of_enemy_ships_and_cover_the_landing_of_arriving_troops_after_capturing_the_commanding_heights_of_a_western_Korean_island,_c._1951.jpg"
+        }
+      ],
+      "revision": 1,
+      "updatedAt": "2026-10-18T13:17:34.111Z",
+      "sensitivity": "none",
+      "changes": [
+        {
+          "at": "2026-10-18T13:17:34.111Z",
+          "summary": "원 소장처 메타데이터 수집"
+        }
+      ]
+    },
+    {
+      "id": "rec-a647915a9a050a4769d62a7b",
+      "title": "This is Korea (Parts 1 and 2).webm",
+      "originalTitle": "This is Korea (Parts 1 and 2).webm",
+      "summary": "Department of the Navy This is Korea (Parts 1 and 2) AVA18577VNB1, 1951 Covers the United States involvement with Korea and testing of Korean weapons. John Ford directed this film which is the only color documentary made during the Korean War.",
+      "kind": "video",
+      "language": "und",
+      "source": {
+        "name": "Wikimedia Commons · 한국전쟁",
+        "url": "https://commons.wikimedia.org/wiki/File:This_is_Korea_(Parts_1_and_2).webm",
+        "identifier": "67122362",
+        "accessedAt": "2026-10-18T13:16:50.049Z"
+      },
+      "dates": {
+        "display": "2009-06-04",
+        "start": "2009-06-04",
+        "precision": "exact"
+      },
+      "warIds": [
+        "korean-war"
+      ],
+      "entityIds": [],
+      "topics": [
+        "PD US Navy",
+        "CC-PD-Mark",
+        "Videos of 2009",
+        "Uploaded with video2commons",
+        "Files uploaded by Artix Kreiger",
+        "Videos of 1951 from the United States",
+        "Documentary films from the United States",
+        "Videos of films from 1951",
+        "Films from Archive.org",
+        "1951 films of the United States",
+        "Documentary films videos",
+        "Videos of films from the United States Navy",
+        "Documentary films about wars",
+        "Videos of films by John Ford"
+      ],
+      "rights": {
+        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
+        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
+        "downloadAllowed": false,
+        "reuseAllowed": false
+      },
+      "review": {
+        "provenance": "checked",
+        "content": "source-description",
+        "translation": "none"
+      },
+      "media": {
+        "displayAllowed": false
+      },
+      "citations": [
+        {
+          "label": "Wikimedia Commons · 한국전쟁 원 소장처",
+          "url": "https://commons.wikimedia.org/wiki/File:This_is_Korea_(Parts_1_and_2).webm"
+        }
+      ],
+      "revision": 1,
+      "updatedAt": "2026-10-18T13:16:50.049Z",
+      "sensitivity": "none",
+      "changes": [
+        {
+          "at": "2026-10-18T13:16:50.049Z",
+          "summary": "원 소장처 메타데이터 수집"
+        }
+      ]
+    },
+    {
+      "id": "rec-a95b12449ee0ce444786af27",
+      "title": "Koreaanse vrouwen dansen voor een berggod, NG-2009-136-31.jpg",
+      "originalTitle": "Koreaanse vrouwen dansen voor een berggod, NG-2009-136-31.jpg",
+      "summary": "Identificatie Titel(s): Koreaanse vrouwen dansen voor een berggodOorlog in Korea (serietitel) Objecttype: kleurendia Objectnummer: NG-2009-136-31 Vervaardiging Vervaardiger: fotograaf: David Ketel Plaats vervaardiging: Korea Datering: 1951 - 1953 Techniek: diapositief Afmetingen: hoogte 5 cm. × breedte 5 cm. Onderwerp Wat: Koreaanse oorlog (1950-1953) Wanneer: 1950 - 1954 Waar: Korea Wie: Verenigde Naties Verwerving en rechten Credit line: Schenking van mevrouw C. van der Pijl-Ketel, Amsterdam Verwerving: schenking 23-sep-2010 Copyright: Publiek domein",
+      "kind": "photograph",
+      "language": "und",
+      "source": {
+        "name": "Wikimedia Commons · 한국전쟁",
+        "url": "https://commons.wikimedia.org/wiki/File:Koreaanse_vrouwen_dansen_voor_een_berggod,_NG-2009-136-31.jpg",
+        "identifier": "145460632",
+        "accessedAt": "2026-10-18T13:17:28.221Z"
+      },
+      "dates": {
+        "display": "1951",
+        "start": "1951",
+        "precision": "year"
+      },
+      "warIds": [
+        "korean-war"
+      ],
+      "entityIds": [],
+      "topics": [
+        "CC-Zero",
+        "Shamanism of Korea",
+        "South Korea in the 1950s",
+        "Oorlog in Korea"
+      ],
+      "rights": {
+        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
+        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
+        "downloadAllowed": false,
+        "reuseAllowed": false
+      },
+      "review": {
+        "provenance": "checked",
+        "content": "source-description",
+        "translation": "none"
+      },
+      "media": {
+        "displayAllowed": false
+      },
+      "citations": [
+        {
+          "label": "Wikimedia Commons · 한국전쟁 원 소장처",
+          "url": "https://commons.wikimedia.org/wiki/File:Koreaanse_vrouwen_dansen_voor_een_berggod,_NG-2009-136-31.jpg"
+        }
+      ],
+      "revision": 1,
+      "updatedAt": "2026-10-18T13:17:28.221Z",
+      "sensitivity": "none",
+      "changes": [
+        {
+          "at": "2026-10-18T13:17:28.221Z",
           "summary": "원 소장처 메타데이터 수집"
         }
       ]
@@ -2522,6 +3903,263 @@
       "changes": [
         {
           "at": "2026-10-18T10:57:14.764Z",
+          "summary": "원 소장처 메타데이터 수집"
+        }
+      ]
+    },
+    {
+      "id": "rec-a995438a4bba31dbbedef245",
+      "title": "Index to Personalities in the U.S. Army Signal Corps Photographic Files, 1940 - 1954- Vankav - Vermyla - DPLA - 21995a29e24d1b1c8fbeccae13131fb1 (page 147).jpg",
+      "originalTitle": "Index to Personalities in the U.S. Army Signal Corps Photographic Files, 1940 - 1954- Vankav - Vermyla - DPLA - 21995a29e24d1b1c8fbeccae13131fb1 (page 147).jpg",
+      "summary": "원 소장처의 자료 정보와 이용 조건을 확인할 수 있는 기록입니다.",
+      "kind": "photograph",
+      "language": "und",
+      "source": {
+        "name": "Wikimedia Commons · 한국전쟁",
+        "url": "https://commons.wikimedia.org/wiki/File:Index_to_Personalities_in_the_U.S._Army_Signal_Corps_Photographic_Files,_1940_-_1954-_Vankav_-_Vermyla_-_DPLA_-_21995a29e24d1b1c8fbeccae13131fb1_(page_147).jpg",
+        "identifier": "107458430",
+        "accessedAt": "2026-10-18T13:17:37.399Z"
+      },
+      "dates": {
+        "display": "2021-07-12 16:05:05",
+        "precision": "unknown"
+      },
+      "warIds": [
+        "korean-war"
+      ],
+      "entityIds": [],
+      "topics": [
+        "PD US",
+        "Media contributed by the National Archives and Records Administration",
+        "Media contributed by the Digital Public Library of America",
+        "Artworks without Wikidata item",
+        "Media contributed by National Archives at College Park - Still Pictures",
+        "Index to Personalities in the U.S. Army Signal Corps Photographic Files, 1940 - 1954"
+      ],
+      "rights": {
+        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
+        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
+        "downloadAllowed": false,
+        "reuseAllowed": false
+      },
+      "review": {
+        "provenance": "checked",
+        "content": "source-description",
+        "translation": "none"
+      },
+      "media": {
+        "displayAllowed": false
+      },
+      "citations": [
+        {
+          "label": "Wikimedia Commons · 한국전쟁 원 소장처",
+          "url": "https://commons.wikimedia.org/wiki/File:Index_to_Personalities_in_the_U.S._Army_Signal_Corps_Photographic_Files,_1940_-_1954-_Vankav_-_Vermyla_-_DPLA_-_21995a29e24d1b1c8fbeccae13131fb1_(page_147).jpg"
+        }
+      ],
+      "revision": 1,
+      "updatedAt": "2026-10-18T13:17:37.399Z",
+      "sensitivity": "none",
+      "changes": [
+        {
+          "at": "2026-10-18T13:17:37.399Z",
+          "summary": "원 소장처 메타데이터 수집"
+        }
+      ]
+    },
+    {
+      "id": "rec-ab2070a4fe13dd25ee3eae22",
+      "title": "L-R- Carter and Ollie Brooks, \"P\" Co Quonset Hut, Camp Pendleton, 1952.jpg",
+      "originalTitle": "L-R- Carter and Ollie Brooks, \"P\" Co Quonset Hut, Camp Pendleton, 1952.jpg",
+      "summary": "From the Ronald Trayer Collection (COLL/5635) at the Archives Branch, Marine Corps History Division OFFICIAL USMC PHOTOGRAPH",
+      "kind": "photograph",
+      "language": "und",
+      "source": {
+        "name": "Wikimedia Commons · 한국전쟁",
+        "url": "https://commons.wikimedia.org/wiki/File:L-R-_Carter_and_Ollie_Brooks,_%22P%22_Co_Quonset_Hut,_Camp_Pendleton,_1952.jpg",
+        "identifier": "92976339",
+        "accessedAt": "2026-10-18T13:17:15.564Z"
+      },
+      "dates": {
+        "display": "1952",
+        "start": "1952",
+        "precision": "year"
+      },
+      "warIds": [
+        "korean-war"
+      ],
+      "entityIds": [],
+      "topics": [
+        "African American history of the 1950s",
+        "Flickr images reviewed by FlickreviewR 2"
+      ],
+      "rights": {
+        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
+        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
+        "downloadAllowed": false,
+        "reuseAllowed": false
+      },
+      "review": {
+        "provenance": "checked",
+        "content": "source-description",
+        "translation": "none"
+      },
+      "media": {
+        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/7/7f/L-R-_Carter_and_Ollie_Brooks%2C_%22P%22_Co_Quonset_Hut%2C_Camp_Pendleton%2C_1952.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "displayAllowed": true,
+        "attribution": {
+          "creator": "USMC Archives",
+          "credit": "https://www.flickr.com/photos/usmcarchives/49727310551/",
+          "license": "CC BY 2.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by/2.0"
+        }
+      },
+      "citations": [
+        {
+          "label": "Wikimedia Commons · 한국전쟁 원 소장처",
+          "url": "https://commons.wikimedia.org/wiki/File:L-R-_Carter_and_Ollie_Brooks,_%22P%22_Co_Quonset_Hut,_Camp_Pendleton,_1952.jpg"
+        }
+      ],
+      "revision": 1,
+      "updatedAt": "2026-10-18T13:17:15.564Z",
+      "sensitivity": "none",
+      "changes": [
+        {
+          "at": "2026-10-18T13:17:15.564Z",
+          "summary": "원 소장처 메타데이터 수집"
+        }
+      ]
+    },
+    {
+      "id": "rec-abda26e1fdf68a8c9f8ddb54",
+      "title": "HQ Battery X Corps Artillery.jpg",
+      "originalTitle": "HQ Battery X Corps Artillery.jpg",
+      "summary": "HQ Battery X Corps Artillery 4th July 1944",
+      "kind": "photograph",
+      "language": "und",
+      "source": {
+        "name": "Wikimedia Commons · 한국전쟁",
+        "url": "https://commons.wikimedia.org/wiki/File:HQ_Battery_X_Corps_Artillery.jpg",
+        "identifier": "158929064",
+        "accessedAt": "2026-10-18T13:17:18.495Z"
+      },
+      "dates": {
+        "display": "1944-07-04",
+        "start": "1944-07-04",
+        "precision": "exact"
+      },
+      "warIds": [
+        "korean-war"
+      ],
+      "entityIds": [],
+      "topics": [
+        "Group portraits",
+        "PD US Government",
+        "World War II people of the United States Army",
+        "Groups of people",
+        "World War II in July 1944",
+        "Template Unknown (author)",
+        "CC-PD-Mark"
+      ],
+      "rights": {
+        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
+        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
+        "downloadAllowed": false,
+        "reuseAllowed": false
+      },
+      "review": {
+        "provenance": "checked",
+        "content": "source-description",
+        "translation": "none"
+      },
+      "media": {
+        "displayAllowed": false
+      },
+      "citations": [
+        {
+          "label": "Wikimedia Commons · 한국전쟁 원 소장처",
+          "url": "https://commons.wikimedia.org/wiki/File:HQ_Battery_X_Corps_Artillery.jpg"
+        }
+      ],
+      "revision": 1,
+      "updatedAt": "2026-10-18T13:17:18.495Z",
+      "sensitivity": "none",
+      "changes": [
+        {
+          "at": "2026-10-18T13:17:18.495Z",
+          "summary": "원 소장처 메타데이터 수집"
+        }
+      ]
+    },
+    {
+      "id": "rec-af68a125e6091a73e230b75f",
+      "title": "State-recognized patriot certificate awarded to Song Chang-ryeol.png",
+      "originalTitle": "State-recognized patriot certificate awarded to Song Chang-ryeol.png",
+      "summary": "Certificate recognizing Song Chang-ryeol as a Korean War veteran and state-recognized patriot of the Republic of Korea.",
+      "kind": "photograph",
+      "language": "und",
+      "source": {
+        "name": "Wikimedia Commons · 한국전쟁",
+        "url": "https://commons.wikimedia.org/wiki/File:State-recognized_patriot_certificate_awarded_to_Song_Chang-ryeol.png",
+        "identifier": "191706584",
+        "accessedAt": "2026-10-18T13:17:16.062Z"
+      },
+      "dates": {
+        "display": "2023-08-23",
+        "start": "2023-08-23",
+        "precision": "exact"
+      },
+      "warIds": [
+        "korean-war"
+      ],
+      "entityIds": [],
+      "topics": [
+        "Seal of South Korea",
+        "Self-published work",
+        "Creative Commons Attribution 4.0 missing SDC copyright license",
+        "Creative Commons Attribution missing SDC copyright status",
+        "Self-published work missing SDC copyright license",
+        "Korean War veterans",
+        "Seal of the President of South Korea",
+        "Subak",
+        "World Subak Federation",
+        "Song Chang-ryeol",
+        "Subak practitioners",
+        "Korean martial artists",
+        "Korean War veterans of South Korea"
+      ],
+      "rights": {
+        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
+        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
+        "downloadAllowed": false,
+        "reuseAllowed": false
+      },
+      "review": {
+        "provenance": "checked",
+        "content": "source-description",
+        "translation": "none"
+      },
+      "media": {
+        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/c/ce/State-recognized_patriot_certificate_awarded_to_Song_Chang-ryeol.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "displayAllowed": true,
+        "attribution": {
+          "creator": "Jun-ho Song",
+          "credit": "Own work",
+          "license": "CC BY 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by/4.0"
+        }
+      },
+      "citations": [
+        {
+          "label": "Wikimedia Commons · 한국전쟁 원 소장처",
+          "url": "https://commons.wikimedia.org/wiki/File:State-recognized_patriot_certificate_awarded_to_Song_Chang-ryeol.png"
+        }
+      ],
+      "revision": 1,
+      "updatedAt": "2026-10-18T13:17:16.062Z",
+      "sensitivity": "none",
+      "changes": [
+        {
+          "at": "2026-10-18T13:17:16.062Z",
           "summary": "원 소장처 메타데이터 수집"
         }
       ]
@@ -2765,6 +4403,128 @@
       ]
     },
     {
+      "id": "rec-bb4fe621aa2778d949ae2c24",
+      "title": "William Gonzales, MCAS, El Toro, 1952.jpg",
+      "originalTitle": "William Gonzales, MCAS, El Toro, 1952.jpg",
+      "summary": "\"Cpl William M. \"Nick\" Gonzales, Radioman, by communications barracks on way to a wedding.\" From the Ronald Trayer Collection (COLL/5635) at the Archives Branch, Marine Corps History Division OFFICIAL USMC PHOTOGRAPH",
+      "kind": "photograph",
+      "language": "und",
+      "source": {
+        "name": "Wikimedia Commons · 한국전쟁",
+        "url": "https://commons.wikimedia.org/wiki/File:William_Gonzales,_MCAS,_El_Toro,_1952.jpg",
+        "identifier": "92976341",
+        "accessedAt": "2026-10-18T13:17:38.593Z"
+      },
+      "dates": {
+        "display": "1952",
+        "start": "1952",
+        "precision": "year"
+      },
+      "warIds": [
+        "korean-war"
+      ],
+      "entityIds": [],
+      "topics": [
+        "Hispanic and Latino American history",
+        "Mexican American military personnel",
+        "Flickr images reviewed by FlickreviewR 2",
+        "Mexican American history of 1952"
+      ],
+      "rights": {
+        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
+        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
+        "downloadAllowed": false,
+        "reuseAllowed": false
+      },
+      "review": {
+        "provenance": "checked",
+        "content": "source-description",
+        "translation": "none"
+      },
+      "media": {
+        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/7/77/William_Gonzales%2C_MCAS%2C_El_Toro%2C_1952.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "displayAllowed": true,
+        "attribution": {
+          "creator": "USMC Archives",
+          "credit": "https://www.flickr.com/photos/usmcarchives/46976878305/",
+          "license": "CC BY 2.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by/2.0"
+        }
+      },
+      "citations": [
+        {
+          "label": "Wikimedia Commons · 한국전쟁 원 소장처",
+          "url": "https://commons.wikimedia.org/wiki/File:William_Gonzales,_MCAS,_El_Toro,_1952.jpg"
+        }
+      ],
+      "revision": 1,
+      "updatedAt": "2026-10-18T13:17:38.593Z",
+      "sensitivity": "none",
+      "changes": [
+        {
+          "at": "2026-10-18T13:17:38.593Z",
+          "summary": "원 소장처 메타데이터 수집"
+        }
+      ]
+    },
+    {
+      "id": "rec-c0cb4152f74d2fc6682d114b",
+      "title": "6.25전쟁관련자료2.jpg",
+      "originalTitle": "6.25전쟁관련자료2.jpg",
+      "summary": "6.25전쟁관련자료2",
+      "kind": "photograph",
+      "language": "und",
+      "source": {
+        "name": "Wikimedia Commons · 한국전쟁",
+        "url": "https://commons.wikimedia.org/wiki/File:6.25%EC%A0%84%EC%9F%81%EA%B4%80%EB%A0%A8%EC%9E%90%EB%A3%8C2.jpg",
+        "identifier": "91547984",
+        "accessedAt": "2026-10-18T13:17:00.804Z"
+      },
+      "dates": {
+        "display": "1950",
+        "start": "1950",
+        "precision": "year"
+      },
+      "warIds": [
+        "korean-war"
+      ],
+      "entityIds": [],
+      "topics": [
+        "PD-South Korea",
+        "PD-1996",
+        "Korean War in 1950"
+      ],
+      "rights": {
+        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
+        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
+        "downloadAllowed": false,
+        "reuseAllowed": false
+      },
+      "review": {
+        "provenance": "checked",
+        "content": "source-description",
+        "translation": "none"
+      },
+      "media": {
+        "displayAllowed": false
+      },
+      "citations": [
+        {
+          "label": "Wikimedia Commons · 한국전쟁 원 소장처",
+          "url": "https://commons.wikimedia.org/wiki/File:6.25%EC%A0%84%EC%9F%81%EA%B4%80%EB%A0%A8%EC%9E%90%EB%A3%8C2.jpg"
+        }
+      ],
+      "revision": 1,
+      "updatedAt": "2026-10-18T13:17:00.804Z",
+      "sensitivity": "none",
+      "changes": [
+        {
+          "at": "2026-10-18T13:17:00.804Z",
+          "summary": "원 소장처 메타데이터 수집"
+        }
+      ]
+    },
+    {
       "id": "rec-c28222d91c2d8c3457bfe57f",
       "title": "The People's Committee of Yongam-ri distributes emergency relief provided by the People's Volunteer Army to disaster-stricken North Koreans, c. 1951.jpg",
       "originalTitle": "The People's Committee of Yongam-ri distributes emergency relief provided by the People's Volunteer Army to disaster-stricken North Koreans, c. 1951.jpg",
@@ -2827,6 +4587,300 @@
       ]
     },
     {
+      "id": "rec-c296ae93405035745996e389",
+      "title": "1950년 9월 부산 부산진구 부전동 부산상업고등학교 교정의 스웨덴적십자병원.png",
+      "originalTitle": "1950년 9월 부산 부산진구 부전동 부산상업고등학교 교정의 스웨덴적십자병원.png",
+      "summary": "1950년 9월 부산 부산진구 부전동 부산상업고등학교 교정의 스웨덴적십자병원",
+      "kind": "photograph",
+      "language": "und",
+      "source": {
+        "name": "Wikimedia Commons · 한국전쟁",
+        "url": "https://commons.wikimedia.org/wiki/File:1950%EB%85%84_9%EC%9B%94_%EB%B6%80%EC%82%B0_%EB%B6%80%EC%82%B0%EC%A7%84%EA%B5%AC_%EB%B6%80%EC%A0%84%EB%8F%99_%EB%B6%80%EC%82%B0%EC%83%81%EC%97%85%EA%B3%A0%EB%93%B1%ED%95%99%EA%B5%90_%EA%B5%90%EC%A0%95%EC%9D%98_%EC%8A%A4%EC%9B%A8%EB%8D%B4%EC%A0%81%EC%8B%AD%EC%9E%90%EB%B3%91%EC%9B%90.png",
+        "identifier": "169451053",
+        "accessedAt": "2026-10-18T13:17:16.654Z"
+      },
+      "dates": {
+        "display": "2025-07-08",
+        "start": "2025-07-08",
+        "precision": "exact"
+      },
+      "warIds": [
+        "korean-war"
+      ],
+      "entityIds": [],
+      "topics": [
+        "CC-Zero",
+        "Self-published work",
+        "All media needing categories as of 2025",
+        "Media needing categories as of 8 July 2025"
+      ],
+      "rights": {
+        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
+        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
+        "downloadAllowed": false,
+        "reuseAllowed": false
+      },
+      "review": {
+        "provenance": "checked",
+        "content": "source-description",
+        "translation": "none"
+      },
+      "media": {
+        "displayAllowed": false
+      },
+      "citations": [
+        {
+          "label": "Wikimedia Commons · 한국전쟁 원 소장처",
+          "url": "https://commons.wikimedia.org/wiki/File:1950%EB%85%84_9%EC%9B%94_%EB%B6%80%EC%82%B0_%EB%B6%80%EC%82%B0%EC%A7%84%EA%B5%AC_%EB%B6%80%EC%A0%84%EB%8F%99_%EB%B6%80%EC%82%B0%EC%83%81%EC%97%85%EA%B3%A0%EB%93%B1%ED%95%99%EA%B5%90_%EA%B5%90%EC%A0%95%EC%9D%98_%EC%8A%A4%EC%9B%A8%EB%8D%B4%EC%A0%81%EC%8B%AD%EC%9E%90%EB%B3%91%EC%9B%90.png"
+        }
+      ],
+      "revision": 1,
+      "updatedAt": "2026-10-18T13:17:16.654Z",
+      "sensitivity": "none",
+      "changes": [
+        {
+          "at": "2026-10-18T13:17:16.654Z",
+          "summary": "원 소장처 메타데이터 수집"
+        }
+      ]
+    },
+    {
+      "id": "rec-c7b9e6d8230c7aa1c69419e1",
+      "title": "한국전 참전 영국군을 돌보는 간호사(일본의 영국 병원).jpg",
+      "originalTitle": "한국전 참전 영국군을 돌보는 간호사(일본의 영국 병원).jpg",
+      "summary": "일본의 영국 병원. 한국전 참전자를 돌보기 위해 추가 의료진이 도착했다. 사진은 박천 (백천) 전투 중 부상당한 영국군을 돌보는 웨일즈 출신의 간호사.",
+      "kind": "photograph",
+      "language": "und",
+      "source": {
+        "name": "Wikimedia Commons · 한국전쟁",
+        "url": "https://commons.wikimedia.org/wiki/File:%ED%95%9C%EA%B5%AD%EC%A0%84_%EC%B0%B8%EC%A0%84_%EC%98%81%EA%B5%AD%EA%B5%B0%EC%9D%84_%EB%8F%8C%EB%B3%B4%EB%8A%94_%EA%B0%84%ED%98%B8%EC%82%AC(%EC%9D%BC%EB%B3%B8%EC%9D%98_%EC%98%81%EA%B5%AD_%EB%B3%91%EC%9B%90).jpg",
+        "identifier": "91546492",
+        "accessedAt": "2026-10-18T13:16:54.789Z"
+      },
+      "dates": {
+        "display": "1950",
+        "start": "1950",
+        "precision": "year"
+      },
+      "warIds": [
+        "korean-war"
+      ],
+      "entityIds": [],
+      "topics": [
+        "PD-South Korea",
+        "Template Unknown (author)",
+        "PD-old missing SDC copyright status",
+        "Korean War in 1950",
+        "Casualties of the Korean War"
+      ],
+      "rights": {
+        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
+        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
+        "downloadAllowed": false,
+        "reuseAllowed": false
+      },
+      "review": {
+        "provenance": "checked",
+        "content": "source-description",
+        "translation": "none"
+      },
+      "media": {
+        "displayAllowed": false
+      },
+      "citations": [
+        {
+          "label": "Wikimedia Commons · 한국전쟁 원 소장처",
+          "url": "https://commons.wikimedia.org/wiki/File:%ED%95%9C%EA%B5%AD%EC%A0%84_%EC%B0%B8%EC%A0%84_%EC%98%81%EA%B5%AD%EA%B5%B0%EC%9D%84_%EB%8F%8C%EB%B3%B4%EB%8A%94_%EA%B0%84%ED%98%B8%EC%82%AC(%EC%9D%BC%EB%B3%B8%EC%9D%98_%EC%98%81%EA%B5%AD_%EB%B3%91%EC%9B%90).jpg"
+        }
+      ],
+      "revision": 1,
+      "updatedAt": "2026-10-18T13:16:54.789Z",
+      "sensitivity": "none",
+      "changes": [
+        {
+          "at": "2026-10-18T13:16:54.789Z",
+          "summary": "원 소장처 메타데이터 수집"
+        }
+      ]
+    },
+    {
+      "id": "rec-ca507e989936548a69f5974e",
+      "title": "Memorial Hall to Resist U.S. Aggression and Aid Korea04.jpg",
+      "originalTitle": "Memorial Hall to Resist U.S. Aggression and Aid Korea04.jpg",
+      "summary": "​抗美援朝纪念馆内的雕塑",
+      "kind": "photograph",
+      "language": "und",
+      "source": {
+        "name": "Wikimedia Commons · 한국전쟁",
+        "url": "https://commons.wikimedia.org/wiki/File:Memorial_Hall_to_Resist_U.S._Aggression_and_Aid_Korea04.jpg",
+        "identifier": "149169623",
+        "accessedAt": "2026-10-18T13:17:23.420Z"
+      },
+      "dates": {
+        "display": "2024-06-07 12:53:17",
+        "precision": "unknown"
+      },
+      "warIds": [
+        "korean-war"
+      ],
+      "entityIds": [],
+      "topics": [
+        "Self-published work",
+        "China photographs taken on 2024-06-07",
+        "Memorial Hall of the War to Resist US Aggression and Aid Korea"
+      ],
+      "rights": {
+        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
+        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
+        "downloadAllowed": false,
+        "reuseAllowed": false
+      },
+      "review": {
+        "provenance": "checked",
+        "content": "source-description",
+        "translation": "none"
+      },
+      "media": {
+        "displayAllowed": false
+      },
+      "citations": [
+        {
+          "label": "Wikimedia Commons · 한국전쟁 원 소장처",
+          "url": "https://commons.wikimedia.org/wiki/File:Memorial_Hall_to_Resist_U.S._Aggression_and_Aid_Korea04.jpg"
+        }
+      ],
+      "revision": 1,
+      "updatedAt": "2026-10-18T13:17:23.420Z",
+      "sensitivity": "none",
+      "changes": [
+        {
+          "at": "2026-10-18T13:17:23.420Z",
+          "summary": "원 소장처 메타데이터 수집"
+        }
+      ]
+    },
+    {
+      "id": "rec-d53bca7bd85001857bc20f18",
+      "title": "Yalu River Broken Bridge 07.jpg",
+      "originalTitle": "Yalu River Broken Bridge 07.jpg",
+      "summary": "​鸭绿江断桥望向朝鲜新义州一侧",
+      "kind": "photograph",
+      "language": "und",
+      "source": {
+        "name": "Wikimedia Commons · 한국전쟁",
+        "url": "https://commons.wikimedia.org/wiki/File:Yalu_River_Broken_Bridge_07.jpg",
+        "identifier": "149227586",
+        "accessedAt": "2026-10-18T13:17:19.195Z"
+      },
+      "dates": {
+        "display": "2024-06-07 11:29:05",
+        "precision": "unknown"
+      },
+      "warIds": [
+        "korean-war"
+      ],
+      "entityIds": [],
+      "topics": [
+        "Yalu River Broken Bridge",
+        "Self-published work",
+        "Files with coordinates missing SDC location of creation",
+        "China photographs taken on 2024-06-07"
+      ],
+      "rights": {
+        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
+        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
+        "downloadAllowed": false,
+        "reuseAllowed": false
+      },
+      "review": {
+        "provenance": "checked",
+        "content": "source-description",
+        "translation": "none"
+      },
+      "media": {
+        "displayAllowed": false
+      },
+      "citations": [
+        {
+          "label": "Wikimedia Commons · 한국전쟁 원 소장처",
+          "url": "https://commons.wikimedia.org/wiki/File:Yalu_River_Broken_Bridge_07.jpg"
+        }
+      ],
+      "revision": 1,
+      "updatedAt": "2026-10-18T13:17:19.195Z",
+      "sensitivity": "none",
+      "location": {
+        "name": "원 소장처 자료 지오태그",
+        "lat": 40.11501,
+        "lon": 124.39122,
+        "precision": "approximate"
+      },
+      "changes": [
+        {
+          "at": "2026-10-18T13:17:19.195Z",
+          "summary": "원 소장처 메타데이터 수집"
+        }
+      ]
+    },
+    {
+      "id": "rec-d891cd085d9621887114da11",
+      "title": "David Ketel met de Koreaanse Prins Fridi, NG-2009-136-56.jpg",
+      "originalTitle": "David Ketel met de Koreaanse Prins Fridi, NG-2009-136-56.jpg",
+      "summary": "Identificatie Titel(s): David Ketel met de Koreaanse Prins Fridi. Oorlog in Korea (serietitel) Objecttype: kleurendia Objectnummer: NG-2009-136-56 Vervaardiging Vervaardiger: fotograaf: David Ketel Plaats vervaardiging: Korea Datering: 1952 Techniek: diapositief Afmetingen: hoogte 5 cm. × breedte 5 cm. Onderwerp Wat: Koreaanse oorlog (1950-1953) Wanneer: 1950 - 1954 Waar: Korea Wie: Verenigde Naties Verwerving en rechten Credit line: Schenking van mevrouw C. van der Pijl-Ketel, Amsterdam Verwerving: schenking 23-sep-2010 Copyright: Publiek domein",
+      "kind": "photograph",
+      "language": "und",
+      "source": {
+        "name": "Wikimedia Commons · 한국전쟁",
+        "url": "https://commons.wikimedia.org/wiki/File:David_Ketel_met_de_Koreaanse_Prins_Fridi,_NG-2009-136-56.jpg",
+        "identifier": "145461415",
+        "accessedAt": "2026-10-18T13:17:26.303Z"
+      },
+      "dates": {
+        "display": "1952",
+        "start": "1952",
+        "precision": "year"
+      },
+      "warIds": [
+        "korean-war"
+      ],
+      "entityIds": [],
+      "topics": [
+        "CC-Zero",
+        "Netherlands in the Korean War",
+        "Korean War in 1952",
+        "Oorlog in Korea"
+      ],
+      "rights": {
+        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
+        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
+        "downloadAllowed": false,
+        "reuseAllowed": false
+      },
+      "review": {
+        "provenance": "checked",
+        "content": "source-description",
+        "translation": "none"
+      },
+      "media": {
+        "displayAllowed": false
+      },
+      "citations": [
+        {
+          "label": "Wikimedia Commons · 한국전쟁 원 소장처",
+          "url": "https://commons.wikimedia.org/wiki/File:David_Ketel_met_de_Koreaanse_Prins_Fridi,_NG-2009-136-56.jpg"
+        }
+      ],
+      "revision": 1,
+      "updatedAt": "2026-10-18T13:17:26.303Z",
+      "sensitivity": "none",
+      "changes": [
+        {
+          "at": "2026-10-18T13:17:26.303Z",
+          "summary": "원 소장처 메타데이터 수집"
+        }
+      ]
+    },
+    {
       "id": "rec-dc9fbea4e4472121b965e40e",
       "title": "\"Knock off a Japanazi with a war stamp. Take your change in war stamps\" - NARA - 514832.tif",
       "originalTitle": "\"Knock off a Japanazi with a war stamp. Take your change in war stamps\" - NARA - 514832.tif",
@@ -2883,6 +4937,68 @@
       "changes": [
         {
           "at": "2026-10-18T10:57:29.294Z",
+          "summary": "원 소장처 메타데이터 수집"
+        }
+      ]
+    },
+    {
+      "id": "rec-e3e80c817de0fe2e7a8ccad5",
+      "title": "인천상륙작전기념관 입구2 2024.jpg",
+      "originalTitle": "인천상륙작전기념관 입구2 2024.jpg",
+      "summary": "Incheon Landing Operation Memorial Hall (a memorial hall honoring the spirits of veterans of the U.S. Marine Corps, UN forces, and Korean forces) located at 138 Cheongnyang-ro, Yeonsu-gu, Incheon Metropolitan City",
+      "kind": "photograph",
+      "language": "und",
+      "source": {
+        "name": "Wikimedia Commons · 한국전쟁",
+        "url": "https://commons.wikimedia.org/wiki/File:%EC%9D%B8%EC%B2%9C%EC%83%81%EB%A5%99%EC%9E%91%EC%A0%84%EA%B8%B0%EB%85%90%EA%B4%80_%EC%9E%85%EA%B5%AC2_2024.jpg",
+        "identifier": "155113642",
+        "accessedAt": "2026-10-18T13:17:18.678Z"
+      },
+      "dates": {
+        "display": "2024-11-10 12:55:35",
+        "precision": "unknown"
+      },
+      "warIds": [
+        "korean-war"
+      ],
+      "entityIds": [],
+      "topics": [
+        "Self-published work",
+        "Files with coordinates missing SDC location of creation",
+        "Incheon Landing Operation Memorial Hall"
+      ],
+      "rights": {
+        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
+        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
+        "downloadAllowed": false,
+        "reuseAllowed": false
+      },
+      "review": {
+        "provenance": "checked",
+        "content": "source-description",
+        "translation": "none"
+      },
+      "media": {
+        "displayAllowed": false
+      },
+      "citations": [
+        {
+          "label": "Wikimedia Commons · 한국전쟁 원 소장처",
+          "url": "https://commons.wikimedia.org/wiki/File:%EC%9D%B8%EC%B2%9C%EC%83%81%EB%A5%99%EC%9E%91%EC%A0%84%EA%B8%B0%EB%85%90%EA%B4%80_%EC%9E%85%EA%B5%AC2_2024.jpg"
+        }
+      ],
+      "revision": 1,
+      "updatedAt": "2026-10-18T13:17:18.678Z",
+      "sensitivity": "none",
+      "location": {
+        "name": "원 소장처 자료 지오태그",
+        "lat": 37.419731,
+        "lon": 126.653344,
+        "precision": "approximate"
+      },
+      "changes": [
+        {
+          "at": "2026-10-18T13:17:18.678Z",
           "summary": "원 소장처 메타데이터 수집"
         }
       ]
@@ -3007,6 +5123,70 @@
       ]
     },
     {
+      "id": "rec-e8617e758e6bba05ade8a957",
+      "title": "Pershing Field Korean War Monument.jpg",
+      "originalTitle": "Pershing Field Korean War Monument.jpg",
+      "summary": "Pershing Field Korean War Monument",
+      "kind": "photograph",
+      "language": "und",
+      "source": {
+        "name": "Wikimedia Commons · 한국전쟁",
+        "url": "https://commons.wikimedia.org/wiki/File:Pershing_Field_Korean_War_Monument.jpg",
+        "identifier": "163836241",
+        "accessedAt": "2026-10-18T13:17:17.740Z"
+      },
+      "dates": {
+        "display": "2025-04-19 15:29:48",
+        "precision": "unknown"
+      },
+      "warIds": [
+        "korean-war"
+      ],
+      "entityIds": [],
+      "topics": [
+        "Pershing Field",
+        "Self-published work",
+        "Files with coordinates missing SDC location of creation",
+        "Photographs by Demetri Andriani",
+        "Photographs of Pershing Field by Demetri Andriani"
+      ],
+      "rights": {
+        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
+        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
+        "downloadAllowed": false,
+        "reuseAllowed": false
+      },
+      "review": {
+        "provenance": "checked",
+        "content": "source-description",
+        "translation": "none"
+      },
+      "media": {
+        "displayAllowed": false
+      },
+      "citations": [
+        {
+          "label": "Wikimedia Commons · 한국전쟁 원 소장처",
+          "url": "https://commons.wikimedia.org/wiki/File:Pershing_Field_Korean_War_Monument.jpg"
+        }
+      ],
+      "revision": 1,
+      "updatedAt": "2026-10-18T13:17:17.740Z",
+      "sensitivity": "none",
+      "location": {
+        "name": "원 소장처 자료 지오태그",
+        "lat": 40.742517,
+        "lon": -74.054069,
+        "precision": "approximate"
+      },
+      "changes": [
+        {
+          "at": "2026-10-18T13:17:17.740Z",
+          "summary": "원 소장처 메타데이터 수집"
+        }
+      ]
+    },
+    {
       "id": "rec-f1f58a3a514b64c0752f4305",
       "title": "UNITED STATES ARMY PROTECT PRODUCTION - NARA - 515921.tif",
       "originalTitle": "UNITED STATES ARMY PROTECT PRODUCTION - NARA - 515921.tif",
@@ -3063,6 +5243,69 @@
       "changes": [
         {
           "at": "2026-10-18T10:57:29.365Z",
+          "summary": "원 소장처 메타데이터 수집"
+        }
+      ]
+    },
+    {
+      "id": "rec-f31413a04b1ec0a4a68b47aa",
+      "title": "Veteranos.jpg",
+      "originalTitle": "Veteranos.jpg",
+      "summary": "Logo of the assosation.",
+      "kind": "photograph",
+      "language": "und",
+      "source": {
+        "name": "Wikimedia Commons · 한국전쟁",
+        "url": "https://commons.wikimedia.org/wiki/File:Veteranos.jpg",
+        "identifier": "108914939",
+        "accessedAt": "2026-10-18T13:17:39.277Z"
+      },
+      "dates": {
+        "display": "2021-06-15",
+        "start": "2021-06-15",
+        "precision": "exact"
+      },
+      "warIds": [
+        "korean-war"
+      ],
+      "entityIds": [],
+      "topics": [
+        "CC-Zero",
+        "Items with VRTS permission confirmed"
+      ],
+      "rights": {
+        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
+        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
+        "downloadAllowed": false,
+        "reuseAllowed": false
+      },
+      "review": {
+        "provenance": "checked",
+        "content": "source-description",
+        "translation": "none"
+      },
+      "media": {
+        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/4/42/Veteranos.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "displayAllowed": true,
+        "attribution": {
+          "creator": "Asociación de Veteranos Mexicanos de la Guerra de Corea",
+          "credit": "https://www.koreatimes.co.kr/www/nation/2021/06/176_310485.html",
+          "license": "CC0",
+          "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+        }
+      },
+      "citations": [
+        {
+          "label": "Wikimedia Commons · 한국전쟁 원 소장처",
+          "url": "https://commons.wikimedia.org/wiki/File:Veteranos.jpg"
+        }
+      ],
+      "revision": 1,
+      "updatedAt": "2026-10-18T13:17:39.277Z",
+      "sensitivity": "none",
+      "changes": [
+        {
+          "at": "2026-10-18T13:17:39.277Z",
           "summary": "원 소장처 메타데이터 수집"
         }
       ]
@@ -3248,6 +5491,122 @@
           "summary": "원 소장처 메타데이터 수집"
         }
       ]
+    },
+    {
+      "id": "rec-fca4d59b2358363af850ed66",
+      "title": "6.25전쟁관련자료42.jpg",
+      "originalTitle": "6.25전쟁관련자료42.jpg",
+      "summary": "6.25전쟁",
+      "kind": "photograph",
+      "language": "und",
+      "source": {
+        "name": "Wikimedia Commons · 한국전쟁",
+        "url": "https://commons.wikimedia.org/wiki/File:6.25%EC%A0%84%EC%9F%81%EA%B4%80%EB%A0%A8%EC%9E%90%EB%A3%8C42.jpg",
+        "identifier": "91548974",
+        "accessedAt": "2026-10-18T13:17:04.413Z"
+      },
+      "dates": {
+        "display": "1950",
+        "start": "1950",
+        "precision": "year"
+      },
+      "warIds": [
+        "korean-war"
+      ],
+      "entityIds": [],
+      "topics": [
+        "PD-South Korea",
+        "PD-1996",
+        "Korean War in 1950",
+        "North American F-51 Mustangs in the Korean War"
+      ],
+      "rights": {
+        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
+        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
+        "downloadAllowed": false,
+        "reuseAllowed": false
+      },
+      "review": {
+        "provenance": "checked",
+        "content": "source-description",
+        "translation": "none"
+      },
+      "media": {
+        "displayAllowed": false
+      },
+      "citations": [
+        {
+          "label": "Wikimedia Commons · 한국전쟁 원 소장처",
+          "url": "https://commons.wikimedia.org/wiki/File:6.25%EC%A0%84%EC%9F%81%EA%B4%80%EB%A0%A8%EC%9E%90%EB%A3%8C42.jpg"
+        }
+      ],
+      "revision": 1,
+      "updatedAt": "2026-10-18T13:17:04.413Z",
+      "sensitivity": "none",
+      "changes": [
+        {
+          "at": "2026-10-18T13:17:04.413Z",
+          "summary": "원 소장처 메타데이터 수집"
+        }
+      ]
+    },
+    {
+      "id": "rec-ffecd377250a10ff257a5874",
+      "title": "37to17th Bomb Sq Image.jpg",
+      "originalTitle": "37to17th Bomb Sq Image.jpg",
+      "summary": "89927632 :Piction ID--17th Bomb Squadron Image from Korean War, Douglas B-26 Invader---Please tag these photos so information can be recorded--Repository: San Diego Air and Space Museum Archive 89927632 :Piction ID--17th Bomb Squadron Image from Korean War, Douglas B-26 Invader---Please tag these photos so information can be recorded--Repository: San Diego Air and Space Museum Archive",
+      "kind": "photograph",
+      "language": "und",
+      "source": {
+        "name": "Wikimedia Commons · 한국전쟁",
+        "url": "https://commons.wikimedia.org/wiki/File:37to17th_Bomb_Sq_Image.jpg",
+        "identifier": "175721845",
+        "accessedAt": "2026-10-18T13:17:16.230Z"
+      },
+      "dates": {
+        "display": "circa 1951 date QS:P,+1951-00-00T00:00:00Z/9,P1480,Q5727902",
+        "start": "1951",
+        "precision": "circa"
+      },
+      "warIds": [
+        "korean-war"
+      ],
+      "entityIds": [],
+      "topics": [
+        "17th Bombardment Group (United States Army Air Forces)",
+        "Files from Flickr's 'The Commons'",
+        "Flickr images reviewed by FlickreviewR 2",
+        "B-26 Invaders in the Korean War"
+      ],
+      "rights": {
+        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
+        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
+        "downloadAllowed": false,
+        "reuseAllowed": false
+      },
+      "review": {
+        "provenance": "checked",
+        "content": "source-description",
+        "translation": "none"
+      },
+      "media": {
+        "displayAllowed": false
+      },
+      "citations": [
+        {
+          "label": "Wikimedia Commons · 한국전쟁 원 소장처",
+          "url": "https://commons.wikimedia.org/wiki/File:37to17th_Bomb_Sq_Image.jpg"
+        }
+      ],
+      "revision": 1,
+      "updatedAt": "2026-10-18T13:17:16.230Z",
+      "sensitivity": "none",
+      "changes": [
+        {
+          "at": "2026-10-18T13:17:16.230Z",
+          "summary": "원 소장처 메타데이터 수집"
+        }
+      ]
     }
   ],
   "wars": [
@@ -3362,8 +5721,8 @@
   "claims": [],
   "coverage": {
     "sources": 4,
-    "records": 54,
-    "lastCollectedAt": "2026-10-18T11:00:35.784Z",
+    "records": 93,
+    "lastCollectedAt": "2026-10-18T13:16:41.198Z",
     "limitations": [
       "수록 자료는 전체 전쟁 기록의 일부입니다.",
       "원 소장처의 설명을 기록하며, 출처의 주장을 독립적으로 검증한 것으로 표시하지 않습니다.",
