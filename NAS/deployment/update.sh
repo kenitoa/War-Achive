@@ -16,9 +16,23 @@ docker_call() {
 # The existing Synology sudo rule authorizes the Docker executable only; no generic sudo shell is used.
 docker_call compose version >/dev/null
 mkdir -p "$task_root/state" "$task_root/shared" "$task_root/backups"
+# Keep the lock inode: deleting this file while locked would allow a second updater to bypass it.
+# The kernel releases fd 9 after exits/SIGKILL, so same-boot crashes cannot permanently block updates.
+exec 9> "$task_root/state/update.flock"
+if ! flock -n 9; then printf '%s\n' 'Another deployment holds the update lock; skipped.'; exit 0; fi
 task_boot=$(cat /proc/sys/kernel/random/boot_id)
-if [ -d "$task_root/state/update.lock" ] && [ -f "$task_root/state/update.lock/boot" ] && [ "$(cat "$task_root/state/update.lock/boot")" != "$task_boot" ]; then
-  # A lock from another boot cannot belong to an active deployment. Remove only our own two marker files.
+if [ -d "$task_root/state/update.lock" ]; then
+  task_legacy_boot=$(cat "$task_root/state/update.lock/boot" 2>/dev/null || true)
+  task_legacy_pid=$(cat "$task_root/state/update.lock/pid" 2>/dev/null || true)
+  # Old bootstraps use only this directory lock. Never overlap a still-active legacy deployment.
+  if [ "$task_legacy_boot" = "$task_boot" ]; then
+    case "$task_legacy_pid" in *[!0-9]*|'') printf '%s\n' 'An incomplete legacy lock requires inspection; skipped.'; exit 0;; esac
+    if kill -0 "$task_legacy_pid" 2>/dev/null || [ -d "/proc/$task_legacy_pid" ]; then printf '%s\n' 'An active legacy deployment holds the update lock; skipped.'; exit 0; fi
+  elif [ -z "$task_legacy_boot" ]; then
+    printf '%s\n' 'An unidentified legacy lock requires inspection; skipped.'; exit 0
+  fi
+  # A confirmed dead PID or different boot can no longer own the legacy markers.
+  # Remove only our marker files; unknown contents cause rmdir to fail conservatively.
   rm -f "$task_root/state/update.lock/pid" "$task_root/state/update.lock/boot"
   rmdir "$task_root/state/update.lock"
 fi
@@ -91,4 +105,7 @@ dc "$task_compose" up -d --no-build api worker publicgateway
 healthy api && healthy worker && healthy publicgateway || { printf '%s\n' 'Application health checks failed.' >&2; exit 1; }
 helper none activate "$task_commit"
 task_done=true
+# The current shell keeps its original inode; the next invocation uses the validated release scripts.
+# A bootstrap refresh failure leaves the healthy activated application running and reports nonzero.
+helper none refresh-bootstrap "$task_commit"
 printf '%s\n' "Backend deployment complete: $task_commit"

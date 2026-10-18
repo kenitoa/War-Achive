@@ -12,6 +12,7 @@ const execute = promisify(execFile);
 let root: string | undefined;
 afterEach(async () => { if (root) await rm(root, { recursive: true, force: true, maxRetries: 5, retryDelay: 100 }); root = undefined; });
 const snapshot: PublicArchive = { schemaVersion: 1, releaseId: 'rel-local-ssh-proof', generatedAt: '2026-10-18T00:00:00.000Z', records: [], wars: [], entities: [], collections: [] };
+const testConfig = { NODE_ENV: 'test', WAR_ARCHIVE_ADMIN_TOKEN: 'publisher-test-admin-token-32-characters' };
 async function git(args: string[], cwd: string): Promise<string> { return (await execute('git', ['-c', 'user.name=Fixture Editor', '-c', 'user.email=fixture@example.invalid', '-c', 'commit.gpgsign=false', ...args], { cwd, windowsHide: true, env: { ...process.env, GIT_TERMINAL_PROMPT: '0' } })).stdout.trim(); }
 async function fixture(): Promise<{ remote: string; work: string }> {
   root = await mkdtemp(join(tmpdir(), 'archive-git-fixture-'));
@@ -60,9 +61,9 @@ describe('scoped Git publication transaction', () => {
     for (const path of ['../.env', '/.env', '.git/config', 'Vercel/../NAS/.env', 'Vercel/.env', '-archive.json']) expect(validGitTarget('kenitoa/War-Achive', 'main', path)).toBe(false);
     expect(validGitTarget('kenitoa/War-Achive', 'main', 'Vercel/content/archive.json')).toBe(true);
     await expect(publishSnapshotWithDeployKey(snapshot, { repository: 'kenitoa/War-Achive', ref: 'main', contentPath: 'Vercel/content/archive.json', sshKeyPath: 'relative.key', sshKnownHostsPath: 'relative.hosts' })).rejects.toMatchObject({ code: 'GITHUB_SSH_CONFIG_INVALID' });
-    const config = loadConfig({ REMOTE_PUBLISH_ENABLED: 'true', GITHUB_FRONT_REPOSITORY: 'kenitoa/War-Achive', GITHUB_FRONT_TOKEN: '', GITHUB_FRONT_SSH_KEY_PATH: '/run/secrets/github_deploy_key', GITHUB_FRONT_SSH_KNOWN_HOSTS_PATH: '/run/secrets/github_known_hosts' });
+    const config = loadConfig({ ...testConfig, REMOTE_PUBLISH_ENABLED: 'true', GITHUB_FRONT_REPOSITORY: 'kenitoa/War-Achive', GITHUB_FRONT_TOKEN: '', GITHUB_FRONT_SSH_KEY_PATH: '/run/secrets/github_deploy_key', GITHUB_FRONT_SSH_KNOWN_HOSTS_PATH: '/run/secrets/github_known_hosts' });
     expect(config.github?.token).toBeUndefined();
     expect(config.github?.sshKeyPath).toBe('/run/secrets/github_deploy_key');
-    expect(() => loadConfig({ GITHUB_FRONT_SSH_KEY_PATH: '/run/secrets/key', GITHUB_FRONT_SSH_KNOWN_HOSTS_PATH: '' })).toThrow('Configure both');
+    expect(() => loadConfig({ ...testConfig, GITHUB_FRONT_SSH_KEY_PATH: '/run/secrets/key', GITHUB_FRONT_SSH_KNOWN_HOSTS_PATH: '' })).toThrow('Configure both');
   });
 });

@@ -4,6 +4,10 @@ import { dirname, isAbsolute, join, resolve, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { parseEnv } from 'node:util';
 import { gunzipSync } from 'node:zlib';
+import { execFile } from 'node:child_process';
+import { promisify } from 'node:util';
+
+const run = promisify(execFile);
 
 const repository = 'kenitoa/War-Achive';
 const shaPattern = /^[a-f0-9]{40}$/;
@@ -198,14 +202,46 @@ export async function activate(root, commit) {
   console.log(JSON.stringify({ operation: 'deployment.activate', status: 'complete', commit }));
 }
 
+export async function refreshBootstrap(root, commit, options = {}) {
+  assertCommit(commit);
+  if ((await readState(root))?.commit !== commit) throw new Error('Bootstrap refresh requires a successfully activated release');
+  const release = join(root, 'releases', commit);
+  const metadata = JSON.parse(await readFile(join(release, 'release-source.json'), 'utf8'));
+  if (metadata.repository !== repository || metadata.commit !== commit) throw new Error('Bootstrap source does not match the validated release');
+  const target = join(root, 'deployment');
+  await directory(target);
+  const names = ['controller.mjs', 'update.sh'];
+  const files = [];
+  for (const name of names) {
+    const source = join(release, 'deployment', name), information = await lstat(source);
+    if (!information.isFile() || information.isSymbolicLink() || information.size > 1024 * 1024) throw new Error('Bootstrap must consist of bounded regular source files');
+    files.push({ name, source, bytes: await readFile(source) });
+  }
+  // Validate both candidates before changing either bootstrap path. Do not expose source in errors.
+  try {
+    await run(process.execPath, ['--check', files[0].source], { timeout: 30_000 });
+    await run(options.shell ?? '/bin/sh', ['-n', files[1].source], { timeout: 30_000 });
+  } catch { throw new Error('Candidate bootstrap syntax validation failed; existing bootstrap preserved'); }
+  for (const file of files) {
+    file.temporary = join(target, `.${file.name}.${randomUUID()}.partial`);
+    await writeFile(file.temporary, file.bytes, { flag: 'wx', mode: 0o600 });
+  }
+  // Rename replaces the directory entry, preserving any inode open by the running updater.
+  // Both command interfaces remain compatible across the two sequential atomic replacements.
+  for (const file of files) await rename(file.temporary, join(target, file.name));
+  await atomicJson(join(root, 'state/bootstrap.json'), { commit, refreshedAt: new Date().toISOString(), files: files.map(file => ({ name: file.name, sha256: createHash('sha256').update(file.bytes).digest('hex') })) });
+  console.log(JSON.stringify({ operation: 'deployment.bootstrap', status: 'complete', commit }));
+}
+
 async function main() {
   const [command, root, hostRoot, commit] = process.argv.slice(2);
   if (!root || !isAbsolute(root) || root === '/') throw new Error('An absolute dedicated deployment directory is required');
   if (command === 'prepare') { const result = await prepareEnvironment(root); console.log(JSON.stringify({ operation: 'deployment.prepare', status: 'complete', settingsAdded: result.additions })); }
   else if (command === 'fetch') await fetchRelease(root, hostRoot, commit);
   else if (command === 'activate') await activate(root, assertCommit(hostRoot));
+  else if (command === 'refresh-bootstrap') await refreshBootstrap(root, assertCommit(hostRoot));
   else if (command === 'current') console.log((await readState(root))?.commit ?? '');
-  else throw new Error('Supported commands: prepare, fetch, current, activate');
+  else throw new Error('Supported commands: prepare, fetch, current, activate, refresh-bootstrap');
 }
 
 if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) main().catch(error => { console.error(JSON.stringify({ operation: 'deployment', status: 'failed', message: error.message })); process.exitCode = 1; });

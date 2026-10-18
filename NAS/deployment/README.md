@@ -1,6 +1,6 @@
 # NAS · VS Code · Vercel 자동 연결
 
-운영 경로는 `/volume3/docker/War_Archive_Server`이고 대상 저장소는 `kenitoa/War-Achive`, 운영 브랜치는 `main`이다. VS Code에서 저장한 코드는 커밋·push 후 전달된다. 저장만으로 검증되지 않은 코드를 NAS에서 실행하지 않는다.
+운영 경로는 `/volume3/docker/War_Archive_Server`이고 대상 저장소는 `kenitoa/War-Achive`, 운영 브랜치는 `main`이다. VS Code에서 저장한 코드는 검사·커밋·push 후 전달된다. NAS는 5분 간격으로 변경을 확인하며 Vercel은 Git 연결로 배포한다.
 
 ```text
 VS Code → GitHub main ┬─ NAS 코드 변경 → DSM 업데이트 작업 → Docker API / worker

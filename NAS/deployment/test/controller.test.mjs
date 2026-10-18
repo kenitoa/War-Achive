@@ -1,11 +1,11 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { gzipSync } from 'node:zlib';
-import { mkdtemp, mkdir, readFile, writeFile, readdir, rm } from 'node:fs/promises';
+import { mkdtemp, mkdir, readFile, writeFile, readdir, rm, open } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { parseEnv } from 'node:util';
-import { activate, archiveFiles, assertCommit, deploymentCompose, prepareEnvironment, readState } from '../controller.mjs';
+import { activate, archiveFiles, assertCommit, deploymentCompose, prepareEnvironment, readState, refreshBootstrap } from '../controller.mjs';
 
 const first = 'a'.repeat(40), second = 'b'.repeat(40);
 function archive(entries) {
@@ -94,4 +94,60 @@ test('activation records rollback target only after explicit success and retries
     assert.equal((await readState(root)).previousCommit, first);
     assert.equal((await readdir(join(root, 'state'))).some(name => name.endsWith('.partial')), false);
   } finally { await rm(root, { recursive: true, force: true }); }
+});
+
+async function bootstrapFixture() {
+  const root = await mkdtemp(join(tmpdir(), 'war-deploy-bootstrap-'));
+  await mkdir(join(root, 'state'));
+  await mkdir(join(root, 'deployment'));
+  const source = join(root, 'releases', first);
+  await mkdir(join(source, 'deployment'), { recursive: true });
+  await writeFile(join(source, 'release-source.json'), JSON.stringify({ repository: 'kenitoa/War-Achive', commit: first }));
+  await writeFile(join(root, 'deployment/controller.mjs'), 'export const version = "previous";\n');
+  await writeFile(join(root, 'deployment/update.sh'), '#!/bin/sh\nprintf previous\n');
+  await writeFile(join(source, 'deployment/controller.mjs'), 'export const version = "next";\n');
+  await writeFile(join(source, 'deployment/update.sh'), '#!/bin/sh\nprintf next\n');
+  return { root, source, options: { shell: process.platform === 'win32' ? 'C:/Program Files/Git/bin/bash.exe' : '/bin/sh' } };
+}
+
+test('bootstrap refresh replaces validated files by rename and preserves an already open updater inode', async () => {
+  const { root, options } = await bootstrapFixture();
+  let running;
+  try {
+    // Windows denies replacement of an open file; the NAS runs Linux.
+    if (process.platform !== 'win32') running = await open(join(root, 'deployment/update.sh'), 'r');
+    await activate(root, first);
+    await refreshBootstrap(root, first, options);
+    assert.equal(await readFile(join(root, 'deployment/controller.mjs'), 'utf8'), 'export const version = "next";\n');
+    assert.equal(await readFile(join(root, 'deployment/update.sh'), 'utf8'), '#!/bin/sh\nprintf next\n');
+    if (running) assert.equal(await running.readFile('utf8'), '#!/bin/sh\nprintf previous\n');
+    assert.equal(JSON.parse(await readFile(join(root, 'state/bootstrap.json'), 'utf8')).commit, first);
+    assert.equal((await readdir(join(root, 'deployment'))).some(name => name.endsWith('.partial')), false);
+  } finally { await running?.close(); await rm(root, { recursive: true, force: true }); }
+});
+
+test('inactive or invalid candidate bootstrap leaves both current files untouched', async () => {
+  const { root, source, options } = await bootstrapFixture();
+  try {
+    await assert.rejects(() => refreshBootstrap(root, first, options), /successfully activated/);
+    await activate(root, first);
+    await writeFile(join(source, 'deployment/update.sh'), '#!/bin/sh\nif broken syntax\n');
+    await assert.rejects(() => refreshBootstrap(root, first, options), /syntax validation failed/);
+    assert.equal(await readFile(join(root, 'deployment/controller.mjs'), 'utf8'), 'export const version = "previous";\n');
+    assert.equal(await readFile(join(root, 'deployment/update.sh'), 'utf8'), '#!/bin/sh\nprintf previous\n');
+  } finally { await rm(root, { recursive: true, force: true }); }
+});
+
+test('updater lock contract uses kernel flock and preserves active legacy deployments', async () => {
+  const script = await readFile(new URL('../update.sh', import.meta.url), 'utf8');
+  const acquire = script.indexOf('flock -n 9');
+  const legacyPid = script.indexOf('kill -0 "$task_legacy_pid"');
+  const reclaim = script.indexOf('rm -f "$task_root/state/update.lock/pid"');
+  const fetch = script.indexOf('helper bridge fetch');
+  assert.ok(acquire > 0 && acquire < legacyPid && legacyPid < reclaim && reclaim < fetch);
+  assert.match(script, /exec 9> "\$task_root\/state\/update\.flock"/);
+  assert.doesNotMatch(script, /rm[^\n]*update\.flock/);
+  assert.match(script, /sudo -n "\$task_docker" "\$@"/);
+  assert.match(script, /--user "\$task_uid:\$task_gid"/);
+  assert.ok(script.indexOf('task_done=true\n# The current shell') < script.indexOf('helper none refresh-bootstrap'));
 });
