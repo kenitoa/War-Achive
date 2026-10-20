@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "releaseId": "rel-7c1531ff-0266-4c19-8b2c-5cafea88d8f2",
-  "generatedAt": "2026-10-20T18:03:07.080Z",
+  "releaseId": "rel-2119fcc1-b250-43e9-a1fc-b8af6b61bdb8",
+  "generatedAt": "2026-10-20T19:03:33.210Z",
   "records": [
     {
       "id": "rec-01f8a4878542639b4b34fe67",
@@ -1402,63 +1402,6 @@
       ]
     },
     {
-      "id": "rec-1d65690c7c1c625a611f4d42",
-      "title": "SMASH THE PROSTITUTION RACKET - DPLA - f4953dc204e8b12f71580a0368486063.gif",
-      "originalTitle": "SMASH THE PROSTITUTION RACKET - DPLA - f4953dc204e8b12f71580a0368486063.gif",
-      "summary": "원 소장처의 자료 정보와 이용 조건을 확인할 수 있는 기록입니다.",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제2차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:SMASH_THE_PROSTITUTION_RACKET_-_DPLA_-_f4953dc204e8b12f71580a0368486063.gif",
-        "identifier": "193042966",
-        "accessedAt": "2026-10-20T05:02:46.505Z"
-      },
-      "dates": {
-        "display": "1941-01-01/1945-12-31",
-        "precision": "unknown"
-      },
-      "warIds": [
-        "world-war-ii"
-      ],
-      "entityIds": [],
-      "topics": [
-        "PD US",
-        "Media contributed by the National Archives and Records Administration",
-        "Media contributed by the Digital Public Library of America",
-        "Media contributed by National Archives at College Park - Still Pictures"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제2차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:SMASH_THE_PROSTITUTION_RACKET_-_DPLA_-_f4953dc204e8b12f71580a0368486063.gif"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-20T05:02:46.505Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-20T05:02:46.505Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
       "id": "rec-1d7203edb74338659d2c338c",
       "title": "Capitaine Adde Tableau d’honneur de la grande guerre.png",
       "originalTitle": "Capitaine Adde Tableau d’honneur de la grande guerre.png",
@@ -2120,68 +2063,6 @@
       ]
     },
     {
-      "id": "rec-2a86f7ea5f0d7c7cd12fa93a",
-      "title": "Custis - Daylor(...) - NARA - 108628636 (page 1028).jpg",
-      "originalTitle": "Custis - Daylor(...) - NARA - 108628636 (page 1028).jpg",
-      "summary": "원 소장처의 자료 정보와 이용 조건을 확인할 수 있는 기록입니다.",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제2차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:Custis_-_Daylor(...)_-_NARA_-_108628636_(page_1028).jpg",
-        "identifier": "80527714",
-        "accessedAt": "2026-10-20T11:08:43.373Z"
-      },
-      "dates": {
-        "display": "1943 – 1948",
-        "start": "1943",
-        "end": "1948",
-        "precision": "range"
-      },
-      "warIds": [
-        "world-war-ii"
-      ],
-      "entityIds": [],
-      "topics": [
-        "Images from the National Archives and Records Administration",
-        "Media contributed by the National Archives and Records Administration",
-        "Artworks without Wikidata item",
-        "PD US PHS",
-        "Template Unknown (author)",
-        "US National Archives series: Cadet Nurse Corps Files",
-        "US National Archives location: other"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제2차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:Custis_-_Daylor(...)_-_NARA_-_108628636_(page_1028).jpg"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-20T11:08:43.373Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-20T11:08:43.373Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
       "id": "rec-2b998854096c777a6485f503",
       "title": "Traffic Patter, Volume 3, Number 8, December 1956 - DPLA - 828e7e97b230acfb867b57714209066f (page 16).jpg",
       "originalTitle": "Traffic Patter, Volume 3, Number 8, December 1956 - DPLA - 828e7e97b230acfb867b57714209066f (page 16).jpg",
@@ -2679,68 +2560,6 @@
       "changes": [
         {
           "at": "2026-10-20T05:13:38.939Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
-      "id": "rec-2fcd1bc22c624d698f137a7e",
-      "title": "Bundesarchiv Bild 101I-001-0251-15, Warschau, Parade deutscher Truppen.jpg",
-      "originalTitle": "Bundesarchiv Bild 101I-001-0251-15, Warschau, Parade deutscher Truppen.jpg",
-      "summary": "Warsaw during World War II:",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제2차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:Bundesarchiv_Bild_101I-001-0251-15,_Warschau,_Parade_deutscher_Truppen.jpg",
-        "identifier": "5475095",
-        "accessedAt": "2026-10-20T11:09:19.978Z"
-      },
-      "dates": {
-        "display": "September 1939 or October 1939",
-        "precision": "unknown"
-      },
-      "warIds": [
-        "world-war-ii"
-      ],
-      "entityIds": [],
-      "topics": [
-        "Heer (Wehrmacht)",
-        "Images from the German Federal Archive",
-        "Parades of World War II",
-        "October 1939 Poland photographs",
-        "October 1939 in Warsaw",
-        "Nazi parades",
-        "Piłsudski Square in Warsaw during World War II",
-        "Photographs by Schulze, PK",
-        "Warsaw victory parade (1939)"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제2차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:Bundesarchiv_Bild_101I-001-0251-15,_Warschau,_Parade_deutscher_Truppen.jpg"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-20T11:09:19.978Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-20T11:09:19.978Z",
           "summary": "원 소장처 메타데이터 수집"
         }
       ]
@@ -4080,63 +3899,6 @@
       ]
     },
     {
-      "id": "rec-444adb02ced4fe982a192fca",
-      "title": "\"USE A FORK - DON'T BE A BUTTERFINGER\" - DPLA - cffc3a5c85ceb4d4dee6dc1d61a08a6f.gif",
-      "originalTitle": "\"USE A FORK - DON'T BE A BUTTERFINGER\" - DPLA - cffc3a5c85ceb4d4dee6dc1d61a08a6f.gif",
-      "summary": "원 소장처의 자료 정보와 이용 조건을 확인할 수 있는 기록입니다.",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제2차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:%22USE_A_FORK_-_DON%27T_BE_A_BUTTERFINGER%22_-_DPLA_-_cffc3a5c85ceb4d4dee6dc1d61a08a6f.gif",
-        "identifier": "193034346",
-        "accessedAt": "2026-10-20T17:04:45.728Z"
-      },
-      "dates": {
-        "display": "1941-01-01/1945-12-31",
-        "precision": "unknown"
-      },
-      "warIds": [
-        "world-war-ii"
-      ],
-      "entityIds": [],
-      "topics": [
-        "PD US",
-        "Media contributed by the National Archives and Records Administration",
-        "Media contributed by the Digital Public Library of America",
-        "Media contributed by National Archives at College Park - Still Pictures"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제2차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:%22USE_A_FORK_-_DON%27T_BE_A_BUTTERFINGER%22_-_DPLA_-_cffc3a5c85ceb4d4dee6dc1d61a08a6f.gif"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-20T17:04:45.728Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-20T17:04:45.728Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
       "id": "rec-44a3d65076590c81a64c494a",
       "title": "Ceremonies - Liberations - Memorial Day, 1918 - Memorial Day Parade. Memorial Day Parade on Broad St. of G.A.R. Veterans. Passing the Union League, Philadelphia, PA - NARA - 20809820.jpg",
       "originalTitle": "Ceremonies - Liberations - Memorial Day, 1918 - Memorial Day Parade. Memorial Day Parade on Broad St. of G.A.R. Veterans. Passing the Union League, Philadelphia, PA - NARA - 20809820.jpg",
@@ -4321,71 +4083,6 @@
       "changes": [
         {
           "at": "2026-10-20T11:11:48.500Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
-      "id": "rec-4734dcb5ee6125e284ffed55",
-      "title": "Забалацце. Помнік землякам.jpg",
-      "originalTitle": "Забалацце. Помнік землякам.jpg",
-      "summary": "На ўшанаванне памяці 31 земляка, якія загінулі ў Другую сусветную вайну, у 1974 годзе пастаўлены помнік - скульптура воіна з аўтаматам.",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제2차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:%D0%97%D0%B0%D0%B1%D0%B0%D0%BB%D0%B0%D1%86%D1%86%D0%B5._%D0%9F%D0%BE%D0%BC%D0%BD%D1%96%D0%BA_%D0%B7%D0%B5%D0%BC%D0%BB%D1%8F%D0%BA%D0%B0%D0%BC.jpg",
-        "identifier": "90739719",
-        "accessedAt": "2026-10-20T05:03:11.765Z"
-      },
-      "dates": {
-        "display": "2014-06-22 18:47:30",
-        "precision": "unknown"
-      },
-      "warIds": [
-        "world-war-ii"
-      ],
-      "entityIds": [],
-      "topics": [
-        "Zabalaccie, Viliejka District",
-        "Self-published work",
-        "Belarus photographs taken on 2014-06-22",
-        "Files with coordinates missing SDC location of creation",
-        "World War II memorials in Vilejka district",
-        "July 2014 in Minsk Region"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제2차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:%D0%97%D0%B0%D0%B1%D0%B0%D0%BB%D0%B0%D1%86%D1%86%D0%B5._%D0%9F%D0%BE%D0%BC%D0%BD%D1%96%D0%BA_%D0%B7%D0%B5%D0%BC%D0%BB%D1%8F%D0%BA%D0%B0%D0%BC.jpg"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-20T05:03:11.765Z",
-      "sensitivity": "none",
-      "location": {
-        "name": "원 소장처 자료 지오태그",
-        "lat": 54.530669,
-        "lon": 27.406379,
-        "precision": "approximate"
-      },
-      "changes": [
-        {
-          "at": "2026-10-20T05:03:11.765Z",
           "summary": "원 소장처 메타데이터 수집"
         }
       ]
@@ -5509,61 +5206,6 @@
       ]
     },
     {
-      "id": "rec-5612c4b53df8d76929b4c446",
-      "title": "Musée de la Résistance de Vassieux en Vercors 10.jpg",
-      "originalTitle": "Musée de la Résistance de Vassieux en Vercors 10.jpg",
-      "summary": "Armature d'un des planeurs allemands ayant servi à attaquer le haut plateau du Vercors.",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제2차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:Mus%C3%A9e_de_la_R%C3%A9sistance_de_Vassieux_en_Vercors_10.jpg",
-        "identifier": "89991334",
-        "accessedAt": "2026-10-20T11:08:35.023Z"
-      },
-      "dates": {
-        "display": "2017-08-21 11:52:12",
-        "precision": "unknown"
-      },
-      "warIds": [
-        "world-war-ii"
-      ],
-      "entityIds": [],
-      "topics": [
-        "Self-published work",
-        "Musée départemental de la Résistance du Vercors"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제2차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:Mus%C3%A9e_de_la_R%C3%A9sistance_de_Vassieux_en_Vercors_10.jpg"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-20T11:08:35.023Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-20T11:08:35.023Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
       "id": "rec-56781cfe1d6cff989625abc8",
       "title": "Citius, Altius, Fortius- faster, higher, stronger (IA citiusaltiusfort1094534747).pdf",
       "originalTitle": "Citius, Altius, Fortius- faster, higher, stronger (IA citiusaltiusfort1094534747).pdf",
@@ -6556,64 +6198,6 @@
       ]
     },
     {
-      "id": "rec-664b808c22d0a0b1cf23807c",
-      "title": "\"In Camp. . . And Overseas, Red Cross Workers Serve Fighting Forces\" - NARA - 514616 (copy).jpg",
-      "originalTitle": "\"In Camp. . . And Overseas, Red Cross Workers Serve Fighting Forces\" - NARA - 514616 (copy).jpg",
-      "summary": "\"In Camp. . . And Overseas, Red Cross Workers Serve Fighting Forces\"",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제2차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:%22In_Camp._._._And_Overseas,_Red_Cross_Workers_Serve_Fighting_Forces%22_-_NARA_-_514616_(copy).jpg",
-        "identifier": "25715501",
-        "accessedAt": "2026-10-20T17:05:03.143Z"
-      },
-      "dates": {
-        "display": "1943-10",
-        "precision": "unknown"
-      },
-      "warIds": [
-        "world-war-ii"
-      ],
-      "entityIds": [],
-      "topics": [
-        "World War II posters from the United States",
-        "PD US Government",
-        "Media contributed by the National Archives and Records Administration",
-        "American Red Cross",
-        "CC-PD-Mark"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제2차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:%22In_Camp._._._And_Overseas,_Red_Cross_Workers_Serve_Fighting_Forces%22_-_NARA_-_514616_(copy).jpg"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-20T17:05:03.143Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-20T17:05:03.143Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
       "id": "rec-66a2221353973311cc5d8aff",
       "title": "Canadian Minister of National Defence Visits the War Memorial of Korea (9376786).jpg",
       "originalTitle": "Canadian Minister of National Defence Visits the War Memorial of Korea (9376786).jpg",
@@ -6733,72 +6317,6 @@
       "changes": [
         {
           "at": "2026-10-20T05:08:53.929Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
-      "id": "rec-6727eaaed24c3bb903afe89c",
-      "title": "\"Food Comes First\" - NARA - 514273 (cropped).jpg",
-      "originalTitle": "\"Food Comes First\" - NARA - 514273 (cropped).jpg",
-      "summary": "원 소장처의 자료 정보와 이용 조건을 확인할 수 있는 기록입니다.",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제2차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:%22Food_Comes_First%22_-_NARA_-_514273_(cropped).jpg",
-        "identifier": "80555322",
-        "accessedAt": "2026-10-20T11:08:39.643Z"
-      },
-      "dates": {
-        "display": "between 1941 and 1945 date QS:P571,+1941-00-00T00:00:00Z/8,P1319,+1941-00-00T00:00:00Z/9,P1326,+1945-00-00T00:00:00Z/9",
-        "precision": "unknown"
-      },
-      "warIds": [
-        "world-war-ii"
-      ],
-      "entityIds": [],
-      "topics": [
-        "Images from the National Archives and Records Administration",
-        "Media contributed by the National Archives and Records Administration",
-        "Artworks without Wikidata item",
-        "Tractors in art",
-        "Food in propaganda",
-        "Extracted images",
-        "PD US Treasury",
-        "Aircraft in propaganda",
-        "Template Unknown (author)",
-        "US National Archives series: World War II Posters, compiled 1942 - 1945",
-        "Glenn Grohe",
-        "World War II aviation posters",
-        "World War II farm posters from the United States"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제2차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:%22Food_Comes_First%22_-_NARA_-_514273_(cropped).jpg"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-20T11:08:39.643Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-20T11:08:39.643Z",
           "summary": "원 소장처 메타데이터 수집"
         }
       ]
@@ -7402,62 +6920,6 @@
       ]
     },
     {
-      "id": "rec-6f6cf2d591236f16e7670f71",
-      "title": "Cemetery of Polish Army soldiers who died in the battle of Tomaszów Lubelski on September 23, 1939 in Antoniówka (22).jpg",
-      "originalTitle": "Cemetery of Polish Army soldiers who died in the battle of Tomaszów Lubelski on September 23, 1939 in Antoniówka (22).jpg",
-      "summary": "Cemetery of fallen soldiers of the Polish Army in the battle of Tomaszów Lubelski on September 23, 1939, in Antoniówka in the Zamość region near Tomaszów Lubelski. Cemetery of fallen soldiers of the Polish Army in the fight against the German Nazi invaders in the Polish Defense War in September 1939 during World War II. The cemetery is located in Antoniówka. On the road from Zamość to Tomaszów Lubelski - in Budy - turn right. And then, in the village of Antoniówka, on the left side of the road, there is a cemetery of the Polish Army Soldiers who died in the Battle of Tomaszów Lubelski on September 23, 1939. A narrow path leads to it. Almost in front of the last house in this town. Almost 500 (five hundred) soldiers of the Polish Army who died in September 1939 in the Polish Defense War in the Second Battle of Tomaszów Lubelski during World War II are buried in the cemetery.",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제2차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:Cemetery_of_Polish_Army_soldiers_who_died_in_the_battle_of_Tomasz%C3%B3w_Lubelski_on_September_23,_1939_in_Antoni%C3%B3wka_(22).jpg",
-        "identifier": "95619661",
-        "accessedAt": "2026-10-20T11:08:28.791Z"
-      },
-      "dates": {
-        "display": "2020-09-20",
-        "start": "2020-09-20",
-        "precision": "exact"
-      },
-      "warIds": [
-        "world-war-ii"
-      ],
-      "entityIds": [],
-      "topics": [
-        "Self-published work",
-        "Cemetery of Polish Army soldiers who died in the battle of Tomaszów Lubelski on September 23, 1939 in Antoniówka"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제2차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:Cemetery_of_Polish_Army_soldiers_who_died_in_the_battle_of_Tomasz%C3%B3w_Lubelski_on_September_23,_1939_in_Antoni%C3%B3wka_(22).jpg"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-20T11:08:28.791Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-20T11:08:28.791Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
       "id": "rec-6fef7aea8578c209c4be868e",
       "title": "Medical Department - Hospitals - In Theater of Operations - Base Hospitals - Scene at the American Red Cross Hospital at Chateau Beaucaillou, near Bordeaux, France - NARA - 45497400.jpg",
       "originalTitle": "Medical Department - Hospitals - In Theater of Operations - Base Hospitals - Scene at the American Red Cross Hospital at Chateau Beaucaillou, near Bordeaux, France - NARA - 45497400.jpg",
@@ -7517,63 +6979,6 @@
       "changes": [
         {
           "at": "2026-10-20T11:04:34.324Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
-      "id": "rec-700f49de905d67ad9dddfaab",
-      "title": "Cemetery of Polish victims of the German Nazi massacre in Sochy from June 1, 1943 (5).jpg",
-      "originalTitle": "Cemetery of Polish victims of the German Nazi massacre in Sochy from June 1, 1943 (5).jpg",
-      "summary": "The cemetery of Polish victims of the German Nazi massacre in Sochy (near Zwierzyniec, in the Zamość County, Lublin Voivodeship) on June 1, 1943, during the German occupation of Poland from 1939 to 1945. During World War II. June 1 is a symbolic date because today June 1 is Children's Day in Poland. Many Polish children were killed in the massacre in Sochy. Often with their parents and family. At that time, Germans murdered about 181-200 people, including many women and children. The village burned down. The Germans also used about 7-10 Luftwaffe aircraft and bombed the village of Sochy. Only a few people survived.",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제2차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:Cemetery_of_Polish_victims_of_the_German_Nazi_massacre_in_Sochy_from_June_1,_1943_(5).jpg",
-        "identifier": "98002117",
-        "accessedAt": "2026-10-20T05:01:44.827Z"
-      },
-      "dates": {
-        "display": "2019-09-15",
-        "start": "2019-09-15",
-        "precision": "exact"
-      },
-      "warIds": [
-        "world-war-ii"
-      ],
-      "entityIds": [],
-      "topics": [
-        "Self-published work",
-        "Grave crosses in Poland",
-        "Cemetery of Polish civilians victims of the German Nazi massacre in Sochy"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제2차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:Cemetery_of_Polish_victims_of_the_German_Nazi_massacre_in_Sochy_from_June_1,_1943_(5).jpg"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-20T05:01:44.827Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-20T05:01:44.827Z",
           "summary": "원 소장처 메타데이터 수집"
         }
       ]
@@ -8133,69 +7538,6 @@
       "changes": [
         {
           "at": "2026-10-20T11:03:40.095Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
-      "id": "rec-75af0a2acbd81dab030f195f",
-      "title": "Minnesota World War II Veterans Memorial, Minnesota State Capitol, Saint Paul, Minnesota.jpg",
-      "originalTitle": "Minnesota World War II Veterans Memorial, Minnesota State Capitol, Saint Paul, Minnesota.jpg",
-      "summary": "Minnesota World War II Veterans Memorial, Dedicated in June of 2007 Ben Sporer, Todd Hallunes, Andrea Myklebust and Stanton Sears (Designers) Bryan D. Carlson (Landscape Architect) Minnesota State Capitol, St. Paul, Minnesota, USA Narrative panels containing a timeline of World War II and stories specific to Minnesota surround the rising plane.",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제2차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:Minnesota_World_War_II_Veterans_Memorial,_Minnesota_State_Capitol,_Saint_Paul,_Minnesota.jpg",
-        "identifier": "99238573",
-        "accessedAt": "2026-10-20T11:08:25.849Z"
-      },
-      "dates": {
-        "display": "2018-08-15 07:07:07",
-        "precision": "unknown"
-      },
-      "warIds": [
-        "world-war-ii"
-      ],
-      "entityIds": [],
-      "topics": [
-        "Minnesota World War II Veterans Memorial",
-        "Files with coordinates missing SDC location of creation",
-        "Photographs by Ken Lund",
-        "Flickr images reviewed by FlickreviewR 2"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제2차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:Minnesota_World_War_II_Veterans_Memorial,_Minnesota_State_Capitol,_Saint_Paul,_Minnesota.jpg"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-20T11:08:25.849Z",
-      "sensitivity": "none",
-      "location": {
-        "name": "원 소장처 자료 지오태그",
-        "lat": 44.952324,
-        "lon": -93.102275,
-        "precision": "approximate"
-      },
-      "changes": [
-        {
-          "at": "2026-10-20T11:08:25.849Z",
           "summary": "원 소장처 메타데이터 수집"
         }
       ]
@@ -9128,61 +8470,6 @@
       ]
     },
     {
-      "id": "rec-7fe164708f8d01dc2be7fc09",
-      "title": "Boncourt Grenzverkehr D2.7491.jpg",
-      "originalTitle": "Boncourt Grenzverkehr D2.7491.jpg",
-      "summary": "Grenzverkehr Boncurt JU, Schweiz",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제2차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:Boncourt_Grenzverkehr_D2.7491.jpg",
-        "identifier": "80308215",
-        "accessedAt": "2026-10-20T05:03:23.853Z"
-      },
-      "dates": {
-        "display": "1944-01-01",
-        "start": "1944-01-01",
-        "precision": "exact"
-      },
-      "warIds": [
-        "world-war-ii"
-      ],
-      "entityIds": [],
-      "topics": [
-        "Photographs by Theodor Strübin - Boncourt in World War II"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제2차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:Boncourt_Grenzverkehr_D2.7491.jpg"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-20T05:03:23.853Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-20T05:03:23.853Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
       "id": "rec-805d850800080d7fa1e59de2",
       "title": "American Red Cross - Refreshments - Enroute - Anxious for a cup of coffee. Members of Red Cross serving to boys on train - NARA - 20804512.jpg",
       "originalTitle": "American Red Cross - Refreshments - Enroute - Anxious for a cup of coffee. Members of Red Cross serving to boys on train - NARA - 20804512.jpg",
@@ -9603,74 +8890,6 @@
       ]
     },
     {
-      "id": "rec-8431c74fb452df2a67d3aeb5",
-      "title": "The photographic history of the Civil War - thousands of scenes photographed 1861-65, with text by many special authorities (1911) (14576169009).jpg",
-      "originalTitle": "The photographic history of the Civil War - thousands of scenes photographed 1861-65, with text by many special authorities (1911) (14576169009).jpg",
-      "summary": "Identifier : photographichist03mill ( find matches ) Title : The photographic history of the Civil War : thousands of scenes photographed 1861-65, with text by many special authorities Year : 1911 ( 1910s ) Authors : Miller, Francis Trevelyan, 1877-1959 Lanier, Robert S. (Robert Sampson), 1880- Subjects : United States -- History Civil War, 1861-1865 Pictorial works United States -- History Civil War, 1861-1865 Publisher : New York : Review of Reviews Co. Contributing Library : New York Public Library Digitizing Sponsor : MSN View Book Page : Book Viewer About This Book : Catalog Entry View All Images : All Images From Book Click here to view book online to see this illustration in context in a browseable online version of this book. Text Appearing Before Image: arched by way of Chancellorsville. Burn-side came next, but he was halted to guard the trains. Han-cock, covering the move, did not start the head of his commanduntil some time after tlaylight. ^\\hen ^^■ arren reached ToddsTavern he found the. Union cavalry under JNIerritt in conflictwith Fitzhugh Lees division of Stuarts cavalry. ^Van•ensent Robinsons division ahead; it drove Fitzhugh Lee back,and, advancing ra))idly, met the head of Andersons troops.The leatling brigades came to the assistance of the cavalry,^\\arren was finally repvdsed and began entrenching. TheConfederates gained Spotsylvania Court House. Throughout the day there was continual skirmishing be-tween the trt)ops, as the Northerners attempted to break theline of the Confederates. But the men in gray stood firm.Ki\\ery advance of the blue was repulsed. I^ee again blockedthe way of Grants move. The Federal loss dm-ing the dayhad been alxMit tliirteen hundred, while the Confederates lostfewer men than their opponents. Text Appearing After Image: MEADE AND SEDGWICK—BEFORE THE ADVANCE THAT BROUGHT SEDGWICKS DEATH AT SPOTSYLVANIA To the right of General Meade, his chief and frientl, stands Major-General John Sedgwick, commandingthe Sixtli Army Corps. He wears his famiHar round hat and is smiling. He was a great tea.se; evidentlythe performances of the civilian who had brought his new-fangled ))hotographic apparatus into camp sug-gested a joke. A couple of months later, on the 9th of May, Sedgwick again was jesting—before Spot-sylvania Court House. McMahon of his staff had begged him to a\\oid passing some artillery exposed tothe Confederate fire, to which Sedgwick had playfully replied, McMahon, I would like to know whocommands this corps, you or I? Then he ordered some infantry before him to shift toward the right.Their movement drew the fire of the Confederates. The lines were close together; the situation tense. Asharpshooters bullet whistled—Sedgwick fell. He was taken to Meades headquarters. The Army ofthe Potomac had Note About Images Please note that these images are extracted from scanned page images that may have been digitally enhanced for readability - coloration and appearance of these illustrations may not perfectly resemble the original work.",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제2차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:The_photographic_history_of_the_Civil_War_-_thousands_of_scenes_photographed_1861-65,_with_text_by_many_special_authorities_(1911)_(14576169009).jpg",
-        "identifier": "43851645",
-        "accessedAt": "2026-10-19T17:09:49.035Z"
-      },
-      "dates": {
-        "display": "1911",
-        "start": "1911",
-        "precision": "year"
-      },
-      "warIds": [
-        "world-war-ii"
-      ],
-      "entityIds": [],
-      "topics": [
-        "George Meade",
-        "Culpeper County, Virginia",
-        "Virginia in the American Civil War",
-        "Army of the Potomac",
-        "John Sedgwick",
-        "Robert O. Tyler",
-        "Photos uploaded from Flickr by Fæ using a script",
-        "Flickr images reviewed by FlickreviewR",
-        "Files from Internet Archive Book Images Flickr stream",
-        "The photographic history of the Civil War - in ten volumes (1911)",
-        "Files from Flickr's 'The Commons'",
-        "Media needing category review as of 30 September 2015",
-        "February 1864 in Virginia",
-        "Internet Archive document photographichist03mill"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제2차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:The_photographic_history_of_the_Civil_War_-_thousands_of_scenes_photographed_1861-65,_with_text_by_many_special_authorities_(1911)_(14576169009).jpg"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-19T17:09:49.035Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-19T17:09:49.035Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
       "id": "rec-851456882362f3a6c7895ae0",
       "title": "Ceremonies - New York City - 2nd Regt. Field Artillery, N.Y.N.G. (now 105th Field Artillery), leaving armory, Brooklyn, N.Y., July 28, 1917 - NARA - 23921923.jpg",
       "originalTitle": "Ceremonies - New York City - 2nd Regt. Field Artillery, N.Y.N.G. (now 105th Field Artillery), leaving armory, Brooklyn, N.Y., July 28, 1917 - NARA - 23921923.jpg",
@@ -9982,136 +9201,6 @@
       "changes": [
         {
           "at": "2026-10-19T23:11:46.874Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
-      "id": "rec-88fc3d54502156382a0ffa13",
-      "title": "Stroop Report - Warsaw Ghetto Uprising 08.jpg",
-      "originalTitle": "Stroop Report - Warsaw Ghetto Uprising 08.jpg",
-      "summary": "Original or archival image caption, which may be erroneous, biased, obsolete or politically extreme. German: Diese Banditen verteidigten sich mit der Waffe These bandits offered armed resistance title QS:P1476,de:\"Diese Banditen verteidigten sich mit der Waffe\" label QS:Lde,\"Diese Banditen verteidigten sich mit der Waffe\" label QS:Lfr,\"Ces bandits ont résisté par les armes\" label QS:Lcs,\"Tito bandité vzdorovali silou zbraní\" label QS:Len,\"These bandits offered armed resistance\" label QS:Leo,\"Tiuj cxi banditoj rezistis per forto de armiloj\" label QS:Lpl,\"Ci bandyci stawiali zbrojny opór\"",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제2차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:Stroop_Report_-_Warsaw_Ghetto_Uprising_08.jpg",
-        "identifier": "3011680",
-        "accessedAt": "2026-10-20T05:04:08.758Z"
-      },
-      "dates": {
-        "display": "between 19 April 1943 and 16 May 1943 date QS:P571,+1943-00-00T00:00:00Z/9,P1319,+1943-04-19T00:00:00Z/11,P1326,+1943-05-16T00:00:00Z/11",
-        "precision": "unknown"
-      },
-      "warIds": [
-        "world-war-ii"
-      ],
-      "entityIds": [],
-      "topics": [
-        "PD-Poland",
-        "Images with annotations",
-        "Pages with non-numeric formatnum arguments",
-        "Stroop Report",
-        "Artworks without Wikidata item",
-        "Images without source",
-        "PD-anon-70-EU",
-        "SS soldiers in the Warsaw Ghetto Uprising",
-        "Warsaw Ghetto Uprising captives",
-        "Media licensed by Getty Images",
-        "Template Unknown (author)",
-        "PD US alien property",
-        "Files with coordinates missing SDC location of creation",
-        "Warsaw Ghetto walls",
-        "Warsaw Ghetto photos from Nowolipie / Smocza intersection"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제2차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:Stroop_Report_-_Warsaw_Ghetto_Uprising_08.jpg"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-20T05:04:08.758Z",
-      "sensitivity": "none",
-      "location": {
-        "name": "원 소장처 자료 지오태그",
-        "lat": 52.241787,
-        "lon": 20.987945,
-        "precision": "approximate"
-      },
-      "changes": [
-        {
-          "at": "2026-10-20T05:04:08.758Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
-      "id": "rec-896bdaae7c9d9bfcda0aed97",
-      "title": "Cmentarz Zolnierzy Radzieckich w Gliwice Lists.jpg",
-      "originalTitle": "Cmentarz Zolnierzy Radzieckich w Gliwice Lists.jpg",
-      "summary": "Soviet Soldiers Cemetery in Gliwice",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제2차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:Cmentarz_Zolnierzy_Radzieckich_w_Gliwice_Lists.jpg",
-        "identifier": "89556069",
-        "accessedAt": "2026-10-19T17:09:50.484Z"
-      },
-      "dates": {
-        "display": "2020-04-27",
-        "start": "2020-04-27",
-        "precision": "exact"
-      },
-      "warIds": [
-        "world-war-ii"
-      ],
-      "entityIds": [],
-      "topics": [
-        "Self-published work",
-        "Soviet Soldiers Cemetery in Gliwice"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제2차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:Cmentarz_Zolnierzy_Radzieckich_w_Gliwice_Lists.jpg"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-19T17:09:50.484Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-19T17:09:50.484Z",
           "summary": "원 소장처 메타데이터 수집"
         }
       ]
@@ -11534,76 +10623,6 @@
       ]
     },
     {
-      "id": "rec-a577394fec76fa72c37d7195",
-      "title": "Myliatyn Ivanychivskyi Volynska-monument to the countrymans-details-1 in 2019.jpg",
-      "originalTitle": "Myliatyn Ivanychivskyi Volynska-monument to the countrymans-details-1 in 2019.jpg",
-      "summary": "Пам'ятник землякам (1977 рік) - фігура воїна та жінки - Милятин Іваничівський район Волинська область Україна",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제2차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:Myliatyn_Ivanychivskyi_Volynska-monument_to_the_countrymans-details-1_in_2019.jpg",
-        "identifier": "93747675",
-        "accessedAt": "2026-10-19T17:09:52.017Z"
-      },
-      "dates": {
-        "display": "2019-10-13 14:16:40",
-        "precision": "unknown"
-      },
-      "warIds": [
-        "world-war-ii"
-      ],
-      "entityIds": [],
-      "topics": [
-        "Monument to Soviet soldiers-countrymen in Myliatyn",
-        "Self-published work",
-        "Cultural heritage monuments in Ukraine with known IDs",
-        "Uploaded via Campaign:wlm-ua",
-        "Files with coordinates missing SDC location of creation",
-        "Ukraine photographs taken on 2019-10-13",
-        "Images from Wiki Loves Monuments 2020",
-        "Images from Wiki Loves Monuments missing SDC location of creation",
-        "Images from Wiki Loves Monuments 2020 in Ukraine",
-        "Cultural heritage monuments in Ukraine missing SDC location of creation",
-        "Wiki Loves Monuments in Ukraine 2020 - Quantity"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제2차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:Myliatyn_Ivanychivskyi_Volynska-monument_to_the_countrymans-details-1_in_2019.jpg"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-19T17:09:52.017Z",
-      "sensitivity": "none",
-      "location": {
-        "name": "원 소장처 자료 지오태그",
-        "lat": 50.557067,
-        "lon": 24.553518,
-        "precision": "approximate"
-      },
-      "changes": [
-        {
-          "at": "2026-10-19T17:09:52.017Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
       "id": "rec-a7b2c2cd105a3acb018d3485",
       "title": "Traffic Patter, Volume 4, Number 8, December 1957 - DPLA - aa60383bee93cf200637c6f86f6185b2 (page 2).jpg",
       "originalTitle": "Traffic Patter, Volume 4, Number 8, December 1957 - DPLA - aa60383bee93cf200637c6f86f6185b2 (page 2).jpg",
@@ -12410,63 +11429,6 @@
       ]
     },
     {
-      "id": "rec-b0cf28c082f26552d3509a2f",
-      "title": "\"WHEN IN DOUBT - LIGHTS OUT\" - DPLA - e3175e0ae3404499f628126f093c1f36.gif",
-      "originalTitle": "\"WHEN IN DOUBT - LIGHTS OUT\" - DPLA - e3175e0ae3404499f628126f093c1f36.gif",
-      "summary": "원 소장처의 자료 정보와 이용 조건을 확인할 수 있는 기록입니다.",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제2차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:%22WHEN_IN_DOUBT_-_LIGHTS_OUT%22_-_DPLA_-_e3175e0ae3404499f628126f093c1f36.gif",
-        "identifier": "193039559",
-        "accessedAt": "2026-10-20T05:04:23.823Z"
-      },
-      "dates": {
-        "display": "1941-01-01/1945-12-31",
-        "precision": "unknown"
-      },
-      "warIds": [
-        "world-war-ii"
-      ],
-      "entityIds": [],
-      "topics": [
-        "PD US",
-        "Media contributed by the National Archives and Records Administration",
-        "Media contributed by the Digital Public Library of America",
-        "Media contributed by National Archives at College Park - Still Pictures"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제2차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:%22WHEN_IN_DOUBT_-_LIGHTS_OUT%22_-_DPLA_-_e3175e0ae3404499f628126f093c1f36.gif"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-20T05:04:23.823Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-20T05:04:23.823Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
       "id": "rec-b28d312585a92fdb9ba4650d",
       "title": "Armistice Agreement Volume 2, Maps (Korean) - DPLA - 33db8c4e22b73bbfca303ed0091ed059 (page 5).jpg",
       "originalTitle": "Armistice Agreement Volume 2, Maps (Korean) - DPLA - 33db8c4e22b73bbfca303ed0091ed059 (page 5).jpg",
@@ -12520,64 +11482,6 @@
       "changes": [
         {
           "at": "2026-10-20T05:12:27.247Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
-      "id": "rec-b6a8b10f13e7f9f2c6ad3dda",
-      "title": "Mil Entlassungspapiere 1950 USA noBG.png",
-      "originalTitle": "Mil Entlassungspapiere 1950 USA noBG.png",
-      "summary": "Militärische Entlassungspapiere für deutsche Kriegsgefangene / 1950 / USA",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제2차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:Mil_Entlassungspapiere_1950_USA_noBG.png",
-        "identifier": "86042774",
-        "accessedAt": "2026-10-20T11:08:37.172Z"
-      },
-      "dates": {
-        "display": "2020-01-18",
-        "start": "2020-01-18",
-        "precision": "exact"
-      },
-      "warIds": [
-        "world-war-ii"
-      ],
-      "entityIds": [],
-      "topics": [
-        "Heimkehrer",
-        "Self-published work",
-        "Images with different perspectives of same object",
-        "134th Infantry Division (Germany)"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제2차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:Mil_Entlassungspapiere_1950_USA_noBG.png"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-20T11:08:37.172Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-20T11:08:37.172Z",
           "summary": "원 소장처 메타데이터 수집"
         }
       ]
@@ -13083,62 +11987,6 @@
       ]
     },
     {
-      "id": "rec-c5caeb83b0aaf4dc68c62bda",
-      "title": "Bundesarchiv Bild 101I-277-0840-32, Russland, Nebelwerfer im Schnee.jpg",
-      "originalTitle": "Bundesarchiv Bild 101I-277-0840-32, Russland, Nebelwerfer im Schnee.jpg",
-      "summary": "원 소장처의 자료 정보와 이용 조건을 확인할 수 있는 기록입니다.",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제2차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:Bundesarchiv_Bild_101I-277-0840-32,_Russland,_Nebelwerfer_im_Schnee.jpg",
-        "identifier": "5476773",
-        "accessedAt": "2026-10-20T17:05:35.848Z"
-      },
-      "dates": {
-        "display": "January 1944 date QS:P571,+1944-01-00T00:00:00Z/10",
-        "precision": "unknown"
-      },
-      "warIds": [
-        "world-war-ii"
-      ],
-      "entityIds": [],
-      "topics": [
-        "15 cm Nebelwerfer 41",
-        "Images from the German Federal Archive",
-        "Photographs by Jacob, PK"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제2차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:Bundesarchiv_Bild_101I-277-0840-32,_Russland,_Nebelwerfer_im_Schnee.jpg"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-20T17:05:35.848Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-20T17:05:35.848Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
       "id": "rec-c662772656b87493d690db85",
       "title": "United Nations Korean War Veterans Descendants Visit Joint Security Area - 52997200651.jpg",
       "originalTitle": "United Nations Korean War Veterans Descendants Visit Joint Security Area - 52997200651.jpg",
@@ -13251,72 +12099,6 @@
       "changes": [
         {
           "at": "2026-10-19T23:12:02.158Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
-      "id": "rec-c98eef28c72aabac7d5415e2",
-      "title": "Толстой П.П. (1945), 2018 Visegrád.jpg",
-      "originalTitle": "Толстой П.П. (1945), 2018 Visegrád.jpg",
-      "summary": ": The grave of the Soviet heroic dead. or Division of World War II. - Mátyás király street, Visegrád , Pest County , Hungary .",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제2차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:%D0%A2%D0%BE%D0%BB%D1%81%D1%82%D0%BE%D0%B9_%D0%9F.%D0%9F._(1945),_2018_Visegr%C3%A1d.jpg",
-        "identifier": "68644174",
-        "accessedAt": "2026-10-20T05:01:45.902Z"
-      },
-      "dates": {
-        "display": "2018-04",
-        "precision": "unknown"
-      },
-      "warIds": [
-        "world-war-ii"
-      ],
-      "entityIds": [],
-      "topics": [
-        "Self-published work",
-        "Military gravestones",
-        "Russian inscriptions in Hungary",
-        "Files with coordinates missing SDC location of creation",
-        "April 2018 Hungary photographs",
-        "Army of the Soviet Union abroad",
-        "Tombs in Visegrád cemetery"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제2차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:%D0%A2%D0%BE%D0%BB%D1%81%D1%82%D0%BE%D0%B9_%D0%9F.%D0%9F._(1945),_2018_Visegr%C3%A1d.jpg"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-20T05:01:45.902Z",
-      "sensitivity": "none",
-      "location": {
-        "name": "원 소장처 자료 지오태그",
-        "lat": 47.784247,
-        "lon": 18.977997,
-        "precision": "approximate"
-      },
-      "changes": [
-        {
-          "at": "2026-10-20T05:01:45.902Z",
           "summary": "원 소장처 메타데이터 수집"
         }
       ]
@@ -13437,62 +12219,6 @@
       "changes": [
         {
           "at": "2026-10-20T05:13:00.636Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
-      "id": "rec-cbd810b6c3e47b28b99f9f8f",
-      "title": "Cemetery of Polish Army soldiers who died in the battle of Tomaszów Lubelski on September 23, 1939 in Antoniówka (31).jpg",
-      "originalTitle": "Cemetery of Polish Army soldiers who died in the battle of Tomaszów Lubelski on September 23, 1939 in Antoniówka (31).jpg",
-      "summary": "Cemetery of fallen soldiers of the Polish Army in the battle of Tomaszów Lubelski on September 23, 1939, in Antoniówka in the Zamość region near Tomaszów Lubelski. Cemetery of fallen soldiers of the Polish Army in the fight against the German Nazi invaders in the Polish Defense War in September 1939 during World War II. The cemetery is located in Antoniówka. On the road from Zamość to Tomaszów Lubelski - in Budy - turn right. And then, in the village of Antoniówka, on the left side of the road, there is a cemetery of the Polish Army Soldiers who died in the Battle of Tomaszów Lubelski on September 23, 1939. A narrow path leads to it. Almost in front of the last house in this town. Almost 500 (five hundred) soldiers of the Polish Army who died in September 1939 in the Polish Defense War in the Second Battle of Tomaszów Lubelski during World War II are buried in the cemetery.",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제2차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:Cemetery_of_Polish_Army_soldiers_who_died_in_the_battle_of_Tomasz%C3%B3w_Lubelski_on_September_23,_1939_in_Antoni%C3%B3wka_(31).jpg",
-        "identifier": "95620157",
-        "accessedAt": "2026-10-19T17:10:16.857Z"
-      },
-      "dates": {
-        "display": "2020-09-20",
-        "start": "2020-09-20",
-        "precision": "exact"
-      },
-      "warIds": [
-        "world-war-ii"
-      ],
-      "entityIds": [],
-      "topics": [
-        "Self-published work",
-        "Cemetery of Polish Army soldiers who died in the battle of Tomaszów Lubelski on September 23, 1939 in Antoniówka"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제2차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:Cemetery_of_Polish_Army_soldiers_who_died_in_the_battle_of_Tomasz%C3%B3w_Lubelski_on_September_23,_1939_in_Antoni%C3%B3wka_(31).jpg"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-19T17:10:16.857Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-19T17:10:16.857Z",
           "summary": "원 소장처 메타데이터 수집"
         }
       ]
@@ -13740,67 +12466,6 @@
       "changes": [
         {
           "at": "2026-10-20T11:12:00.874Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
-      "id": "rec-cf5511b7a34e9cfcb4c40841",
-      "title": "Voorpagina Vlaams Socialistisch dagblad \"De Volksgazet\" 5 September 1944.jpg",
-      "originalTitle": "Voorpagina Vlaams Socialistisch dagblad \"De Volksgazet\" 5 September 1944.jpg",
-      "summary": "Frontpage Flemish Socialist newspaper \"De Volksgazet\" 5 September 1944.",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제2차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:Voorpagina_Vlaams_Socialistisch_dagblad_%22De_Volksgazet%22_5_September_1944.jpg",
-        "identifier": "89070303",
-        "accessedAt": "2026-10-20T05:03:17.036Z"
-      },
-      "dates": {
-        "display": "2020-03-23 16:56:35",
-        "precision": "unknown"
-      },
-      "warIds": [
-        "world-war-ii"
-      ],
-      "entityIds": [],
-      "topics": [
-        "Belgium in World War II",
-        "Public domain images no longer eligible for claim of authorship",
-        "1944-09-05",
-        "Socialist newspapers",
-        "September 1944 in Belgium",
-        "Newspapers in Dutch",
-        "1944 newspapers of Belgium",
-        "Newspapers of Flanders"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제2차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:Voorpagina_Vlaams_Socialistisch_dagblad_%22De_Volksgazet%22_5_September_1944.jpg"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-20T05:03:17.036Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-20T05:03:17.036Z",
           "summary": "원 소장처 메타데이터 수집"
         }
       ]
@@ -14280,63 +12945,6 @@
       "changes": [
         {
           "at": "2026-10-19T23:05:22.864Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
-      "id": "rec-d9d64f6759bf8d95ffd4866c",
-      "title": "T 34 1942 noBG.jpg",
-      "originalTitle": "T 34 1942 noBG.jpg",
-      "summary": "OLYMPUS DIGITAL CAMERA",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제2차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:T_34_1942_noBG.jpg",
-        "identifier": "82061480",
-        "accessedAt": "2026-10-20T05:03:21.646Z"
-      },
-      "dates": {
-        "display": "1899-11-30",
-        "start": "1899-11-30",
-        "precision": "exact"
-      },
-      "warIds": [
-        "world-war-ii"
-      ],
-      "entityIds": [],
-      "topics": [
-        "T-34-76 tanks",
-        "T-34 Model 1942 in Komsomol's park",
-        "Named T-34 tanks"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제2차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:T_34_1942_noBG.jpg"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-20T05:03:21.646Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-20T05:03:21.646Z",
           "summary": "원 소장처 메타데이터 수집"
         }
       ]
@@ -16765,8 +15373,8 @@
   "claims": [],
   "coverage": {
     "sources": 4,
-    "records": 271,
-    "lastCollectedAt": "2026-10-20T18:03:03.414Z",
+    "records": 248,
+    "lastCollectedAt": "2026-10-20T18:08:36.542Z",
     "limitations": [
       "수록 자료는 전체 전쟁 기록의 일부입니다.",
       "원 소장처의 설명을 기록하며, 출처의 주장을 독립적으로 검증한 것으로 표시하지 않습니다.",
