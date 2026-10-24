@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "releaseId": "rel-780a6ab4-4690-4d31-aed4-33eb611385c0",
-  "generatedAt": "2026-10-24T12:10:14.869Z",
+  "releaseId": "rel-b0e01167-7883-444d-9421-8dd5972aabaf",
+  "generatedAt": "2026-10-24T13:10:33.582Z",
   "records": [
     {
       "id": "rec-00092fd2b757f29cfc6a0da1",
@@ -266,63 +266,6 @@
       "changes": [
         {
           "at": "2026-10-24T05:13:01.740Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
-      "id": "rec-032864ca82671f1e025b8369",
-      "title": "THE AMERICAS SERVED - DPLA - bf491f7562ac3b0322e43fb1f215afdd.jpg",
-      "originalTitle": "THE AMERICAS SERVED - DPLA - bf491f7562ac3b0322e43fb1f215afdd.jpg",
-      "summary": "원 소장처의 자료 정보와 이용 조건을 확인할 수 있는 기록입니다.",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제2차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:THE_AMERICAS_SERVED_-_DPLA_-_bf491f7562ac3b0322e43fb1f215afdd.jpg",
-        "identifier": "193026697",
-        "accessedAt": "2026-10-23T23:12:58.990Z"
-      },
-      "dates": {
-        "display": "1941-01-01/1945-12-31",
-        "precision": "unknown"
-      },
-      "warIds": [
-        "world-war-ii"
-      ],
-      "entityIds": [],
-      "topics": [
-        "PD US",
-        "Media contributed by the National Archives and Records Administration",
-        "Media contributed by the Digital Public Library of America",
-        "Media contributed by National Archives at College Park - Still Pictures"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제2차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:THE_AMERICAS_SERVED_-_DPLA_-_bf491f7562ac3b0322e43fb1f215afdd.jpg"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-23T23:12:58.990Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-23T23:12:58.990Z",
           "summary": "원 소장처 메타데이터 수집"
         }
       ]
@@ -1365,79 +1308,6 @@
       "changes": [
         {
           "at": "2026-10-23T17:15:00.655Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
-      "id": "rec-1280b931e8750c25129bd786",
-      "title": "Flag of Republic of Sasha Reyka (1999-present).png",
-      "originalTitle": "Flag of Republic of Sasha Reyka (1999-present).png",
-      "summary": "Simple English",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제2차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:Flag_of_Republic_of_Sasha_Reyka_(1999-present).png",
-        "identifier": "196949110",
-        "accessedAt": "2026-10-23T17:08:10.398Z"
-      },
-      "dates": {
-        "display": "2016-08-12",
-        "start": "2016-08-12",
-        "precision": "exact"
-      },
-      "warIds": [
-        "world-war-ii"
-      ],
-      "entityIds": [],
-      "topics": [
-        "CC-Zero",
-        "Creative Commons CC0 1.0 Universal Public Domain Dedication missing SDC copyright license",
-        "Etosha Cave",
-        "Self-published work",
-        "Self-published work missing SDC copyright license",
-        "Files with coordinates missing SDC location of creation"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/3/35/Flag_of_Republic_of_Sasha_Reyka_%281999-present%29.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
-        "displayAllowed": true,
-        "attribution": {
-          "creator": "Mahsuau273738",
-          "credit": "Own work",
-          "license": "CC0",
-          "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
-        }
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제2차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:Flag_of_Republic_of_Sasha_Reyka_(1999-present).png"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-23T17:08:10.398Z",
-      "sensitivity": "none",
-      "location": {
-        "name": "원 소장처 자료 지오태그",
-        "lat": 30,
-        "lon": 30,
-        "precision": "approximate"
-      },
-      "changes": [
-        {
-          "at": "2026-10-23T17:08:10.398Z",
           "summary": "원 소장처 메타데이터 수집"
         }
       ]
@@ -2489,63 +2359,6 @@
       ]
     },
     {
-      "id": "rec-21c529b8564ebd21fa25a9c5",
-      "title": "\"Be a ship's officer\" - DPLA - 63d6121bf0830b0af66bd1bcd62fe34c.jpg",
-      "originalTitle": "\"Be a ship's officer\" - DPLA - 63d6121bf0830b0af66bd1bcd62fe34c.jpg",
-      "summary": "원 소장처의 자료 정보와 이용 조건을 확인할 수 있는 기록입니다.",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제2차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:%22Be_a_ship%27s_officer%22_-_DPLA_-_63d6121bf0830b0af66bd1bcd62fe34c.jpg",
-        "identifier": "192993812",
-        "accessedAt": "2026-10-23T11:15:45.049Z"
-      },
-      "dates": {
-        "display": "1941-01-01/1945-12-31",
-        "precision": "unknown"
-      },
-      "warIds": [
-        "world-war-ii"
-      ],
-      "entityIds": [],
-      "topics": [
-        "PD US",
-        "Media contributed by the National Archives and Records Administration",
-        "Media contributed by the Digital Public Library of America",
-        "Media contributed by National Archives at College Park - Still Pictures"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제2차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:%22Be_a_ship%27s_officer%22_-_DPLA_-_63d6121bf0830b0af66bd1bcd62fe34c.jpg"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-23T11:15:45.049Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-23T11:15:45.049Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
       "id": "rec-22e8f1286fd8c38a3d42f263",
       "title": "Ceremonies and Parades - Field Mass, Camp Grant. Ill - NARA - 23924183.jpg",
       "originalTitle": "Ceremonies and Parades - Field Mass, Camp Grant. Ill - NARA - 23924183.jpg",
@@ -2737,69 +2550,6 @@
       "changes": [
         {
           "at": "2026-10-24T05:15:45.386Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
-      "id": "rec-25679f31b4b93fc07315b4b6",
-      "title": "Ladderboom Begijnenvest Brugge 2017.jpg",
-      "originalTitle": "Ladderboom Begijnenvest Brugge 2017.jpg",
-      "summary": "Boom, soms ladderboom genoemd, die tot 2017 langs de Begijnenvest te Brugge stond. Deze boom werd tijdens de Tweede Wereldoorlog gebruikt als uitkijkpost; de restanten van de sporten die aan de stam bevestigd werden om in de boom te klimmen zijn nog zichtbaar. In september 2008 werd de top van de boom afgeknakt tijdens een storm. In 2017, enkele maanden nadat deze foto genomen werd, werd de boom verwijderd en vervangen door een nieuw boompje.",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제2차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:Ladderboom_Begijnenvest_Brugge_2017.jpg",
-        "identifier": "87647183",
-        "accessedAt": "2026-10-23T17:09:06.156Z"
-      },
-      "dates": {
-        "display": "2017-02-01 17:38:25",
-        "precision": "unknown"
-      },
-      "warIds": [
-        "world-war-ii"
-      ],
-      "entityIds": [],
-      "topics": [
-        "Begijnenvest (Brugge)",
-        "Self-published work",
-        "Trees in Bruges"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a7/Ladderboom_Begijnenvest_Brugge_2017.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
-        "displayAllowed": true,
-        "attribution": {
-          "creator": "Rotsaert8000",
-          "credit": "Own work",
-          "license": "CC BY-SA 4.0",
-          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
-        }
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제2차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:Ladderboom_Begijnenvest_Brugge_2017.jpg"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-23T17:09:06.156Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-23T17:09:06.156Z",
           "summary": "원 소장처 메타데이터 수집"
         }
       ]
@@ -3651,63 +3401,6 @@
       ]
     },
     {
-      "id": "rec-33126f1c0ad142d0bf611e24",
-      "title": "OPEN STORAGE - DPLA - 97dc1d591c07180c9d923f2a30305385.jpg",
-      "originalTitle": "OPEN STORAGE - DPLA - 97dc1d591c07180c9d923f2a30305385.jpg",
-      "summary": "원 소장처의 자료 정보와 이용 조건을 확인할 수 있는 기록입니다.",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제2차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:OPEN_STORAGE_-_DPLA_-_97dc1d591c07180c9d923f2a30305385.jpg",
-        "identifier": "193013308",
-        "accessedAt": "2026-10-23T11:15:41.720Z"
-      },
-      "dates": {
-        "display": "1941-01-01/1945-12-31",
-        "precision": "unknown"
-      },
-      "warIds": [
-        "world-war-ii"
-      ],
-      "entityIds": [],
-      "topics": [
-        "PD US",
-        "Media contributed by the National Archives and Records Administration",
-        "Media contributed by the Digital Public Library of America",
-        "Media contributed by National Archives at College Park - Still Pictures"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제2차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:OPEN_STORAGE_-_DPLA_-_97dc1d591c07180c9d923f2a30305385.jpg"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-23T11:15:41.720Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-23T11:15:41.720Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
       "id": "rec-33c44dc976bd3b63a247951b",
       "title": "Industries of War - Lumber - MANUFACTURING LUMBER FOR THE GOVERNMENT. Blacksmith shop of Puget Mill Co., Port Gamble, Washington - NARA - 31490237.jpg",
       "originalTitle": "Industries of War - Lumber - MANUFACTURING LUMBER FOR THE GOVERNMENT. Blacksmith shop of Puget Mill Co., Port Gamble, Washington - NARA - 31490237.jpg",
@@ -4207,71 +3900,6 @@
       ]
     },
     {
-      "id": "rec-3ccb2c8ff221e8dbdad16e7f",
-      "title": "Groenewg 27, Gouda. Plaquette voor Frits Stolk.jpg",
-      "originalTitle": "Groenewg 27, Gouda. Plaquette voor Frits Stolk.jpg",
-      "summary": "Plaquette voor Frits Stolk. Neergeschoten door de Goudse SD-er Han Balvert op 17 oktober 1944. Hij werd zwaargewond gevonden voor de deur van de Casimir school, toen gedeeltelijk in gebruik door de Waffen SS. Frits ligt begraven op de Oude Begraafplaats in Gouda",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제2차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:Groenewg_27,_Gouda._Plaquette_voor_Frits_Stolk.jpg",
-        "identifier": "95498980",
-        "accessedAt": "2026-10-23T11:16:35.296Z"
-      },
-      "dates": {
-        "display": "2020-05-31 14:28:16",
-        "precision": "unknown"
-      },
-      "warIds": [
-        "world-war-ii"
-      ],
-      "entityIds": [],
-      "topics": [
-        "Self-published work",
-        "2020 in Gouda",
-        "Netherlands photographs taken on 2020-05-31",
-        "World War II memorials in Gouda",
-        "Files by User:Agaath/Memorials",
-        "Groeneweg 27, Gouda"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제2차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:Groenewg_27,_Gouda._Plaquette_voor_Frits_Stolk.jpg"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-23T11:16:35.296Z",
-      "sensitivity": "none",
-      "location": {
-        "name": "원 소장처 자료 지오태그",
-        "lat": 52.010957,
-        "lon": 4.713933,
-        "precision": "approximate"
-      },
-      "changes": [
-        {
-          "at": "2026-10-23T11:16:35.296Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
       "id": "rec-3e47d1ab89d0205353d68da0",
       "title": "HF01 01 B 2016031001 037.jpg",
       "originalTitle": "HF01 01 B 2016031001 037.jpg",
@@ -4758,76 +4386,6 @@
       ]
     },
     {
-      "id": "rec-4392e1b329c0baed78700484",
-      "title": "Sint-Jan, Roeselaarsestraat, Duitse betonconstructie Cambrai 2, zijkant - 2382 - onroerenderfgoed.jpg",
-      "originalTitle": "Sint-Jan, Roeselaarsestraat, Duitse betonconstructie Cambrai 2, zijkant - 2382 - onroerenderfgoed.jpg",
-      "summary": "Sint-Jan: Roeselaarsestraat: Duitse betonconstructie Cambrai 2: zijkant",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제2차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:Sint-Jan,_Roeselaarsestraat,_Duitse_betonconstructie_Cambrai_2,_zijkant_-_2382_-_onroerenderfgoed.jpg",
-        "identifier": "87127355",
-        "accessedAt": "2026-10-23T23:13:24.878Z"
-      },
-      "dates": {
-        "display": "2004-03-08 11:12",
-        "precision": "unknown"
-      },
-      "warIds": [
-        "world-war-ii"
-      ],
-      "entityIds": [],
-      "topics": [
-        "Onroerend erfgoed with known IDs",
-        "Buildings with addresses",
-        "Onroerend erfgoed in Ypres",
-        "Files with coordinates missing SDC location of creation (50° N, 2° E)"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/8/89/Sint-Jan%2C_Roeselaarsestraat%2C_Duitse_betonconstructie_Cambrai_2%2C_zijkant_-_2382_-_onroerenderfgoed.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
-        "displayAllowed": true,
-        "attribution": {
-          "creator": "Decoodt, Hannelore",
-          "credit": "https://id.erfgoed.net/afbeeldingen/2382",
-          "license": "CC BY 4.0",
-          "licenseUrl": "https://creativecommons.org/licenses/by/4.0"
-        }
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제2차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:Sint-Jan,_Roeselaarsestraat,_Duitse_betonconstructie_Cambrai_2,_zijkant_-_2382_-_onroerenderfgoed.jpg"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-23T23:13:24.878Z",
-      "sensitivity": "none",
-      "location": {
-        "name": "원 소장처 자료 지오태그",
-        "lat": 50.873991,
-        "lon": 2.927619,
-        "precision": "approximate"
-      },
-      "changes": [
-        {
-          "at": "2026-10-23T23:13:24.878Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
       "id": "rec-441a6cf32b8860eb8271b0a7",
       "title": "American Library Association - ALA - European - French - Original library at Marseille - NARA - 20801558.jpg",
       "originalTitle": "American Library Association - ALA - European - French - Original library at Marseille - NARA - 20801558.jpg",
@@ -4888,63 +4446,6 @@
       "changes": [
         {
           "at": "2026-10-23T23:16:14.316Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
-      "id": "rec-44ae6fc57ace85cbdb2df02e",
-      "title": "\"Get in the Scrap\" - DPLA - ba0b2a321850dfc3fbf3d9ff662ba438.gif",
-      "originalTitle": "\"Get in the Scrap\" - DPLA - ba0b2a321850dfc3fbf3d9ff662ba438.gif",
-      "summary": "원 소장처의 자료 정보와 이용 조건을 확인할 수 있는 기록입니다.",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제2차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:%22Get_in_the_Scrap%22_-_DPLA_-_ba0b2a321850dfc3fbf3d9ff662ba438.gif",
-        "identifier": "193025189",
-        "accessedAt": "2026-10-23T11:15:38.986Z"
-      },
-      "dates": {
-        "display": "1941-01-01/1945-12-31",
-        "precision": "unknown"
-      },
-      "warIds": [
-        "world-war-ii"
-      ],
-      "entityIds": [],
-      "topics": [
-        "PD US",
-        "Media contributed by the National Archives and Records Administration",
-        "Media contributed by the Digital Public Library of America",
-        "Media contributed by National Archives at College Park - Still Pictures"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제2차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:%22Get_in_the_Scrap%22_-_DPLA_-_ba0b2a321850dfc3fbf3d9ff662ba438.gif"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-23T11:15:38.986Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-23T11:15:38.986Z",
           "summary": "원 소장처 메타데이터 수집"
         }
       ]
@@ -5381,63 +4882,6 @@
       ]
     },
     {
-      "id": "rec-49e4b593c156efdee397650c",
-      "title": "Franklin D. Roosevelt address at Ottawa, Canada - DPLA - 1bcf3bd7c5eca54e783d07a214e5ad45 (page 4).gif",
-      "originalTitle": "Franklin D. Roosevelt address at Ottawa, Canada - DPLA - 1bcf3bd7c5eca54e783d07a214e5ad45 (page 4).gif",
-      "summary": "원 소장처의 자료 정보와 이용 조건을 확인할 수 있는 기록입니다.",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제2차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:Franklin_D._Roosevelt_address_at_Ottawa,_Canada_-_DPLA_-_1bcf3bd7c5eca54e783d07a214e5ad45_(page_4).gif",
-        "identifier": "192197732",
-        "accessedAt": "2026-10-23T11:15:52.678Z"
-      },
-      "dates": {
-        "display": "25 August 1943",
-        "precision": "unknown"
-      },
-      "warIds": [
-        "world-war-ii"
-      ],
-      "entityIds": [],
-      "topics": [
-        "PD US",
-        "Media contributed by the National Archives and Records Administration",
-        "Media contributed by the Digital Public Library of America",
-        "Media contributed by Franklin D. Roosevelt Presidential Library and Museum"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제2차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:Franklin_D._Roosevelt_address_at_Ottawa,_Canada_-_DPLA_-_1bcf3bd7c5eca54e783d07a214e5ad45_(page_4).gif"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-23T11:15:52.678Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-23T11:15:52.678Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
       "id": "rec-49efd92937cdd2339df7caf4",
       "title": "Colleges and Universities - Miscellaneous - Michigan School of Mines - NARA - 26431070.jpg",
       "originalTitle": "Colleges and Universities - Miscellaneous - Michigan School of Mines - NARA - 26431070.jpg",
@@ -5496,73 +4940,6 @@
       "changes": [
         {
           "at": "2026-10-24T11:18:58.614Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
-      "id": "rec-4a3d54224126412eecb7cd26",
-      "title": "A group of German snipers, taken during the fight for a road leading out of Belfort, France, is led through the streets of the city by members of the 1st French Armored Division. 22 November, 1944.jpg",
-      "originalTitle": "A group of German snipers, taken during the fight for a road leading out of Belfort, France, is led through the streets of the city by members of the 1st French Armored Division. 22 November, 1944.jpg",
-      "summary": "SC 196667 - A group of German snipers, taken during the fight for a road leading out of Belfort, France, is led through the streets of the city by members of the 1st French Armored Division. 22 November, 1944. Photographer unknown. Photo Source: U.S. National Archives. Digitized by Signal Corps Archive.",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제2차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:A_group_of_German_snipers,_taken_during_the_fight_for_a_road_leading_out_of_Belfort,_France,_is_led_through_the_streets_of_the_city_by_members_of_the_1st_French_Armored_Division._22_November,_1944.jpg",
-        "identifier": "194493784",
-        "accessedAt": "2026-10-23T17:08:56.497Z"
-      },
-      "dates": {
-        "display": "1944-11-22",
-        "start": "1944-11-22",
-        "precision": "exact"
-      },
-      "warIds": [
-        "world-war-ii"
-      ],
-      "entityIds": [],
-      "topics": [
-        "PD US Army",
-        "1st Armored Division (France)",
-        "PD-USGov missing SDC copyright status",
-        "French Army during World War II",
-        "United States Army Signal Corps photographs",
-        "German prisoners of war of World War II in France",
-        "People with Stens",
-        "1944 in Belfort",
-        "Sten in French service",
-        "Military snipers of Germany",
-        "M1 helmet in French service",
-        "Adrian helmet in French service",
-        "Battle of the Vosges (1944)"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제2차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:A_group_of_German_snipers,_taken_during_the_fight_for_a_road_leading_out_of_Belfort,_France,_is_led_through_the_streets_of_the_city_by_members_of_the_1st_French_Armored_Division._22_November,_1944.jpg"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-23T17:08:56.497Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-23T17:08:56.497Z",
           "summary": "원 소장처 메타데이터 수집"
         }
       ]
@@ -5684,69 +5061,6 @@
       "changes": [
         {
           "at": "2026-10-23T17:14:45.306Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
-      "id": "rec-4bfe90700953a3a2394e6ae4",
-      "title": "Uniform, Red Cross (AM 2001.40.1-12).jpg",
-      "originalTitle": "Uniform, Red Cross (AM 2001.40.1-12).jpg",
-      "summary": "NZ Red Cross Transport Corps Driver's uniform, worn by Mavis Draffin, Whangarei, WW2 - tunic, skirt, tie, cap and (reproduction) shirt",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제2차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:Uniform,_Red_Cross_(AM_2001.40.1-12).jpg",
-        "identifier": "65342007",
-        "accessedAt": "2026-10-24T05:10:05.644Z"
-      },
-      "dates": {
-        "display": "1941-1945; Circa 1941; 31 Dec 2001; 07 Dec 2001; World War 2-wars",
-        "start": "1941",
-        "precision": "circa"
-      },
-      "warIds": [
-        "world-war-ii"
-      ],
-      "entityIds": [],
-      "topics": [
-        "Red Cross in New Zealand",
-        "Images uploaded by Fæ",
-        "Artworks without Wikidata item",
-        "Images from Auckland Museum",
-        "Unsupported object",
-        "Artworks with known accession number",
-        "Uniforms in Auckland Museum",
-        "Red Cross uniforms",
-        "Female uniforms"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제2차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:Uniform,_Red_Cross_(AM_2001.40.1-12).jpg"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-24T05:10:05.644Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-24T05:10:05.644Z",
           "summary": "원 소장처 메타데이터 수집"
         }
       ]
@@ -6004,62 +5318,6 @@
       ]
     },
     {
-      "id": "rec-4fd1862871d6718080fbe0b8",
-      "title": "Cemetery of Polish Army soldiers who died in the battle of Tomaszów Lubelski on September 23, 1939 in Antoniówka (15).jpg",
-      "originalTitle": "Cemetery of Polish Army soldiers who died in the battle of Tomaszów Lubelski on September 23, 1939 in Antoniówka (15).jpg",
-      "summary": "Cemetery of fallen soldiers of the Polish Army in the battle of Tomaszów Lubelski on September 23, 1939, in Antoniówka in the Zamość region near Tomaszów Lubelski. Cemetery of fallen soldiers of the Polish Army in the fight against the German Nazi invaders in the Polish Defense War in September 1939 during World War II. The cemetery is located in Antoniówka. On the road from Zamość to Tomaszów Lubelski - in Budy - turn right. And then, in the village of Antoniówka, on the left side of the road, there is a cemetery of the Polish Army Soldiers who died in the Battle of Tomaszów Lubelski on September 23, 1939. A narrow path leads to it. Almost in front of the last house in this town. Almost 500 (five hundred) soldiers of the Polish Army who died in September 1939 in the Polish Defense War in the Second Battle of Tomaszów Lubelski during World War II are buried in the cemetery.",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제2차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:Cemetery_of_Polish_Army_soldiers_who_died_in_the_battle_of_Tomasz%C3%B3w_Lubelski_on_September_23,_1939_in_Antoni%C3%B3wka_(15).jpg",
-        "identifier": "95618910",
-        "accessedAt": "2026-10-23T11:16:30.121Z"
-      },
-      "dates": {
-        "display": "2020-09-20",
-        "start": "2020-09-20",
-        "precision": "exact"
-      },
-      "warIds": [
-        "world-war-ii"
-      ],
-      "entityIds": [],
-      "topics": [
-        "Self-published work",
-        "Cemetery of Polish Army soldiers who died in the battle of Tomaszów Lubelski on September 23, 1939 in Antoniówka"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제2차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:Cemetery_of_Polish_Army_soldiers_who_died_in_the_battle_of_Tomasz%C3%B3w_Lubelski_on_September_23,_1939_in_Antoni%C3%B3wka_(15).jpg"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-23T11:16:30.121Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-23T11:16:30.121Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
       "id": "rec-507ec9156dd1c4f334432152",
       "title": "West Shore Expy SI td (2024-09-08) 125.jpg",
       "originalTitle": "West Shore Expy SI td (2024-09-08) 125.jpg",
@@ -6125,64 +5383,6 @@
       "changes": [
         {
           "at": "2026-10-23T23:09:57.859Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
-      "id": "rec-51533b41f4c812ed72875983",
-      "title": "Nazi German Abwehr Spy Enigma Machine on display in Bletchley Park.jpg",
-      "originalTitle": "Nazi German Abwehr Spy Enigma Machine on display in Bletchley Park.jpg",
-      "summary": "Nazi German Abwehr Spy Enigma Machine on display in Bletchley Park",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제2차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:Nazi_German_Abwehr_Spy_Enigma_Machine_on_display_in_Bletchley_Park.jpg",
-        "identifier": "201757888",
-        "accessedAt": "2026-10-23T11:15:32.083Z"
-      },
-      "dates": {
-        "display": "2022-07-02 11:52:50",
-        "precision": "unknown"
-      },
-      "warIds": [
-        "world-war-ii"
-      ],
-      "entityIds": [],
-      "topics": [
-        "Self-published work",
-        "Creative Commons Attribution 4.0 missing SDC copyright license",
-        "Creative Commons Attribution missing SDC copyright status",
-        "Self-published work missing SDC copyright license",
-        "Enigma machines at Bletchley Park"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제2차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:Nazi_German_Abwehr_Spy_Enigma_Machine_on_display_in_Bletchley_Park.jpg"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-23T11:15:32.083Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-23T11:15:32.083Z",
           "summary": "원 소장처 메타데이터 수집"
         }
       ]
@@ -6812,66 +6012,6 @@
       ]
     },
     {
-      "id": "rec-5bc1effe1102676e44685375",
-      "title": "D-Day Torquay Slipways Plaque.jpg",
-      "originalTitle": "D-Day Torquay Slipways Plaque.jpg",
-      "summary": "D-Day Torquay Slipways Plaque.",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제2차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:D-Day_Torquay_Slipways_Plaque.jpg",
-        "identifier": "197460356",
-        "accessedAt": "2026-10-23T23:12:46.464Z"
-      },
-      "dates": {
-        "display": "2014-08-05 15:39:32",
-        "precision": "unknown"
-      },
-      "warIds": [
-        "world-war-ii"
-      ],
-      "entityIds": [],
-      "topics": [
-        "CC-Zero",
-        "Creative Commons CC0 1.0 Universal Public Domain Dedication missing SDC copyright license",
-        "Self-published work",
-        "Self-published work missing SDC copyright license",
-        "August 2014 in Devon",
-        "England photographs taken on 2014-08-05",
-        "D Day Memorial (Torquay)"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제2차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:D-Day_Torquay_Slipways_Plaque.jpg"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-23T23:12:46.464Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-23T23:12:46.464Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
       "id": "rec-5be778ab9fcd7f04df78f851",
       "title": "British Indian Army pioneers at the Ladder of Tyre during WWI.jpg",
       "originalTitle": "British Indian Army pioneers at the Ladder of Tyre during WWI.jpg",
@@ -7122,63 +6262,6 @@
       ]
     },
     {
-      "id": "rec-5eee15eb21b9ad5e186fe990",
-      "title": "SHOULD BRAVE MEN DIE SO YOU CAN DRIVE? - DPLA - f516d7a1df36a2e479f10384e27c6768.gif",
-      "originalTitle": "SHOULD BRAVE MEN DIE SO YOU CAN DRIVE? - DPLA - f516d7a1df36a2e479f10384e27c6768.gif",
-      "summary": "원 소장처의 자료 정보와 이용 조건을 확인할 수 있는 기록입니다.",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제2차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:SHOULD_BRAVE_MEN_DIE_SO_YOU_CAN_DRIVE%3F_-_DPLA_-_f516d7a1df36a2e479f10384e27c6768.gif",
-        "identifier": "193042992",
-        "accessedAt": "2026-10-23T17:09:38.294Z"
-      },
-      "dates": {
-        "display": "1941-01-01/1945-12-31",
-        "precision": "unknown"
-      },
-      "warIds": [
-        "world-war-ii"
-      ],
-      "entityIds": [],
-      "topics": [
-        "PD US",
-        "Media contributed by the National Archives and Records Administration",
-        "Media contributed by the Digital Public Library of America",
-        "Media contributed by National Archives at College Park - Still Pictures"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제2차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:SHOULD_BRAVE_MEN_DIE_SO_YOU_CAN_DRIVE%3F_-_DPLA_-_f516d7a1df36a2e479f10384e27c6768.gif"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-23T17:09:38.294Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-23T17:09:38.294Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
       "id": "rec-5f250e9ab8298f0b512ff981",
       "title": "Col. Lawson visits Taeseongdong 130802-A-TN121-089.jpg",
       "originalTitle": "Col. Lawson visits Taeseongdong 130802-A-TN121-089.jpg",
@@ -7233,63 +6316,6 @@
       "changes": [
         {
           "at": "2026-10-24T11:15:48.752Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
-      "id": "rec-5f40a49a4e8af9ae4232ca93",
-      "title": "Qisas almadan ölmə. Keçmişdən məktublar (2013).png",
-      "originalTitle": "Qisas almadan ölmə. Keçmişdən məktublar (2013).png",
-      "summary": "Qisas almadan ölmə. Keçmişdən məktublar",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제2차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:Qisas_almadan_%C3%B6lm%C9%99._Ke%C3%A7mi%C5%9Fd%C9%99n_m%C9%99ktublar_(2013).png",
-        "identifier": "180764712",
-        "accessedAt": "2026-10-23T11:15:54.090Z"
-      },
-      "dates": {
-        "display": "2013-05-09",
-        "start": "2013-05-09",
-        "precision": "exact"
-      },
-      "warIds": [
-        "world-war-ii"
-      ],
-      "entityIds": [],
-      "topics": [
-        "CC-Zero",
-        "Self-published work",
-        "Movie logos in Azerbaijani language"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제2차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:Qisas_almadan_%C3%B6lm%C9%99._Ke%C3%A7mi%C5%9Fd%C9%99n_m%C9%99ktublar_(2013).png"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-23T11:15:54.090Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-23T11:15:54.090Z",
           "summary": "원 소장처 메타데이터 수집"
         }
       ]
@@ -7608,63 +6634,6 @@
       "changes": [
         {
           "at": "2026-10-23T17:11:42.441Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
-      "id": "rec-642bec3c09b4759df52dafa3",
-      "title": "Photographie des chantiers de jeunesse de Drom.jpg",
-      "originalTitle": "Photographie des chantiers de jeunesse de Drom.jpg",
-      "summary": "Photographie des chantiers de jeunesse de Drom [1940-1944] (Archives communales de Drom)",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제2차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:Photographie_des_chantiers_de_jeunesse_de_Drom.jpg",
-        "identifier": "187807153",
-        "accessedAt": "2026-10-24T11:12:37.141Z"
-      },
-      "dates": {
-        "display": "[1940-1944]",
-        "precision": "unknown"
-      },
-      "warIds": [
-        "world-war-ii"
-      ],
-      "entityIds": [],
-      "topics": [
-        "CC-Zero",
-        "Self-published work",
-        "All media needing categories as of 2026",
-        "Media needing categories as of 3 April 2026"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제2차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:Photographie_des_chantiers_de_jeunesse_de_Drom.jpg"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-24T11:12:37.141Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-24T11:12:37.141Z",
           "summary": "원 소장처 메타데이터 수집"
         }
       ]
@@ -8121,63 +7090,6 @@
       ]
     },
     {
-      "id": "rec-6f22955f8cc55843c795f421",
-      "title": "THE ARMY NURSE IN WAR - DPLA - 958d0f761aec7ea722f4706cd0ebc1b9.gif",
-      "originalTitle": "THE ARMY NURSE IN WAR - DPLA - 958d0f761aec7ea722f4706cd0ebc1b9.gif",
-      "summary": "원 소장처의 자료 정보와 이용 조건을 확인할 수 있는 기록입니다.",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제2차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:THE_ARMY_NURSE_IN_WAR_-_DPLA_-_958d0f761aec7ea722f4706cd0ebc1b9.gif",
-        "identifier": "193012621",
-        "accessedAt": "2026-10-24T05:10:21.148Z"
-      },
-      "dates": {
-        "display": "1941-01-01/1945-12-31",
-        "precision": "unknown"
-      },
-      "warIds": [
-        "world-war-ii"
-      ],
-      "entityIds": [],
-      "topics": [
-        "PD US",
-        "Media contributed by the National Archives and Records Administration",
-        "Media contributed by the Digital Public Library of America",
-        "Media contributed by National Archives at College Park - Still Pictures"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제2차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:THE_ARMY_NURSE_IN_WAR_-_DPLA_-_958d0f761aec7ea722f4706cd0ebc1b9.gif"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-24T05:10:21.148Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-24T05:10:21.148Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
       "id": "rec-701e10fc41c28f8c0ea2b5de",
       "title": "(State of the State - Press Kits) - (Resources Agency) - DPLA - 629fa0f7cfd60e208c6df8f4252ffe85.pdf",
       "originalTitle": "(State of the State - Press Kits) - (Resources Agency) - DPLA - 629fa0f7cfd60e208c6df8f4252ffe85.pdf",
@@ -8352,63 +7264,6 @@
       "changes": [
         {
           "at": "2026-10-23T23:08:59.697Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
-      "id": "rec-71ecc98cad34d7106128c8ed",
-      "title": "\"Manpower lost in 1941\" - DPLA - 8c460db9fd110cc9b3057f538720e400.jpg",
-      "originalTitle": "\"Manpower lost in 1941\" - DPLA - 8c460db9fd110cc9b3057f538720e400.jpg",
-      "summary": "원 소장처의 자료 정보와 이용 조건을 확인할 수 있는 기록입니다.",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제2차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:%22Manpower_lost_in_1941%22_-_DPLA_-_8c460db9fd110cc9b3057f538720e400.jpg",
-        "identifier": "193003898",
-        "accessedAt": "2026-10-24T05:10:50.738Z"
-      },
-      "dates": {
-        "display": "1941-01-01/1945-12-31",
-        "precision": "unknown"
-      },
-      "warIds": [
-        "world-war-ii"
-      ],
-      "entityIds": [],
-      "topics": [
-        "PD US",
-        "Media contributed by the National Archives and Records Administration",
-        "Media contributed by the Digital Public Library of America",
-        "Media contributed by National Archives at College Park - Still Pictures"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제2차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:%22Manpower_lost_in_1941%22_-_DPLA_-_8c460db9fd110cc9b3057f538720e400.jpg"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-24T05:10:50.738Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-24T05:10:50.738Z",
           "summary": "원 소장처 메타데이터 수집"
         }
       ]
@@ -9080,63 +7935,6 @@
       "changes": [
         {
           "at": "2026-10-23T23:11:17.048Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
-      "id": "rec-79fed37a8f3b28957e59cac6",
-      "title": "RE-TIRE IN TIME. HELP U.S. SAVE TIRES! - DPLA - d51e483b4cc6b524f325311c24d0693e.jpg",
-      "originalTitle": "RE-TIRE IN TIME. HELP U.S. SAVE TIRES! - DPLA - d51e483b4cc6b524f325311c24d0693e.jpg",
-      "summary": "원 소장처의 자료 정보와 이용 조건을 확인할 수 있는 기록입니다.",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제2차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:RE-TIRE_IN_TIME._HELP_U.S._SAVE_TIRES!_-_DPLA_-_d51e483b4cc6b524f325311c24d0693e.jpg",
-        "identifier": "193035452",
-        "accessedAt": "2026-10-23T11:15:36.176Z"
-      },
-      "dates": {
-        "display": "1941-01-01/1945-12-31",
-        "precision": "unknown"
-      },
-      "warIds": [
-        "world-war-ii"
-      ],
-      "entityIds": [],
-      "topics": [
-        "PD US",
-        "Media contributed by the National Archives and Records Administration",
-        "Media contributed by the Digital Public Library of America",
-        "Media contributed by National Archives at College Park - Still Pictures"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제2차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:RE-TIRE_IN_TIME._HELP_U.S._SAVE_TIRES!_-_DPLA_-_d51e483b4cc6b524f325311c24d0693e.jpg"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-23T11:15:36.176Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-23T11:15:36.176Z",
           "summary": "원 소장처 메타데이터 수집"
         }
       ]
@@ -11155,63 +9953,6 @@
       ]
     },
     {
-      "id": "rec-8def374b9a4da1166db1e694",
-      "title": "(Photograph of General Dwight D. Eisenhower Drinking Coffee Aboard a Minesweeper at Cherbourg, France) - DPLA - 9d0b9e1cdcf0acbdbd8a41513180cda8.jpg",
-      "originalTitle": "(Photograph of General Dwight D. Eisenhower Drinking Coffee Aboard a Minesweeper at Cherbourg, France) - DPLA - 9d0b9e1cdcf0acbdbd8a41513180cda8.jpg",
-      "summary": "Original caption: General Dwight Eisenhower, Supreme Commander Allied Forces, drinks a cup of coffee aboard a Navy minesweeper at Cherbourg, France, during his inspection tour of rear line supply facilities.",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제2차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:(Photograph_of_General_Dwight_D._Eisenhower_Drinking_Coffee_Aboard_a_Minesweeper_at_Cherbourg,_France)_-_DPLA_-_9d0b9e1cdcf0acbdbd8a41513180cda8.jpg",
-        "identifier": "195367076",
-        "accessedAt": "2026-10-23T23:12:48.210Z"
-      },
-      "dates": {
-        "display": "1945-02-21/1945-02-21",
-        "precision": "unknown"
-      },
-      "warIds": [
-        "world-war-ii"
-      ],
-      "entityIds": [],
-      "topics": [
-        "PD US",
-        "Media contributed by the National Archives and Records Administration",
-        "Media contributed by the Digital Public Library of America",
-        "Media contributed by Dwight D. Eisenhower Presidential Library, Museum and Boyhood Home"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제2차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:(Photograph_of_General_Dwight_D._Eisenhower_Drinking_Coffee_Aboard_a_Minesweeper_at_Cherbourg,_France)_-_DPLA_-_9d0b9e1cdcf0acbdbd8a41513180cda8.jpg"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-23T23:12:48.210Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-23T23:12:48.210Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
       "id": "rec-8e07836a58fd17aaba8b1aff",
       "title": "Analysis of the transformation process of general detail sailors (IA analysisoftransf1094532773).pdf",
       "originalTitle": "Analysis of the transformation process of general detail sailors (IA analysisoftransf1094532773).pdf",
@@ -11268,63 +10009,6 @@
       "changes": [
         {
           "at": "2026-10-23T17:12:03.938Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
-      "id": "rec-8e6689fef893d002cb691f55",
-      "title": "PRODUCE FOR VICTORY - DPLA - e861fc84b566a4eed3fcafbe8d50a194.gif",
-      "originalTitle": "PRODUCE FOR VICTORY - DPLA - e861fc84b566a4eed3fcafbe8d50a194.gif",
-      "summary": "원 소장처의 자료 정보와 이용 조건을 확인할 수 있는 기록입니다.",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제2차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:PRODUCE_FOR_VICTORY_-_DPLA_-_e861fc84b566a4eed3fcafbe8d50a194.gif",
-        "identifier": "193040779",
-        "accessedAt": "2026-10-24T05:09:36.623Z"
-      },
-      "dates": {
-        "display": "1941-01-01/1945-12-31",
-        "precision": "unknown"
-      },
-      "warIds": [
-        "world-war-ii"
-      ],
-      "entityIds": [],
-      "topics": [
-        "PD US",
-        "Media contributed by the National Archives and Records Administration",
-        "Media contributed by the Digital Public Library of America",
-        "Media contributed by National Archives at College Park - Still Pictures"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제2차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:PRODUCE_FOR_VICTORY_-_DPLA_-_e861fc84b566a4eed3fcafbe8d50a194.gif"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-24T05:09:36.623Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-24T05:09:36.623Z",
           "summary": "원 소장처 메타데이터 수집"
         }
       ]
@@ -11439,63 +10123,6 @@
       "changes": [
         {
           "at": "2026-10-23T17:11:37.661Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
-      "id": "rec-8f900189e53d6aa451ce0d3c",
-      "title": "\"Keep Cigarettes and Matches out of Trash Container\" - DPLA - 6e503d2b8fcf71eb5147cccdb9631067.gif",
-      "originalTitle": "\"Keep Cigarettes and Matches out of Trash Container\" - DPLA - 6e503d2b8fcf71eb5147cccdb9631067.gif",
-      "summary": "원 소장처의 자료 정보와 이용 조건을 확인할 수 있는 기록입니다.",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제2차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:%22Keep_Cigarettes_and_Matches_out_of_Trash_Container%22_-_DPLA_-_6e503d2b8fcf71eb5147cccdb9631067.gif",
-        "identifier": "192995942",
-        "accessedAt": "2026-10-24T11:09:59.344Z"
-      },
-      "dates": {
-        "display": "1941-01-01/1945-12-31",
-        "precision": "unknown"
-      },
-      "warIds": [
-        "world-war-ii"
-      ],
-      "entityIds": [],
-      "topics": [
-        "PD US",
-        "Media contributed by the National Archives and Records Administration",
-        "Media contributed by the Digital Public Library of America",
-        "Media contributed by National Archives at College Park - Still Pictures"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제2차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:%22Keep_Cigarettes_and_Matches_out_of_Trash_Container%22_-_DPLA_-_6e503d2b8fcf71eb5147cccdb9631067.gif"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-24T11:09:59.344Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-24T11:09:59.344Z",
           "summary": "원 소장처 메타데이터 수집"
         }
       ]
@@ -12431,68 +11058,6 @@
       ]
     },
     {
-      "id": "rec-9f5eab57ef8e227b52cc1ff4",
-      "title": "Saint-Cast-Isle-MonumentEvadés 1949.jpg",
-      "originalTitle": "Saint-Cast-Isle-MonumentEvadés 1949.jpg",
-      "summary": "Monument à la mémoire des évadés de 1941, érigé à la pointe de l'Isle, Saint-Cast-le-Guildo (Côtes d'Armor),en août 1949. Une table ornée de la Croix de Lorraine \"Honneur et Patrie\", posée sur deux colonnes de granit l'ensemble sur un socle portant l'inscription \"Aux évadés de France qui ont préféré mourir debout plutôt que de vivre à genoux\".",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제2차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:Saint-Cast-Isle-MonumentEvad%C3%A9s_1949.jpg",
-        "identifier": "97378676",
-        "accessedAt": "2026-10-23T11:16:21.671Z"
-      },
-      "dates": {
-        "display": "2020-12-08 18:08:21",
-        "precision": "unknown"
-      },
-      "warIds": [
-        "world-war-ii"
-      ],
-      "entityIds": [],
-      "topics": [
-        "Double columns",
-        "Self-published work"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2f/Saint-Cast-Isle-MonumentEvad%C3%A9s_1949.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
-        "displayAllowed": true,
-        "attribution": {
-          "creator": "Kerlavarec",
-          "credit": "Own work",
-          "license": "CC BY-SA 4.0",
-          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
-        }
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제2차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:Saint-Cast-Isle-MonumentEvad%C3%A9s_1949.jpg"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-23T11:16:21.671Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-23T11:16:21.671Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
       "id": "rec-9f684f216c0654612ec595c0",
       "title": "American Red Cross - Refugees - Refugee children playing games at Grand Val, a country home for delicate refugee children established by the A.R.C - NARA - 20804616.jpg",
       "originalTitle": "American Red Cross - Refugees - Refugee children playing games at Grand Val, a country home for delicate refugee children established by the A.R.C - NARA - 20804616.jpg",
@@ -12748,63 +11313,6 @@
       ]
     },
     {
-      "id": "rec-a4154276a9a9286a4dc6c5fa",
-      "title": "FOR MORE HEARTY SOUPS - ADD SOYA - DPLA - 8277f94b0710af5e2f70523fd19dde57.gif",
-      "originalTitle": "FOR MORE HEARTY SOUPS - ADD SOYA - DPLA - 8277f94b0710af5e2f70523fd19dde57.gif",
-      "summary": "원 소장처의 자료 정보와 이용 조건을 확인할 수 있는 기록입니다.",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제2차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:FOR_MORE_HEARTY_SOUPS_-_ADD_SOYA_-_DPLA_-_8277f94b0710af5e2f70523fd19dde57.gif",
-        "identifier": "193001124",
-        "accessedAt": "2026-10-23T23:13:00.971Z"
-      },
-      "dates": {
-        "display": "1941-01-01/1945-12-31",
-        "precision": "unknown"
-      },
-      "warIds": [
-        "world-war-ii"
-      ],
-      "entityIds": [],
-      "topics": [
-        "PD US",
-        "Media contributed by the National Archives and Records Administration",
-        "Media contributed by the Digital Public Library of America",
-        "Media contributed by National Archives at College Park - Still Pictures"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제2차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:FOR_MORE_HEARTY_SOUPS_-_ADD_SOYA_-_DPLA_-_8277f94b0710af5e2f70523fd19dde57.gif"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-23T23:13:00.971Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-23T23:13:00.971Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
       "id": "rec-a4288ebd453d325161e38209",
       "title": "Veterans Day 2017 at Arlington National Cemetery on 11 November 2017 - 11.jpg",
       "originalTitle": "Veterans Day 2017 at Arlington National Cemetery on 11 November 2017 - 11.jpg",
@@ -12859,63 +11367,6 @@
       "changes": [
         {
           "at": "2026-10-23T17:11:29.498Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
-      "id": "rec-a494693455601a35863eaa3a",
-      "title": "\"Doing All You Can, Brother?\" - DPLA - ea1c300895b29953f364772152961162.gif",
-      "originalTitle": "\"Doing All You Can, Brother?\" - DPLA - ea1c300895b29953f364772152961162.gif",
-      "summary": "원 소장처의 자료 정보와 이용 조건을 확인할 수 있는 기록입니다.",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제2차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:%22Doing_All_You_Can,_Brother%3F%22_-_DPLA_-_ea1c300895b29953f364772152961162.gif",
-        "identifier": "193041040",
-        "accessedAt": "2026-10-23T11:15:33.499Z"
-      },
-      "dates": {
-        "display": "1941-01-01/1945-12-31",
-        "precision": "unknown"
-      },
-      "warIds": [
-        "world-war-ii"
-      ],
-      "entityIds": [],
-      "topics": [
-        "PD US",
-        "Media contributed by the National Archives and Records Administration",
-        "Media contributed by the Digital Public Library of America",
-        "Media contributed by National Archives at College Park - Still Pictures"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제2차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:%22Doing_All_You_Can,_Brother%3F%22_-_DPLA_-_ea1c300895b29953f364772152961162.gif"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-23T11:15:33.499Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-23T11:15:33.499Z",
           "summary": "원 소장처 메타데이터 수집"
         }
       ]
@@ -13101,74 +11552,6 @@
       ]
     },
     {
-      "id": "rec-a62703272605282655a5376d",
-      "title": "Somogyszob Háborús emlékmű.jpg",
-      "originalTitle": "Somogyszob Háborús emlékmű.jpg",
-      "summary": "World War I and World War II memorial obelisk with a Turul bird statue in Somogyszob, Somogy County, Hungary.",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제2차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:Somogyszob_H%C3%A1bor%C3%BAs_eml%C3%A9km%C5%B1.jpg",
-        "identifier": "198689284",
-        "accessedAt": "2026-10-23T23:12:45.591Z"
-      },
-      "dates": {
-        "display": "2026-08-28 15:45:31",
-        "precision": "unknown"
-      },
-      "warIds": [
-        "world-war-ii"
-      ],
-      "entityIds": [],
-      "topics": [
-        "CC-Zero",
-        "Creative Commons CC0 1.0 Universal Public Domain Dedication missing SDC copyright license",
-        "Somogyszob",
-        "Self-published work",
-        "World War I memorials in Somogy County",
-        "Self-published work missing SDC copyright license",
-        "World War II memorials in Somogy County",
-        "Turul statues in Hungary",
-        "Files with coordinates missing SDC location of creation"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제2차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:Somogyszob_H%C3%A1bor%C3%BAs_eml%C3%A9km%C5%B1.jpg"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-23T23:12:45.591Z",
-      "sensitivity": "none",
-      "location": {
-        "name": "원 소장처 자료 지오태그",
-        "lat": 46.292828,
-        "lon": 17.295814,
-        "precision": "approximate"
-      },
-      "changes": [
-        {
-          "at": "2026-10-23T23:12:45.591Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
       "id": "rec-a659faa6f4474b335f62d1a5",
       "title": "Enemy Activities - Arrests of Alien Enemies - Arrest of Alien Enemies in U.S.A. - German agents in America. Hans Tauscher, husband of Mademoiselle Johanna Gadski and American agent for Krupps, implicated in Wella(...) - NARA - 31477863.jpg",
       "originalTitle": "Enemy Activities - Arrests of Alien Enemies - Arrest of Alien Enemies in U.S.A. - German agents in America. Hans Tauscher, husband of Mademoiselle Johanna Gadski and American agent for Krupps, implicated in Wella(...) - NARA - 31477863.jpg",
@@ -13230,63 +11613,6 @@
       "changes": [
         {
           "at": "2026-10-23T17:16:05.429Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
-      "id": "rec-a6b528c55d373848e4d9fa7f",
-      "title": "ONE MILLION DOLLARS A DAY WASTED. CONSERVE AND YOU SERVE UNCLE SAM. - DPLA - 3fd08e94d4112324bf621b3166bee8e6.gif",
-      "originalTitle": "ONE MILLION DOLLARS A DAY WASTED. CONSERVE AND YOU SERVE UNCLE SAM. - DPLA - 3fd08e94d4112324bf621b3166bee8e6.gif",
-      "summary": "원 소장처의 자료 정보와 이용 조건을 확인할 수 있는 기록입니다.",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제2차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:ONE_MILLION_DOLLARS_A_DAY_WASTED._CONSERVE_AND_YOU_SERVE_UNCLE_SAM._-_DPLA_-_3fd08e94d4112324bf621b3166bee8e6.gif",
-        "identifier": "192982977",
-        "accessedAt": "2026-10-23T11:15:48.725Z"
-      },
-      "dates": {
-        "display": "1941-01-01/1945-12-31",
-        "precision": "unknown"
-      },
-      "warIds": [
-        "world-war-ii"
-      ],
-      "entityIds": [],
-      "topics": [
-        "PD US",
-        "Media contributed by the National Archives and Records Administration",
-        "Media contributed by the Digital Public Library of America",
-        "Media contributed by National Archives at College Park - Still Pictures"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제2차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:ONE_MILLION_DOLLARS_A_DAY_WASTED._CONSERVE_AND_YOU_SERVE_UNCLE_SAM._-_DPLA_-_3fd08e94d4112324bf621b3166bee8e6.gif"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-23T11:15:48.725Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-23T11:15:48.725Z",
           "summary": "원 소장처 메타데이터 수집"
         }
       ]
@@ -13408,68 +11734,6 @@
       "changes": [
         {
           "at": "2026-10-24T05:16:47.690Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
-      "id": "rec-aa174ff0ddcfc63854b7879c",
-      "title": "MUS B.14.6. Uang Pemerintah Jepang 100 Rupee, 1942-1945; 2.jpg",
-      "originalTitle": "MUS B.14.6. Uang Pemerintah Jepang 100 Rupee, 1942-1945; 2.jpg",
-      "summary": "Uang kertas Pemerintah Jepang, bernilai 100 Rupee, digunakan pada 1942-1945.",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제2차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:MUS_B.14.6._Uang_Pemerintah_Jepang_100_Rupee,_1942-1945;_2.jpg",
-        "identifier": "82813579",
-        "accessedAt": "2026-10-23T23:13:27.187Z"
-      },
-      "dates": {
-        "display": "2019-08-06",
-        "start": "2019-08-06",
-        "precision": "exact"
-      },
-      "warIds": [
-        "world-war-ii"
-      ],
-      "entityIds": [],
-      "topics": [
-        "Images from Sumatran Numismatic Museum",
-        "Sumatran Numismatic Museum banknotes"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제2차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:MUS_B.14.6._Uang_Pemerintah_Jepang_100_Rupee,_1942-1945;_2.jpg"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-23T23:13:27.187Z",
-      "sensitivity": "none",
-      "location": {
-        "name": "원 소장처 자료 지오태그",
-        "lat": 3.581834,
-        "lon": 98.682417,
-        "precision": "approximate"
-      },
-      "changes": [
-        {
-          "at": "2026-10-23T23:13:27.187Z",
           "summary": "원 소장처 메타데이터 수집"
         }
       ]
@@ -14291,127 +12555,6 @@
       ]
     },
     {
-      "id": "rec-b262c0d46f8b0b0eca27ba01",
-      "title": "Cap, field (AM 1996.127.3-5).jpg",
-      "originalTitle": "Cap, field (AM 1996.127.3-5).jpg",
-      "summary": "German tropical hat, c.1939-1942, WW2; acquired by Kenneth G Carter, 4th RMT Corps, 2NZEF, while in Italy during WW2 (post August 1943) olive green cotton drill fabric with bright red lining; peaked visor; two ventilation eyelets on each side; badges- eagle badge- flat woven pattern on khaki ground; cockade- machine-woven; red, white and black on khaki patch; soutache (waffenfarbe)- bright green braid; l x w- 260mm x 210mm manufacturer Gustav Thomas, Breslau, Gerrmany, 1941",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제2차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:Cap,_field_(AM_1996.127.3-5).jpg",
-        "identifier": "65314619",
-        "accessedAt": "2026-10-24T05:10:01.694Z"
-      },
-      "dates": {
-        "display": "12 Sep 1996; (1939-1943); 24 Sep 1996; World War 2-wars",
-        "precision": "unknown"
-      },
-      "warIds": [
-        "world-war-ii"
-      ],
-      "entityIds": [],
-      "topics": [
-        "Military headgear of Germany",
-        "Military equipment of the Wehrmacht",
-        "Images uploaded by Fæ",
-        "Artworks without Wikidata item",
-        "Images from Auckland Museum",
-        "Unsupported object",
-        "Artworks with known accession number",
-        "Souvenir in Auckland Museum",
-        "Headwear in Auckland Museum",
-        "Drill (fabric)",
-        "Bergmütze of the Wehrmacht"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제2차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:Cap,_field_(AM_1996.127.3-5).jpg"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-24T05:10:01.694Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-24T05:10:01.694Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
-      "id": "rec-b2c1b0b705b27c91df43ec6d",
-      "title": "If you question it-report it - DPLA - 24785237645e3fbadba5614711e76e9b.gif",
-      "originalTitle": "If you question it-report it - DPLA - 24785237645e3fbadba5614711e76e9b.gif",
-      "summary": "원 소장처의 자료 정보와 이용 조건을 확인할 수 있는 기록입니다.",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제2차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:If_you_question_it-report_it_-_DPLA_-_24785237645e3fbadba5614711e76e9b.gif",
-        "identifier": "192978207",
-        "accessedAt": "2026-10-23T17:08:19.259Z"
-      },
-      "dates": {
-        "display": "1941-01-01/1945-12-31",
-        "precision": "unknown"
-      },
-      "warIds": [
-        "world-war-ii"
-      ],
-      "entityIds": [],
-      "topics": [
-        "PD US",
-        "Media contributed by the National Archives and Records Administration",
-        "Media contributed by the Digital Public Library of America",
-        "Media contributed by National Archives at College Park - Still Pictures"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제2차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:If_you_question_it-report_it_-_DPLA_-_24785237645e3fbadba5614711e76e9b.gif"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-23T17:08:19.259Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-23T17:08:19.259Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
       "id": "rec-b409f31cc1b60b5162ec31db",
       "title": "Bombs fall on Communist hordes in North Korea as mighty bombers of the U.S. Far East Air Forces Bomber Command... - NARA - 542216.tif",
       "originalTitle": "Bombs fall on Communist hordes in North Korea as mighty bombers of the U.S. Far East Air Forces Bomber Command... - NARA - 542216.tif",
@@ -14653,63 +12796,6 @@
       "changes": [
         {
           "at": "2026-10-24T11:15:34.356Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
-      "id": "rec-b6ea908a76186064a12fa3b2",
-      "title": "\"VENTILATION SAVES LIVES\" - DPLA - 92ab7dab68ca60d3d2becfe44e745afe.gif",
-      "originalTitle": "\"VENTILATION SAVES LIVES\" - DPLA - 92ab7dab68ca60d3d2becfe44e745afe.gif",
-      "summary": "원 소장처의 자료 정보와 이용 조건을 확인할 수 있는 기록입니다.",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제2차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:%22VENTILATION_SAVES_LIVES%22_-_DPLA_-_92ab7dab68ca60d3d2becfe44e745afe.gif",
-        "identifier": "193011357",
-        "accessedAt": "2026-10-23T17:09:35.796Z"
-      },
-      "dates": {
-        "display": "1941-01-01/1945-12-31",
-        "precision": "unknown"
-      },
-      "warIds": [
-        "world-war-ii"
-      ],
-      "entityIds": [],
-      "topics": [
-        "PD US",
-        "Media contributed by the National Archives and Records Administration",
-        "Media contributed by the Digital Public Library of America",
-        "Media contributed by National Archives at College Park - Still Pictures"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제2차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:%22VENTILATION_SAVES_LIVES%22_-_DPLA_-_92ab7dab68ca60d3d2becfe44e745afe.gif"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-23T17:09:35.796Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-23T17:09:35.796Z",
           "summary": "원 소장처 메타데이터 수집"
         }
       ]
@@ -15391,70 +13477,6 @@
       ]
     },
     {
-      "id": "rec-c413979af2f7a1915827eba9",
-      "title": "2016 Schuilen in Maastricht 18.JPG",
-      "originalTitle": "2016 Schuilen in Maastricht 18.JPG",
-      "summary": "Maastricht, the Netherlands. View of a section of the small air-raid museum Schuilen in Maastricht (\"Hiding in Maastricht\") with toilets used during World War II. The museum uses two galleries in the caponier Wilcke, part of the extensive network of underground fortifications ( Kazematten ) on the westside of Maastricht. Like other parts of the Kazematten, the caponier Wilcke was used during World War II as a bomb shelter. During the Cold War it was prepared for a limited number of people (100) in the event of nuclear war.",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제2차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:2016_Schuilen_in_Maastricht_18.JPG",
-        "identifier": "47701747",
-        "accessedAt": "2026-10-23T17:09:09.840Z"
-      },
-      "dates": {
-        "display": "2016-03-20 16:08:51",
-        "precision": "unknown"
-      },
-      "warIds": [
-        "world-war-ii"
-      ],
-      "entityIds": [],
-      "topics": [
-        "Self-published work",
-        "2016 in Maastricht",
-        "Netherlands photographs taken on 2016-03-20",
-        "Files with coordinates missing SDC location of creation (50° N, 5° E)",
-        "Schuilen in Maastricht"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제2차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:2016_Schuilen_in_Maastricht_18.JPG"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-23T17:09:09.840Z",
-      "sensitivity": "none",
-      "location": {
-        "name": "원 소장처 자료 지오태그",
-        "lat": 50.844511,
-        "lon": 5.677964,
-        "precision": "approximate"
-      },
-      "changes": [
-        {
-          "at": "2026-10-23T17:09:09.840Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
       "id": "rec-c4f555274aa1730709209716",
       "title": "Ogden Arsenal, North of State Highway 193, East of State Highway 126 and Interstate 15, South of Davis-Weber Canal, Layton, Davis County, UT HAER UTAH,6-LAY.V,1- (sheet 2 of 5).tif",
       "originalTitle": "Ogden Arsenal, North of State Highway 193, East of State Highway 126 and Interstate 15, South of Davis-Weber Canal, Layton, Davis County, UT HAER UTAH,6-LAY.V,1- (sheet 2 of 5).tif",
@@ -16100,63 +14122,6 @@
       ]
     },
     {
-      "id": "rec-cc4fcb6d04d198d18b7cb95c",
-      "title": "L'olympiade 1941 05.tif",
-      "originalTitle": "L'olympiade 1941 05.tif",
-      "summary": "« L’Olympiade 1941 », tract dépliant , 9,5 cm x 11,5 cm, Humathèque Condorcet, CNRS IHTP ARC 074 12",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제2차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:L%27olympiade_1941_05.tif",
-        "identifier": "193728574",
-        "accessedAt": "2026-10-23T23:12:50.098Z"
-      },
-      "dates": {
-        "display": "1941",
-        "start": "1941",
-        "precision": "year"
-      },
-      "warIds": [
-        "world-war-ii"
-      ],
-      "entityIds": [],
-      "topics": [
-        "CC-Zero",
-        "Self-published work",
-        "Archives de l'Institut d'Histoire du Temps Présent"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제2차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:L%27olympiade_1941_05.tif"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-23T23:12:50.098Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-23T23:12:50.098Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
       "id": "rec-cd6fe6402b3b5f783f6512b0",
       "title": "Honoring the missing- A POW-MIA recognition retreat (9336082).jpg",
       "originalTitle": "Honoring the missing- A POW-MIA recognition retreat (9336082).jpg",
@@ -16211,63 +14176,6 @@
       "changes": [
         {
           "at": "2026-10-24T11:14:59.548Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
-      "id": "rec-cd795cd6d5b57bf825819808",
-      "title": "Frequent watering of the Victory Garden is necessary during the early stages of growth. - DPLA - 2be8e068ea70dcebacdba355b2bff5a1.gif",
-      "originalTitle": "Frequent watering of the Victory Garden is necessary during the early stages of growth. - DPLA - 2be8e068ea70dcebacdba355b2bff5a1.gif",
-      "summary": "원 소장처의 자료 정보와 이용 조건을 확인할 수 있는 기록입니다.",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제2차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:Frequent_watering_of_the_Victory_Garden_is_necessary_during_the_early_stages_of_growth._-_DPLA_-_2be8e068ea70dcebacdba355b2bff5a1.gif",
-        "identifier": "192211125",
-        "accessedAt": "2026-10-24T11:12:38.332Z"
-      },
-      "dates": {
-        "display": "February 1943",
-        "precision": "unknown"
-      },
-      "warIds": [
-        "world-war-ii"
-      ],
-      "entityIds": [],
-      "topics": [
-        "PD US",
-        "Media contributed by the National Archives and Records Administration",
-        "Media contributed by the Digital Public Library of America",
-        "Media contributed by Franklin D. Roosevelt Presidential Library and Museum"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제2차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:Frequent_watering_of_the_Victory_Garden_is_necessary_during_the_early_stages_of_growth._-_DPLA_-_2be8e068ea70dcebacdba355b2bff5a1.gif"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-24T11:12:38.332Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-24T11:12:38.332Z",
           "summary": "원 소장처 메타데이터 수집"
         }
       ]
@@ -17201,71 +15109,6 @@
       "changes": [
         {
           "at": "2026-10-23T17:15:50.101Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
-      "id": "rec-da9e53e6d264e8b451612239",
-      "title": "Julio Ortega Tercero.jpg",
-      "originalTitle": "Julio Ortega Tercero.jpg",
-      "summary": "Nación en San Sebastián. Siendo su padre natural de Aranda de Duero y su madre donostiarra. Ingresó en la Academia de Infantería en 1907, formando parte de la 14ª promoción. Sirvió en la campañas de Marruecos en dos etapas de tres años 1914 a 1916 y 1921 a 1923, con las categorías de teniente y capitán. Yen la guerra de Liberación se le confiaron los mandos de jefe de batallón, de regimiento, de brigada y de infantería divisionaria. Antes del levantamiento del 18 de Julio tomó parte en el levantamiento del 10 de Agosto de 1932, que había acaudillado el general Sanjurjo, sufriendo por esta causa la deportación a Cilla Cisneros. Ya en pleno alzamiento estuvo en la prisión de Bilbao durante once meses, logrando evadirse con sus compañeros de cautiverio durante la noche en que entraron las tropas nacionales en la capital vizcaína. Durante la Segunda Guerra Mundial cuando las tropas alemanas abandonaron toda la zona de los Bajos Pirineos, en el año 1944, le fue otorgado por el capitán general de la región el mando de todas las fuerzas del Ejercito y de Orden Público que cubrían la línea fronteriza. En su desempeño de su cargo entabló relaciones con personalidades extranjeras tales como el Primer ministro del Reino Unido Winston Churchill, el presidente de la República Francesa Vicente Auriol, los reyes de Bélgica, emperatriz Soraya entre otros. Fue designado para formar parte de la Comisión de Límites de los Pirineos, en 1948, como representante permanente del Ministerio de la Gobernación. Al cabo de 25 años sus labores en la frontera y sus relaciones nacionales e internacionales le hicieron acreedor de numerosas condecoraciones entre las que se destaca La Cruz de Oficial de la Legión de Honor Francesa otorgada en 1952 recompensa del Gobierno francés por su labor a favor de los franceses evadidos del Régimen Alemán durante la Segunda Guerra Mundial; la Cruz de Gran Oficial de Aviz de Portugal; la Encomienda de Orange Nassau, de Holanda; la Estrella Negra del Espíritu Santo, de Francia. (nacionales) Gran Cruz del Mérito Civil concedida en 1951; la Encomienda de Número de Isabel la Católica, además de las correspondientes medallas militares por sus servicios en la paz y en la guerra. Tras su cesión del cargo murió en 1973 en Irún a los 83 años.",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제2차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:Julio_Ortega_Tercero.jpg",
-        "identifier": "98751667",
-        "accessedAt": "2026-10-23T23:13:21.796Z"
-      },
-      "dates": {
-        "display": "2021-01-01",
-        "start": "2021-01-01",
-        "precision": "exact"
-      },
-      "warIds": [
-        "world-war-ii"
-      ],
-      "entityIds": [],
-      "topics": [
-        "Recipients of the Order of Civil Merit (Spain)",
-        "Self-published work",
-        "Black and white photographs of sitting men",
-        "Knights Grand Cross of the Order of Civil Merit (Spain)"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9e/Julio_Ortega_Tercero.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
-        "displayAllowed": true,
-        "attribution": {
-          "creator": "Gsanchez0011",
-          "credit": "Own work",
-          "license": "CC BY-SA 4.0",
-          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
-        }
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제2차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:Julio_Ortega_Tercero.jpg"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-23T23:13:21.796Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-23T23:13:21.796Z",
           "summary": "원 소장처 메타데이터 수집"
         }
       ]
@@ -18496,62 +16339,6 @@
       ]
     },
     {
-      "id": "rec-ebc4b8837735d6c990d5882d",
-      "title": "Bobards, boniments, corporation. Dictionnaire à l’usage des auditeurs des émissions françaises de Radio-Londres 09.tif",
-      "originalTitle": "Bobards, boniments, corporation. Dictionnaire à l’usage des auditeurs des émissions françaises de Radio-Londres 09.tif",
-      "summary": "Bobards, boniments, corporation. Dictionnaire à l’usage des auditeurs des émissions françaises de Radio-Londres, Paris, G. Mazeyrie, sd, non paginé, 10,5 cm x 13,5 cm, Humathèque Condorcet, CNRS IHTP ARC 074 12",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제2차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:Bobards,_boniments,_corporation._Dictionnaire_%C3%A0_l%E2%80%99usage_des_auditeurs_des_%C3%A9missions_fran%C3%A7aises_de_Radio-Londres_09.tif",
-        "identifier": "193727085",
-        "accessedAt": "2026-10-23T17:09:18.305Z"
-      },
-      "dates": {
-        "display": "Vers 1941-45",
-        "precision": "unknown"
-      },
-      "warIds": [
-        "world-war-ii"
-      ],
-      "entityIds": [],
-      "topics": [
-        "CC-Zero",
-        "Self-published work",
-        "Archives de l'Institut d'Histoire du Temps Présent"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제2차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:Bobards,_boniments,_corporation._Dictionnaire_%C3%A0_l%E2%80%99usage_des_auditeurs_des_%C3%A9missions_fran%C3%A7aises_de_Radio-Londres_09.tif"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-23T17:09:18.305Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-23T17:09:18.305Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
       "id": "rec-ec8e6dbd36b0826770b68ecd",
       "title": "Dog in F9F-2 Panther of VF-31 aboard USS Leyte (CV-32), in 1951.jpg",
       "originalTitle": "Dog in F9F-2 Panther of VF-31 aboard USS Leyte (CV-32), in 1951.jpg",
@@ -18740,62 +16527,6 @@
       ]
     },
     {
-      "id": "rec-edc92c7b706ffbddd0f89618",
-      "title": "Kinder Rückkehr 1944 Boncourt D2.7603.jpg",
-      "originalTitle": "Kinder Rückkehr 1944 Boncourt D2.7603.jpg",
-      "summary": "Fotografie, Archäologie und Museum Baselland, Schweiz: Zweiter Weltkrieg",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제2차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:Kinder_R%C3%BCckkehr_1944_Boncourt_D2.7603.jpg",
-        "identifier": "79210851",
-        "accessedAt": "2026-10-24T05:10:08.035Z"
-      },
-      "dates": {
-        "display": "1944-01-01",
-        "start": "1944-01-01",
-        "precision": "exact"
-      },
-      "warIds": [
-        "world-war-ii"
-      ],
-      "entityIds": [],
-      "topics": [
-        "1944 in Switzerland",
-        "Photographs by Theodor Strübin - Boncourt in World War II"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제2차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:Kinder_R%C3%BCckkehr_1944_Boncourt_D2.7603.jpg"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-24T05:10:08.035Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-24T05:10:08.035Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
       "id": "rec-ee4792ab49ce02e3ea8f9929",
       "title": "Brooch, sweetheart (AM 785785-2).jpg",
       "originalTitle": "Brooch, sweetheart (AM 785785-2).jpg",
@@ -18850,63 +16581,6 @@
       "changes": [
         {
           "at": "2026-10-23T23:18:00.990Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
-      "id": "rec-efe46dd698fcafca26f9723d",
-      "title": "MonumentFusillés1915DesruellesLille.jpg",
-      "originalTitle": "MonumentFusillés1915DesruellesLille.jpg",
-      "summary": "Monument in memory of the 5 members of the Jacquet committee shot by the German army on September 22, 1915 (City of Lille , North of France): * Eugène Jacquet, wine merchant * Sylvère Verhulst, worker * Ernest Deceuninck, lieutenant * Georges Maertens, merchant * Léon Trulin, Belgian student (on land)",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제2차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:MonumentFusill%C3%A9s1915DesruellesLille.jpg",
-        "identifier": "30420116",
-        "accessedAt": "2026-10-24T11:11:24.641Z"
-      },
-      "dates": {
-        "display": "photo : 2007 01 29",
-        "precision": "unknown"
-      },
-      "warIds": [
-        "world-war-ii"
-      ],
-      "entityIds": [],
-      "topics": [
-        "GFDL",
-        "Les Fusillés lillois",
-        "License migration redundant",
-        "Self-published work"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제2차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:MonumentFusill%C3%A9s1915DesruellesLille.jpg"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-24T11:11:24.641Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-24T11:11:24.641Z",
           "summary": "원 소장처 메타데이터 수집"
         }
       ]
@@ -19219,63 +16893,6 @@
       ]
     },
     {
-      "id": "rec-f4e45b64019a03628b884785",
-      "title": "\"Don't Overcook Meat\" - DPLA - e2faaf2df6a687b309adb1c2c5a7b578.jpg",
-      "originalTitle": "\"Don't Overcook Meat\" - DPLA - e2faaf2df6a687b309adb1c2c5a7b578.jpg",
-      "summary": "원 소장처의 자료 정보와 이용 조건을 확인할 수 있는 기록입니다.",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제2차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:%22Don%27t_Overcook_Meat%22_-_DPLA_-_e2faaf2df6a687b309adb1c2c5a7b578.jpg",
-        "identifier": "193039542",
-        "accessedAt": "2026-10-23T23:12:55.014Z"
-      },
-      "dates": {
-        "display": "1941-01-01/1945-12-31",
-        "precision": "unknown"
-      },
-      "warIds": [
-        "world-war-ii"
-      ],
-      "entityIds": [],
-      "topics": [
-        "PD US",
-        "Media contributed by the National Archives and Records Administration",
-        "Media contributed by the Digital Public Library of America",
-        "Media contributed by National Archives at College Park - Still Pictures"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제2차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:%22Don%27t_Overcook_Meat%22_-_DPLA_-_e2faaf2df6a687b309adb1c2c5a7b578.jpg"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-23T23:12:55.014Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-23T23:12:55.014Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
       "id": "rec-f5846fa261bc906cffc51f69",
       "title": "Colleges and Universities - Purdue University - Army auto trucks forming with detachment to march in the Red Cross parade. Purdue University Training Detachment, Lafayette, Indiana - DPLA - 51df4a622485292f7567ad083eaf1936.jpg",
       "originalTitle": "Colleges and Universities - Purdue University - Army auto trucks forming with detachment to march in the Red Cross parade. Purdue University Training Detachment, Lafayette, Indiana - DPLA - 51df4a622485292f7567ad083eaf1936.jpg",
@@ -19336,63 +16953,6 @@
       ]
     },
     {
-      "id": "rec-f6cc7be03809d8fb2c276ddf",
-      "title": "Cemetery of Polish victims of the German Nazi massacre in Sochy from June 1, 1943 Sirko family and Borsuk.jpg",
-      "originalTitle": "Cemetery of Polish victims of the German Nazi massacre in Sochy from June 1, 1943 Sirko family and Borsuk.jpg",
-      "summary": "The cemetery of Polish victims of the German Nazi massacre in Sochy (near Zwierzyniec, in the Zamość County, Lublin Voivodeship) on June 1, 1943, during the German occupation of Poland from 1939 to 1945. Grave. Józef Sirko, 60 years old, Agnieszka Sirko aged 63, Józef Borsuk, 32 years old. At that time, Germans murdered about 181-200 people, including many women and children. The village burned down. The Germans also used about 7-10 Luftwaffe aircraft and bombed the village of Sochy. Only a few people survived.",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제2차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:Cemetery_of_Polish_victims_of_the_German_Nazi_massacre_in_Sochy_from_June_1,_1943_Sirko_family_and_Borsuk.jpg",
-        "identifier": "97220132",
-        "accessedAt": "2026-10-23T11:16:23.943Z"
-      },
-      "dates": {
-        "display": "2019-09-15",
-        "start": "2019-09-15",
-        "precision": "exact"
-      },
-      "warIds": [
-        "world-war-ii"
-      ],
-      "entityIds": [],
-      "topics": [
-        "Self-published work",
-        "Grave crosses in Poland",
-        "Cemetery of Polish civilians victims of the German Nazi massacre in Sochy"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제2차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:Cemetery_of_Polish_victims_of_the_German_Nazi_massacre_in_Sochy_from_June_1,_1943_Sirko_family_and_Borsuk.jpg"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-23T11:16:23.943Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-23T11:16:23.943Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
       "id": "rec-f6ea044ad53692659ed0f005",
       "title": "Traffic Patter, Volume 3, Number 5, September 1956 - DPLA - ace9dc224f760f9e28982b68d578c159 (page 7).jpg",
       "originalTitle": "Traffic Patter, Volume 3, Number 5, September 1956 - DPLA - ace9dc224f760f9e28982b68d578c159 (page 7).jpg",
@@ -19445,71 +17005,6 @@
       "changes": [
         {
           "at": "2026-10-24T05:12:18.918Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
-      "id": "rec-f81a85d17adb41ee0494e3e5",
-      "title": "Lancaster W4960 monument, Reeuwijk. Crashlocatie 04.jpg",
-      "originalTitle": "Lancaster W4960 monument, Reeuwijk. Crashlocatie 04.jpg",
-      "summary": "Lancaster W4960 monument, Reeuwijk. Crashlocatie aan Kippenkade bij 1-8, Oukoop, Reeuwijk-Brug",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제2차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:Lancaster_W4960_monument,_Reeuwijk._Crashlocatie_04.jpg",
-        "identifier": "96086310",
-        "accessedAt": "2026-10-23T17:09:04.239Z"
-      },
-      "dates": {
-        "display": "2020-08-19 14:37:48",
-        "precision": "unknown"
-      },
-      "warIds": [
-        "world-war-ii"
-      ],
-      "entityIds": [],
-      "topics": [
-        "Lancaster W4960 monument, Reeuwijk",
-        "Self-published work",
-        "2020 in Reeuwijk",
-        "Remembrance Poppies in the Netherlands",
-        "Remembrance Poppy wreaths",
-        "Files by User:Agaath/Memorials"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제2차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:Lancaster_W4960_monument,_Reeuwijk._Crashlocatie_04.jpg"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-23T17:09:04.239Z",
-      "sensitivity": "none",
-      "location": {
-        "name": "원 소장처 자료 지오태그",
-        "lat": 52.045485,
-        "lon": 4.776999,
-        "precision": "approximate"
-      },
-      "changes": [
-        {
-          "at": "2026-10-23T17:09:04.239Z",
           "summary": "원 소장처 메타데이터 수집"
         }
       ]
@@ -19689,179 +17184,6 @@
       "changes": [
         {
           "at": "2026-10-23T23:18:01.492Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
-      "id": "rec-facbc3c79d0eb05cc2fca48e",
-      "title": "Front of Noah's Ark cinema.jpg",
-      "originalTitle": "Front of Noah's Ark cinema.jpg",
-      "summary": "The Noah's Ark stood on Station Road, Old Dalby and served the servicemen and residents of the area during and after ww2.",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제2차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:Front_of_Noah%27s_Ark_cinema.jpg",
-        "identifier": "93775393",
-        "accessedAt": "2026-10-23T11:16:59.723Z"
-      },
-      "dates": {
-        "display": "2019-01-16",
-        "start": "2019-01-16",
-        "precision": "exact"
-      },
-      "warIds": [
-        "world-war-ii"
-      ],
-      "entityIds": [],
-      "topics": [
-        "Cinemas in the United Kingdom",
-        "Self-published work",
-        "Nissen huts in the United Kingdom"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제2차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:Front_of_Noah%27s_Ark_cinema.jpg"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-23T11:16:59.723Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-23T11:16:59.723Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
-      "id": "rec-fb0b240998d77a138617c16b",
-      "title": "SG-41 Enigma Machine on display in Bletchley Park.jpg",
-      "originalTitle": "SG-41 Enigma Machine on display in Bletchley Park.jpg",
-      "summary": "SG-41 Enigma Machine on display in Bletchley Park.",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제2차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:SG-41_Enigma_Machine_on_display_in_Bletchley_Park.jpg",
-        "identifier": "201599779",
-        "accessedAt": "2026-10-24T11:10:43.302Z"
-      },
-      "dates": {
-        "display": "2022-07-02 11:52:17",
-        "precision": "unknown"
-      },
-      "warIds": [
-        "world-war-ii"
-      ],
-      "entityIds": [],
-      "topics": [
-        "1940s",
-        "Self-published work",
-        "Creative Commons Attribution 4.0 missing SDC copyright license",
-        "Creative Commons Attribution missing SDC copyright status",
-        "Self-published work missing SDC copyright license",
-        "Enigma machines in museums"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제2차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:SG-41_Enigma_Machine_on_display_in_Bletchley_Park.jpg"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-24T11:10:43.302Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-24T11:10:43.302Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
-      "id": "rec-fcc6c7cc4e80f77ec606924b",
-      "title": "QUIET! LOOSE TALK CAN COST LIVES - DPLA - 0ddd802fc1d53f956336a8019561e4be.gif",
-      "originalTitle": "QUIET! LOOSE TALK CAN COST LIVES - DPLA - 0ddd802fc1d53f956336a8019561e4be.gif",
-      "summary": "원 소장처의 자료 정보와 이용 조건을 확인할 수 있는 기록입니다.",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제2차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:QUIET!_LOOSE_TALK_CAN_COST_LIVES_-_DPLA_-_0ddd802fc1d53f956336a8019561e4be.gif",
-        "identifier": "192971348",
-        "accessedAt": "2026-10-23T11:15:50.001Z"
-      },
-      "dates": {
-        "display": "1941-01-01/1945-12-31",
-        "precision": "unknown"
-      },
-      "warIds": [
-        "world-war-ii"
-      ],
-      "entityIds": [],
-      "topics": [
-        "PD US",
-        "Media contributed by the National Archives and Records Administration",
-        "Media contributed by the Digital Public Library of America",
-        "Media contributed by National Archives at College Park - Still Pictures"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제2차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:QUIET!_LOOSE_TALK_CAN_COST_LIVES_-_DPLA_-_0ddd802fc1d53f956336a8019561e4be.gif"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-23T11:15:50.001Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-23T11:15:50.001Z",
           "summary": "원 소장처 메타데이터 수집"
         }
       ]
@@ -20171,8 +17493,8 @@
   "claims": [],
   "coverage": {
     "sources": 4,
-    "records": 326,
-    "lastCollectedAt": "2026-10-24T12:10:11.063Z",
+    "records": 281,
+    "lastCollectedAt": "2026-10-24T12:25:29.042Z",
     "limitations": [
       "수록 자료는 전체 전쟁 기록의 일부입니다.",
       "원 소장처의 설명을 기록하며, 출처의 주장을 독립적으로 검증한 것으로 표시하지 않습니다.",
