@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "releaseId": "rel-b46e77fb-8355-491e-8962-da4f9c104e48",
-  "generatedAt": "2026-10-25T18:14:07.865Z",
+  "releaseId": "rel-c582e4ed-f405-436a-b9ad-5740d1a1096b",
+  "generatedAt": "2026-10-25T19:15:27.170Z",
   "records": [
     {
       "id": "rec-0218a05eb7a5891337d41f99",
@@ -2166,116 +2166,6 @@
       ]
     },
     {
-      "id": "rec-26d070c080921e4ad9482ce4",
-      "title": "ICRC-CICR-Archives-Satigny-WWII-PersonalFiles RomanDeckert09062020.jpg",
-      "originalTitle": "ICRC-CICR-Archives-Satigny-WWII-PersonalFiles RomanDeckert09062020.jpg",
-      "summary": "Personal files from the Second World War in the non-public archives of the International Committee of the Red Cross near its Geneva headquarters at Satigny, Switzerland - Photo taken and uploaded in the context of the International Archives Week 2020 of Wikimedia Switzerland, Austria and Germany and the Association of Swiss Archivists.",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제2차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:ICRC-CICR-Archives-Satigny-WWII-PersonalFiles_RomanDeckert09062020.jpg",
-        "identifier": "91141242",
-        "accessedAt": "2026-10-25T05:19:30.560Z"
-      },
-      "dates": {
-        "display": "2020-06-09 14:03:14",
-        "precision": "unknown"
-      },
-      "warIds": [
-        "world-war-ii"
-      ],
-      "entityIds": [],
-      "topics": [
-        "Self-published work",
-        "Archives of the International Committee of the Red Cross in Satigny"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제2차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:ICRC-CICR-Archives-Satigny-WWII-PersonalFiles_RomanDeckert09062020.jpg"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-25T05:19:30.560Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-25T05:19:30.560Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
-      "id": "rec-26e18e7287b55d79ff0f5262",
-      "title": "Bockbrauerei Berlin-Kreuzberg, Eingang zu Lore 2.jpg",
-      "originalTitle": "Bockbrauerei Berlin-Kreuzberg, Eingang zu Lore 2.jpg",
-      "summary": "1838 wurde die Hopf’sche Berliner Bock-Brauerei gegründet. 1868-69 erfolgte der Ausbau der Brauerei sowie Neubau der meisten Kelleranlagen. 1922 erfolgte die Stilllegung der Brauerei, danach Nutzung als Magazin. 1944 Telefunken erhält die Keller der Bockbrauerei zugewiesen, um dort kriegswichtige Elektroröhren zu produzieren. Hierzu wurden die Keller unter dem Innenhof der Brauerei werden mit einer zwei Meter dicken Betondecke überbaut, einer sogenannten Zerschelldecke. Hierbei wurden auch Zwangsarbeiter eingesetzt.",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제2차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:Bockbrauerei_Berlin-Kreuzberg,_Eingang_zu_Lore_2.jpg",
-        "identifier": "169430034",
-        "accessedAt": "2026-10-25T05:18:29.639Z"
-      },
-      "dates": {
-        "display": "2025-06-14 15:22:12",
-        "precision": "unknown"
-      },
-      "warIds": [
-        "world-war-ii"
-      ],
-      "entityIds": [],
-      "topics": [
-        "Self-published work",
-        "Berliner Bock Brauerei"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제2차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:Bockbrauerei_Berlin-Kreuzberg,_Eingang_zu_Lore_2.jpg"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-25T05:18:29.639Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-25T05:18:29.639Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
       "id": "rec-2735f9f305b56c7556bc124b",
       "title": "Drills - Trench Warfare - Stringing the wire entanglements used by candidates for Reserve Officers Training Corps when in training at Fort Benjamin Harrison, Indiana - NARA - 31476773.jpg",
       "originalTitle": "Drills - Trench Warfare - Stringing the wire entanglements used by candidates for Reserve Officers Training Corps when in training at Fort Benjamin Harrison, Indiana - NARA - 31476773.jpg",
@@ -3553,64 +3443,6 @@
       "changes": [
         {
           "at": "2026-10-25T11:18:14.731Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
-      "id": "rec-321a083e5127ce24ca907b25",
-      "title": "FONTANA DAM. POWER TO WIN - DPLA - 9140415a1c20c4a90877f1c786788bab.gif",
-      "originalTitle": "FONTANA DAM. POWER TO WIN - DPLA - 9140415a1c20c4a90877f1c786788bab.gif",
-      "summary": "원 소장처의 자료 정보와 이용 조건을 확인할 수 있는 기록입니다.",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제2차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:FONTANA_DAM._POWER_TO_WIN_-_DPLA_-_9140415a1c20c4a90877f1c786788bab.gif",
-        "identifier": "193010488",
-        "accessedAt": "2026-10-24T23:12:41.895Z"
-      },
-      "dates": {
-        "display": "1941-01-01/1945-12-31",
-        "precision": "unknown"
-      },
-      "warIds": [
-        "world-war-ii"
-      ],
-      "entityIds": [],
-      "topics": [
-        "PD US",
-        "Media contributed by the National Archives and Records Administration",
-        "Media contributed by the Digital Public Library of America",
-        "Media contributed by National Archives at College Park - Still Pictures",
-        "Fontana Dam"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제2차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:FONTANA_DAM._POWER_TO_WIN_-_DPLA_-_9140415a1c20c4a90877f1c786788bab.gif"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-24T23:12:41.895Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-24T23:12:41.895Z",
           "summary": "원 소장처 메타데이터 수집"
         }
       ]
@@ -6353,67 +6185,6 @@
       ]
     },
     {
-      "id": "rec-570a1669b348767d08a8dd2a",
-      "title": "Korzo under snow in Mostar - Bosnia and Herzegovina (1942)-bs.jpg",
-      "originalTitle": "Korzo under snow in Mostar - Bosnia and Herzegovina (1942)-bs.jpg",
-      "summary": "Archival photograph depicting the snow-covered Korzo promenade in Mostar during the winter of 1942, World War II. In the background, snow-covered hills and urban architecture are visible.",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제2차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:Korzo_under_snow_in_Mostar_-_Bosnia_and_Herzegovina_(1942)-bs.jpg",
-        "identifier": "201353303",
-        "accessedAt": "2026-10-25T17:19:01.452Z"
-      },
-      "dates": {
-        "display": "1942-01-31",
-        "start": "1942-01-31",
-        "precision": "exact"
-      },
-      "warIds": [
-        "world-war-ii"
-      ],
-      "entityIds": [],
-      "topics": [
-        "PD-Yugoslavia",
-        "Template Unknown (author)",
-        "PD-BH-exempt",
-        "Mostar in World War II",
-        "Snow in Mostar",
-        "1942 in Mostar",
-        "Archival photographs collected by Bosancica by MK (Minja Klarić)"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제2차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:Korzo_under_snow_in_Mostar_-_Bosnia_and_Herzegovina_(1942)-bs.jpg"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-25T17:19:01.452Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-25T17:19:01.452Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
       "id": "rec-57947af213a52fdda0c1c4ab",
       "title": "Economic growth in South Korea- government or free market achievement? (IA economicgrowthin1094531364).pdf",
       "originalTitle": "Economic growth in South Korea- government or free market achievement? (IA economicgrowthin1094531364).pdf",
@@ -6785,63 +6556,6 @@
       "changes": [
         {
           "at": "2026-10-25T17:24:29.228Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
-      "id": "rec-6194bbce0e2429a8c7b2e3f2",
-      "title": "Address of the President from White House nationally and over a world-wide hookup - DPLA - d86b6f0bd5745d4c8733b86ffa461e1e (page 8).gif",
-      "originalTitle": "Address of the President from White House nationally and over a world-wide hookup - DPLA - d86b6f0bd5745d4c8733b86ffa461e1e (page 8).gif",
-      "summary": "원 소장처의 자료 정보와 이용 조건을 확인할 수 있는 기록입니다.",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제2차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:Address_of_the_President_from_White_House_nationally_and_over_a_world-wide_hookup_-_DPLA_-_d86b6f0bd5745d4c8733b86ffa461e1e_(page_8).gif",
-        "identifier": "193023593",
-        "accessedAt": "2026-10-25T05:18:19.517Z"
-      },
-      "dates": {
-        "display": "9 December 1941",
-        "precision": "unknown"
-      },
-      "warIds": [
-        "world-war-ii"
-      ],
-      "entityIds": [],
-      "topics": [
-        "PD US",
-        "Media contributed by the National Archives and Records Administration",
-        "Media contributed by the Digital Public Library of America",
-        "Media contributed by Franklin D. Roosevelt Presidential Library and Museum"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제2차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:Address_of_the_President_from_White_House_nationally_and_over_a_world-wide_hookup_-_DPLA_-_d86b6f0bd5745d4c8733b86ffa461e1e_(page_8).gif"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-25T05:18:19.517Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-25T05:18:19.517Z",
           "summary": "원 소장처 메타데이터 수집"
         }
       ]
@@ -9473,130 +9187,6 @@
       ]
     },
     {
-      "id": "rec-853b7c46c8665feb3a839979",
-      "title": "Naval M1 Enigma Machine - M897 On Display In Bletchley Park.jpg",
-      "originalTitle": "Naval M1 Enigma Machine - M897 On Display In Bletchley Park.jpg",
-      "summary": "Naval M1 Enigma Machine - M897 On Display In Bletchley Park",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제2차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:Naval_M1_Enigma_Machine_-_M897_On_Display_In_Bletchley_Park.jpg",
-        "identifier": "201966349",
-        "accessedAt": "2026-10-24T23:12:26.454Z"
-      },
-      "dates": {
-        "display": "2022-07-02 11:48:16",
-        "precision": "unknown"
-      },
-      "warIds": [
-        "world-war-ii"
-      ],
-      "entityIds": [],
-      "topics": [
-        "Nazi Germany",
-        "Kriegsmarine",
-        "1940s",
-        "Creative Commons Attribution-Share Alike missing SDC copyright status",
-        "Self-published work",
-        "Creative Commons Attribution-Share Alike 4.0 missing SDC copyright license",
-        "Self-published work missing SDC copyright license",
-        "Enigma machines at Bletchley Park"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제2차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:Naval_M1_Enigma_Machine_-_M897_On_Display_In_Bletchley_Park.jpg"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-24T23:12:26.454Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-24T23:12:26.454Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
-      "id": "rec-859f36ee7c2e180cc3af10a3",
-      "title": "Harold E. Kline - Médallion.jpg",
-      "originalTitle": "Harold E. Kline - Médallion.jpg",
-      "summary": "Portrait du pilote de l'USAF en uniforme, apposé sur la stèle commémorative à son nom.",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제2차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:Harold_E._Kline_-_M%C3%A9dallion.jpg",
-        "identifier": "198043415",
-        "accessedAt": "2026-10-24T23:13:49.722Z"
-      },
-      "dates": {
-        "display": "2026-08-18 11:17:45",
-        "precision": "unknown"
-      },
-      "warIds": [
-        "world-war-ii"
-      ],
-      "entityIds": [],
-      "topics": [
-        "CC-Zero",
-        "Self-published work",
-        "Files with coordinates missing SDC location of creation",
-        "War memorial of Pézenas"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제2차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:Harold_E._Kline_-_M%C3%A9dallion.jpg"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-24T23:13:49.722Z",
-      "sensitivity": "none",
-      "location": {
-        "name": "원 소장처 자료 지오태그",
-        "lat": 43.442211,
-        "lon": 3.411592,
-        "precision": "approximate"
-      },
-      "changes": [
-        {
-          "at": "2026-10-24T23:13:49.722Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
       "id": "rec-86b82ce0352c578b3f863e97",
       "title": "Medical Department - Hospitals - In Theater of Operations - Miscellaneous - Enjoying the Magazines from Home through the agency of the American Red Cross, Convalescent Hospital No. 5, Vatan - NARA - 45497725.jpg",
       "originalTitle": "Medical Department - Hospitals - In Theater of Operations - Miscellaneous - Enjoying the Magazines from Home through the agency of the American Red Cross, Convalescent Hospital No. 5, Vatan - NARA - 45497725.jpg",
@@ -11696,63 +11286,6 @@
       ]
     },
     {
-      "id": "rec-a30ab97270d56233b33de265",
-      "title": "\"No caption\" (photo of boy and girl) - DPLA - ff6fffe24ebb74b480b067d0af0c2cb3.gif",
-      "originalTitle": "\"No caption\" (photo of boy and girl) - DPLA - ff6fffe24ebb74b480b067d0af0c2cb3.gif",
-      "summary": "원 소장처의 자료 정보와 이용 조건을 확인할 수 있는 기록입니다.",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제2차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:%22No_caption%22_(photo_of_boy_and_girl)_-_DPLA_-_ff6fffe24ebb74b480b067d0af0c2cb3.gif",
-        "identifier": "193045458",
-        "accessedAt": "2026-10-24T23:14:32.378Z"
-      },
-      "dates": {
-        "display": "1941-01-01/1945-12-31",
-        "precision": "unknown"
-      },
-      "warIds": [
-        "world-war-ii"
-      ],
-      "entityIds": [],
-      "topics": [
-        "PD US",
-        "Media contributed by the National Archives and Records Administration",
-        "Media contributed by the Digital Public Library of America",
-        "Media contributed by National Archives at College Park - Still Pictures"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제2차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:%22No_caption%22_(photo_of_boy_and_girl)_-_DPLA_-_ff6fffe24ebb74b480b067d0af0c2cb3.gif"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-24T23:14:32.378Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-24T23:14:32.378Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
       "id": "rec-a323d25caaa716b124695741",
       "title": "Conventional military force and Soviet foreign policy. (IA conventionalmili00mcco).pdf",
       "originalTitle": "Conventional military force and Soviet foreign policy. (IA conventionalmili00mcco).pdf",
@@ -12057,63 +11590,6 @@
       ]
     },
     {
-      "id": "rec-a795ddc8e99958139b3946d8",
-      "title": "Air Fronts (photos of the Army and Air Forces in action) - DPLA - 5d3e934a3866c4677dd2189316c11c53.gif",
-      "originalTitle": "Air Fronts (photos of the Army and Air Forces in action) - DPLA - 5d3e934a3866c4677dd2189316c11c53.gif",
-      "summary": "원 소장처의 자료 정보와 이용 조건을 확인할 수 있는 기록입니다.",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제2차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:Air_Fronts_(photos_of_the_Army_and_Air_Forces_in_action)_-_DPLA_-_5d3e934a3866c4677dd2189316c11c53.gif",
-        "identifier": "192992178",
-        "accessedAt": "2026-10-24T23:12:37.558Z"
-      },
-      "dates": {
-        "display": "1941-01-01/1945-12-31",
-        "precision": "unknown"
-      },
-      "warIds": [
-        "world-war-ii"
-      ],
-      "entityIds": [],
-      "topics": [
-        "PD US",
-        "Media contributed by the National Archives and Records Administration",
-        "Media contributed by the Digital Public Library of America",
-        "Media contributed by National Archives at College Park - Still Pictures"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제2차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:Air_Fronts_(photos_of_the_Army_and_Air_Forces_in_action)_-_DPLA_-_5d3e934a3866c4677dd2189316c11c53.gif"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-24T23:12:37.558Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-24T23:12:37.558Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
       "id": "rec-a823d2c478437736cdf8a4fd",
       "title": "Holder for Shea Ear Speculum of Dr. John Hersel Gladney - DPLA - fd5c94515f10703e202e2685309ac364 (page 1).jpg",
       "originalTitle": "Holder for Shea Ear Speculum of Dr. John Hersel Gladney - DPLA - fd5c94515f10703e202e2685309ac364 (page 1).jpg",
@@ -12293,65 +11769,6 @@
       "changes": [
         {
           "at": "2026-10-24T23:23:18.047Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
-      "id": "rec-a9cda9352bef7d05698b0a8e",
-      "title": "Ernest Gallego with first cousin Alex Mahlovich.png",
-      "originalTitle": "Ernest Gallego with first cousin Alex Mahlovich.png",
-      "summary": "Mexican Americans Ernest Gallego with Alex Mahlovich (first cousins) of East Los Angeles, California in Hamptons Road, Virginia. Gallego served with the 97th Bomb Group, 340th Bomb Squadron, in Italy.",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제2차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:Ernest_Gallego_with_first_cousin_Alex_Mahlovich.png",
-        "identifier": "94813265",
-        "accessedAt": "2026-10-24T23:13:12.218Z"
-      },
-      "dates": {
-        "display": "1944-10-05",
-        "start": "1944-10-05",
-        "precision": "exact"
-      },
-      "warIds": [
-        "world-war-ii"
-      ],
-      "entityIds": [],
-      "topics": [
-        "PD US Army",
-        "United States Army",
-        "Hispanic and Latino American history",
-        "Mexican American military personnel",
-        "Mexican American history of 1944"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제2차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:Ernest_Gallego_with_first_cousin_Alex_Mahlovich.png"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-24T23:13:12.218Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-24T23:13:12.218Z",
           "summary": "원 소장처 메타데이터 수집"
         }
       ]
@@ -13661,62 +13078,6 @@
       ]
     },
     {
-      "id": "rec-c3f7f762045242177106e3a0",
-      "title": "Cemetery of Polish Army soldiers who died in the battle of Tomaszów Lubelski on September 23, 1939 in Antoniówka (16).jpg",
-      "originalTitle": "Cemetery of Polish Army soldiers who died in the battle of Tomaszów Lubelski on September 23, 1939 in Antoniówka (16).jpg",
-      "summary": "Grave. Major of the Polish Army Roman Grabiński. Cemetery of fallen soldiers of the Polish Army in the battle of Tomaszów Lubelski on September 23, 1939, in Antoniówka in the Zamość region near Tomaszów Lubelski. Cemetery of fallen soldiers of the Polish Army in the fight against the German Nazi invaders in the Polish Defense War in September 1939 during World War II. The cemetery is located in Antoniówka. On the road from Zamość to Tomaszów Lubelski - in Budy - turn right. And then, in the village of Antoniówka, on the left side of the road, there is a cemetery of the Polish Army Soldiers who died in the Battle of Tomaszów Lubelski on September 23, 1939. A narrow path leads to it. Almost in front of the last house in this town. Almost 500 (five hundred) soldiers of the Polish Army who died in September 1939 in the Polish Defense War in the Second Battle of Tomaszów Lubelski during World War II are buried in the cemetery.",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제2차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:Cemetery_of_Polish_Army_soldiers_who_died_in_the_battle_of_Tomasz%C3%B3w_Lubelski_on_September_23,_1939_in_Antoni%C3%B3wka_(16).jpg",
-        "identifier": "95619018",
-        "accessedAt": "2026-10-25T17:19:23.004Z"
-      },
-      "dates": {
-        "display": "2020-09-20",
-        "start": "2020-09-20",
-        "precision": "exact"
-      },
-      "warIds": [
-        "world-war-ii"
-      ],
-      "entityIds": [],
-      "topics": [
-        "Self-published work",
-        "Cemetery of Polish Army soldiers who died in the battle of Tomaszów Lubelski on September 23, 1939 in Antoniówka"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제2차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:Cemetery_of_Polish_Army_soldiers_who_died_in_the_battle_of_Tomasz%C3%B3w_Lubelski_on_September_23,_1939_in_Antoni%C3%B3wka_(16).jpg"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-25T17:19:23.004Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-25T17:19:23.004Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
       "id": "rec-c605d9d94588ad2077df9bd6",
       "title": "American Red Cross - Miscellaneous - Here is where the last accounting of repatriates takes place, at Evian. After going through all the different examinations in the Casino, each indiviaul is giving his final in(...) - NARA - 20805530.jpg",
       "originalTitle": "American Red Cross - Miscellaneous - Here is where the last accounting of repatriates takes place, at Evian. After going through all the different examinations in the Casino, each indiviaul is giving his final in(...) - NARA - 20805530.jpg",
@@ -14535,68 +13896,6 @@
       ]
     },
     {
-      "id": "rec-d1bd27b8f238eda920d680c8",
-      "title": "Banknote (AM 787004-1).jpg",
-      "originalTitle": "Banknote (AM 787004-1).jpg",
-      "summary": "10 piastres banknote, Egyptian Currency Note, 1940, WW2 marked Law No 50-1940; serial number- 1539186, LV1630",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제2차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:Banknote_(AM_787004-1).jpg",
-        "identifier": "82956044",
-        "accessedAt": "2026-10-25T17:19:27.346Z"
-      },
-      "dates": {
-        "display": "1940; World War 2-wars",
-        "precision": "unknown"
-      },
-      "warIds": [
-        "world-war-ii"
-      ],
-      "entityIds": [],
-      "topics": [
-        "Files with no machine-readable author",
-        "Images uploaded by Fæ",
-        "Artworks without Wikidata item",
-        "Images from Auckland Museum",
-        "Unsupported object",
-        "Artworks with known accession number",
-        "Egypt piastres banknotes 10",
-        "Currency in Auckland Museum",
-        "Kiosk of Trajan in art"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제2차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:Banknote_(AM_787004-1).jpg"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-25T17:19:27.346Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-25T17:19:27.346Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
       "id": "rec-d3c70b454d75c6ea1cb4cbcc",
       "title": "SEM-1917-Un pekin au front-045.jpg",
       "originalTitle": "SEM-1917-Un pekin au front-045.jpg",
@@ -14713,63 +14012,6 @@
       "changes": [
         {
           "at": "2026-10-25T17:24:51.744Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
-      "id": "rec-d53ac0e5bbcea195741cc494",
-      "title": "Lokot autonomy flag.png",
-      "originalTitle": "Lokot autonomy flag.png",
-      "summary": "The flag used by the Lokot autonomy in the Second World War.",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제2차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:Lokot_autonomy_flag.png",
-        "identifier": "182491578",
-        "accessedAt": "2026-10-24T23:12:33.007Z"
-      },
-      "dates": {
-        "display": "2026-01-26",
-        "start": "2026-01-26",
-        "precision": "exact"
-      },
-      "warIds": [
-        "world-war-ii"
-      ],
-      "entityIds": [],
-      "topics": [
-        "29th Waffen Grenadier Division of the SS RONA (1st Russian)",
-        "Lokot Autonomy",
-        "Self-published work"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제2차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:Lokot_autonomy_flag.png"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-24T23:12:33.007Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-24T23:12:33.007Z",
           "summary": "원 소장처 메타데이터 수집"
         }
       ]
@@ -15467,63 +14709,6 @@
       ]
     },
     {
-      "id": "rec-de1407eed4561a433be3fa36",
-      "title": "Stanisław Szawara 2 years old Cemetery of Polish victims of the German Nazi massacre in Sochy from June 1, 1943 Szawara family, Socha, Kimak.jpg",
-      "originalTitle": "Stanisław Szawara 2 years old Cemetery of Polish victims of the German Nazi massacre in Sochy from June 1, 1943 Szawara family, Socha, Kimak.jpg",
-      "summary": "The cemetery of Polish victims of the German Nazi massacre in Sochy (near Zwierzyniec, in the Zamość County, Lublin Voivodeship) on June 1, 1943, during the German occupation of Poland from 1939 to 1945. During World War II. June 1 is a symbolic date because today June 1 is Children's Day in Poland. Many Polish children were killed in the massacre in Sochy. Often with their parents and family. Tomb. Bronisław Szawara, 7 years old, Stanisław Szawara, 2 years old, Józef Szawara, 5 years old, Katarzyna Socha, 68 years old, Stanisław Kimak, 43 years old. At that time, Germans murdered about 181-200 people, including many women and children. The village burned down. The Germans also used about 7-10 Luftwaffe aircraft and bombed the village of Sochy. Only a few people survived.",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제2차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:Stanis%C5%82aw_Szawara_2_years_old_Cemetery_of_Polish_victims_of_the_German_Nazi_massacre_in_Sochy_from_June_1,_1943_Szawara_family,_Socha,_Kimak.jpg",
-        "identifier": "98149486",
-        "accessedAt": "2026-10-24T23:13:21.501Z"
-      },
-      "dates": {
-        "display": "2019-09-15",
-        "start": "2019-09-15",
-        "precision": "exact"
-      },
-      "warIds": [
-        "world-war-ii"
-      ],
-      "entityIds": [],
-      "topics": [
-        "Self-published work",
-        "Grave crosses in Poland",
-        "Cemetery of Polish civilians victims of the German Nazi massacre in Sochy"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제2차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:Stanis%C5%82aw_Szawara_2_years_old_Cemetery_of_Polish_victims_of_the_German_Nazi_massacre_in_Sochy_from_June_1,_1943_Szawara_family,_Socha,_Kimak.jpg"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-24T23:13:21.501Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-24T23:13:21.501Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
       "id": "rec-e0262fe5d6a15ae9fdcfdd6d",
       "title": "Traffic Patter, May-June 1958 - DPLA - 115c11241480a2410ec842b76cb241b8 (page 24).jpg",
       "originalTitle": "Traffic Patter, May-June 1958 - DPLA - 115c11241480a2410ec842b76cb241b8 (page 24).jpg",
@@ -16011,63 +15196,6 @@
       "changes": [
         {
           "at": "2026-10-24T23:18:21.082Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
-      "id": "rec-e7f179470b9a2f579079cb85",
-      "title": "Address opening the Third War Loan Drive Broadcast Nationally - DPLA - a9b32a05d7f69e0d44036cb55d45c701 (page 6).gif",
-      "originalTitle": "Address opening the Third War Loan Drive Broadcast Nationally - DPLA - a9b32a05d7f69e0d44036cb55d45c701 (page 6).gif",
-      "summary": "원 소장처의 자료 정보와 이용 조건을 확인할 수 있는 기록입니다.",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제2차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:Address_opening_the_Third_War_Loan_Drive_Broadcast_Nationally_-_DPLA_-_a9b32a05d7f69e0d44036cb55d45c701_(page_6).gif",
-        "identifier": "192447628",
-        "accessedAt": "2026-10-25T17:19:05.377Z"
-      },
-      "dates": {
-        "display": "8 September 1943",
-        "precision": "unknown"
-      },
-      "warIds": [
-        "world-war-ii"
-      ],
-      "entityIds": [],
-      "topics": [
-        "PD US",
-        "Media contributed by the National Archives and Records Administration",
-        "Media contributed by the Digital Public Library of America",
-        "Media contributed by Franklin D. Roosevelt Presidential Library and Museum"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제2차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:Address_opening_the_Third_War_Loan_Drive_Broadcast_Nationally_-_DPLA_-_a9b32a05d7f69e0d44036cb55d45c701_(page_6).gif"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-25T17:19:05.377Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-25T17:19:05.377Z",
           "summary": "원 소장처 메타데이터 수집"
         }
       ]
@@ -16893,122 +16021,6 @@
       "changes": [
         {
           "at": "2026-10-25T05:23:09.595Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
-      "id": "rec-f05fe089f7d9299c0b3f1c69",
-      "title": "Dzwonnica i pomnik ofiar pacyfikacji Lubyczy Królewskiej z 4 października 1942.jpg",
-      "originalTitle": "Dzwonnica i pomnik ofiar pacyfikacji Lubyczy Królewskiej z 4 października 1942.jpg",
-      "summary": "Bell tower and the monument to the victims of the pacification of Lubycza Królewska on October 4, 1942, carried out by the German Nazi occupiers. Lubycza Królewska. Monument to the victims of the pacification of Lubycza Królewska on October 4, 1942 during World War II and the German occupation in Poland. Near the church in Lubycza Królewska. On the orders of SS-Hauptsturmführer Gottlieb Hering, the German commandant of the \"Dienststelle Belzec der Waffen SS\" extermination camp in Bełżec, occupied during World War II, on October 4, 1942, members of the German extermination camp staff massacred the villages of Żyłka, Szalenik, Lubycza-Królewska and Lubycza-Kniazie. They were commanded by the camp commandant, Gottlieb Hering. The Germans then murdered about 53 civilians. The massacre of innocent civilians was a bloody revenge by Gottlieb Hering for a fire caused by the guards of the extermination camp, in the stables where the camp commandant Gottlieb Hering kept three riding horses. Guards in the service of Germany, the so-called the \"SS-Wachmannschaften\" \"wachmen\" lied to Hering. They did not say about their guilt, but charged innocent people from nearby towns with it. In Lubycza Królewska, the Germans from the staff of the death camp \"Dienststelle Belzec der Waffen SS\" murdered 24 people. In Lubycza-Kniazie, the German occupiers from the death camp \"Dienststelle Belzec der Waffen SS\" shot 22 people. In Lubycza Królewska and in Lubycza-Kniazie the following were murdered: Stefan Terlecki, 16, Bronisław Szczerbiński, 28, Karol Brzyski, 30, Józef Syczak, 35, Rakszewski Władysław, 30, Rakszewski, Stefan, 32, Rakszewski Marian, 60 , Franciszek Kiszka aged 36, Ludwik Dziuba aged 40, Franciszek Dziuba aged 29, Ludwik Sostaczyński aged 60, Franciszek Randzerwkiewicz aged 50, Karol Maliński aged 62 and Stefan Dębicki (disabled without an arm), Maria Wowkowa aged 64 , Jan Bołoniga, 52, Włodzimierz Wowk, 21, Bazyli Wowk, 26, Roman Wowk, 16, Włodzimierz Hołowka, 26, Michał Huzij, 24, Trochym Łachuty, 22, Michał Słoński, 24, Grzegorz Hływa 22, Jan Melnyk 22, Wasyl Sołoduch 30, Włodzimierz Sołoduch 20, Jan Sagan 20, Andrzej Sawojka 34, Maksym Szwec 29, Włodzimierz Siarczyński 22, Józef Siarczyński 29, Włodzimierz Poluszewicz, 20, Teodor Mastykarz, 45, Grzegorz Mastykarz, 30, Wasyl Kołodkiewicz, 24, Józef Korczyński, 38, Jan Redko, 34, Teodor Redko, 38, Me n Zarowski, 34, Józef Mrzygłód, 34, Jan Pawłyszcze, 20, Ołeksa Putko, 34, Roman Putko, 16, Jan Putko, 32, and one with an unknown surname NN.",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제2차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:Dzwonnica_i_pomnik_ofiar_pacyfikacji_Lubyczy_Kr%C3%B3lewskiej_z_4_pa%C5%BAdziernika_1942.jpg",
-        "identifier": "95971241",
-        "accessedAt": "2026-10-24T23:13:17.633Z"
-      },
-      "dates": {
-        "display": "2020-09-24",
-        "start": "2020-09-24",
-        "precision": "exact"
-      },
-      "warIds": [
-        "world-war-ii"
-      ],
-      "entityIds": [],
-      "topics": [
-        "Lubycza Królewska",
-        "Pacifications of villages in German-occupied Poland",
-        "Self-published work",
-        "Belfries in Lublin Voivodeship",
-        "Monuments and memorials to victims of German National Socialism in Lublin Voivodeship"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제2차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:Dzwonnica_i_pomnik_ofiar_pacyfikacji_Lubyczy_Kr%C3%B3lewskiej_z_4_pa%C5%BAdziernika_1942.jpg"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-24T23:13:17.633Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-24T23:13:17.633Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
-      "id": "rec-f35bf24fa3600cbb6237fc92",
-      "title": "\"Clothing Neglect\" - DPLA - be1b1e10db20d90f98bd998ebed42edb.gif",
-      "originalTitle": "\"Clothing Neglect\" - DPLA - be1b1e10db20d90f98bd998ebed42edb.gif",
-      "summary": "원 소장처의 자료 정보와 이용 조건을 확인할 수 있는 기록입니다.",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제2차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:%22Clothing_Neglect%22_-_DPLA_-_be1b1e10db20d90f98bd998ebed42edb.gif",
-        "identifier": "193026417",
-        "accessedAt": "2026-10-24T23:12:44.093Z"
-      },
-      "dates": {
-        "display": "1941-01-01/1945-12-31",
-        "precision": "unknown"
-      },
-      "warIds": [
-        "world-war-ii"
-      ],
-      "entityIds": [],
-      "topics": [
-        "PD US",
-        "Media contributed by the National Archives and Records Administration",
-        "Media contributed by the Digital Public Library of America",
-        "Media contributed by National Archives at College Park - Still Pictures"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제2차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:%22Clothing_Neglect%22_-_DPLA_-_be1b1e10db20d90f98bd998ebed42edb.gif"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-24T23:12:44.093Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-24T23:12:44.093Z",
           "summary": "원 소장처 메타데이터 수집"
         }
       ]
@@ -17981,8 +16993,8 @@
   "claims": [],
   "coverage": {
     "sources": 4,
-    "records": 288,
-    "lastCollectedAt": "2026-10-25T18:13:44.121Z",
+    "records": 271,
+    "lastCollectedAt": "2026-10-25T18:34:51.796Z",
     "limitations": [
       "수록 자료는 전체 전쟁 기록의 일부입니다.",
       "원 소장처의 설명을 기록하며, 출처의 주장을 독립적으로 검증한 것으로 표시하지 않습니다.",
