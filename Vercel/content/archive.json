@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "releaseId": "rel-9970ce63-c190-4cf2-9406-755ce297243f",
-  "generatedAt": "2026-10-26T12:13:39.472Z",
+  "releaseId": "rel-e5ac45dc-84a8-4d5f-9866-3d0294a97263",
+  "generatedAt": "2026-10-26T18:13:08.690Z",
   "records": [
     {
       "id": "rec-019ad9c6c11f6110f945132f",
@@ -63,6 +63,66 @@
       ]
     },
     {
+      "id": "rec-0244663106f6baf79c55a50a",
+      "title": "Cap, peaked (AM 2014.21.19-3).jpg",
+      "originalTitle": "Cap, peaked (AM 2014.21.19-3).jpg",
+      "summary": "Service dress cap- Major - Royal New Zealand Artillery (Territorials) - post-WW2 - Maj. Kenneth R Porter Belonged to 432738 Lieut. Kenneth R Porter, NZ Field Regt., 10th Reinforcements, 2NZEF, WW2 khaki fabric; Royal NZ Artillery badge; leather strap; with artillery buttons maker- FC Weller Ltd, London, 1952",
+      "kind": "photograph",
+      "language": "und",
+      "source": {
+        "name": "Wikimedia Commons · 제2차 세계대전",
+        "url": "https://commons.wikimedia.org/wiki/File:Cap,_peaked_(AM_2014.21.19-3).jpg",
+        "identifier": "65615915",
+        "accessedAt": "2026-10-26T17:18:26.248Z"
+      },
+      "dates": {
+        "display": "post-WW2-wars; 24 Mar 2014; 01 Apr 2014; 1952",
+        "precision": "unknown"
+      },
+      "warIds": [
+        "world-war-ii"
+      ],
+      "entityIds": [],
+      "topics": [
+        "Images uploaded by Fæ",
+        "Artworks without Wikidata item",
+        "Images from Auckland Museum",
+        "Unsupported object",
+        "Artworks with known accession number",
+        "New Zealand Army in Auckland Museum",
+        "Headwear in Auckland Museum"
+      ],
+      "rights": {
+        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
+        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
+        "downloadAllowed": false,
+        "reuseAllowed": false
+      },
+      "review": {
+        "provenance": "checked",
+        "content": "source-description",
+        "translation": "none"
+      },
+      "media": {
+        "displayAllowed": false
+      },
+      "citations": [
+        {
+          "label": "Wikimedia Commons · 제2차 세계대전 원 소장처",
+          "url": "https://commons.wikimedia.org/wiki/File:Cap,_peaked_(AM_2014.21.19-3).jpg"
+        }
+      ],
+      "revision": 1,
+      "updatedAt": "2026-10-26T17:18:26.248Z",
+      "sensitivity": "none",
+      "changes": [
+        {
+          "at": "2026-10-26T17:18:26.248Z",
+          "summary": "원 소장처 메타데이터 수집"
+        }
+      ]
+    },
+    {
       "id": "rec-05d70b67fbe05c9940d2b1bb",
       "title": "\"Don't be a dope^ Handle equipment right\" - NARA - 514717.tif",
       "originalTitle": "\"Don't be a dope^ Handle equipment right\" - NARA - 514717.tif",
@@ -119,61 +179,6 @@
       "changes": [
         {
           "at": "2026-10-26T05:13:03.570Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
-      "id": "rec-0712d422a9ad6b19fe5462dd",
-      "title": "Battle of Cheonan Ceremony-Visit to Independence Hall Museum - Cheonan, South Korea - 6 July 2012 (7579253858).jpg",
-      "originalTitle": "Battle of Cheonan Ceremony-Visit to Independence Hall Museum - Cheonan, South Korea - 6 July 2012 (7579253858).jpg",
-      "summary": "Click here to learn more about Camp Humphreys U.S. Army photos by Steven Hoover Humphreys Soldiers attend Battle of Cheonan commemoration By Steven Hoover USAG Humphreys Public Affairs Office CHEONAN, Republic of Korea – A contingent of Soldiers from Camp Humphreys joined city officials for a ceremony commemorating the 62nd Anniversary of the Battle of Cheonan, here, July 6. The annual event, which is hosted by the Cheonan Chapter of the Korea Freedom Federation, honors the Korean and American Soldiers who fought and died during the July 8, 1950, battle. Soldiers assigned to 602nd Aviation Support Battalion, 4-58th Airfield Operations Battalion, 3rd Military Intelligence Battalion and the 568th Medical Company, attended and participated in the ceremony. The Battle of Cheonan was the third engagement between United States and North Korean forces during the Korean War. The fight, a holding action designed to buy time and slow the North Korean movement towards Pusan, was fought largely by Soldiers of the 34th Regiment, 24th Infantry Division, led by Col. Robert R. Martin. The unit was assigned to delay elements of the North Korean People’s Army’s 4th Infantry Division as it advanced south following victories at Osan and Pyeongtaek the days before. The regiment was emplaced north and south of Cheonan, attempting to delay the North Koreans in an area where the terrain formed a bottleneck between the mountains and the Yellow Sea. Of the approximately 500 Soldiers assigned, only about 175 survived. Martin, for whom the memorial park is named, also died during the battle. He was posthumously awarded the Distinguished Service Cross for his actions at Cheonan, the first such decoration awarded during the Korean War. Lieutenant Colonel Robert P. Huber, the 4-58th AOB commander, spoke at the event on behalf of the garrison. “Each year, we gather to remember and honor these warriors in this incredible unit who stood fast against overwhelming enemy forces,” he said. “We reflect on the collective commitment and sacrifice of these determined defenders and we honor such men as Col. Martin and Pvt. Leotis Heater, who used hand grenades to stop a Soviet-built T-34 tank of the north communists.” He added, “As free people who wish to remain free, we must always remember (that) ‘Freedom is not free.’” After the morning addresses, audience members paid tribute to the casualties by placing flowers and saluting to the Cheonan memorial site. Also participating in the ceremony were children from the local Samgeori Elementary School, who provided a box of letters, written in English, thanking American Soldiers for “giving (them) a chance to live happily, peacefully, comfortably and safely.” The event was followed by lunch at a local restaurant and then a visit to Independence Hall, a museum of Korean history that feature seven different exhibition halls. For more information about this museum, located just 30 minutes south of Pyeongtaek, visit english.visitkorea.or.kr/enu/SI/SI_EN_3_1_1_1.jsp?cid=268181 Admission is free.",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 한국전쟁",
-        "url": "https://commons.wikimedia.org/wiki/File:Battle_of_Cheonan_Ceremony-Visit_to_Independence_Hall_Museum_-_Cheonan,_South_Korea_-_6_July_2012_(7579253858).jpg",
-        "identifier": "64959318",
-        "accessedAt": "2026-10-26T11:16:58.830Z"
-      },
-      "dates": {
-        "display": "2012-07-06 02:12",
-        "precision": "unknown"
-      },
-      "warIds": [
-        "korean-war"
-      ],
-      "entityIds": [],
-      "topics": [
-        "Independence Hall of Korea",
-        "Flickr images reviewed by FlickreviewR 2"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 한국전쟁 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:Battle_of_Cheonan_Ceremony-Visit_to_Independence_Hall_Museum_-_Cheonan,_South_Korea_-_6_July_2012_(7579253858).jpg"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-26T11:16:58.830Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-26T11:16:58.830Z",
           "summary": "원 소장처 메타데이터 수집"
         }
       ]
@@ -850,70 +855,6 @@
       ]
     },
     {
-      "id": "rec-13c10d84726e8b9434b3cbd5",
-      "title": "Enemy Activities - Internment Camps - Fort McPherson, Georgia - German prisoner buried with military honors in Georgia - NARA - 31479759.jpg",
-      "originalTitle": "Enemy Activities - Internment Camps - Fort McPherson, Georgia - German prisoner buried with military honors in Georgia - NARA - 31479759.jpg",
-      "summary": "Scope and content: Original Caption: German prisoner buried with military honors in Georgia. Lieutenant John Fix of the Krown Prinz Wilhelm says a silent prayer at the grave of Johann Ficken a sailor who died at the prison camp near Fort McPherson and buried with full military honors in the National Cemetery at Marietta Georgia, where more than ten thousand American soldiers are buried. Photographer: Walter Winn, Atlanta, Georgia",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제1차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:Enemy_Activities_-_Internment_Camps_-_Fort_McPherson,_Georgia_-_German_prisoner_buried_with_military_honors_in_Georgia_-_NARA_-_31479759.jpg",
-        "identifier": "62647015",
-        "accessedAt": "2026-10-26T05:16:10.541Z"
-      },
-      "dates": {
-        "display": "1917 – 1918",
-        "start": "1917",
-        "end": "1918",
-        "precision": "range"
-      },
-      "warIds": [
-        "world-war-i"
-      ],
-      "entityIds": [],
-      "topics": [
-        "PD US Military",
-        "Images from the National Archives and Records Administration",
-        "Media contributed by the National Archives and Records Administration",
-        "Internment",
-        "Artworks without Wikidata item",
-        "US National Archives series: American Unofficial Collection of World War I Photographs",
-        "Template Unknown (author)",
-        "Black and white photographs of World War I",
-        "US National Archives location: other"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제1차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:Enemy_Activities_-_Internment_Camps_-_Fort_McPherson,_Georgia_-_German_prisoner_buried_with_military_honors_in_Georgia_-_NARA_-_31479759.jpg"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-26T05:16:10.541Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-26T05:16:10.541Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
       "id": "rec-13ec4eaaafa08886f1790942",
       "title": "\"Guard Against Tuberculosis\" - DPLA - 18441c4310bc87de5795b01563d0a070.jpg",
       "originalTitle": "\"Guard Against Tuberculosis\" - DPLA - 18441c4310bc87de5795b01563d0a070.jpg",
@@ -966,62 +907,6 @@
       "changes": [
         {
           "at": "2026-10-26T05:13:26.818Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
-      "id": "rec-15ecd7ddce2533afc76dd562",
-      "title": "Korean wreath laying at grave site of Edward Mallory Almond - salute (16508056837).jpg",
-      "originalTitle": "Korean wreath laying at grave site of Edward Mallory Almond - salute (16508056837).jpg",
-      "summary": "In a ceremony at Arlington National Cemetery a South Korean delegation, including the Speaker of the National Assembly, lays a wreath at the gravesite of Lieutenant General Edward Mallory Almond. Edward \"Ned\" Almond was the commander of the U.S. Army's X Corps during the Korean War. General Almond's grandson participated in the ceremony. Photograph by Stephen Smith",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 한국전쟁",
-        "url": "https://commons.wikimedia.org/wiki/File:Korean_wreath_laying_at_grave_site_of_Edward_Mallory_Almond_-_salute_(16508056837).jpg",
-        "identifier": "63839078",
-        "accessedAt": "2026-10-26T11:16:18.116Z"
-      },
-      "dates": {
-        "display": "2013-03-04 13:59",
-        "precision": "unknown"
-      },
-      "warIds": [
-        "korean-war"
-      ],
-      "entityIds": [],
-      "topics": [
-        "PD US Army",
-        "Flickr images reviewed by trusted users",
-        "Grave of Edward Almond"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 한국전쟁 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:Korean_wreath_laying_at_grave_site_of_Edward_Mallory_Almond_-_salute_(16508056837).jpg"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-26T11:16:18.116Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-26T11:16:18.116Z",
           "summary": "원 소장처 메타데이터 수집"
         }
       ]
@@ -1205,72 +1090,6 @@
       ]
     },
     {
-      "id": "rec-1bd6cb95250613e3f0cc843c",
-      "title": "Enemy Activities - Arrests of Alien Enemies - Bolsheviks in Russia - Entrance to Moscow's historic Kremlin, taken by Bolsheviki. Badly battered with shells, scene of intense fighting between Bolsheviki and tempor(...) - NARA - 31477932.jpg",
-      "originalTitle": "Enemy Activities - Arrests of Alien Enemies - Bolsheviks in Russia - Entrance to Moscow's historic Kremlin, taken by Bolsheviki. Badly battered with shells, scene of intense fighting between Bolsheviki and tempor(...) - NARA - 31477932.jpg",
-      "summary": "Scope and content: Photographer: Underwood and Underwood",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제1차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:Enemy_Activities_-_Arrests_of_Alien_Enemies_-_Bolsheviks_in_Russia_-_Entrance_to_Moscow%27s_historic_Kremlin,_taken_by_Bolsheviki._Badly_battered_with_shells,_scene_of_intense_fighting_between_Bolsheviki_and_tempor(...)_-_NARA_-_31477932.jpg",
-        "identifier": "62646975",
-        "accessedAt": "2026-10-26T05:16:15.340Z"
-      },
-      "dates": {
-        "display": "1917 – 1918",
-        "start": "1917",
-        "end": "1918",
-        "precision": "range"
-      },
-      "warIds": [
-        "world-war-i"
-      ],
-      "entityIds": [],
-      "topics": [
-        "Moscow in the 1910s",
-        "PD US Military",
-        "Images from the National Archives and Records Administration",
-        "Media contributed by the National Archives and Records Administration",
-        "Bolsheviks",
-        "Artworks without Wikidata item",
-        "US National Archives series: American Unofficial Collection of World War I Photographs",
-        "Template Unknown (author)",
-        "Black and white photographs of World War I",
-        "NARA images of Russia",
-        "US National Archives location: other"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제1차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:Enemy_Activities_-_Arrests_of_Alien_Enemies_-_Bolsheviks_in_Russia_-_Entrance_to_Moscow%27s_historic_Kremlin,_taken_by_Bolsheviki._Badly_battered_with_shells,_scene_of_intense_fighting_between_Bolsheviki_and_tempor(...)_-_NARA_-_31477932.jpg"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-26T05:16:15.340Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-26T05:16:15.340Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
       "id": "rec-1c19cf947dce27c143705ed4",
       "title": "\"WHEN A FLY WIPES HIS FEET ON YOUR FOOD, HE'S SPREADING DISEASE^ NEVER GIVE A GERM A BREAK\" - NARA - 516140.jpg",
       "originalTitle": "\"WHEN A FLY WIPES HIS FEET ON YOUR FOOD, HE'S SPREADING DISEASE^ NEVER GIVE A GERM A BREAK\" - NARA - 516140.jpg",
@@ -1387,72 +1206,6 @@
       "changes": [
         {
           "at": "2026-10-26T05:13:03.122Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
-      "id": "rec-1ec3735939d7739bc3687c98",
-      "title": "HMS Theseus (R649 flight deck off Korea c1951.jpg",
-      "originalTitle": "HMS Theseus (R649 flight deck off Korea c1951.jpg",
-      "summary": "View of the flight deck of the Royal Navy light fleet carrier HMS Theseus (R64) with Hawker Sea Fury and Fairey Firefly aircraft lined up on its snow covered flight deck. Members of the crew are making snowballs.",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 한국전쟁",
-        "url": "https://commons.wikimedia.org/wiki/File:HMS_Theseus_(R649_flight_deck_off_Korea_c1951.jpg",
-        "identifier": "19411131",
-        "accessedAt": "2026-10-26T05:17:45.677Z"
-      },
-      "dates": {
-        "display": "between 1950 and 1951 date QS:P,+1950-00-00T00:00:00Z/8,P1319,+1950-00-00T00:00:00Z/9,P1326,+1951-00-00T00:00:00Z/9",
-        "precision": "unknown"
-      },
-      "warIds": [
-        "korean-war"
-      ],
-      "entityIds": [],
-      "topics": [
-        "Hawker Sea Fury",
-        "HMS Theseus (R64)",
-        "Fairey Firefly",
-        "UK Government artistic works",
-        "Collections of the Imperial War Museum",
-        "Military aircraft with snow",
-        "Royal Navy in 1951",
-        "Royal Navy in the Korean War",
-        "Fleet Air Arm in the Korean War",
-        "Hawker Sea Fury in the Korean War",
-        "Aircraft with snow on ships",
-        "Hawker aircraft with snow",
-        "Fairey aircraft with snow"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 한국전쟁 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:HMS_Theseus_(R649_flight_deck_off_Korea_c1951.jpg"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-26T05:17:45.677Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-26T05:17:45.677Z",
           "summary": "원 소장처 메타데이터 수집"
         }
       ]
@@ -1575,70 +1328,6 @@
       "changes": [
         {
           "at": "2026-10-26T05:13:38.222Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
-      "id": "rec-2211e1678b7d6fd5522a016e",
-      "title": "Industries of War - Machinery - Miscellaneous - Illustrating multiple drilling operation on Auxiliary Steam Chest - NARA - 45486049.jpg",
-      "originalTitle": "Industries of War - Machinery - Miscellaneous - Illustrating multiple drilling operation on Auxiliary Steam Chest - NARA - 45486049.jpg",
-      "summary": "Scope and content: Photographer: J.H. McGowan & Co. Cincinnati, Ohio",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제1차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:Industries_of_War_-_Machinery_-_Miscellaneous_-_Illustrating_multiple_drilling_operation_on_Auxiliary_Steam_Chest_-_NARA_-_45486049.jpg",
-        "identifier": "62617903",
-        "accessedAt": "2026-10-26T05:15:46.450Z"
-      },
-      "dates": {
-        "display": "1917 – 1918",
-        "start": "1917",
-        "end": "1918",
-        "precision": "range"
-      },
-      "warIds": [
-        "world-war-i"
-      ],
-      "entityIds": [],
-      "topics": [
-        "PD US Military",
-        "Images from the National Archives and Records Administration",
-        "Media contributed by the National Archives and Records Administration",
-        "Artworks without Wikidata item",
-        "US National Archives series: American Unofficial Collection of World War I Photographs",
-        "Template Unknown (author)",
-        "Black and white photographs of World War I",
-        "US National Archives location: other",
-        "Machinery production in the United States in World War I"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제1차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:Industries_of_War_-_Machinery_-_Miscellaneous_-_Illustrating_multiple_drilling_operation_on_Auxiliary_Steam_Chest_-_NARA_-_45486049.jpg"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-26T05:15:46.450Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-26T05:15:46.450Z",
           "summary": "원 소장처 메타데이터 수집"
         }
       ]
@@ -1838,64 +1527,6 @@
       ]
     },
     {
-      "id": "rec-23368a5c5685ecdd772f7a8e",
-      "title": "Korean War Veterans Memorial Wall of Remembrance Dedication Ceremony in Washington, D.C. on 27 July 2022 - 77.jpg",
-      "originalTitle": "Korean War Veterans Memorial Wall of Remembrance Dedication Ceremony in Washington, D.C. on 27 July 2022 - 77.jpg",
-      "summary": "Korean War Veterans Memorial Wall of Remembrance Dedication Ceremony in Washington, D.C. on 27 July 2022",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 한국전쟁",
-        "url": "https://commons.wikimedia.org/wiki/File:Korean_War_Veterans_Memorial_Wall_of_Remembrance_Dedication_Ceremony_in_Washington,_D.C._on_27_July_2022_-_77.jpg",
-        "identifier": "181898791",
-        "accessedAt": "2026-10-26T11:16:28.481Z"
-      },
-      "dates": {
-        "display": "2022-07-27 09:48:02",
-        "precision": "unknown"
-      },
-      "warIds": [
-        "korean-war"
-      ],
-      "entityIds": [],
-      "topics": [
-        "July 2022 in Washington, D.C.",
-        "Flickr images reviewed by FlickreviewR 2",
-        "Photographs by the United States Army Band",
-        "People of the United States Army Band",
-        "Flickr images missing SDC published in"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 한국전쟁 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:Korean_War_Veterans_Memorial_Wall_of_Remembrance_Dedication_Ceremony_in_Washington,_D.C._on_27_July_2022_-_77.jpg"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-26T11:16:28.481Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-26T11:16:28.481Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
       "id": "rec-2379c946e8a414e9d2197f3f",
       "title": "SC 355894 FEC-51-631 - 5 January 1951 (52564944280).jpg",
       "originalTitle": "SC 355894 FEC-51-631 - 5 January 1951 (52564944280).jpg",
@@ -1950,77 +1581,6 @@
       "changes": [
         {
           "at": "2026-10-26T11:16:46.079Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
-      "id": "rec-237e8241252c41680705f88c",
-      "title": "Defense.gov News Photo 120727-D-BW835-140 - Secretary of Defense Leon E. Panetta, center, is flanked by South Korean Ambassador Choi-Young jin, left, and James Ferris, right, president of the Korean War Veterans As.jpg",
-      "originalTitle": "Defense.gov News Photo 120727-D-BW835-140 - Secretary of Defense Leon E. Panetta, center, is flanked by South Korean Ambassador Choi-Young jin, left, and James Ferris, right, president of the Korean War Veterans As.jpg",
-      "summary": "Secretary of Defense Leon E. Panetta, center, is flanked by South Korean Ambassador Choi-Young jin, left, and James Ferris, right, president of the Korean War Veterans Association, as he lays a wreath during a ceremony at the 59th Anniversary of the Korean War Armistice ceremony at the Arlington National Cemetery's Memorial Amphitheatre on July 26, 2012.",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 한국전쟁",
-        "url": "https://commons.wikimedia.org/wiki/File:Defense.gov_News_Photo_120727-D-BW835-140_-_Secretary_of_Defense_Leon_E._Panetta,_center,_is_flanked_by_South_Korean_Ambassador_Choi-Young_jin,_left,_and_James_Ferris,_right,_president_of_the_Korean_War_Veterans_As.jpg",
-        "identifier": "20593270",
-        "accessedAt": "2026-10-26T11:16:12.333Z"
-      },
-      "dates": {
-        "display": "Taken on 27 July 2012",
-        "precision": "unknown"
-      },
-      "warIds": [
-        "korean-war"
-      ],
-      "entityIds": [],
-      "topics": [
-        "Taken with Nikon D3",
-        "PD US Military",
-        "Choi Young-jin",
-        "ISO speed rating 200",
-        "F-number f/2.8",
-        "Files created by the United States Department of Defense with known IDs",
-        "Exposure time 1/2000 sec",
-        "Lens focal length 200 mm",
-        "Photographs taken on 2012-07-27",
-        "Defense.gov photos requiring renaming",
-        "Defense.gov news media for July 2012",
-        "Relations of South Korea and the United States in 2012",
-        "Import by User:Slick-o-bot/Defense.gov News Photos",
-        "Photographs by Erin A. Kirk-Cuomo",
-        "Leon Panetta with foreign politicians",
-        "Arlington National Cemetery in July 2012",
-        "Leon Panetta in July 2012",
-        "59th anniversary of the Korean Armistice Agreement (2012)"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 한국전쟁 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:Defense.gov_News_Photo_120727-D-BW835-140_-_Secretary_of_Defense_Leon_E._Panetta,_center,_is_flanked_by_South_Korean_Ambassador_Choi-Young_jin,_left,_and_James_Ferris,_right,_president_of_the_Korean_War_Veterans_As.jpg"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-26T11:16:12.333Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-26T11:16:12.333Z",
           "summary": "원 소장처 메타데이터 수집"
         }
       ]
@@ -2576,75 +2136,6 @@
       "changes": [
         {
           "at": "2026-10-26T11:19:02.986Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
-      "id": "rec-2d2a4421245fbb87067107a2",
-      "title": "Navy AD-3 dive bomber pulls out of dive after dropping a 2000 pound bomb on Korean side of a bridge crossing the Yalu... - NARA - 520776.tif",
-      "originalTitle": "Navy AD-3 dive bomber pulls out of dive after dropping a 2000 pound bomb on Korean side of a bridge crossing the Yalu... - NARA - 520776.tif",
-      "summary": "General notes: Use War and Conflict Number 1442 when ordering a reproduction or requesting information about this image.",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 한국전쟁",
-        "url": "https://commons.wikimedia.org/wiki/File:Navy_AD-3_dive_bomber_pulls_out_of_dive_after_dropping_a_2000_pound_bomb_on_Korean_side_of_a_bridge_crossing_the_Yalu..._-_NARA_-_520776.tif",
-        "identifier": "16457347",
-        "accessedAt": "2026-10-26T05:17:38.893Z"
-      },
-      "dates": {
-        "display": "15 November 1950 date QS:P571,+1950-11-15T00:00:00Z/11",
-        "precision": "unknown"
-      },
-      "warIds": [
-        "korean-war"
-      ],
-      "entityIds": [],
-      "topics": [
-        "PD US Government",
-        "Images from the National Archives and Records Administration",
-        "Media contributed by the National Archives and Records Administration",
-        "Yalu River Broken Bridge",
-        "Sino-Korean Friendship Bridge",
-        "Artworks without Wikidata item",
-        "Template Unknown (author)",
-        "CC-PD-Mark",
-        "High-resolution TIFF images from the National Archives and Records Administration",
-        "US National Archives series: General Photographic File of the Department of Navy, compiled 1943 - 1958, documenting the period 1900 - 1958",
-        "1950 black and white photographs",
-        "Bombing during the Korean War",
-        "Korean War in November 1950",
-        "History of Sinuiju",
-        "AD-3 Skyraider",
-        "Douglas Skyraider in flight"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 한국전쟁 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:Navy_AD-3_dive_bomber_pulls_out_of_dive_after_dropping_a_2000_pound_bomb_on_Korean_side_of_a_bridge_crossing_the_Yalu..._-_NARA_-_520776.tif"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-26T05:17:38.893Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-26T05:17:38.893Z",
           "summary": "원 소장처 메타데이터 수집"
         }
       ]
@@ -3383,121 +2874,6 @@
       ]
     },
     {
-      "id": "rec-3c76daeefdf3d36498eb47bc",
-      "title": "The Journal v. 29, no. 46, November 16, 2017 (IA Journal171116).pdf",
-      "originalTitle": "The Journal v. 29, no. 46, November 16, 2017 (IA Journal171116).pdf",
-      "summary": "NEX Extends Online Benefits to Veterans Dr. Norman Rich Named ‘Icon in Surgery’ WTB Hosts Hoops for Troops NMCRS Fundraiser Moves to Nationals Park Clinical Psychology Interns Graduate Marines Celebrate Corps’ 242nd Birthday at Walter Reed Bethesda Subjects: Walter Reed National Military Medical Center; Uniformed Services University of the Health Sciences; wheelchair basketball; National Museum of Health and Medicine; Vietnam War; MASH",
-      "kind": "document",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 한국전쟁",
-        "url": "https://commons.wikimedia.org/wiki/File:The_Journal_v._29,_no._46,_November_16,_2017_(IA_Journal171116).pdf",
-        "identifier": "91639654",
-        "accessedAt": "2026-10-26T11:16:56.304Z"
-      },
-      "dates": {
-        "display": "2020-06-27 21:11:38",
-        "precision": "unknown"
-      },
-      "warIds": [
-        "korean-war"
-      ],
-      "entityIds": [],
-      "topics": [
-        "PD US Government",
-        "CC-PD-Mark",
-        "Books uploaded by Fæ",
-        "Books without Wikidata item",
-        "The Journal, Naval Support Activity Bethesda"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 한국전쟁 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:The_Journal_v._29,_no._46,_November_16,_2017_(IA_Journal171116).pdf"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-26T11:16:56.304Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-26T11:16:56.304Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
-      "id": "rec-3d30f82ea9117278f6f0e32d",
-      "title": "Traffic Patter, Volume 3, Number 4, August 1956 - DPLA - 9dd607bc5bf688d54e8fda98d76cfa5d (page 11).jpg",
-      "originalTitle": "Traffic Patter, Volume 3, Number 4, August 1956 - DPLA - 9dd607bc5bf688d54e8fda98d76cfa5d (page 11).jpg",
-      "summary": "Monthly bulletin of Texas Aviation Industries, Inc. discussing news and events at Hondo Air Base, topics related to aviation, and other information of interest to personnel. 12 p. : ill. ; 22 cm.",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 한국전쟁",
-        "url": "https://commons.wikimedia.org/wiki/File:Traffic_Patter,_Volume_3,_Number_4,_August_1956_-_DPLA_-_9dd607bc5bf688d54e8fda98d76cfa5d_(page_11).jpg",
-        "identifier": "195642117",
-        "accessedAt": "2026-10-26T05:18:23.197Z"
-      },
-      "dates": {
-        "display": "August 1956",
-        "precision": "unknown"
-      },
-      "warIds": [
-        "korean-war"
-      ],
-      "entityIds": [],
-      "topics": [
-        "Media contributed by the Digital Public Library of America",
-        "Media contributed by Hondo Public Library",
-        "Media contributed by The Portal to Texas History",
-        "Traffic Patter"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 한국전쟁 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:Traffic_Patter,_Volume_3,_Number_4,_August_1956_-_DPLA_-_9dd607bc5bf688d54e8fda98d76cfa5d_(page_11).jpg"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-26T05:18:23.197Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-26T05:18:23.197Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
       "id": "rec-3d6662f3f46cb26285e734d1",
       "title": "Colleges and Universities - Central High School - Newark, New Jersey - Draftees learning ship building trade at Newark Technical School, Newark, New Jersey - NARA - 26425437.jpg",
       "originalTitle": "Colleges and Universities - Central High School - Newark, New Jersey - Draftees learning ship building trade at Newark Technical School, Newark, New Jersey - NARA - 26425437.jpg",
@@ -3747,38 +3123,30 @@
       ]
     },
     {
-      "id": "rec-486fc87cdb303673129e68ed",
-      "title": "B-29s of the U.S. Far East Air Forces speed to dump tons of bombs on the Chinese Red's military targets. In... - NARA - 542242.tif",
-      "originalTitle": "B-29s of the U.S. Far East Air Forces speed to dump tons of bombs on the Chinese Red's military targets. In... - NARA - 542242.tif",
-      "summary": "원 소장처의 자료 정보와 이용 조건을 확인할 수 있는 기록입니다.",
+      "id": "rec-4a39597d91c1951b06324df3",
+      "title": "Alem el Halfa Embroidered.png",
+      "originalTitle": "Alem el Halfa Embroidered.png",
+      "summary": "Computer simulation of Battle Honour",
       "kind": "photograph",
       "language": "und",
       "source": {
-        "name": "Wikimedia Commons · 한국전쟁",
-        "url": "https://commons.wikimedia.org/wiki/File:B-29s_of_the_U.S._Far_East_Air_Forces_speed_to_dump_tons_of_bombs_on_the_Chinese_Red%27s_military_targets._In..._-_NARA_-_542242.tif",
-        "identifier": "16524566",
-        "accessedAt": "2026-10-26T11:16:05.243Z"
+        "name": "Wikimedia Commons · 제2차 세계대전",
+        "url": "https://commons.wikimedia.org/wiki/File:Alem_el_Halfa_Embroidered.png",
+        "identifier": "94447067",
+        "accessedAt": "2026-10-26T17:19:10.273Z"
       },
       "dates": {
-        "display": "circa January 1951 date QS:P571,+1951-01-00T00:00:00Z/10,P1480,Q5727902",
-        "precision": "unknown"
+        "display": "2020-09-26",
+        "start": "2020-09-26",
+        "precision": "exact"
       },
       "warIds": [
-        "korean-war"
+        "world-war-ii"
       ],
       "entityIds": [],
       "topics": [
-        "PD US Government",
-        "Images from the National Archives and Records Administration",
-        "Media contributed by the National Archives and Records Administration",
-        "Artworks without Wikidata item",
-        "Template Unknown (author)",
-        "CC-PD-Mark",
-        "High-resolution TIFF images from the National Archives and Records Administration",
-        "US National Archives series: Black and White Photographs of U.S. Air Force and Predecessors' Activities, Facilities, and Personnel, Domestic and Foreign, compiled 1930 - 1975, documenting the period 1863 - 1975",
-        "B-29s in the Korean War",
-        "Bombing during the Korean War",
-        "Korean War in 1951"
+        "Embroidery",
+        "Self-published work"
       ],
       "rights": {
         "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
@@ -3796,76 +3164,16 @@
       },
       "citations": [
         {
-          "label": "Wikimedia Commons · 한국전쟁 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:B-29s_of_the_U.S._Far_East_Air_Forces_speed_to_dump_tons_of_bombs_on_the_Chinese_Red%27s_military_targets._In..._-_NARA_-_542242.tif"
+          "label": "Wikimedia Commons · 제2차 세계대전 원 소장처",
+          "url": "https://commons.wikimedia.org/wiki/File:Alem_el_Halfa_Embroidered.png"
         }
       ],
       "revision": 1,
-      "updatedAt": "2026-10-26T11:16:05.243Z",
+      "updatedAt": "2026-10-26T17:19:10.273Z",
       "sensitivity": "none",
       "changes": [
         {
-          "at": "2026-10-26T11:16:05.243Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
-      "id": "rec-4a2c40719cf5c45e97b2d95e",
-      "title": "NAVY MEDICINE Vol. 93, No. 1 January-February 2002 (IA NavyMedicineVol.93No.1January-february2002).pdf",
-      "originalTitle": "NAVY MEDICINE Vol. 93, No. 1 January-February 2002 (IA NavyMedicineVol.93No.1January-february2002).pdf",
-      "summary": "NAVY MEDICINE Vol. 93, No. 1 January-February 2002 Department Rounds 1 Korean War Vet Donates Artwork to NNMC Features 3 Sailing with the USS Harry S. Truman (CVN-75) J.M. Hores 7 An MIA Comes Home HMCS(AWINAC) D.C. Constantine 9 NSA Station Hospital, Da Nang: A Personal History J. Chaffee 16 Khat: Expose on the Hom of Africa's Drug of Choice LT Y.H. Aboul-Enein, MSC, USN 18 A Quick Reference Guide to Dietary Supplements CDR B.A. Barron, MC, USNR LT B.R. Nicholson, MC, USNR LT J.E. Strauss, MC, USNR 22 Feeling the Sound Can Be Dangerous to Your Health COL B.P. Billings, MS, SC National Guard 26 A Ray of Light 101 S. Ansarov, USN Oral History 27 Benevolence Survivor LCDR D. Venverloh, NC, USN (Ret.) Forum 31 The Need for Operational Nursing CDR D. Norman, NC, USN LCDR R. Arbeene, NC, USN 33 Strategic Biodefense: A Call to Reinvent the Hospital Ship C. Hooper Book Review 36 Nightmare on Iwo LT Y. Aboul-Enein, MSC, USN A Look Back 37 Navy Medicine 1919 Subjects: Navy Medicine magazine; medicalheritagelibrary; Korean War; National Naval Medical Center; USS Harry S Truman (CVN 75); aircraft carrier; Vietnam War; Ronald Manning; MIA; DNA identification; NSA Station Hospital Da Nang; khat; Africa; drug abuse; dietary supplements; sound; hearing; USS Benevolence; hospital ship;",
-      "kind": "document",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 한국전쟁",
-        "url": "https://commons.wikimedia.org/wiki/File:NAVY_MEDICINE_Vol._93,_No._1_January-February_2002_(IA_NavyMedicineVol.93No.1January-february2002).pdf",
-        "identifier": "91656431",
-        "accessedAt": "2026-10-26T11:16:55.021Z"
-      },
-      "dates": {
-        "display": "2020-06-28 09:41:44",
-        "precision": "unknown"
-      },
-      "warIds": [
-        "korean-war"
-      ],
-      "entityIds": [],
-      "topics": [
-        "PD US Government",
-        "Scans from the Internet Archive/unverified",
-        "CC-PD-Mark",
-        "Scans from the Internet Archive",
-        "Books uploaded by Fæ",
-        "Books without Wikidata item",
-        "Navy Medicine Magazine"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 한국전쟁 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:NAVY_MEDICINE_Vol._93,_No._1_January-February_2002_(IA_NavyMedicineVol.93No.1January-february2002).pdf"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-26T11:16:55.021Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-26T11:16:55.021Z",
+          "at": "2026-10-26T17:19:10.273Z",
           "summary": "원 소장처 메타데이터 수집"
         }
       ]
@@ -3929,6 +3237,62 @@
       "changes": [
         {
           "at": "2026-10-25T23:16:10.614Z",
+          "summary": "원 소장처 메타데이터 수집"
+        }
+      ]
+    },
+    {
+      "id": "rec-50b17e740c1a46175732ce4a",
+      "title": "USS Stickleback (SS-415).jpg",
+      "originalTitle": "USS Stickleback (SS-415).jpg",
+      "summary": "Stickleback (SS-415) sometime between her launching and commissioning, Jan - March 1945.",
+      "kind": "photograph",
+      "language": "und",
+      "source": {
+        "name": "Wikimedia Commons · 제2차 세계대전",
+        "url": "https://commons.wikimedia.org/wiki/File:USS_Stickleback_(SS-415).jpg",
+        "identifier": "19644902",
+        "accessedAt": "2026-10-26T17:18:22.146Z"
+      },
+      "dates": {
+        "display": "Jan - March 1945",
+        "precision": "unknown"
+      },
+      "warIds": [
+        "world-war-ii"
+      ],
+      "entityIds": [],
+      "topics": [
+        "USS Stickleback (SS-415)",
+        "PD US Navy",
+        "CC-PD-Mark"
+      ],
+      "rights": {
+        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
+        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
+        "downloadAllowed": false,
+        "reuseAllowed": false
+      },
+      "review": {
+        "provenance": "checked",
+        "content": "source-description",
+        "translation": "none"
+      },
+      "media": {
+        "displayAllowed": false
+      },
+      "citations": [
+        {
+          "label": "Wikimedia Commons · 제2차 세계대전 원 소장처",
+          "url": "https://commons.wikimedia.org/wiki/File:USS_Stickleback_(SS-415).jpg"
+        }
+      ],
+      "revision": 1,
+      "updatedAt": "2026-10-26T17:18:22.146Z",
+      "sensitivity": "none",
+      "changes": [
+        {
+          "at": "2026-10-26T17:18:22.146Z",
           "summary": "원 소장처 메타데이터 수집"
         }
       ]
@@ -4053,135 +3417,6 @@
       ]
     },
     {
-      "id": "rec-51f259ef4be21d59b0f5bfea",
-      "title": "Industries of War - Machinery - Cranes and Derricks - Locomotive trains. Brownhoist 10-ton pier crane, raised pier type. The Brown Hoist Machinery Co., Cleveland, Ohio - NARA - 45486430.jpg",
-      "originalTitle": "Industries of War - Machinery - Cranes and Derricks - Locomotive trains. Brownhoist 10-ton pier crane, raised pier type. The Brown Hoist Machinery Co., Cleveland, Ohio - NARA - 45486430.jpg",
-      "summary": "원 소장처의 자료 정보와 이용 조건을 확인할 수 있는 기록입니다.",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제1차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:Industries_of_War_-_Machinery_-_Cranes_and_Derricks_-_Locomotive_trains._Brownhoist_10-ton_pier_crane,_raised_pier_type._The_Brown_Hoist_Machinery_Co.,_Cleveland,_Ohio_-_NARA_-_45486430.jpg",
-        "identifier": "62618143",
-        "accessedAt": "2026-10-26T05:15:47.625Z"
-      },
-      "dates": {
-        "display": "1917 – 1918",
-        "start": "1917",
-        "end": "1918",
-        "precision": "range"
-      },
-      "warIds": [
-        "world-war-i"
-      ],
-      "entityIds": [],
-      "topics": [
-        "PD US Military",
-        "Images from the National Archives and Records Administration",
-        "Media contributed by the National Archives and Records Administration",
-        "Artworks without Wikidata item",
-        "US National Archives series: American Unofficial Collection of World War I Photographs",
-        "Template Unknown (author)",
-        "Black and white photographs of World War I",
-        "Industrial Brownhoist Corporation",
-        "US National Archives location: other",
-        "Machinery production in the United States in World War I"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제1차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:Industries_of_War_-_Machinery_-_Cranes_and_Derricks_-_Locomotive_trains._Brownhoist_10-ton_pier_crane,_raised_pier_type._The_Brown_Hoist_Machinery_Co.,_Cleveland,_Ohio_-_NARA_-_45486430.jpg"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-26T05:15:47.625Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-26T05:15:47.625Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
-      "id": "rec-523724faeba8c5fb3ac14c03",
-      "title": "Balloons - Flights - Observation Balloon at a Camp in the United States. Shows basket with pilot ready to go up - NARA - 20807774.jpg",
-      "originalTitle": "Balloons - Flights - Observation Balloon at a Camp in the United States. Shows basket with pilot ready to go up - NARA - 20807774.jpg",
-      "summary": "Scope and content: Photographer: M.E. Tamme",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제1차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:Balloons_-_Flights_-_Observation_Balloon_at_a_Camp_in_the_United_States._Shows_basket_with_pilot_ready_to_go_up_-_NARA_-_20807774.jpg",
-        "identifier": "62646223",
-        "accessedAt": "2026-10-26T05:16:16.073Z"
-      },
-      "dates": {
-        "display": "1917 – 1918",
-        "start": "1917",
-        "end": "1918",
-        "precision": "range"
-      },
-      "warIds": [
-        "world-war-i"
-      ],
-      "entityIds": [],
-      "topics": [
-        "PD US Military",
-        "Images from the National Archives and Records Administration",
-        "Media contributed by the National Archives and Records Administration",
-        "World War I balloons",
-        "Artworks without Wikidata item",
-        "US National Archives series: American Unofficial Collection of World War I Photographs",
-        "Template Unknown (author)",
-        "Black and white photographs of World War I",
-        "US National Archives location: other"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제1차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:Balloons_-_Flights_-_Observation_Balloon_at_a_Camp_in_the_United_States._Shows_basket_with_pilot_ready_to_go_up_-_NARA_-_20807774.jpg"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-26T05:16:16.073Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-26T05:16:16.073Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
       "id": "rec-5250f60563046e9e547c7f02",
       "title": "Portrait of Giovanni Randaccio.png",
       "originalTitle": "Portrait of Giovanni Randaccio.png",
@@ -4245,38 +3480,34 @@
       ]
     },
     {
-      "id": "rec-5762772f7bfe9566d9b71506",
-      "title": "Enemy Activities - Internment Camps - Fort McPherson, Georgia - German war prisoners enjoying field sports - NARA - 31479651.jpg",
-      "originalTitle": "Enemy Activities - Internment Camps - Fort McPherson, Georgia - German war prisoners enjoying field sports - NARA - 31479651.jpg",
-      "summary": "Scope and content: Photographer: Commanding Officer, Fort McPherson, Georgia",
+      "id": "rec-5710ebd190fcff6d3e2bac4d",
+      "title": "TIN AND STEEL ARE TWO OF AMERICA'S MOST CRITICAL METALS TODAY. - NARA - 515828.jpg",
+      "originalTitle": "TIN AND STEEL ARE TWO OF AMERICA'S MOST CRITICAL METALS TODAY. - NARA - 515828.jpg",
+      "summary": "원 소장처의 자료 정보와 이용 조건을 확인할 수 있는 기록입니다.",
       "kind": "photograph",
       "language": "und",
       "source": {
-        "name": "Wikimedia Commons · 제1차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:Enemy_Activities_-_Internment_Camps_-_Fort_McPherson,_Georgia_-_German_war_prisoners_enjoying_field_sports_-_NARA_-_31479651.jpg",
-        "identifier": "62615143",
-        "accessedAt": "2026-10-26T05:15:45.298Z"
+        "name": "Wikimedia Commons · 제2차 세계대전",
+        "url": "https://commons.wikimedia.org/wiki/File:TIN_AND_STEEL_ARE_TWO_OF_AMERICA%27S_MOST_CRITICAL_METALS_TODAY._-_NARA_-_515828.jpg",
+        "identifier": "16941975",
+        "accessedAt": "2026-10-26T17:18:16.445Z"
       },
       "dates": {
-        "display": "1917 – 1918",
-        "start": "1917",
-        "end": "1918",
-        "precision": "range"
+        "display": "between 1941 and 1945 date QS:P571,+1941-00-00T00:00:00Z/8,P1319,+1941-00-00T00:00:00Z/9,P1326,+1945-00-00T00:00:00Z/9",
+        "precision": "unknown"
       },
       "warIds": [
-        "world-war-i"
+        "world-war-ii"
       ],
       "entityIds": [],
       "topics": [
-        "PD US Military",
         "Images from the National Archives and Records Administration",
         "Media contributed by the National Archives and Records Administration",
-        "Internment",
         "Artworks without Wikidata item",
-        "US National Archives series: American Unofficial Collection of World War I Photographs",
+        "PD US Treasury",
         "Template Unknown (author)",
-        "Black and white photographs of World War I",
-        "US National Archives location: other"
+        "US National Archives series: World War II Posters, compiled 1942 - 1945",
+        "World War II posters about metal from the United States"
       ],
       "rights": {
         "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
@@ -4294,16 +3525,16 @@
       },
       "citations": [
         {
-          "label": "Wikimedia Commons · 제1차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:Enemy_Activities_-_Internment_Camps_-_Fort_McPherson,_Georgia_-_German_war_prisoners_enjoying_field_sports_-_NARA_-_31479651.jpg"
+          "label": "Wikimedia Commons · 제2차 세계대전 원 소장처",
+          "url": "https://commons.wikimedia.org/wiki/File:TIN_AND_STEEL_ARE_TWO_OF_AMERICA%27S_MOST_CRITICAL_METALS_TODAY._-_NARA_-_515828.jpg"
         }
       ],
       "revision": 1,
-      "updatedAt": "2026-10-26T05:15:45.298Z",
+      "updatedAt": "2026-10-26T17:18:16.445Z",
       "sensitivity": "none",
       "changes": [
         {
-          "at": "2026-10-26T05:15:45.298Z",
+          "at": "2026-10-26T17:18:16.445Z",
           "summary": "원 소장처 메타데이터 수집"
         }
       ]
@@ -4364,140 +3595,6 @@
       "changes": [
         {
           "at": "2026-10-26T05:13:14.478Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
-      "id": "rec-59577bf642befc1c9b195a6d",
-      "title": "Commissions - Italy - Italian Commission Honored at College of City of New York during visit - NARA - 26432168.jpg",
-      "originalTitle": "Commissions - Italy - Italian Commission Honored at College of City of New York during visit - NARA - 26432168.jpg",
-      "summary": "Scope and content: Original Caption: Italian Commission Honored at College of City of New York during visit. Italians marching to Stadium of the college of the City of New York where the visiting envoys were honored with degrees. Italian societies participated in the cele Photographer: Bain News Service",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제1차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:Commissions_-_Italy_-_Italian_Commission_Honored_at_College_of_City_of_New_York_during_visit_-_NARA_-_26432168.jpg",
-        "identifier": "62714511",
-        "accessedAt": "2026-10-26T05:15:55.867Z"
-      },
-      "dates": {
-        "display": "23 June 1917 date QS:P571,+1917-06-23T00:00:00Z/11",
-        "precision": "unknown"
-      },
-      "warIds": [
-        "world-war-i"
-      ],
-      "entityIds": [],
-      "topics": [
-        "1917 in New York City",
-        "PD US Military",
-        "City College of New York",
-        "Images from the National Archives and Records Administration",
-        "Media contributed by the National Archives and Records Administration",
-        "Parades in New York City",
-        "Artworks without Wikidata item",
-        "Military diplomacy",
-        "US National Archives series: American Unofficial Collection of World War I Photographs",
-        "Template Unknown (author)",
-        "Black and white photographs of World War I",
-        "Black and white photographs of people in Manhattan, New York City",
-        "Black and white photographs of Manhattan, New York City in the 1910s",
-        "NARA images of Italy",
-        "US National Archives location: other",
-        "Italian mission to the United States (1917)"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제1차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:Commissions_-_Italy_-_Italian_Commission_Honored_at_College_of_City_of_New_York_during_visit_-_NARA_-_26432168.jpg"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-26T05:15:55.867Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-26T05:15:55.867Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
-      "id": "rec-5996194cc4b700fba03583ac",
-      "title": "Decorations - Medals - American - United States. Medal given to three captors of Major Andre. (1st American War Medal) - NARA - 26432945.jpg",
-      "originalTitle": "Decorations - Medals - American - United States. Medal given to three captors of Major Andre. (1st American War Medal) - NARA - 26432945.jpg",
-      "summary": "Scope and content: Photographer: American Numismatic Co.",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제1차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:Decorations_-_Medals_-_American_-_United_States._Medal_given_to_three_captors_of_Major_Andre._(1st_American_War_Medal)_-_NARA_-_26432945.jpg",
-        "identifier": "62614927",
-        "accessedAt": "2026-10-26T05:15:41.701Z"
-      },
-      "dates": {
-        "display": "1917 – 1918",
-        "start": "1917",
-        "end": "1918",
-        "precision": "range"
-      },
-      "warIds": [
-        "world-war-i"
-      ],
-      "entityIds": [],
-      "topics": [
-        "PD US Military",
-        "Military decorations",
-        "John André",
-        "Images from the National Archives and Records Administration",
-        "Media contributed by the National Archives and Records Administration",
-        "Artworks without Wikidata item",
-        "US National Archives series: American Unofficial Collection of World War I Photographs",
-        "Template Unknown (author)",
-        "Black and white photographs of World War I",
-        "US National Archives location: other"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제1차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:Decorations_-_Medals_-_American_-_United_States._Medal_given_to_three_captors_of_Major_Andre._(1st_American_War_Medal)_-_NARA_-_26432945.jpg"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-26T05:15:41.701Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-26T05:15:41.701Z",
           "summary": "원 소장처 메타데이터 수집"
         }
       ]
@@ -4684,38 +3781,31 @@
       ]
     },
     {
-      "id": "rec-656a8e41c54dc3b1c24600d6",
-      "title": "Drills - Infantry - Bayonet - Bayonet practice, Camp Grant, Rockford, Illinois - NARA - 31475614.jpg",
-      "originalTitle": "Drills - Infantry - Bayonet - Bayonet practice, Camp Grant, Rockford, Illinois - NARA - 31475614.jpg",
-      "summary": "Scope and content: Photographer: C.P.I.",
+      "id": "rec-6a8cc9c48646c7e2a5fe14dc",
+      "title": "Hugh V. Duke, relaxing off duty in an arm chair, c. 1944.jpg",
+      "originalTitle": "Hugh V. Duke, relaxing off duty in an arm chair, c. 1944.jpg",
+      "summary": "This photo, probably taken in England before D-Day, shows Major Hugh Victor Duke relaxing in an armchair. I re-photographed this photo from the photo album belonging to my late mother, his youngest sister, Phyllis M. Duke (1921-70) (married name Loxdale).",
       "kind": "photograph",
       "language": "und",
       "source": {
-        "name": "Wikimedia Commons · 제1차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:Drills_-_Infantry_-_Bayonet_-_Bayonet_practice,_Camp_Grant,_Rockford,_Illinois_-_NARA_-_31475614.jpg",
-        "identifier": "62576407",
-        "accessedAt": "2026-10-26T05:15:26.853Z"
+        "name": "Wikimedia Commons · 제2차 세계대전",
+        "url": "https://commons.wikimedia.org/wiki/File:Hugh_V._Duke,_relaxing_off_duty_in_an_arm_chair,_c._1944.jpg",
+        "identifier": "91480410",
+        "accessedAt": "2026-10-26T17:19:04.239Z"
       },
       "dates": {
-        "display": "1917 – 1918",
-        "start": "1917",
-        "end": "1918",
-        "precision": "range"
+        "display": "2018-11-24 13:03:50",
+        "precision": "unknown"
       },
       "warIds": [
-        "world-war-i"
+        "world-war-ii"
       ],
       "entityIds": [],
       "topics": [
-        "PD US Military",
-        "Images from the National Archives and Records Administration",
-        "Media contributed by the National Archives and Records Administration",
-        "Artworks without Wikidata item",
-        "Military drill",
-        "US National Archives series: American Unofficial Collection of World War I Photographs",
-        "Template Unknown (author)",
-        "Black and white photographs of World War I",
-        "US National Archives location: other"
+        "Majors",
+        "Self-published work",
+        "Files with coordinates missing SDC location of creation (51° N, 4° W)",
+        "Hugh Victor Duke"
       ],
       "rights": {
         "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
@@ -4733,302 +3823,53 @@
       },
       "citations": [
         {
-          "label": "Wikimedia Commons · 제1차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:Drills_-_Infantry_-_Bayonet_-_Bayonet_practice,_Camp_Grant,_Rockford,_Illinois_-_NARA_-_31475614.jpg"
+          "label": "Wikimedia Commons · 제2차 세계대전 원 소장처",
+          "url": "https://commons.wikimedia.org/wiki/File:Hugh_V._Duke,_relaxing_off_duty_in_an_arm_chair,_c._1944.jpg"
         }
       ],
       "revision": 1,
-      "updatedAt": "2026-10-26T05:15:26.853Z",
+      "updatedAt": "2026-10-26T17:19:04.239Z",
       "sensitivity": "none",
+      "location": {
+        "name": "원 소장처 자료 지오태그",
+        "lat": 51.029747,
+        "lon": -3.097283,
+        "precision": "approximate"
+      },
       "changes": [
         {
-          "at": "2026-10-26T05:15:26.853Z",
+          "at": "2026-10-26T17:19:04.239Z",
           "summary": "원 소장처 메타데이터 수집"
         }
       ]
     },
     {
-      "id": "rec-6769ce96e8b304607ff594f1",
-      "title": "American Red Cross - Refugees - Refugee children playing in front of their home at Dinard where the American Red Cross maintains a home for 500 refugee children - NARA - 20804880.jpg",
-      "originalTitle": "American Red Cross - Refugees - Refugee children playing in front of their home at Dinard where the American Red Cross maintains a home for 500 refugee children - NARA - 20804880.jpg",
-      "summary": "Scope and content: Date Taken: 1918 Photographer: American Red Cross, France",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제1차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:American_Red_Cross_-_Refugees_-_Refugee_children_playing_in_front_of_their_home_at_Dinard_where_the_American_Red_Cross_maintains_a_home_for_500_refugee_children_-_NARA_-_20804880.jpg",
-        "identifier": "62637199",
-        "accessedAt": "2026-10-26T05:16:20.414Z"
-      },
-      "dates": {
-        "display": "1917 – 1918",
-        "start": "1917",
-        "end": "1918",
-        "precision": "range"
-      },
-      "warIds": [
-        "world-war-i"
-      ],
-      "entityIds": [],
-      "topics": [
-        "PD US Military",
-        "Images from the National Archives and Records Administration",
-        "Media contributed by the National Archives and Records Administration",
-        "Artworks without Wikidata item",
-        "US National Archives series: American Unofficial Collection of World War I Photographs",
-        "Template Unknown (author)",
-        "Black and white photographs of World War I",
-        "Refugees of World War I in France",
-        "US National Archives location: other",
-        "American Red Cross (National Archives)"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제1차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:American_Red_Cross_-_Refugees_-_Refugee_children_playing_in_front_of_their_home_at_Dinard_where_the_American_Red_Cross_maintains_a_home_for_500_refugee_children_-_NARA_-_20804880.jpg"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-26T05:16:20.414Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-26T05:16:20.414Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
-      "id": "rec-695a2abfe7ad3d421f667eba",
-      "title": "Enemy Activities - German Revolution - Revolutionary disturbances in Germany. The statue of Feldgrave was hauled down with such force in Metz that the head was completely buried beneath the sidewalk - NARA - 31478435.jpg",
-      "originalTitle": "Enemy Activities - German Revolution - Revolutionary disturbances in Germany. The statue of Feldgrave was hauled down with such force in Metz that the head was completely buried beneath the sidewalk - NARA - 31478435.jpg",
-      "summary": "Scope and content: Photographer: Underwood and Underwood",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제1차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:Enemy_Activities_-_German_Revolution_-_Revolutionary_disturbances_in_Germany._The_statue_of_Feldgrave_was_hauled_down_with_such_force_in_Metz_that_the_head_was_completely_buried_beneath_the_sidewalk_-_NARA_-_31478435.jpg",
-        "identifier": "62646991",
-        "accessedAt": "2026-10-26T05:16:13.490Z"
-      },
-      "dates": {
-        "display": "1917 – 1918",
-        "start": "1917",
-        "end": "1918",
-        "precision": "range"
-      },
-      "warIds": [
-        "world-war-i"
-      ],
-      "entityIds": [],
-      "topics": [
-        "NARA images of Germany",
-        "PD US Military",
-        "Images from the National Archives and Records Administration",
-        "Media contributed by the National Archives and Records Administration",
-        "Artworks without Wikidata item",
-        "US National Archives series: American Unofficial Collection of World War I Photographs",
-        "Template Unknown (author)",
-        "Destroyed sculptures in France",
-        "Metz in the 1910s",
-        "US National Archives location: other"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제1차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:Enemy_Activities_-_German_Revolution_-_Revolutionary_disturbances_in_Germany._The_statue_of_Feldgrave_was_hauled_down_with_such_force_in_Metz_that_the_head_was_completely_buried_beneath_the_sidewalk_-_NARA_-_31478435.jpg"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-26T05:16:13.490Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-26T05:16:13.490Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
-      "id": "rec-6da8a43ab4bdf6f684275272",
-      "title": "Ceremonies - Miscellaneous Reviews and Camp Scenes - High school Cadets are reviewed by General Peyton C. March, U.S.A., in Washington, D.C., May 17, 1918 - NARA - 26422621.jpg",
-      "originalTitle": "Ceremonies - Miscellaneous Reviews and Camp Scenes - High school Cadets are reviewed by General Peyton C. March, U.S.A., in Washington, D.C., May 17, 1918 - NARA - 26422621.jpg",
-      "summary": "Scope and content: Date Taken: 1918 Photographer: International Film Service",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제1차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:Ceremonies_-_Miscellaneous_Reviews_and_Camp_Scenes_-_High_school_Cadets_are_reviewed_by_General_Peyton_C._March,_U.S.A.,_in_Washington,_D.C.,_May_17,_1918_-_NARA_-_26422621.jpg",
-        "identifier": "62625391",
-        "accessedAt": "2026-10-26T05:16:22.155Z"
-      },
-      "dates": {
-        "display": "1917 – 1918",
-        "start": "1917",
-        "end": "1918",
-        "precision": "range"
-      },
-      "warIds": [
-        "world-war-i"
-      ],
-      "entityIds": [],
-      "topics": [
-        "Peyton Conway March",
-        "PD US Military",
-        "Ceremonies",
-        "Images from the National Archives and Records Administration",
-        "Media contributed by the National Archives and Records Administration",
-        "World War I homefront in the United States",
-        "Artworks without Wikidata item",
-        "US National Archives series: American Unofficial Collection of World War I Photographs",
-        "Template Unknown (author)",
-        "Black and white photographs of World War I",
-        "US National Archives location: other"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제1차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:Ceremonies_-_Miscellaneous_Reviews_and_Camp_Scenes_-_High_school_Cadets_are_reviewed_by_General_Peyton_C._March,_U.S.A.,_in_Washington,_D.C.,_May_17,_1918_-_NARA_-_26422621.jpg"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-26T05:16:22.155Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-26T05:16:22.155Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
-      "id": "rec-6dcfd0f940fa602c827045be",
-      "title": "In Memoriam, John H. Glenn 170406-M-MZ762-0002.jpg",
-      "originalTitle": "In Memoriam, John H. Glenn 170406-M-MZ762-0002.jpg",
-      "summary": "U.S. Marines with Marine Barracks Washington march in a funeral precession for retired Marine Col. John H. Glenn Jr., at Arlington National Cemetery, Arlington, Va., April 6, 2017. Glenn passed away Dec. 8, 2016. Glenn was a U.S. Marine Aviator who flew 149 combat missions during World War II and the Korean War. He later became a NASA astronaut and was the first man to orbit the earth aboard the “Friendship 7” in 1962. He was then elected to the U.S. Senate for the state of Ohio in 1974 and served four consecutive terms. (U.S. Marine Corps photo by Lance Cpl. Paul A. Ochoa) Unit: HQMC Combat Camera DVIDS Tags: MArine; Ohio State; Senator; NASA; Korean War; Astronaut; Arlington National Cemetery; Funeral; World War II; Aviator; memoriam; Friendship 7; Marine Barracks Washington; John Glenn",
+      "id": "rec-6cdb63c3fcd5a7a7c083099b",
+      "title": "Bazooka Korean War Australian soldier.jpg",
+      "originalTitle": "Bazooka Korean War Australian soldier.jpg",
+      "summary": "AWM caption: Informal portrait of 1/400104 Private Wallace Donald (Wally) Hoare, of Emerald, Qld, A Company, 3rd Battalion, The Royal Australian Regiment (3RAR). He is carrying an anti tank weapon, also known as a bazooka. He was killed in action on 24 April 1951.",
       "kind": "photograph",
       "language": "und",
       "source": {
         "name": "Wikimedia Commons · 한국전쟁",
-        "url": "https://commons.wikimedia.org/wiki/File:In_Memoriam,_John_H._Glenn_170406-M-MZ762-0002.jpg",
-        "identifier": "58151462",
-        "accessedAt": "2026-10-26T11:16:17.615Z"
+        "url": "https://commons.wikimedia.org/wiki/File:Bazooka_Korean_War_Australian_soldier.jpg",
+        "identifier": "45426027",
+        "accessedAt": "2026-10-26T17:13:42.129Z"
       },
       "dates": {
-        "display": "Taken on 6 April 2017",
-        "precision": "unknown"
+        "display": "1951",
+        "start": "1951",
+        "precision": "year"
       },
       "warIds": [
         "korean-war"
       ],
       "entityIds": [],
       "topics": [
-        "PD US Marines",
-        "Files created by the United States Marine Corps with known IDs",
-        "Images from DoD uploaded by Fæ",
-        "United States photographs taken on 2017-04-06",
-        "Funeral of John Glenn",
-        "DVIDS files uploaded by Fæ"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 한국전쟁 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:In_Memoriam,_John_H._Glenn_170406-M-MZ762-0002.jpg"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-26T11:16:17.615Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-26T11:16:17.615Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
-      "id": "rec-6e218a49c54667a18cb91888",
-      "title": "No. 77 Squadron crew room at Iwakuni.jpg",
-      "originalTitle": "No. 77 Squadron crew room at Iwakuni.jpg",
-      "summary": "A group of 77 Squadron RAAF flight and ground crew gather informally outside the 77 Squadron crew room. The sign on the building says '77 FIGHTER SQUADRON' and the open area of the building (right) appears to be a canteen named 'BONNIE'S COUNTRY'. The pilots are wearing lifejackets and pistols in their holsters in preparation for the Squadron's first mission in support of the United Nations in South Korea. Identified are: Flight Lieutenant (Flt Lt) C R 'Nobby' Noble (second from left); Flt Lt W C 'Bill' Horsman (front, facing building, wearing May West); possibly Flt Lt J I 'Bay' Adams (standing at front left of jeep, with foot resting on jeep); probably Medical Officer Squadron Leader D A S 'Das' Morgan (leaning on windowsill); Warrant Officer W B 'Wally' Rivers (right, sitting on windowsill) and possibly Flt Lt T 'Tom' Murphy (back to camera, in front of Rivers). Other men are unidentified.",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 한국전쟁",
-        "url": "https://commons.wikimedia.org/wiki/File:No._77_Squadron_crew_room_at_Iwakuni.jpg",
-        "identifier": "153316447",
-        "accessedAt": "2026-10-26T11:16:39.150Z"
-      },
-      "dates": {
-        "display": "1950-07",
-        "precision": "unknown"
-      },
-      "warIds": [
-        "korean-war"
-      ],
-      "entityIds": [],
-      "topics": [
-        "Marine Corps Air Station Iwakuni",
+        "Bazooka",
+        "Images from the Australian War Memorial",
         "PD-Australia",
-        "Korean War in July 1950",
-        "No. 77 Squadron RAAF in the Korean War",
-        "Aviator crew rooms"
+        "Australian Army in the Korean War"
       ],
       "rights": {
         "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
@@ -5047,15 +3888,15 @@
       "citations": [
         {
           "label": "Wikimedia Commons · 한국전쟁 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:No._77_Squadron_crew_room_at_Iwakuni.jpg"
+          "url": "https://commons.wikimedia.org/wiki/File:Bazooka_Korean_War_Australian_soldier.jpg"
         }
       ],
       "revision": 1,
-      "updatedAt": "2026-10-26T11:16:39.150Z",
+      "updatedAt": "2026-10-26T17:13:42.129Z",
       "sensitivity": "none",
       "changes": [
         {
-          "at": "2026-10-26T11:16:39.150Z",
+          "at": "2026-10-26T17:13:42.129Z",
           "summary": "원 소장처 메타데이터 수집"
         }
       ]
@@ -5244,96 +4085,35 @@
       ]
     },
     {
-      "id": "rec-74a9ecf6ddcf29ed9ff6adce",
-      "title": "Medical Department - Rest Camps - American Officers Recuperating at Lafayette House - NARA - 45498179.jpg",
-      "originalTitle": "Medical Department - Rest Camps - American Officers Recuperating at Lafayette House - NARA - 45498179.jpg",
-      "summary": "Scope and content: Original Caption: American Officers Recuperating at Lafayette House. At the Lafayette House which was formerly notorious as the resort of Count Von Bernstorff and which has now been converted into an Officers Rest Hospital, these American wounded officers are seen enjoying a game of checkers. They are from left to right: Capt. C.H. Merill of Marlborough who has wintered at Ypres. Lt. B.B. Seymour, who has received a decoration, G.A. Lang, T.R.M. and G.T. Holcomb of Pennsylvania is who is a Bacteriologist. Photographer: Western Newspaper Union",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제1차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:Medical_Department_-_Rest_Camps_-_American_Officers_Recuperating_at_Lafayette_House_-_NARA_-_45498179.jpg",
-        "identifier": "62576143",
-        "accessedAt": "2026-10-26T05:16:23.584Z"
-      },
-      "dates": {
-        "display": "1917 – 1918",
-        "start": "1917",
-        "end": "1918",
-        "precision": "range"
-      },
-      "warIds": [
-        "world-war-i"
-      ],
-      "entityIds": [],
-      "topics": [
-        "PD US Military",
-        "Images from the National Archives and Records Administration",
-        "Media contributed by the National Archives and Records Administration",
-        "United States Army Medical Department",
-        "Artworks without Wikidata item",
-        "US National Archives series: American Unofficial Collection of World War I Photographs",
-        "Template Unknown (author)",
-        "Black and white photographs of World War I",
-        "US National Archives location: other"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제1차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:Medical_Department_-_Rest_Camps_-_American_Officers_Recuperating_at_Lafayette_House_-_NARA_-_45498179.jpg"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-26T05:16:23.584Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-26T05:16:23.584Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
-      "id": "rec-774d2bd0094c362880e81d9f",
-      "title": "Elderly Korean Man.jpg",
-      "originalTitle": "Elderly Korean Man.jpg",
-      "summary": "An unidentified elderly man is standing on a road near the mountains in South Korea. From: Gene Putnam. ca 1951. Accession Number 2017-143; 5x7 inches (13x18 cm) Black & White",
+      "id": "rec-73ea178e761e2e52bc73d58b",
+      "title": "A Korean family mourns their murdered father, victim of the wholesale murder at Chonju by North Koreans HD-SN-99-03168.jpg",
+      "originalTitle": "A Korean family mourns their murdered father, victim of the wholesale murder at Chonju by North Koreans HD-SN-99-03168.jpg",
+      "summary": "A Korean family mourns their murdered father, victim of the wholesale murder at Chonju by North Koreans. September 27, 1950. M. Sgt. E. T. Tarr. (Army) NARA FILE #: 111-SC-350339 WAR & CONFLICT BOOK #: 1509",
       "kind": "photograph",
       "language": "und",
       "source": {
         "name": "Wikimedia Commons · 한국전쟁",
-        "url": "https://commons.wikimedia.org/wiki/File:Elderly_Korean_Man.jpg",
-        "identifier": "134975010",
-        "accessedAt": "2026-10-26T05:18:45.282Z"
+        "url": "https://commons.wikimedia.org/wiki/File:A_Korean_family_mourns_their_murdered_father,_victim_of_the_wholesale_murder_at_Chonju_by_North_Koreans_HD-SN-99-03168.jpg",
+        "identifier": "25499523",
+        "accessedAt": "2026-10-26T17:13:29.249Z"
       },
       "dates": {
-        "display": "1951-01-01",
-        "start": "1951-01-01",
-        "precision": "exact"
+        "display": "2013-04-08 00:04:02",
+        "precision": "unknown"
       },
       "warIds": [
         "korean-war"
       ],
       "entityIds": [],
       "topics": [
-        "PD US Government",
-        "Seonbi",
-        "CC-PD-Mark",
-        "Korean War in 1951"
+        "PD US Military",
+        "Files created by the United States Armed Forces with known IDs",
+        "Images from DoD uploaded by Fæ",
+        "Images from DoD uploaded by Fæ (check needed)",
+        "Template Unknown (place)",
+        "ID-USMil missing SDC VIRIN",
+        "Korean War in September 1950",
+        "People killed in the Korean War"
       ],
       "rights": {
         "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
@@ -5352,15 +4132,75 @@
       "citations": [
         {
           "label": "Wikimedia Commons · 한국전쟁 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:Elderly_Korean_Man.jpg"
+          "url": "https://commons.wikimedia.org/wiki/File:A_Korean_family_mourns_their_murdered_father,_victim_of_the_wholesale_murder_at_Chonju_by_North_Koreans_HD-SN-99-03168.jpg"
         }
       ],
       "revision": 1,
-      "updatedAt": "2026-10-26T05:18:45.282Z",
+      "updatedAt": "2026-10-26T17:13:29.249Z",
       "sensitivity": "none",
       "changes": [
         {
-          "at": "2026-10-26T05:18:45.282Z",
+          "at": "2026-10-26T17:13:29.249Z",
+          "summary": "원 소장처 메타데이터 수집"
+        }
+      ]
+    },
+    {
+      "id": "rec-774f98fe4eccfdd0da03444b",
+      "title": "Defense Against Gas - DPLA - a1257d3e56d37120ec2c995fc03e4e0d (page 62).jpg",
+      "originalTitle": "Defense Against Gas - DPLA - a1257d3e56d37120ec2c995fc03e4e0d (page 62).jpg",
+      "summary": "A set of 47 charts, plus an instruction page and title page. Defense Against Gas Jacket No. 940038. Req. No. N.Y. 67. Navpers 60003.",
+      "kind": "photograph",
+      "language": "und",
+      "source": {
+        "name": "Wikimedia Commons · 제2차 세계대전",
+        "url": "https://commons.wikimedia.org/wiki/File:Defense_Against_Gas_-_DPLA_-_a1257d3e56d37120ec2c995fc03e4e0d_(page_62).jpg",
+        "identifier": "155401050",
+        "accessedAt": "2026-10-26T17:19:16.708Z"
+      },
+      "dates": {
+        "display": "2024-11-20 10:13:48",
+        "precision": "unknown"
+      },
+      "warIds": [
+        "world-war-ii"
+      ],
+      "entityIds": [],
+      "topics": [
+        "PD US",
+        "Files with no machine-readable author",
+        "Media contributed by the Digital Public Library of America",
+        "Artworks without Wikidata item",
+        "Digital Public Library of America files missing creator",
+        "Media contributed by the Minnesota Digital Library",
+        "Media contributed by Hennepin County Library"
+      ],
+      "rights": {
+        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
+        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
+        "downloadAllowed": false,
+        "reuseAllowed": false
+      },
+      "review": {
+        "provenance": "checked",
+        "content": "source-description",
+        "translation": "none"
+      },
+      "media": {
+        "displayAllowed": false
+      },
+      "citations": [
+        {
+          "label": "Wikimedia Commons · 제2차 세계대전 원 소장처",
+          "url": "https://commons.wikimedia.org/wiki/File:Defense_Against_Gas_-_DPLA_-_a1257d3e56d37120ec2c995fc03e4e0d_(page_62).jpg"
+        }
+      ],
+      "revision": 1,
+      "updatedAt": "2026-10-26T17:19:16.708Z",
+      "sensitivity": "none",
+      "changes": [
+        {
+          "at": "2026-10-26T17:19:16.708Z",
           "summary": "원 소장처 메타데이터 수집"
         }
       ]
@@ -5724,68 +4564,6 @@
       ]
     },
     {
-      "id": "rec-7d091e3bb1ab2bb1a0c5d5c6",
-      "title": "An Den Fuehrer Glauben Heisst An Den Sieg Glauben. (To Believe In The Fuhrer Is To Believe In Victory.) - DPLA - 0d635fba392d3aa4f184a27ae8938a52.jpg",
-      "originalTitle": "An Den Fuehrer Glauben Heisst An Den Sieg Glauben. (To Believe In The Fuhrer Is To Believe In Victory.) - DPLA - 0d635fba392d3aa4f184a27ae8938a52.jpg",
-      "summary": "In the background is a large swastika with oak leaves. Below is a small WI. From the week 15-21 December, 1940. Folge 51. G 0088.",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제2차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:An_Den_Fuehrer_Glauben_Heisst_An_Den_Sieg_Glauben._(To_Believe_In_The_Fuhrer_Is_To_Believe_In_Victory.)_-_DPLA_-_0d635fba392d3aa4f184a27ae8938a52.jpg",
-        "identifier": "156035512",
-        "accessedAt": "2026-10-25T23:16:45.582Z"
-      },
-      "dates": {
-        "display": "2026-06-27 22:24:23",
-        "precision": "unknown"
-      },
-      "warIds": [
-        "world-war-ii"
-      ],
-      "entityIds": [],
-      "topics": [
-        "PD US",
-        "Files with no machine-readable author",
-        "Media contributed by the Digital Public Library of America",
-        "Artworks without Wikidata item",
-        "Wochenspruch der NSDAP in 1940",
-        "Digital Public Library of America files missing creator",
-        "Media contributed by the Minnesota Digital Library",
-        "Nazi Swastikas in art",
-        "Media contributed by Hennepin County Library"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제2차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:An_Den_Fuehrer_Glauben_Heisst_An_Den_Sieg_Glauben._(To_Believe_In_The_Fuhrer_Is_To_Believe_In_Victory.)_-_DPLA_-_0d635fba392d3aa4f184a27ae8938a52.jpg"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-25T23:16:45.582Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-25T23:16:45.582Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
       "id": "rec-7d27285c5dfcd54a937b0ac3",
       "title": "Nur Der Ist Zur Kritik Berechtigt, Der Eine Aufgabe Besser Losen Kann. (Only He Has The Right To Criticize Who Is Capable Of Better Solving A Problem) - DPLA - 5712dec21c210dd4b117def766319212.jpg",
       "originalTitle": "Nur Der Ist Zur Kritik Berechtigt, Der Eine Aufgabe Besser Losen Kann. (Only He Has The Right To Criticize Who Is Capable Of Better Solving A Problem) - DPLA - 5712dec21c210dd4b117def766319212.jpg",
@@ -5843,6 +4621,72 @@
       "changes": [
         {
           "at": "2026-10-26T11:19:30.901Z",
+          "summary": "원 소장처 메타데이터 수집"
+        }
+      ]
+    },
+    {
+      "id": "rec-7d57e7a7e77e3db0885a8e1c",
+      "title": "LeachArracourt2009.jpg",
+      "originalTitle": "LeachArracourt2009.jpg",
+      "summary": "Col. Jimmie Leach at Arracourt, France, Sept 2009",
+      "kind": "photograph",
+      "language": "und",
+      "source": {
+        "name": "Wikimedia Commons · 한국전쟁",
+        "url": "https://commons.wikimedia.org/wiki/File:LeachArracourt2009.jpg",
+        "identifier": "12584230",
+        "accessedAt": "2026-10-26T17:14:28.705Z"
+      },
+      "dates": {
+        "display": "2009-09",
+        "precision": "unknown"
+      },
+      "warIds": [
+        "korean-war"
+      ],
+      "entityIds": [],
+      "topics": [
+        "Taken with JVC Everio GZ-MS130",
+        "1922 births",
+        "World War II people of the United States Army",
+        "2009 deaths",
+        "Recipients of the Distinguished Service Cross (United States)",
+        "Recipients of the Bronze Star Medal (United States)",
+        "Recipients of the Silver Star (United States)",
+        "Self-published work",
+        "PD-self",
+        "September 2009 in France",
+        "Tank Sherman (Arracourt)",
+        "United States Army people of the Korean War",
+        "United States Army people of the Vietnam War"
+      ],
+      "rights": {
+        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
+        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
+        "downloadAllowed": false,
+        "reuseAllowed": false
+      },
+      "review": {
+        "provenance": "checked",
+        "content": "source-description",
+        "translation": "none"
+      },
+      "media": {
+        "displayAllowed": false
+      },
+      "citations": [
+        {
+          "label": "Wikimedia Commons · 한국전쟁 원 소장처",
+          "url": "https://commons.wikimedia.org/wiki/File:LeachArracourt2009.jpg"
+        }
+      ],
+      "revision": 1,
+      "updatedAt": "2026-10-26T17:14:28.705Z",
+      "sensitivity": "none",
+      "changes": [
+        {
+          "at": "2026-10-26T17:14:28.705Z",
           "summary": "원 소장처 메타데이터 수집"
         }
       ]
@@ -5973,30 +4817,33 @@
       ]
     },
     {
-      "id": "rec-8138d7bceaf30b19606d6739",
-      "title": "Inside the Victorious Fatherland Liberation War Museum.jpg",
-      "originalTitle": "Inside the Victorious Fatherland Liberation War Museum.jpg",
-      "summary": "A map inside the Victorious Fatherland Liberation War Museum; Pyongyang, DPRK (North Korea).",
+      "id": "rec-80ddda3eea193de246a5ec43",
+      "title": "1944 - Year of Decision - DPLA - 5a2df7ec72f38922a90e166e667cdd63.jpg",
+      "originalTitle": "1944 - Year of Decision - DPLA - 5a2df7ec72f38922a90e166e667cdd63.jpg",
+      "summary": "Dark clouds and shadow of the number '1944' as background. Three red arrows point to a red swastika superimposed on a map of Europe. The arrows come from Britain, the Soviet Union, and the Balkans. Below it reads 'The supreme effort has still to be made'. - Rt. Hon. W. L. Mackenzie King. WIB-8E.",
       "kind": "photograph",
       "language": "und",
       "source": {
-        "name": "Wikimedia Commons · 한국전쟁",
-        "url": "https://commons.wikimedia.org/wiki/File:Inside_the_Victorious_Fatherland_Liberation_War_Museum.jpg",
-        "identifier": "10614582",
-        "accessedAt": "2026-10-26T11:16:02.991Z"
+        "name": "Wikimedia Commons · 제2차 세계대전",
+        "url": "https://commons.wikimedia.org/wiki/File:1944_-_Year_of_Decision_-_DPLA_-_5a2df7ec72f38922a90e166e667cdd63.jpg",
+        "identifier": "155411320",
+        "accessedAt": "2026-10-26T17:19:17.133Z"
       },
       "dates": {
-        "display": "2010-04-29 21:24",
+        "display": "2026-06-27 16:47:40",
         "precision": "unknown"
       },
       "warIds": [
-        "korean-war"
+        "world-war-ii"
       ],
       "entityIds": [],
       "topics": [
-        "Taken with Canon PowerShot S90",
-        "Flickr images reviewed by FlickreviewR",
-        "Collections of the Victorious Fatherland Liberation War Museum"
+        "PD US",
+        "Media contributed by the Digital Public Library of America",
+        "Artworks without Wikidata item",
+        "World War II posters from Canada",
+        "Media contributed by the Minnesota Digital Library",
+        "Media contributed by Hennepin County Library"
       ],
       "rights": {
         "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
@@ -6014,16 +4861,16 @@
       },
       "citations": [
         {
-          "label": "Wikimedia Commons · 한국전쟁 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:Inside_the_Victorious_Fatherland_Liberation_War_Museum.jpg"
+          "label": "Wikimedia Commons · 제2차 세계대전 원 소장처",
+          "url": "https://commons.wikimedia.org/wiki/File:1944_-_Year_of_Decision_-_DPLA_-_5a2df7ec72f38922a90e166e667cdd63.jpg"
         }
       ],
       "revision": 1,
-      "updatedAt": "2026-10-26T11:16:02.991Z",
+      "updatedAt": "2026-10-26T17:19:17.133Z",
       "sensitivity": "none",
       "changes": [
         {
-          "at": "2026-10-26T11:16:02.991Z",
+          "at": "2026-10-26T17:19:17.133Z",
           "summary": "원 소장처 메타데이터 수집"
         }
       ]
@@ -6098,71 +4945,6 @@
       "changes": [
         {
           "at": "2026-10-26T11:13:45.594Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
-      "id": "rec-829ed7b38b7be1218b7b8e14",
-      "title": "Army of Occupation - Band playing before an interesting audience of 69th Infantrymen, and German youngsters - NARA - 20807236.jpg",
-      "originalTitle": "Army of Occupation - Band playing before an interesting audience of 69th Infantrymen, and German youngsters - NARA - 20807236.jpg",
-      "summary": "Scope and content: Photographer: International Film Service",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제1차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:Army_of_Occupation_-_Band_playing_before_an_interesting_audience_of_69th_Infantrymen,_and_German_youngsters_-_NARA_-_20807236.jpg",
-        "identifier": "62727967",
-        "accessedAt": "2026-10-26T05:15:53.744Z"
-      },
-      "dates": {
-        "display": "1917 – 1918",
-        "start": "1917",
-        "end": "1918",
-        "precision": "range"
-      },
-      "warIds": [
-        "world-war-i"
-      ],
-      "entityIds": [],
-      "topics": [
-        "NARA images of Germany",
-        "PD US Military",
-        "Images from the National Archives and Records Administration",
-        "Media contributed by the National Archives and Records Administration",
-        "Artworks without Wikidata item",
-        "US National Archives series: American Unofficial Collection of World War I Photographs",
-        "Template Unknown (author)",
-        "Black and white photographs of World War I",
-        "US National Archives location: other",
-        "United States occupation of the Rhineland"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제1차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:Army_of_Occupation_-_Band_playing_before_an_interesting_audience_of_69th_Infantrymen,_and_German_youngsters_-_NARA_-_20807236.jpg"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-26T05:15:53.744Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-26T05:15:53.744Z",
           "summary": "원 소장처 메타데이터 수집"
         }
       ]
@@ -6276,197 +5058,6 @@
       "changes": [
         {
           "at": "2026-10-26T11:16:25.031Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
-      "id": "rec-84133c466d929c4e13f71897",
-      "title": "Ceremonies - France - Premier Clemenceau cheered at Peace news. Crowds of enthusiastic Parisians gathered at the War Department on the avenue de Saze, Paris, and cheered loudly for Georges Clemenceau - NARA - 23922371.jpg",
-      "originalTitle": "Ceremonies - France - Premier Clemenceau cheered at Peace news. Crowds of enthusiastic Parisians gathered at the War Department on the avenue de Saze, Paris, and cheered loudly for Georges Clemenceau - NARA - 23922371.jpg",
-      "summary": "Scope and content: Photographer: Underwood & Underwood",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제1차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:Ceremonies_-_France_-_Premier_Clemenceau_cheered_at_Peace_news._Crowds_of_enthusiastic_Parisians_gathered_at_the_War_Department_on_the_avenue_de_Saze,_Paris,_and_cheered_loudly_for_Georges_Clemenceau_-_NARA_-_23922371.jpg",
-        "identifier": "62614423",
-        "accessedAt": "2026-10-26T05:15:38.954Z"
-      },
-      "dates": {
-        "display": "1917 – 1918",
-        "start": "1917",
-        "end": "1918",
-        "precision": "range"
-      },
-      "warIds": [
-        "world-war-i"
-      ],
-      "entityIds": [],
-      "topics": [
-        "PD US Military",
-        "Ceremonies",
-        "Images from the National Archives and Records Administration",
-        "Media contributed by the National Archives and Records Administration",
-        "Artworks without Wikidata item",
-        "US National Archives series: American Unofficial Collection of World War I Photographs",
-        "Template Unknown (author)",
-        "Black and white photographs of World War I",
-        "NARA images of Paris",
-        "Georges Clemenceau in 1918",
-        "World War I home front in France",
-        "US National Archives location: other"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제1차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:Ceremonies_-_France_-_Premier_Clemenceau_cheered_at_Peace_news._Crowds_of_enthusiastic_Parisians_gathered_at_the_War_Department_on_the_avenue_de_Saze,_Paris,_and_cheered_loudly_for_Georges_Clemenceau_-_NARA_-_23922371.jpg"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-26T05:15:38.954Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-26T05:15:38.954Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
-      "id": "rec-84c8ccc46100d7958b084dbe",
-      "title": "American Red Cross - Groups - Procession of A.R.C. workers passing through the Court of the Louvre on their way to take part on ceremony held in their honor at Hotel De Ville, Paris, France - NARA - 20806946.jpg",
-      "originalTitle": "American Red Cross - Groups - Procession of A.R.C. workers passing through the Court of the Louvre on their way to take part on ceremony held in their honor at Hotel De Ville, Paris, France - NARA - 20806946.jpg",
-      "summary": "Scope and content: Date Taken: 11/14/1918 Photographer: American Red Cross, France",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제1차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:American_Red_Cross_-_Groups_-_Procession_of_A.R.C._workers_passing_through_the_Court_of_the_Louvre_on_their_way_to_take_part_on_ceremony_held_in_their_honor_at_Hotel_De_Ville,_Paris,_France_-_NARA_-_20806946.jpg",
-        "identifier": "62652055",
-        "accessedAt": "2026-10-26T05:15:59.506Z"
-      },
-      "dates": {
-        "display": "1917 – 1918",
-        "start": "1917",
-        "end": "1918",
-        "precision": "range"
-      },
-      "warIds": [
-        "world-war-i"
-      ],
-      "entityIds": [],
-      "topics": [
-        "PD US Military",
-        "Images from the National Archives and Records Administration",
-        "Media contributed by the National Archives and Records Administration",
-        "Artworks without Wikidata item",
-        "US National Archives series: American Unofficial Collection of World War I Photographs",
-        "Template Unknown (author)",
-        "Black and white photographs of World War I",
-        "NARA images of Paris",
-        "US National Archives location: other",
-        "American Red Cross (National Archives)",
-        "American Red Cross - Groups (National Archives)"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제1차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:American_Red_Cross_-_Groups_-_Procession_of_A.R.C._workers_passing_through_the_Court_of_the_Louvre_on_their_way_to_take_part_on_ceremony_held_in_their_honor_at_Hotel_De_Ville,_Paris,_France_-_NARA_-_20806946.jpg"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-26T05:15:59.506Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-26T05:15:59.506Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
-      "id": "rec-84f70f15207bdfa7f009393c",
-      "title": "USS Saint Paul (CA-73) underway off Korea, in 1953.jpg",
-      "originalTitle": "USS Saint Paul (CA-73) underway off Korea, in 1953.jpg",
-      "summary": "The U.S. Navy heavy cruiser USS Saint Paul (CA-73) underway off Korea. Saint Paul was deployed to Korea and the Western Pacific from March to September 1953. The battleship USS New Jersey (BB-62) and a destroyer are visible in the background.",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 한국전쟁",
-        "url": "https://commons.wikimedia.org/wiki/File:USS_Saint_Paul_(CA-73)_underway_off_Korea,_in_1953.jpg",
-        "identifier": "70388806",
-        "accessedAt": "2026-10-26T11:17:00.278Z"
-      },
-      "dates": {
-        "display": "1953",
-        "start": "1953",
-        "precision": "year"
-      },
-      "warIds": [
-        "korean-war"
-      ],
-      "entityIds": [],
-      "topics": [
-        "USS Saint Paul (CA-73)",
-        "PD US Navy",
-        "CC-PD-Mark",
-        "Korean War in 1953"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 한국전쟁 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:USS_Saint_Paul_(CA-73)_underway_off_Korea,_in_1953.jpg"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-26T11:17:00.278Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-26T11:17:00.278Z",
           "summary": "원 소장처 메타데이터 수집"
         }
       ]
@@ -6596,128 +5187,6 @@
       "changes": [
         {
           "at": "2026-10-26T05:18:23.713Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
-      "id": "rec-896cfc63799102c730566a47",
-      "title": "NARA Style Guide.pdf",
-      "originalTitle": "NARA Style Guide.pdf",
-      "summary": "NARA Style Guide: a supplement to NARA 201",
-      "kind": "document",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 한국전쟁",
-        "url": "https://commons.wikimedia.org/wiki/File:NARA_Style_Guide.pdf",
-        "identifier": "19820278",
-        "accessedAt": "2026-10-26T11:16:08.099Z"
-      },
-      "dates": {
-        "display": "2012",
-        "start": "2012",
-        "precision": "year"
-      },
-      "warIds": [
-        "korean-war"
-      ],
-      "entityIds": [],
-      "topics": [
-        "PD US Government",
-        "Media contributed by the National Archives and Records Administration",
-        "2012 books",
-        "CC-PD-Mark"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 한국전쟁 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:NARA_Style_Guide.pdf"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-26T11:16:08.099Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-26T11:16:08.099Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
-      "id": "rec-8971463e6b9f51ed8d972a4c",
-      "title": "Enemy Activities - Internment Camps - Fort Douglas, Utah - A skat party. U.S. War Prison Barracks, Fort Douglas, Utah - NARA - 31479017.jpg",
-      "originalTitle": "Enemy Activities - Internment Camps - Fort Douglas, Utah - A skat party. U.S. War Prison Barracks, Fort Douglas, Utah - NARA - 31479017.jpg",
-      "summary": "원 소장처의 자료 정보와 이용 조건을 확인할 수 있는 기록입니다.",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제1차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:Enemy_Activities_-_Internment_Camps_-_Fort_Douglas,_Utah_-_A_skat_party._U.S._War_Prison_Barracks,_Fort_Douglas,_Utah_-_NARA_-_31479017.jpg",
-        "identifier": "62615023",
-        "accessedAt": "2026-10-26T05:15:43.509Z"
-      },
-      "dates": {
-        "display": "1917 – 1918",
-        "start": "1917",
-        "end": "1918",
-        "precision": "range"
-      },
-      "warIds": [
-        "world-war-i"
-      ],
-      "entityIds": [],
-      "topics": [
-        "PD US Military",
-        "Images from the National Archives and Records Administration",
-        "Media contributed by the National Archives and Records Administration",
-        "Artworks without Wikidata item",
-        "US National Archives series: American Unofficial Collection of World War I Photographs",
-        "Template Unknown (author)",
-        "Black and white photographs of World War I",
-        "US National Archives location: other",
-        "Fort Douglas internment camp"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제1차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:Enemy_Activities_-_Internment_Camps_-_Fort_Douglas,_Utah_-_A_skat_party._U.S._War_Prison_Barracks,_Fort_Douglas,_Utah_-_NARA_-_31479017.jpg"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-26T05:15:43.509Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-26T05:15:43.509Z",
           "summary": "원 소장처 메타데이터 수집"
         }
       ]
@@ -6948,20 +5417,20 @@
       ]
     },
     {
-      "id": "rec-8e50e82b75c5967c65aa2753",
-      "title": "\"Joe Dope should get thrown in the can For his work as an Ordnance man\" - NARA - 514718.tif",
-      "originalTitle": "\"Joe Dope should get thrown in the can For his work as an Ordnance man\" - NARA - 514718.tif",
-      "summary": "원 소장처의 자료 정보와 이용 조건을 확인할 수 있는 기록입니다.",
+      "id": "rec-8fb2c5bce89daddf7b288d85",
+      "title": "Luchamos por la Libertad de Todos (Fight for the liberty of all) - DPLA - 6bda0e24c135488ad75d41feb4a3c2ad.jpg",
+      "originalTitle": "Luchamos por la Libertad de Todos (Fight for the liberty of all) - DPLA - 6bda0e24c135488ad75d41feb4a3c2ad.jpg",
+      "summary": "Blue head with helmet trailing with red and white stripes, resembling the American flag.",
       "kind": "photograph",
       "language": "und",
       "source": {
         "name": "Wikimedia Commons · 제2차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:%22Joe_Dope_should_get_thrown_in_the_can_For_his_work_as_an_Ordnance_man%22_-_NARA_-_514718.tif",
-        "identifier": "16788814",
-        "accessedAt": "2026-10-25T23:17:09.579Z"
+        "url": "https://commons.wikimedia.org/wiki/File:Luchamos_por_la_Libertad_de_Todos_(Fight_for_the_liberty_of_all)_-_DPLA_-_6bda0e24c135488ad75d41feb4a3c2ad.jpg",
+        "identifier": "155281320",
+        "accessedAt": "2026-10-26T17:19:14.958Z"
       },
       "dates": {
-        "display": "between 1941 and 1945 date QS:P571,+1941-00-00T00:00:00Z/8,P1319,+1941-00-00T00:00:00Z/9,P1326,+1945-00-00T00:00:00Z/9",
+        "display": "2024-11-18 00:28:08",
         "precision": "unknown"
       },
       "warIds": [
@@ -6969,13 +5438,14 @@
       ],
       "entityIds": [],
       "topics": [
-        "Images from the National Archives and Records Administration",
-        "Media contributed by the National Archives and Records Administration",
+        "World War II posters from the United States",
+        "PD US",
+        "Media contributed by the Digital Public Library of America",
         "Artworks without Wikidata item",
-        "NARA TIF images with categorized JPGs",
-        "PD US Treasury",
-        "High-resolution TIFF images from the National Archives and Records Administration",
-        "US National Archives series: World War II Posters, compiled 1942 - 1945"
+        "Office of the Coordinator of Inter-American Affairs",
+        "Media contributed by the Minnesota Digital Library",
+        "Media contributed by Hennepin County Library",
+        "Posters by Edward McKnight Kauffer"
       ],
       "rights": {
         "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
@@ -6994,15 +5464,15 @@
       "citations": [
         {
           "label": "Wikimedia Commons · 제2차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:%22Joe_Dope_should_get_thrown_in_the_can_For_his_work_as_an_Ordnance_man%22_-_NARA_-_514718.tif"
+          "url": "https://commons.wikimedia.org/wiki/File:Luchamos_por_la_Libertad_de_Todos_(Fight_for_the_liberty_of_all)_-_DPLA_-_6bda0e24c135488ad75d41feb4a3c2ad.jpg"
         }
       ],
       "revision": 1,
-      "updatedAt": "2026-10-25T23:17:09.579Z",
+      "updatedAt": "2026-10-26T17:19:14.958Z",
       "sensitivity": "none",
       "changes": [
         {
-          "at": "2026-10-25T23:17:09.579Z",
+          "at": "2026-10-26T17:19:14.958Z",
           "summary": "원 소장처 메타데이터 수집"
         }
       ]
@@ -7125,6 +5595,66 @@
       "changes": [
         {
           "at": "2026-10-26T11:19:21.302Z",
+          "summary": "원 소장처 메타데이터 수집"
+        }
+      ]
+    },
+    {
+      "id": "rec-92ff1b52ba854fe8b5defacb",
+      "title": "6.25 전쟁 시 한복 여성.jpg",
+      "originalTitle": "6.25 전쟁 시 한복 여성.jpg",
+      "summary": "6.25 전쟁 때의 한복",
+      "kind": "photograph",
+      "language": "und",
+      "source": {
+        "name": "Wikimedia Commons · 한국전쟁",
+        "url": "https://commons.wikimedia.org/wiki/File:6.25_%EC%A0%84%EC%9F%81_%EC%8B%9C_%ED%95%9C%EB%B3%B5_%EC%97%AC%EC%84%B1.jpg",
+        "identifier": "17405872",
+        "accessedAt": "2026-10-26T17:13:21.175Z"
+      },
+      "dates": {
+        "display": "1950",
+        "start": "1950",
+        "precision": "year"
+      },
+      "warIds": [
+        "korean-war"
+      ],
+      "entityIds": [],
+      "topics": [
+        "Women of South Korea",
+        "PD-South Korea",
+        "PD-1996",
+        "Template Unknown (author)",
+        "People of South Korea in 1950",
+        "Korean War in June 1950"
+      ],
+      "rights": {
+        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
+        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
+        "downloadAllowed": false,
+        "reuseAllowed": false
+      },
+      "review": {
+        "provenance": "checked",
+        "content": "source-description",
+        "translation": "none"
+      },
+      "media": {
+        "displayAllowed": false
+      },
+      "citations": [
+        {
+          "label": "Wikimedia Commons · 한국전쟁 원 소장처",
+          "url": "https://commons.wikimedia.org/wiki/File:6.25_%EC%A0%84%EC%9F%81_%EC%8B%9C_%ED%95%9C%EB%B3%B5_%EC%97%AC%EC%84%B1.jpg"
+        }
+      ],
+      "revision": 1,
+      "updatedAt": "2026-10-26T17:13:21.175Z",
+      "sensitivity": "none",
+      "changes": [
+        {
+          "at": "2026-10-26T17:13:21.175Z",
           "summary": "원 소장처 메타데이터 수집"
         }
       ]
@@ -7880,6 +6410,64 @@
       ]
     },
     {
+      "id": "rec-9b4bc39910061d315682267d",
+      "title": "SC 364041 - Members of mortar crew of French Bn. prepare to blast enemy-held positions in hillside, during action against the communist forces near Oum-Ni, Korea. (52098418843).jpg",
+      "originalTitle": "SC 364041 - Members of mortar crew of French Bn. prepare to blast enemy-held positions in hillside, during action against the communist forces near Oum-Ni, Korea. (52098418843).jpg",
+      "summary": "10 April, 1951. Photographer: Pvt. Edward Hanley (SK) Photo Source: U.S. National Archives. Digitized by Signal Corps Archive.",
+      "kind": "photograph",
+      "language": "und",
+      "source": {
+        "name": "Wikimedia Commons · 한국전쟁",
+        "url": "https://commons.wikimedia.org/wiki/File:SC_364041_-_Members_of_mortar_crew_of_French_Bn._prepare_to_blast_enemy-held_positions_in_hillside,_during_action_against_the_communist_forces_near_Oum-Ni,_Korea._(52098418843).jpg",
+        "identifier": "118385018",
+        "accessedAt": "2026-10-26T17:13:14.301Z"
+      },
+      "dates": {
+        "display": "1951-04-10 00:00",
+        "precision": "unknown"
+      },
+      "warIds": [
+        "korean-war"
+      ],
+      "entityIds": [],
+      "topics": [
+        "PD US Army",
+        "Flickr images reviewed by FlickreviewR 2",
+        "United States Army Signal Corps photographs",
+        "Korean War in April 1951",
+        "French Battalion"
+      ],
+      "rights": {
+        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
+        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
+        "downloadAllowed": false,
+        "reuseAllowed": false
+      },
+      "review": {
+        "provenance": "checked",
+        "content": "source-description",
+        "translation": "none"
+      },
+      "media": {
+        "displayAllowed": false
+      },
+      "citations": [
+        {
+          "label": "Wikimedia Commons · 한국전쟁 원 소장처",
+          "url": "https://commons.wikimedia.org/wiki/File:SC_364041_-_Members_of_mortar_crew_of_French_Bn._prepare_to_blast_enemy-held_positions_in_hillside,_during_action_against_the_communist_forces_near_Oum-Ni,_Korea._(52098418843).jpg"
+        }
+      ],
+      "revision": 1,
+      "updatedAt": "2026-10-26T17:13:14.301Z",
+      "sensitivity": "none",
+      "changes": [
+        {
+          "at": "2026-10-26T17:13:14.301Z",
+          "summary": "원 소장처 메타데이터 수집"
+        }
+      ]
+    },
+    {
       "id": "rec-9b57301e2f21d5596d66dbf4",
       "title": "Military funeral honors for U.S. Army retired Lieutenant Colonel George Kesnig in Section 1 of Arlington National Cemetery, Virginia on July 28, 2025 - 16.jpg",
       "originalTitle": "Military funeral honors for U.S. Army retired Lieutenant Colonel George Kesnig in Section 1 of Arlington National Cemetery, Virginia on July 28, 2025 - 16.jpg",
@@ -8124,33 +6712,35 @@
       ]
     },
     {
-      "id": "rec-9ded564aeb979a1065b13443",
-      "title": "70th Anniversary of the Fatherland Liberation War Medal.png",
-      "originalTitle": "70th Anniversary of the Fatherland Liberation War Medal.png",
-      "summary": "The ribbon of the medal is similar to the Hero of the Republic ribbon, while the inside of the star has the words \"70 전승\"",
+      "id": "rec-9dd6d94c18846a7c2dcd9866",
+      "title": "Korean War 60th Anniversary Armistice Ceremony 07.jpg",
+      "originalTitle": "Korean War 60th Anniversary Armistice Ceremony 07.jpg",
+      "summary": "The 60th anniversary of the armistice agreement and UN forces' participation in the Korean War 2013-07-27 Korea War Memorial Museum, Seoul -Related Korea.net Articles- -English- War veterans visit Korea to remember scars www.korea.net/NewsFocus/Society/view?articleId=110489 President thanks war veterans www.korea.net/NewsFocus/Policies/view?articleId=110499 -Español- La presidenta manifestó su agradecimiento a veteranos de guerra spanish.korea.net/NewsFocus/Policies/view?articleId=110505 -中文- 朴槿惠：深切感谢参战士兵的崇高牺牲 chinese.korea.net/NewsFocus/Policies/view?articleId=110502 “共同回忆，面向未来” 朝鲜战争参战国主要人士相继访韩 chinese.korea.net/NewsFocus/Society/view?articleId=110496 - tiếng Việt- Tổng thông cảm ơn cựu chiến binh chiến tranh vietnamese.korea.net/NewsFocus/Policies/view?articleId=11... Chuyến thăm Hàn Quốc của các nhà lãnh đạo các nước tham chiến chiến tranh Hàn Quốc ‘Cùng khắc ghi và hướng đến tương lai vietnamese.korea.net/NewsFocus/Society/view?articleId=110497 -日本語- 朴槿恵大統領、「朝鮮戦争に参戦した兵士の貴い犠牲に深い感謝」 japanese.korea.net/NewsFocus/Policies/view?articleId=110501 「ともに記憶し、未来に向かって」、朝鮮戦争参戦国の関係者が相次いで来韓 japanese.korea.net/NewsFocus/Society/view?articleId=110495 - Deutsche - Präsidentin dankt Kriegsveteranen german.korea.net/NewsFocus/Policies/view?articleId=110507 -Français- La Présidente remercie chaleureusement les anciens combattants french.korea.net/NewsFocus/Policies/view?articleId=110506 La visite de vétérans de la guerre de Corée rappelle les cicatrices du pays french.korea.net/NewsFocus/Society/view?articleId=110492 - русский- Президент выражает благодарность ветеранам войны russian.korea.net/NewsFocus/Policies/view?articleId=110508 Ветераны войны приезжают в Корею почтить память павших russian.korea.net/NewsFocus/Society/view?articleId=110494 -Arabic- الرئيسة توجه التحية إلى قدامى المحاربين arabic.korea.net/NewsFocus/Policies/view?articleId=110504 قدامى المحاربين يزورون كوريا لاسترجاع الذكريات المخيفة arabic.korea.net/NewsFocus/Society/view?articleId=110490 Ministry of Culture, Sports and Tourism Korean Culture and Information Service Korea.net (www.korea.net) JEON HAN 유엔군 참전•정전 60주년 기념식 전쟁기념관, 용산구, 서울 문화체육관광부 해외문화홍보원 코리아넷 전한",
       "kind": "photograph",
       "language": "und",
       "source": {
         "name": "Wikimedia Commons · 한국전쟁",
-        "url": "https://commons.wikimedia.org/wiki/File:70th_Anniversary_of_the_Fatherland_Liberation_War_Medal.png",
-        "identifier": "135132482",
-        "accessedAt": "2026-10-26T05:18:46.942Z"
+        "url": "https://commons.wikimedia.org/wiki/File:Korean_War_60th_Anniversary_Armistice_Ceremony_07.jpg",
+        "identifier": "31704283",
+        "accessedAt": "2026-10-26T17:13:32.650Z"
       },
       "dates": {
-        "display": "2023-07-02",
-        "start": "2023-07-02",
-        "precision": "exact"
+        "display": "2013-07-27 09:49:09",
+        "precision": "unknown"
       },
       "warIds": [
         "korean-war"
       ],
       "entityIds": [],
       "topics": [
-        "Orders, decorations and medals of North Korea",
-        "Military related images that should use vector graphics",
-        "PNG that should use vector graphics",
-        "PD-North Korea",
-        "Communist symbols"
+        "Taken with Canon EOS 5D Mark III",
+        "Files from Korea.net Flickr stream",
+        "Items with VRTS permission confirmed",
+        "Honour guards from South Korea",
+        "Flickr images verified by UploadWizard",
+        "M16 rifle in South Korean service",
+        "Photographs by Jeon Han",
+        "60th anniversary commemorations of the signing of the Korean Armistice Agreement at the War Memorial of Korea"
       ],
       "rights": {
         "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
@@ -8169,15 +6759,15 @@
       "citations": [
         {
           "label": "Wikimedia Commons · 한국전쟁 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:70th_Anniversary_of_the_Fatherland_Liberation_War_Medal.png"
+          "url": "https://commons.wikimedia.org/wiki/File:Korean_War_60th_Anniversary_Armistice_Ceremony_07.jpg"
         }
       ],
       "revision": 1,
-      "updatedAt": "2026-10-26T05:18:46.942Z",
+      "updatedAt": "2026-10-26T17:13:32.650Z",
       "sensitivity": "none",
       "changes": [
         {
-          "at": "2026-10-26T05:18:46.942Z",
+          "at": "2026-10-26T17:13:32.650Z",
           "summary": "원 소장처 메타데이터 수집"
         }
       ]
@@ -8239,65 +6829,6 @@
       "changes": [
         {
           "at": "2026-10-25T23:16:11.660Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
-      "id": "rec-a090e48479328e2ee921cb29",
-      "title": "Ian Bruce Ferguson Korea 1950 (AWM146990).PNG",
-      "originalTitle": "Ian Bruce Ferguson Korea 1950 (AWM146990).PNG",
-      "summary": "Lieutenant Colonel I. B. Ferguson, Commanding Officer of the 3rd Battalion, Royal Australian Regiment (3RAR) near Pakchon, North Korea.",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 한국전쟁",
-        "url": "https://commons.wikimedia.org/wiki/File:Ian_Bruce_Ferguson_Korea_1950_(AWM146990).PNG",
-        "identifier": "15839726",
-        "accessedAt": "2026-10-26T11:16:03.591Z"
-      },
-      "dates": {
-        "display": "1950-11-07",
-        "start": "1950-11-07",
-        "precision": "exact"
-      },
-      "warIds": [
-        "korean-war"
-      ],
-      "entityIds": [],
-      "topics": [
-        "Images from the Australian War Memorial",
-        "PD-Australia",
-        "Korean War in November 1950",
-        "3rd Battalion, Royal Australian Regiment in the Korean War",
-        "Australian military people of the Korean War"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 한국전쟁 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:Ian_Bruce_Ferguson_Korea_1950_(AWM146990).PNG"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-26T11:16:03.591Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-26T11:16:03.591Z",
           "summary": "원 소장처 메타데이터 수집"
         }
       ]
@@ -8479,70 +7010,6 @@
       "changes": [
         {
           "at": "2026-10-26T05:18:50.045Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
-      "id": "rec-a4d677d30574973db775ce68",
-      "title": "Medical Department - Restoration Work - Education and Rehab - Returned soldiers, undecided as to course in vocational training to settle upon, are given trials at varied crafts appealing to them to find if fitted(...) - NARA - 45498419.jpg",
-      "originalTitle": "Medical Department - Restoration Work - Education and Rehab - Returned soldiers, undecided as to course in vocational training to settle upon, are given trials at varied crafts appealing to them to find if fitted(...) - NARA - 45498419.jpg",
-      "summary": "원 소장처의 자료 정보와 이용 조건을 확인할 수 있는 기록입니다.",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제1차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:Medical_Department_-_Restoration_Work_-_Education_and_Rehab_-_Returned_soldiers,_undecided_as_to_course_in_vocational_training_to_settle_upon,_are_given_trials_at_varied_crafts_appealing_to_them_to_find_if_fitted(...)_-_NARA_-_45498419.jpg",
-        "identifier": "62651335",
-        "accessedAt": "2026-10-26T05:16:00.724Z"
-      },
-      "dates": {
-        "display": "1917 – 1918",
-        "start": "1917",
-        "end": "1918",
-        "precision": "range"
-      },
-      "warIds": [
-        "world-war-i"
-      ],
-      "entityIds": [],
-      "topics": [
-        "PD US Military",
-        "Images from the National Archives and Records Administration",
-        "Media contributed by the National Archives and Records Administration",
-        "United States Army Medical Department",
-        "Artworks without Wikidata item",
-        "US National Archives series: American Unofficial Collection of World War I Photographs",
-        "Template Unknown (author)",
-        "Black and white photographs of World War I",
-        "US National Archives location: other"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제1차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:Medical_Department_-_Restoration_Work_-_Education_and_Rehab_-_Returned_soldiers,_undecided_as_to_course_in_vocational_training_to_settle_upon,_are_given_trials_at_varied_crafts_appealing_to_them_to_find_if_fitted(...)_-_NARA_-_45498419.jpg"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-26T05:16:00.724Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-26T05:16:00.724Z",
           "summary": "원 소장처 메타데이터 수집"
         }
       ]
@@ -9096,134 +7563,6 @@
       ]
     },
     {
-      "id": "rec-b0107d5636cb8af10a65f17b",
-      "title": "Colleges and Universities - Harvard University - Students passing in review before Assistant Secretary of the Navy and Major General Wood - NARA - 26426356.jpg",
-      "originalTitle": "Colleges and Universities - Harvard University - Students passing in review before Assistant Secretary of the Navy and Major General Wood - NARA - 26426356.jpg",
-      "summary": "원 소장처의 자료 정보와 이용 조건을 확인할 수 있는 기록입니다.",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제1차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:Colleges_and_Universities_-_Harvard_University_-_Students_passing_in_review_before_Assistant_Secretary_of_the_Navy_and_Major_General_Wood_-_NARA_-_26426356.jpg",
-        "identifier": "62648183",
-        "accessedAt": "2026-10-26T05:16:08.324Z"
-      },
-      "dates": {
-        "display": "1917 – 1918",
-        "start": "1917",
-        "end": "1918",
-        "precision": "range"
-      },
-      "warIds": [
-        "world-war-i"
-      ],
-      "entityIds": [],
-      "topics": [
-        "PD US Military",
-        "Images from the National Archives and Records Administration",
-        "Media contributed by the National Archives and Records Administration",
-        "Artworks without Wikidata item",
-        "US National Archives series: American Unofficial Collection of World War I Photographs",
-        "Template Unknown (author)",
-        "Black and white photographs of World War I in Massachusetts",
-        "US National Archives location: other",
-        "History of Harvard University"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제1차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:Colleges_and_Universities_-_Harvard_University_-_Students_passing_in_review_before_Assistant_Secretary_of_the_Navy_and_Major_General_Wood_-_NARA_-_26426356.jpg"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-26T05:16:08.324Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-26T05:16:08.324Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
-      "id": "rec-b05e90b7283ae282f3e4a31b",
-      "title": "Drills - Infantry - Miscellaneous - Training U.S. Troops in France. Bayonet drill with padded poles - NARA - 31477674.jpg",
-      "originalTitle": "Drills - Infantry - Miscellaneous - Training U.S. Troops in France. Bayonet drill with padded poles - NARA - 31477674.jpg",
-      "summary": "Scope and content: Date Taken: 1917 Photographer: Junius B. Wood / C.P.I.",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제1차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:Drills_-_Infantry_-_Miscellaneous_-_Training_U.S._Troops_in_France._Bayonet_drill_with_padded_poles_-_NARA_-_31477674.jpg",
-        "identifier": "62646895",
-        "accessedAt": "2026-10-26T05:16:15.840Z"
-      },
-      "dates": {
-        "display": "1917 – 1918",
-        "start": "1917",
-        "end": "1918",
-        "precision": "range"
-      },
-      "warIds": [
-        "world-war-i"
-      ],
-      "entityIds": [],
-      "topics": [
-        "PD US Military",
-        "Images from the National Archives and Records Administration",
-        "Media contributed by the National Archives and Records Administration",
-        "Artworks without Wikidata item",
-        "Military drill",
-        "US National Archives series: American Unofficial Collection of World War I Photographs",
-        "Template Unknown (author)",
-        "Black and white photographs of World War I",
-        "US National Archives location: other"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제1차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:Drills_-_Infantry_-_Miscellaneous_-_Training_U.S._Troops_in_France._Bayonet_drill_with_padded_poles_-_NARA_-_31477674.jpg"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-26T05:16:15.840Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-26T05:16:15.840Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
       "id": "rec-b0cbfc078a17a771b3c47815",
       "title": "Industries of War - Chains - SLING OR HOIST CHAINS BEING forged for use in quarries, mines, etc., at Weimer Chain and Iron Company, Lebanon, Pennsylvania - NARA - 31486682.jpg",
       "originalTitle": "Industries of War - Chains - SLING OR HOIST CHAINS BEING forged for use in quarries, mines, etc., at Weimer Chain and Iron Company, Lebanon, Pennsylvania - NARA - 31486682.jpg",
@@ -9410,73 +7749,6 @@
       ]
     },
     {
-      "id": "rec-b456c58fc5031d562dccebf2",
-      "title": "Commission - From Foreign Nations - Belgium - Belgian Mission in New York. Arrival of visiting delegates at the Battery, New York - NARA - 26431708.jpg",
-      "originalTitle": "Commission - From Foreign Nations - Belgium - Belgian Mission in New York. Arrival of visiting delegates at the Battery, New York - NARA - 26431708.jpg",
-      "summary": "Scope and content: Original Caption: Belgian Mission in New York. Arrival of visiting delegates at the Battery, New York. Left to right: Baron Moncheur, head of the Belgian Mission; W.D. Robbins, reception committee Frederick R. Coudert, reception committee. Photographer: Central News Photo Service",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제1차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:Commission_-_From_Foreign_Nations_-_Belgium_-_Belgian_Mission_in_New_York._Arrival_of_visiting_delegates_at_the_Battery,_New_York_-_NARA_-_26431708.jpg",
-        "identifier": "62714087",
-        "accessedAt": "2026-10-26T05:15:58.266Z"
-      },
-      "dates": {
-        "display": "1917 – 1918",
-        "start": "1917",
-        "end": "1918",
-        "precision": "range"
-      },
-      "warIds": [
-        "world-war-i"
-      ],
-      "entityIds": [],
-      "topics": [
-        "PD US Military",
-        "Warren Delano Robbins",
-        "Images from the National Archives and Records Administration",
-        "Ludovic Moncheur",
-        "Media contributed by the National Archives and Records Administration",
-        "Frederic René Coudert II",
-        "Artworks without Wikidata item",
-        "US National Archives series: American Unofficial Collection of World War I Photographs",
-        "Template Unknown (author)",
-        "Black and white photographs of World War I",
-        "US National Archives location: other",
-        "Belgian delegations to the U.S. relating to World War I"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제1차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:Commission_-_From_Foreign_Nations_-_Belgium_-_Belgian_Mission_in_New_York._Arrival_of_visiting_delegates_at_the_Battery,_New_York_-_NARA_-_26431708.jpg"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-26T05:15:58.266Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-26T05:15:58.266Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
       "id": "rec-b50a60955260b8bee8248161",
       "title": "Bush praying at Keeble MOH ceremony.jpg",
       "originalTitle": "Bush praying at Keeble MOH ceremony.jpg",
@@ -9533,6 +7805,69 @@
       "changes": [
         {
           "at": "2026-10-26T11:15:55.326Z",
+          "summary": "원 소장처 메타데이터 수집"
+        }
+      ]
+    },
+    {
+      "id": "rec-b542d5700d7bb5c58918f243",
+      "title": "Korea – Personalities - DPLA - 4a1f0fff96ae49d10e030e556bdeba6a (page 1).jpg",
+      "originalTitle": "Korea – Personalities - DPLA - 4a1f0fff96ae49d10e030e556bdeba6a (page 1).jpg",
+      "summary": "원 소장처의 자료 정보와 이용 조건을 확인할 수 있는 기록입니다.",
+      "kind": "photograph",
+      "language": "und",
+      "source": {
+        "name": "Wikimedia Commons · 한국전쟁",
+        "url": "https://commons.wikimedia.org/wiki/File:Korea_%E2%80%93_Personalities_-_DPLA_-_4a1f0fff96ae49d10e030e556bdeba6a_(page_1).jpg",
+        "identifier": "118518474",
+        "accessedAt": "2026-10-26T17:13:16.672Z"
+      },
+      "dates": {
+        "display": "1940-01-01/1958-12-31",
+        "precision": "unknown"
+      },
+      "warIds": [
+        "korean-war"
+      ],
+      "entityIds": [],
+      "topics": [
+        "PD US",
+        "James Van Fleet",
+        "Media contributed by the National Archives and Records Administration",
+        "Matthew B. Ridgway",
+        "Media contributed by the Digital Public Library of America",
+        "Artworks without Wikidata item",
+        "Frog Skin",
+        "Media contributed by National Archives at College Park - Still Pictures",
+        "1st Marine Division (United States) in the Korean War",
+        "US National Archives series: Black and White Photographs of Marine Corps Activities in Vietnam, 1962 - 1975"
+      ],
+      "rights": {
+        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
+        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
+        "downloadAllowed": false,
+        "reuseAllowed": false
+      },
+      "review": {
+        "provenance": "checked",
+        "content": "source-description",
+        "translation": "none"
+      },
+      "media": {
+        "displayAllowed": false
+      },
+      "citations": [
+        {
+          "label": "Wikimedia Commons · 한국전쟁 원 소장처",
+          "url": "https://commons.wikimedia.org/wiki/File:Korea_%E2%80%93_Personalities_-_DPLA_-_4a1f0fff96ae49d10e030e556bdeba6a_(page_1).jpg"
+        }
+      ],
+      "revision": 1,
+      "updatedAt": "2026-10-26T17:13:16.672Z",
+      "sensitivity": "none",
+      "changes": [
+        {
+          "at": "2026-10-26T17:13:16.672Z",
           "summary": "원 소장처 메타데이터 수집"
         }
       ]
@@ -9853,123 +8188,6 @@
       ]
     },
     {
-      "id": "rec-bcc82f47f7721378d9a2707a",
-      "title": "Defense POW-MIA Accounting Agency (DPAA) and 7th Engineer Divers third day of diving in the waters of U S Army Garrison Kwajalein Atoll (2823280).jpg",
-      "originalTitle": "Defense POW-MIA Accounting Agency (DPAA) and 7th Engineer Divers third day of diving in the waters of U S Army Garrison Kwajalein Atoll (2823280).jpg",
-      "summary": "160818-N-WI365-171 (August 18, 2016) USAG KWAJALEIN ATOLL – U.S. Army Sgt. 1st Class Chris Kratsas, a master diver assigned to Defense POW/MIA Accounting Agency, returns from a dive after investigating a seaplane wreck site in the waters of U.S. Army Garrison Kwajalein Atoll. The mission of the Defense POW/MIA Accounting Agency is to provide the fullest possible accounting for our missing personnel to their families and the nation. For those killed-in-action, the accounting community is charged with locating, recovering and identifying their remains. More than 83,000 Americans remain missing from World War II, the Korean War, the Cold War and the Vietnam War. (U.S. Navy photo by Mass Communication Specialist 3rd Class Markus Castaneda/RELEASED)",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 한국전쟁",
-        "url": "https://commons.wikimedia.org/wiki/File:Defense_POW-MIA_Accounting_Agency_(DPAA)_and_7th_Engineer_Divers_third_day_of_diving_in_the_waters_of_U_S_Army_Garrison_Kwajalein_Atoll_(2823280).jpg",
-        "identifier": "180462167",
-        "accessedAt": "2026-10-26T11:16:31.206Z"
-      },
-      "dates": {
-        "display": "Taken on 17 August 2016",
-        "precision": "unknown"
-      },
-      "warIds": [
-        "korean-war"
-      ],
-      "entityIds": [],
-      "topics": [
-        "PD US Navy",
-        "Files created by the United States Navy with known IDs",
-        "CC-PD-Mark",
-        "Marshall Islands photographs taken on 2016-08-17",
-        "DVIDS files uploaded by OptimusPrimeBot",
-        "Milimedia files, Marshall Islands (review needed)",
-        "Defense POW/MIA Accounting Agency in 2016"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 한국전쟁 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:Defense_POW-MIA_Accounting_Agency_(DPAA)_and_7th_Engineer_Divers_third_day_of_diving_in_the_waters_of_U_S_Army_Garrison_Kwajalein_Atoll_(2823280).jpg"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-26T11:16:31.206Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-26T11:16:31.206Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
-      "id": "rec-bd7aa4adc9048d98a8a2283e",
-      "title": "RL34689 (IA RL34689-crs).pdf",
-      "originalTitle": "RL34689 (IA RL34689-crs).pdf",
-      "summary": "RL34689 Subjects: Congressional Research Service; CRS; Congress",
-      "kind": "document",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 한국전쟁",
-        "url": "https://commons.wikimedia.org/wiki/File:RL34689_(IA_RL34689-crs).pdf",
-        "identifier": "91385214",
-        "accessedAt": "2026-10-26T11:17:08.607Z"
-      },
-      "dates": {
-        "display": "2020-06-20 16:22:12",
-        "precision": "unknown"
-      },
-      "warIds": [
-        "korean-war"
-      ],
-      "entityIds": [],
-      "topics": [
-        "PD US Congress",
-        "Books uploaded by Fæ",
-        "Books without Wikidata item",
-        "Congressional Research Service reports"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 한국전쟁 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:RL34689_(IA_RL34689-crs).pdf"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-26T11:17:08.607Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-26T11:17:08.607Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
       "id": "rec-bdfe570baedf8a65944a1571",
       "title": "Ploubalay-Monument-aux-Morts-pour-la-France-byRundvald.jpg",
       "originalTitle": "Ploubalay-Monument-aux-Morts-pour-la-France-byRundvald.jpg",
@@ -10209,6 +8427,65 @@
       ]
     },
     {
+      "id": "rec-c227db56a59e55ecdad7258d",
+      "title": "13th BS B-26s Korea 1950.jpg",
+      "originalTitle": "13th BS B-26s Korea 1950.jpg",
+      "summary": "13th Bombardment Sqauadron Tageu AB October 1950 Douglas A-26B-61-DL Invader 44-34540 visible",
+      "kind": "photograph",
+      "language": "und",
+      "source": {
+        "name": "Wikimedia Commons · 한국전쟁",
+        "url": "https://commons.wikimedia.org/wiki/File:13th_BS_B-26s_Korea_1950.jpg",
+        "identifier": "17658705",
+        "accessedAt": "2026-10-26T17:13:24.212Z"
+      },
+      "dates": {
+        "display": "1950",
+        "start": "1950",
+        "precision": "year"
+      },
+      "warIds": [
+        "korean-war"
+      ],
+      "entityIds": [],
+      "topics": [
+        "PD US Air Force",
+        "Korean War in 1950",
+        "3d Wing (United States Air Force)",
+        "B-26 Invaders in the Korean War",
+        "Taegu (K-2) Air Base"
+      ],
+      "rights": {
+        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
+        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
+        "downloadAllowed": false,
+        "reuseAllowed": false
+      },
+      "review": {
+        "provenance": "checked",
+        "content": "source-description",
+        "translation": "none"
+      },
+      "media": {
+        "displayAllowed": false
+      },
+      "citations": [
+        {
+          "label": "Wikimedia Commons · 한국전쟁 원 소장처",
+          "url": "https://commons.wikimedia.org/wiki/File:13th_BS_B-26s_Korea_1950.jpg"
+        }
+      ],
+      "revision": 1,
+      "updatedAt": "2026-10-26T17:13:24.212Z",
+      "sensitivity": "none",
+      "changes": [
+        {
+          "at": "2026-10-26T17:13:24.212Z",
+          "summary": "원 소장처 메타데이터 수집"
+        }
+      ]
+    },
+    {
       "id": "rec-c2a86ad042ad0c52c4599407",
       "title": "Industries of War - Machinery - Hoists - Electrical hoists for government use. Close up view of new electrical hoist number 2, in hoist building on Butte and Superior Mining Co's property, Butte, Montana - NARA - 45486624.jpg",
       "originalTitle": "Industries of War - Machinery - Hoists - Electrical hoists for government use. Close up view of new electrical hoist number 2, in hoist building on Butte and Superior Mining Co's property, Butte, Montana - NARA - 45486624.jpg",
@@ -10388,73 +8665,6 @@
       "changes": [
         {
           "at": "2026-10-26T11:13:55.476Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
-      "id": "rec-c4b0e181c1895d41611211e2",
-      "title": "This unusual photograph was snapped a split second after two napalm fire bombs were released over North Korea, from... - NARA - 542243.tif",
-      "originalTitle": "This unusual photograph was snapped a split second after two napalm fire bombs were released over North Korea, from... - NARA - 542243.tif",
-      "summary": "원 소장처의 자료 정보와 이용 조건을 확인할 수 있는 기록입니다.",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 한국전쟁",
-        "url": "https://commons.wikimedia.org/wiki/File:This_unusual_photograph_was_snapped_a_split_second_after_two_napalm_fire_bombs_were_released_over_North_Korea,_from..._-_NARA_-_542243.tif",
-        "identifier": "16524579",
-        "accessedAt": "2026-10-26T05:17:40.493Z"
-      },
-      "dates": {
-        "display": "circa August 1951 date QS:P571,+1951-08-00T00:00:00Z/10,P1480,Q5727902",
-        "precision": "unknown"
-      },
-      "warIds": [
-        "korean-war"
-      ],
-      "entityIds": [],
-      "topics": [
-        "PD US Government",
-        "Images from the National Archives and Records Administration",
-        "Media contributed by the National Archives and Records Administration",
-        "Artworks without Wikidata item",
-        "Template Unknown (author)",
-        "CC-PD-Mark",
-        "High-resolution TIFF images from the National Archives and Records Administration",
-        "US National Archives series: Black and White Photographs of U.S. Air Force and Predecessors' Activities, Facilities, and Personnel, Domestic and Foreign, compiled 1930 - 1975, documenting the period 1863 - 1975",
-        "Bombing during the Korean War",
-        "North American P-51D Mustang",
-        "18th Fighter-Bomber Group (United States Air Force)",
-        "Napalm tanks",
-        "North American F-51 Mustangs in the Korean War",
-        "Korean War in August 1951"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 한국전쟁 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:This_unusual_photograph_was_snapped_a_split_second_after_two_napalm_fire_bombs_were_released_over_North_Korea,_from..._-_NARA_-_542243.tif"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-26T05:17:40.493Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-26T05:17:40.493Z",
           "summary": "원 소장처 메타데이터 수집"
         }
       ]
@@ -10766,6 +8976,66 @@
       "changes": [
         {
           "at": "2026-10-26T11:17:12.820Z",
+          "summary": "원 소장처 메타데이터 수집"
+        }
+      ]
+    },
+    {
+      "id": "rec-c6e7c3a3b6d7cb8364f39541",
+      "title": "SC 191911 - Brig. Gen. Theodore Roosevelt, Jr., poses before the door to his CP on the day he died from heart attack while on active service. St. Mere Eglise, France. 12 July, 1944.jpg",
+      "originalTitle": "SC 191911 - Brig. Gen. Theodore Roosevelt, Jr., poses before the door to his CP on the day he died from heart attack while on active service. St. Mere Eglise, France. 12 July, 1944.jpg",
+      "summary": "Photographer unknown.",
+      "kind": "photograph",
+      "language": "und",
+      "source": {
+        "name": "Wikimedia Commons · 제2차 세계대전",
+        "url": "https://commons.wikimedia.org/wiki/File:SC_191911_-_Brig._Gen._Theodore_Roosevelt,_Jr.,_poses_before_the_door_to_his_CP_on_the_day_he_died_from_heart_attack_while_on_active_service._St._Mere_Eglise,_France._12_July,_1944.jpg",
+        "identifier": "162205518",
+        "accessedAt": "2026-10-26T17:18:59.144Z"
+      },
+      "dates": {
+        "display": "1944-07-12",
+        "start": "1944-07-12",
+        "precision": "exact"
+      },
+      "warIds": [
+        "world-war-ii"
+      ],
+      "entityIds": [],
+      "topics": [
+        "PD US Army",
+        "July 1944 in the Battle of Normandy",
+        "Flickr images reviewed by FlickreviewR 2",
+        "Theodore Roosevelt Jr. in 1944",
+        "World War II forces of the United States in France",
+        "United States Army Signal Corps photographs"
+      ],
+      "rights": {
+        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
+        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
+        "downloadAllowed": false,
+        "reuseAllowed": false
+      },
+      "review": {
+        "provenance": "checked",
+        "content": "source-description",
+        "translation": "none"
+      },
+      "media": {
+        "displayAllowed": false
+      },
+      "citations": [
+        {
+          "label": "Wikimedia Commons · 제2차 세계대전 원 소장처",
+          "url": "https://commons.wikimedia.org/wiki/File:SC_191911_-_Brig._Gen._Theodore_Roosevelt,_Jr.,_poses_before_the_door_to_his_CP_on_the_day_he_died_from_heart_attack_while_on_active_service._St._Mere_Eglise,_France._12_July,_1944.jpg"
+        }
+      ],
+      "revision": 1,
+      "updatedAt": "2026-10-26T17:18:59.144Z",
+      "sensitivity": "none",
+      "changes": [
+        {
+          "at": "2026-10-26T17:18:59.144Z",
           "summary": "원 소장처 메타데이터 수집"
         }
       ]
@@ -11258,38 +9528,31 @@
       ]
     },
     {
-      "id": "rec-ced9fa3330ae938a45af9b1b",
-      "title": "American Library Association - O through R - Camp Sherman, Chillicothe, Ohio. Corner of Camp Library. From C.P.I - NARA - 20800782.jpg",
-      "originalTitle": "American Library Association - O through R - Camp Sherman, Chillicothe, Ohio. Corner of Camp Library. From C.P.I - NARA - 20800782.jpg",
-      "summary": "Scope and content: Photographer: Hathaway Photo",
+      "id": "rec-d128c5aeced46539594c574b",
+      "title": "2013.6.24, 6·25 상기 해상기동훈련 Rep. of Korea Navy Maritime Exercises Recalling the Korean War (9355647372).jpg",
+      "originalTitle": "2013.6.24, 6·25 상기 해상기동훈련 Rep. of Korea Navy Maritime Exercises Recalling the Korean War (9355647372).jpg",
+      "summary": "'13. 6.24. 동해 해상에서 6.25 상기 해상기동훈련을 실시하였다 촬영자 : 장석훈",
       "kind": "photograph",
       "language": "und",
       "source": {
-        "name": "Wikimedia Commons · 제1차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:American_Library_Association_-_O_through_R_-_Camp_Sherman,_Chillicothe,_Ohio._Corner_of_Camp_Library._From_C.P.I_-_NARA_-_20800782.jpg",
-        "identifier": "62584351",
-        "accessedAt": "2026-10-26T05:15:35.485Z"
+        "name": "Wikimedia Commons · 한국전쟁",
+        "url": "https://commons.wikimedia.org/wiki/File:2013.6.24,_6%C2%B725_%EC%83%81%EA%B8%B0_%ED%95%B4%EC%83%81%EA%B8%B0%EB%8F%99%ED%9B%88%EB%A0%A8_Rep._of_Korea_Navy_Maritime_Exercises_Recalling_the_Korean_War_(9355647372).jpg",
+        "identifier": "36990019",
+        "accessedAt": "2026-10-26T17:13:38.051Z"
       },
       "dates": {
-        "display": "1917 – 1918",
-        "start": "1917",
-        "end": "1918",
-        "precision": "range"
+        "display": "2013-06-24 16:03",
+        "precision": "unknown"
       },
       "warIds": [
-        "world-war-i"
+        "korean-war"
       ],
       "entityIds": [],
       "topics": [
-        "PD US Military",
-        "Images from the National Archives and Records Administration",
-        "Media contributed by the National Archives and Records Administration",
-        "Artworks without Wikidata item",
-        "US National Archives series: American Unofficial Collection of World War I Photographs",
-        "Template Unknown (author)",
-        "Black and white photographs of World War I",
-        "US National Archives location: other",
-        "Camp Sherman camp library"
+        "Taken with Nikon D4",
+        "Chamsuri class patrol boat",
+        "Flickr images reviewed by FlickreviewR",
+        "Photographs by the Republic of Korea Armed Forces"
       ],
       "rights": {
         "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
@@ -11307,16 +9570,16 @@
       },
       "citations": [
         {
-          "label": "Wikimedia Commons · 제1차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:American_Library_Association_-_O_through_R_-_Camp_Sherman,_Chillicothe,_Ohio._Corner_of_Camp_Library._From_C.P.I_-_NARA_-_20800782.jpg"
+          "label": "Wikimedia Commons · 한국전쟁 원 소장처",
+          "url": "https://commons.wikimedia.org/wiki/File:2013.6.24,_6%C2%B725_%EC%83%81%EA%B8%B0_%ED%95%B4%EC%83%81%EA%B8%B0%EB%8F%99%ED%9B%88%EB%A0%A8_Rep._of_Korea_Navy_Maritime_Exercises_Recalling_the_Korean_War_(9355647372).jpg"
         }
       ],
       "revision": 1,
-      "updatedAt": "2026-10-26T05:15:35.485Z",
+      "updatedAt": "2026-10-26T17:13:38.051Z",
       "sensitivity": "none",
       "changes": [
         {
-          "at": "2026-10-26T05:15:35.485Z",
+          "at": "2026-10-26T17:13:38.051Z",
           "summary": "원 소장처 메타데이터 수집"
         }
       ]
@@ -11506,41 +9769,31 @@
       ]
     },
     {
-      "id": "rec-d537dda0b3e379ded4ef11f1",
-      "title": "American Red Cross - Miscellaneous - Hair cutting time at St. Lunaire where a home for 500 children (refugee) is maintained by the American Red Cross - NARA - 20805550.jpg",
-      "originalTitle": "American Red Cross - Miscellaneous - Hair cutting time at St. Lunaire where a home for 500 children (refugee) is maintained by the American Red Cross - NARA - 20805550.jpg",
-      "summary": "Scope and content: Date Taken: 1918 Photographer: American Red Cross",
+      "id": "rec-d49700dbbd7e1a5f3e74697f",
+      "title": "Leichter Granatwerfer M35 noBG.jpg",
+      "originalTitle": "Leichter Granatwerfer M35 noBG.jpg",
+      "summary": "Grenade Launcher 36 in the High Fortress, Salzburg, Austria",
       "kind": "photograph",
       "language": "und",
       "source": {
-        "name": "Wikimedia Commons · 제1차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:American_Red_Cross_-_Miscellaneous_-_Hair_cutting_time_at_St._Lunaire_where_a_home_for_500_children_(refugee)_is_maintained_by_the_American_Red_Cross_-_NARA_-_20805550.jpg",
-        "identifier": "62637231",
-        "accessedAt": "2026-10-26T05:16:18.440Z"
+        "name": "Wikimedia Commons · 제2차 세계대전",
+        "url": "https://commons.wikimedia.org/wiki/File:Leichter_Granatwerfer_M35_noBG.jpg",
+        "identifier": "80940851",
+        "accessedAt": "2026-10-26T17:18:27.016Z"
       },
       "dates": {
-        "display": "1917 – 1918",
-        "start": "1917",
-        "end": "1918",
-        "precision": "range"
+        "display": "2007-07-06 10:22:54",
+        "precision": "unknown"
       },
       "warIds": [
-        "world-war-i"
+        "world-war-ii"
       ],
       "entityIds": [],
       "topics": [
-        "PD US Military",
-        "Images from the National Archives and Records Administration",
-        "Media contributed by the National Archives and Records Administration",
-        "Artworks without Wikidata item",
-        "Children in World War I",
-        "US National Archives series: American Unofficial Collection of World War I Photographs",
-        "Template Unknown (author)",
-        "Black and white photographs of World War I",
-        "Refugees of World War I in France",
-        "US National Archives location: other",
-        "American Red Cross in World War I",
-        "American Red Cross (National Archives)"
+        "Museum of the Festung Hohensalzburg",
+        "5cm leichter Granatenwerfer 36",
+        "Infantry weapons of World War II",
+        "Derivative versions"
       ],
       "rights": {
         "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
@@ -11558,16 +9811,16 @@
       },
       "citations": [
         {
-          "label": "Wikimedia Commons · 제1차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:American_Red_Cross_-_Miscellaneous_-_Hair_cutting_time_at_St._Lunaire_where_a_home_for_500_children_(refugee)_is_maintained_by_the_American_Red_Cross_-_NARA_-_20805550.jpg"
+          "label": "Wikimedia Commons · 제2차 세계대전 원 소장처",
+          "url": "https://commons.wikimedia.org/wiki/File:Leichter_Granatwerfer_M35_noBG.jpg"
         }
       ],
       "revision": 1,
-      "updatedAt": "2026-10-26T05:16:18.440Z",
+      "updatedAt": "2026-10-26T17:18:27.016Z",
       "sensitivity": "none",
       "changes": [
         {
-          "at": "2026-10-26T05:16:18.440Z",
+          "at": "2026-10-26T17:18:27.016Z",
           "summary": "원 소장처 메타데이터 수집"
         }
       ]
@@ -11763,64 +10016,6 @@
       ]
     },
     {
-      "id": "rec-d78dfc4f42e1906d80e58226",
-      "title": "F9F-5 Panther VF-53 in flight c1953.jpg",
-      "originalTitle": "F9F-5 Panther VF-53 in flight c1953.jpg",
-      "summary": "A U.S. Navy Grumman F9F-5 Panther from Fighter Squadron VF-53 Blue Knights in flight. VF-51 was assigned to Carrier Air Group 5 (CVG-5) aboard the aircraft carrier USS Valley Forge (CVA-45) for a deployment to Korea from 20 November 1952 to 25 June 1953.",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 한국전쟁",
-        "url": "https://commons.wikimedia.org/wiki/File:F9F-5_Panther_VF-53_in_flight_c1953.jpg",
-        "identifier": "20991718",
-        "accessedAt": "2026-10-26T11:16:15.066Z"
-      },
-      "dates": {
-        "display": "circa 1953 date QS:P,+1953-00-00T00:00:00Z/9,P1480,Q5727902",
-        "start": "1953",
-        "precision": "circa"
-      },
-      "warIds": [
-        "korean-war"
-      ],
-      "entityIds": [],
-      "topics": [
-        "PD US Navy",
-        "CC-PD-Mark",
-        "F9F Panthers in the Korean War",
-        "Fighter Squadron 124 (United States Navy)"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 한국전쟁 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:F9F-5_Panther_VF-53_in_flight_c1953.jpg"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-26T11:16:15.066Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-26T11:16:15.066Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
       "id": "rec-d7df2e3b171d21574acb9daa",
       "title": "\"United Nations Facts\" - NARA - 516311.tif",
       "originalTitle": "\"United Nations Facts\" - NARA - 516311.tif",
@@ -11991,6 +10186,66 @@
       "changes": [
         {
           "at": "2026-10-25T23:16:38.654Z",
+          "summary": "원 소장처 메타데이터 수집"
+        }
+      ]
+    },
+    {
+      "id": "rec-d81c01aca18f38ffbe6be984",
+      "title": "Herdenkingsmonument Zuil 'Zij die Vielen'.jpg",
+      "originalTitle": "Herdenkingsmonument Zuil 'Zij die Vielen'.jpg",
+      "summary": "This is an image of a war memorial in the Netherlands, number:",
+      "kind": "photograph",
+      "language": "und",
+      "source": {
+        "name": "Wikimedia Commons · 제2차 세계대전",
+        "url": "https://commons.wikimedia.org/wiki/File:Herdenkingsmonument_Zuil_%27Zij_die_Vielen%27.jpg",
+        "identifier": "32478664",
+        "accessedAt": "2026-10-26T17:18:25.187Z"
+      },
+      "dates": {
+        "display": "2014-04-30 19:50:46",
+        "precision": "unknown"
+      },
+      "warIds": [
+        "world-war-ii"
+      ],
+      "entityIds": [],
+      "topics": [
+        "Herdenkingsmonument IJsselstein",
+        "Self-published work",
+        "Images from War Memorials Netherlands 2014",
+        "War memorials in the Netherlands with known IDs",
+        "Taken with Samsung Galaxy Ace GT-S5830i",
+        "Netherlands photographs taken on 2014-04-30",
+        "Uploaded via Campaign:WarMemorialsNetherlands"
+      ],
+      "rights": {
+        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
+        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
+        "downloadAllowed": false,
+        "reuseAllowed": false
+      },
+      "review": {
+        "provenance": "checked",
+        "content": "source-description",
+        "translation": "none"
+      },
+      "media": {
+        "displayAllowed": false
+      },
+      "citations": [
+        {
+          "label": "Wikimedia Commons · 제2차 세계대전 원 소장처",
+          "url": "https://commons.wikimedia.org/wiki/File:Herdenkingsmonument_Zuil_%27Zij_die_Vielen%27.jpg"
+        }
+      ],
+      "revision": 1,
+      "updatedAt": "2026-10-26T17:18:25.187Z",
+      "sensitivity": "none",
+      "changes": [
+        {
+          "at": "2026-10-26T17:18:25.187Z",
           "summary": "원 소장처 메타데이터 수집"
         }
       ]
@@ -12250,64 +10505,6 @@
       "changes": [
         {
           "at": "2026-10-26T05:13:16.379Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
-      "id": "rec-d9deb172acc20465977ece7d",
-      "title": "MARFORK Marines participate in at-sea cruise honoring 75th Anniversary of the Incheon Landing (9309477).jpg",
-      "originalTitle": "MARFORK Marines participate in at-sea cruise honoring 75th Anniversary of the Incheon Landing (9309477).jpg",
-      "summary": "Republic of Korea Marines in the honor guard prepare to present the colors for a floral tribute to honor the fallen during an at-sea cruise aboard the ROKS Marado commemorating the 75th anniversary of the landing at Incheon, in Incheon, South Korea, Sept. 12, 2025. The commemoration honored the strategic success of the landing, which turned the tide of the Korean War, and paid tribute to the sacrifices made by Republic of Korea and United Nations Command Forces. ( U.S. Marine Corps photo by Cpl. Simon Saravia)",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 한국전쟁",
-        "url": "https://commons.wikimedia.org/wiki/File:MARFORK_Marines_participate_in_at-sea_cruise_honoring_75th_Anniversary_of_the_Incheon_Landing_(9309477).jpg",
-        "identifier": "179905527",
-        "accessedAt": "2026-10-26T11:16:33.305Z"
-      },
-      "dates": {
-        "display": "Taken on 12 September 2025",
-        "precision": "unknown"
-      },
-      "warIds": [
-        "korean-war"
-      ],
-      "entityIds": [],
-      "topics": [
-        "PD US Marines",
-        "Files created by the United States Marine Corps with known IDs",
-        "DVIDS files uploaded by OptimusPrimeBot",
-        "Milimedia files, South Korea (review needed)",
-        "South Korea photographs taken on 2025-09-12"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 한국전쟁 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:MARFORK_Marines_participate_in_at-sea_cruise_honoring_75th_Anniversary_of_the_Incheon_Landing_(9309477).jpg"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-26T11:16:33.305Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-26T11:16:33.305Z",
           "summary": "원 소장처 메타데이터 수집"
         }
       ]
@@ -12992,132 +11189,6 @@
       ]
     },
     {
-      "id": "rec-e56cd6a8fdc727c8adbe521f",
-      "title": "Industries of War - Metals - Steel - Youngstown Sheet and Tube Company - Steel Manufacture at Youngstown Sheet and Tube Company, Youngstown, Ohio - NARA - 45487940.jpg",
-      "originalTitle": "Industries of War - Metals - Steel - Youngstown Sheet and Tube Company - Steel Manufacture at Youngstown Sheet and Tube Company, Youngstown, Ohio - NARA - 45487940.jpg",
-      "summary": "원 소장처의 자료 정보와 이용 조건을 확인할 수 있는 기록입니다.",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제1차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:Industries_of_War_-_Metals_-_Steel_-_Youngstown_Sheet_and_Tube_Company_-_Steel_Manufacture_at_Youngstown_Sheet_and_Tube_Company,_Youngstown,_Ohio_-_NARA_-_45487940.jpg",
-        "identifier": "62728567",
-        "accessedAt": "2026-10-26T05:15:51.384Z"
-      },
-      "dates": {
-        "display": "1917 – 1918",
-        "start": "1917",
-        "end": "1918",
-        "precision": "range"
-      },
-      "warIds": [
-        "world-war-i"
-      ],
-      "entityIds": [],
-      "topics": [
-        "PD US Military",
-        "Images from the National Archives and Records Administration",
-        "Media contributed by the National Archives and Records Administration",
-        "Artworks without Wikidata item",
-        "Youngstown Sheet and Tube Company",
-        "US National Archives series: American Unofficial Collection of World War I Photographs",
-        "Template Unknown (author)",
-        "Black and white photographs of World War I",
-        "US National Archives location: other",
-        "Metal production in the United States in World War I"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제1차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:Industries_of_War_-_Metals_-_Steel_-_Youngstown_Sheet_and_Tube_Company_-_Steel_Manufacture_at_Youngstown_Sheet_and_Tube_Company,_Youngstown,_Ohio_-_NARA_-_45487940.jpg"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-26T05:15:51.384Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-26T05:15:51.384Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
-      "id": "rec-e5ae082fe5d4963ea5b49b36",
-      "title": "The citizen in uniform - reform and its critics in the Bundeswehr (IA citizeninuniform00aben).pdf",
-      "originalTitle": "The citizen in uniform - reform and its critics in the Bundeswehr (IA citizeninuniform00aben).pdf",
-      "summary": "Final report for period July 1987 - October 1987.\" Subjects: COMMUNITY RELATIONS.; WEST GERMANY.; MILITARY FORCES (FOREIGN)",
-      "kind": "document",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 한국전쟁",
-        "url": "https://commons.wikimedia.org/wiki/File:The_citizen_in_uniform_-_reform_and_its_critics_in_the_Bundeswehr_(IA_citizeninuniform00aben).pdf",
-        "identifier": "91910550",
-        "accessedAt": "2026-10-26T11:16:51.962Z"
-      },
-      "dates": {
-        "display": "2020-07-05 07:11:23",
-        "precision": "unknown"
-      },
-      "warIds": [
-        "korean-war"
-      ],
-      "entityIds": [],
-      "topics": [
-        "PD US Government",
-        "Documents from the US Naval Postgraduate School Library",
-        "Scans from the Internet Archive/unverified",
-        "CC-PD-Mark",
-        "Scans from the Internet Archive",
-        "Books uploaded by Fæ",
-        "Books without Wikidata item",
-        "Reports from the Naval Postgraduate School"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 한국전쟁 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:The_citizen_in_uniform_-_reform_and_its_critics_in_the_Bundeswehr_(IA_citizeninuniform00aben).pdf"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-26T11:16:51.962Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-26T11:16:51.962Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
       "id": "rec-e9b65d7da2d8b4dd540a19f1",
       "title": "Defense Against Gas - DPLA - a1257d3e56d37120ec2c995fc03e4e0d (page 58).jpg",
       "originalTitle": "Defense Against Gas - DPLA - a1257d3e56d37120ec2c995fc03e4e0d (page 58).jpg",
@@ -13364,6 +11435,72 @@
       ]
     },
     {
+      "id": "rec-ecccca9dfa5be3061258479a",
+      "title": "U.S. Vice President Joe Biden, right foreground, signs a guest book at the Korean War Memorial in Seoul, South Korea, Dec. 7, 2013 131207-N-SZ959-068.jpg",
+      "originalTitle": "U.S. Vice President Joe Biden, right foreground, signs a guest book at the Korean War Memorial in Seoul, South Korea, Dec. 7, 2013 131207-N-SZ959-068.jpg",
+      "summary": "U.S. Vice President Joe Biden, right foreground, signs a guest book at the Korean War Memorial in Seoul, South Korea, Dec. 7, 2013. Biden's three-day visit underscored the commitment of the U.S. administration to its alliance with South Korea.",
+      "kind": "photograph",
+      "language": "und",
+      "source": {
+        "name": "Wikimedia Commons · 한국전쟁",
+        "url": "https://commons.wikimedia.org/wiki/File:U.S._Vice_President_Joe_Biden,_right_foreground,_signs_a_guest_book_at_the_Korean_War_Memorial_in_Seoul,_South_Korea,_Dec._7,_2013_131207-N-SZ959-068.jpg",
+        "identifier": "30081067",
+        "accessedAt": "2026-10-26T17:13:30.926Z"
+      },
+      "dates": {
+        "display": "Taken on 7 December 2013",
+        "precision": "unknown"
+      },
+      "warIds": [
+        "korean-war"
+      ],
+      "entityIds": [],
+      "topics": [
+        "Taken with Canon EOS 5D Mark II",
+        "PD US Military",
+        "Files created by the United States Navy with known IDs",
+        "Taken on missing SDC inception",
+        "Images from DoD uploaded by Fæ",
+        "South Korea photographs taken on 2013-12-07",
+        "Joe Biden wearing red neckties",
+        "Joe Biden at a lectern",
+        "Joe Biden holding pens",
+        "Joe Biden looking down",
+        "Joe Biden visit to South Korea, December 2013",
+        "Joe Biden and Sung Kim",
+        "Photographs of Joe Biden with the national flag of the United States"
+      ],
+      "rights": {
+        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
+        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
+        "downloadAllowed": false,
+        "reuseAllowed": false
+      },
+      "review": {
+        "provenance": "checked",
+        "content": "source-description",
+        "translation": "none"
+      },
+      "media": {
+        "displayAllowed": false
+      },
+      "citations": [
+        {
+          "label": "Wikimedia Commons · 한국전쟁 원 소장처",
+          "url": "https://commons.wikimedia.org/wiki/File:U.S._Vice_President_Joe_Biden,_right_foreground,_signs_a_guest_book_at_the_Korean_War_Memorial_in_Seoul,_South_Korea,_Dec._7,_2013_131207-N-SZ959-068.jpg"
+        }
+      ],
+      "revision": 1,
+      "updatedAt": "2026-10-26T17:13:30.926Z",
+      "sensitivity": "none",
+      "changes": [
+        {
+          "at": "2026-10-26T17:13:30.926Z",
+          "summary": "원 소장처 메타데이터 수집"
+        }
+      ]
+    },
+    {
       "id": "rec-ede45aa35ed03caeeef5f9a7",
       "title": "American Library Association - S - Library, Paris Island, S.C - NARA - 20800892.jpg",
       "originalTitle": "American Library Association - S - Library, Paris Island, S.C - NARA - 20800892.jpg",
@@ -13423,6 +11560,62 @@
       "changes": [
         {
           "at": "2026-10-26T11:14:05.241Z",
+          "summary": "원 소장처 메타데이터 수집"
+        }
+      ]
+    },
+    {
+      "id": "rec-f15d637b8a4486d97ef24870",
+      "title": "B-29s-korea.jpg",
+      "originalTitle": "B-29s-korea.jpg",
+      "summary": "B-29s over the skies of North Korea.",
+      "kind": "photograph",
+      "language": "und",
+      "source": {
+        "name": "Wikimedia Commons · 한국전쟁",
+        "url": "https://commons.wikimedia.org/wiki/File:B-29s-korea.jpg",
+        "identifier": "32205017",
+        "accessedAt": "2026-10-26T17:13:36.102Z"
+      },
+      "dates": {
+        "display": "circa 1950 date QS:P,+1950-00-00T00:00:00Z/9,P1480,Q5727902",
+        "start": "1950",
+        "precision": "circa"
+      },
+      "warIds": [
+        "korean-war"
+      ],
+      "entityIds": [],
+      "topics": [
+        "PD US Air Force",
+        "B-29s in the Korean War"
+      ],
+      "rights": {
+        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
+        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
+        "downloadAllowed": false,
+        "reuseAllowed": false
+      },
+      "review": {
+        "provenance": "checked",
+        "content": "source-description",
+        "translation": "none"
+      },
+      "media": {
+        "displayAllowed": false
+      },
+      "citations": [
+        {
+          "label": "Wikimedia Commons · 한국전쟁 원 소장처",
+          "url": "https://commons.wikimedia.org/wiki/File:B-29s-korea.jpg"
+        }
+      ],
+      "revision": 1,
+      "updatedAt": "2026-10-26T17:13:36.102Z",
+      "sensitivity": "none",
+      "changes": [
+        {
+          "at": "2026-10-26T17:13:36.102Z",
           "summary": "원 소장처 메타데이터 수집"
         }
       ]
@@ -13727,6 +11920,68 @@
       "changes": [
         {
           "at": "2026-10-25T23:16:05.092Z",
+          "summary": "원 소장처 메타데이터 수집"
+        }
+      ]
+    },
+    {
+      "id": "rec-f5f47ecdcdab674e12c527ad",
+      "title": "Memorial of Murdered Jews of Europe.jpg",
+      "originalTitle": "Memorial of Murdered Jews of Europe.jpg",
+      "summary": "രണ്ടാം ലോകമഹായുദ്ധകാലത്ത് നാസി പട്ടാളം കൊന്നൊടുക്കിയ ജൂതന്മാരുടെ ശവക്കല്ലറകൾ.",
+      "kind": "photograph",
+      "language": "und",
+      "source": {
+        "name": "Wikimedia Commons · 제2차 세계대전",
+        "url": "https://commons.wikimedia.org/wiki/File:Memorial_of_Murdered_Jews_of_Europe.jpg",
+        "identifier": "91827938",
+        "accessedAt": "2026-10-26T17:19:07.193Z"
+      },
+      "dates": {
+        "display": "2018-11-16 09:56:21",
+        "precision": "unknown"
+      },
+      "warIds": [
+        "world-war-ii"
+      ],
+      "entityIds": [],
+      "topics": [
+        "Memorial to the Murdered Jews of Europe",
+        "Self-published work",
+        "Files with coordinates missing SDC location of creation"
+      ],
+      "rights": {
+        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
+        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
+        "downloadAllowed": false,
+        "reuseAllowed": false
+      },
+      "review": {
+        "provenance": "checked",
+        "content": "source-description",
+        "translation": "none"
+      },
+      "media": {
+        "displayAllowed": false
+      },
+      "citations": [
+        {
+          "label": "Wikimedia Commons · 제2차 세계대전 원 소장처",
+          "url": "https://commons.wikimedia.org/wiki/File:Memorial_of_Murdered_Jews_of_Europe.jpg"
+        }
+      ],
+      "revision": 1,
+      "updatedAt": "2026-10-26T17:19:07.193Z",
+      "sensitivity": "none",
+      "location": {
+        "name": "원 소장처 자료 지오태그",
+        "lat": 52.514516,
+        "lon": 13.378897,
+        "precision": "approximate"
+      },
+      "changes": [
+        {
+          "at": "2026-10-26T17:19:07.193Z",
           "summary": "원 소장처 메타데이터 수집"
         }
       ]
@@ -14224,6 +12479,68 @@
       ]
     },
     {
+      "id": "rec-fbdb3590d1ab5eb3f357a7b6",
+      "title": "USS Boxer (CV-21) underway off Korea on 6 August 1951 (NNAM.2011.003.281.014).jpg",
+      "originalTitle": "USS Boxer (CV-21) underway off Korea on 6 August 1951 (NNAM.2011.003.281.014).jpg",
+      "summary": "A U.S. Navy Grumman F9F-2B Panther of Fighter Squadron 721 (VF-721) \"Starbusters\" and a F9F-2P of Composite Squadron 61 (VC-61) \"Eyes of the Fleet\", Detachment F, return to the aircraft carrier USS Boxer (CV-21) following a combat mission over Korea, 6 August 1951. Both squadrons were assigned to Carrier Air Group 101 (CVG-101) aboard the Boxer for a deployment to Korea from 2 March to 24 October 1951.",
+      "kind": "photograph",
+      "language": "und",
+      "source": {
+        "name": "Wikimedia Commons · 한국전쟁",
+        "url": "https://commons.wikimedia.org/wiki/File:USS_Boxer_(CV-21)_underway_off_Korea_on_6_August_1951_(NNAM.2011.003.281.014).jpg",
+        "identifier": "20534849",
+        "accessedAt": "2026-10-26T17:13:25.500Z"
+      },
+      "dates": {
+        "display": "1951-08-06",
+        "start": "1951-08-06",
+        "precision": "exact"
+      },
+      "warIds": [
+        "korean-war"
+      ],
+      "entityIds": [],
+      "topics": [
+        "USS Boxer (CV-21)",
+        "PD US Navy",
+        "CC-PD-Mark",
+        "Ship engine smoke",
+        "F9F Panthers in the Korean War",
+        "Korean War in August 1951",
+        "Fighter Squadron 53 (United States Navy)",
+        "Photographic Reconnaissance Squadron 63 (United States Navy)"
+      ],
+      "rights": {
+        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
+        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
+        "downloadAllowed": false,
+        "reuseAllowed": false
+      },
+      "review": {
+        "provenance": "checked",
+        "content": "source-description",
+        "translation": "none"
+      },
+      "media": {
+        "displayAllowed": false
+      },
+      "citations": [
+        {
+          "label": "Wikimedia Commons · 한국전쟁 원 소장처",
+          "url": "https://commons.wikimedia.org/wiki/File:USS_Boxer_(CV-21)_underway_off_Korea_on_6_August_1951_(NNAM.2011.003.281.014).jpg"
+        }
+      ],
+      "revision": 1,
+      "updatedAt": "2026-10-26T17:13:25.500Z",
+      "sensitivity": "none",
+      "changes": [
+        {
+          "at": "2026-10-26T17:13:25.500Z",
+          "summary": "원 소장처 메타데이터 수집"
+        }
+      ]
+    },
+    {
       "id": "rec-fd9cd5b6526d024607cf4997",
       "title": "RL30340 (IA RL30340-crs).pdf",
       "originalTitle": "RL30340 (IA RL30340-crs).pdf",
@@ -14580,8 +12897,8 @@
   "claims": [],
   "coverage": {
     "sources": 4,
-    "records": 235,
-    "lastCollectedAt": "2026-10-26T11:18:13.005Z",
+    "records": 209,
+    "lastCollectedAt": "2026-10-26T17:18:00.091Z",
     "limitations": [
       "수록 자료는 전체 전쟁 기록의 일부입니다.",
       "원 소장처의 설명을 기록하며, 출처의 주장을 독립적으로 검증한 것으로 표시하지 않습니다.",
