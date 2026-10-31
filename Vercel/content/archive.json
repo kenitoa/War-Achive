@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "releaseId": "rel-c4312544-2576-48c7-8b72-81e96a72c3aa",
-  "generatedAt": "2026-10-31T13:40:05.133Z",
+  "releaseId": "rel-af8552cd-b915-4f58-b5ee-abfd8673e011",
+  "generatedAt": "2026-10-31T14:40:42.808Z",
   "records": [
     {
       "id": "rec-2331776c38869e98d9eb1097",
@@ -168,126 +168,6 @@
           "summary": "원 소장처 메타데이터 수집"
         }
       ]
-    },
-    {
-      "id": "rec-a33b756c5959622096c72b26",
-      "title": "Personnel - Inman through Juenemann (165-WW-406C-8) - DPLA - da769a42c2a6d5fe9fa557cec578e0d3.jpg",
-      "originalTitle": "Personnel - Inman through Juenemann (165-WW-406C-8) - DPLA - da769a42c2a6d5fe9fa557cec578e0d3.jpg",
-      "summary": "원 소장처의 자료 정보와 이용 조건을 확인할 수 있는 기록입니다.",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제1차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:Personnel_-_Inman_through_Juenemann_(165-WW-406C-8)_-_DPLA_-_da769a42c2a6d5fe9fa557cec578e0d3.jpg",
-        "identifier": "96345788",
-        "accessedAt": "2026-10-27T11:20:06.382Z"
-      },
-      "dates": {
-        "display": "1917-01-01/1918-12-31",
-        "precision": "unknown"
-      },
-      "warIds": [
-        "world-war-i"
-      ],
-      "entityIds": [],
-      "topics": [
-        "PD US",
-        "Media contributed by the National Archives and Records Administration",
-        "Media contributed by the Digital Public Library of America",
-        "Artworks without Wikidata item",
-        "Media contributed by National Archives at College Park - Still Pictures",
-        "US National Archives series: American Unofficial Collection of World War I Photographs",
-        "US National Archives series: American Unofficial Collection of World War I Photographs, 1917 - 1918"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제1차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:Personnel_-_Inman_through_Juenemann_(165-WW-406C-8)_-_DPLA_-_da769a42c2a6d5fe9fa557cec578e0d3.jpg"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-27T11:20:06.382Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-27T11:20:06.382Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
-    },
-    {
-      "id": "rec-a7cd5545e9a5aaec397bf33d",
-      "title": "Ship Building - Steel - Union Iron Works (165-WW-497J-6) - DPLA - 17eb2443178e484e9e562dcf8f117155.jpg",
-      "originalTitle": "Ship Building - Steel - Union Iron Works (165-WW-497J-6) - DPLA - 17eb2443178e484e9e562dcf8f117155.jpg",
-      "summary": "원 소장처의 자료 정보와 이용 조건을 확인할 수 있는 기록입니다.",
-      "kind": "photograph",
-      "language": "und",
-      "source": {
-        "name": "Wikimedia Commons · 제1차 세계대전",
-        "url": "https://commons.wikimedia.org/wiki/File:Ship_Building_-_Steel_-_Union_Iron_Works_(165-WW-497J-6)_-_DPLA_-_17eb2443178e484e9e562dcf8f117155.jpg",
-        "identifier": "97030468",
-        "accessedAt": "2026-10-27T11:19:53.458Z"
-      },
-      "dates": {
-        "display": "1917-01-01/1918-12-31",
-        "precision": "unknown"
-      },
-      "warIds": [
-        "world-war-i"
-      ],
-      "entityIds": [],
-      "topics": [
-        "PD US",
-        "Union Iron Works",
-        "Media contributed by the National Archives and Records Administration",
-        "Media contributed by the Digital Public Library of America",
-        "Artworks without Wikidata item",
-        "Media contributed by National Archives at College Park - Still Pictures",
-        "US National Archives series: American Unofficial Collection of World War I Photographs"
-      ],
-      "rights": {
-        "label": "Wikimedia Commons 원 소장처의 자료별 이용 조건을 확인하세요. 메타데이터와 출처 링크 중심으로 제공합니다.",
-        "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
-        "downloadAllowed": false,
-        "reuseAllowed": false
-      },
-      "review": {
-        "provenance": "checked",
-        "content": "source-description",
-        "translation": "none"
-      },
-      "media": {
-        "displayAllowed": false
-      },
-      "citations": [
-        {
-          "label": "Wikimedia Commons · 제1차 세계대전 원 소장처",
-          "url": "https://commons.wikimedia.org/wiki/File:Ship_Building_-_Steel_-_Union_Iron_Works_(165-WW-497J-6)_-_DPLA_-_17eb2443178e484e9e562dcf8f117155.jpg"
-        }
-      ],
-      "revision": 1,
-      "updatedAt": "2026-10-27T11:19:53.458Z",
-      "sensitivity": "none",
-      "changes": [
-        {
-          "at": "2026-10-27T11:19:53.458Z",
-          "summary": "원 소장처 메타데이터 수집"
-        }
-      ]
     }
   ],
   "wars": [
@@ -402,8 +282,8 @@
   "claims": [],
   "coverage": {
     "sources": 4,
-    "records": 5,
-    "lastCollectedAt": "2026-10-31T13:39:04.511Z",
+    "records": 3,
+    "lastCollectedAt": "2026-10-31T13:44:41.638Z",
     "limitations": [
       "수록 자료는 전체 전쟁 기록의 일부입니다.",
       "원 소장처의 설명을 기록하며, 출처의 주장을 독립적으로 검증한 것으로 표시하지 않습니다.",
