@@ -1,0 +1,38 @@
+import { useState } from 'react';
+import EvidencePicker from './EvidencePicker';
+import { api } from './api';
+
+import { ArticleListSchema, type EditorialArticle } from './generated-editorial';
+import { Empty, ErrorNotice, Panel, Status } from './components';
+
+type Action=(operation:()=>Promise<unknown>,success:string)=>Promise<void>;
+
+export default function EditorialPanel({raw,busy,action,selected,setSelected}:{raw:unknown;busy:boolean;action:Action;selected:string;setSelected:(id:string)=>void}) {
+  const parsed=ArticleListSchema.safeParse(raw);
+  if(!parsed.success)return <ErrorNotice error="편집실 응답 형식을 확인할 수 없습니다. 새로고침해 주세요." />;
+  const data=parsed.data,item=data.items.find(row=>row.id===selected)??data.items[0];
+  return <>
+    <div className="editorial-flow" aria-label="편집 파이프라인">{[['수집·정제','승인 자료'],['분석·초안',String((data.counts.review??0)+(data.counts.draft??0))],['승인·예약',String((data.counts.approved??0)+(data.counts.scheduled??0))],['발행',String(data.counts.published??0)],['실패',String(data.counts.failed??0)]].map(([name,value])=><div key={name}><span>{name}</span><strong>{value}</strong></div>)}</div>
+    <Panel title="원고 만들기" eyebrow="SOURCE → ANALYSIS → DRAFT"><details><summary>여러 자료를 묶어 원고 생성</summary><form className="editorial-create" onSubmit={event=>{event.preventDefault();const fields=new FormData(event.currentTarget);void action(()=>api.request('/editorial',{method:'POST',body:{title:fields.get('title'),recordIds:fields.getAll('recordIds')}}),'자료 분석과 초안을 생성했습니다. 내용·권리 검수를 진행하세요.');}}><label className="field">원고 제목<input name="title" required maxLength={240}/></label><EvidencePicker busy={busy}/><p className="muted">정기 작업자가 승인된 새 자료의 시기·언어·주제·주의사항을 분석해 초안을 만듭니다. 아래 목록에는 현재 페이지의 원고가 표시됩니다.</p><button className="button" disabled={busy}>분석·초안 생성</button></form></details></Panel>
+    <div className="editorial-workspace"><Panel title={`원고 ${data.total}건`} eyebrow="EDITORIAL DESK"><div className="editorial-list">{data.items.map(row=><button key={row.id} type="button" className={item?.id===row.id?'selected':''} aria-pressed={item?.id===row.id} onClick={()=>setSelected(row.id)}><Status value={row.status}/><strong>{row.document.title}</strong><small>근거 {row.document.evidence.length}개 · 개정 {row.revision}</small></button>)}</div>{!data.items.length&&<Empty title="원고가 없습니다">공개 승인된 자료를 선택하거나 정기 초안 생성을 기다려 주세요.</Empty>}</Panel>
+    {item&&<Editor key={`${item.id}:${item.revision}`} item={item} busy={busy} action={action}/>}</div>
+    <div className="pagination"><span>{data.page} / {data.pages}페이지</span><a href="/blog/" target="_blank" rel="noopener noreferrer">NAS 블로그 열기 ↗</a></div>
+  </>;
+}
+function Editor({item,busy,action}:{item:EditorialArticle;busy:boolean;action:Action}) {
+  const [title,setTitle]=useState(item.document.title),[summary,setSummary]=useState(item.document.summary),[blocks,setBlocks]=useState(item.document.blocks);
+  const [content,setContent]=useState(false),[rights,setRights]=useState(false),[note,setNote]=useState(''),[publishAt,setPublishAt]=useState('');
+  const dirty=title!==item.document.title||summary!==item.document.summary||JSON.stringify(blocks)!==JSON.stringify(item.document.blocks);
+  const decision=(value:'approve'|'reject'|'withdraw'|'retry')=>void action(()=>api.request(`/editorial/${item.id}/decision`,{method:'POST',body:{expectedRevision:item.revision,decision:value,note,contentReviewed:content,rightsReviewed:rights,...(value==='approve'&&publishAt?{publishAt:new Date(publishAt).toISOString()}:{})}}),'원고 상태를 갱신했습니다.');
+  return <Panel title="원고 편집·검수" eyebrow={`${item.status.toUpperCase()} / REVISION ${item.revision}`}>
+    <form className="editorial-editor" onSubmit={event=>{event.preventDefault();void action(()=>api.request(`/editorial/${item.id}`,{method:'PATCH',body:{expectedRevision:item.revision,title,summary,blocks}}),'원고를 저장했습니다. 이전 승인은 해제됩니다.');}}>
+      {item.lastError&&<ErrorNotice error={`처리 상태: ${item.lastError}. 근거 또는 저장소 상태를 확인한 뒤 재검수·재시도하세요.`}/>}
+      <label className="field">제목<input value={title} onChange={event=>setTitle(event.target.value)} required maxLength={240}/></label>
+      <label className="field">요약<textarea value={summary} onChange={event=>setSummary(event.target.value)} required maxLength={1000} rows={3}/></label>
+      {blocks.map((block,index)=><fieldset key={index}><legend>문단 {index+1}</legend><label className="field">소제목<input value={block.heading} onChange={event=>setBlocks(current=>current.map((row,i)=>i===index?{...row,heading:event.target.value}:row))} required maxLength={200}/></label><label className="field">본문<textarea value={block.text} onChange={event=>setBlocks(current=>current.map((row,i)=>i===index?{...row,text:event.target.value}:row))} rows={7} required maxLength={6000}/></label><div className="editorial-evidence">{item.document.evidence.map(evidence=><label key={evidence.recordId}><input type="checkbox" checked={block.evidenceIds.includes(evidence.recordId)} onChange={event=>setBlocks(current=>current.map((row,i)=>i===index?{...row,evidenceIds:event.target.checked?[...row.evidenceIds,evidence.recordId]:row.evidenceIds.filter(id=>id!==evidence.recordId)}:row))}/>{evidence.title}</label>)}</div><button type="button" className="button button-secondary button-small" disabled={blocks.length===1||busy} onClick={()=>setBlocks(current=>current.filter((_,i)=>i!==index))}>문단 삭제</button></fieldset>)}
+      <div className="row-actions"><button type="button" className="button button-secondary" disabled={blocks.length>=40||busy} onClick={()=>setBlocks(current=>[...current,{heading:'새 문단',text:'',evidenceIds:[]}])}>문단 추가</button><button className="button" disabled={busy||item.status==='publishing'}>편집본 저장</button></div>
+    </form>
+    <details className="editorial-analysis"><summary>분석 결과·근거 확인</summary><p>분석 방식: 메타데이터 규칙 분석 · 자동 역사적 사실 검증 아님</p><p>언어: {item.document.analysis.languages.join(', ')}<br/>주제: {item.document.analysis.topics.join(' · ')||'주제 미상'}</p><ul>{item.document.analysis.warnings.map((warning,index)=><li key={index}>{warning}</li>)}</ul><ol>{item.document.evidence.map(evidence=><li key={evidence.recordId}><a href={evidence.url} target="_blank" rel="noopener noreferrer">{evidence.title} ↗</a><p>{evidence.publisher} · {evidence.date} · 개정 {evidence.revision}<br/>{evidence.rights}</p></li>)}</ol></details>
+    <div className="editorial-review"><h3>검수·발행</h3><label><input type="checkbox" checked={content} onChange={event=>setContent(event.target.checked)}/>문단별 근거와 내용 확인</label><label><input type="checkbox" checked={rights} onChange={event=>setRights(event.target.checked)}/>인용·이미지·재사용 권리 확인</label><label className="field">검수·처리 사유<textarea value={note} onChange={event=>setNote(event.target.value)} maxLength={2000} rows={2}/></label><label className="field">예약 발행 · 비우면 승인 후 발행<input type="datetime-local" value={publishAt} onChange={event=>setPublishAt(event.target.value)}/></label>{dirty&&<p role="status">편집 내용을 먼저 저장해 주세요.</p>}<div className="row-actions"><button type="button" className="button" disabled={busy||dirty||!content||!rights||!note.trim()||!['draft','review'].includes(item.status)} onClick={()=>decision('approve')}>승인·발행 예약</button><button type="button" className="button button-secondary" disabled={busy||dirty||!note.trim()||item.status==='publishing'} onClick={()=>decision('reject')}>반려·초안으로</button><button type="button" className="button button-secondary" disabled={busy||!note.trim()||item.status!=='failed'} onClick={()=>decision('retry')}>실패 재시도</button><button type="button" className="button button-secondary" disabled={busy||!note.trim()||item.status==='withdrawn'} onClick={()=>decision('withdraw')}>공개 철회</button></div></div>
+  </Panel>;
+}

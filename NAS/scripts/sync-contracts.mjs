@@ -5,12 +5,15 @@ import { fileURLToPath } from 'node:url';
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '../..');
 const contract = await readFile(resolve(root, 'NAS/back/src/domain/contracts.ts'), 'utf8');
 const models = await readFile(resolve(root, 'NAS/back/src/domain/models.ts'), 'utf8');
+const editorial = await readFile(resolve(root, 'NAS/back/src/domain/editorial-contract.ts'), 'utf8');
 const outputs = [
+  ['NAS/admin/src/generated-editorial.ts', editorial],
   ['Vercel/lib/generated-contract.ts', contract],
   ['NAS/admin/src/generated-contract.ts', contract],
   ['NAS/admin/src/generated-models.ts', models.replaceAll("'./contracts.js'", "'./generated-contract.js'")],
 ];
 for (const [relative, body] of outputs) {
+  if(process.argv.includes('--nas-only')&&!relative.startsWith('NAS/'))continue;
   const target = resolve(root, relative);
   if (process.argv.includes('--check')) {
     if (await readFile(target, 'utf8').catch(() => '') !== body) throw new Error(`Contract is out of date: ${relative}`);

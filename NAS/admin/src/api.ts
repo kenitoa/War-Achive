@@ -7,6 +7,14 @@ const EnvelopeSchema = z.object({
 }).refine((value) => 'data' in value && 'error' in value);
 
 const messages: Record<string, string> = {
+  ARTICLE_NOT_FOUND:'원고를 찾을 수 없습니다.',
+  ARTICLE_BUSY:'발행 중인 원고입니다. 잠시 후 다시 시도하세요.',
+  ARTICLE_STATE:'현재 원고 상태에서는 이 작업을 할 수 없습니다.',
+  EVIDENCE_MISSING:'선택한 근거 자료를 찾을 수 없습니다.',
+  EVIDENCE_NOT_APPROVED:'공개 승인된 비민감 자료만 원고 근거로 선택할 수 있습니다.',
+  EVIDENCE_INVALID:'모든 문단과 근거 자료를 서로 연결해 주세요.',
+  EVIDENCE_STALE:'근거 자료가 변경되었습니다. 원고를 새로 만들거나 근거를 재검토하세요.',
+  REVIEW_REQUIRED:'문단별 근거와 내용·권리 검수를 완료해 주세요.',
   UNAUTHORIZED: '관리자 인증이 필요합니다. 다시 로그인해 주세요.',
   FORBIDDEN: '이 작업을 수행할 권한이 없습니다.',
   CSRF_INVALID: '세션 확인 정보가 만료되었습니다. 다시 로그인해 주세요.',

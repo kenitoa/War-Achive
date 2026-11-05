@@ -1,4 +1,5 @@
 import { randomUUID } from 'node:crypto';
+import { EditorialService } from './editorial-service.js';
 import { readFile, mkdir } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { z } from 'zod';
@@ -19,7 +20,8 @@ const jobFrom = (r: Row): Job => ({ id: String(r.id), kind: r.kind as Job['kind'
 
 export class ArchiveService {
   readonly workerId = randomUUID();
-  constructor(public readonly db: Database, public readonly options: ArchiveOptions) {}
+  readonly editorial: EditorialService;
+  constructor(public readonly db: Database, public readonly options: ArchiveOptions) { this.editorial=new EditorialService(db,options.exportDir); }
   async initialize(): Promise<void> { await mkdir(this.options.dataDir, { recursive: true }); await mkdir(this.options.exportDir, { recursive: true }); await migrate(this.db); }
   async close(): Promise<void> { await this.db.close(); }
   async health(): Promise<{ ok: boolean; database: string }> { await this.db.query('SELECT 1'); return { ok: true, database: this.options.databaseUrl ? 'postgresql' : 'pglite' }; }

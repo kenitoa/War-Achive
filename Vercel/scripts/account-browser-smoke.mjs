@@ -68,6 +68,7 @@ try {
   await page.goto(`${base}/shelf/`, { waitUntil: 'domcontentloaded' });
   await page.getByLabel('내 메모', { exact: true }).fill('실제 NAS 연결을 확인한 일회성 검증 메모');
   await page.getByRole('button', { name: '메모·모음 저장', exact: true }).click();
+  await page.locator('.shelf-management > summary').click();
   await page.getByText('계정 서재 동기화 · 명시적으로 병합하고 저장', { exact: true }).click();
   await page.getByRole('button', { name: '서버 저장본 확인', exact: true }).click();
   await page.getByText(/서버 판 0/).waitFor();

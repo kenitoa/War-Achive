@@ -3,6 +3,7 @@ import Link from '@/components/static-link';
 import { Header } from '@/components/header';
 import { archive } from '@/lib/archive';
 import './globals.css';
+import './archive-theme.css';
 
 export const metadata: Metadata = {
   title: { default: '전쟁 아카이브 — 기록으로 이해하는 역사', template: '%s | 전쟁 아카이브' },

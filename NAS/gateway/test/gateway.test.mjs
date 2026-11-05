@@ -51,6 +51,20 @@ test('forwards every explicit public route and strips only its exact ingress pre
   assert.equal((await raw('/api/v1/account/session')).status, 200);
 });
 
+test('exposes only read-only blog paths, strips credentials and blocks malformed blog queries', async () => {
+  for (const path of ['/blog/', '/blog/?page=2', '/blog/feed.xml', '/blog/post-12345678-1234-1234-1234-123456789abc/']) {
+    const result=await raw(path,{headers:{cookie:'wa_admin=secret; wa_member=member-token',authorization:'Bearer secret'}});
+    assert.equal(result.status,200);
+    assert.equal(received.at(-1).headers.cookie,undefined);
+    assert.equal(received.at(-1).headers.authorization,undefined);
+    assert.equal(result.headers['set-cookie'],undefined);
+    assert.match(result.headers['content-security-policy'],/default-src 'none'/);
+  }
+  for(const path of ['/blog/?page=0','/blog/?page=1&admin=true','/blog/../../admin/','/blog/%2e%2e/admin/','/blog/unknown/'])assert.equal((await raw(path)).status,404);
+  assert.equal((await raw('/blog/',{method:'POST',body:'{}',headers:{'content-type':'application/json'}})).status,404);
+  assert.equal((await raw('/api/v1/editorial')).status,404);
+});
+
 test('rejects admin/private APIs, unsupported methods and ambiguous paths without reaching upstream', async () => {
   for (const path of ['/admin/', '/api/v1/session', '/api/v1/sources', '/api/v1/settings', '/api/v1/account/reset-token', '/api/v1/requests', '/war-archive-api-admin/api/v1/account/session', '/war-archive-api/api/v1/account/%2e%2e/session', '/war-archive-api%2fapi/v1/account/session', '/api/v1/account%2fsession', '/api/v1/account%5csession', '/api/v1/account/../session', '/api//v1/account/session', '/api/v1/account/session?admin=true', '/api/v1/account/session/']) {
     assert.equal((await raw(path)).status, 404, path);

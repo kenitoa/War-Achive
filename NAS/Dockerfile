@@ -1,3 +1,6 @@
+FROM postgres:17-bookworm AS postgres-tools
+RUN mkdir /pg-tools && cp /usr/lib/postgresql/17/bin/pg_dump /usr/lib/postgresql/17/bin/pg_restore /pg-tools/ && cp -L "$(ldconfig -p | awk '/libpq.so.5 / {print $NF; exit}')" /pg-tools/libpq.so.5
+
 FROM node:22-bookworm-slim AS backend-build
 WORKDIR /build/back
 RUN apt-get update && apt-get install -y --no-install-recommends git openssh-client && rm -r /var/lib/apt/lists/*
@@ -20,7 +23,10 @@ RUN npm run lint && npm run typecheck && npm run test && npm run build
 FROM node:22-bookworm-slim AS runtime
 ENV NODE_ENV=production HOST=0.0.0.0 ADMIN_PORT=4310 DATA_DIR=/var/lib/war-archive EXPORT_DIR=/var/lib/war-archive-releases
 WORKDIR /app/back
-RUN apt-get update && apt-get install -y --no-install-recommends git openssh-client tesseract-ocr tesseract-ocr-kor poppler-utils ffmpeg && rm -r /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y --no-install-recommends git openssh-client tesseract-ocr tesseract-ocr-kor poppler-utils ffmpeg libpq5 liblz4-1 libzstd1 && rm -r /var/lib/apt/lists/*
+COPY --from=postgres-tools /pg-tools/pg_dump /pg-tools/pg_restore /usr/local/bin/
+COPY --from=postgres-tools /pg-tools/libpq.so.5 /usr/local/lib/
+RUN ldconfig && pg_dump --version && pg_restore --version && tesseract --list-langs
 RUN mkdir -p /var/lib/war-archive /var/lib/war-archive-releases && chown node:node /var/lib/war-archive /var/lib/war-archive-releases
 COPY --from=backend-build --chown=node:node /build/back/package.json ./package.json
 COPY --from=backend-build --chown=node:node /build/back/node_modules ./node_modules

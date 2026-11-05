@@ -1,4 +1,6 @@
-# Public account gateway
+# Public account and blog gateway
+
+Read-only NAS blog routes `/blog/`, `/blog/post-<UUID>/`, `/blog/feed.xml` and validated list pagination are also forwarded. They do not carry cookies or authorization headers. Editorial administration remains private. See `../docs/editorial-pipeline.md` for the public reverse-proxy boundary.
 
 Node.js 22 standard-library HTTP gateway. It exposes only account registration/session/shelf/password-reset/account-deletion, public submissions and a minimal upstream health check. Administrator routes never pass this boundary. No runtime or development packages are required.
 

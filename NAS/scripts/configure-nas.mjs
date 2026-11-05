@@ -9,6 +9,8 @@ const path = resolve(dirname(fileURLToPath(import.meta.url)), '../.env');
 let text = await readFile(path, 'utf8').catch((error) => { if (error.code === 'ENOENT') return ''; throw error; });
 const values = parseEnv(text);
 const updates = {};
+const defaults = { NODE_ENV:'production', HOST:'127.0.0.1', ADMIN_PORT:'9231', PUBLIC_PORT:'9232', COOKIE_SAME_SITE:'lax', PUBLIC_ACCOUNT_API_ENABLED:'false', REMOTE_PUBLISH_ENABLED:'false', AUTO_PUBLISH_ENABLED:'true', LOCAL_WORKER_ENABLED:'false', EDITORIAL_PIPELINE_ENABLED:'true', EDITORIAL_AUTO_DRAFT_ENABLED:'true', EDITORIAL_BATCH_SIZE:'5', COLLECTION_INTERVAL_MS:'60000', PUBLICATION_INTERVAL_MS:'7200000', SCHEDULER_RETRY_MS:'5000', COLLECTION_MAX_ITEMS_PER_SOURCE:'20', S3_FORCE_PATH_STYLE:'false' };
+for (const [key,value] of Object.entries(defaults)) if (!values[key]) updates[key]=value;
 if (!values.WAR_ARCHIVE_ADMIN_TOKEN) updates.WAR_ARCHIVE_ADMIN_TOKEN = randomBytes(32).toString('base64url');
 if (!values.POSTGRES_PASSWORD) updates.POSTGRES_PASSWORD = randomBytes(32).toString('hex');
 const password = values.POSTGRES_PASSWORD || updates.POSTGRES_PASSWORD;

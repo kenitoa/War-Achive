@@ -34,6 +34,9 @@ const EnvSchema = z.object({
   SCHEDULER_RETRY_MS: z.coerce.number().int().min(100).default(5000),
   COLLECTION_MAX_ITEMS_PER_SOURCE: z.coerce.number().int().min(1).max(200).default(20),
   AUTO_PUBLISH_ENABLED: z.enum(['true', 'false']).default('true'),
+  EDITORIAL_PIPELINE_ENABLED: z.enum(['true', 'false']).default('true'),
+  EDITORIAL_AUTO_DRAFT_ENABLED: z.enum(['true', 'false']).default('true'),
+  EDITORIAL_BATCH_SIZE: z.coerce.number().int().min(1).max(50).default(5),
   LOCAL_WORKER_ENABLED: z.enum(['true', 'false']).default('true'),
 });
 

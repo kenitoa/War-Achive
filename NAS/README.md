@@ -1,5 +1,9 @@
 # 전쟁 아카이브 · NAS
 
+## NAS 폴더 단독 설치·파이프라인
+
+이 폴더만 NAS에 복사하고 `sh install.sh`를 실행하면 PostgreSQL·API·worker·관리자·공개 gateway를 구성한다. 수집·메타데이터 분석·정제·초안·문단별 근거 검수·예약 발행·철회를 NAS 안에서 처리하며 `/blog/` 자체 블로그와 RSS를 제공한다. GitHub/Vercel 아카이브 snapshot 발행은 선택 기능이다. 필수 조건·HTTPS 경로·출처 승인·설정·검증·롤백은 [NAS 단독 파이프라인](docs/editorial-pipeline.md)을 먼저 따른다. 아래 전용 Git 자동 배포 설명은 그 방식을 선택할 때만 적용한다.
+
 이 폴더에서 API·관리자·수집 worker·PostgreSQL을 관리한다. 공개 웹은 별도 `Vercel/` 폴더다. PC의 로컬 설정은 `NAS/.env`, NAS 자동 배포의 운영 설정은 `/volume3/docker/War_Archive_Server/shared/.env`다. 비밀값은 Git·컨테이너 이미지·공개 배포에서 제외한다. 기존 `back/.env`는 보존한 참고 파일이며 자동으로 합치지 않는다.
 
 현재 NAS의 Git 자동 갱신과 Docker 운영은 [전용 배포 문서](deployment/README.md)를 따른다. [VS Code 작업 공간](War-Archive.code-workspace)을 열고 `main`에서 검사·커밋·푸시한다. 아래 로컬 실행과 수동 Compose 예제는 개발 또는 별도 새 설치용이며, 운영 NAS와 별개로 수집기를 동시에 실행하지 않는다.

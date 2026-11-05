@@ -21,6 +21,9 @@ const tables = {
   media_assets: ['id','record_id','sha256','mime_type','file_path','filename','size_bytes','rights_attestation','publish_derivatives','status','production','created_at','updated_at'],
   productions: ['id','record_id','revision','data','created_at'],
   publications: ['id','target','status','record_count','manifest','snapshot','created_at','published_at','last_error'],
+  editorial_articles: ['id','slug','status','revision','document','automatic_key','run_at','attempts','lease_until','owner','last_error','created_at','updated_at'],
+  editorial_versions: ['article_id','revision','document','status','actor','created_at'],
+  blog_publications: ['article_id','revision','slug','document','sha256','published_at'],
   jobs: ['id','kind','state','payload','dedupe_key','attempts','max_attempts','run_at','lease_until','owner','last_error','created_at','updated_at'],
   requests: ['id','kind','record_id','message','contact','status','resolution','created_at','updated_at'],
   audit_log: ['id','operation','actor','resource_id','detail','created_at'],
@@ -70,7 +73,7 @@ export async function exportPortable(db:Database,dataDir:string,destination:stri
     await validateTables(tx);manifest.migrations=await migrationHistory(tx);
     for(const table of names){
       const file=`${table}.jsonl`,target=await open(within(root,file),'wx',0o600),digest=createHash('sha256');let count=0;
-      try{for(let offset=0;;offset+=500){const order=table==='raw_items'?'ingest_sequence':table==='catalog'?'kind,id':table==='member_shelves'?'member_id':table==='record_versions'?'record_id,revision':table==='withdrawals'?'record_id':'id';const rows=(await tx.query(`SELECT ${tables[table].join(',')} FROM ${table} ORDER BY ${order} LIMIT 500 OFFSET $1`,[offset])).rows;for(const row of rows){const line=JSON.stringify(row)+'\n';digest.update(line);await target.write(line);count++;}if(rows.length<500)break;}await target.sync();}finally{await target.close();}
+      try{for(let offset=0;;offset+=500){const order=table==='raw_items'?'ingest_sequence':table==='catalog'?'kind,id':table==='member_shelves'?'member_id':table==='record_versions'?'record_id,revision':table==='withdrawals'?'record_id':table==='editorial_versions'||table==='blog_publications'?'article_id,revision':'id';const rows=(await tx.query(`SELECT ${tables[table].join(',')} FROM ${table} ORDER BY ${order} LIMIT 500 OFFSET $1`,[offset])).rows;for(const row of rows){const line=JSON.stringify(row)+'\n';digest.update(line);await target.write(line);count++;}if(rows.length<500)break;}await target.sync();}finally{await target.close();}
       manifest.tables.push({name:table,file,sha256:digest.digest('hex'),rows:count});
     }
     const originals=(await tx.query("SELECT DISTINCT raw_hash AS hash,file_path,'json' AS kind FROM raw_items UNION ALL SELECT DISTINCT sha256 AS hash,file_path,'media' AS kind FROM media_assets")).rows;
@@ -121,6 +124,7 @@ function prepareRow(table:Table,input:Record<string,unknown>,dataDir:string,at:s
   if(table==='media_assets'){row.file_path=originalPath(dataDir,'media',Hash.parse(row.sha256));row.production=null;row.status='queued';}
   if(table==='productions')row.data=relocateProduction(row.data,dataDir,preserved);
   if(table==='jobs'&&['queued','retry','running'].includes(String(row.state))){row.state='queued';row.owner=null;row.lease_until=null;row.attempts=0;row.run_at=at;row.last_error='PORTABLE_IMPORT_REQUEUED';row.updated_at=at;}
+  if(table==='editorial_articles'&&row.status==='publishing'){row.status='approved';row.owner=null;row.lease_until=null;row.run_at=at;row.last_error='PORTABLE_IMPORT_REQUEUED';row.updated_at=at;}
   return row;
 }
 export async function importPortable(db:Database,bundleDir:string,dataDir:string,options:{pglitePath?:string;exportDir?:string}={}):Promise<{records:number;sources:number;originals:number;invalidatedSessions:true;historicalFiles:number;historyPreserved:boolean;releaseDirectory:string}>{

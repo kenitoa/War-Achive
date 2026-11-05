@@ -11,6 +11,9 @@ import { WarSchema, EntitySchema, CollectionSchema, PublicRecordSchema, ClaimSch
 import { AdminSessions, RateLimiter, csrfToken, equalSecret, parseCookies, type AdminRole, type AdminIdentity } from '../security.js';
 import { IdentityService, RegistrationSchema, MemberLoginSchema, ShelfWriteSchema, PasswordResetSchema } from '../identity/service.js';
 import { ArchiveQueries } from '../queries/archive-queries.js';
+import { EditorialPageSchema } from '../application/editorial-service.js';
+import { escapeHtml, renderArticle } from '../domain/editorial.js';
+import { blogPage } from './blog.js';
 
 const adminLoginSchema = z.object({ token: z.string().min(1).max(512), otp: z.string().max(6).optional() }).strict();
 const idSchema = z.string().min(1).max(150).regex(/^[a-zA-Z0-9_.:-]+$/);
@@ -101,6 +104,26 @@ export function buildApi(service: ArchiveService, config: Config, options: { log
   app.delete('/api/v1/session', async (request, reply) => { sessions.revoke(parseCookies(request.headers.cookie).wa_admin ?? ''); await audit('auth.admin.logout', actor(request)); reply.header('Set-Cookie', cookie('wa_admin', '', 0)); return data(reply, { loggedOut: true }); });
 
   app.get('/api/v1/overview', async (_request, reply) => data(reply, await service.overview()));
+  app.get('/api/v1/editorial', async (request, reply) => {const query=EditorialPageSchema.parse(request.query);return data(reply,await service.editorial.list(query.page,query.pageSize));});
+  app.post('/api/v1/editorial', async (request, reply) => {requireRole(request,'editor');return data(reply,await service.editorial.create(request.body,actor(request)));});
+  app.get('/api/v1/editorial/:id',async(request,reply)=>data(reply,await service.editorial.get(idSchema.parse((request.params as {id:string}).id))));
+  app.get('/api/v1/editorial/:id/versions',async(request,reply)=>data(reply,await service.editorial.history(idSchema.parse((request.params as {id:string}).id))));
+  app.patch('/api/v1/editorial/:id',async(request,reply)=>{requireRole(request,'editor');return data(reply,await service.editorial.edit(idSchema.parse((request.params as {id:string}).id),request.body,actor(request)));});
+  app.post('/api/v1/editorial/:id/decision',async(request,reply)=>{requireRole(request,'publisher');return data(reply,await service.editorial.decide(idSchema.parse((request.params as {id:string}).id),request.body,actor(request)));});
+  app.get('/blog/',async(request,reply)=>{
+    const query=z.object({page:z.coerce.number().int().min(1).max(100000).default(1)}).strict().parse(request.query),result=await service.editorial.published(query.page,12);
+    const body=`<h1>기록 노트</h1>${result.items.length?result.items.map(item=>`<div class="post"><h2><a href="/blog/${escapeHtml(item.slug)}/">${escapeHtml(item.document.title)}</a></h2><p>${escapeHtml(item.document.summary)}</p></div>`).join(''):'<p>발행된 글이 없습니다.</p>'}<nav>${result.page>1?`<a href="/blog/?page=${result.page-1}">← 이전</a>`:''}<span>${result.page} / ${result.pages}</span>${result.page<result.pages?`<a href="/blog/?page=${result.page+1}">다음 →</a>`:''}</nav>`;
+    return reply.header('Cache-Control','no-store').type('text/html; charset=utf-8').send(blogPage('기록 노트',body));
+  });
+  app.get('/blog/feed.xml',async(_request,reply)=>{
+    const result=await service.editorial.published(1,30),e=escapeHtml;
+    return reply.header('Cache-Control','no-store').type('application/atom+xml; charset=utf-8').send(`<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><id>urn:war-archive:blog</id><title>전쟁 아카이브 · 기록 노트</title><updated>${new Date().toISOString()}</updated>${result.items.map(item=>`<entry><id>urn:war-archive:${e(item.id)}</id><title>${e(item.document.title)}</title><updated>${e(item.updatedAt)}</updated><link href="/blog/${e(item.slug)}/"/><summary>${e(item.document.summary)}</summary></entry>`).join('')}</feed>`);
+  });
+  app.get('/blog/:slug/',async(request,reply)=>{
+    const slug=z.string().regex(/^post-[a-f0-9-]{36}$/).parse((request.params as {slug:string}).slug),result=await service.editorial.published(1,1,slug),item=result.items[0];
+    if(!item)return reply.code(404).header('Cache-Control','no-store').type('text/html; charset=utf-8').send(blogPage('자료 없음','<h1>공개된 글을 찾을 수 없습니다.</h1>'));
+    return reply.header('Cache-Control','no-store').type('text/html; charset=utf-8').send(blogPage(item.document.title,renderArticle(item.document)));
+  });
   app.get('/api/v1/sources', async (request, reply) => data(reply, await queries.list('sources', request.query)));
   app.post('/api/v1/sources', async (request, reply) => { requireRole(request, 'editor', 'publisher'); const body = SourceInputSchema.parse(request.body); if (body.policy.status === 'approved') requireRole(request, 'publisher'); return data(reply.code(201), await service.createSource(body, actor(request))); });
   app.patch('/api/v1/sources/:id', async (request, reply) => {

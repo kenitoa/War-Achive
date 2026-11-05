@@ -28,7 +28,18 @@ try {
   assert.equal(manifest.sha256, expectedManifest.sha256);
   checked('대상 공개본 릴리스 ID와 SHA256 일치');
   await page.goto(base, { waitUntil: 'domcontentloaded' });
-  assert.match(await page.locator('h1').innerText(), /전쟁의 기록/);
+  await page.getByRole('search').getByRole('textbox', { name: '자료 통합 검색' }).waitFor();
+  const findingAid = page.getByRole('navigation', { name: '수록 전쟁 목록' });
+  assert.equal(await findingAid.locator('a').count(), data.wars.length);
+  for (const war of data.wars) {
+    const entry = findingAid.getByRole('link').filter({ hasText: war.name });
+    assert.equal(await entry.locator('.index-count').innerText(), `${data.records.filter(record => record.warIds.includes(war.id)).length.toLocaleString()}건`);
+  }
+  await findingAid.getByRole('link').first().click();
+  await page.waitForURL(url => url.pathname === `/wars/${data.wars[0].id}/`);
+  assert.match(await page.locator('h1').innerText(), new RegExp(data.wars[0].name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')));
+  await page.goto(base, { waitUntil: 'domcontentloaded' });
+  checked('소장 분류의 실제 자료 건수와 전쟁 상세 연결');
   await page.screenshot({ path: path.join(artifacts, 'home-desktop.png'), fullPage: true });
   checked('실제 공개본 홈과 데스크톱 렌더');
 
@@ -36,18 +47,19 @@ try {
   await page.getByLabel('전쟁·분쟁', { exact: true }).selectOption(data.wars[0].id);
   await page.getByRole('button', { name: /조건 적용/ }).click();
   await page.waitForURL(url => url.searchParams.get('war') === data.wars[0].id);
-  assert.equal(await page.locator('.record-card').count(), Math.min(12, data.records.filter(record => record.warIds.includes(data.wars[0].id)).length));
+  assert.equal(await page.locator('.record-card').count(), Math.min(6, data.records.filter(record => record.warIds.includes(data.wars[0].id)).length));
   await page.screenshot({ path: path.join(artifacts, 'search-desktop.png'), fullPage: true });
   checked('전쟁 필터 URL과 실제 검색 결과');
   await page.getByLabel('자료 유형', { exact: true }).selectOption('document');
   await page.getByRole('button', { name: /조건 적용/ }).click();
   await page.waitForURL(url => url.searchParams.get('type') === 'document');
-  assert.equal(await page.locator('.record-card').count(), Math.min(12, data.records.filter(record => record.warIds.includes(data.wars[0].id) && record.kind === 'document').length));
+  assert.equal(await page.locator('.record-card').count(), Math.min(6, data.records.filter(record => record.warIds.includes(data.wars[0].id) && record.kind === 'document').length));
   checked('복합 필터와 결과 없음 처리');
 
   const first = data.records[0];
   await page.goto(`${base}/archive/${first.id}/`, { waitUntil: 'domcontentloaded' });
-  assert.equal(await page.locator('h1').innerText(), first.title);
+  assert.ok((await page.locator('h1').innerText()).length > 0);
+  assert.equal(await page.locator('.catalog-original-title').textContent(), first.title);
   assert.equal(await page.getByRole('link', { name: new RegExp(first.source.name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')) }).count() > 0, true);
   await page.getByRole('button', { name: '+ 내 서재에 저장', exact: true }).click();
   await page.getByRole('button', { name: '✓ 서재에 저장됨', exact: true }).waitFor();
@@ -74,6 +86,7 @@ try {
   checked('두 실제 자료 비교와 공유 URL');
 
   const downloadPromise = page.waitForEvent('download');
+  await page.locator('.shelf-management > summary').click();
   await page.getByRole('button', { name: '서재 내보내기 ↓', exact: true }).click();
   const download = await downloadPromise; const backupPath = path.join(artifacts, 'shelf-export.json'); await download.saveAs(backupPath);
   const backup = JSON.parse(await fs.readFile(backupPath, 'utf8')); assert.equal(backup.items[0].recordId, first.id);

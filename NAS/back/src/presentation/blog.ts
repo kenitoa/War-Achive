@@ -1,0 +1,7 @@
+import { escapeHtml } from '../domain/editorial.js';
+
+export function blogPage(title:string,body:string):string {
+  return `<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${escapeHtml(title)} | 전쟁 아카이브</title><style>
+  *{box-sizing:border-box}body{margin:0;background:#eeece7;color:#28312f;font-family:system-ui,'Malgun Gothic',sans-serif;line-height:1.85}main{max-width:860px;margin:0 auto;padding:32px 24px 64px}nav{display:flex;gap:24px;padding-bottom:22px;border-bottom:1px solid #d2c9ba;font-size:14px}a{color:#715e3c;text-underline-offset:4px;overflow-wrap:anywhere}article{margin:28px 0;padding:32px;background:#fffefa;border:1px solid #d8d1c5;border-radius:6px}h1{font-size:32px;line-height:1.5;overflow-wrap:anywhere}h2{font-size:22px;line-height:1.6}.eyebrow{font-size:11px;letter-spacing:.12em;color:#806c48}.summary{font-size:18px;color:#56625e}section{margin-top:32px}p,li{overflow-wrap:anywhere}li{margin-bottom:16px}.citations{font-size:13px}.post{border-bottom:1px solid #ddd5c9;padding:18px 0}.post h2{margin:0 0 8px}.post p{margin:0}footer{margin-top:30px;font-size:13px;color:#626d68}@media(max-width:600px){article{padding:22px}h1{font-size:26px}main{padding:22px 16px}}
+  </style></head><body><main><nav><a href="/blog/">전쟁 아카이브 · 기록 노트</a><a href="/blog/feed.xml">RSS</a></nav>${body}<footer>문단별 근거와 소장처의 이용 조건을 함께 확인하세요.</footer></main></body></html>`;
+}

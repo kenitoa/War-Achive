@@ -45,3 +45,6 @@
 Vercel의 NEXT_PUBLIC_API_ORIGIN이 비어 있으면 검색·열람·브라우저 서재는 NAS 없이 동작한다. 회원 동기화·자료 제보를 연결할 때만 HTTPS 공개 API 게이트웨이를 설정한다. 이 게이트웨이는 계정·제보 경로만 노출하며 /admin 및 관리자 API를 공개하지 않는다. PUBLIC_ACCOUNT_API_ENABLED와 ALLOWED_ORIGINS를 함께 설정한다.
 
 같은 사이트의 API 프록시를 권장한다. 다른 사이트의 쿠키는 브라우저 정책에 의해 제한될 수 있다. 실제 도메인 간 로그인·동기화는 배포 환경에서 별도 확인해야 한다.
+# Editorial pipeline additions
+
+`EDITORIAL_PIPELINE_ENABLED` and `EDITORIAL_AUTO_DRAFT_ENABLED` default to true; set the former false to stop new editorial worker actions without deleting data. `EDITORIAL_BATCH_SIZE` defaults to 5 and accepts 1–50. `PUBLIC_PORT` defaults to 9232 and binds the public gateway to NAS loopback. These flags do not skip source policy or article evidence/rights approval. `sh install.sh` prepares missing configuration and runs image preflight. New `.env.example` entries contain key names only. No external model or CMS credentials are required for the built-in metadata analysis and NAS blog. Full operation instructions: `editorial-pipeline.md`.

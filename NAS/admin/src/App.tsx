@@ -7,11 +7,13 @@ import SourcePanel from './SourcePanel';
 import RecordsPanel from './RecordsPanel';
 import CatalogPanel from './CatalogPanel';
 import MembersPanel from './MembersPanel';
+import EditorialPanel from './EditorialPanel';
 import { AuditPanel, JobsPanel, Overview, PublicationsPanel, RequestsPanel, SettingsPanel } from './OperationsPanels';
 
 const SessionSchema = z.object({ csrfToken: z.string().min(1), authenticated: z.boolean().optional(), role: z.string().optional() });
 const navigation = [
   { id: 'overview', number: '01', name: '운영 현황', subtitle: 'OVERVIEW', description: '수집부터 발행까지, 기록이 이어지는 흐름을 확인합니다.' },
+  { id: 'editorial', number: '11', name: '분석·블로그 편집실', subtitle: 'EDITORIAL PIPELINE', description: '자료 분석부터 근거 검수·예약 발행·철회까지 한곳에서 관리합니다.' },
   { id: 'sources', number: '02', name: '수집 출처', subtitle: 'SOURCE REGISTRY', description: '새로운 기록을 발견하는 출처와 공개 정책을 관리합니다.' },
   { id: 'records', number: '03', name: '자료 검토', subtitle: 'REVIEW DESK', description: '자료의 출처와 맥락을 확인하고 공개할 기록을 준비합니다.' },
   { id: 'catalog', number: '04', name: '전쟁·관계 사전', subtitle: 'CONNECTED CATALOG', description: '전쟁·사람·장소·주장과 자료의 연결을 기록합니다.' },
@@ -68,6 +70,7 @@ export default function App() {
   const [busy, setBusy] = useState(false);
   const [refreshKey, setRefreshKey] = useState(0);
   const [selectedRecord, setSelectedRecord] = useState('');
+  const [selectedArticle, setSelectedArticle] = useState('');
   const [page, setPage] = useState(1);
   const [catalogKind, setCatalogKind] = useState('war');
   const [recordStatus, setRecordStatus] = useState('review');
@@ -141,6 +144,7 @@ export default function App() {
         {tab === 'audit' && <AuditPanel entries={list(data)} />}
         {tab === 'requests' && <RequestsPanel requests={list(data)} busy={busy} action={action} />}
         {tab === 'settings' && <SettingsPanel raw={data} busy={busy} action={action} />}
+        {tab === 'editorial' && <EditorialPanel raw={data} busy={busy} action={action} selected={selectedArticle} setSelected={setSelectedArticle} />}
       </>}</div>
       {!loading && !['overview', 'settings', 'catalog', 'members'].includes(tab) && <div className="pagination"><span>{page}페이지 · 한 번에 최대 100건</span><div className="row-actions"><button className="button button-secondary button-small" type="button" disabled={page === 1 || busy} onClick={() => setPage((value) => value - 1)}>이전</button><button className="button button-secondary button-small" type="button" disabled={list(data).length < 100 || busy} onClick={() => setPage((value) => value + 1)}>다음</button></div></div>}
       <footer className="workspace-footer"><span>자료의 출처를 보존하고, 기록의 다음을 연결합니다.</span><span>WAR ARCHIVE · RECORDS OFFICE</span></footer>

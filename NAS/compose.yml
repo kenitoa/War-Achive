@@ -68,6 +68,20 @@ services:
     security_opt: ["no-new-privileges:true"]
     cap_drop: [ALL]
     stop_grace_period: 35s
+  gateway:
+    build: ./gateway
+    restart: unless-stopped
+    init: true
+    environment:
+      API_ORIGIN: http://api:4310
+      PUBLIC_PATH_PREFIX: /war-archive-api
+    ports:
+      - "127.0.0.1:${PUBLIC_PORT:-9232}:8080"
+    depends_on:
+      api: { condition: service_healthy }
+    networks: [private]
+    security_opt: ["no-new-privileges:true"]
+    cap_drop: [ALL]
 volumes:
   postgres-data:
   archive-data:

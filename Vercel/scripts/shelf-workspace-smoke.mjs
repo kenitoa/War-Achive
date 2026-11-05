@@ -1,0 +1,71 @@
+import { chromium } from 'playwright';
+import assert from 'node:assert/strict';
+import fs from 'node:fs/promises';
+
+const base = process.env.PUBLIC_PREVIEW_URL ?? 'http://127.0.0.1:3100';
+const data = JSON.parse(await fs.readFile('content/archive.json', 'utf8'));
+const now = new Date().toISOString();
+const seed = { version: 1, updatedAt: now, collections: [{ id: 'test-collection', name: '검증용 모음' }], items: data.records.slice(0, 30).map((record, index) => ({ recordId: record.id, savedAt: now, note: index === 0 ? '원래 메모' : '', collectionIds: index < 2 ? ['test-collection'] : [] })) };
+const browser = await chromium.launch({ channel: 'msedge', headless: true });
+const context = await browser.newContext({ viewport: { width: 1440, height: 900 } });
+const page = await context.newPage();
+const errors = [];
+page.on('pageerror', error => errors.push(error.message));
+await fs.mkdir('artifacts', { recursive: true });
+try {
+  await page.goto(`${base}/shelf/`);
+  await page.evaluate(value => localStorage.setItem('war-archive.shelf.v1', JSON.stringify(value)), seed);
+  await page.reload({ waitUntil: 'networkidle' });
+  assert.equal(await page.locator('.shelf-item-select').count(), 30);
+  assert.equal(await page.locator('.shelf-record').count(), 1);
+  assert.equal(await page.locator('.shelf-management').getAttribute('open'), null);
+  assert.equal(await page.locator('.shelf-comparison').getAttribute('open'), null);
+  const bounds = await page.locator('.shelf-workspace').boundingBox();
+  assert.ok(bounds.y >= 0 && bounds.y + bounds.height <= 900);
+  const saveBounds = await page.getByRole('button', { name: '메모·모음 저장', exact: true }).boundingBox();
+  assert.ok(saveBounds.y >= bounds.y && saveBounds.y + saveBounds.height <= bounds.y + bounds.height);
+  const compareBounds = await page.locator('.shelf-comparison>summary').boundingBox();
+  assert.ok(compareBounds.y + compareBounds.height <= 900);
+  for (const selector of ['.shelf-sidebar', '.shelf-records', '.shelf-editor']) assert.ok(await page.locator(selector).isVisible());
+  await page.screenshot({ path: 'artifacts/shelf-workspace-desktop.png', fullPage: true });
+  console.log('PASS 자료 30건에서 세 영역과 비교 입구가 한 화면에 표시');
+  await page.getByLabel('내 메모', { exact: true }).fill('선택을 바꾸어도 보존할 초안');
+  await page.locator('.shelf-item-select').nth(1).click();
+  await page.locator('.shelf-item-select').first().click();
+  assert.equal(await page.getByLabel('내 메모', { exact: true }).inputValue(), '선택을 바꾸어도 보존할 초안');
+  let saved = await page.evaluate(() => JSON.parse(localStorage.getItem('war-archive.shelf.v1')));
+  assert.equal(saved.items[0].note, '원래 메모');
+  await page.getByRole('button', { name: '메모·모음 저장', exact: true }).click();
+  saved = await page.evaluate(() => JSON.parse(localStorage.getItem('war-archive.shelf.v1')));
+  assert.equal(saved.items[0].note, '선택을 바꾸어도 보존할 초안');
+  await page.reload({ waitUntil: 'networkidle' });
+  assert.equal(await page.getByLabel('내 메모', { exact: true }).inputValue(), saved.items[0].note);
+  console.log('PASS 자료 간 선택 변경 시 초안 유지·명시적 저장·새로고침 복원');
+  await page.locator('.collection-filter').filter({ hasText: '검증용 모음' }).click();
+  assert.equal(await page.locator('.shelf-item-select').count(), 2);
+  await page.getByRole('searchbox', { name: '서재 검색', exact: true }).fill('보존할 초안');
+  assert.equal(await page.locator('.shelf-item-select').count(), 1);
+  await page.getByRole('searchbox', { name: '서재 검색', exact: true }).fill('존재하지않는검색조건');
+  assert.equal(await page.locator('.shelf-item-select').count(), 0);
+  assert.equal(await page.locator('.shelf-record').count(), 0);
+  console.log('PASS 모음·메모 검색과 결과 없음 상태');
+  await page.reload({ waitUntil: 'networkidle' });
+  await page.getByRole('button', { name: '비교에 추가', exact: true }).click();
+  assert.equal(await page.locator('.shelf-comparison').getAttribute('open'), '');
+  assert.ok(new URL(page.url()).searchParams.get('compare').includes(seed.items[0].recordId));
+  await page.getByRole('button', { name: '비교 초기화', exact: true }).click();
+  assert.equal(await page.locator('.shelf-comparison').getAttribute('open'), null);
+  console.log('PASS 선택 자료 비교·공유 URL·초기화');
+  for (const width of [1024, 768, 390]) {
+    await page.setViewportSize({ width, height: 900 });
+    assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1), `${width}px overflow`);
+    if (width === 390) await page.screenshot({ path: 'artifacts/shelf-workspace-mobile.png', fullPage: true });
+  }
+  await page.evaluate(() => localStorage.removeItem('war-archive.shelf.v1'));
+  await page.reload({ waitUntil: 'networkidle' });
+  assert.ok(await page.locator('.shelf-empty').isVisible());
+  console.log('PASS 빈 서재·태블릿·모바일 레이아웃');
+  assert.deepEqual(errors, []);
+} finally {
+  await browser.close();
+}

@@ -49,3 +49,15 @@ admin은 모든 역할을 포함한다. 쓰기는 세션 쿠키 외에 로그인
 ## 공개 발행 계약
 
 단일 기준은 `back/src/domain/contracts.ts`의 Zod 스키마다. `node NAS/scripts/sync-contracts.mjs`로 Vercel과 관리자 계약을 동기화한다. 수정 시 `--check`, 세 앱 타입 검사·테스트·빌드를 통과해야 한다. 내부 모델은 `models.ts`이며 공개 record와 구분한다. 공개본에는 원본 경로·원문 응답·권리 근거 원문·계정·연락처·운영 메모를 넣지 않는다.
+# NAS editorial and blog routes
+
+The editorial endpoints use the existing authenticated administrator session and CSRF middleware. GET requires an administrator session, creation/editing requires editor or admin, and decisions require publisher or admin.
+
+- `GET /api/v1/editorial?page=1&pageSize=100`: bounded article list, total/pages and status counts.
+- `POST /api/v1/editorial`: `{recordIds: string[], title?: string}`; 1–20 unique approved source records; creates a review draft and analysis report.
+- `GET /api/v1/editorial/:id`, `GET /api/v1/editorial/:id/versions`: current draft and revision history.
+- `PATCH /api/v1/editorial/:id`: `{expectedRevision,title,summary,blocks:[{heading,text,evidenceIds}]}`. Every block must reference known evidence; every source must be used. Editing resets approval.
+- `POST /api/v1/editorial/:id/decision`: `{expectedRevision,decision,note,contentReviewed?,rightsReviewed?,publishAt?}`; decision approve/reject/withdraw/retry. Approval requires both review checks and unchanged eligible source revisions. publishAt is ISO UTC.
+- Public GET `/blog/` (optional positive page), `/blog/post-<UUID>/`, `/blog/feed.xml`: only committed, eligible publications. No private review actor or pending draft is exposed.
+
+Errors include ARTICLE_NOT_FOUND, ARTICLE_BUSY, ARTICLE_STATE, REVISION_CONFLICT, EVIDENCE_MISSING, EVIDENCE_NOT_APPROVED, EVIDENCE_INVALID, EVIDENCE_STALE, REVIEW_REQUIRED. Published files are not a static public directory. All blog reads are no-store and recheck source availability at the database boundary. See `editorial-pipeline.md` for installation and lifecycle semantics.

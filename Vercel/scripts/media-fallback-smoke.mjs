@@ -17,7 +17,9 @@ const page = await context.newPage(); page.setDefaultTimeout(30000);
 page.on('pageerror', error => errors.push(error.message));
 try {
   await page.goto(`${base}/archive/?q=${encodeURIComponent(record.title)}`, { waitUntil: 'domcontentloaded' });
-  await page.getByRole('heading', { name: record.title, exact: true }).scrollIntoViewIfNeeded();
+  await page.waitForFunction(title => document.querySelectorAll('.record-card').length === 1 && document.querySelector('.record-card h3 a')?.getAttribute('title') === title, record.title);
+  await page.locator('.record-card h3').first().scrollIntoViewIfNeeded();
+  assert.equal(await page.locator('.record-card h3 a').first().getAttribute('title'), record.title);
   await page.locator('.record-card .preview-unavailable').first().waitFor();
   assert.ok(await page.locator('.record-card .card-attribution').count() > 0);
   await page.screenshot({ path: path.join(artifacts, 'card-rate-limit-desktop.png'), fullPage: true });
@@ -26,7 +28,7 @@ try {
   await page.goto(`${base}/archive/${record.id}/`, { waitUntil: 'domcontentloaded' });
   await page.getByRole('heading', { name: '외부 자료를 불러오지 못했습니다', exact: true }).waitFor();
   assert.equal(await page.locator('.record-media img').count(), 0);
-  const source = page.getByRole('link', { name: '소장처에서 자료 확인', exact: false });
+  const source = page.locator('.record-media').getByRole('link', { name: '소장처에서 자료 확인', exact: false });
   assert.equal(await source.getAttribute('href'), new URL(record.source.url).href);
   assert.ok((await page.locator('.media-attribution').innerText()).includes(record.media.attribution.creator));
   assert.ok((await page.locator('.media-attribution').innerText()).includes(record.media.attribution.license));

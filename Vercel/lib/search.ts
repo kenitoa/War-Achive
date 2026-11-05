@@ -4,7 +4,7 @@ export interface SearchFilters {
   q: string; war: string; kind: string; language: string; rights: string; from: string; to: string; sort: string; page: number;
 }
 export const defaultFilters: SearchFilters = { q: '', war: '', kind: '', language: '', rights: '', from: '', to: '', sort: 'updated', page: 1 };
-export const PAGE_SIZE = 12;
+export const PAGE_SIZE = 6;
 
 export function parseFilters(params: URLSearchParams): SearchFilters {
   const get = (key: string): string => (params.get(key) ?? '').slice(0, 300).trim();

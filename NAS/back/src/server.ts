@@ -23,6 +23,7 @@ await app.listen({ host: config.HOST, port: config.ADMIN_PORT });
 if (!config.DATABASE_URL && config.LOCAL_WORKER_ENABLED === 'true') {
   worker = (async () => {
     let lastSchedule = 0;
+    let lastEditorial = 0;
     while (!stopping) {
       try {
         if (Date.now() - lastSchedule >= config.COLLECTION_INTERVAL_MS) {
@@ -31,6 +32,14 @@ if (!config.DATABASE_URL && config.LOCAL_WORKER_ENABLED === 'true') {
           lastSchedule = Date.now();
         }
         const job = await service.runNextJob();
+        if(config.EDITORIAL_PIPELINE_ENABLED==='true'&&Date.now()-lastEditorial>=5000){
+          lastEditorial=Date.now();
+          try{
+            await service.editorial.reconcile();
+            if(config.EDITORIAL_AUTO_DRAFT_ENABLED==='true')await service.editorial.discover(config.EDITORIAL_BATCH_SIZE);
+            await service.editorial.publishNext();
+          }catch{app.log.error({operation:'editorial',errorCode:'EDITORIAL_CYCLE_FAILED'},'editorial_cycle_failed');}
+        }
         if (job) app.log.info({ operation: job.kind, jobId: job.id, status: job.state }, 'local_worker_completed');
         else await delay(Math.min(config.SCHEDULER_RETRY_MS, 1000));
       } catch { app.log.error({ errorCode: 'LOCAL_WORKER_FAILED' }, 'local_worker_failed'); await delay(Math.min(config.SCHEDULER_RETRY_MS, 1000)); }
